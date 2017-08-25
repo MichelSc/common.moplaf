@@ -106,23 +106,25 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 				porow.setSheet(posheet);
 				for(org.apache.poi.ss.usermodel.Cell cell : row){
 					// run through the cells of the row
-					String value = null;
 					Double doublevalue = 0.0;
 					String stringvalue = "";
+					Boolean booleanvalue = false;
 					CellType pocelltype = null;
-					switch (cell.getCellType()) {
-						case HSSFCell.CELL_TYPE_FORMULA:
-							value = "FORMULA value=" + cell.getCellFormula();
+					switch (cell.getCellTypeEnum()) {
+						case FORMULA:
+							stringvalue = cell.getCellFormula();
 							pocelltype = CellType.CELL_TYPE_FORMULA;
 							break;
-						case HSSFCell.CELL_TYPE_NUMERIC:
+						case NUMERIC:
 							doublevalue = cell.getNumericCellValue();
-							value = "NUMERIC value=" + doublevalue;
 							pocelltype = CellType.CELL_TYPE_NUMERIC;
 							break;
-						case HSSFCell.CELL_TYPE_STRING:
+						case STRING:
 							stringvalue = cell.getStringCellValue();
-							value = "STRING value=" + stringvalue;
+							pocelltype = CellType.CELL_TYPE_STRING;
+							break;
+						case BOOLEAN:
+							booleanvalue = cell.getBooleanCellValue();
 							pocelltype = CellType.CELL_TYPE_STRING;
 							break;
 						default:
@@ -137,7 +139,6 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 				}
 				Cell pocell = SpreadsheetFactory.eINSTANCE.createCell();
 				pocell.setCellType(pocelltype);
-				pocell.setValueFormatted(value);
 				pocell.setDoubleValue(doublevalue);
 				pocell.setStringValue(stringvalue);
 				pocell.setRow(porow);

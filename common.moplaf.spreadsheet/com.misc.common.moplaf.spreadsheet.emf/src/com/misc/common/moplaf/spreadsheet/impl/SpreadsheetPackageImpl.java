@@ -487,6 +487,24 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCell_BooleanValue() {
+		return (EAttribute)cellEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCell_DateValue() {
+		return (EAttribute)cellEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getCell_Description() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(2);
 	}
@@ -571,6 +589,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEAttribute(cellEClass, CELL__CELL_TYPE);
 		createEAttribute(cellEClass, CELL__DOUBLE_VALUE);
 		createEAttribute(cellEClass, CELL__STRING_VALUE);
+		createEAttribute(cellEClass, CELL__BOOLEAN_VALUE);
+		createEAttribute(cellEClass, CELL__DATE_VALUE);
 
 		// Create enums
 		cellTypeEEnum = createEEnum(CELL_TYPE);
@@ -665,10 +685,12 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEReference(getCell_Row(), this.getRow(), this.getRow_Cells(), "Row", null, 1, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCell_Column(), this.getColumn(), this.getColumn_Cells(), "Column", null, 1, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Cell.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCell_ValueFormatted(), ecorePackage.getEString(), "ValueFormatted", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_ValueFormatted(), ecorePackage.getEString(), "ValueFormatted", null, 0, 1, Cell.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_CellType(), this.getCellType(), "CellType", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_DoubleValue(), ecorePackage.getEDouble(), "DoubleValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_StringValue(), ecorePackage.getEString(), "StringValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_BooleanValue(), ecorePackage.getEBoolean(), "BooleanValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_DateValue(), ecorePackage.getEDate(), "DateValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(cellTypeEEnum, CellType.class, "CellType");
@@ -676,6 +698,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		addEEnumLiteral(cellTypeEEnum, CellType.CELL_TYPE_FORMULA);
 		addEEnumLiteral(cellTypeEEnum, CellType.CELL_TYPE_STRING);
 		addEEnumLiteral(cellTypeEEnum, CellType.CELL_TYPE_DATE);
+		addEEnumLiteral(cellTypeEEnum, CellType.CELL_TYPE_BOOLEAN);
 
 		// Create resource
 		createResource(eNS_URI);

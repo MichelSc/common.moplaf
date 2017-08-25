@@ -10,18 +10,21 @@
  *******************************************************************************/
 package com.misc.common.moplaf.gridview.editor.provider;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.ExtendedColorRegistry;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.ITableColorProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
@@ -49,6 +52,15 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 
 	// dispose
 	public void dispose(){
+	}
+	
+	private Color getColorFromObject(Object object) {
+		if ( object == null ) { return null; }
+		Color color = ExtendedColorRegistry.INSTANCE.getColor
+				(this.viewer.getControl().getForeground(), 
+				 this.viewer.getControl().getBackground(), 
+                 object);
+		return color;
 	}
 	
 
@@ -92,21 +104,33 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 	 * @author michel
 	 *
 	 */
-	public class TableProvider implements IStructuredContentProvider , ITableLabelProvider {
+	public class TableProvider implements IStructuredContentProvider , ITableLabelProvider, ITableColorProvider {
 		public abstract class TableColumnProvider  {
 			public abstract String getColumnText(); 
 			public abstract String getColumnText(Object rowObject);
+			public abstract Color getColumnForeground(Object rowObject);
+			public abstract Color getColumnBackground(Object rowObject); 
 		};
 		private class TableColumnHeader extends TableColumnProvider {
 			public TableColumnHeader() {
 				
 			};
+			@Override
 			public String getColumnText() {
 				return "grid";
 			}
+			@Override
 			public String getColumnText(Object rowObject) {
 				TableProvider provider = TableProvider.this; 
 				return provider.gridsProvider.getRowText(provider.element, provider.grid, rowObject);
+			}
+			@Override
+			public Color getColumnForeground(Object rowObject) {
+				return null;
+			}
+			@Override
+			public Color getColumnBackground(Object rowObject) {
+				return null;
 			}
 		};
 		private class TableColumnData extends TableColumnProvider {
@@ -115,13 +139,27 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 				this.gridColummn = gridColummn;
 			}
 			private Object gridColummn;
+			@Override
 			public String getColumnText() {
 				TableProvider provider = TableProvider.this; 
 				return provider.gridsProvider.getColumnText(provider.element, provider.grid, this.gridColummn);
 			}
+			@Override
 			public String getColumnText(Object rowObject) {
 				TableProvider provider = TableProvider.this; 
 				return provider.gridsProvider.getCellText(provider.element, provider.grid, rowObject, this.gridColummn);
+			}
+			@Override
+			public Color getColumnForeground(Object rowObject) {
+				TableProvider provider = TableProvider.this; 
+				Object color = provider.gridsProvider.getCellForeground(provider.element, provider.grid, rowObject, this.gridColummn);
+				return AdapterFactoryGridProvider.this.getColorFromObject(color);
+			}
+			@Override
+			public Color getColumnBackground(Object rowObject) {
+				TableProvider provider = TableProvider.this; 
+				Object color = provider.gridsProvider.getCellBackground(provider.element, provider.grid, rowObject, this.gridColummn);
+				return AdapterFactoryGridProvider.this.getColorFromObject(color);
 			}
 		};
 		protected IItemGridsProvider gridsProvider;
@@ -265,6 +303,18 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 		public void dispose() {
 			// TODO Auto-generated method stub
 			IStructuredContentProvider.super.dispose();
+		}
+
+		@Override
+		public Color getForeground(Object element, int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getColumnForeground(element);
+		}
+
+		@Override
+		public Color getBackground(Object element, int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getColumnBackground(element);
 		}
 	};
 	

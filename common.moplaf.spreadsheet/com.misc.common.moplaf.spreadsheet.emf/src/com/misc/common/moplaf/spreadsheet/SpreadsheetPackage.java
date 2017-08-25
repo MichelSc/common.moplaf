@@ -497,13 +497,31 @@ public interface SpreadsheetPackage extends EPackage {
 	int CELL__STRING_VALUE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Boolean Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__BOOLEAN_VALUE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Date Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__DATE_VALUE = 8;
+
+	/**
 	 * The number of structural features of the '<em>Cell</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_FEATURE_COUNT = 7;
+	int CELL_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Cell</em>' class.
@@ -928,6 +946,28 @@ public interface SpreadsheetPackage extends EPackage {
 	EAttribute getCell_StringValue();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue <em>Boolean Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Boolean Value</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EAttribute getCell_BooleanValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#getDateValue <em>Date Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Date Value</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Cell#getDateValue()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EAttribute getCell_DateValue();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1284,6 +1324,22 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CELL__STRING_VALUE = eINSTANCE.getCell_StringValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Boolean Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL__BOOLEAN_VALUE = eINSTANCE.getCell_BooleanValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Date Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL__DATE_VALUE = eINSTANCE.getCell_DateValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

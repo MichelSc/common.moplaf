@@ -18,6 +18,7 @@ import com.misc.common.moplaf.spreadsheet.Column;
 import com.misc.common.moplaf.spreadsheet.Row;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -44,6 +45,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getCellType <em>Cell Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getDoubleValue <em>Double Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getStringValue <em>String Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#isBooleanValue <em>Boolean Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getDateValue <em>Date Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,16 +81,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * @ordered
 	 */
 	protected static final String VALUE_FORMATTED_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValueFormatted() <em>Value Formatted</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueFormatted()
-	 * @generated
-	 * @ordered
-	 */
-	protected String valueFormatted = VALUE_FORMATTED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCellType() <em>Cell Type</em>}' attribute.
@@ -148,6 +141,46 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * @ordered
 	 */
 	protected String stringValue = STRING_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBooleanValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BOOLEAN_VALUE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBooleanValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean booleanValue = BOOLEAN_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDateValue() <em>Date Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDateValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date DATE_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDateValue() <em>Date Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDateValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date dateValue = DATE_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,22 +305,20 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getValueFormatted() {
-		return valueFormatted;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValueFormatted(String newValueFormatted) {
-		String oldValueFormatted = valueFormatted;
-		valueFormatted = newValueFormatted;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.CELL__VALUE_FORMATTED, oldValueFormatted, valueFormatted));
+		switch (this.getCellType()) {
+		case CELL_TYPE_STRING:
+		case CELL_TYPE_FORMULA:
+			return this.getStringValue();
+		case CELL_TYPE_NUMERIC:
+			return String.format("%f", this.getDoubleValue());
+		case CELL_TYPE_BOOLEAN:
+			return String.format("%b", this.isBooleanValue());
+		case CELL_TYPE_DATE:
+			return String.format("%tc", this.getDateValue());
+		}
+		return "";
 	}
 
 	/**
@@ -351,6 +382,48 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 		stringValue = newStringValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.CELL__STRING_VALUE, oldStringValue, stringValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isBooleanValue() {
+		return booleanValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBooleanValue(boolean newBooleanValue) {
+		boolean oldBooleanValue = booleanValue;
+		booleanValue = newBooleanValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.CELL__BOOLEAN_VALUE, oldBooleanValue, booleanValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getDateValue() {
+		return dateValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDateValue(Date newDateValue) {
+		Date oldDateValue = dateValue;
+		dateValue = newDateValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.CELL__DATE_VALUE, oldDateValue, dateValue));
 	}
 
 	/**
@@ -437,6 +510,10 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 				return getDoubleValue();
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				return getStringValue();
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
+				return isBooleanValue();
+			case SpreadsheetPackage.CELL__DATE_VALUE:
+				return getDateValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -455,9 +532,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 			case SpreadsheetPackage.CELL__COLUMN:
 				setColumn((Column)newValue);
 				return;
-			case SpreadsheetPackage.CELL__VALUE_FORMATTED:
-				setValueFormatted((String)newValue);
-				return;
 			case SpreadsheetPackage.CELL__CELL_TYPE:
 				setCellType((CellType)newValue);
 				return;
@@ -466,6 +540,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 				return;
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				setStringValue((String)newValue);
+				return;
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
+				setBooleanValue((Boolean)newValue);
+				return;
+			case SpreadsheetPackage.CELL__DATE_VALUE:
+				setDateValue((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -485,9 +565,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 			case SpreadsheetPackage.CELL__COLUMN:
 				setColumn((Column)null);
 				return;
-			case SpreadsheetPackage.CELL__VALUE_FORMATTED:
-				setValueFormatted(VALUE_FORMATTED_EDEFAULT);
-				return;
 			case SpreadsheetPackage.CELL__CELL_TYPE:
 				setCellType(CELL_TYPE_EDEFAULT);
 				return;
@@ -496,6 +573,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 				return;
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				setStringValue(STRING_VALUE_EDEFAULT);
+				return;
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
+				setBooleanValue(BOOLEAN_VALUE_EDEFAULT);
+				return;
+			case SpreadsheetPackage.CELL__DATE_VALUE:
+				setDateValue(DATE_VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -516,13 +599,17 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 			case SpreadsheetPackage.CELL__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.CELL__VALUE_FORMATTED:
-				return VALUE_FORMATTED_EDEFAULT == null ? valueFormatted != null : !VALUE_FORMATTED_EDEFAULT.equals(valueFormatted);
+				return VALUE_FORMATTED_EDEFAULT == null ? getValueFormatted() != null : !VALUE_FORMATTED_EDEFAULT.equals(getValueFormatted());
 			case SpreadsheetPackage.CELL__CELL_TYPE:
 				return cellType != CELL_TYPE_EDEFAULT;
 			case SpreadsheetPackage.CELL__DOUBLE_VALUE:
 				return doubleValue != DOUBLE_VALUE_EDEFAULT;
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				return STRING_VALUE_EDEFAULT == null ? stringValue != null : !STRING_VALUE_EDEFAULT.equals(stringValue);
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
+				return booleanValue != BOOLEAN_VALUE_EDEFAULT;
+			case SpreadsheetPackage.CELL__DATE_VALUE:
+				return DATE_VALUE_EDEFAULT == null ? dateValue != null : !DATE_VALUE_EDEFAULT.equals(dateValue);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -537,14 +624,16 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ValueFormatted: ");
-		result.append(valueFormatted);
-		result.append(", CellType: ");
+		result.append(" (CellType: ");
 		result.append(cellType);
 		result.append(", DoubleValue: ");
 		result.append(doubleValue);
 		result.append(", StringValue: ");
 		result.append(stringValue);
+		result.append(", BooleanValue: ");
+		result.append(booleanValue);
+		result.append(", DateValue: ");
+		result.append(dateValue);
 		result.append(')');
 		return result.toString();
 	}

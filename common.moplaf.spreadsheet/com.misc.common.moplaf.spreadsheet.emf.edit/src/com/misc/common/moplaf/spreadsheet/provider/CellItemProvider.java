@@ -77,6 +77,8 @@ public class CellItemProvider
 			addCellTypePropertyDescriptor(object);
 			addDoubleValuePropertyDescriptor(object);
 			addStringValuePropertyDescriptor(object);
+			addBooleanValuePropertyDescriptor(object);
+			addDateValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -214,6 +216,50 @@ public class CellItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Boolean Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBooleanValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Cell_BooleanValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Cell_BooleanValue_feature", "_UI_Cell_type"),
+				 SpreadsheetPackage.Literals.CELL__BOOLEAN_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Date Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDateValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Cell_DateValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Cell_DateValue_feature", "_UI_Cell_type"),
+				 SpreadsheetPackage.Literals.CELL__DATE_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +322,8 @@ public class CellItemProvider
 			case SpreadsheetPackage.CELL__CELL_TYPE:
 			case SpreadsheetPackage.CELL__DOUBLE_VALUE:
 			case SpreadsheetPackage.CELL__STRING_VALUE:
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
+			case SpreadsheetPackage.CELL__DATE_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

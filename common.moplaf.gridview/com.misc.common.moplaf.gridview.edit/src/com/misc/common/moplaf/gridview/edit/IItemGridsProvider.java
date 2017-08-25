@@ -90,7 +90,6 @@ public interface IItemGridsProvider {
 	String getCellText      (Object element, Object grid, Object row, Object column);
 	Object getCellImage     (Object element, Object grid, Object row, Object column);
 	int    getCellALignment (Object element, Object grid, Object row, Object column);
-
 }
 
 

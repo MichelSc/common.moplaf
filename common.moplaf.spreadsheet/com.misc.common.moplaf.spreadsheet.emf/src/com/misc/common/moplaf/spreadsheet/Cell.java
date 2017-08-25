@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet;
 
+import java.util.Date;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -30,6 +31,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getCellType <em>Cell Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getDoubleValue <em>Double Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getStringValue <em>String Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue <em>Boolean Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getDateValue <em>Date Value</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getCell()
@@ -102,22 +105,11 @@ public interface Cell extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value Formatted</em>' attribute.
-	 * @see #setValueFormatted(String)
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getCell_ValueFormatted()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getValueFormatted();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Cell#getValueFormatted <em>Value Formatted</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Formatted</em>' attribute.
-	 * @see #getValueFormatted()
-	 * @generated
-	 */
-	void setValueFormatted(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Cell Type</b></em>' attribute.
@@ -199,6 +191,58 @@ public interface Cell extends EObject {
 	 * @generated
 	 */
 	void setStringValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Boolean Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Boolean Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Boolean Value</em>' attribute.
+	 * @see #setBooleanValue(boolean)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getCell_BooleanValue()
+	 * @model
+	 * @generated
+	 */
+	boolean isBooleanValue();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue <em>Boolean Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Boolean Value</em>' attribute.
+	 * @see #isBooleanValue()
+	 * @generated
+	 */
+	void setBooleanValue(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Date Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Date Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Date Value</em>' attribute.
+	 * @see #setDateValue(Date)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getCell_DateValue()
+	 * @model
+	 * @generated
+	 */
+	Date getDateValue();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Cell#getDateValue <em>Date Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Date Value</em>' attribute.
+	 * @see #getDateValue()
+	 * @generated
+	 */
+	void setDateValue(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

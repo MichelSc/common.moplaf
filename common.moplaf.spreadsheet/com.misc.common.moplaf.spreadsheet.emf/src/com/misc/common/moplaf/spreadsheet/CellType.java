@@ -66,7 +66,15 @@ public enum CellType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CELL_TYPE_DATE(3, "CellTypeDate", "CellTypeDate");
+	CELL_TYPE_DATE(3, "CellTypeDate", "CellTypeDate"), /**
+	 * The '<em><b>Cell Type Boolean</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CELL_TYPE_BOOLEAN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CELL_TYPE_BOOLEAN(4, "CellTypeBoolean", "CellTypeBoolean");
 
 	/**
 	 * The '<em><b>Cell Type Numeric</b></em>' literal value.
@@ -129,6 +137,21 @@ public enum CellType implements Enumerator {
 	public static final int CELL_TYPE_DATE_VALUE = 3;
 
 	/**
+	 * The '<em><b>Cell Type Boolean</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Cell Type Boolean</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CELL_TYPE_BOOLEAN
+	 * @model name="CellTypeBoolean"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CELL_TYPE_BOOLEAN_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Cell Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,6 +163,7 @@ public enum CellType implements Enumerator {
 			CELL_TYPE_FORMULA,
 			CELL_TYPE_STRING,
 			CELL_TYPE_DATE,
+			CELL_TYPE_BOOLEAN,
 		};
 
 	/**
@@ -200,6 +224,7 @@ public enum CellType implements Enumerator {
 			case CELL_TYPE_FORMULA_VALUE: return CELL_TYPE_FORMULA;
 			case CELL_TYPE_STRING_VALUE: return CELL_TYPE_STRING;
 			case CELL_TYPE_DATE_VALUE: return CELL_TYPE_DATE;
+			case CELL_TYPE_BOOLEAN_VALUE: return CELL_TYPE_BOOLEAN;
 		}
 		return null;
 	}
