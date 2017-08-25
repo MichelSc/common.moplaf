@@ -251,7 +251,7 @@ public class GridViewer extends ContentViewer {
 					viewer.setInput(grid_to_be);
 					viewer.getTable().setLinesVisible(true);
 					viewer.getTable().setHeaderVisible(true);
-					viewer.getTable().setBackground(this.getControl().getDisplay().getSystemColor(SWT.COLOR_CYAN));
+//					viewer.getTable().setBackground(this.getControl().getDisplay().getSystemColor(SWT.COLOR_CYAN));
 					Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
 					cTabItem1.setData(new_grid);
 					this.refreshGrid(new_grid);
@@ -291,6 +291,8 @@ public class GridViewer extends ContentViewer {
 			for ( int i = nof_columns_asis; i<nof_columns_tobe; i++) {
 				// create
 				TableColumn column = new TableColumn(viewer.getTable(),SWT.NONE);
+				String columnText = provider.getColumnText(i);
+				column.setText(columnText);
 				column.setWidth(200);
 			}
 		}
@@ -298,7 +300,6 @@ public class GridViewer extends ContentViewer {
 			// update
 			TableColumn column = table.getColumn(i);
 			TableColumnProvider column_provider = columns_tobe[i];
-			column.setText(column_provider.getColumnText());
 		}
 
 		// viewer refresh

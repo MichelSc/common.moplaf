@@ -43,11 +43,14 @@ import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
  *
  */
 public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
-	
+	private Color foregroundColor = null;
+	private Color backgroundColor = null;
 
 	// constructor
-	public AdapterFactoryGridProvider(AdapterFactory adapterFactory){
+	public AdapterFactoryGridProvider(AdapterFactory adapterFactory, Color foregroundColor, Color backgroundColor){
 		super(adapterFactory);
+		this.foregroundColor = foregroundColor;
+		this.backgroundColor = backgroundColor;
 	}
 
 	// dispose
@@ -56,14 +59,9 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 	
 	private Color getColorFromObject(Object object) {
 		if ( object == null ) { return null; }
-		Color color = ExtendedColorRegistry.INSTANCE.getColor
-				(this.viewer.getControl().getForeground(), 
-				 this.viewer.getControl().getBackground(), 
-                 object);
+		Color color = ExtendedColorRegistry.INSTANCE.getColor(this.foregroundColor, this.backgroundColor, object);
 		return color;
 	}
-	
-
 
 	/**
 	 * Return a collection of object extending the private class  {@link TimePlotProvider}, and implementing 
@@ -105,66 +103,118 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 	 *
 	 */
 	public class TableProvider implements IStructuredContentProvider , ITableLabelProvider, ITableColorProvider {
+		/**
+		 * 
+		 * @author michel
+		 *
+		 */
 		public abstract class TableRowProvider  {
-			public abstract String getRowText(Object columnObject);
-			public abstract Color getColumnForeground(Object columnObject);
-			public abstract Color getColumnBackground(Object columnObject); 
+			public abstract String getText(Object columnObject);
+			public abstract Object getForeground(Object columnObject);
+			public abstract Object getBackground(Object columnObject); 
 		};
+		public class TableRowData extends TableRowProvider {
+			private Object gridRow;
+			public TableRowData(Object gridRow) {
+				super();
+				this.gridRow= gridRow;
+			}
+			
+			@Override
+			public String getText(Object columnObject) {
+				TableProvider provider = TableProvider.this; 
+				return columnObject == null 
+						? provider.gridsProvider.getRowText(provider.element, provider.grid, this.gridRow) 
+						: provider.gridsProvider.getCellText(provider.element, provider.grid, this.gridRow, columnObject);
+			}
+			
+			@Override
+			public Object getForeground(Object columnObject) {
+				TableProvider provider = TableProvider.this;
+				AdapterFactoryGridProvider factoryProvider = AdapterFactoryGridProvider.this; 
+				Object color = columnObject == null 
+						? factoryProvider.foregroundColor 
+						: provider.gridsProvider.getCellForeground(provider.element, provider.grid, this.gridRow, columnObject);
+				return factoryProvider.getColorFromObject(color);
+			}
+			
+			@Override
+			public Object getBackground(Object columnObject) {
+				TableProvider provider = TableProvider.this;
+				AdapterFactoryGridProvider factoryProvider = AdapterFactoryGridProvider.this; 
+				Object color = columnObject == null 
+						? factoryProvider.backgroundColor 
+						: provider.gridsProvider.getCellBackground(provider.element, provider.grid, this.gridRow, columnObject);
+				return factoryProvider.getColorFromObject(color);
+			}
+			
+		}
+		/**
+		 * 
+		 * @author michel
+		 *
+		 */
 		public abstract class TableColumnProvider  {
-			public abstract String getColumnText(); 
-			public abstract String getColumnText(Object rowObject);
-			public abstract Color getColumnForeground(Object rowObject);
-			public abstract Color getColumnBackground(Object rowObject); 
+			public abstract String getText(TableRowProvider row);
+			public abstract Color getForeground(TableRowProvider row);
+			public abstract Color getBackground(TableRowProvider row); 
 		};
 		private class TableColumnHeader extends TableColumnProvider {
 			public TableColumnHeader() {
 				
 			};
 			@Override
-			public String getColumnText() {
-				return "grid";
-			}
-			@Override
-			public String getColumnText(Object rowObject) {
+			public String getText(TableRowProvider row) {
+				if ( row!= null ) {
+					return row.getText(null);
+				}
 				TableProvider provider = TableProvider.this; 
-				return provider.gridsProvider.getRowText(provider.element, provider.grid, rowObject);
+				return provider.gridsProvider.getText(provider.element, provider.grid); 
 			}
 			@Override
-			public Color getColumnForeground(Object rowObject) {
-				return null;
+			public Color getForeground(TableRowProvider row) {
+				AdapterFactoryGridProvider factoryProvider = AdapterFactoryGridProvider.this; 
+				Object color = factoryProvider.foregroundColor;
+				return factoryProvider.getColorFromObject(color);
 			}
 			@Override
-			public Color getColumnBackground(Object rowObject) {
-				return null;
+			public Color getBackground(TableRowProvider row) {
+				AdapterFactoryGridProvider factoryProvider = AdapterFactoryGridProvider.this; 
+				Object color = factoryProvider.backgroundColor;
+				return factoryProvider.getColorFromObject(color);
 			}
 		};
 		private class TableColumnData extends TableColumnProvider {
+			private Object gridColumn;
 			public TableColumnData(Object gridColummn) {
 				super();
-				this.gridColummn = gridColummn;
-			}
-			private Object gridColummn;
-			@Override
-			public String getColumnText() {
-				TableProvider provider = TableProvider.this; 
-				return provider.gridsProvider.getColumnText(provider.element, provider.grid, this.gridColummn);
+				this.gridColumn = gridColummn;
 			}
 			@Override
-			public String getColumnText(Object rowObject) {
+			public String getText(TableRowProvider row) {
+				if ( row!= null ) {
+					return row.getText(this.gridColumn);
+				}
 				TableProvider provider = TableProvider.this; 
-				return provider.gridsProvider.getCellText(provider.element, provider.grid, rowObject, this.gridColummn);
+				return provider.gridsProvider.getColumnText(provider.element, provider.grid, this.gridColumn); 
+				
 			}
 			@Override
-			public Color getColumnForeground(Object rowObject) {
-				TableProvider provider = TableProvider.this; 
-				Object color = provider.gridsProvider.getCellForeground(provider.element, provider.grid, rowObject, this.gridColummn);
-				return AdapterFactoryGridProvider.this.getColorFromObject(color);
+			public Color getForeground(TableRowProvider row) {
+				AdapterFactoryGridProvider factoryProvider = AdapterFactoryGridProvider.this; 
+				Object color = row==null
+						     ? factoryProvider.foregroundColor
+						     : row.getForeground(this.gridColumn);
+				return factoryProvider.getColorFromObject(color);
+				
 			}
 			@Override
-			public Color getColumnBackground(Object rowObject) {
-				TableProvider provider = TableProvider.this; 
-				Object color = provider.gridsProvider.getCellBackground(provider.element, provider.grid, rowObject, this.gridColummn);
-				return AdapterFactoryGridProvider.this.getColorFromObject(color);
+			public Color getBackground(TableRowProvider row) {
+				AdapterFactoryGridProvider factoryProvider = AdapterFactoryGridProvider.this; 
+				Object color = row==null
+						     ? factoryProvider.backgroundColor
+						     : row.getBackground(this.gridColumn);
+				return factoryProvider.getColorFromObject(color);
 			}
 		};
 		protected IItemGridsProvider gridsProvider;
@@ -172,6 +222,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 		protected Object grid;
 		// maps the table column index to the grid column object (if any, or grid column index otherwise) 
 		protected TableColumnProvider[] indexToColumn = null;
+		protected TableRowProvider[]    indexToRow = null;
 		
 		/**
 		 * 
@@ -196,6 +247,22 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
     			int i = 1;
 				for ( Object gridColumn : gridColumns) {
 					this.indexToColumn[i++] = new TableColumnData(gridColumn);
+				}
+            }
+			// initialize the rows
+			Collection<?> gridRows= this.gridsProvider.getRows(this.element, this.grid);
+			int nofRows = gridRows==null 
+					       ? this.gridsProvider.getNrRows(this.element,  this.grid)
+					       : gridRows.size();
+            this.indexToRow = new TableRowProvider[nofRows];
+			if ( gridRows==null) {
+				for (int i=0; i<nofRows; i++) {
+					this.indexToRow[i] = new TableRowData(i-1);
+				}
+            } else {
+    			int i = 0;
+				for ( Object gridRow : gridRows) {
+					this.indexToRow[i++] = new TableRowData(gridRow);
 				}
             }
 		}
@@ -244,10 +311,6 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 			return this.gridsProvider.getText(this.element, this.grid);
 		}
 
-		public TableColumnProvider[] getTableColumns() {
-			return this.indexToColumn;
-		}
-
 		/**
 		 * specified by IBaseLabelProvider
 		 */
@@ -281,43 +344,51 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 			return null;
 		}
 
-		@Override
-		public String getColumnText(Object element, int columnIndex) {
-			TableColumnProvider column = this.indexToColumn[columnIndex];
-			return column.getColumnText(element);
-		}
-
-		public String getColumnText(int columnIndex) {
-			TableColumnProvider column = this.indexToColumn[columnIndex];
-			return column.getColumnText();
-		}
-
 		private AdapterFactoryGridProvider getOuterType() {
 			return AdapterFactoryGridProvider.this;
 		}
 
-		@Override
-		public Object[] getElements(Object inputElement) {
-			return this.gridsProvider.getRows(this.element,  this.grid).toArray();
+		public TableColumnProvider[] getTableColumns() {
+			return this.indexToColumn;
 		}
 
+		@Override
+		public Object[] getElements(Object inputElement) {
+			return this.indexToRow;
+		}
+
+		public String getColumnText(int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getText(null);
+		}
+
+		@Override
+		public String getColumnText(Object element, int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			TableRowProvider row = (TableRowProvider)element;
+			return column.getText(row);
+		}
+
+		@Override
+		public Color getForeground(Object element, int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			TableRowProvider row = (TableRowProvider)element;
+			return column.getForeground(row);
+		}
+
+		@Override
+		public Color getBackground(Object element, int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			TableRowProvider row = (TableRowProvider)element;
+			return column.getBackground(row);
+		}
+		
 		@Override
 		public void dispose() {
 			// TODO Auto-generated method stub
 			IStructuredContentProvider.super.dispose();
 		}
 
-		@Override
-		public Color getForeground(Object element, int columnIndex) {
-			TableColumnProvider column = this.indexToColumn[columnIndex];
-			return column.getColumnForeground(element);
-		}
-
-		@Override
-		public Color getBackground(Object element, int columnIndex) {
-			TableColumnProvider column = this.indexToColumn[columnIndex];
-			return column.getColumnBackground(element);
-		}
 	};
 	
 }

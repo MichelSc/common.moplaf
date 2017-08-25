@@ -83,7 +83,7 @@ public class GridView extends ViewPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-		AdapterFactoryGridProvider contentProvider = new AdapterFactoryGridProvider(this.adapterFactory);
+		AdapterFactoryGridProvider contentProvider = new AdapterFactoryGridProvider(this.adapterFactory, parent.getForeground(), parent.getBackground());
         this.viewer = this.createViewer(parent);
 		this.viewer.setAdapterFactoryGridProvider(contentProvider);
         this.viewer.setContentProvider           (contentProvider);
