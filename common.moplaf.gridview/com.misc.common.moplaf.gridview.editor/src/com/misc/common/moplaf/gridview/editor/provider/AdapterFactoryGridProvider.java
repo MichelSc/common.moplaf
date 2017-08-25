@@ -105,6 +105,11 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 	 *
 	 */
 	public class TableProvider implements IStructuredContentProvider , ITableLabelProvider, ITableColorProvider {
+		public abstract class TableRowProvider  {
+			public abstract String getRowText(Object columnObject);
+			public abstract Color getColumnForeground(Object columnObject);
+			public abstract Color getColumnBackground(Object columnObject); 
+		};
 		public abstract class TableColumnProvider  {
 			public abstract String getColumnText(); 
 			public abstract String getColumnText(Object rowObject);
@@ -170,9 +175,6 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 		
 		/**
 		 * 
-		 * @param nativeObject
-		 * @param timePlotKey
-		 * @param timePlotsProvider
 		 */
 		public TableProvider(Object element, Object grid, IItemGridsProvider gridsProvider) {
 			super();

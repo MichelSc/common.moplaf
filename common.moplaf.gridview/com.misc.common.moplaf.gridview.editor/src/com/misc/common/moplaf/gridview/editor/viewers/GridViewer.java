@@ -251,6 +251,7 @@ public class GridViewer extends ContentViewer {
 					viewer.setInput(grid_to_be);
 					viewer.getTable().setLinesVisible(true);
 					viewer.getTable().setHeaderVisible(true);
+					viewer.getTable().setBackground(this.getControl().getDisplay().getSystemColor(SWT.COLOR_CYAN));
 					Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
 					cTabItem1.setData(new_grid);
 					this.refreshGrid(new_grid);
