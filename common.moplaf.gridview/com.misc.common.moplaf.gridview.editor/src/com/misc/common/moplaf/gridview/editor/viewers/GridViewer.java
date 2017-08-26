@@ -29,6 +29,7 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.layout.GridLayout;
@@ -227,7 +228,6 @@ public class GridViewer extends ContentViewer {
 	 */
 	@Override
 	public void refresh(){
-		CommonPlugin.INSTANCE.log("GridViewer called at "+new Date());
 		// as is
 		HashMap<TableProvider, Grid> grids_as_is = new HashMap<>();
 		for ( int i=0; i<this.tabFolder.getItemCount(); i++) {
@@ -247,7 +247,7 @@ public class GridViewer extends ContentViewer {
 					// create the tab item
 					TabItem cTabItem1 = new TabItem(this.tabFolder, SWT.NONE);
 //					Composite clientArea = new Composite(this.tabFolder, SWT.NONE);
-					TableViewer viewer = new TableViewer(this.tabFolder);
+					TableViewer viewer = new TableViewer(this.tabFolder, SWT.VIRTUAL);
 					cTabItem1.setControl(viewer.getControl());
 					viewer.setLabelProvider(grid_to_be);
 					viewer.setContentProvider(grid_to_be);
@@ -269,7 +269,6 @@ public class GridViewer extends ContentViewer {
 			// remove
 			as_is.getTabItem().dispose();
 		}
-		CommonPlugin.INSTANCE.log("GridViewer viewer refreshed at "+new Date());
 	}
 	
 	void refreshGrid(Grid grid) {
@@ -294,6 +293,8 @@ public class GridViewer extends ContentViewer {
 		} else if ( nof_columns_asis<nof_columns_tobe) {
 			for ( int i = nof_columns_asis; i<nof_columns_tobe; i++) {
 				// create
+				//TableViewerColumn column_viewer = new TableViewerColumn(viewer, SWT.NONE);
+				//TableColumn column = column_viewer.getColumn();
 				TableColumn column = new TableColumn(viewer.getTable(),SWT.NONE);
 				column.setWidth(200);
 			}

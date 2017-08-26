@@ -141,7 +141,7 @@ public class CellItemProvider
 				 getString("_UI_Cell_ValueFormatted_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Cell_ValueFormatted_feature", "_UI_Cell_type"),
 				 SpreadsheetPackage.Literals.CELL__VALUE_FORMATTED,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
