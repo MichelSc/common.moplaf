@@ -13,7 +13,13 @@
 package com.misc.common.moplaf.spreadsheet.provider;
 
 
+import com.misc.common.moplaf.common.Color;
+import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
+import com.misc.common.moplaf.spreadsheet.Cell;
+import com.misc.common.moplaf.spreadsheet.Column;
+import com.misc.common.moplaf.spreadsheet.Row;
 import com.misc.common.moplaf.spreadsheet.Sheet;
+import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
@@ -24,7 +30,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -41,17 +47,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.spreadsheet.Sheet} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class SheetItemProvider
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -258,4 +261,81 @@ public class SheetItemProvider
 		return SpreadsheetEditPlugin.INSTANCE;
 	}
 
+	@Override
+	public Collection<?> getGrids(Object element) {
+		return null;
+	}
+
+	@Override
+	public String getText(Object element, Object grid) {
+		Sheet sheet = (Sheet)element;
+		return sheet.getSheetName();
+	}
+
+	@Override
+	public Collection<?> getRows(Object element, Object grid) {
+		Sheet sheet = (Sheet)element;
+		return sheet.getRows();
+	}
+
+	@Override
+	public int getNrRows(Object element, Object grid) {
+		return 0; // not necessary, as we return the rows
+	}
+
+	@Override
+	public String getRowText(Object element, Object grid, Object row) {
+		Row sheetRow = (Row)row;
+		return sheetRow.getDescription();
+	}
+
+	@Override
+	public Collection<?> getColumns(Object element, Object grid) {
+		Sheet sheet = (Sheet)element;
+		return sheet.getColumns();
+	}
+
+	@Override
+	public int getNrColumns(Object element, Object grid) {
+		return 0; // not necessary, as we return the columns
+	}
+
+	@Override
+	public String getColumnText(Object element, Object grid, Object column) {
+		Column sheetCol = (Column)column;
+		return sheetCol.getDescription();
+	}
+
+	private static URI SPREADSHEET_CELL_FOREGROUND = Color.COLOR_BLACK.toURI();
+	private static URI SPREADSHEET_CELL_BACKGROUND = Color.COLOR_WHITE.toURI();
+
+	@Override
+	public Object getCellForeground(Object element, Object grid, Object row, Object column) {
+		return SPREADSHEET_CELL_FOREGROUND;
+	}
+
+	@Override
+	public Object getCellBackground(Object element, Object grid, Object row, Object column) {
+		return SPREADSHEET_CELL_BACKGROUND;
+	}
+
+	@Override
+	public String getCellText(Object element, Object grid, Object row, Object column) {
+		Column sheetCol = (Column)column;
+		Row sheetRow = (Row)row;
+		Cell sheetCell = sheetRow.getCell(sheetCol);
+		return sheetCell == null ? "" : sheetCell.getValueFormatted();
+	}
+
+	@Override
+	public Object getCellImage(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getCellALignment(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
