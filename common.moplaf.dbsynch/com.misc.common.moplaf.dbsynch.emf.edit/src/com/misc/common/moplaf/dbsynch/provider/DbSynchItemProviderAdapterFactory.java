@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.dbsynch.provider;
 
 import com.misc.common.moplaf.dbsynch.util.DbSynchAdapterFactory;
+import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -71,7 +72,6 @@ public class DbSynchItemProviderAdapterFactory extends DbSynchAdapterFactory imp
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public DbSynchItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -79,6 +79,7 @@ public class DbSynchItemProviderAdapterFactory extends DbSynchAdapterFactory imp
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemGridsProvider.class);
 	}
 
 	/**

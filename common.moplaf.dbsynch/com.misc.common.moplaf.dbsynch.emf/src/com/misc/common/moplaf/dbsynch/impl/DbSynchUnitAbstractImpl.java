@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.dbsynch.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
@@ -31,7 +32,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,7 +93,7 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 */
 	public EList<DbSynchUnitAbstract> getChildUnits() {
-		EList<DbSynchUnitAbstract> newList = new EObjectEList<DbSynchUnitAbstract>(DbSynchUnitAbstract.class, this, DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS);
+		EList<DbSynchUnitAbstract> newList = new EObjectListDerived<DbSynchUnitAbstract>(DbSynchUnitAbstract.class, this, DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof DbSynchUnitAbstract){
 				newList.add((DbSynchUnitAbstract)element);
@@ -107,7 +107,7 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 */
 	public EList<Table> getTables() {
-		EList<Table> newList = new EObjectEList<Table>(Table.class, this, DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__TABLES);
+		EList<Table> newList = new EObjectListDerived<Table>(Table.class, this, DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__TABLES, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof Table){
 				newList.add((Table)element);

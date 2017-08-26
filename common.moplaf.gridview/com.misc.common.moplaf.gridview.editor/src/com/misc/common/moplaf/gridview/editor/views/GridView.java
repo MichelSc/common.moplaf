@@ -215,8 +215,6 @@ public class GridView extends ViewPart {
 //			message);
 	}
 	
-
-
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */

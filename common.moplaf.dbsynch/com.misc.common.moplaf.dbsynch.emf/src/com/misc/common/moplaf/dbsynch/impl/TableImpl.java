@@ -29,12 +29,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectEList;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
@@ -386,7 +386,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public EList<TableRow> getRows() {
-		EList<TableRow> newList = new EObjectEList<TableRow>(TableRow.class, this, DbSynchPackage.TABLE__ROWS);
+		EList<TableRow> newList = new EObjectListDerived<TableRow>(TableRow.class, this, DbSynchPackage.TABLE__ROWS, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof TableRow){
 				newList.add((TableRow)element);
@@ -563,7 +563,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public EList<TableColumn> getColumns() {
-		EObjectEList<TableColumn> newList = new EObjectEList<TableColumn>(TableColumn.class, this, DbSynchPackage.TABLE__COLUMNS);
+		EObjectListDerived<TableColumn> newList = new EObjectListDerived<TableColumn>(TableColumn.class, this, DbSynchPackage.TABLE__COLUMNS, true);
 		for ( TableColumn object : this.getKeyColumns()){
 			newList.addUnique(object);
 	}

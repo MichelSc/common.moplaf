@@ -12,9 +12,11 @@ package com.misc.common.moplaf.gridview.editor.viewers;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IColorProvider;
@@ -28,13 +30,13 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
@@ -69,13 +71,13 @@ public class GridViewer extends ContentViewer {
 	private ISelection             currentSelection = null;
 	private IColorProvider         colorProvider = null;
 	private AdapterFactoryGridProvider gridProvider = null;
-	private CTabFolder             tabFolder = null;
+	private TabFolder             tabFolder = null;
 	
 	private class Grid {
 		private TableProvider tableProvider;
-		private CTabItem tabItem;
+		private TabItem tabItem;
 		private TableViewer viewer;
-		public Grid(TableProvider tableProvider, CTabItem tabItem, TableViewer viewer) {
+		public Grid(TableProvider tableProvider, TabItem tabItem, TableViewer viewer) {
 			super();
 			this.tableProvider = tableProvider;
 			this.tabItem = tabItem;
@@ -84,7 +86,7 @@ public class GridViewer extends ContentViewer {
 		public TableProvider getTableProvider() {
 			return this.tableProvider;
 		}
-		public CTabItem getTabItem() {
+		public TabItem getTabItem() {
 			return this.tabItem;
 		}
 		public TableViewer getTableViewer() {
@@ -97,7 +99,7 @@ public class GridViewer extends ContentViewer {
 		// create the control(s)
         parent.setLayout(new GridLayout());
         // SWT.BOTTOM to show at the bottom
-        CTabFolder folder = new CTabFolder(parent, SWT.BOTTOM);
+        TabFolder folder = new TabFolder(parent, SWT.BOTTOM);
         GridData data = new GridData(SWT.FILL,
                 SWT.FILL, true, true,
                 2, 1);
@@ -225,10 +227,11 @@ public class GridViewer extends ContentViewer {
 	 */
 	@Override
 	public void refresh(){
+		CommonPlugin.INSTANCE.log("GridViewer called at "+new Date());
 		// as is
 		HashMap<TableProvider, Grid> grids_as_is = new HashMap<>();
 		for ( int i=0; i<this.tabFolder.getItemCount(); i++) {
-			CTabItem item = this.tabFolder.getItem(i);
+			TabItem item = this.tabFolder.getItem(i);
 			Grid grid = (Grid)item.getData();
 			grids_as_is.put(grid.getTableProvider(), grid);
 		}
@@ -242,7 +245,7 @@ public class GridViewer extends ContentViewer {
 				if ( as_is==null) {
 					// create
 					// create the tab item
-					CTabItem cTabItem1 = new CTabItem(this.tabFolder, SWT.NONE);
+					TabItem cTabItem1 = new TabItem(this.tabFolder, SWT.NONE);
 //					Composite clientArea = new Composite(this.tabFolder, SWT.NONE);
 					TableViewer viewer = new TableViewer(this.tabFolder);
 					cTabItem1.setControl(viewer.getControl());
@@ -266,11 +269,12 @@ public class GridViewer extends ContentViewer {
 			// remove
 			as_is.getTabItem().dispose();
 		}
+		CommonPlugin.INSTANCE.log("GridViewer viewer refreshed at "+new Date());
 	}
 	
 	void refreshGrid(Grid grid) {
 		TableViewer viewer = grid.getTableViewer();
-		CTabItem cTabItem = grid.getTabItem();
+		TabItem cTabItem = grid.getTabItem();
 		TableProvider provider = grid.getTableProvider();
 		Table table = viewer.getTable();
 		
@@ -291,8 +295,6 @@ public class GridViewer extends ContentViewer {
 			for ( int i = nof_columns_asis; i<nof_columns_tobe; i++) {
 				// create
 				TableColumn column = new TableColumn(viewer.getTable(),SWT.NONE);
-				String columnText = provider.getColumnText(i);
-				column.setText(columnText);
 				column.setWidth(200);
 			}
 		}
@@ -300,6 +302,8 @@ public class GridViewer extends ContentViewer {
 			// update
 			TableColumn column = table.getColumn(i);
 			TableColumnProvider column_provider = columns_tobe[i];
+			String columnText = column_provider.getText(null);
+			column.setText(columnText);
 		}
 
 		// viewer refresh

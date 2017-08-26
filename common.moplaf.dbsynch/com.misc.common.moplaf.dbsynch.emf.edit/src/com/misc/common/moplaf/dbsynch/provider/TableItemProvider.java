@@ -20,6 +20,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -38,25 +39,25 @@ import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.Table;
+import com.misc.common.moplaf.dbsynch.TableColumn;
+import com.misc.common.moplaf.dbsynch.TableRow;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshMetaDataCommand;
 import com.misc.common.moplaf.emf.edit.command.SynchDownCommand;
 import com.misc.common.moplaf.emf.edit.command.SynchUpCommand;
+import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.dbsynch.Table} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class TableItemProvider 
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -607,4 +608,82 @@ public class TableItemProvider
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+
+	@Override
+	public Collection<?> getGrids(Object element) {
+		return null;
+	}
+
+	@Override
+	public String getText(Object element, Object grid) {
+		Table table = (Table)element;
+		return table.getTableName();
+	}
+
+	@Override
+	public Collection<?> getRows(Object element, Object grid) {
+		Table table = (Table)element;
+		return table.getRows();
+	}
+
+	@Override
+	public int getNrRows(Object element, Object grid) {
+		return 0;
+	}
+
+	@Override
+	public String getRowText(Object element, Object grid, Object row) {
+		TableRow table_row = (TableRow)row;
+		return "";
+	}
+
+	@Override
+	public Collection<?> getColumns(Object element, Object grid) {
+		Table table = (Table)element;
+		return table.getColumns();
+	}
+
+	@Override
+	public int getNrColumns(Object element, Object grid) {
+		return 0;
+	}
+
+	@Override
+	public String getColumnText(Object element, Object grid, Object column) {
+		TableColumn table_column = (TableColumn)column;
+		return table_column.getColumnName();
+	}
+
+	@Override
+	public Object getCellForeground(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getCellBackground(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCellText(Object element, Object grid, Object row, Object column) {
+		TableRow table_row = (TableRow)row;
+		TableColumn table_column = (TableColumn)column;
+		EAttribute attribute = table_column.getRowAttribute();
+		Object value = table_row.eGet(attribute);
+		return value.toString();
+	}
+
+	@Override
+	public Object getCellImage(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getCellALignment(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
