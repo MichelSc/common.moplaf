@@ -319,13 +319,11 @@ public class GanttViewer extends GanttViewerAbstract {
 
 		@Override
 		public JaretDate getMaxDate() {
-			// TODO Auto-generated method stub
 			return super.getMaxDate();
 		}
 
 		@Override
 		public JaretDate getMinDate() {
-			// TODO Auto-generated method stub
 			return super.getMinDate();
 		}
 

@@ -49,7 +49,7 @@ import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
 /**
  * <!-- begin-user-doc -->
- * This AdapterFactoryContentProvider provides a specialized PropertySource and PropertyDescriptior, allowing
+ * This AdapterFactoryContentProvider provides a specialized PropertySource and PropertyDescriptor, allowing
  * for a selection of fields
  * <ul>
  *   <li>to edit date or time with a calendar dialog</li>

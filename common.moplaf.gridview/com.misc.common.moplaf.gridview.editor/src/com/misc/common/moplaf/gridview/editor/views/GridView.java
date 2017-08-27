@@ -55,7 +55,7 @@ public class GridView extends ViewPart {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					GridView.this.viewer.setInput(structuredSelection.getFirstElement());
+					GridView.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
 				else {
 					GridView.this.viewer.setInput(null);

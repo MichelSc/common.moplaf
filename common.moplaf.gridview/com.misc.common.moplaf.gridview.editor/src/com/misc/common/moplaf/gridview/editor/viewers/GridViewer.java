@@ -11,12 +11,11 @@
 package com.misc.common.moplaf.gridview.editor.viewers;
 
 
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IColorProvider;
@@ -29,7 +28,6 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.layout.GridLayout;
@@ -119,7 +117,6 @@ public class GridViewer extends ContentViewer {
 	
 	@Override
 	protected void handleDispose(DisposeEvent event) {
-		// TODO Auto-generated method stub
 		super.handleDispose(event);
 		this.tabFolder.dispose();
 		this.tabFolder = null;
@@ -223,6 +220,24 @@ public class GridViewer extends ContentViewer {
 		}
 	}
 	
+	private void collectTableProviders(ArrayList<TableProvider> tables, Object element, int depth) {
+		// the element
+		if (element instanceof TableProvider ) {
+			tables.add((TableProvider)element);
+		}
+		// the children
+		if ( depth<3) {
+			Object[] children_element= this.gridProvider.getChildren(element);
+			for (Object child_element : children_element) {
+				// the parent of child is modelElement, this is an actual child
+				// this restriction avoids recursion
+				if ( element.getClass().isArray() || this.gridProvider.getParent(child_element)==element){
+					this.collectTableProviders(tables,  child_element, depth+1);
+				}
+			}
+		}
+	}
+	
 	/**
 	 * Methode declared in {@link Viewer}
 	 */
@@ -237,32 +252,31 @@ public class GridViewer extends ContentViewer {
 		}
 		// to be
 		Object input = this.getInput();
-		ArrayList<TableProvider> gridsToBe = this.gridProvider.getTableProviders(input);
+		ArrayList<TableProvider> gridsToBe = new ArrayList<TableProvider>();
+		this.collectTableProviders(gridsToBe, input, 0);
 		// refresh
-		if ( gridsToBe!=null) {
-			for ( TableProvider grid_to_be : gridsToBe) {
-				Grid as_is = grids_as_is.get(grid_to_be);
-				if ( as_is==null) {
-					// create
-					// create the tab item
-					TabItem cTabItem1 = new TabItem(this.tabFolder, SWT.NONE);
+		for ( TableProvider grid_to_be : gridsToBe) {
+			Grid as_is = grids_as_is.get(grid_to_be);
+			if ( as_is==null) {
+				// create
+				// create the tab item
+				TabItem cTabItem1 = new TabItem(this.tabFolder, SWT.NONE);
 //					Composite clientArea = new Composite(this.tabFolder, SWT.NONE);
-					TableViewer viewer = new TableViewer(this.tabFolder, SWT.VIRTUAL);
-					cTabItem1.setControl(viewer.getControl());
-					viewer.setLabelProvider(grid_to_be);
-					viewer.setContentProvider(grid_to_be);
-					viewer.setInput(grid_to_be);
-					viewer.getTable().setLinesVisible(true);
-					viewer.getTable().setHeaderVisible(true);
+				TableViewer viewer = new TableViewer(this.tabFolder, SWT.VIRTUAL);
+				cTabItem1.setControl(viewer.getControl());
+				viewer.setLabelProvider(grid_to_be);
+				viewer.setContentProvider(grid_to_be);
+				viewer.setInput(grid_to_be);
+				viewer.getTable().setLinesVisible(true);
+				viewer.getTable().setHeaderVisible(true);
 //					viewer.getTable().setBackground(this.getControl().getDisplay().getSystemColor(SWT.COLOR_CYAN));
-					Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
-					cTabItem1.setData(new_grid);
-					this.refreshGrid(new_grid);
-				} else {
-					// update
-					this.refreshGrid(as_is);
-					grids_as_is.remove(grid_to_be);
-				}
+				Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
+				cTabItem1.setData(new_grid);
+				this.refreshGrid(new_grid);
+			} else {
+				// update
+				this.refreshGrid(as_is);
+				grids_as_is.remove(grid_to_be);
 			}
 		}
 		for ( Grid as_is : grids_as_is.values()) {

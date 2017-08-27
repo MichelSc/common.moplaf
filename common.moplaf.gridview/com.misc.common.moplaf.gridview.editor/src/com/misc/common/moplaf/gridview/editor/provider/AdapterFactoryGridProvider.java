@@ -18,7 +18,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedColorRegistry;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -28,6 +27,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
 
 
@@ -42,7 +42,7 @@ import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
  * @author MiSc
  *
  */
-public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
+public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvider {
 	private Color foregroundColor = null;
 	private Color backgroundColor = null;
 
@@ -53,10 +53,15 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 		this.backgroundColor = backgroundColor;
 	}
 
-	// dispose
+	@Override
 	public void dispose(){
 	}
 	
+	/** 
+	 * Helper function for getting a swt.Color
+	 * @param object
+	 * @return
+	 */
 	private Color getColorFromObject(Object object) {
 		if ( object == null ) { return null; }
 		Color color = ExtendedColorRegistry.INSTANCE.getColor(this.foregroundColor, this.backgroundColor, object);
@@ -64,11 +69,48 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 	}
 
 	/**
+	 * Specified by ITreeContentProvider 
+	 */
+	@Override
+	public Object[] getChildren(Object object) {
+		// super children
+		Object[] super_children = super.getChildren(object);
+		int nof_super_children = super_children.length;
+		// providers
+		ArrayList<?> providers = this.getTableProviders(object);
+		if ( providers==null){
+			return super_children;
+		}
+		// concatenate
+		Object[] children = new Object[providers.size()+nof_super_children];
+		System.arraycopy(super_children, 0, children, 0, nof_super_children);
+		int i = nof_super_children;
+		for ( Object provider : providers) {
+			children[i]= provider;
+			i++;
+		}
+		return children;
+	}
+
+	/**
+	 * Specified by ITreeContentProvider 
+	 */
+	@Override
+	public Object getParent(Object object) {
+		if ( object instanceof TableProvider){
+			TableProvider provider = (TableProvider) object;
+			return provider.element;
+		}
+			
+		return super.getParent(object);
+	}
+	
+	/**
 	 * Return a collection of object extending the private class  {@link TimePlotProvider}, and implementing 
 	 * the interfaces {@link IItemLabelProvider}, and {@link IItemColorProvider}
 	 * <p>
 	 */
-	public ArrayList<TableProvider> getTableProviders(Object element){
+	private ArrayList<TableProvider> getTableProviders(Object element){
 		AdapterFactory adapterFactory = this.getAdapterFactory();
 		IItemGridsProvider gridsProvider = (IItemGridsProvider) adapterFactory.adapt(element, IItemGridsProvider.class);
 		
@@ -98,7 +140,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 
 	
 	/**
-	 * Helper class for the conversion of an IItemTimePlotsProvider (abstract) to an EventProvider
+	 * Helper class for the conversion of an IItemGridsProvider (abstract) to jface providers 
 	 * @author michel
 	 *
 	 */
