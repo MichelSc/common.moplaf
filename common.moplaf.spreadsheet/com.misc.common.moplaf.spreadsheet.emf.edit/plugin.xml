@@ -16,7 +16,7 @@
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource
-               com.misc.common.moplaf.gridview.edit.IItemGridsProvider"/>
+               com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider"/>
    </extension>
 
 </plugin>

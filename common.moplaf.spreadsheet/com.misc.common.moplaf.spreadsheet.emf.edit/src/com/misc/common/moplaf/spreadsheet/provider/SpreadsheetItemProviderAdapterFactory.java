@@ -12,7 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.provider;
 
-import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.spreadsheet.util.SpreadsheetAdapterFactory;
 
 import java.util.ArrayList;

@@ -15,5 +15,5 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.emf.edit;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
- com.misc.common.moplaf.gridview.edit;bundle-version="1.0.0";visibility:=reexport
+ com.misc.common.moplaf.gridview.emf.edit;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

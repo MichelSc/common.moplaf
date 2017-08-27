@@ -45,7 +45,7 @@ import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshMetaDataCommand;
 import com.misc.common.moplaf.emf.edit.command.SynchDownCommand;
 import com.misc.common.moplaf.emf.edit.command.SynchUpCommand;
-import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.dbsynch.Table} object.

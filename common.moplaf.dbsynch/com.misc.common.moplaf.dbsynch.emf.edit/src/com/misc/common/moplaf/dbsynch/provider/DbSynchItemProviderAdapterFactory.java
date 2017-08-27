@@ -13,7 +13,7 @@
 package com.misc.common.moplaf.dbsynch.provider;
 
 import com.misc.common.moplaf.dbsynch.util.DbSynchAdapterFactory;
-import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
