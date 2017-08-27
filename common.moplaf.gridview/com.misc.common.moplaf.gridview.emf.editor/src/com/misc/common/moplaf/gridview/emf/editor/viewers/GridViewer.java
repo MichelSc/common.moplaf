@@ -27,8 +27,12 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -72,22 +76,83 @@ public class GridViewer extends ContentViewer {
 			Object selectedObject = selection.getFirstElement();
 			GridViewer.this.setSelectedElement(selectedObject);
 		}
-	}
+	};
+	
+	private class ColumnSelectionAdapter extends SelectionAdapter{
+		private Grid grid;
+		private int columnIndex;
+		private TableColumn column;
+		
+		
+        public ColumnSelectionAdapter(Grid grid, int columnIndex, TableColumn column) {
+			super();
+			this.columnIndex = columnIndex;
+			this.column = column;
+			this.grid = grid;
+		}
+
+		@Override
+         public void widgetSelected(SelectionEvent e) {
+			this.grid.getViewerComparator().setColumn(this.columnIndex);
+			this.column.getParent().setSortDirection(this.grid.getViewerComparator().getDirection());
+			this.column.getParent().setSortColumn(this.column);
+			this.grid.getTableViewer().refresh();
+         }
+	};
 
 	private Object          selectedElement = null;
 	private ISelection      currentSelection = null;
 	private IColorProvider  colorProvider = null;
 	private TabFolder       tabFolder = null;
 	
-	private class Grid {
+	private class Grid  {
+		
+		public class GridViewerComparator extends ViewerComparator{
+			private int columnIndex;
+		    private boolean descending;
+
+		    public GridViewerComparator() {
+		        this.columnIndex = 0;
+		        this.descending = false;
+		    }
+
+		    public int getDirection() {
+		        return this.descending ? SWT.DOWN : SWT.UP;
+		    }
+
+		    public void setColumn(int column) {
+		        if (column == this.columnIndex) {
+		            // Same column as last sort; toggle the direction
+		            this.descending = !this.descending;
+		        } else {
+		            // New column; do an ascending sort
+		            this.columnIndex = column;
+		            this.descending = false;
+		        }
+		    }
+
+		    @Override
+		    public int compare(Viewer viewer, Object e1, Object e2) {
+		    	String string1 = Grid.this.tableProvider.getColumnText(e1, this.columnIndex);
+		    	String string2 = Grid.this.tableProvider.getColumnText(e2, this.columnIndex);
+		    	int result = string1.compareTo(string2);
+		    	if ( descending ) {
+		    		result = -result;
+		    	}
+		    	return result;
+		    }
+		}
+
 		private TableProvider tableProvider;
 		private TabItem tabItem;
 		private TableViewer viewer;
+		private GridViewerComparator comparator;
 		public Grid(TableProvider tableProvider, TabItem tabItem, TableViewer viewer) {
 			super();
 			this.tableProvider = tableProvider;
 			this.tabItem = tabItem;
 			this.viewer = viewer;
+			this.comparator = new GridViewerComparator();
 		}
 		public TableProvider getTableProvider() {
 			return this.tableProvider;
@@ -97,6 +162,9 @@ public class GridViewer extends ContentViewer {
 		}
 		public TableViewer getTableViewer() {
 			return this.viewer;
+		}
+		public GridViewerComparator getViewerComparator() {
+			return this.comparator;
 		}
 	}
 	
@@ -275,6 +343,7 @@ public class GridViewer extends ContentViewer {
 				viewer.getTable().setHeaderVisible(true);
 //					viewer.getTable().setBackground(this.getControl().getDisplay().getSystemColor(SWT.COLOR_CYAN));
 				Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
+				viewer.setComparator(new_grid.getViewerComparator());
 				cTabItem1.setData(new_grid);
 				this.refreshGrid(new_grid);
 			} else {
@@ -315,6 +384,7 @@ public class GridViewer extends ContentViewer {
 				//TableColumn column = column_viewer.getColumn();
 				TableColumn column = new TableColumn(viewer.getTable(),SWT.NONE);
 				column.setWidth(200);
+				column.addSelectionListener(new ColumnSelectionAdapter(grid, i, column));
 			}
 		}
 		for ( int i = 0; i<nof_columns_tobe; i++) {

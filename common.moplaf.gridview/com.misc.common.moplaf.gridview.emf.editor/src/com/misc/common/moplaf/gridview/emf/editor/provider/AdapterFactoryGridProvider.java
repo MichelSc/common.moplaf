@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.misc.common.moplaf.gridview.emf.editor.provider;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -265,6 +266,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				return factoryProvider.getColorFromObject(color);
 			}
 		};
+		
 		protected IItemGridsProvider gridsProvider;
 		protected Object element;
 		protected Object grid;
