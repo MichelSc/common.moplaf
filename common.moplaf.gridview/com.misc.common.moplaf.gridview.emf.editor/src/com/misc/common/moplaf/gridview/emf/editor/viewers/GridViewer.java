@@ -10,8 +10,6 @@
  *******************************************************************************/
 package com.misc.common.moplaf.gridview.emf.editor.viewers;
 
-
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,6 +21,7 @@ import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IInputProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -39,7 +38,7 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
-import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
+import com.misc.common.moplaf.gridview.Wrapper;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider.TableColumnProvider;
 
@@ -65,12 +64,20 @@ import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridPro
  *
  */
 public class GridViewer extends ContentViewer {
+	
+	private class TableSelectionListener implements ISelectionChangedListener{
+		@Override
+		public void selectionChanged(SelectionChangedEvent event) {
+			StructuredSelection selection = (StructuredSelection)event.getSelection();
+			Object selectedObject = selection.getFirstElement();
+			GridViewer.this.setSelectedElement(selectedObject);
+		}
+	}
 
-	private Object                 selectedElement = null;
-	private ISelection             currentSelection = null;
-	private IColorProvider         colorProvider = null;
-	private AdapterFactoryGridProvider gridProvider = null;
-	private TabFolder             tabFolder = null;
+	private Object          selectedElement = null;
+	private ISelection      currentSelection = null;
+	private IColorProvider  colorProvider = null;
+	private TabFolder       tabFolder = null;
 	
 	private class Grid {
 		private TableProvider tableProvider;
@@ -139,10 +146,6 @@ public class GridViewer extends ContentViewer {
 		this.colorProvider = provider;
 	}
 	
-	public void setAdapterFactoryGridProvider(AdapterFactoryGridProvider eventProvider){
-		this.gridProvider = eventProvider;
-	}
-	
 	/**
 	 * Assert that the content provider is of one of the
 	 * supported types.
@@ -173,10 +176,6 @@ public class GridViewer extends ContentViewer {
 		return this.colorProvider;
 	}
 	
-	protected AdapterFactoryGridProvider getGridProvider(){
-		return this.gridProvider;
-	}
-	
 	// selection management
 	/**
 	 * Specified by ISelectionProvider.
@@ -202,7 +201,12 @@ public class GridViewer extends ContentViewer {
 	 * @param selectedObject
 	 */
 	protected void setSelectedElement(Object selectedObject){
+		if ( selectedObject instanceof Wrapper) {
+			Wrapper wrapper = (Wrapper) selectedObject;
+			selectedObject = wrapper.unwrap();
+		}
 		if ( selectedObject!=this.selectedElement ){
+			this.selectedElement = selectedObject;
 			this.setSelection(new StructuredSelection(selectedObject), false);
 			this.fireSelectionChanged(new SelectionChangedEvent(this, this.getSelection()));
 		}
@@ -227,11 +231,11 @@ public class GridViewer extends ContentViewer {
 		}
 		// the children
 		if ( depth<3) {
-			Object[] children_element= this.gridProvider.getChildren(element);
+			Object[] children_element= this.getTreeContentProvider().getChildren(element);
 			for (Object child_element : children_element) {
 				// the parent of child is modelElement, this is an actual child
 				// this restriction avoids recursion
-				if ( element.getClass().isArray() || this.gridProvider.getParent(child_element)==element){
+				if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
 					this.collectTableProviders(tables,  child_element, depth+1);
 				}
 			}
@@ -261,8 +265,8 @@ public class GridViewer extends ContentViewer {
 				// create
 				// create the tab item
 				TabItem cTabItem1 = new TabItem(this.tabFolder, SWT.NONE);
-//					Composite clientArea = new Composite(this.tabFolder, SWT.NONE);
 				TableViewer viewer = new TableViewer(this.tabFolder, SWT.VIRTUAL);
+				viewer.addSelectionChangedListener(new TableSelectionListener());
 				cTabItem1.setControl(viewer.getControl());
 				viewer.setLabelProvider(grid_to_be);
 				viewer.setContentProvider(grid_to_be);

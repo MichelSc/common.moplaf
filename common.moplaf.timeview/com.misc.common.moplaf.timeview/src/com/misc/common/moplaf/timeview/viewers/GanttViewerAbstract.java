@@ -130,10 +130,11 @@ public abstract class GanttViewerAbstract extends ContentViewer {
 	 * @param selectedObject
 	 */
 	protected void setSelectedElement(Object selectedObject){
+		if ( selectedObject instanceof Wrapper ){
+			selectedObject = ((Wrapper)selectedObject).unwrap();
+		}
 		if ( selectedObject!=this.selectedElement ){
-			if ( selectedObject instanceof Wrapper ){
-				selectedObject = ((Wrapper)selectedObject).unwrap();
-			}
+			this.selectedElement = selectedObject;
 			this.setSelection(new StructuredSelection(selectedObject), false);
 			this.fireSelectionChanged(new SelectionChangedEvent(this, this.getSelection()));
 		}

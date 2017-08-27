@@ -24,6 +24,7 @@ import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
+//import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
 import com.misc.common.moplaf.gridview.emf.editor.viewers.GridViewer;
 
 
@@ -85,7 +86,6 @@ public class GridView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		AdapterFactoryGridProvider contentProvider = new AdapterFactoryGridProvider(this.adapterFactory, parent.getForeground(), parent.getBackground());
         this.viewer = this.createViewer(parent);
-		this.viewer.setAdapterFactoryGridProvider(contentProvider);
         this.viewer.setContentProvider           (contentProvider);
 		this.viewer.setLabelProvider        (new AdapterFactoryLabelProvider   (this.adapterFactory));
 //		this.viewer.setColorProvider        (new AdapterFactoryLabelProvider   (this.adapterFactory));
@@ -95,7 +95,7 @@ public class GridView extends ViewPart {
 		IWorkbenchPartSite site = getSite();
 		IWorkbenchWindow window = site.getWorkbenchWindow();
 		window.getSelectionService().addSelectionListener(selectionListener);
-		site.setSelectionProvider(this.viewer);
+		site.setSelectionProvider(this.viewer); // this way the environment will listen to selections in my viewer
 
 //		// resource change listening
 //		this.resourceListener = new IResourceChangeListener() {

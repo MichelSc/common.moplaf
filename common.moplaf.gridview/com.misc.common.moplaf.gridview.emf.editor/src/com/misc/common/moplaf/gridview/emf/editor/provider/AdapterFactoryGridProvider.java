@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.misc.common.moplaf.gridview.emf.editor.provider;
 
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -29,6 +28,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.gridview.Wrapper;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 
@@ -156,7 +156,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			public abstract Object getForeground(Object columnObject);
 			public abstract Object getBackground(Object columnObject); 
 		};
-		public class TableRowData extends TableRowProvider {
+		public class TableRowData extends TableRowProvider implements Wrapper {
 			private Object gridRow;
 			public TableRowData(Object gridRow) {
 				super();
@@ -189,6 +189,11 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 						? factoryProvider.backgroundColor 
 						: provider.gridsProvider.getCellBackground(provider.element, provider.grid, this.gridRow, columnObject);
 				return factoryProvider.getColorFromObject(color);
+			}
+
+			@Override
+			public Object unwrap() {
+				return this.gridRow;
 			}
 			
 		}
