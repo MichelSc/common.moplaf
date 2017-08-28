@@ -69,6 +69,27 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		Color color = ExtendedColorRegistry.INSTANCE.getColor(this.foregroundColor, this.backgroundColor, object);
 		return color;
 	}
+	
+	private String getTextFromValue(Object cellValue, int cellType, String format) {
+		if ( format!=null) {
+			return String.format(format, cellValue);
+		} else {
+			switch ( cellType ) {
+			case IItemGridsProvider.CELL_TYPE_STRING: 
+				return (String)cellValue;
+			case IItemGridsProvider.CELL_TYPE_DATE: 
+				return String.format("%1$tF %1$tT", cellValue);
+			case IItemGridsProvider.CELL_TYPE_FLOAT:
+				return String.format("%1$.2f", cellValue);
+			case IItemGridsProvider.CELL_TYPE_INT:
+				return String.format("%1$d", cellValue);
+			case IItemGridsProvider.CELL_TYPE_BOOLEAN:
+				return String.format("%1$b", cellValue);
+			default: 
+				return null;
+			}
+		}
+	}
 
 	/**
 	 * Specified by ITreeContentProvider 
@@ -167,9 +188,13 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			@Override
 			public String getText(Object columnObject) {
 				TableProvider provider = TableProvider.this; 
-				return columnObject == null 
-						? provider.gridsProvider.getRowText(provider.element, provider.grid, this.gridRow) 
-						: provider.gridsProvider.getCellText(provider.element, provider.grid, this.gridRow, columnObject);
+				if ( columnObject == null ){
+					return provider.gridsProvider.getRowText(provider.element, provider.grid, this.gridRow);
+				}
+				Object cellValue  = provider.gridsProvider.getCellValue(provider.element, provider.grid, this.gridRow, columnObject);
+				int    cellType   = provider.gridsProvider.getCellType(provider.element, provider.grid, this.gridRow, columnObject);
+				String cellFormat = provider.gridsProvider.getCellFormat(provider.element, provider.grid, this.gridRow, columnObject);
+				return AdapterFactoryGridProvider.this.getTextFromValue(cellValue, cellType, cellFormat);
 			}
 			
 			@Override
@@ -218,7 +243,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 					return row.getText(null);
 				}
 				TableProvider provider = TableProvider.this; 
-				return provider.gridsProvider.getText(provider.element, provider.grid); 
+				return provider.gridsProvider.getGridText(provider.element, provider.grid); 
 			}
 			@Override
 			public Color getForeground(TableRowProvider row) {
@@ -358,7 +383,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		}
 		
 		public String getTableText() {
-			return this.gridsProvider.getText(this.element, this.grid);
+			return this.gridsProvider.getGridText(this.element, this.grid);
 		}
 
 		/**

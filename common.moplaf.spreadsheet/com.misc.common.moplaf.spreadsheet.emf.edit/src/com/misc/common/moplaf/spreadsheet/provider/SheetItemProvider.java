@@ -261,12 +261,7 @@ public class SheetItemProvider
 	}
 
 	@Override
-	public Collection<?> getGrids(Object element) {
-		return null;
-	}
-
-	@Override
-	public String getText(Object element, Object grid) {
+	public String getGridText(Object element, Object grid) {
 		Sheet sheet = (Sheet)element;
 		return sheet.getSheetName();
 	}
@@ -275,11 +270,6 @@ public class SheetItemProvider
 	public Collection<?> getRows(Object element, Object grid) {
 		Sheet sheet = (Sheet)element;
 		return sheet.getRows();
-	}
-
-	@Override
-	public int getNrRows(Object element, Object grid) {
-		return 0; // not necessary, as we return the rows
 	}
 
 	@Override
@@ -292,11 +282,6 @@ public class SheetItemProvider
 	public Collection<?> getColumns(Object element, Object grid) {
 		Sheet sheet = (Sheet)element;
 		return sheet.getColumns();
-	}
-
-	@Override
-	public int getNrColumns(Object element, Object grid) {
-		return 0; // not necessary, as we return the columns
 	}
 
 	@Override
@@ -319,22 +304,11 @@ public class SheetItemProvider
 	}
 
 	@Override
-	public String getCellText(Object element, Object grid, Object row, Object column) {
+	public Object getCellValue(Object element, Object grid, Object row, Object column) {
 		Column sheetCol = (Column)column;
 		Row sheetRow = (Row)row;
 		Cell sheetCell = sheetRow.getCell(sheetCol);
-		return sheetCell == null ? "" : sheetCell.getValueFormatted();
+		return sheetCell == null ? null : sheetCell.getValueFormatted();
 	}
 
-	@Override
-	public Object getCellImage(Object element, Object grid, Object row, Object column) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getCellALignment(Object element, Object grid, Object row, Object column) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }
