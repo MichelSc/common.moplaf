@@ -43,6 +43,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
 import com.misc.common.moplaf.gridview.Wrapper;
+import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider.TableColumnProvider;
 
@@ -59,10 +60,8 @@ import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridPro
  * <p>
  * The viewer receives its content from an input Object, as specified by the interface IContentProvider.
  * <p>
- * The viewer get text and color associated to object via a 
- * <p>
- * Finally, the viewer receives the data from a AdapterFactoryGridProvider. This latter recognizes
- * object providing 2-dimensional data and makes the data available to the viewer.  
+ * Finally, the viewer receives get grid data from the elements in the content implementing the interface {@link AdapterFactoryGridProvider.TableProvider}, 
+ * providing 2-dimensional data and makes the data available to the viewer.  
  * <p>
  * @author michel
  *
@@ -94,7 +93,6 @@ public class GridViewer extends ContentViewer {
 		@Override
          public void widgetSelected(SelectionEvent e) {
 			this.grid.getViewerComparator().setColumn(this.columnIndex);
-			this.column.getParent().setSortDirection(this.grid.getViewerComparator().getDirection());
 			this.column.getParent().setSortColumn(this.column);
 			this.grid.getTableViewer().refresh();
          }
@@ -109,37 +107,31 @@ public class GridViewer extends ContentViewer {
 		
 		public class GridViewerComparator extends ViewerComparator{
 			private int columnIndex;
-		    private boolean descending;
+		    private boolean ascending;
 
 		    public GridViewerComparator() {
 		        this.columnIndex = 0;
-		        this.descending = false;
+		        this.ascending = true;
 		    }
 
-		    public int getDirection() {
-		        return this.descending ? SWT.DOWN : SWT.UP;
+		    public boolean isAcending() {
+		        return this.ascending;
 		    }
 
 		    public void setColumn(int column) {
 		        if (column == this.columnIndex) {
 		            // Same column as last sort; toggle the direction
-		            this.descending = !this.descending;
+		            this.ascending = !this.ascending;
 		        } else {
 		            // New column; do an ascending sort
 		            this.columnIndex = column;
-		            this.descending = false;
+		            this.ascending = false;
 		        }
 		    }
 
 		    @Override
 		    public int compare(Viewer viewer, Object e1, Object e2) {
-		    	String string1 = Grid.this.tableProvider.getColumnText(e1, this.columnIndex);
-		    	String string2 = Grid.this.tableProvider.getColumnText(e2, this.columnIndex);
-		    	int result = string1.compareTo(string2);
-		    	if ( descending ) {
-		    		result = -result;
-		    	}
-		    	return result;
+		    	return Grid.this.tableProvider.compareRows(e1, e2, columnIndex, this.ascending);
 		    }
 		}
 

@@ -177,6 +177,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			public abstract String getText(Object columnObject);
 			public abstract Object getForeground(Object columnObject);
 			public abstract Object getBackground(Object columnObject); 
+			public abstract Object getRowObject();
 		};
 		public class TableRowData extends TableRowProvider implements Wrapper {
 			private Object gridRow;
@@ -221,6 +222,11 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			public Object unwrap() {
 				return this.gridRow;
 			}
+
+			@Override
+			public Object getRowObject() {
+				return this.gridRow;
+			}
 			
 		}
 		/**
@@ -232,6 +238,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			public abstract String getText(TableRowProvider row);
 			public abstract Color getForeground(TableRowProvider row);
 			public abstract Color getBackground(TableRowProvider row); 
+			public abstract int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending);
 		};
 		private class TableColumnHeader extends TableColumnProvider {
 			public TableColumnHeader() {
@@ -256,6 +263,11 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				AdapterFactoryGridProvider factoryProvider = AdapterFactoryGridProvider.this; 
 				Object color = factoryProvider.backgroundColor;
 				return factoryProvider.getColorFromObject(color);
+			}
+			@Override
+			public int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending) {
+				// TODO Auto-generated method stub
+				return 0;
 			}
 		};
 		private class TableColumnData extends TableColumnProvider {
@@ -289,6 +301,16 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 						     ? factoryProvider.backgroundColor
 						     : row.getBackground(this.gridColumn);
 				return factoryProvider.getColorFromObject(color);
+			}
+			@Override
+			public int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending) {
+				TableProvider provider = TableProvider.this; 
+				return provider.gridsProvider.compareRow(provider.element,
+   							                             provider.grid,
+								                         row1.getRowObject(), 
+												         row2.getRowObject(), 
+												         this.gridColumn,
+												         ascending);
 			}
 		};
 		
@@ -417,6 +439,13 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		public Image getColumnImage(Object element, int columnIndex) {
 			// TODO Auto-generated method stub
 			return null;
+		}
+		
+		public int compareRows(Object row1, Object row2, int columnIndex, boolean ascending) {
+			TableRowProvider row1_provider = (TableRowProvider)row1;
+			TableRowProvider row2_provider = (TableRowProvider)row2;
+			TableColumnProvider columnProvider = this.indexToColumn[columnIndex];
+			return columnProvider.compare(row1_provider, row2_provider, ascending);
 		}
 
 		private AdapterFactoryGridProvider getOuterType() {

@@ -14,7 +14,7 @@ import java.util.Collection;
 
 /**
  * <p>
- * This interface declares the method(s) to be supported by an object that provides a 
+ * This interface declares the method(s) to be supported by an object that provides one or 
  * several sets of 2-dimensional data, for instance to be displayed in a grid.
  * <p>
  * The consumer (i.e. the component using the grid data, typically a table component)
@@ -75,9 +75,6 @@ public interface IItemGridsProvider {
 	static int VERTICAL_ALIGN_BOTTOM = 16;
 	static int VERTICAL_ALIGN_CENTRE = 32;
 
-	static int DIECTION_ASCENDING = 1;
-	static int DIECTION_DESCENDING = 2;
-	
 	static int CELL_TYPE_STRING  = 1;
 	static int CELL_TYPE_DATE    = 2;
 	static int CELL_TYPE_FLOAT   = 3;
@@ -96,7 +93,7 @@ public interface IItemGridsProvider {
 	}
 	
 	/**
-	 * Return the text associated by a grid published by the element.
+	 * Return the text associated to a grid published by the element.
 	 * @param element
 	 * @param grid
 	 * @return
@@ -140,7 +137,7 @@ public interface IItemGridsProvider {
 	}
 
 	/**
-	 * Compares 2 rows according to some column.
+	 * Compares 2 rows according to a given column.
 	 * @param element
 	 * @param grid
 	 * @param row1
@@ -149,7 +146,7 @@ public interface IItemGridsProvider {
 	 * @param direction
 	 * @return
 	 */
-	default int compareRow(Object element, Object grid, Object row1, Object row2, Object column, int direction) {
+	default int compareRow(Object element, Object grid, Object row1, Object row2, Object column, boolean ascending) {
 		int type1 = this.getCellType(element, grid, row1, column);
 		int type2 = this.getCellType(element, grid, row2, column);
 		if ( type1!=type2 ) {
@@ -159,7 +156,7 @@ public interface IItemGridsProvider {
 		case CELL_TYPE_STRING:
 			String string1 = (String)this.getCellValue(element, grid, row1, column);
 			String string2 = (String)this.getCellValue(element, grid, row2, column);
-			int sense = direction == DIECTION_ASCENDING ? +1 : -1;
+			int sense = ascending ? +1 : -1;
 			return sense *string1.compareTo(string2);
 		default:
 			return 0;
@@ -201,7 +198,7 @@ public interface IItemGridsProvider {
 	}
 	
 	/**
-	 * Compares 2 columns according to some row.
+	 * Compares 2 columns according to a given row.
 	 * @param element
 	 * @param grid
 	 * @param column1
@@ -210,7 +207,7 @@ public interface IItemGridsProvider {
 	 * @param direction
 	 * @return
 	 */
-	default int compareColumn(Object element, Object grid, Object column1, Object column2, Object row, int direction) {
+	default int compareColumn(Object element, Object grid, Object column1, Object column2, Object row, boolean ascending) {
 		int type1 = this.getCellType(element, grid, row, column1);
 		int type2 = this.getCellType(element, grid, row, column2);
 		if ( type1!=type2 ) {
@@ -220,7 +217,7 @@ public interface IItemGridsProvider {
 		case CELL_TYPE_STRING:
 			String string1 = (String)this.getCellValue(element, grid, row, column1);
 			String string2 = (String)this.getCellValue(element, grid, row, column2);
-			int sense = direction == DIECTION_ASCENDING ? +1 : -1;
+			int sense = ascending ? +1 : -1;
 			return sense *string1.compareTo(string2);
 		default:
 			return 0;
