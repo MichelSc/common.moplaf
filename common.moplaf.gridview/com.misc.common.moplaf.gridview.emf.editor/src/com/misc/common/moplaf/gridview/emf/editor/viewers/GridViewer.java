@@ -125,7 +125,7 @@ public class GridViewer extends ContentViewer {
 		        } else {
 		            // New column; do an ascending sort
 		            this.columnIndex = column;
-		            this.ascending = false;
+		            this.ascending = true;
 		        }
 		    }
 
