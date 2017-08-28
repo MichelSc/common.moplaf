@@ -1,29 +1,6 @@
-questions
-  should the cells have a type (string, numeric )?
-  how to publish sorting ?
-    one solutions is to public type (string, numeric)
-    freeze the sorting: string compare and numeric comparison
-  should we make a particular case for the first row/column?
-  what about the headers? should we sort them
-    sort the row? what criteria?
-    sort the columns? what criteria?
-
-say:
-  we have
-    getCellText
-    getCellDouble
-    getCellInt
-    
-say we have
-    getCellValue: Object
-    getCellType (Double, Int, Boolean, String)
-    
-we derive comparison from this?
-  no, because at cell level, and I want at column/row level
-  still compare rows (1 and 2) for some column
-    we get 2 cells
-    we get 2 types
-    and we can possibly compare.
-        
-
+to dos:
+  implement row comparison (using provided comparison logic)
+  implement sheet.frozen rows/columns
+  implement doubles, dates, integers and booleans
+  implement alignment (or can we solve it with formats?)
   
