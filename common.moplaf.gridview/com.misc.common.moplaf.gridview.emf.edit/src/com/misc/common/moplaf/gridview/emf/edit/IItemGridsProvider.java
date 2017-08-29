@@ -11,6 +11,7 @@
 package com.misc.common.moplaf.gridview.emf.edit;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * <p>
@@ -69,17 +70,20 @@ public interface IItemGridsProvider {
 	
 	static int HORIZONTAl_ALIGN_LEFT = 1;
 	static int HORIZONTAl_ALIGN_RIGHT = 2;
-	static int HORIZONTAl_ALIGN_CENTRE = 4;
+	static int HORIZONTAl_ALIGN_CENTER = 4;
 
 	static int VERTICAL_ALIGN_TOP = 8;
 	static int VERTICAL_ALIGN_BOTTOM = 16;
-	static int VERTICAL_ALIGN_CENTRE = 32;
+	static int VERTICAL_ALIGN_CENTER = 32;
 
+	static int CELL_TYPE_UNKOWN  = 0;
 	static int CELL_TYPE_STRING  = 1;
 	static int CELL_TYPE_DATE    = 2;
 	static int CELL_TYPE_FLOAT   = 3;
-	static int CELL_TYPE_INT     = 4;
-	static int CELL_TYPE_BOOLEAN = 5;
+	static int CELL_TYPE_DOUBLE  = 4;
+	static int CELL_TYPE_INT     = 5;
+	static int CELL_TYPE_LONG    = 6;
+	static int CELL_TYPE_BOOLEAN = 7;
 	
 	/**
 	 * Returns the grids published by the element. 
@@ -149,18 +153,9 @@ public interface IItemGridsProvider {
 	default int compareRow(Object element, Object grid, Object row1, Object row2, Object column, boolean ascending) {
 		int type1 = this.getCellType(element, grid, row1, column);
 		int type2 = this.getCellType(element, grid, row2, column);
-		if ( type1!=type2 ) {
-			return 0;
-		}
-		switch (type1) {
-		case CELL_TYPE_STRING:
-			String string1 = (String)this.getCellValue(element, grid, row1, column);
-			String string2 = (String)this.getCellValue(element, grid, row2, column);
-			int sense = ascending ? +1 : -1;
-			return sense *string1.compareTo(string2);
-		default:
-			return 0;
-		}
+		Object value1 = this.getCellValue(element, grid, row1, column);
+		Object value2 = this.getCellValue(element, grid, row2, column);
+		return IItemGridsProvider.defaultCompareValues(value1, type1, value2, type2, ascending);
 	}
 	
 	/**
@@ -210,18 +205,9 @@ public interface IItemGridsProvider {
 	default int compareColumn(Object element, Object grid, Object column1, Object column2, Object row, boolean ascending) {
 		int type1 = this.getCellType(element, grid, row, column1);
 		int type2 = this.getCellType(element, grid, row, column2);
-		if ( type1!=type2 ) {
-			return 0;
-		}
-		switch (type1) {
-		case CELL_TYPE_STRING:
-			String string1 = (String)this.getCellValue(element, grid, row, column1);
-			String string2 = (String)this.getCellValue(element, grid, row, column2);
-			int sense = ascending ? +1 : -1;
-			return sense *string1.compareTo(string2);
-		default:
-			return 0;
-		}
+		Object value1 = this.getCellValue(element, grid, row, column1);
+		Object value2 = this.getCellValue(element, grid, row, column2);
+		return IItemGridsProvider.defaultCompareValues(value1, type1, value2, type2, ascending);
 	}
 	
 
@@ -246,7 +232,15 @@ public interface IItemGridsProvider {
 	 * @return
 	 */
 	default int getCellType(Object element, Object grid, Object row, Object column) {
-		return CELL_TYPE_STRING;
+		Object value = this.getCellValue(element, grid, row, column);
+		if      ( value instanceof String )   { return CELL_TYPE_STRING; }
+		else if ( value instanceof Date )     { return CELL_TYPE_DATE; }
+		else if ( value instanceof Float )    { return CELL_TYPE_FLOAT; }
+		else if ( value instanceof Double )   { return CELL_TYPE_DOUBLE; }
+		else if ( value instanceof Integer )  { return CELL_TYPE_INT; }
+		else if ( value instanceof Long )     { return CELL_TYPE_LONG; }
+		else if ( value instanceof Boolean )  { return CELL_TYPE_BOOLEAN; }
+		return CELL_TYPE_UNKOWN;
 	}
 
 	/**
@@ -292,7 +286,9 @@ public interface IItemGridsProvider {
 		case CELL_TYPE_STRING: 
 			return HORIZONTAl_ALIGN_LEFT;
 		case CELL_TYPE_FLOAT:
+		case CELL_TYPE_DOUBLE:
 		case CELL_TYPE_INT:
+		case CELL_TYPE_LONG:
 			return HORIZONTAl_ALIGN_RIGHT;
 		default: 
 			return NO_ALIGN;
@@ -316,8 +312,10 @@ public interface IItemGridsProvider {
 		case CELL_TYPE_DATE: 
 			return "%1$tF %1$tT";
 		case CELL_TYPE_FLOAT:
+		case CELL_TYPE_DOUBLE:
 			return "%1$.2f";
 		case CELL_TYPE_INT:
+		case CELL_TYPE_LONG:
 			return "%1$d";
 		case CELL_TYPE_BOOLEAN:
 			return "%1$bd";
@@ -325,6 +323,42 @@ public interface IItemGridsProvider {
 			return null;
 		}
 	}
+
+	static int defaultCompareValues(Object value1, int type1, Object value2, int type2, boolean ascending) {
+		if ( type1!=type2 ) {
+			return 0;
+		}
+		int sense = ascending ? +1 : -1;
+		switch (type1) {
+		case CELL_TYPE_STRING:
+			String string1 = (String)value1;
+			String string2 = (String)value2;
+			return sense *string1.compareTo(string2);
+		case CELL_TYPE_DATE:
+			Date date1 = (Date)value1;
+			Date date2 = (Date)value2;
+			return sense *date1.compareTo(date2);
+		case CELL_TYPE_INT:
+			Integer int1 = (Integer)value1;
+			Integer int2 = (Integer)value2;
+			return sense *int1.compareTo(int2);
+		case CELL_TYPE_LONG:
+			Long long1 = (Long)value1;
+			Long long2 = (Long)value2;
+			return sense *long1.compareTo(long2);
+		case CELL_TYPE_FLOAT:
+			Float float1 = (Float)value1;
+			Float float2 = (Float)value2;
+			return sense *float1.compareTo(float2);
+		case CELL_TYPE_DOUBLE:
+			Double double1 = (Double)value1;
+			Double double2 = (Double)value2;
+			return sense *double1.compareTo(double2);
+		default:
+			return 0;
+		}
+	}
+
 }
 
 

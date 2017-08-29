@@ -93,7 +93,9 @@ public class GridViewer extends ContentViewer {
 		@Override
          public void widgetSelected(SelectionEvent e) {
 			this.grid.getViewerComparator().setColumn(this.columnIndex);
+			int direction = this.grid.getViewerComparator().isAcending() ? SWT.UP : SWT.DOWN;
 			this.column.getParent().setSortColumn(this.column);
+			this.column.getParent().setSortDirection(direction);
 			this.grid.getTableViewer().refresh();
          }
 	};
@@ -377,6 +379,7 @@ public class GridViewer extends ContentViewer {
 				TableColumn column = new TableColumn(viewer.getTable(),SWT.NONE);
 				column.setWidth(200);
 				column.addSelectionListener(new ColumnSelectionAdapter(grid, i, column));
+				column.setAlignment(provider.getColumnAlignment(i));
 			}
 		}
 		for ( int i = 0; i<nof_columns_tobe; i++) {

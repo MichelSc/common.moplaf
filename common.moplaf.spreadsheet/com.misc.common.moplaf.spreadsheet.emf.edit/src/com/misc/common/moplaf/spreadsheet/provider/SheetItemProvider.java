@@ -308,7 +308,12 @@ public class SheetItemProvider
 		Column sheetCol = (Column)column;
 		Row sheetRow = (Row)row;
 		Cell sheetCell = sheetRow.getCell(sheetCol);
-		return sheetCell == null ? null : sheetCell.getValueFormatted();
+		if ( sheetCell==null) { return null; }
+		switch ( sheetCell.getCellType()) {
+		case CELL_TYPE_NUMERIC: return sheetCell.getDoubleValue();
+		case CELL_TYPE_STRING:  return sheetCell.getStringValue();
+		default :               return sheetCell.getValueFormatted();
+		}
 	}
 
 }

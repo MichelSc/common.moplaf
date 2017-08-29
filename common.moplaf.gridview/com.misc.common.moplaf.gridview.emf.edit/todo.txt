@@ -1,6 +1,4 @@
 to dos:
-  implement row comparison (using provided comparison logic)
   implement sheet.frozen rows/columns
   implement doubles, dates, integers and booleans
-  implement alignment (or can we solve it with formats?)
   

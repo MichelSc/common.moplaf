@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableColorProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
@@ -80,8 +81,10 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			case IItemGridsProvider.CELL_TYPE_DATE: 
 				return String.format("%1$tF %1$tT", cellValue);
 			case IItemGridsProvider.CELL_TYPE_FLOAT:
+			case IItemGridsProvider.CELL_TYPE_DOUBLE:
 				return String.format("%1$.2f", cellValue);
 			case IItemGridsProvider.CELL_TYPE_INT:
+			case IItemGridsProvider.CELL_TYPE_LONG:
 				return String.format("%1$d", cellValue);
 			case IItemGridsProvider.CELL_TYPE_BOOLEAN:
 				return String.format("%1$b", cellValue);
@@ -239,6 +242,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			public abstract Color getForeground(TableRowProvider row);
 			public abstract Color getBackground(TableRowProvider row); 
 			public abstract int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending);
+			public abstract int getAlignemet();
 		};
 		private class TableColumnHeader extends TableColumnProvider {
 			public TableColumnHeader() {
@@ -266,8 +270,11 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			}
 			@Override
 			public int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending) {
-				// TODO Auto-generated method stub
 				return 0;
+			}
+			@Override
+			public int getAlignemet() {
+				return SWT.LEFT;
 			}
 		};
 		private class TableColumnData extends TableColumnProvider {
@@ -311,6 +318,20 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 												         row2.getRowObject(), 
 												         this.gridColumn,
 												         ascending);
+			}
+			@Override
+			public int getAlignemet() {
+				TableProvider table = TableProvider.this;
+				int nofRows = table.indexToRow.length;
+				if ( nofRows==0 ) { return SWT.LEFT; } 
+				TableRowProvider arbitrary_row = table.indexToRow[nofRows-1]; // last row is a better exemplar
+				int alignemnt = table.gridsProvider.getCellALignment(table.element, table.grid, arbitrary_row.getRowObject(), this.gridColumn);
+				switch ( alignemnt) {
+				case IItemGridsProvider.HORIZONTAl_ALIGN_LEFT: return SWT.LEFT;
+				case IItemGridsProvider.HORIZONTAl_ALIGN_CENTER: return SWT.CENTER;
+				case IItemGridsProvider.HORIZONTAl_ALIGN_RIGHT: return SWT.RIGHT;
+				}
+				return 0;
 			}
 		};
 		
@@ -464,6 +485,11 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		public String getColumnText(int columnIndex) {
 			TableColumnProvider column = this.indexToColumn[columnIndex];
 			return column.getText(null);
+		}
+
+		public int getColumnAlignment(int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getAlignemet();
 		}
 
 		@Override
