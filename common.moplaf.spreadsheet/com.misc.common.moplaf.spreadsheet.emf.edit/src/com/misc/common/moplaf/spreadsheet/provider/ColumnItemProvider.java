@@ -74,6 +74,7 @@ public class ColumnItemProvider
 			addSheetPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addColumnIndexPropertyDescriptor(object);
+			addFrozenPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -167,6 +168,28 @@ public class ColumnItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Frozen feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFrozenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_Frozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_Frozen_feature", "_UI_Column_type"),
+				 SpreadsheetPackage.Literals.COLUMN__FROZEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -234,6 +257,7 @@ public class ColumnItemProvider
 		switch (notification.getFeatureID(Column.class)) {
 			case SpreadsheetPackage.COLUMN__DESCRIPTION:
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
+			case SpreadsheetPackage.COLUMN__FROZEN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

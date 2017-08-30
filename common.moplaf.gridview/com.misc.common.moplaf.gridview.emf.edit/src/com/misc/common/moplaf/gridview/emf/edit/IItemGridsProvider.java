@@ -22,15 +22,16 @@ import java.util.Date;
  * will provide, when relevant
  * <ul>
  * <li> an element:Object: the object owning the grid(s) </li>
- * <li> a grid:Object: the grid for the owner element; the grid Object may be null if the object supports only one grid </li>
+ * <li> a grid:Object: an object identifying a grid for the owner element; 
+ * the grid Object may be null if the object supports only one grid </li>
  * <li> 
- * a column:Object: object representing the column. 
- * The object can be an actual object, or an Integer, if the no collection of Column Objects is provided (see further).
+ * a column:Object: an object identifying a column. 
+ * The object can be an actual Object, or an Integer, if the no collection of Column Objects is provided (see further).
  * In this latter case, the index is zero-based.
  *  </li>
  * <li> 
- * a row:Object: object representing the row. 
- * The object can be an actual object, or an Integer, if the no collection of Row Objects is provided (see further).
+ * a row:Object: an object identifying a row. 
+ * The object can be an actual Object, or an Integer, if the no collection of Row Objects is provided (see further).
  * In this latter case, the index is zero-based.
  *  </li>
  * </ul>
@@ -147,7 +148,7 @@ public interface IItemGridsProvider {
 	 * @param row1
 	 * @param row2
 	 * @param column
-	 * @param direction
+	 * @param ascending
 	 * @return
 	 */
 	default int compareRow(Object element, Object grid, Object row1, Object row2, Object column, boolean ascending) {
@@ -199,7 +200,7 @@ public interface IItemGridsProvider {
 	 * @param column1
 	 * @param column2
 	 * @param row
-	 * @param direction
+	 * @param ascending
 	 * @return
 	 */
 	default int compareColumn(Object element, Object grid, Object column1, Object column2, Object row, boolean ascending) {
@@ -318,7 +319,7 @@ public interface IItemGridsProvider {
 		case CELL_TYPE_LONG:
 			return "%1$d";
 		case CELL_TYPE_BOOLEAN:
-			return "%1$bd";
+			return "%1$b";
 		default:
 			return null;
 		}

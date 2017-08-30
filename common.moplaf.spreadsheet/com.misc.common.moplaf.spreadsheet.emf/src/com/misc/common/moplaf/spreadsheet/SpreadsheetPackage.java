@@ -306,13 +306,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW__ROW_INDEX = 3;
 
 	/**
+	 * The feature id for the '<em><b>Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__FROZEN = 4;
+
+	/**
 	 * The number of structural features of the '<em>Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_FEATURE_COUNT = 4;
+	int ROW_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -388,13 +397,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int COLUMN__COLUMN_INDEX = 3;
 
 	/**
+	 * The feature id for the '<em><b>Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__FROZEN = 4;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 4;
+	int COLUMN_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -776,6 +794,17 @@ public interface SpreadsheetPackage extends EPackage {
 	EAttribute getRow_RowIndex();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Row#isFrozen <em>Frozen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Row#isFrozen()
+	 * @see #getRow()
+	 * @generated
+	 */
+	EAttribute getRow_Frozen();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#getCell(int) <em>Get Cell</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -848,6 +877,17 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColumn_ColumnIndex();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Column#isFrozen <em>Frozen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Column#isFrozen()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Frozen();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Column#getCell(int) <em>Get Cell</em>}' operation.
@@ -1194,6 +1234,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EAttribute ROW__ROW_INDEX = eINSTANCE.getRow_RowIndex();
 
 		/**
+		 * The meta object literal for the '<em><b>Frozen</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROW__FROZEN = eINSTANCE.getRow_Frozen();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1250,6 +1298,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN__COLUMN_INDEX = eINSTANCE.getColumn_ColumnIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Frozen</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__FROZEN = eINSTANCE.getColumn_Frozen();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.

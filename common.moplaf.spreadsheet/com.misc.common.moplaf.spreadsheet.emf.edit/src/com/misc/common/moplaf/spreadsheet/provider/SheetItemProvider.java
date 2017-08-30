@@ -316,4 +316,44 @@ public class SheetItemProvider
 		}
 	}
 
+	@Override
+	public int compareRow(Object element, Object grid, Object row1, Object row2, Object column, boolean ascending) {
+		Row sheet_row_1 = (Row) row1;
+		Row sheet_row_2 = (Row) row2;
+		if ( !sheet_row_1.isFrozen() && !sheet_row_2.isFrozen() ) {
+			return IItemGridsProvider.super.compareRow(element, grid, row1, row2, column, ascending);
+		}
+		int index1 = sheet_row_1.getRowIndex();
+		int index2 = sheet_row_2.getRowIndex();
+        if ( index1 < index2 ) {
+			return -1;
+		} else if ( index1 == index2 ) {
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
+	@Override
+	public int compareColumn(Object element, Object grid, Object column1, Object column2, Object row,
+			boolean ascending) {
+		Column sheet_col_1 = (Column) column1;
+		Column sheet_col_2 = (Column) column2;
+		if ( !sheet_col_1.isFrozen() && !sheet_col_2.isFrozen() ) {
+			return IItemGridsProvider.super.compareRow(element, grid, column1, column2, row, ascending);
+		}
+		int index1 = sheet_col_1.getColumnIndex();
+		int index2 = sheet_col_2.getColumnIndex();
+        if ( index1 < index2 ) {
+			return -1;
+		} else if ( index1 == index2 ) {
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+	
+	
+	
+	
 }

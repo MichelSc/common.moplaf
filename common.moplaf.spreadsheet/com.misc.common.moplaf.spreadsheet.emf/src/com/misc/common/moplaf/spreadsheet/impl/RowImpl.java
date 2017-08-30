@@ -49,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getRowIndex <em>Row Index</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#isFrozen <em>Frozen</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,6 +94,26 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * @ordered
 	 */
 	protected int rowIndex = ROW_INDEX_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isFrozen() <em>Frozen</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFrozen()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FROZEN_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFrozen() <em>Frozen</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFrozen()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean frozen = FROZEN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,6 +220,27 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isFrozen() {
+		return frozen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrozen(boolean newFrozen) {
+		boolean oldFrozen = frozen;
+		frozen = newFrozen;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.ROW__FROZEN, oldFrozen, frozen));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(int columnindex) {
 		for ( Cell cell : this.getCells()){
@@ -282,6 +324,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return getDescription();
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				return getRowIndex();
+			case SpreadsheetPackage.ROW__FROZEN:
+				return isFrozen();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -305,6 +349,9 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				setRowIndex((Integer)newValue);
 				return;
+			case SpreadsheetPackage.ROW__FROZEN:
+				setFrozen((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -326,6 +373,9 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				setRowIndex(ROW_INDEX_EDEFAULT);
 				return;
+			case SpreadsheetPackage.ROW__FROZEN:
+				setFrozen(FROZEN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -346,6 +396,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				return rowIndex != ROW_INDEX_EDEFAULT;
+			case SpreadsheetPackage.ROW__FROZEN:
+				return frozen != FROZEN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -378,6 +430,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (RowIndex: ");
 		result.append(rowIndex);
+		result.append(", Frozen: ");
+		result.append(frozen);
 		result.append(')');
 		return result.toString();
 	}

@@ -327,7 +327,7 @@ public class GridViewer extends ContentViewer {
 				// create
 				// create the tab item
 				TabItem cTabItem1 = new TabItem(this.tabFolder, SWT.NONE);
-				TableViewer viewer = new TableViewer(this.tabFolder, SWT.VIRTUAL);
+				TableViewer viewer = new TableViewer(this.tabFolder, SWT.VIRTUAL | SWT.FULL_SELECTION);
 				viewer.addSelectionChangedListener(new TableSelectionListener());
 				cTabItem1.setControl(viewer.getControl());
 				viewer.setLabelProvider(grid_to_be);

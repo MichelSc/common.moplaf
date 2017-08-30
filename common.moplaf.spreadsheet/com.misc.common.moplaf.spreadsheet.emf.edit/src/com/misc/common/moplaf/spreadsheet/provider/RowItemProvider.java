@@ -76,6 +76,7 @@ public class RowItemProvider
 			addSheetPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addRowIndexPropertyDescriptor(object);
+			addFrozenPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -142,6 +143,28 @@ public class RowItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Frozen feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFrozenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Row_Frozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Row_Frozen_feature", "_UI_Row_type"),
+				 SpreadsheetPackage.Literals.ROW__FROZEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -214,6 +237,7 @@ public class RowItemProvider
 		switch (notification.getFeatureID(Row.class)) {
 			case SpreadsheetPackage.ROW__DESCRIPTION:
 			case SpreadsheetPackage.ROW__ROW_INDEX:
+			case SpreadsheetPackage.ROW__FROZEN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SpreadsheetPackage.ROW__CELLS:

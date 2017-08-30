@@ -639,12 +639,12 @@ public class TableItemProvider
 	}
 
 	@Override
-	public String getCellValue(Object element, Object grid, Object row, Object column) {
+	public Object getCellValue(Object element, Object grid, Object row, Object column) {
 		TableRow table_row = (TableRow)row;
 		TableColumn table_column = (TableColumn)column;
 		EAttribute attribute = table_column.getRowAttribute();
 		Object value = table_row.eGet(attribute);
-		return value.toString();
+		return value;
 	}
 
 }
