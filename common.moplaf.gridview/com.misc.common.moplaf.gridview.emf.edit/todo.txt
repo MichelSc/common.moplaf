@@ -1,4 +1,3 @@
 to dos:
-  implement sheet.frozen rows/columns
-  implement doubles, dates, integers and booleans
+  fix Comparison method violates its general contract!
   
