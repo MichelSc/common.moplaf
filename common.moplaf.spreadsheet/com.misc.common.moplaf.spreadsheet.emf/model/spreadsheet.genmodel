@@ -48,6 +48,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Sheet"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Row/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Row/RowIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Row/Frozen"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell">
         <genParameters ecoreParameter="spreadsheet.ecore#//Row/getCell/columnindex"/>
       </genOperations>
@@ -61,6 +62,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Column/Sheet"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/ColumnIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/Frozen"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Column/getCell">
         <genParameters ecoreParameter="spreadsheet.ecore#//Column/getCell/rowindex"/>
       </genOperations>
