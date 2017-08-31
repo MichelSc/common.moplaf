@@ -79,39 +79,38 @@ public class AdapterFactoryContentProviderExtended extends
 		// create property editor
 		public CellEditor createPropertyEditor(Composite composite) {
 		   EStructuralFeature eFeature = (EStructuralFeature)itemPropertyDescriptor.getFeature(object);
+		   EObject eObject = (EObject)object;
+		   Object value = eObject.eGet(eFeature);
 		   EClassifier eType = eFeature.getEType();
 		   if ( eType instanceof EDataType){
 			   EDataType eDataType = (EDataType) eType;
 			   if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == Date.class ){
-			  	  	return editDate(composite, object, eFeature);
+			  	  	return editDate(composite, (Date)value);
 			   }  // if class is Date and feature is selected as Date
 			   else if ( AdapterFactoryContentProviderExtended.this.editDateTimes.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == Date.class ){
-			  	  	return editDateTime(composite, object, eFeature);
+			  	  	return editDateTime(composite, (Date)value);
 			   }  // if class is Date and feature is selected as DateTime
 			   else if ( AdapterFactoryContentProviderExtended.this.editTimes.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == float.class ){
-			  	  	return editTime(composite, object, eFeature);
+			  	  	return editTime(composite, (Float)value);
 			   }  // if class is float and feature is selected as time
 			   else if ( AdapterFactoryContentProviderExtended.this.editFilePaths.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == String.class ){
-			  	  	return editFilePath(composite, object, eFeature);
+			  	  	return editFilePath(composite, (String) value);
 			   }  // if class is String and feature is selected as file path
 			   else if ( AdapterFactoryContentProviderExtended.this.editColors.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == int.class ){
-			  	  	return editColor(composite, object, eFeature);
+			  	  	return editColor(composite, (Integer)value);
 			   }  // if class is String and feature is selected as file path
 		   }
 		   return super.createPropertyEditor(composite);
 		}  // create property editor
 
 		// Edit a field FilePath as String
-		CellEditor editFilePath(Composite composite, Object object, EStructuralFeature feature){
-			EObject eObject = (EObject)object;
-	    	final String filePathAsIs= (String)eObject.eGet(feature);
-	    	//final Path filePath = Paths.get(filePathAsIs);
-	    	//final String filePathAsString = filePath.getParent().toString();
+		CellEditor editFilePath(Composite composite, String path){
+	    	final String filePathAsIs= path;
 	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
 	            	protected Object openDialogBox(Control cellEditorWindow) {
 	                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.OPEN);
@@ -125,9 +124,8 @@ public class AdapterFactoryContentProviderExtended extends
 		}  // method EditDate
 		
 		// Edit a field Color as Integer
-		CellEditor editColor(Composite composite, Object object, EStructuralFeature feature){
-			EObject eObject = (EObject)object;
-	    	final int colorAsIs= (Integer)eObject.eGet(feature);
+		CellEditor editColor(Composite composite, Integer color){
+	    	final int colorAsIs= color;
 	    	final RGB rgbAsIs = Util.integerToRgb(colorAsIs);
 	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
 	            	protected Object openDialogBox(Control cellEditorWindow) {
@@ -145,11 +143,10 @@ public class AdapterFactoryContentProviderExtended extends
 		}  // method EditDate
 
 		// Edit a field EDate
-		CellEditor editDate(Composite composite, Object object, EStructuralFeature feature)
+		CellEditor editDate(Composite composite, Date date)
 		{
 	    	ExtendedDialogCellEditor result = null;
-			EObject eObject = (EObject)object;
-	    	final Date dateasis = (Date)eObject.eGet(feature);
+	    	final Date dateasis = date;
 	        result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
 	             protected Object openDialogBox(Control cellEditorWindow) {
 	                final DateTime dateTime[] = new DateTime[1];
@@ -196,10 +193,9 @@ public class AdapterFactoryContentProviderExtended extends
 		}  // method EditDate
 
 		// Edit a field EDateTime
-		CellEditor editDateTime(Composite composite, Object object, EStructuralFeature feature)		{
+		CellEditor editDateTime(Composite composite, Date value){
 	    	ExtendedDialogCellEditor result = null;
-			EObject eObject = (EObject)object;
-	    	final Date dateasis = (Date)eObject.eGet(feature);
+	    	final Date dateasis = value;
 	        result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
 	             protected Object openDialogBox(Control cellEditorWindow) {
 	                final DateTime dateTime[] = new DateTime[2];
@@ -262,11 +258,10 @@ public class AdapterFactoryContentProviderExtended extends
 		}  // method EditDateTime
 
 		// Edit a field Time as float
-		CellEditor editTime(Composite composite, Object object, EStructuralFeature feature)
+		CellEditor editTime(Composite composite, Float value)
 		{
 	    	CellEditor result = null;
-			EObject eObject = (EObject)object;
-	    	final Float timeasis = (Float)eObject.eGet(feature);  // in hours
+	    	final Float timeasis = value;  // in hours
 	        result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
 	             protected Object openDialogBox(Control cellEditorWindow) {
 	                final DateTime dateTime[] = new DateTime[1];
