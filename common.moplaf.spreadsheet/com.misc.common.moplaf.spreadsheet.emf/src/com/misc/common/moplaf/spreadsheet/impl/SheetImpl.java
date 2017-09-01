@@ -46,8 +46,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getSheetName <em>Sheet Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getSheetIndex <em>Sheet Index</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getSpreadsheet <em>Spreadsheet</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getTopColumnsFrozen <em>Top Columns Frozen</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getBottomColumnsFrozen <em>Bottom Columns Frozen</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getTopRowsFrozen <em>Top Rows Frozen</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getBottomRowsFrozen <em>Bottom Rows Frozen</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getLeftColumnsFrozen <em>Left Columns Frozen</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getRightColumnsFrozen <em>Right Columns Frozen</em>}</li>
  * </ul>
@@ -116,44 +116,44 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	protected int sheetIndex = SHEET_INDEX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTopColumnsFrozen() <em>Top Columns Frozen</em>}' attribute.
+	 * The default value of the '{@link #getTopRowsFrozen() <em>Top Rows Frozen</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopColumnsFrozen()
+	 * @see #getTopRowsFrozen()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int TOP_COLUMNS_FROZEN_EDEFAULT = 0;
+	protected static final int TOP_ROWS_FROZEN_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getTopColumnsFrozen() <em>Top Columns Frozen</em>}' attribute.
+	 * The cached value of the '{@link #getTopRowsFrozen() <em>Top Rows Frozen</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopColumnsFrozen()
+	 * @see #getTopRowsFrozen()
 	 * @generated
 	 * @ordered
 	 */
-	protected int topColumnsFrozen = TOP_COLUMNS_FROZEN_EDEFAULT;
+	protected int topRowsFrozen = TOP_ROWS_FROZEN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBottomColumnsFrozen() <em>Bottom Columns Frozen</em>}' attribute.
+	 * The default value of the '{@link #getBottomRowsFrozen() <em>Bottom Rows Frozen</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBottomColumnsFrozen()
+	 * @see #getBottomRowsFrozen()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int BOTTOM_COLUMNS_FROZEN_EDEFAULT = 0;
+	protected static final int BOTTOM_ROWS_FROZEN_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getBottomColumnsFrozen() <em>Bottom Columns Frozen</em>}' attribute.
+	 * The cached value of the '{@link #getBottomRowsFrozen() <em>Bottom Rows Frozen</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBottomColumnsFrozen()
+	 * @see #getBottomRowsFrozen()
 	 * @generated
 	 * @ordered
 	 */
-	protected int bottomColumnsFrozen = BOTTOM_COLUMNS_FROZEN_EDEFAULT;
+	protected int bottomRowsFrozen = BOTTOM_ROWS_FROZEN_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLeftColumnsFrozen() <em>Left Columns Frozen</em>}' attribute.
@@ -326,8 +326,8 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getTopColumnsFrozen() {
-		return topColumnsFrozen;
+	public int getTopRowsFrozen() {
+		return topRowsFrozen;
 	}
 
 	/**
@@ -335,11 +335,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTopColumnsFrozen(int newTopColumnsFrozen) {
-		int oldTopColumnsFrozen = topColumnsFrozen;
-		topColumnsFrozen = newTopColumnsFrozen;
+	public void setTopRowsFrozen(int newTopRowsFrozen) {
+		int oldTopRowsFrozen = topRowsFrozen;
+		topRowsFrozen = newTopRowsFrozen;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.SHEET__TOP_COLUMNS_FROZEN, oldTopColumnsFrozen, topColumnsFrozen));
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.SHEET__TOP_ROWS_FROZEN, oldTopRowsFrozen, topRowsFrozen));
 	}
 
 	/**
@@ -347,8 +347,8 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getBottomColumnsFrozen() {
-		return bottomColumnsFrozen;
+	public int getBottomRowsFrozen() {
+		return bottomRowsFrozen;
 	}
 
 	/**
@@ -356,11 +356,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBottomColumnsFrozen(int newBottomColumnsFrozen) {
-		int oldBottomColumnsFrozen = bottomColumnsFrozen;
-		bottomColumnsFrozen = newBottomColumnsFrozen;
+	public void setBottomRowsFrozen(int newBottomRowsFrozen) {
+		int oldBottomRowsFrozen = bottomRowsFrozen;
+		bottomRowsFrozen = newBottomRowsFrozen;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.SHEET__BOTTOM_COLUMNS_FROZEN, oldBottomColumnsFrozen, bottomColumnsFrozen));
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.SHEET__BOTTOM_ROWS_FROZEN, oldBottomRowsFrozen, bottomRowsFrozen));
 	}
 
 	/**
@@ -516,10 +516,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 				return getSheetIndex();
 			case SpreadsheetPackage.SHEET__SPREADSHEET:
 				return getSpreadsheet();
-			case SpreadsheetPackage.SHEET__TOP_COLUMNS_FROZEN:
-				return getTopColumnsFrozen();
-			case SpreadsheetPackage.SHEET__BOTTOM_COLUMNS_FROZEN:
-				return getBottomColumnsFrozen();
+			case SpreadsheetPackage.SHEET__TOP_ROWS_FROZEN:
+				return getTopRowsFrozen();
+			case SpreadsheetPackage.SHEET__BOTTOM_ROWS_FROZEN:
+				return getBottomRowsFrozen();
 			case SpreadsheetPackage.SHEET__LEFT_COLUMNS_FROZEN:
 				return getLeftColumnsFrozen();
 			case SpreadsheetPackage.SHEET__RIGHT_COLUMNS_FROZEN:
@@ -554,11 +554,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 			case SpreadsheetPackage.SHEET__SPREADSHEET:
 				setSpreadsheet((Spreadsheet)newValue);
 				return;
-			case SpreadsheetPackage.SHEET__TOP_COLUMNS_FROZEN:
-				setTopColumnsFrozen((Integer)newValue);
+			case SpreadsheetPackage.SHEET__TOP_ROWS_FROZEN:
+				setTopRowsFrozen((Integer)newValue);
 				return;
-			case SpreadsheetPackage.SHEET__BOTTOM_COLUMNS_FROZEN:
-				setBottomColumnsFrozen((Integer)newValue);
+			case SpreadsheetPackage.SHEET__BOTTOM_ROWS_FROZEN:
+				setBottomRowsFrozen((Integer)newValue);
 				return;
 			case SpreadsheetPackage.SHEET__LEFT_COLUMNS_FROZEN:
 				setLeftColumnsFrozen((Integer)newValue);
@@ -593,11 +593,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 			case SpreadsheetPackage.SHEET__SPREADSHEET:
 				setSpreadsheet((Spreadsheet)null);
 				return;
-			case SpreadsheetPackage.SHEET__TOP_COLUMNS_FROZEN:
-				setTopColumnsFrozen(TOP_COLUMNS_FROZEN_EDEFAULT);
+			case SpreadsheetPackage.SHEET__TOP_ROWS_FROZEN:
+				setTopRowsFrozen(TOP_ROWS_FROZEN_EDEFAULT);
 				return;
-			case SpreadsheetPackage.SHEET__BOTTOM_COLUMNS_FROZEN:
-				setBottomColumnsFrozen(BOTTOM_COLUMNS_FROZEN_EDEFAULT);
+			case SpreadsheetPackage.SHEET__BOTTOM_ROWS_FROZEN:
+				setBottomRowsFrozen(BOTTOM_ROWS_FROZEN_EDEFAULT);
 				return;
 			case SpreadsheetPackage.SHEET__LEFT_COLUMNS_FROZEN:
 				setLeftColumnsFrozen(LEFT_COLUMNS_FROZEN_EDEFAULT);
@@ -627,10 +627,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 				return sheetIndex != SHEET_INDEX_EDEFAULT;
 			case SpreadsheetPackage.SHEET__SPREADSHEET:
 				return getSpreadsheet() != null;
-			case SpreadsheetPackage.SHEET__TOP_COLUMNS_FROZEN:
-				return topColumnsFrozen != TOP_COLUMNS_FROZEN_EDEFAULT;
-			case SpreadsheetPackage.SHEET__BOTTOM_COLUMNS_FROZEN:
-				return bottomColumnsFrozen != BOTTOM_COLUMNS_FROZEN_EDEFAULT;
+			case SpreadsheetPackage.SHEET__TOP_ROWS_FROZEN:
+				return topRowsFrozen != TOP_ROWS_FROZEN_EDEFAULT;
+			case SpreadsheetPackage.SHEET__BOTTOM_ROWS_FROZEN:
+				return bottomRowsFrozen != BOTTOM_ROWS_FROZEN_EDEFAULT;
 			case SpreadsheetPackage.SHEET__LEFT_COLUMNS_FROZEN:
 				return leftColumnsFrozen != LEFT_COLUMNS_FROZEN_EDEFAULT;
 			case SpreadsheetPackage.SHEET__RIGHT_COLUMNS_FROZEN:
@@ -671,10 +671,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 		result.append(sheetName);
 		result.append(", SheetIndex: ");
 		result.append(sheetIndex);
-		result.append(", TopColumnsFrozen: ");
-		result.append(topColumnsFrozen);
-		result.append(", BottomColumnsFrozen: ");
-		result.append(bottomColumnsFrozen);
+		result.append(", TopRowsFrozen: ");
+		result.append(topRowsFrozen);
+		result.append(", BottomRowsFrozen: ");
+		result.append(bottomRowsFrozen);
 		result.append(", LeftColumnsFrozen: ");
 		result.append(leftColumnsFrozen);
 		result.append(", RightColumnsFrozen: ");

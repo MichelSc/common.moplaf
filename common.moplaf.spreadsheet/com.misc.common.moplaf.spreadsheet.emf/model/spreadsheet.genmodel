@@ -34,8 +34,9 @@
       <genFeatures createChild="false" propertyCategory="10 Sheet" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/SheetIndex"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Spreadsheet"/>
-      <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/TopColumnsFrozen"/>
-      <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/BottomColumnsFrozen"/>
+      <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/TopRowsFrozen"/>
+      <genFeatures createChild="false" propertyCategory="20 Frozen" propertyDescription=""
+          ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/BottomRowsFrozen"/>
       <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/LeftColumnsFrozen"/>
       <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/RightColumnsFrozen"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getColumn">

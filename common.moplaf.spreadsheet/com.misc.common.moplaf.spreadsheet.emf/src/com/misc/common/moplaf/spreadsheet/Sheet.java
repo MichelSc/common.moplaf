@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSheetName <em>Sheet Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSheetIndex <em>Sheet Index</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSpreadsheet <em>Spreadsheet</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen <em>Top Columns Frozen</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen <em>Bottom Columns Frozen</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopRowsFrozen <em>Top Rows Frozen</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomRowsFrozen <em>Bottom Rows Frozen</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getLeftColumnsFrozen <em>Left Columns Frozen</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getRightColumnsFrozen <em>Right Columns Frozen</em>}</li>
  * </ul>
@@ -158,56 +158,56 @@ public interface Sheet extends EObject {
 	void setSpreadsheet(Spreadsheet value);
 
 	/**
-	 * Returns the value of the '<em><b>Top Columns Frozen</b></em>' attribute.
+	 * Returns the value of the '<em><b>Top Rows Frozen</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Top Columns Frozen</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Top Rows Frozen</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Top Columns Frozen</em>' attribute.
-	 * @see #setTopColumnsFrozen(int)
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_TopColumnsFrozen()
+	 * @return the value of the '<em>Top Rows Frozen</em>' attribute.
+	 * @see #setTopRowsFrozen(int)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_TopRowsFrozen()
 	 * @model
 	 * @generated
 	 */
-	int getTopColumnsFrozen();
+	int getTopRowsFrozen();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen <em>Top Columns Frozen</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopRowsFrozen <em>Top Rows Frozen</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Top Columns Frozen</em>' attribute.
-	 * @see #getTopColumnsFrozen()
+	 * @param value the new value of the '<em>Top Rows Frozen</em>' attribute.
+	 * @see #getTopRowsFrozen()
 	 * @generated
 	 */
-	void setTopColumnsFrozen(int value);
+	void setTopRowsFrozen(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Bottom Columns Frozen</b></em>' attribute.
+	 * Returns the value of the '<em><b>Bottom Rows Frozen</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bottom Columns Frozen</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Bottom Rows Frozen</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bottom Columns Frozen</em>' attribute.
-	 * @see #setBottomColumnsFrozen(int)
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_BottomColumnsFrozen()
+	 * @return the value of the '<em>Bottom Rows Frozen</em>' attribute.
+	 * @see #setBottomRowsFrozen(int)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_BottomRowsFrozen()
 	 * @model
 	 * @generated
 	 */
-	int getBottomColumnsFrozen();
+	int getBottomRowsFrozen();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen <em>Bottom Columns Frozen</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomRowsFrozen <em>Bottom Rows Frozen</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bottom Columns Frozen</em>' attribute.
-	 * @see #getBottomColumnsFrozen()
+	 * @param value the new value of the '<em>Bottom Rows Frozen</em>' attribute.
+	 * @see #getBottomRowsFrozen()
 	 * @generated
 	 */
-	void setBottomColumnsFrozen(int value);
+	void setBottomRowsFrozen(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Left Columns Frozen</b></em>' attribute.

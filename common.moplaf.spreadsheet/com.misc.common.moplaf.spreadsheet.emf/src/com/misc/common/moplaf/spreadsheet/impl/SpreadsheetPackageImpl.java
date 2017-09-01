@@ -271,7 +271,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSheet_TopColumnsFrozen() {
+	public EAttribute getSheet_TopRowsFrozen() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -280,7 +280,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSheet_BottomColumnsFrozen() {
+	public EAttribute getSheet_BottomRowsFrozen() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -597,8 +597,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEAttribute(sheetEClass, SHEET__SHEET_NAME);
 		createEAttribute(sheetEClass, SHEET__SHEET_INDEX);
 		createEReference(sheetEClass, SHEET__SPREADSHEET);
-		createEAttribute(sheetEClass, SHEET__TOP_COLUMNS_FROZEN);
-		createEAttribute(sheetEClass, SHEET__BOTTOM_COLUMNS_FROZEN);
+		createEAttribute(sheetEClass, SHEET__TOP_ROWS_FROZEN);
+		createEAttribute(sheetEClass, SHEET__BOTTOM_ROWS_FROZEN);
 		createEAttribute(sheetEClass, SHEET__LEFT_COLUMNS_FROZEN);
 		createEAttribute(sheetEClass, SHEET__RIGHT_COLUMNS_FROZEN);
 		createEOperation(sheetEClass, SHEET___GET_COLUMN__INT);
@@ -687,8 +687,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEAttribute(getSheet_SheetName(), ecorePackage.getEString(), "SheetName", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSheet_SheetIndex(), ecorePackage.getEInt(), "SheetIndex", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSheet_Spreadsheet(), this.getSpreadsheet(), this.getSpreadsheet_Sheets(), "Spreadsheet", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSheet_TopColumnsFrozen(), ecorePackage.getEInt(), "TopColumnsFrozen", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSheet_BottomColumnsFrozen(), ecorePackage.getEInt(), "BottomColumnsFrozen", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSheet_TopRowsFrozen(), ecorePackage.getEInt(), "TopRowsFrozen", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSheet_BottomRowsFrozen(), ecorePackage.getEInt(), "BottomRowsFrozen", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSheet_LeftColumnsFrozen(), ecorePackage.getEInt(), "LeftColumnsFrozen", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSheet_RightColumnsFrozen(), ecorePackage.getEInt(), "RightColumnsFrozen", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

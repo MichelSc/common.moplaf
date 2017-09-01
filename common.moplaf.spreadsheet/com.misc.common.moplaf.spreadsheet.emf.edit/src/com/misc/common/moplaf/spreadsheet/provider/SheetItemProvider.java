@@ -78,8 +78,8 @@ public class SheetItemProvider
 			addSheetNamePropertyDescriptor(object);
 			addSheetIndexPropertyDescriptor(object);
 			addSpreadsheetPropertyDescriptor(object);
-			addTopColumnsFrozenPropertyDescriptor(object);
-			addBottomColumnsFrozenPropertyDescriptor(object);
+			addTopRowsFrozenPropertyDescriptor(object);
+			addBottomRowsFrozenPropertyDescriptor(object);
 			addLeftColumnsFrozenPropertyDescriptor(object);
 			addRightColumnsFrozenPropertyDescriptor(object);
 		}
@@ -153,19 +153,19 @@ public class SheetItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Top Columns Frozen feature.
+	 * This adds a property descriptor for the Top Rows Frozen feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTopColumnsFrozenPropertyDescriptor(Object object) {
+	protected void addTopRowsFrozenPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sheet_TopColumnsFrozen_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_TopColumnsFrozen_feature", "_UI_Sheet_type"),
-				 SpreadsheetPackage.Literals.SHEET__TOP_COLUMNS_FROZEN,
+				 getString("_UI_Sheet_TopRowsFrozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_TopRowsFrozen_feature", "_UI_Sheet_type"),
+				 SpreadsheetPackage.Literals.SHEET__TOP_ROWS_FROZEN,
 				 true,
 				 false,
 				 false,
@@ -175,19 +175,19 @@ public class SheetItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Bottom Columns Frozen feature.
+	 * This adds a property descriptor for the Bottom Rows Frozen feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBottomColumnsFrozenPropertyDescriptor(Object object) {
+	protected void addBottomRowsFrozenPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sheet_BottomColumnsFrozen_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_BottomColumnsFrozen_feature", "_UI_Sheet_type"),
-				 SpreadsheetPackage.Literals.SHEET__BOTTOM_COLUMNS_FROZEN,
+				 getString("_UI_Sheet_BottomRowsFrozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_BottomRowsFrozen_feature", "_UI_Sheet_type"),
+				 SpreadsheetPackage.Literals.SHEET__BOTTOM_ROWS_FROZEN,
 				 true,
 				 false,
 				 false,
@@ -309,8 +309,8 @@ public class SheetItemProvider
 		switch (notification.getFeatureID(Sheet.class)) {
 			case SpreadsheetPackage.SHEET__SHEET_NAME:
 			case SpreadsheetPackage.SHEET__SHEET_INDEX:
-			case SpreadsheetPackage.SHEET__TOP_COLUMNS_FROZEN:
-			case SpreadsheetPackage.SHEET__BOTTOM_COLUMNS_FROZEN:
+			case SpreadsheetPackage.SHEET__TOP_ROWS_FROZEN:
+			case SpreadsheetPackage.SHEET__BOTTOM_ROWS_FROZEN:
 			case SpreadsheetPackage.SHEET__LEFT_COLUMNS_FROZEN:
 			case SpreadsheetPackage.SHEET__RIGHT_COLUMNS_FROZEN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -419,10 +419,10 @@ public class SheetItemProvider
 		Row sheet_row_2 = (Row) row2;
 		int index1 = sheet_row_1.getRowIndex();
 		int index2 = sheet_row_2.getRowIndex();
-		if (   index1 >= sheet.getLeftColumnsFrozen()
-		&&     index1 < sheet.getColumns().size()-sheet.getRightColumnsFrozen()
-		&&     index2 >= sheet.getLeftColumnsFrozen()
-		&&     index2 < sheet.getColumns().size()-sheet.getRightColumnsFrozen()
+		if (   index1 >= sheet.getTopRowsFrozen()
+		&&     index1 < sheet.getRows().size()-sheet.getBottomRowsFrozen()
+		&&     index2 >= sheet.getTopRowsFrozen()
+		&&     index2 < sheet.getRows().size()-sheet.getBottomRowsFrozen()
 				) {
 			return IItemGridsProvider.super.compareRow(element, grid, row1, row2, column, ascending);
 		}
@@ -443,10 +443,10 @@ public class SheetItemProvider
 		Column sheet_col_2 = (Column) column2;
 		int index1 = sheet_col_1.getColumnIndex();
 		int index2 = sheet_col_2.getColumnIndex();
-		if (   index1 >= sheet.getTopColumnsFrozen()
-			&& index1 < sheet.getColumns().size()-sheet.getBottomColumnsFrozen()
-			&& index2 >= sheet.getTopColumnsFrozen()
-			&& index2 < sheet.getColumns().size()-sheet.getBottomColumnsFrozen()
+		if (   index1 >= sheet.getLeftColumnsFrozen()
+			&& index1 < sheet.getColumns().size()-sheet.getRightColumnsFrozen()
+			&& index2 >= sheet.getLeftColumnsFrozen()
+			&& index2 < sheet.getColumns().size()-sheet.getRightColumnsFrozen()
 			) {
 			return IItemGridsProvider.super.compareColumn(element, grid, column1, column2, row, ascending);
 		}

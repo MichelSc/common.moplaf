@@ -215,22 +215,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET__SPREADSHEET = 4;
 
 	/**
-	 * The feature id for the '<em><b>Top Columns Frozen</b></em>' attribute.
+	 * The feature id for the '<em><b>Top Rows Frozen</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET__TOP_COLUMNS_FROZEN = 5;
+	int SHEET__TOP_ROWS_FROZEN = 5;
 
 	/**
-	 * The feature id for the '<em><b>Bottom Columns Frozen</b></em>' attribute.
+	 * The feature id for the '<em><b>Bottom Rows Frozen</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET__BOTTOM_COLUMNS_FROZEN = 6;
+	int SHEET__BOTTOM_ROWS_FROZEN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Left Columns Frozen</b></em>' attribute.
@@ -728,26 +728,26 @@ public interface SpreadsheetPackage extends EPackage {
 	EReference getSheet_Spreadsheet();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen <em>Top Columns Frozen</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopRowsFrozen <em>Top Rows Frozen</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Top Columns Frozen</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen()
+	 * @return the meta object for the attribute '<em>Top Rows Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getTopRowsFrozen()
 	 * @see #getSheet()
 	 * @generated
 	 */
-	EAttribute getSheet_TopColumnsFrozen();
+	EAttribute getSheet_TopRowsFrozen();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen <em>Bottom Columns Frozen</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomRowsFrozen <em>Bottom Rows Frozen</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bottom Columns Frozen</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen()
+	 * @return the meta object for the attribute '<em>Bottom Rows Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getBottomRowsFrozen()
 	 * @see #getSheet()
 	 * @generated
 	 */
-	EAttribute getSheet_BottomColumnsFrozen();
+	EAttribute getSheet_BottomRowsFrozen();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getLeftColumnsFrozen <em>Left Columns Frozen</em>}'.
@@ -1208,20 +1208,20 @@ public interface SpreadsheetPackage extends EPackage {
 		EReference SHEET__SPREADSHEET = eINSTANCE.getSheet_Spreadsheet();
 
 		/**
-		 * The meta object literal for the '<em><b>Top Columns Frozen</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Top Rows Frozen</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SHEET__TOP_COLUMNS_FROZEN = eINSTANCE.getSheet_TopColumnsFrozen();
+		EAttribute SHEET__TOP_ROWS_FROZEN = eINSTANCE.getSheet_TopRowsFrozen();
 
 		/**
-		 * The meta object literal for the '<em><b>Bottom Columns Frozen</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Bottom Rows Frozen</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SHEET__BOTTOM_COLUMNS_FROZEN = eINSTANCE.getSheet_BottomColumnsFrozen();
+		EAttribute SHEET__BOTTOM_ROWS_FROZEN = eINSTANCE.getSheet_BottomRowsFrozen();
 
 		/**
 		 * The meta object literal for the '<em><b>Left Columns Frozen</b></em>' attribute feature.
