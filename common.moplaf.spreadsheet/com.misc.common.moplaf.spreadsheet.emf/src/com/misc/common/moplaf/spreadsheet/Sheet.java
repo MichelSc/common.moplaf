@@ -30,6 +30,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSheetName <em>Sheet Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSheetIndex <em>Sheet Index</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSpreadsheet <em>Spreadsheet</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen <em>Top Columns Frozen</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen <em>Bottom Columns Frozen</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getLeftColumnsFrozen <em>Left Columns Frozen</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getRightColumnsFrozen <em>Right Columns Frozen</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet()
@@ -152,6 +156,110 @@ public interface Sheet extends EObject {
 	 * @generated
 	 */
 	void setSpreadsheet(Spreadsheet value);
+
+	/**
+	 * Returns the value of the '<em><b>Top Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Top Columns Frozen</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Top Columns Frozen</em>' attribute.
+	 * @see #setTopColumnsFrozen(int)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_TopColumnsFrozen()
+	 * @model
+	 * @generated
+	 */
+	int getTopColumnsFrozen();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen <em>Top Columns Frozen</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Top Columns Frozen</em>' attribute.
+	 * @see #getTopColumnsFrozen()
+	 * @generated
+	 */
+	void setTopColumnsFrozen(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Bottom Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bottom Columns Frozen</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bottom Columns Frozen</em>' attribute.
+	 * @see #setBottomColumnsFrozen(int)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_BottomColumnsFrozen()
+	 * @model
+	 * @generated
+	 */
+	int getBottomColumnsFrozen();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen <em>Bottom Columns Frozen</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bottom Columns Frozen</em>' attribute.
+	 * @see #getBottomColumnsFrozen()
+	 * @generated
+	 */
+	void setBottomColumnsFrozen(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Left Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Left Columns Frozen</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Left Columns Frozen</em>' attribute.
+	 * @see #setLeftColumnsFrozen(int)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_LeftColumnsFrozen()
+	 * @model
+	 * @generated
+	 */
+	int getLeftColumnsFrozen();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getLeftColumnsFrozen <em>Left Columns Frozen</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Left Columns Frozen</em>' attribute.
+	 * @see #getLeftColumnsFrozen()
+	 * @generated
+	 */
+	void setLeftColumnsFrozen(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Right Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Right Columns Frozen</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Right Columns Frozen</em>' attribute.
+	 * @see #setRightColumnsFrozen(int)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_RightColumnsFrozen()
+	 * @model
+	 * @generated
+	 */
+	int getRightColumnsFrozen();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRightColumnsFrozen <em>Right Columns Frozen</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Right Columns Frozen</em>' attribute.
+	 * @see #getRightColumnsFrozen()
+	 * @generated
+	 */
+	void setRightColumnsFrozen(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

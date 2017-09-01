@@ -78,6 +78,10 @@ public class SheetItemProvider
 			addSheetNamePropertyDescriptor(object);
 			addSheetIndexPropertyDescriptor(object);
 			addSpreadsheetPropertyDescriptor(object);
+			addTopColumnsFrozenPropertyDescriptor(object);
+			addBottomColumnsFrozenPropertyDescriptor(object);
+			addLeftColumnsFrozenPropertyDescriptor(object);
+			addRightColumnsFrozenPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,7 +104,7 @@ public class SheetItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10SheetPropertyCategory"),
 				 null));
 	}
 
@@ -122,7 +126,7 @@ public class SheetItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10SheetPropertyCategory"),
 				 null));
 	}
 
@@ -140,11 +144,99 @@ public class SheetItemProvider
 				 getString("_UI_Sheet_Spreadsheet_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_Spreadsheet_feature", "_UI_Sheet_type"),
 				 SpreadsheetPackage.Literals.SHEET__SPREADSHEET,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Top Columns Frozen feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTopColumnsFrozenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sheet_TopColumnsFrozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_TopColumnsFrozen_feature", "_UI_Sheet_type"),
+				 SpreadsheetPackage.Literals.SHEET__TOP_COLUMNS_FROZEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20FrozenPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Bottom Columns Frozen feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBottomColumnsFrozenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sheet_BottomColumnsFrozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_BottomColumnsFrozen_feature", "_UI_Sheet_type"),
+				 SpreadsheetPackage.Literals.SHEET__BOTTOM_COLUMNS_FROZEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20FrozenPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Left Columns Frozen feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLeftColumnsFrozenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sheet_LeftColumnsFrozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_LeftColumnsFrozen_feature", "_UI_Sheet_type"),
+				 SpreadsheetPackage.Literals.SHEET__LEFT_COLUMNS_FROZEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20FrozenPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Right Columns Frozen feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRightColumnsFrozenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sheet_RightColumnsFrozen_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_RightColumnsFrozen_feature", "_UI_Sheet_type"),
+				 SpreadsheetPackage.Literals.SHEET__RIGHT_COLUMNS_FROZEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20FrozenPropertyCategory"),
 				 null));
 	}
 
@@ -217,6 +309,10 @@ public class SheetItemProvider
 		switch (notification.getFeatureID(Sheet.class)) {
 			case SpreadsheetPackage.SHEET__SHEET_NAME:
 			case SpreadsheetPackage.SHEET__SHEET_INDEX:
+			case SpreadsheetPackage.SHEET__TOP_COLUMNS_FROZEN:
+			case SpreadsheetPackage.SHEET__BOTTOM_COLUMNS_FROZEN:
+			case SpreadsheetPackage.SHEET__LEFT_COLUMNS_FROZEN:
+			case SpreadsheetPackage.SHEET__RIGHT_COLUMNS_FROZEN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SpreadsheetPackage.SHEET__ROWS:
@@ -318,13 +414,18 @@ public class SheetItemProvider
 
 	@Override
 	public int compareRow(Object element, Object grid, Object row1, Object row2, Object column, boolean ascending) {
+		Sheet sheet = (Sheet) element;
 		Row sheet_row_1 = (Row) row1;
 		Row sheet_row_2 = (Row) row2;
-		if ( !sheet_row_1.isFrozen() && !sheet_row_2.isFrozen() ) {
-			return IItemGridsProvider.super.compareRow(element, grid, row1, row2, column, ascending);
-		}
 		int index1 = sheet_row_1.getRowIndex();
 		int index2 = sheet_row_2.getRowIndex();
+		if (   index1 >= sheet.getLeftColumnsFrozen()
+		&&     index1 < sheet.getColumns().size()-sheet.getRightColumnsFrozen()
+		&&     index2 >= sheet.getLeftColumnsFrozen()
+		&&     index2 < sheet.getColumns().size()-sheet.getRightColumnsFrozen()
+				) {
+			return IItemGridsProvider.super.compareRow(element, grid, row1, row2, column, ascending);
+		}
         if ( index1 < index2 ) {
 			return -1;
 		} else if ( index1 == index2 ) {
@@ -337,13 +438,18 @@ public class SheetItemProvider
 	@Override
 	public int compareColumn(Object element, Object grid, Object column1, Object column2, Object row,
 			boolean ascending) {
+		Sheet sheet = (Sheet) element;
 		Column sheet_col_1 = (Column) column1;
 		Column sheet_col_2 = (Column) column2;
-		if ( !sheet_col_1.isFrozen() && !sheet_col_2.isFrozen() ) {
-			return IItemGridsProvider.super.compareRow(element, grid, column1, column2, row, ascending);
-		}
 		int index1 = sheet_col_1.getColumnIndex();
 		int index2 = sheet_col_2.getColumnIndex();
+		if (   index1 >= sheet.getTopColumnsFrozen()
+			&& index1 < sheet.getColumns().size()-sheet.getBottomColumnsFrozen()
+			&& index2 >= sheet.getTopColumnsFrozen()
+			&& index2 < sheet.getColumns().size()-sheet.getBottomColumnsFrozen()
+			) {
+			return IItemGridsProvider.super.compareColumn(element, grid, column1, column2, row, ascending);
+		}
         if ( index1 < index2 ) {
 			return -1;
 		} else if ( index1 == index2 ) {

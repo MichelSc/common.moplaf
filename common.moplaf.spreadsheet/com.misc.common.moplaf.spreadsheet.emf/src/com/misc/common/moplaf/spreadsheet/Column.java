@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#getColumnIndex <em>Column Index</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#isFrozen <em>Frozen</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getColumn()
@@ -123,32 +122,6 @@ public interface Column extends EObject {
 	 * @generated
 	 */
 	void setColumnIndex(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Frozen</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Frozen</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Frozen</em>' attribute.
-	 * @see #setFrozen(boolean)
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getColumn_Frozen()
-	 * @model
-	 * @generated
-	 */
-	boolean isFrozen();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Column#isFrozen <em>Frozen</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Frozen</em>' attribute.
-	 * @see #isFrozen()
-	 * @generated
-	 */
-	void setFrozen(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

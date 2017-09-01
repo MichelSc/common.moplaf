@@ -49,7 +49,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getColumnIndex <em>Column Index</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#isFrozen <em>Frozen</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,26 +93,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * @ordered
 	 */
 	protected int columnIndex = COLUMN_INDEX_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isFrozen() <em>Frozen</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFrozen()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean FROZEN_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isFrozen() <em>Frozen</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFrozen()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean frozen = FROZEN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -220,27 +199,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isFrozen() {
-		return frozen;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFrozen(boolean newFrozen) {
-		boolean oldFrozen = frozen;
-		frozen = newFrozen;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.COLUMN__FROZEN, oldFrozen, frozen));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(int rowindex) {
 		for ( Cell cell : this.getCells()){
@@ -324,8 +282,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				return getDescription();
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				return getColumnIndex();
-			case SpreadsheetPackage.COLUMN__FROZEN:
-				return isFrozen();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -349,9 +305,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				setColumnIndex((Integer)newValue);
 				return;
-			case SpreadsheetPackage.COLUMN__FROZEN:
-				setFrozen((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -373,9 +326,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				setColumnIndex(COLUMN_INDEX_EDEFAULT);
 				return;
-			case SpreadsheetPackage.COLUMN__FROZEN:
-				setFrozen(FROZEN_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -396,8 +346,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				return columnIndex != COLUMN_INDEX_EDEFAULT;
-			case SpreadsheetPackage.COLUMN__FROZEN:
-				return frozen != FROZEN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -430,8 +378,6 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ColumnIndex: ");
 		result.append(columnIndex);
-		result.append(", Frozen: ");
-		result.append(frozen);
 		result.append(')');
 		return result.toString();
 	}

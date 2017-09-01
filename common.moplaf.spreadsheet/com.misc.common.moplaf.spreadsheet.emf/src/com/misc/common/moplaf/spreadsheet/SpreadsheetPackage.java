@@ -215,13 +215,49 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET__SPREADSHEET = 4;
 
 	/**
+	 * The feature id for the '<em><b>Top Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET__TOP_COLUMNS_FROZEN = 5;
+
+	/**
+	 * The feature id for the '<em><b>Bottom Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET__BOTTOM_COLUMNS_FROZEN = 6;
+
+	/**
+	 * The feature id for the '<em><b>Left Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET__LEFT_COLUMNS_FROZEN = 7;
+
+	/**
+	 * The feature id for the '<em><b>Right Columns Frozen</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET__RIGHT_COLUMNS_FROZEN = 8;
+
+	/**
 	 * The number of structural features of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_FEATURE_COUNT = 5;
+	int SHEET_FEATURE_COUNT = 9;
 
 	/**
 	 * The operation id for the '<em>Get Column</em>' operation.
@@ -306,22 +342,13 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW__ROW_INDEX = 3;
 
 	/**
-	 * The feature id for the '<em><b>Frozen</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROW__FROZEN = 4;
-
-	/**
 	 * The number of structural features of the '<em>Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_FEATURE_COUNT = 5;
+	int ROW_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -397,22 +424,13 @@ public interface SpreadsheetPackage extends EPackage {
 	int COLUMN__COLUMN_INDEX = 3;
 
 	/**
-	 * The feature id for the '<em><b>Frozen</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN__FROZEN = 4;
-
-	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 5;
+	int COLUMN_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -710,6 +728,50 @@ public interface SpreadsheetPackage extends EPackage {
 	EReference getSheet_Spreadsheet();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen <em>Top Columns Frozen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Top Columns Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getTopColumnsFrozen()
+	 * @see #getSheet()
+	 * @generated
+	 */
+	EAttribute getSheet_TopColumnsFrozen();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen <em>Bottom Columns Frozen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bottom Columns Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getBottomColumnsFrozen()
+	 * @see #getSheet()
+	 * @generated
+	 */
+	EAttribute getSheet_BottomColumnsFrozen();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getLeftColumnsFrozen <em>Left Columns Frozen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Left Columns Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getLeftColumnsFrozen()
+	 * @see #getSheet()
+	 * @generated
+	 */
+	EAttribute getSheet_LeftColumnsFrozen();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRightColumnsFrozen <em>Right Columns Frozen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Right Columns Frozen</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getRightColumnsFrozen()
+	 * @see #getSheet()
+	 * @generated
+	 */
+	EAttribute getSheet_RightColumnsFrozen();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumn(int) <em>Get Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -794,17 +856,6 @@ public interface SpreadsheetPackage extends EPackage {
 	EAttribute getRow_RowIndex();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Row#isFrozen <em>Frozen</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Frozen</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Row#isFrozen()
-	 * @see #getRow()
-	 * @generated
-	 */
-	EAttribute getRow_Frozen();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#getCell(int) <em>Get Cell</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -877,17 +928,6 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColumn_ColumnIndex();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Column#isFrozen <em>Frozen</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Frozen</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Column#isFrozen()
-	 * @see #getColumn()
-	 * @generated
-	 */
-	EAttribute getColumn_Frozen();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Column#getCell(int) <em>Get Cell</em>}' operation.
@@ -1168,6 +1208,38 @@ public interface SpreadsheetPackage extends EPackage {
 		EReference SHEET__SPREADSHEET = eINSTANCE.getSheet_Spreadsheet();
 
 		/**
+		 * The meta object literal for the '<em><b>Top Columns Frozen</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHEET__TOP_COLUMNS_FROZEN = eINSTANCE.getSheet_TopColumnsFrozen();
+
+		/**
+		 * The meta object literal for the '<em><b>Bottom Columns Frozen</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHEET__BOTTOM_COLUMNS_FROZEN = eINSTANCE.getSheet_BottomColumnsFrozen();
+
+		/**
+		 * The meta object literal for the '<em><b>Left Columns Frozen</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHEET__LEFT_COLUMNS_FROZEN = eINSTANCE.getSheet_LeftColumnsFrozen();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Columns Frozen</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SHEET__RIGHT_COLUMNS_FROZEN = eINSTANCE.getSheet_RightColumnsFrozen();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Column</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1234,14 +1306,6 @@ public interface SpreadsheetPackage extends EPackage {
 		EAttribute ROW__ROW_INDEX = eINSTANCE.getRow_RowIndex();
 
 		/**
-		 * The meta object literal for the '<em><b>Frozen</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROW__FROZEN = eINSTANCE.getRow_Frozen();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1298,14 +1362,6 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN__COLUMN_INDEX = eINSTANCE.getColumn_ColumnIndex();
-
-		/**
-		 * The meta object literal for the '<em><b>Frozen</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COLUMN__FROZEN = eINSTANCE.getColumn_Frozen();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.
