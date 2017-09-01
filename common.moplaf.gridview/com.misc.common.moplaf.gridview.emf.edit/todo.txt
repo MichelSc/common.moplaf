@@ -2,4 +2,5 @@ to dos:
   fix Comparison method violates its general contract!
   support for cell edition
   test/implement display images
+  implement context menu
   

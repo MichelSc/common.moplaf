@@ -25,9 +25,6 @@ public class Util {
 	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
 	 * by inserting them before the specified contribution item <code>contributionID</code>.
 	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public static void populateManager(IContributionManager manager, Collection<? extends IAction> actions, String contributionID) {
 		if (actions != null) {
