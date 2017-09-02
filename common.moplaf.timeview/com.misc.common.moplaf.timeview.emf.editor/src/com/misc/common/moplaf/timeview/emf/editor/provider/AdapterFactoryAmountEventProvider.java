@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.misc.common.moplaf.timeview.emf.editor.provider;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -20,9 +21,6 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.timeview.IAmountEventProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsMomentsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 /**
@@ -101,16 +99,7 @@ public class AdapterFactoryAmountEventProvider extends AdapterFactoryArrayConten
 	
 
 	private TimePlotProvider createTimePlotProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsProvider provider){
-		if ( provider instanceof IItemTimePlotsEventsProvider){
-			return new TimePlotEventsProvider(nativeObject,timePlotKey,(IItemTimePlotsEventsProvider)provider);
-		}
-		else if ( provider instanceof IItemTimePlotsMomentsProvider){
-			return new TimePlotMomentsProvider(nativeObject,timePlotKey,(IItemTimePlotsMomentsProvider)provider);
-		}
-		else if ( provider instanceof IItemTimePlotsEventsMomentsProvider){
-			return new TimePlotEventsMomentsProvider(nativeObject,timePlotKey,(IItemTimePlotsEventsMomentsProvider)provider);
-		}
-		return null;
+		return new TimePlotEventsMomentsProvider(nativeObject,timePlotKey,provider);
 	}
 
 	
@@ -167,79 +156,12 @@ public class AdapterFactoryAmountEventProvider extends AdapterFactoryArrayConten
 		public abstract float getEventAmount(Object event);
 	};
 	
-	private class TimePlotEventsProvider extends TimePlotProvider {
-		private IItemTimePlotsEventsProvider timePlotsEventsProvider;
-
-		/**
-		 * 
-		 * @param nativeObject
-		 * @param timePlotKey
-		 */
-		public TimePlotEventsProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsEventsProvider timePlotsProvider) {
-			super(nativeObject, timePlotKey, timePlotsProvider);
-			this.timePlotsEventsProvider = timePlotsProvider;
-		}
-
-		public Object[] getAmountEvents() {
-			return this.timePlotsEventsProvider.getEvents(this.element, this.timePlot).toArray();
-		}
-		
-		@Override
-		public Date getEventMoment(Object event){
-			return timePlotsEventsProvider.getMoment(this.element, this.timePlot, event);
-		}
-		@Override
-		public float getEventAmount(Object event){
-			float scale = timePlotsEventsProvider.getScale(this.element, this.timePlot);
-			float amount = timePlotsEventsProvider.getAmount(this.element, this.timePlot, event);
-			return scale*amount;
-		}
-	};
-	
-		/**
-		 * 
-		 * @param nativeObject
-		 * @param timePlot
-		 */
-	private class TimePlotMomentsProvider extends TimePlotProvider {
-		protected IItemTimePlotsMomentsProvider timePlotsMomentsProvider;
-
-		TimePlotMomentsProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsMomentsProvider timePlotsProvider) {
-			super(nativeObject, timePlotKey, timePlotsProvider);
-			this.timePlotsMomentsProvider = timePlotsProvider;
-		}
-	
-		public Object[] getAmountEvents() {
-			int moments = this.timePlotsMomentsProvider.getMoments(this.element, this.timePlot);
-			Integer[] events = new Integer[moments];
-			for (int moment=0; moment<moments; moment++){
-				events[moment] = moment;
-			}
-			return events;
-		}
-		
-		@Override
-		public Date getEventMoment(Object event){
-			Integer moment = (Integer)event;
-			Date eventMoment = this.timePlotsMomentsProvider.getMoment(this.element,  this.timePlot, moment);
-			return eventMoment;
-		}
-
-		@Override
-		public float getEventAmount(Object event){
-			Integer moment = (Integer)event;
-			float eventAmount = this.timePlotsMomentsProvider.getAmount(this.element,  this.timePlot, moment);
-			return eventAmount;
-		}
-	}
-	
 	private class TimePlotEventsMomentsProvider extends TimePlotProvider {
-		private IItemTimePlotsEventsMomentsProvider timePlotsEventsMomentsProvider;
 		
 		private class EventMoment {
 			private Object event;
-			private int moment;
-			public EventMoment(Object event, int moment) {
+			private Object moment;
+			public EventMoment(Object event, Object moment) {
 				super();
 				this.event = event;
 				this.moment = moment;
@@ -251,36 +173,51 @@ public class AdapterFactoryAmountEventProvider extends AdapterFactoryArrayConten
 		 * @param nativeObject
 		 * @param timePlotKey
 		 */
-		public TimePlotEventsMomentsProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsEventsMomentsProvider timePlotsProvider) {
+		public TimePlotEventsMomentsProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsProvider timePlotsProvider) {
 			super(nativeObject, timePlotKey, timePlotsProvider);
-			this.timePlotsEventsMomentsProvider = timePlotsProvider;
 		}
 
 		public Object[] getAmountEvents() {
-			 Collection<?> events = this.timePlotsEventsMomentsProvider.getEventsMoments(this.element, this.timePlot);
-			 ArrayList<EventMoment> eventsMoments = new ArrayList<EventMoment>();
+			 Collection<?> events = this.timePlotsProvider.getEvents(this.element, this.timePlot);
+			 if ( events==null) {
+				 ArrayList<Integer> eventsAsNumbers= new ArrayList<Integer>();
+				 int nrEvents = this.timePlotsProvider.getNrEvents(this.element, this.timePlot);
+				 for(int i=0; i>nrEvents; i++) {
+					 eventsAsNumbers.add(i);
+				 }
+				 events = eventsAsNumbers;
+			 }
+			 ArrayList<EventMoment> eventMoments = new ArrayList<EventMoment>();
 			 Iterator<?> eventIterator = events.iterator();
 			 while ( eventIterator.hasNext()){
 				 Object event = eventIterator.next();
-				 int moments = this.timePlotsEventsMomentsProvider.getMoments(this.element, this.timePlot, event);
-				 for ( int moment = 0; moment<moments; moment++){
-					 EventMoment eventMoment = new EventMoment(event, moment);
-					 eventsMoments.add(eventMoment);
-				 }
+				 Collection<?>  moments = this.timePlotsProvider.getMoments(this.element, this.timePlot, event);
+				 if ( moments==null) {
+					 int nrMoments = this.timePlotsProvider.getNrMoments(this.element, this.timePlot, event);
+					 for ( int moment = 0; moment<nrMoments; moment++){
+						 EventMoment eventMoment = new EventMoment(event, moment);
+						 eventMoments.add(eventMoment);
+					 }
+				 } else {
+					for (  Object moment : moments){
+						 EventMoment eventMoment = new EventMoment(event, moment);
+						 eventMoments.add(eventMoment);
+					 }
+				 } 
 			 }
-			return eventsMoments.toArray();
+			return eventMoments.toArray();
 		}
 		
 		@Override
 		public Date getEventMoment(Object event){
 			EventMoment eventMoment = (EventMoment) event;
-			Date moment = this.timePlotsEventsMomentsProvider.getMoment(this.element, this.timePlot, eventMoment.event, eventMoment.moment);
+			Date moment = this.timePlotsProvider.getMoment(this.element, this.timePlot, eventMoment.event, eventMoment.moment);
 			return moment;
 		}
 		@Override
 		public float getEventAmount(Object event){
 			EventMoment eventMoment = (EventMoment) event;
-			float amount = this.timePlotsEventsMomentsProvider.getAmount(this.element, this.timePlot, eventMoment.event, eventMoment.moment);
+			float amount = this.timePlotsProvider.getAmount(this.element, this.timePlot, eventMoment.event, eventMoment.moment);
 			return amount;
 		}
 	}

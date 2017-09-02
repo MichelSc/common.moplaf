@@ -18,7 +18,7 @@ import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRouting;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,11 +37,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPRouting} object.
  * <!-- begin-user-doc -->
- * @implements IItemTimePlotsEventsMomentsProvider
+ * @implements IItemTimePlotsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class LPRoutingItemProvider extends LPTimeLineItemProvider  implements IItemTimePlotsEventsMomentsProvider {
+public class LPRoutingItemProvider extends LPTimeLineItemProvider  implements IItemTimePlotsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -253,20 +253,21 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider  implements II
 	}
 
 	@Override
-	public Collection<?> getEventsMoments(Object element, Object timeplot) {
+	public Collection<?> getEvents(Object element, Object timeplot) {
 		LPRouting routing = (LPRouting) element;
 		return routing.getBuckets();
 	}
 
 	@Override
-	public int getMoments(Object element, Object timeplot, Object event) {
+	public int getNrMoments(Object element, Object timeplot, Object event) {
 		return 2;
 	}
 
 	@Override
-	public Date getMoment(Object element, Object timeplot, Object event, int moment) {
+	public Date getMoment(Object element, Object timeplot, Object event, Object moment) {
 		LPRoutingBucket productbucket = (LPRoutingBucket)event;
-		switch ( moment )
+		Integer moment_index = (Integer)moment;
+		switch ( moment_index )
 		{
 		case 0: 
 			return productbucket.getBucket().getBucketStart();
@@ -277,9 +278,10 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider  implements II
 	}
 
 	@Override
-	public float getAmount(Object element, Object timeplot, Object event, int moment) {
+	public float getAmount(Object element, Object timeplot, Object event, Object moment) {
 		RoutingTimePlot the_timeplot = (RoutingTimePlot)timeplot;
 		LPRoutingBucket productbucket = (LPRoutingBucket)event;
-		return the_timeplot.getEventAmount(productbucket, moment);
+		Integer moment_index = (Integer)moment;
+		return the_timeplot.getEventAmount(productbucket, moment_index);
 	}
 }
