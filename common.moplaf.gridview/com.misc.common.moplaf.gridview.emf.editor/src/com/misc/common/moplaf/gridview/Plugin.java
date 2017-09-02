@@ -1,6 +1,5 @@
-import java.util.Properties;
+package com.misc.common.moplaf.gridview;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -24,10 +23,10 @@ public class Plugin extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		
-		Properties props = System.getProperties();
-		props.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
-		
-		CommonPlugin.INSTANCE.log("Plugin com.misc.common.moplaf.gridview.emf.editor: set system properties java.util.Arrays.useLegacyMergeSort to true");
+//		Properties props = System.getProperties();
+//		props.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
+//		
+//		CommonPlugin.INSTANCE.log("Plugin com.misc.common.moplaf.gridview.emf.editor: set system properties java.util.Arrays.useLegacyMergeSort to true");
 	}
 
 	/*

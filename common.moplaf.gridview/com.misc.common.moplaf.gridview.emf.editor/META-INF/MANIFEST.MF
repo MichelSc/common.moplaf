@@ -10,5 +10,5 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.gridview.emf.edit,
  com.misc.common.moplaf.emf.editor;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Activator: Plugin
+Bundle-Activator: com.misc.common.moplaf.gridview.Plugin
 Bundle-ActivationPolicy: lazy

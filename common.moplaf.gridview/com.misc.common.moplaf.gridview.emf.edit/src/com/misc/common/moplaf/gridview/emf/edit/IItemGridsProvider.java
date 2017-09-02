@@ -326,10 +326,12 @@ public interface IItemGridsProvider {
 	}
 
 	static int defaultCompareValues(Object value1, int type1, Object value2, int type2, boolean ascending) {
-		if ( type1!=type2 ) {
-			return 0;
-		}
 		int sense = ascending ? +1 : -1;
+		if ( type1<type2 ) { 
+			return sense; 
+		} else if ( type1>type2) {
+			return -sense; 
+		}
 		switch (type1) {
 		case CELL_TYPE_STRING:
 			String string1 = (String)value1;
