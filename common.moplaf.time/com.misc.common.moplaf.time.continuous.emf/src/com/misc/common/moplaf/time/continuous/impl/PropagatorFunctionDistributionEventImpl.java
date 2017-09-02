@@ -14,6 +14,7 @@ package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionEvent;
 
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
@@ -109,5 +110,12 @@ public class PropagatorFunctionDistributionEventImpl extends PropagatorFunctionB
 		}
 		return super.eIsSet(featureID);
 	}
+
+	@Override
+	public String getFactoryID() {
+		return PropagatorFunctionDistribution.PropagatorFunctionFactoryID;
+	}
+	
+	
 
 } //PropagatorFunctionDistributionEventImpl

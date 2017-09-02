@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
+import com.misc.common.moplaf.propagator2.PropagatorPackage;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter;
@@ -452,6 +453,7 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		isInited = true;
 
 		// Initialize simple dependencies
+		PropagatorPackage.eINSTANCE.eClass();
 		TimeContinuousPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects

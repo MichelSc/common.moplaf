@@ -586,6 +586,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_SCOPE_DISTRIBUTION__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_SCOPE_DISTRIBUTION__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -631,6 +640,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_SCOPE_DISTRIBUTION___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_SCOPE_DISTRIBUTION___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -655,7 +673,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -664,7 +682,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -673,7 +691,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -683,6 +701,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_SCOPE_DISTRIBUTION___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -728,6 +755,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_SCOPE_DISTRIBUTION___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_SCOPE_DISTRIBUTION___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -865,6 +901,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -919,6 +964,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -943,7 +997,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -952,7 +1006,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -961,7 +1015,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -971,6 +1025,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -1016,6 +1079,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -1153,6 +1225,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1216,6 +1297,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1240,7 +1330,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -1249,7 +1339,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -1258,7 +1348,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -1268,6 +1358,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -1313,6 +1412,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -1450,6 +1558,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1504,6 +1621,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1528,7 +1654,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -1537,7 +1663,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -1546,7 +1672,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -1556,6 +1682,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -1601,6 +1736,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -1738,6 +1882,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1810,6 +1963,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1834,7 +1996,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -1843,7 +2005,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -1852,7 +2014,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -1862,6 +2024,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -1907,6 +2078,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -2044,6 +2224,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2107,6 +2296,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2131,7 +2329,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -2140,7 +2338,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -2149,7 +2347,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -2159,6 +2357,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -2204,6 +2411,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -2341,6 +2557,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2404,6 +2629,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2428,7 +2662,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -2437,7 +2671,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -2446,7 +2680,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -2456,6 +2690,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -2501,6 +2744,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -2638,6 +2890,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2701,6 +2962,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2725,7 +2995,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -2734,7 +3004,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -2743,7 +3013,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -2753,6 +3023,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -2798,6 +3077,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -2945,6 +3233,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2999,6 +3296,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3023,7 +3329,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -3032,7 +3338,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -3041,7 +3347,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -3051,6 +3357,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -3096,6 +3411,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -3233,6 +3557,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3287,6 +3620,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___RESET = PROPAGATOR_CALC_EVENT_AMOUNT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3311,7 +3653,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -3320,7 +3662,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -3329,7 +3671,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -3339,6 +3681,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -3384,6 +3735,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -3521,6 +3881,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3575,6 +3944,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___RESET = PROPAGATOR_CALC_EVENT_AMOUNT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3599,7 +3977,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -3608,7 +3986,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -3617,7 +3995,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -3627,6 +4005,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -3672,6 +4059,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -3809,6 +4205,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3863,6 +4268,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___RESET = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3887,7 +4301,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -3896,7 +4310,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -3905,7 +4319,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -3915,6 +4329,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -3960,6 +4383,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -4097,6 +4529,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE__DESCRIPTION = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE__TOUCHED_PARENT = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4151,6 +4592,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___DISABLE = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___RESET = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4175,7 +4625,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -4184,7 +4634,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH_THIS = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -4193,7 +4643,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -4203,6 +4653,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___REFRESH__REFRESHER = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -4248,6 +4707,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___GET_SCOPE = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___GET_FACTORY_ID = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -4385,6 +4853,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4439,6 +4916,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_MOMENT___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_MOMENT___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4463,7 +4949,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -4472,7 +4958,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -4481,7 +4967,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -4491,6 +4977,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -4536,6 +5031,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -4683,6 +5187,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4737,6 +5250,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4761,7 +5283,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -4770,7 +5292,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -4779,7 +5301,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -4789,6 +5311,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -4834,6 +5365,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -4971,6 +5511,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5025,6 +5574,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___RESET = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5049,7 +5607,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -5058,7 +5616,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -5067,7 +5625,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -5077,6 +5635,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -5122,6 +5689,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -5259,6 +5835,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5313,6 +5898,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___RESET = PROPAGATOR_CALC_EVENT_AMOUNT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5337,7 +5931,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -5346,7 +5940,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -5355,7 +5949,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -5365,6 +5959,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -5410,6 +6013,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -5547,6 +6159,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5601,6 +6222,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___DISABLE = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___RESET = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5625,7 +6255,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -5634,7 +6264,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -5643,7 +6273,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -5653,6 +6283,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -5698,6 +6337,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -5845,6 +6493,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5899,6 +6556,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5923,7 +6589,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -5932,7 +6598,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -5941,7 +6607,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -5951,6 +6617,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -5996,6 +6671,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -6133,6 +6817,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6187,6 +6880,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___DISABLE = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___RESET = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6211,7 +6913,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -6220,7 +6922,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -6229,7 +6931,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -6239,6 +6941,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -6284,6 +6995,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -6421,6 +7141,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6475,6 +7204,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6499,7 +7237,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -6508,7 +7246,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -6517,7 +7255,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -6527,6 +7265,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -6572,6 +7319,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -6709,6 +7465,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6763,6 +7528,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___DISABLE = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___RESET = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6787,7 +7561,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -6796,7 +7570,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -6805,7 +7579,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -6815,6 +7589,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -6860,6 +7643,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -6997,6 +7789,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7051,6 +7852,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7075,7 +7885,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -7084,7 +7894,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -7093,7 +7903,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7103,6 +7913,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -7148,6 +7967,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -7285,6 +8113,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7339,6 +8176,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___RESET = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7363,7 +8209,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -7372,7 +8218,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -7381,7 +8227,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7391,6 +8237,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -7436,6 +8291,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -7573,6 +8437,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7627,6 +8500,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7651,7 +8533,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -7660,7 +8542,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -7669,7 +8551,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7679,6 +8561,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -7724,6 +8615,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -7871,6 +8771,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7925,6 +8834,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7949,7 +8867,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -7958,7 +8876,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -7967,7 +8885,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7977,6 +8895,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -8022,6 +8949,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -8159,6 +9095,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8213,6 +9158,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___RESET = PROPAGATOR_CALC_EVENT_SLOPE___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8237,7 +9191,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -8246,7 +9200,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -8255,7 +9209,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -8265,6 +9219,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -8310,6 +9273,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -8447,6 +9419,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8501,6 +9482,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___RESET = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8525,7 +9515,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -8534,7 +9524,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -8543,7 +9533,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -8553,6 +9543,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -8598,6 +9597,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -8735,6 +9743,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_END_EVENT_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_END_EVENT_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8789,6 +9806,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_END_EVENT_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_END_EVENT_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8813,7 +9839,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -8822,7 +9848,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -8831,7 +9857,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -8841,6 +9867,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_END_EVENT_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -8886,6 +9921,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_END_EVENT_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_END_EVENT_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -9023,6 +10067,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9077,6 +10130,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___RESET = PROPAGATOR_CALC_EVENT_AMOUNT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9101,7 +10163,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -9110,7 +10172,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -9119,7 +10181,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -9129,6 +10191,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -9174,6 +10245,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -9311,6 +10391,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9365,6 +10454,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___RESET = PROPAGATOR_CALC_EVENT_SLOPE___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9389,7 +10487,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -9398,7 +10496,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -9407,7 +10505,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -9417,6 +10515,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -9462,6 +10569,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -9599,6 +10715,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS__TOUCHED_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Events Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9653,6 +10778,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___RESET = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9677,7 +10811,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH_ANTECEDENTS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -9686,7 +10820,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_THIS;
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -9695,7 +10829,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH_CHILDREN_AND_THIS__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -9705,6 +10839,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___REFRESH__REFRESHER = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -9750,6 +10893,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___GET_FACTORY_ID = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -9897,6 +11049,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9951,6 +11112,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9975,7 +11145,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -9984,7 +11154,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -9993,7 +11163,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -10003,6 +11173,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -10048,6 +11227,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -10185,6 +11373,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10239,6 +11436,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___RESET = PROPAGATOR_CALC_EVENT_SLOPE___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10263,7 +11469,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -10272,7 +11478,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -10281,7 +11487,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -10291,6 +11497,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -10336,6 +11551,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -10473,6 +11697,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE__DESCRIPTION = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE__TOUCHED_PARENT = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10527,6 +11760,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___DISABLE = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___RESET = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10551,7 +11793,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -10560,7 +11802,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH_THIS = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -10569,7 +11811,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -10579,6 +11821,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___REFRESH__REFRESHER = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -10624,6 +11875,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___GET_SCOPE = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___GET_FACTORY_ID = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -10761,6 +12021,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10815,6 +12084,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___RESET = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10839,7 +12117,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -10848,7 +12126,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -10857,7 +12135,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -10867,6 +12145,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -10912,6 +12199,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -11059,6 +12355,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11113,6 +12418,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11137,7 +12451,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -11146,7 +12460,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -11155,7 +12469,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -11165,6 +12479,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -11210,6 +12533,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -11347,6 +12679,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11401,6 +12742,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___RESET = PROPAGATOR_CALC_EVENT_SLOPE___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11425,7 +12775,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -11434,7 +12784,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -11443,7 +12793,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -11453,6 +12803,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -11498,6 +12857,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -11635,6 +13003,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11689,6 +13066,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___DISABLE = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___RESET = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11713,7 +13099,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -11722,7 +13108,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -11731,7 +13117,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -11741,6 +13127,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -11786,6 +13181,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -11923,6 +13327,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11977,6 +13390,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___RESET = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12001,7 +13423,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -12010,7 +13432,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -12019,7 +13441,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -12029,6 +13451,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -12074,6 +13505,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -12211,6 +13651,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12265,6 +13714,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___RESET = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12289,7 +13747,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -12298,7 +13756,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -12307,7 +13765,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -12317,6 +13775,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -12362,6 +13829,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -12499,6 +13975,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12553,6 +14038,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12577,7 +14071,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -12586,7 +14080,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -12595,7 +14089,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -12605,6 +14099,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -12650,6 +14153,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -12787,6 +14299,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER__DESCRIPTION = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12841,6 +14362,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___DISABLE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___RESET = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12865,7 +14395,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -12874,7 +14404,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS;
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -12883,7 +14413,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -12893,6 +14423,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -12938,6 +14477,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___GET_SCOPE = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -13075,6 +14623,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13129,6 +14686,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13153,7 +14719,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -13162,7 +14728,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -13171,7 +14737,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -13181,6 +14747,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -13226,6 +14801,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -13363,6 +14947,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13417,6 +15010,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___DISABLE = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___RESET = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13441,7 +15043,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -13450,7 +15052,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -13459,7 +15061,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -13469,6 +15071,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -13514,6 +15125,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -13651,6 +15271,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT__DESCRIPTION = PROPAGATOR_CALC_EVENT_MOMENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT__TOUCHED_PARENT = PROPAGATOR_CALC_EVENT_MOMENT__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13705,6 +15334,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___DISABLE = PROPAGATOR_CALC_EVENT_MOMENT___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___RESET = PROPAGATOR_CALC_EVENT_MOMENT___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13729,7 +15367,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -13738,7 +15376,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -13747,7 +15385,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -13757,6 +15395,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___REFRESH__REFRESHER = PROPAGATOR_CALC_EVENT_MOMENT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -13802,6 +15449,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___GET_SCOPE = PROPAGATOR_CALC_EVENT_MOMENT___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___GET_FACTORY_ID = PROPAGATOR_CALC_EVENT_MOMENT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -13939,6 +15595,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION__DESCRIPTION = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION__TOUCHED_PARENT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13993,6 +15658,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___DISABLE = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___RESET = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14017,7 +15691,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH_ANTECEDENTS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -14026,7 +15700,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH_THIS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -14035,7 +15709,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -14045,6 +15719,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___REFRESH__REFRESHER = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -14090,6 +15773,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___GET_SCOPE = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___GET_FACTORY_ID = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.

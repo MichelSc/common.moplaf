@@ -45,5 +45,7 @@ public interface PropagatorFunctionDistribution extends PropagatorFunctionBindin
 	 * @generated
 	 */
 	Distribution getDistribution();
+	
+	public static String PropagatorFunctionFactoryID = "com.misc.common.moplaf.time.continuous.calc.factory";
 
 } // PropagatorFunctionDistribution

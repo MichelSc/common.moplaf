@@ -217,6 +217,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int DISTRIBUTION___GET_PROPAGATOR_FUNCTION__ECLASS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___ADD_PROPAGATOR_FUNCTIONS__STRING = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Duration</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -605,6 +614,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -847,6 +865,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int OWNED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS = DISTRIBUTION_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -1100,6 +1127,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS = OWNED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING = OWNED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -1364,6 +1400,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int START_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS = OWNED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING = OWNED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1606,6 +1651,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int END_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS = OWNED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING = OWNED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -1859,6 +1913,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS = DISTRIBUTION_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -2121,6 +2184,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -2394,6 +2466,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2665,6 +2746,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2934,6 +3024,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -3216,6 +3315,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_START___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3494,6 +3602,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPACITY_CHANGE_END___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -3776,6 +3893,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int STOCK_CHANGE_START___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4054,6 +4180,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_END___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -4336,6 +4471,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4614,6 +4758,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_IMPULSION_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -4896,6 +5049,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_ABSOLUTE___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5176,6 +5338,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_ABSOLUTE___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5330,6 +5501,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int EVENTS_PROVIDER_ABSTRACT___GET_PROPAGATOR_FUNCTION__ECLASS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTIONS__STRING = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5410,6 +5590,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int EVENTS_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENTS_PROVIDER_ABSTRACT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
@@ -5539,6 +5728,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int STOCK_CHANGE___GET_PROPAGATOR_FUNCTION__ECLASS = EVENTS_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5666,6 +5864,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE___GET_PROPAGATOR_FUNCTION__ECLASS = EVENTS_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5755,6 +5962,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENTS_PROVIDER_ABSTRACT___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
@@ -5866,6 +6082,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5973,6 +6198,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
@@ -6084,6 +6318,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6191,6 +6434,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_ABSOLUTE_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
@@ -6329,6 +6581,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6374,6 +6635,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___RESET = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6398,7 +6668,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -6407,7 +6677,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -6416,7 +6686,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -6426,6 +6696,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -6471,6 +6750,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -6618,6 +6906,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DESCRIPTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6663,6 +6960,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DISABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___RESET = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6687,7 +6993,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -6696,7 +7002,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -6705,7 +7011,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -6715,6 +7021,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -6760,6 +7075,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_SCOPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_FACTORY_ID = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -6907,6 +7231,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__DESCRIPTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Events Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6952,6 +7285,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DISABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DISABLE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___RESET = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___RESET;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6976,7 +7318,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_ANTECEDENTS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -6985,7 +7327,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_THIS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -6994,7 +7336,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_CHILDREN_AND_THIS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7004,6 +7346,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -7049,6 +7400,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_SCOPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_FACTORY_ID = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.

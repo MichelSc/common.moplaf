@@ -110,4 +110,8 @@ public class PropagatorFunctionDistributionImpl extends PropagatorFunctionBindin
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public String getFactoryID() {
+		return PropagatorFunctionDistribution.PropagatorFunctionFactoryID;
+	}
 } //PropagatorFunctionDistributionImpl

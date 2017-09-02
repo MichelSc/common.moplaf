@@ -13,7 +13,6 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.propagator2.PropagatorPackage;
 import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
@@ -21,7 +20,7 @@ import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.TimeUnit;
-import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,13 +40,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.Distribution} object.
  * <!-- begin-user-doc -->
- * @implements IItemTimePlotsEventsMomentsProvider
+ * @implements IItemTimePlotsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class DistributionItemProvider
 	extends ObjectWithPropagatorFunctionsItemProvider
-	implements	IItemTimePlotsEventsMomentsProvider {
+	implements	IItemTimePlotsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -357,21 +356,6 @@ public class DistributionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
-				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
-				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistributionEvent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
-				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionEventsProvider()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
 				 TimeContinuousFactory.eINSTANCE.createStockChange()));
 
@@ -477,26 +461,27 @@ public class DistributionItemProvider
 	}
 
 	@Override
-	public Collection<?> getEventsMoments(Object element, Object timeplot) {
+	public Collection<?> getEvents(Object element, Object timeplot) {
 		Distribution distribution = (Distribution) element;
 		return distribution.getSequenceEvents();
 	}
 
 	@Override
-	public int getMoments(Object element, Object timeplot, Object event) {
+	public int getNrMoments(Object element, Object timeplot, Object event) {
 		return 2; // 2 moments at the same time but with different amounts: amountBefore and amountAfter
 	}
 
 	@Override
-	public Date getMoment(Object element, Object timeplot, Object event, int moment) {
+	public Date getMoment(Object element, Object timeplot, Object event, Object moment) {
 		DistributionEvent distributionEvent = (DistributionEvent) event;
 		return distributionEvent.getMoment();
 	}
 
 	@Override
-	public float getAmount(Object element, Object timeplot, Object event, int moment) {
+	public float getAmount(Object element, Object timeplot, Object event, Object moment) {
 		DistributionEvent distributionEvent = (DistributionEvent) event;
-		switch ( moment )
+		Integer moment_index = (Integer)moment;
+		switch ( moment_index )
 		{
 		case 0: 
 			return distributionEvent.getAmountBefore();

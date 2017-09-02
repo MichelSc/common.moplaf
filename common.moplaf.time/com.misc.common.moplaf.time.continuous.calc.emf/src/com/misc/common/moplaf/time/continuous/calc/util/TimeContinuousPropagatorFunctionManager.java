@@ -17,6 +17,7 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructors;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsFactory;
 import com.misc.common.moplaf.time.continuous.Distribution;
+import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
@@ -42,7 +43,7 @@ public class TimeContinuousPropagatorFunctionManager extends PropagatorFunctionM
 		 }
 	}
 
-	public static PropagatorFunctionsFactory constructor = PropagatorFunctionsFactory.constructPropagatorFunctionsFactory();
+	public static PropagatorFunctionsFactory constructor = PropagatorFunctionsFactory.constructPropagatorFunctionsFactory(PropagatorFunctionDistribution.PropagatorFunctionFactoryID);
 
 	static PropagatorFunctionsConstructors distributionPropagatorFunctionsConstructors = 
 			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.DISTRIBUTION) 
