@@ -1,8 +1,10 @@
 package com.misc.common.moplaf.gridview.emf.edit.util;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 
 public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridview.emf.edit.util.GridColumnsProvider.ColumnDelegate> {
 	
@@ -12,27 +14,34 @@ public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridv
 	private static final long serialVersionUID = 1L;
 
 	public interface ColumnDelegate {
-		Object getCellValue(Object element, Object grid, Object row);
-		String getColumnText(Object element, Object grid);
+		Object getCellValue(Object row);
+		String getColumnText();
 	}
 	
 	private class ColumnFeature implements ColumnDelegate{
 		
+		private LinkedList<EReference> path;
 		private EAttribute attribute;
 		
-		public ColumnFeature(EAttribute attribute) {
+		public ColumnFeature(LinkedList<EReference> path, EAttribute attribute) {
+			this.path = (LinkedList<EReference>) path.clone();
 			this.attribute = attribute;
 		}
 
 		@Override
-		public Object getCellValue(Object element, Object grid, Object row) {
+		public Object getCellValue(Object row) {
 			EObject object = (EObject)row;
+			Iterator<EReference> iterator = this.path.iterator();
+			while ( iterator.hasNext() && object!=null) {
+				object  = (EObject) object.eGet(iterator.next());
+			}
+			if ( object == null ) { return null; }
 			return object.eGet(this.attribute);
 		}
 
 		@Override
-		public String getColumnText(Object element, Object grid) {
-			return this.attribute.getName();
+		public String getColumnText() {
+			return attribute.getName();
 		}
 		
 	}
@@ -51,8 +60,19 @@ public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridv
 	/*
 	 * Convenience method for adding an attribute column
 	 */
-	public GridColumnsProvider addAttribute(EAttribute attribute) {
-		this.add(new ColumnFeature(attribute));
+	public GridColumnsProvider addColumn(EAttribute attribute) {
+		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path 
+		this.add(new ColumnFeature(path, attribute));
+		return this;
+	}
+
+	/*
+	 * Convenience method for adding an path/attribute column
+	 */
+	public GridColumnsProvider addColumn(EReference reference, EAttribute attribute) {
+		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
+		path.add(reference);
+		this.add(new ColumnFeature(path, attribute));
 		return this;
 	}
 
