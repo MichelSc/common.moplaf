@@ -11,34 +11,35 @@
 package com.misc.common.moplaf.timeview.emf.edit;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * <p>
- * This interface declare the method(s) to be supported by an object that supports a 
- * collections of time intervals, for instance to be displayed in a Gantt chart.
+ * This interface declares the method(s) to be supported by an object that publishes a 
+ * collections of time lines, for instance to be displayed in a Gantt chart.
  * <p>
  * The consumer (i.e. the component using the TimeLine data, typically a gantt component)
  * will provide, when relevant
  * <ul>
  * <li> an element: Object: the object owning the time lines </li>
  * <li> a timeLine: Object: the time line for the owner element </li>
- * <li> an event: Object: the interval event for the time line and the owner element </li>
+ * <li> an event: Object: the event for the time line and the owner element </li>
+ * <li> an interval: Object: a time interval of an event for the time line and the owner element </li>
  * </ul>
  * in order to get
  * <ul>
  * <li> the timeLines supported by the element </li>
  * <li> the events belonging to a timeLine of an element </li>
- * <li> the start and end moments, the text and color of an event of a timeLine of an element </li>
+ * <li> the intervals of the events: an interval provides start and end moments, the text and color of an event of a timeLine of an element </li>
  * </ul>
  * <p>
- * An element of the TimeLine, so a pair (start, end), is identified, either by an event object, or by a interval index, or by both.
- * Three specializations of this interface are defined for providing the events of a TimeLine:
- * <ul>
- * <li> {@link IItemTimeLinesEventsProvider}: object based, provides a collections of event objects, with for every event, a start and an end</li>
- * <li> {@link IItemTimeLinesIntervalsProvider}: index based, provides number of intervals, with for every interval index, a start and an end</li>
- * <li> {@link IItemTimeLinesEventsIntervalsProvider}: object and index based, provides a collection of event objects, with for every event a number
- *  of interval indexes, and for every interval index of an event object, a start and an end</li>
- * </ul>
+ * An interval of the TimeLine, so a pair (start, end), is identified by an event and by an interval. 
+ * <p>
+ * The events of a timeline can be provided either by a collection or by a number.
+ * According to the case, the event is identified , either by an event object of the collection or by an Integer.
+ * <p>
+ * The intervals of an event can be provided either by a collection or by a number.
+ * According to the case, the interval is identified , either by an interval object of the collection or by an Integer.
  * <p>
  * To implement this interface by an {@link ItemProviderAdapter}, in the concrete class, do the following 
  * <ul>
@@ -46,15 +47,10 @@ import java.util.Collection;
  *   <li>regenerate the code</li>
  *   <li>add the unimplemented methods</li>
  *   <li>implement the interface methods</li>
- *   <li>override {@link #isAdapterForType(Object)} and return true when the type is SomeInterface (apparently not)</li>
  * </ul> 
  * In the project's ProviderAdapterFactory, 
  * <ul>
- *   <li>you must to change the method {@link #isFactoryForType}</li>
- *   <li>or add the following lines in the constructors
- *     <ul>
  *     <li>	<code>supportedTypes.add(IItemTimeLinesProvider.class); // moplaf interface </code></li>
- *     </ul>
  * </ul> 
  * In the plugin.xml,  
  * <ul>
@@ -65,8 +61,132 @@ import java.util.Collection;
  */
 
 public interface IItemTimeLinesProvider {
-	Collection<?> getTimeLines(Object element);
-	String getText(Object element, Object timeline);
+	
+	/**
+	 * Return the timelines provides by the element. 
+	 * <p>
+	 * The method may return no collection. In that case, one timeline with timeline object null will be expecteed.
+	 * @param element
+	 * @return
+	 */
+	default Collection<?> getTimeLines(Object element){
+		return null;
+	}
+	
+	/**
+	 * Return the text of a timeline.
+	 * @param element
+	 * @param timeline
+	 * @return
+	 */
+	default String getText(Object element, Object timeline) {
+		return "";
+	}
+	
+	/**
+	 * Return the events of a timeline. 
+	 * <p>
+	 * No collection may be returned. In that case, the consumer will call {@link #getNrEvents(Object, Object)}
+	 * to get the number of events and the events will be identified by an Integer 0-based index.
+	 * @param element
+	 * @param timeline
+	 * @return
+	 */
+	default Collection<?> getEvents(Object element, Object timeline){
+		return null;
+	}
+
+	/** 
+	 * Return the number of events
+	 * <p>
+	 * This method will be ignored when {@link #getEvents(Object, Object)} returns a collection.
+	 * @param element
+	 * @param timeline
+	 * @return
+	 */
+	default int getNrEvents(Object element, Object timeline){
+		return 1;
+	}
+	
+	/**
+	 * Return the intervals of an event of a timeline. 
+	 * <p>
+	 * No collection may be returned. In that case, the consumer will call {@link #getNrIntervals(Object, Object, Object)}
+	 * to get the number of intervals and the intervals will be identified by an Integer 0-based index.
+	 */
+	default Collection<?>  getIntervals(Object element, Object timeline, Object event) {
+		return null;
+	}
+	
+	/**
+	 * Return the number of intervals of an event.
+	 * <p>
+	 * This method will be ignored when {@link #getIntervals(Object, Object, Object)} returns a collection.
+	 * 
+	 * @param element
+	 * @param timeline
+	 * @param event
+	 * @return
+	 */
+	default int getNrIntervals(Object element, Object timeline, Object event) {
+		return 1;
+	}
+	
+	/**
+	 * Return the start moment of a time interval of an event of a timeline.
+	 * @param element
+	 * @param timeline
+	 * @param event
+	 * @param interval
+	 * @return
+	 */
+	Date getStart(Object element, Object timeline, Object event, Object interval);
+
+	/**
+	 * Return the end moment of a time interval of an event of a timeline.
+	 * @param element
+	 * @param timeline
+	 * @param event
+	 * @param interval
+	 * @return
+	 */
+	Date getEnd(Object element, Object timeline, Object event, Object interval);
+
+	/**
+	 * Return the text of a time interval of an event of a timeline.
+	 * @param element
+	 * @param timeline
+	 * @param event
+	 * @param interval
+	 * @return
+	 */
+	default String getText(Object element, Object timeline, Object event, Object interval) {
+		return null;
+	}
+	
+	/**
+	 * Return the foreground color of a time interval of an event of a timeline.
+	 * @param element
+	 * @param timeline
+	 * @param event
+	 * @param interval
+	 * @return
+	 */
+	default Object getForeground(Object element, Object timeline, Object event, Object interval) {
+		return null;
+	}
+	
+	/**
+	 * Return the background color of a time interval of an event of a timeline.
+	 * @param element
+	 * @param timeline
+	 * @param event
+	 * @param interval
+	 * @return
+	 */
+	default Object getBackground(Object element, Object timeline, Object event, Object interval) {
+		return null;
+	}
 }
 
 

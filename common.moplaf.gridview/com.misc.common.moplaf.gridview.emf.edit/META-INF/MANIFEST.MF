@@ -8,4 +8,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.misc.common.moplaf.gridview.emf.edit,
  com.misc.common.moplaf.gridview.emf.edit.util
 Import-Package: org.eclipse.emf.ecore
-Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.13.0"
+Require-Bundle: org.eclipse.emf.ecore

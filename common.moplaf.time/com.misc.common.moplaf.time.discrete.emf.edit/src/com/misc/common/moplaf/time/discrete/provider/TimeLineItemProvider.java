@@ -19,7 +19,7 @@ import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
 import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLine;
-import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesEventsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesProvider;
 
 import java.util.Collection;
 import java.util.Date;
@@ -46,14 +46,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.discrete.TimeLine} object.
  * <!-- begin-user-doc -->
- * @implements IItemTimeLinesEventsProvider
+ * @implements IItemTimeLinesProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class TimeLineItemProvider
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemTimeLinesEventsProvider {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemTimeLinesProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -472,31 +472,31 @@ public class TimeLineItemProvider
 	}
 
 	@Override
-	public Date getStart(Object element, Object timeline, Object event) {
+	public Date getStart(Object element, Object timeline, Object event, Object interval) {
 		TimeBucket bucket = (TimeBucket)event;
 		Date start = bucket.getBucketStart();
 		return start;
 	}
 
 	@Override
-	public Date getEnd(Object element, Object timeline, Object event) {
+	public Date getEnd(Object element, Object timeline, Object event, Object interval) {
 		TimeBucket bucket = (TimeBucket)event;
 		Date end = bucket.getBucketEnd();
 		return end;
 	}
 
 	@Override
-	public Object getForeground(Object element, Object timeline, Object event) {
+	public Object getForeground(Object element, Object timeline, Object event, Object interval) {
 		return null;
 	}
 
 	@Override
-	public Object getBackground(Object element, Object timeline, Object event) {
+	public Object getBackground(Object element, Object timeline, Object event, Object interval) {
 		return null;
 	}
 
 	@Override
-	public String getText(Object element, Object timeline, Object event) {
+	public String getText(Object element, Object timeline, Object event, Object interval) {
 		TimeBucket bucket = (TimeBucket)event;
 		return bucket.getDescription();
 	}
