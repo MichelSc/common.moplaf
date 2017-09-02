@@ -69,9 +69,33 @@ public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridv
 	/*
 	 * Convenience method for adding an path/attribute column
 	 */
-	public GridColumnsProvider addColumn(EReference reference, EAttribute attribute) {
+	public GridColumnsProvider addColumn(EReference ref1, EAttribute attribute) {
 		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
-		path.add(reference);
+		path.add(ref1);
+		this.add(new ColumnFeature(path, attribute));
+		return this;
+	}
+	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EAttribute attribute) {
+		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
+		path.add(ref1);
+		path.add(ref2);
+		this.add(new ColumnFeature(path, attribute));
+		return this;
+	}
+	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EReference ref3, EAttribute attribute) {
+		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
+		path.add(ref1);
+		path.add(ref2);
+		path.add(ref3);
+		this.add(new ColumnFeature(path, attribute));
+		return this;
+	}
+	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EReference ref3, EReference ref4, EAttribute attribute) {
+		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
+		path.add(ref1);
+		path.add(ref2);
+		path.add(ref3);
+		path.add(ref4);
 		this.add(new ColumnFeature(path, attribute));
 		return this;
 	}
