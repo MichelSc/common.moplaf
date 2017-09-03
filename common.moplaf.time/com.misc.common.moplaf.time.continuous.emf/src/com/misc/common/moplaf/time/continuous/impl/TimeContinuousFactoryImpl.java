@@ -88,6 +88,7 @@ public class TimeContinuousFactoryImpl extends EFactoryImpl implements TimeConti
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION: return createPropagatorFunctionDistribution();
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT: return createPropagatorFunctionDistributionEvent();
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER: return createPropagatorFunctionEventsProvider();
+			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT: return createPropagatorFunctionDistributionAbstract();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -335,6 +336,16 @@ public class TimeContinuousFactoryImpl extends EFactoryImpl implements TimeConti
 	public PropagatorFunctionEventsProvider createPropagatorFunctionEventsProvider() {
 		PropagatorFunctionEventsProviderImpl propagatorFunctionEventsProvider = new PropagatorFunctionEventsProviderImpl();
 		return propagatorFunctionEventsProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorFunctionDistributionAbstract createPropagatorFunctionDistributionAbstract() {
+		PropagatorFunctionDistributionAbstractImpl propagatorFunctionDistributionAbstract = new PropagatorFunctionDistributionAbstractImpl();
+		return propagatorFunctionDistributionAbstract;
 	}
 
 	/**

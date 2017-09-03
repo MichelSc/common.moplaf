@@ -201,7 +201,7 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			adapter.addSource(source);
 		}
 		
-		this.enabled = true;
+		super.enable();
 		
 	}
 	

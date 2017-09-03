@@ -12,7 +12,6 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionEventsProvider;
@@ -36,7 +35,7 @@ import org.eclipse.emf.ecore.InternalEObject;
  *
  * @generated
  */
-public class PropagatorFunctionEventsProviderImpl extends PropagatorFunctionBindingsImpl implements PropagatorFunctionEventsProvider {
+public class PropagatorFunctionEventsProviderImpl extends PropagatorFunctionDistributionAbstractImpl implements PropagatorFunctionEventsProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,8 +110,4 @@ public class PropagatorFunctionEventsProviderImpl extends PropagatorFunctionBind
 		return super.eIsSet(featureID);
 	}
 
-	@Override
-	public String getFactoryID() {
-		return PropagatorFunctionDistribution.PropagatorFunctionFactoryID;
-	}
 } //PropagatorFunctionEventsProviderImpl

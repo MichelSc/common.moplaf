@@ -6463,6 +6463,322 @@ public interface TimeContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionAbstractImpl <em>Propagator Function Distribution Abstract</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionAbstractImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getPropagatorFunctionDistributionAbstract()
+	 * @generated
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT = 31;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Antecedents</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS;
+
+	/**
+	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS_SIBLING = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS_SIBLING;
+
+	/**
+	 * The feature id for the '<em><b>Touched</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED;
+
+	/**
+	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_CHILDREN = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHERS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHERS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ENABLED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TYPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__INSTANCE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__DESCRIPTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT;
+
+	/**
+	 * The number of structural features of the '<em>Propagator Function Distribution Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_FEATURE_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___INIT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___INIT;
+
+	/**
+	 * The operation id for the '<em>Enable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___ENABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___ENABLE;
+
+	/**
+	 * The operation id for the '<em>Disable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DISABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DISABLE;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___RESET = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___RESET;
+
+	/**
+	 * The operation id for the '<em>Touch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___TOUCH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___TOUCH__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Untouch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___UNTOUCH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___UNTOUCH;
+
+	/**
+	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_ANTECEDENTS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER;
+
+	/**
+	 * The operation id for the '<em>Refresh This</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER;
+
+	/**
+	 * The operation id for the '<em>Refresh Children And This</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER;
+
+	/**
+	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_ANTECEDENTS;
+
+	/**
+	 * The operation id for the '<em>Do Get Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_PARENT;
+
+	/**
+	 * The operation id for the '<em>Do Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH;
+
+	/**
+	 * The operation id for the '<em>Do Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_SCOPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_FACTORY_ID = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID;
+
+	/**
+	 * The operation id for the '<em>Do Get Bindings</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_BINDINGS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS;
+
+	/**
+	 * The operation id for the '<em>Do Collect Explicit Antecedents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
+
+	/**
+	 * The number of operations of the '<em>Propagator Function Distribution Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_OPERATION_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionImpl <em>Propagator Function Distribution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6479,7 +6795,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__PARENT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Antecedents</b></em>' reference list.
@@ -6488,7 +6804,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__ANTECEDENTS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS;
 
 	/**
 	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
@@ -6497,7 +6813,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__ANTECEDENTS_SIBLING = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS_SIBLING;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__ANTECEDENTS_SIBLING = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS_SIBLING;
 
 	/**
 	 * The feature id for the '<em><b>Touched</b></em>' attribute.
@@ -6506,7 +6822,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED;
 
 	/**
 	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
@@ -6515,7 +6831,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_CHILDREN = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_CHILDREN;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_CHILDREN = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
@@ -6524,7 +6840,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHERS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHERS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHERS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHERS;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -6533,7 +6849,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__ENABLED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ENABLED;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__ENABLED = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' container reference.
@@ -6542,7 +6858,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -6551,7 +6867,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__TYPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TYPE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__TYPE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Object</b></em>' attribute.
@@ -6560,7 +6876,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__OBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__OBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' attribute.
@@ -6569,7 +6885,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__INSTANCE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__INSTANCE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__INSTANCE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__INSTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -6578,7 +6894,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
@@ -6587,7 +6903,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -6596,7 +6912,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION__DISTRIBUTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 0;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION__DISTRIBUTION = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Propagator Function Distribution</em>' class.
@@ -6605,7 +6921,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 1;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Init</em>' operation.
@@ -6614,7 +6930,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___INIT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___INIT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___INIT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -6623,7 +6939,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___ENABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___ENABLE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___ENABLE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___ENABLE;
 
 	/**
 	 * The operation id for the '<em>Disable</em>' operation.
@@ -6632,7 +6948,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DISABLE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DISABLE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -6641,7 +6957,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___RESET = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___RESET;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___RESET = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___RESET;
 
 	/**
 	 * The operation id for the '<em>Touch</em>' operation.
@@ -6650,7 +6966,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___TOUCH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___TOUCH__EOBJECT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___TOUCH__EOBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___TOUCH__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Untouch</em>' operation.
@@ -6659,7 +6975,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___UNTOUCH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___UNTOUCH;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___UNTOUCH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___UNTOUCH;
 
 	/**
 	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
@@ -6668,7 +6984,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -6677,7 +6993,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -6686,7 +7002,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -6695,7 +7011,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -6704,7 +7020,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -6713,7 +7029,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_ANTECEDENTS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_ANTECEDENTS;
 
 	/**
 	 * The operation id for the '<em>Do Get Parent</em>' operation.
@@ -6722,7 +7038,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_PARENT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_PARENT;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -6731,7 +7047,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_REFRESH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -6740,7 +7056,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_REFRESH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH__EOBJECT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_REFRESH__EOBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Scope</em>' operation.
@@ -6749,7 +7065,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_SCOPE;
 
 	/**
 	 * The operation id for the '<em>Get Factory ID</em>' operation.
@@ -6758,7 +7074,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___GET_FACTORY_ID = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -6767,7 +7083,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_BINDINGS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_BINDINGS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_BINDINGS;
 
 	/**
 	 * The operation id for the '<em>Do Collect Explicit Antecedents</em>' operation.
@@ -6776,7 +7092,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
 
 	/**
 	 * The number of operations of the '<em>Propagator Function Distribution</em>' class.
@@ -6785,7 +7101,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_OPERATION_COUNT + 0;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionEventImpl <em>Propagator Function Distribution Event</em>}' class.
@@ -6804,7 +7120,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__PARENT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Antecedents</b></em>' reference list.
@@ -6813,7 +7129,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ANTECEDENTS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS;
 
 	/**
 	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
@@ -6822,7 +7138,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ANTECEDENTS_SIBLING = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS_SIBLING;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ANTECEDENTS_SIBLING = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS_SIBLING;
 
 	/**
 	 * The feature id for the '<em><b>Touched</b></em>' attribute.
@@ -6831,7 +7147,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED;
 
 	/**
 	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
@@ -6840,7 +7156,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_CHILDREN = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_CHILDREN;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_CHILDREN = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
@@ -6849,7 +7165,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHERS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHERS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHERS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHERS;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -6858,7 +7174,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ENABLED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ENABLED;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ENABLED = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' container reference.
@@ -6867,7 +7183,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -6876,7 +7192,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TYPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TYPE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TYPE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Object</b></em>' attribute.
@@ -6885,7 +7201,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__OBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__OBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' attribute.
@@ -6894,7 +7210,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__INSTANCE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__INSTANCE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__INSTANCE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__INSTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -6903,7 +7219,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DESCRIPTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DESCRIPTION = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
@@ -6912,7 +7228,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
@@ -6921,7 +7237,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DISTRIBUTION_EVENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 0;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DISTRIBUTION_EVENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Propagator Function Distribution Event</em>' class.
@@ -6930,7 +7246,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 1;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_FEATURE_COUNT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Init</em>' operation.
@@ -6939,7 +7255,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___INIT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___INIT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___INIT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -6948,7 +7264,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___ENABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___ENABLE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___ENABLE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___ENABLE;
 
 	/**
 	 * The operation id for the '<em>Disable</em>' operation.
@@ -6957,7 +7273,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DISABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DISABLE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DISABLE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DISABLE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -6966,7 +7282,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___RESET = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___RESET;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___RESET = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___RESET;
 
 	/**
 	 * The operation id for the '<em>Touch</em>' operation.
@@ -6975,7 +7291,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___TOUCH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___TOUCH__EOBJECT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___TOUCH__EOBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___TOUCH__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Untouch</em>' operation.
@@ -6984,7 +7300,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___UNTOUCH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___UNTOUCH;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___UNTOUCH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___UNTOUCH;
 
 	/**
 	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
@@ -6993,7 +7309,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -7002,7 +7318,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -7011,7 +7327,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7020,7 +7336,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7029,7 +7345,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -7038,7 +7354,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_ANTECEDENTS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_ANTECEDENTS;
 
 	/**
 	 * The operation id for the '<em>Do Get Parent</em>' operation.
@@ -7047,7 +7363,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_PARENT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_PARENT;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -7056,7 +7372,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_REFRESH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -7065,7 +7381,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_REFRESH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH__EOBJECT;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_REFRESH__EOBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Scope</em>' operation.
@@ -7074,7 +7390,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_SCOPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_SCOPE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_SCOPE;
 
 	/**
 	 * The operation id for the '<em>Get Factory ID</em>' operation.
@@ -7083,7 +7399,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_FACTORY_ID = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_FACTORY_ID = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -7092,7 +7408,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_BINDINGS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_BINDINGS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_BINDINGS;
 
 	/**
 	 * The operation id for the '<em>Do Collect Explicit Antecedents</em>' operation.
@@ -7101,7 +7417,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
 
 	/**
 	 * The number of operations of the '<em>Propagator Function Distribution Event</em>' class.
@@ -7110,7 +7426,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_OPERATION_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_OPERATION_COUNT + 0;
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_OPERATION_COUNT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionEventsProviderImpl <em>Propagator Function Events Provider</em>}' class.
@@ -7129,7 +7445,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__PARENT;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Antecedents</b></em>' reference list.
@@ -7138,7 +7454,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__ANTECEDENTS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS;
 
 	/**
 	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
@@ -7147,7 +7463,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__ANTECEDENTS_SIBLING = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS_SIBLING;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__ANTECEDENTS_SIBLING = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ANTECEDENTS_SIBLING;
 
 	/**
 	 * The feature id for the '<em><b>Touched</b></em>' attribute.
@@ -7156,7 +7472,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED;
 
 	/**
 	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
@@ -7165,7 +7481,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED_CHILDREN = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_CHILDREN;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED_CHILDREN = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_CHILDREN;
 
 	/**
 	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
@@ -7174,7 +7490,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHERS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHERS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHERS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHERS;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -7183,7 +7499,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__ENABLED = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__ENABLED;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__ENABLED = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' container reference.
@@ -7192,7 +7508,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -7201,7 +7517,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TYPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TYPE;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TYPE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Object</b></em>' attribute.
@@ -7210,7 +7526,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__OBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__OBJECT;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__OBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__OBJECT;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' attribute.
@@ -7219,7 +7535,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__INSTANCE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__INSTANCE;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__INSTANCE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__INSTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -7228,7 +7544,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__DESCRIPTION = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__DESCRIPTION = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
@@ -7237,7 +7553,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__TOUCHED_PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT__TOUCHED_PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Events Provider</b></em>' reference.
@@ -7246,7 +7562,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__EVENTS_PROVIDER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 0;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER__EVENTS_PROVIDER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Propagator Function Events Provider</em>' class.
@@ -7255,7 +7571,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER_FEATURE_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 1;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER_FEATURE_COUNT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Init</em>' operation.
@@ -7264,7 +7580,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___INIT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___INIT;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___INIT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -7273,7 +7589,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___ENABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___ENABLE;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___ENABLE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___ENABLE;
 
 	/**
 	 * The operation id for the '<em>Disable</em>' operation.
@@ -7282,7 +7598,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DISABLE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DISABLE;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DISABLE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DISABLE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -7291,7 +7607,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___RESET = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___RESET;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___RESET = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___RESET;
 
 	/**
 	 * The operation id for the '<em>Touch</em>' operation.
@@ -7300,7 +7616,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___TOUCH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___TOUCH__EOBJECT;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___TOUCH__EOBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___TOUCH__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Untouch</em>' operation.
@@ -7309,7 +7625,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___UNTOUCH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___UNTOUCH;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___UNTOUCH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___UNTOUCH;
 
 	/**
 	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
@@ -7318,7 +7634,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_ANTECEDENTS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -7327,7 +7643,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_THIS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -7336,7 +7652,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7345,7 +7661,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -7354,7 +7670,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH__REFRESHER = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___REFRESH__REFRESHER = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -7363,7 +7679,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_GET_ANTECEDENTS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_GET_ANTECEDENTS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_ANTECEDENTS;
 
 	/**
 	 * The operation id for the '<em>Do Get Parent</em>' operation.
@@ -7372,7 +7688,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_GET_PARENT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_PARENT;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_GET_PARENT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_PARENT;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -7381,7 +7697,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_REFRESH = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_REFRESH = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -7390,7 +7706,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_REFRESH__EOBJECT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH__EOBJECT;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_REFRESH__EOBJECT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_REFRESH__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Scope</em>' operation.
@@ -7399,7 +7715,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_SCOPE = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_SCOPE = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_SCOPE;
 
 	/**
 	 * The operation id for the '<em>Get Factory ID</em>' operation.
@@ -7408,7 +7724,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_FACTORY_ID = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___GET_FACTORY_ID = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -7417,7 +7733,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_GET_BINDINGS = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_GET_BINDINGS = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_GET_BINDINGS;
 
 	/**
 	 * The operation id for the '<em>Do Collect Explicit Antecedents</em>' operation.
@@ -7426,7 +7742,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
 
 	/**
 	 * The number of operations of the '<em>Propagator Function Events Provider</em>' class.
@@ -7435,7 +7751,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER_OPERATION_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_OPERATION_COUNT + 0;
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER_OPERATION_COUNT = PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.
@@ -7445,7 +7761,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 31;
+	int TIME_UNIT = 32;
 
 	/**
 	 * The meta object id for the '<em>Distribution Visitor</em>' data type.
@@ -7455,7 +7771,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getDistributionVisitor()
 	 * @generated
 	 */
-	int DISTRIBUTION_VISITOR = 32;
+	int DISTRIBUTION_VISITOR = 33;
 
 
 	/**
@@ -8863,6 +9179,16 @@ public interface TimeContinuousPackage extends EPackage {
 	EReference getPropagatorFunctionEventsProvider_EventsProvider();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract <em>Propagator Function Distribution Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Function Distribution Abstract</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract
+	 * @generated
+	 */
+	EClass getPropagatorFunctionDistributionAbstract();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10039,6 +10365,16 @@ public interface TimeContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPAGATOR_FUNCTION_EVENTS_PROVIDER__EVENTS_PROVIDER = eINSTANCE.getPropagatorFunctionEventsProvider_EventsProvider();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionAbstractImpl <em>Propagator Function Distribution Abstract</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionAbstractImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getPropagatorFunctionDistributionAbstract()
+		 * @generated
+		 */
+		EClass PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT = eINSTANCE.getPropagatorFunctionDistributionAbstract();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.

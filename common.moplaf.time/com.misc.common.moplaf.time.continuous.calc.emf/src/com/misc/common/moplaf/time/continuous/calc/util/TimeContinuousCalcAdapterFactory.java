@@ -16,6 +16,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
 
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
+import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionEvent;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionEventsProvider;
 
@@ -279,6 +280,10 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePropagatorFunctionBindings(PropagatorFunctionBindings object) {
 				return createPropagatorFunctionBindingsAdapter();
+			}
+			@Override
+			public Adapter casePropagatorFunctionDistributionAbstract(PropagatorFunctionDistributionAbstract object) {
+				return createPropagatorFunctionDistributionAbstractAdapter();
 			}
 			@Override
 			public Adapter casePropagatorFunctionDistribution(PropagatorFunctionDistribution object) {
@@ -995,6 +1000,20 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropagatorFunctionBindingsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract <em>Propagator Function Distribution Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract
+	 * @generated
+	 */
+	public Adapter createPropagatorFunctionDistributionAbstractAdapter() {
 		return null;
 	}
 

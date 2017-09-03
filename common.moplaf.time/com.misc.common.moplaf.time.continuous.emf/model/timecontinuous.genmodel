@@ -265,5 +265,6 @@
     <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionEventsProvider">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//PropagatorFunctionEventsProvider/EventsProvider"/>
     </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistributionAbstract"/>
   </genPackages>
 </genmodel:GenModel>

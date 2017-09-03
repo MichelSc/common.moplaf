@@ -12,8 +12,6 @@
  */
 package com.misc.common.moplaf.time.continuous;
 
-import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Propagator Function Events Provider</b></em>'.
@@ -30,7 +28,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
  * @model
  * @generated
  */
-public interface PropagatorFunctionEventsProvider extends PropagatorFunctionBindings {
+public interface PropagatorFunctionEventsProvider extends PropagatorFunctionDistributionAbstract {
 	/**
 	 * Returns the value of the '<em><b>Events Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->

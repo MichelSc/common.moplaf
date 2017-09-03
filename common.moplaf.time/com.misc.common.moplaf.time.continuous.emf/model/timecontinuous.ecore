@@ -353,17 +353,19 @@
         eType="#//EventsProviderAbstract" changeable="false" volatile="true" transient="true"
         derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionDistribution" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//PropagatorFunctionBindings">
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionDistribution" eSuperTypes="#//PropagatorFunctionDistributionAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" eType="#//Distribution"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionDistributionEvent"
-      eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//PropagatorFunctionBindings">
+      eSuperTypes="#//PropagatorFunctionDistributionAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="DistributionEvent" eType="#//DistributionEvent"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionEventsProvider" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//PropagatorFunctionBindings">
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionEventsProvider" eSuperTypes="#//PropagatorFunctionDistributionAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="EventsProvider" eType="#//EventsProviderAbstract"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionDistributionAbstract"
+      eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//PropagatorFunctionBindings"/>
 </ecore:EPackage>

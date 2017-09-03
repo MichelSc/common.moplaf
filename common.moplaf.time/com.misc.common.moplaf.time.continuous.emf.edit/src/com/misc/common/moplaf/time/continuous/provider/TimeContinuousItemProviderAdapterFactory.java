@@ -566,6 +566,29 @@ public class TimeContinuousItemProviderAdapterFactory extends TimeContinuousAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropagatorFunctionDistributionAbstractItemProvider propagatorFunctionDistributionAbstractItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropagatorFunctionDistributionAbstractAdapter() {
+		if (propagatorFunctionDistributionAbstractItemProvider == null) {
+			propagatorFunctionDistributionAbstractItemProvider = new PropagatorFunctionDistributionAbstractItemProvider(this);
+		}
+
+		return propagatorFunctionDistributionAbstractItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -685,6 +708,7 @@ public class TimeContinuousItemProviderAdapterFactory extends TimeContinuousAdap
 		if (propagatorFunctionDistributionItemProvider != null) propagatorFunctionDistributionItemProvider.dispose();
 		if (propagatorFunctionDistributionEventItemProvider != null) propagatorFunctionDistributionEventItemProvider.dispose();
 		if (propagatorFunctionEventsProviderItemProvider != null) propagatorFunctionEventsProviderItemProvider.dispose();
+		if (propagatorFunctionDistributionAbstractItemProvider != null) propagatorFunctionDistributionAbstractItemProvider.dispose();
 	}
 
 }

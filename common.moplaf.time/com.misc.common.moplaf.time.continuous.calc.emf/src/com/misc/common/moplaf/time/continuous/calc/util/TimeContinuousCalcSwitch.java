@@ -16,6 +16,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
 
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
+import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionEvent;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionEventsProvider;
 
@@ -87,6 +88,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorScopeDistribution propagatorScopeDistribution = (PropagatorScopeDistribution)theEObject;
 				T result = casePropagatorScopeDistribution(propagatorScopeDistribution);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorScopeDistribution);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorScopeDistribution);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorScopeDistribution);
 				if (result == null) result = casePropagatorFunction(propagatorScopeDistribution);
 				if (result == null) result = defaultCase(theEObject);
@@ -96,6 +98,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcDistributionInitialization propagatorCalcDistributionInitialization = (PropagatorCalcDistributionInitialization)theEObject;
 				T result = casePropagatorCalcDistributionInitialization(propagatorCalcDistributionInitialization);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionInitialization);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionInitialization);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionInitialization);
 				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionInitialization);
 				if (result == null) result = defaultCase(theEObject);
@@ -105,6 +108,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorLayerCompositeEventRefresh propagatorLayerCompositeEventRefresh = (PropagatorLayerCompositeEventRefresh)theEObject;
 				T result = casePropagatorLayerCompositeEventRefresh(propagatorLayerCompositeEventRefresh);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorLayerCompositeEventRefresh);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorLayerCompositeEventRefresh);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorLayerCompositeEventRefresh);
 				if (result == null) result = casePropagatorFunction(propagatorLayerCompositeEventRefresh);
 				if (result == null) result = defaultCase(theEObject);
@@ -114,6 +118,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcDistributionChildEvents propagatorCalcDistributionChildEvents = (PropagatorCalcDistributionChildEvents)theEObject;
 				T result = casePropagatorCalcDistributionChildEvents(propagatorCalcDistributionChildEvents);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionChildEvents);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionChildEvents);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionChildEvents);
 				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionChildEvents);
 				if (result == null) result = defaultCase(theEObject);
@@ -123,6 +128,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcDistributionProvidedEvents propagatorCalcDistributionProvidedEvents = (PropagatorCalcDistributionProvidedEvents)theEObject;
 				T result = casePropagatorCalcDistributionProvidedEvents(propagatorCalcDistributionProvidedEvents);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionProvidedEvents);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionProvidedEvents);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionProvidedEvents);
 				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionProvidedEvents);
 				if (result == null) result = defaultCase(theEObject);
@@ -132,6 +138,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcDistributionSequence propagatorCalcDistributionSequence = (PropagatorCalcDistributionSequence)theEObject;
 				T result = casePropagatorCalcDistributionSequence(propagatorCalcDistributionSequence);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionSequence);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionSequence);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionSequence);
 				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionSequence);
 				if (result == null) result = defaultCase(theEObject);
@@ -141,6 +148,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorLayerDistributionSlopes propagatorLayerDistributionSlopes = (PropagatorLayerDistributionSlopes)theEObject;
 				T result = casePropagatorLayerDistributionSlopes(propagatorLayerDistributionSlopes);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorLayerDistributionSlopes);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorLayerDistributionSlopes);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorLayerDistributionSlopes);
 				if (result == null) result = casePropagatorFunction(propagatorLayerDistributionSlopes);
 				if (result == null) result = defaultCase(theEObject);
@@ -150,6 +158,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorLayerDistributionAmounts propagatorLayerDistributionAmounts = (PropagatorLayerDistributionAmounts)theEObject;
 				T result = casePropagatorLayerDistributionAmounts(propagatorLayerDistributionAmounts);
 				if (result == null) result = casePropagatorFunctionDistribution(propagatorLayerDistributionAmounts);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorLayerDistributionAmounts);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorLayerDistributionAmounts);
 				if (result == null) result = casePropagatorFunction(propagatorLayerDistributionAmounts);
 				if (result == null) result = defaultCase(theEObject);
@@ -160,6 +169,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcAmountAbsoluteAmountAbsolute(propagatorCalcAmountAbsoluteAmountAbsolute);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountAbsoluteAmountAbsolute);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAmountAbsolute);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAmountAbsolute);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAmountAbsolute);
 				if (result == null) result = defaultCase(theEObject);
@@ -171,6 +181,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcAmountAbsoluteAmountAfter);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountAbsoluteAmountAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAmountAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAmountAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -182,6 +193,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcAmountAbsoluteAmountAbsolute(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
 				if (result == null) result = defaultCase(theEObject);
@@ -192,6 +204,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcAmountAbsoluteAtomicMoment(propagatorCalcAmountAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcAmountAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -203,6 +216,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcAmountImpulsionAmountAfter);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountImpulsionAmountAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAmountAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAmountAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -213,6 +227,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcAmountImpulsionAmountImpulsion);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountImpulsionAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAmountImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAmountImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAmountImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -224,6 +239,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -234,6 +250,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcAmountImpulsionAtomicMoment(propagatorCalcAmountImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcAmountImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -245,6 +262,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcCapacityChangeEndAmountImpulsion);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcCapacityChangeEndAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeEndAmountImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeEndAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeEndAmountImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeEndAmountImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -255,6 +273,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcCapacityChangeEndMoment(propagatorCalcCapacityChangeEndMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcCapacityChangeEndMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeEndMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeEndMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeEndMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -266,6 +285,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcCapacityChangeStartAmountImpulsion);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcCapacityChangeStartAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeStartAmountImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeStartAmountImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeStartAmountImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeStartAmountImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -276,6 +296,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcCapacityChangeStartMoment(propagatorCalcCapacityChangeStartMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcCapacityChangeStartMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeStartMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeStartMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeStartMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -287,6 +308,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcChildEventAmountAfter);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcChildEventAmountAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcChildEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcChildEventAmountAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcChildEventAmountAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcChildEventAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -297,6 +319,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcChildEventMoment(propagatorCalcChildEventMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcChildEventMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcChildEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcChildEventMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcChildEventMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcChildEventMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -308,6 +331,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcChildEventSlopeAfter);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcChildEventSlopeAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcChildEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcChildEventSlopeAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcChildEventSlopeAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcChildEventSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -318,6 +342,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcEndEventMoment(propagatorCalcEndEventMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcEndEventMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEndEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEndEventMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEndEventMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEndEventMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -328,6 +353,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcEventAmountAfter(propagatorCalcEventAmountAfter);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcEventAmountAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventAmountAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventAmountAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -338,6 +364,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcEventAmountBefore(propagatorCalcEventAmountBefore);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcEventAmountBefore);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventAmountBefore);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventAmountBefore);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventAmountBefore);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventAmountBefore);
 				if (result == null) result = defaultCase(theEObject);
@@ -347,6 +374,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcEventMoment propagatorCalcEventMoment = (PropagatorCalcEventMoment)theEObject;
 				T result = casePropagatorCalcEventMoment(propagatorCalcEventMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -357,6 +385,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcEventSlopeAfter(propagatorCalcEventSlopeAfter);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcEventSlopeAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventSlopeAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventSlopeAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -367,6 +396,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcEventSlopeBefore(propagatorCalcEventSlopeBefore);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcEventSlopeBefore);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventSlopeBefore);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventSlopeBefore);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventSlopeBefore);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventSlopeBefore);
 				if (result == null) result = defaultCase(theEObject);
@@ -376,6 +406,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcEventsProviderRefreshEvents propagatorCalcEventsProviderRefreshEvents = (PropagatorCalcEventsProviderRefreshEvents)theEObject;
 				T result = casePropagatorCalcEventsProviderRefreshEvents(propagatorCalcEventsProviderRefreshEvents);
 				if (result == null) result = casePropagatorFunctionEventsProvider(propagatorCalcEventsProviderRefreshEvents);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventsProviderRefreshEvents);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventsProviderRefreshEvents);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventsProviderRefreshEvents);
 				if (result == null) result = defaultCase(theEObject);
@@ -386,6 +417,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcSlopeAbsoluteAtomicMoment(propagatorCalcSlopeAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcSlopeAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteAtomicMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -397,6 +429,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcSlopeAbsoluteSlopeAbsolute(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
 				if (result == null) result = defaultCase(theEObject);
@@ -407,6 +440,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcSlopeAbsoluteSlopeAbsolute(propagatorCalcSlopeAbsoluteSlopeAbsolute);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeAbsoluteSlopeAbsolute);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteSlopeAbsolute);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteSlopeAbsolute);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteSlopeAbsolute);
 				if (result == null) result = defaultCase(theEObject);
@@ -418,6 +452,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcSlopeAbsoluteSlopeAfter);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeAbsoluteSlopeAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteSlopeAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteSlopeAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -428,6 +463,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcSlopeImpulsionAtomicMoment(propagatorCalcSlopeImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcSlopeImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionAtomicMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -439,6 +475,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -450,6 +487,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcSlopeImpulsionSlopeAfter);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeImpulsionSlopeAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionSlopeAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionSlopeAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -460,6 +498,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcSlopeImpulsionSlopeImpulsion);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeImpulsionSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionSlopeImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionSlopeImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionSlopeImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -471,6 +510,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcStartEventAmountAfter);
 				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcStartEventAmountAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStartEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStartEventAmountAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStartEventAmountAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcStartEventAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -481,6 +521,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcStartEventMoment(propagatorCalcStartEventMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcStartEventMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStartEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStartEventMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStartEventMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcStartEventMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -492,6 +533,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcStartEventSlopeAfter);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcStartEventSlopeAfter);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStartEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStartEventSlopeAfter);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStartEventSlopeAfter);
 				if (result == null) result = casePropagatorFunction(propagatorCalcStartEventSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
@@ -502,6 +544,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcStockChangeEndMoment(propagatorCalcStockChangeEndMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcStockChangeEndMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeEndMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeEndMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeEndMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -513,6 +556,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcStockChangeEndSlopeImpulsion);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcStockChangeEndSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeEndSlopeImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeEndSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeEndSlopeImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeEndSlopeImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -523,6 +567,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				T result = casePropagatorCalcStockChangeStartMoment(propagatorCalcStockChangeStartMoment);
 				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcStockChangeStartMoment);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeStartMoment);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeStartMoment);
 				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeStartMoment);
 				if (result == null) result = defaultCase(theEObject);
@@ -534,6 +579,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcStockChangeStartSlopeImpulsion);
 				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcStockChangeStartSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeStartSlopeImpulsion);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeStartSlopeImpulsion);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeStartSlopeImpulsion);
 				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeStartSlopeImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -543,6 +589,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcEventSlope propagatorCalcEventSlope = (PropagatorCalcEventSlope)theEObject;
 				T result = casePropagatorCalcEventSlope(propagatorCalcEventSlope);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventSlope);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventSlope);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventSlope);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventSlope);
 				if (result == null) result = defaultCase(theEObject);
@@ -552,6 +599,7 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				PropagatorCalcEventAmount propagatorCalcEventAmount = (PropagatorCalcEventAmount)theEObject;
 				T result = casePropagatorCalcEventAmount(propagatorCalcEventAmount);
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventAmount);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventAmount);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventAmount);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventAmount);
 				if (result == null) result = defaultCase(theEObject);
@@ -1293,6 +1341,21 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePropagatorFunctionBindings(PropagatorFunctionBindings object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Propagator Function Distribution Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Propagator Function Distribution Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropagatorFunctionDistributionAbstract(PropagatorFunctionDistributionAbstract object) {
 		return null;
 	}
 

@@ -333,6 +333,7 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION: {
 				PropagatorFunctionDistribution propagatorFunctionDistribution = (PropagatorFunctionDistribution)theEObject;
 				T result = casePropagatorFunctionDistribution(propagatorFunctionDistribution);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorFunctionDistribution);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorFunctionDistribution);
 				if (result == null) result = casePropagatorFunction(propagatorFunctionDistribution);
 				if (result == null) result = defaultCase(theEObject);
@@ -341,6 +342,7 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT: {
 				PropagatorFunctionDistributionEvent propagatorFunctionDistributionEvent = (PropagatorFunctionDistributionEvent)theEObject;
 				T result = casePropagatorFunctionDistributionEvent(propagatorFunctionDistributionEvent);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorFunctionDistributionEvent);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorFunctionDistributionEvent);
 				if (result == null) result = casePropagatorFunction(propagatorFunctionDistributionEvent);
 				if (result == null) result = defaultCase(theEObject);
@@ -349,8 +351,17 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER: {
 				PropagatorFunctionEventsProvider propagatorFunctionEventsProvider = (PropagatorFunctionEventsProvider)theEObject;
 				T result = casePropagatorFunctionEventsProvider(propagatorFunctionEventsProvider);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorFunctionEventsProvider);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorFunctionEventsProvider);
 				if (result == null) result = casePropagatorFunction(propagatorFunctionEventsProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT: {
+				PropagatorFunctionDistributionAbstract propagatorFunctionDistributionAbstract = (PropagatorFunctionDistributionAbstract)theEObject;
+				T result = casePropagatorFunctionDistributionAbstract(propagatorFunctionDistributionAbstract);
+				if (result == null) result = casePropagatorFunctionBindings(propagatorFunctionDistributionAbstract);
+				if (result == null) result = casePropagatorFunction(propagatorFunctionDistributionAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -820,6 +831,21 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePropagatorFunctionEventsProvider(PropagatorFunctionEventsProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Propagator Function Distribution Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Propagator Function Distribution Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropagatorFunctionDistributionAbstract(PropagatorFunctionDistributionAbstract object) {
 		return null;
 	}
 

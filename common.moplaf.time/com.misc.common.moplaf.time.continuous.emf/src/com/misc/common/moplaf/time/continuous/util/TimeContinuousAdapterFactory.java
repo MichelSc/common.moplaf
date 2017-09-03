@@ -206,6 +206,10 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createPropagatorFunctionEventsProviderAdapter();
 			}
 			@Override
+			public Adapter casePropagatorFunctionDistributionAbstract(PropagatorFunctionDistributionAbstract object) {
+				return createPropagatorFunctionDistributionAbstractAdapter();
+			}
+			@Override
 			public Adapter caseObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions object) {
 				return createObjectWithPropagatorFunctionsAdapter();
 			}
@@ -668,6 +672,20 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropagatorFunctionEventsProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract <em>Propagator Function Distribution Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract
+	 * @generated
+	 */
+	public Adapter createPropagatorFunctionDistributionAbstractAdapter() {
 		return null;
 	}
 

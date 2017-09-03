@@ -221,6 +221,15 @@ public interface TimeContinuousFactory extends EFactory {
 	PropagatorFunctionEventsProvider createPropagatorFunctionEventsProvider();
 
 	/**
+	 * Returns a new object of class '<em>Propagator Function Distribution Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Function Distribution Abstract</em>'.
+	 * @generated
+	 */
+	PropagatorFunctionDistributionAbstract createPropagatorFunctionDistributionAbstract();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

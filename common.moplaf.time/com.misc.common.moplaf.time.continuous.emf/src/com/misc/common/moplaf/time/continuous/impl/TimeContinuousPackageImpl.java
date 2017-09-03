@@ -33,6 +33,7 @@ import com.misc.common.moplaf.time.continuous.EventsProvider;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.OwnedEvent;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
+import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionAbstract;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionEvent;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionEventsProvider;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
@@ -283,6 +284,13 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * @generated
 	 */
 	private EClass propagatorFunctionEventsProviderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorFunctionDistributionAbstractEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1573,6 +1581,15 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPropagatorFunctionDistributionAbstract() {
+		return propagatorFunctionDistributionAbstractEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTimeUnit() {
 		return timeUnitEEnum;
 	}
@@ -1779,6 +1796,8 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 		propagatorFunctionEventsProviderEClass = createEClass(PROPAGATOR_FUNCTION_EVENTS_PROVIDER);
 		createEReference(propagatorFunctionEventsProviderEClass, PROPAGATOR_FUNCTION_EVENTS_PROVIDER__EVENTS_PROVIDER);
 
+		propagatorFunctionDistributionAbstractEClass = createEClass(PROPAGATOR_FUNCTION_DISTRIBUTION_ABSTRACT);
+
 		// Create enums
 		timeUnitEEnum = createEEnum(TIME_UNIT);
 
@@ -1845,9 +1864,10 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 		amountAbsoluteProviderEClass.getESuperTypes().add(this.getEventProvider());
 		ownedEventEClass.getESuperTypes().add(this.getDistributionEvent());
 		providedEventEClass.getESuperTypes().add(this.getDistributionEvent());
-		propagatorFunctionDistributionEClass.getESuperTypes().add(thePropagatorPackage.getPropagatorFunctionBindings());
-		propagatorFunctionDistributionEventEClass.getESuperTypes().add(thePropagatorPackage.getPropagatorFunctionBindings());
-		propagatorFunctionEventsProviderEClass.getESuperTypes().add(thePropagatorPackage.getPropagatorFunctionBindings());
+		propagatorFunctionDistributionEClass.getESuperTypes().add(this.getPropagatorFunctionDistributionAbstract());
+		propagatorFunctionDistributionEventEClass.getESuperTypes().add(this.getPropagatorFunctionDistributionAbstract());
+		propagatorFunctionEventsProviderEClass.getESuperTypes().add(this.getPropagatorFunctionDistributionAbstract());
+		propagatorFunctionDistributionAbstractEClass.getESuperTypes().add(thePropagatorPackage.getPropagatorFunctionBindings());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2097,6 +2117,8 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 
 		initEClass(propagatorFunctionEventsProviderEClass, PropagatorFunctionEventsProvider.class, "PropagatorFunctionEventsProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorFunctionEventsProvider_EventsProvider(), this.getEventsProviderAbstract(), null, "EventsProvider", null, 0, 1, PropagatorFunctionEventsProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(propagatorFunctionDistributionAbstractEClass, PropagatorFunctionDistributionAbstract.class, "PropagatorFunctionDistributionAbstract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeUnitEEnum, TimeUnit.class, "TimeUnit");

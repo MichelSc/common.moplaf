@@ -13,8 +13,6 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.propagator2.provider.PropagatorFunctionBindingsItemProvider;
-
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionEventsProvider;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
@@ -23,9 +21,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
@@ -35,7 +30,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropagatorFunctionEventsProviderItemProvider extends PropagatorFunctionBindingsItemProvider {
+public class PropagatorFunctionEventsProviderItemProvider extends PropagatorFunctionDistributionAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -131,17 +126,6 @@ public class PropagatorFunctionEventsProviderItemProvider extends PropagatorFunc
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return TimeContinuousEditPlugin.INSTANCE;
 	}
 
 }
