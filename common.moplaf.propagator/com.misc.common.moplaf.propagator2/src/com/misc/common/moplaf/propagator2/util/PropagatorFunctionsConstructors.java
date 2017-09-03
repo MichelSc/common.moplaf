@@ -17,46 +17,49 @@ import org.eclipse.emf.ecore.EClass;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 
 
-public class PropagatorFunctionsConstructors  implements PropagatorFunctionsConstructor {
+/**
+ * A PropagatorFunctionConstructors is a list of {@link IPropagatorFunctionsConstructor} that implements 
+ * {@link IPropagatorFunctionsConstructor}
+ */
 
-	private LinkedList<PropagatorFunctionsConstructor> constructors = new LinkedList<PropagatorFunctionsConstructor>();
-	private String factoryID = null;
+public class PropagatorFunctionsConstructors  implements IPropagatorFunctionsConstructor {
 
-	public PropagatorFunctionsConstructors(String factoryID) {
+	private LinkedList<IPropagatorFunctionsConstructor> constructors = new LinkedList<IPropagatorFunctionsConstructor>();
+
+	public PropagatorFunctionsConstructors() {
 		super();
-		this.factoryID = factoryID;
 	}
 	
 	@Override
 	public PropagatorFunctionsConstructors copy() {
-		PropagatorFunctionsConstructors newConstructors = new PropagatorFunctionsConstructors(this.factoryID);
-		for ( PropagatorFunctionsConstructor constructor : this.constructors){
+		PropagatorFunctionsConstructors newConstructors = new PropagatorFunctionsConstructors();
+		for ( IPropagatorFunctionsConstructor constructor : this.constructors){
 			newConstructors.addConstructor(constructor.copy());
 		}
 		return newConstructors;
 	}
 
 	
-	public void addConstructor(PropagatorFunctionsConstructor constructor){
+	public void addConstructor(IPropagatorFunctionsConstructor constructor){
 		this.constructors.add(constructor);
 	}
 	
+	/**
+	 * Convenience method to add a {@link PropagatorFunctionFactory}.
+	 * @param propagatorFunctionType
+	 * @return
+	 */
 	public PropagatorFunctionsConstructors addConstructor(EClass propagatorFunctionType){
-		PropagatorFunctionFactory constructor = new PropagatorFunctionFactory(propagatorFunctionType, this.factoryID);
+		PropagatorFunctionFactory constructor = new PropagatorFunctionFactory(propagatorFunctionType);
 		this.addConstructor(constructor);
 		return this;
 	}
 	
 	@Override
 	public void addPropagatorFunctions(ObjectWithPropagatorFunctions object) {
-		for ( PropagatorFunctionsConstructor factory : this.constructors){
+		for ( IPropagatorFunctionsConstructor factory : this.constructors){
 			factory.addPropagatorFunctions(object);
 		}
-	}
-
-	@Override
-	public String getFactoryID() {
-		return this.factoryID;
 	}
 
 }

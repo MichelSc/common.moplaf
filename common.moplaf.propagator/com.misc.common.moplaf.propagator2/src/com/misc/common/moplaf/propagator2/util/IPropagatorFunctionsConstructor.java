@@ -19,15 +19,11 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
  * The method {@link #addPropagatorFunctions(ObjectWithPropagatorFunctions)} is called by the 
  * {@link PropagatorFunctionManagerAdapter} when the PropagatorFunctions must be added to the object.
  * The method is responsible for creating the PropagatorFunctions for this object.
- * <p> The factory ID is used to recognize which PropagatorFunction is managed by which
- * PropagatorFunctionManagerAdapter. The PropagatorFunctionsConstructor may only create PropagatorFunctions
- * of this factory ID.
- * <p>  
+ * <p> 
  * @author michel
  *
  */
-public interface PropagatorFunctionsConstructor {
+public interface IPropagatorFunctionsConstructor {
 	public void addPropagatorFunctions(ObjectWithPropagatorFunctions object);
-	public PropagatorFunctionsConstructor copy();
-	public String getFactoryID();
+	public IPropagatorFunctionsConstructor copy();
 }

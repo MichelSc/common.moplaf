@@ -47,7 +47,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * <ul> 
  * <li> when the Notifier is added to its container: method {@link #onNotifierContainedPre(Notifier)}
  *   <ul> 
- *   <li>call the constructor method  {@link PropagatorFunctionsConstructor#addPropagatorFunctions(ObjectWithPropagatorFunctions)}
+ *   <li>call the constructor method  {@link IPropagatorFunctionsConstructor#addPropagatorFunctions(ObjectWithPropagatorFunctions)}
  *   <li>this latter may create and add PropagatorFunctions
  *   <li>the created PropagatorFunctions may be touched, if the refresh must happen at construction time
  *   </ul>
@@ -69,18 +69,19 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * Internally, this Adapter listens to notifications and handles them by calling the following methods, 
  * when appropriate, but always in this sequence
  *   <ul> 
- *   <li>{@link #onNotifierContainedPre(Notifier)}
- *   <li>{@link #onAdapterAdded(Notifier)}
- *   <li>Children are handled (Adapter added/removed)
- *   <li>{@link #onAdapterRemoved(Notifier)}
- *   <li>{@link #onNotifierNotContained(Notifier)}
+ *   <li>{@link #onNotifierContainedPre(Notifier)}: the notifier is contained, the adapter is not yet added
+ *   <li>{@link #onAdapterAdded(Notifier)}: the adapter is added (the notifier is contained or the adapter is added to its container)
+ *   <li>Children are handled (Adapter added/removed): 
+ *   <li>{@link #onNotifierContainedPost(Notifier)}: the notifier is contained, the children have been handled
+ *   <li>{@link #onAdapterRemoved(Notifier)}: the adapter is removed (the notifier is no longer contained, or the adapter is removed from its container)
+ *   <li>{@link #onNotifierNotContained(Notifier)}: the notifier is no longer contained
  *   </ul>
  */
 public class PropagatorFunctionManagerAdapter extends AdapterImpl
 {
-	private PropagatorFunctionsConstructor propagatorFunctionsConstructor;
+	private IPropagatorFunctionsFactory propagatorFunctionsConstructor;
 
-	public PropagatorFunctionManagerAdapter(PropagatorFunctionsConstructor constructor) {
+	public PropagatorFunctionManagerAdapter(IPropagatorFunctionsFactory constructor) {
 		super();
 		propagatorFunctionsConstructor = constructor;
 	}
@@ -446,7 +447,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	private void onAdapterAdded(Notifier notifier){
 		if ( notifier instanceof PropagatorFunction ){
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
-			if ( propagatorFunction.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+			if ( this.propagatorFunctionsConstructor.handlePropagatorFunction(propagatorFunction)) {
 				propagatorFunction.enable();
 			}
 		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
@@ -470,7 +471,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 				// they are in principle not up to date
 				// so we touch
 				for ( PropagatorFunction pf : objectWithPropagatorFunctions.getPropagatorFunctions()){
-					if ( pf.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+					if ( this.propagatorFunctionsConstructor.handlePropagatorFunction(pf)) {
 						pf.touch(null);
 					}
 				}
@@ -486,7 +487,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	private void onAdapterRemoved(Notifier notifier){
 		if ( notifier instanceof PropagatorFunction ){
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
-			if ( propagatorFunction.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+			if ( this.propagatorFunctionsConstructor.handlePropagatorFunction(propagatorFunction)) {
 				propagatorFunction.disable();
 				propagatorFunction.untouch();
 			}

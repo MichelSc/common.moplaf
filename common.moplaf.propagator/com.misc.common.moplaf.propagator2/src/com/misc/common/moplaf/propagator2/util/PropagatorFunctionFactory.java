@@ -17,7 +17,7 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 /**
- * A PropagatorFunctionFactory provides a standard implementation of {@link PropagatorFunctionsConstructor}
+ * A PropagatorFunctionFactory provides a standard implementation of {@link IPropagatorFunctionsConstructor}
  * for constructing/adding one single PropagatorFunction.
  * <p>
  * The type of the PropagatorFunction to be constructed is passed as parameter in the constructor {@link #PropagatorFunctionFactory(EClass)}
@@ -25,19 +25,17 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * The method {@link #addPropagatorFunctions(ObjectWithPropagatorFunctions)} will reflectively instantiate the PropagatorFunction and 
  * add it to the {@link ObjectWithPropagatorFunctions}
  */
-public class PropagatorFunctionFactory implements PropagatorFunctionsConstructor {
+public class PropagatorFunctionFactory implements IPropagatorFunctionsConstructor {
 	
 	private EClass propagatorFunctionType;
-	private String factoryID = null;
 
-	public PropagatorFunctionFactory(EClass propagatorFunctionType, String factoryID) {
-		this.factoryID = factoryID;
+	public PropagatorFunctionFactory(EClass propagatorFunctionType) {
 		this.propagatorFunctionType = propagatorFunctionType;
 	}
 
 	@Override
-	public PropagatorFunctionsConstructor copy() {
-		PropagatorFunctionFactory newFactory = new PropagatorFunctionFactory(this.propagatorFunctionType, this.factoryID);
+	public IPropagatorFunctionsConstructor copy() {
+		PropagatorFunctionFactory newFactory = new PropagatorFunctionFactory(this.propagatorFunctionType);
 		return newFactory;
 	}
 	
@@ -48,8 +46,4 @@ public class PropagatorFunctionFactory implements PropagatorFunctionsConstructor
 		object.addPropagatorFunction(newPropagatorFunction);
 	}
 
-	@Override
-	public String getFactoryID() {
-		return this.factoryID;
-	}
 }

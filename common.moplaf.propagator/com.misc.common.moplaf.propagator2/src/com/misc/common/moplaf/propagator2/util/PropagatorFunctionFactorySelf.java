@@ -1,9 +1,10 @@
 package com.misc.common.moplaf.propagator2.util;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 
-public class PropagatorFunctionFactorySelf implements PropagatorFunctionsConstructor {
+public class PropagatorFunctionFactorySelf implements IPropagatorFunctionsFactory{
 
 	private String factoryID;
 
@@ -19,14 +20,18 @@ public class PropagatorFunctionFactorySelf implements PropagatorFunctionsConstru
 	}
 
 	@Override
-	public PropagatorFunctionsConstructor copy() {
+	public IPropagatorFunctionsConstructor copy() {
 		return new PropagatorFunctionFactorySelf(this.factoryID);
 	}
 
-	@Override
 	public String getFactoryID() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean handlePropagatorFunction(PropagatorFunction propagatorfunction) {
+		return this.factoryID==propagatorfunction.getFactoryID();
 	}
 
 }

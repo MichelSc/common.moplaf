@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionSource;
-import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructor;
+import com.misc.common.moplaf.propagator2.util.IPropagatorFunctionsConstructor;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +92,7 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructor;
  *   <li>The life cycle is controlled by a {@link PropagatorFunctionManagerAdapter} which is 
  *   responsible for creating, enabling and disabling the PropagatorFunction
  *   <li>The construction of the PropagatorFunction is implemented in a
- *    {@link PropagatorFunctionsConstructor}, which is responsible, for every type {@link ObjectWithPropagatorFunctions}
+ *    {@link IPropagatorFunctionsConstructor}, which is responsible, for every type {@link ObjectWithPropagatorFunctions}
  *    to create the appropriate PropagatorFunctions and to add them by calling
  *   the method {@link ObjectWithPropagatorFunctions#addPropagatorFunction(PropagatorFunction)}
  *   <li>the construction is done when the object is contained, called by the 
