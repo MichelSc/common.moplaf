@@ -428,29 +428,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverGoalPreviousSolver} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SolverGoalPreviousSolverItemProvider solverGoalPreviousSolverItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverGoalPreviousSolver}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSolverGoalPreviousSolverAdapter() {
-		if (solverGoalPreviousSolverItemProvider == null) {
-			solverGoalPreviousSolverItemProvider = new SolverGoalPreviousSolverItemProvider(this);
-		}
-
-		return solverGoalPreviousSolverItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.Solution} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -992,7 +969,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorLpTermItemProvider != null) generatorLpTermItemProvider.dispose();
 		if (solutionReaderPatternItemProvider != null) solutionReaderPatternItemProvider.dispose();
 		if (solverGeneratorGoalItemProvider != null) solverGeneratorGoalItemProvider.dispose();
-		if (solverGoalPreviousSolverItemProvider != null) solverGoalPreviousSolverItemProvider.dispose();
 		if (solutionItemProvider != null) solutionItemProvider.dispose();
 		if (solutionElementItemProvider != null) solutionElementItemProvider.dispose();
 		if (solutionLpItemProvider != null) solutionLpItemProvider.dispose();

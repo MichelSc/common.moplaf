@@ -44,7 +44,7 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT = 0.05F;
+	protected static final double SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT = 0.05;
 
 	/**
 	 * The cached value of the '{@link #getSolverOptimalityTolerance() <em>Solver Optimality Tolerance</em>}' attribute.
@@ -54,7 +54,7 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 	 * @generated
 	 * @ordered
 	 */
-	protected float solverOptimalityTolerance = SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT;
+	protected double solverOptimalityTolerance = SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isSolverLinearRelaxation() <em>Solver Linear Relaxation</em>}' attribute.
@@ -100,7 +100,7 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSolverOptimalityTolerance() {
+	public double getSolverOptimalityTolerance() {
 		return solverOptimalityTolerance;
 	}
 
@@ -109,8 +109,8 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSolverOptimalityTolerance(float newSolverOptimalityTolerance) {
-		float oldSolverOptimalityTolerance = solverOptimalityTolerance;
+	public void setSolverOptimalityTolerance(double newSolverOptimalityTolerance) {
+		double oldSolverOptimalityTolerance = solverOptimalityTolerance;
 		solverOptimalityTolerance = newSolverOptimalityTolerance;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE, oldSolverOptimalityTolerance, solverOptimalityTolerance));
@@ -162,7 +162,7 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE:
-				setSolverOptimalityTolerance((Float)newValue);
+				setSolverOptimalityTolerance((Double)newValue);
 				return;
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				setSolverLinearRelaxation((Boolean)newValue);

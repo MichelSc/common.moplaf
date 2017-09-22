@@ -113,7 +113,7 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float BOUND_EDEFAULT = 0.0F;
+	protected static final double BOUND_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getBound() <em>Bound</em>}' attribute.
@@ -123,7 +123,7 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * @generated
 	 * @ordered
 	 */
-	protected float bound = BOUND_EDEFAULT;
+	protected double bound = BOUND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,7 +262,7 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getBound() {
+	public double getBound() {
 		return bound;
 	}
 
@@ -271,8 +271,8 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBound(float newBound) {
-		float oldBound = bound;
+	public void setBound(double newBound) {
+		double oldBound = bound;
 		bound = newBound;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__BOUND, oldBound, bound));
@@ -294,7 +294,7 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void buildGoalAsPreviousSolver(Solver builder) throws Exception {
+	public void constructGoal(Solver solver)  {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -371,7 +371,7 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 				setOptimized((Boolean)newValue);
 				return;
 			case SolverPackage.SOLUTION_GOAL__BOUND:
-				setBound((Float)newValue);
+				setBound((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -434,14 +434,9 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 			case SolverPackage.SOLUTION_GOAL___REFRESH:
 				refresh();
 				return null;
-			case SolverPackage.SOLUTION_GOAL___BUILD_GOAL_AS_PREVIOUS_SOLVER__SOLVER:
-				try {
-					buildGoalAsPreviousSolver((Solver)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+			case SolverPackage.SOLUTION_GOAL___CONSTRUCT_GOAL__SOLVER:
+				constructGoal((Solver)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

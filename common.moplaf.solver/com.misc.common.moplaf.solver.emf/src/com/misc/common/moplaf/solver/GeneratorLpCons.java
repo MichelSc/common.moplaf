@@ -69,12 +69,12 @@ public interface GeneratorLpCons extends GeneratorCons, GeneratorLpLinear {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Righ Hand Side</em>' attribute.
-	 * @see #setRighHandSide(float)
+	 * @see #setRighHandSide(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpCons_RighHandSide()
 	 * @model
 	 * @generated
 	 */
-	float getRighHandSide();
+	double getRighHandSide();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpCons#getRighHandSide <em>Righ Hand Side</em>}' attribute.
@@ -84,6 +84,6 @@ public interface GeneratorLpCons extends GeneratorCons, GeneratorLpLinear {
 	 * @see #getRighHandSide()
 	 * @generated
 	 */
-	void setRighHandSide(float value);
+	void setRighHandSide(double value);
 
 } // GeneratorLpCons

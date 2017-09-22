@@ -66,12 +66,12 @@ public interface SolverParams extends SolutionProviderParams {
 	 * The maximum duration (in secs) allocated to the server
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Solver Max Duration</em>' attribute.
-	 * @see #setSolverMaxDuration(float)
+	 * @see #setSolverMaxDuration(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverParams_SolverMaxDuration()
 	 * @model default="100"
 	 * @generated
 	 */
-	float getSolverMaxDuration();
+	double getSolverMaxDuration();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverParams#getSolverMaxDuration <em>Solver Max Duration</em>}' attribute.
@@ -81,6 +81,6 @@ public interface SolverParams extends SolutionProviderParams {
 	 * @see #getSolverMaxDuration()
 	 * @generated
 	 */
-	void setSolverMaxDuration(float value);
+	void setSolverMaxDuration(double value);
 
 } // SolverParams

@@ -40,12 +40,12 @@ public interface SolverLp extends Solver, SolverLpParams {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sol Optimality Gap</em>' attribute.
-	 * @see #setSolOptimalityGap(float)
+	 * @see #setSolOptimalityGap(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverLp_SolOptimalityGap()
 	 * @model
 	 * @generated
 	 */
-	float getSolOptimalityGap();
+	double getSolOptimalityGap();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverLp#getSolOptimalityGap <em>Sol Optimality Gap</em>}' attribute.
@@ -55,6 +55,6 @@ public interface SolverLp extends Solver, SolverLpParams {
 	 * @see #getSolOptimalityGap()
 	 * @generated
 	 */
-	void setSolOptimalityGap(float value);
+	void setSolOptimalityGap(double value);
 
 } // SolverLp

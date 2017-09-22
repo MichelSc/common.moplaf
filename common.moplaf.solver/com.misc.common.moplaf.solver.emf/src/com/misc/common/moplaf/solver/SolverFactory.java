@@ -167,15 +167,6 @@ public interface SolverFactory extends EFactory {
 	SolverGeneratorGoal createSolverGeneratorGoal();
 
 	/**
-	 * Returns a new object of class '<em>Goal Previous Solver</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Goal Previous Solver</em>'.
-	 * @generated
-	 */
-	SolverGoalPreviousSolver createSolverGoalPreviousSolver();
-
-	/**
 	 * Returns a new object of class '<em>Solution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

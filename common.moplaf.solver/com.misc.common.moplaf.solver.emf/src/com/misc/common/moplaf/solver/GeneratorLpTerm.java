@@ -71,12 +71,12 @@ public interface GeneratorLpTerm extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Coeff</em>' attribute.
-	 * @see #setCoeff(float)
+	 * @see #setCoeff(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpTerm_Coeff()
 	 * @model
 	 * @generated
 	 */
-	float getCoeff();
+	double getCoeff();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getCoeff <em>Coeff</em>}' attribute.
@@ -86,7 +86,7 @@ public interface GeneratorLpTerm extends EObject {
 	 * @see #getCoeff()
 	 * @generated
 	 */
-	void setCoeff(float value);
+	void setCoeff(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Lp Linear</b></em>' container reference.

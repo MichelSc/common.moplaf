@@ -16,6 +16,7 @@ import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.Solver;
+import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -46,7 +47,7 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float VALUE_EDEFAULT = 0.0F;
+	protected static final double VALUE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -56,7 +57,7 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	 * @generated
 	 * @ordered
 	 */
-	protected float value = VALUE_EDEFAULT;
+	protected double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,7 +84,7 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	public void refresh() {
 		if ( this.getGoal() instanceof GeneratorLpGoal){
 			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoal();
-			float value = goal.getSolutionValue(this.getSolution());
+			double value = goal.getSolutionValue(this.getSolution());
 			this.setValue(value);
 		}
 	}
@@ -100,16 +101,22 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	 * For this, delegate building the constraint to the {@link GeneratorGoal#buildCons(Solver, float)}
 	 */
 	@Override
-	public void buildGoalAsPreviousSolver(Solver builder) throws Exception {
+	public void constructGoal(Solver solver)  {
 		GeneratorGoal goal = this.getGoal();
 		if ( this.isOptimized()){
+			SolverGeneratorGoal new_goal = solver.constructSolverGoal(goal);
 			// optimal value becomes a bound
-			float bound = this.getValue();
-			goal.buildCons(builder, bound);
+			double bound = this.getValue();
+			new_goal.setOptimize(false);
+			new_goal.setConstraint(true);
+			new_goal.setGoalBound(bound);
 		} else if ( this.isConstrained()){
+			SolverGeneratorGoal new_goal = solver.constructSolverGoal(goal);
 			// previous bound remains a bound
-			float bound = this.getBound();
-			goal.buildCons(builder, bound); 
+			double bound = this.getBound();
+			new_goal.setOptimize(false);
+			new_goal.setConstraint(true);
+			new_goal.setGoalBound(bound);
 		}
 	}
 
@@ -128,7 +135,7 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getValue() {
+	public double getValue() {
 		return value;
 	}
 
@@ -137,8 +144,8 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(float newValue) {
-		float oldValue = value;
+	public void setValue(double newValue) {
+		double oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_LP_GOAL__VALUE, oldValue, value));
@@ -167,7 +174,7 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SolverPackage.SOLUTION_LP_GOAL__VALUE:
-				setValue((Float)newValue);
+				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

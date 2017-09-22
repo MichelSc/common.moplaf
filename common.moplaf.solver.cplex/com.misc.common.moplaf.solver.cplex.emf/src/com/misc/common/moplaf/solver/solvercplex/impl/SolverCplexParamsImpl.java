@@ -216,7 +216,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float MIP_STRATEGY_BACKTRACK_EDEFAULT = 0.9999F;
+	protected static final double MIP_STRATEGY_BACKTRACK_EDEFAULT = 0.9999;
 
 	/**
 	 * The cached value of the '{@link #getMipStrategyBacktrack() <em>Mip Strategy Backtrack</em>}' attribute.
@@ -226,7 +226,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	 * @generated
 	 * @ordered
 	 */
-	protected float mipStrategyBacktrack = MIP_STRATEGY_BACKTRACK_EDEFAULT;
+	protected double mipStrategyBacktrack = MIP_STRATEGY_BACKTRACK_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMipStrategyHeuristicFreq() <em>Mip Strategy Heuristic Freq</em>}' attribute.
@@ -500,7 +500,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getMipStrategyBacktrack() {
+	public double getMipStrategyBacktrack() {
 		return mipStrategyBacktrack;
 	}
 
@@ -509,8 +509,8 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMipStrategyBacktrack(float newMipStrategyBacktrack) {
-		float oldMipStrategyBacktrack = mipStrategyBacktrack;
+	public void setMipStrategyBacktrack(double newMipStrategyBacktrack) {
+		double oldMipStrategyBacktrack = mipStrategyBacktrack;
 		mipStrategyBacktrack = newMipStrategyBacktrack;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK, oldMipStrategyBacktrack, mipStrategyBacktrack));
@@ -671,7 +671,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 				setMipCutsPathCut((Integer)newValue);
 				return;
 			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
-				setMipStrategyBacktrack((Float)newValue);
+				setMipStrategyBacktrack((Double)newValue);
 				return;
 			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
 				setMipStrategyHeuristicFreq((Integer)newValue);

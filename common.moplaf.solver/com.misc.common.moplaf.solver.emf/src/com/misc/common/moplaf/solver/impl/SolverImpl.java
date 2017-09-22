@@ -42,7 +42,6 @@ import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverGoal;
-import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.SolverParams;
@@ -146,7 +145,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SOLVER_MAX_DURATION_EDEFAULT = 100.0F;
+	protected static final double SOLVER_MAX_DURATION_EDEFAULT = 100.0;
 
 	/**
 	 * The cached value of the '{@link #getSolverMaxDuration() <em>Solver Max Duration</em>}' attribute.
@@ -155,7 +154,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected float solverMaxDuration = SOLVER_MAX_DURATION_EDEFAULT;
+	protected double solverMaxDuration = SOLVER_MAX_DURATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
@@ -295,7 +294,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float RUN_DURATION_INITIALIZATION_EDEFAULT = 0.0F;
+	protected static final double RUN_DURATION_INITIALIZATION_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getRunDurationInitialization() <em>Run Duration Initialization</em>}' attribute.
@@ -305,7 +304,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected float runDurationInitialization = RUN_DURATION_INITIALIZATION_EDEFAULT;
+	protected double runDurationInitialization = RUN_DURATION_INITIALIZATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRunDurationFinalization() <em>Run Duration Finalization</em>}' attribute.
@@ -315,7 +314,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float RUN_DURATION_FINALIZATION_EDEFAULT = 0.0F;
+	protected static final double RUN_DURATION_FINALIZATION_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getRunDurationFinalization() <em>Run Duration Finalization</em>}' attribute.
@@ -325,7 +324,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected float runDurationFinalization = RUN_DURATION_FINALIZATION_EDEFAULT;
+	protected double runDurationFinalization = RUN_DURATION_FINALIZATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRunDurationSolving() <em>Run Duration Solving</em>}' attribute.
@@ -335,7 +334,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float RUN_DURATION_SOLVING_EDEFAULT = 0.0F;
+	protected static final double RUN_DURATION_SOLVING_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getRunDurationSolving() <em>Run Duration Solving</em>}' attribute.
@@ -344,7 +343,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected float runDurationSolving = RUN_DURATION_SOLVING_EDEFAULT;
+	protected double runDurationSolving = RUN_DURATION_SOLVING_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isRunRequestTerminate() <em>Run Request Terminate</em>}' attribute.
@@ -889,16 +888,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSolverMaxDuration() {
+	public double getSolverMaxDuration() {
 		return solverMaxDuration;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSolverMaxDuration(float newSolverMaxDuration) {
-		float oldSolverMaxDuration = solverMaxDuration;
+	public void setSolverMaxDuration(double newSolverMaxDuration) {
+		double oldSolverMaxDuration = solverMaxDuration;
 		solverMaxDuration = newSolverMaxDuration;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__SOLVER_MAX_DURATION, oldSolverMaxDuration, solverMaxDuration));
@@ -1022,16 +1022,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getRunDurationInitialization() {
+	public double getRunDurationInitialization() {
 		return runDurationInitialization;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRunDurationInitialization(float newRunDurationInitialization) {
-		float oldRunDurationInitialization = runDurationInitialization;
+	public void setRunDurationInitialization(double newRunDurationInitialization) {
+		double oldRunDurationInitialization = runDurationInitialization;
 		runDurationInitialization = newRunDurationInitialization;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__RUN_DURATION_INITIALIZATION, oldRunDurationInitialization, runDurationInitialization));
@@ -1041,16 +1042,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getRunDurationFinalization() {
+	public double getRunDurationFinalization() {
 		return runDurationFinalization;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRunDurationFinalization(float newRunDurationFinalization) {
-		float oldRunDurationFinalization = runDurationFinalization;
+	public void setRunDurationFinalization(double newRunDurationFinalization) {
+		double oldRunDurationFinalization = runDurationFinalization;
 		runDurationFinalization = newRunDurationFinalization;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__RUN_DURATION_FINALIZATION, oldRunDurationFinalization, runDurationFinalization));
@@ -1060,16 +1062,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getRunDurationSolving() {
+	public double getRunDurationSolving() {
 		return runDurationSolving;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRunDurationSolving(float newRunDurationSolving) {
-		float oldRunDurationSolving = runDurationSolving;
+	public void setRunDurationSolving(double newRunDurationSolving) {
+		double oldRunDurationSolving = runDurationSolving;
 		runDurationSolving = newRunDurationSolving;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__RUN_DURATION_SOLVING, oldRunDurationSolving, runDurationSolving));
@@ -1167,7 +1170,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public void buildLpVar(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+	public void buildLpVar(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		this.buildLpVarImpl(var, lowerBound, upperBound, type);
 	}
 
@@ -1175,8 +1178,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * Method to be overriden by a concrete LpSolver for adding a var to the concrete solver.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
-		// TODO: implement this method
+	protected void buildLpVarImpl(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -1237,7 +1239,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * can be explicit constraint {@link GeneratorLpCons} or constraint induced by goal {@link GeneratorLpGoal}. 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
+	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type)
 			throws Exception {
 		if (element instanceof GeneratorLpGoal) {
 			this.generatorGoalsToConstraint.put((GeneratorGoal) element, rhs);
@@ -1266,7 +1268,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * Method to be overriden by a concrete LpSolver for adding a constraint to the concrete solver.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type)
 			throws Exception {
 		// to be overloaded
 		throw new UnsupportedOperationException();
@@ -1296,18 +1298,18 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * Method called by the framework to add a contribution to the objective function.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
+	public void buildLpGoal(GeneratorLpGoal goal, double weight) throws Exception {
 		this.generatorGoalsToSolve.add(goal);
 		
 		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
 			GeneratorLpVar lpvar = goalTerm.getLpVar();
-			float coefficient = goalTerm.getCoeff()*weight;
+			double coefficient = goalTerm.getCoeff()*weight;
 			if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
 				coefficient = - coefficient;
 			}
 			if ( coefficient!=0.0f){
-				Float valueAsIs = this.objectiveTerms.get(lpvar);
-				float valueToBe = coefficient + (valueAsIs==null ? 0.0f : valueAsIs);
+				Double valueAsIs = this.objectiveTerms.get(lpvar);
+				double valueToBe = coefficient + (valueAsIs==null ? 0.0f : valueAsIs);
 				this.objectiveTerms.put(lpvar, valueToBe);
 			}
 		}
@@ -1317,11 +1319,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * Method to be overriden by the concrete solver to add a contribution to the objective function.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, double coefficient) throws Exception {
 		throw new UnsupportedOperationException();
 	}
 
-	private Map<GeneratorLpVar, Float> objectiveTerms = null;
+	private Map<GeneratorLpVar, Double> objectiveTerms = null;
 
 	/**
 	 * Method called by the concrete solver while building the solver model.
@@ -1329,13 +1331,13 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildGoals() throws Exception {
-		this.objectiveTerms = new HashMap<GeneratorLpVar, Float>();
+		this.objectiveTerms = new HashMap<GeneratorLpVar, Double>();
 		// build the constraints implied by previous solvers and the goal
 		for (SolverGoal goal : this.getGoals()) {
 			goal.buildGoal();
 		}
-		for ( Entry<GeneratorLpVar, Float> objectiveTerm : objectiveTerms.entrySet()){
-			float coefficient = objectiveTerm.getValue();
+		for ( Entry<GeneratorLpVar, Double> objectiveTerm : objectiveTerms.entrySet()){
+			double coefficient = objectiveTerm.getValue();
 			GeneratorLpVar var = objectiveTerm.getKey();
 			if ( coefficient!=0.0f){
 				this.buildLpGoalTermImpl(var, coefficient);
@@ -1357,28 +1359,23 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public SolverGoalPreviousSolver constructSolverGoal(Solution previousSolution) {
-		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
-		Solver solver = (Solver) (previousSolution.getProvider());
-		newGoal.setPreviousSolver(solver);
-		newGoal.setPreviousSolution(previousSolution);
-		this.getGoals().add(newGoal);
-		return newGoal;
+	public void constructSolverGoal(Solution previousSolution) {
+		if ( previousSolution!=null){
+			for ( SolutionGoal solution_goal : previousSolution.getGoals()){
+				solution_goal.constructGoal(this);
+			}
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver) {
-		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
+	public void constructSolverGoal(Solver previousSolver) {
 		Solution previousSolution = null;
 		if (previousSolver.getSolution().size() > 0) {
 			previousSolution = previousSolver.getSolution().get(0);
+			this.constructSolverGoal(previousSolution);
 		}
-		newGoal.setPreviousSolver(previousSolver);
-		newGoal.setPreviousSolution(previousSolution);
-		this.getGoals().add(newGoal);
-		return newGoal;
 	}
 
 	/**
@@ -1400,7 +1397,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			} 
 			
 			// is the goal a feasibility goal?
-			Float goalBound = this.generatorGoalsToConstraint.get(goal);
+			Double goalBound = this.generatorGoalsToConstraint.get(goal);
 			if ( goalBound != null ){ 
 				solutionGoal.setConstrained(true);
 				solutionGoal.setBound(goalBound);
@@ -1528,7 +1525,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * Remember the goals used as constraint.
 	 * This will be used when building the solution, that is in method {@link #makeSolutionGoals(Solution)}
 	 */
-	private HashMap<GeneratorGoal, Float> generatorGoalsToConstraint = new HashMap<GeneratorGoal, Float>();
+	private HashMap<GeneratorGoal, Double> generatorGoalsToConstraint = new HashMap<GeneratorGoal, Double>();
 
 	private Date eLastMonitoredFeedback;
 	private static int eMonitorRefreshRateMillis = 100;
@@ -1780,7 +1777,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				setRemarks((String)newValue);
 				return;
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
-				setSolverMaxDuration((Float)newValue);
+				setSolverMaxDuration((Double)newValue);
 				return;
 			case SolverPackage.SOLVER__STATUS:
 				setStatus((String)newValue);
@@ -1804,13 +1801,13 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				setRunFinalizationEnded((Date)newValue);
 				return;
 			case SolverPackage.SOLVER__RUN_DURATION_INITIALIZATION:
-				setRunDurationInitialization((Float)newValue);
+				setRunDurationInitialization((Double)newValue);
 				return;
 			case SolverPackage.SOLVER__RUN_DURATION_FINALIZATION:
-				setRunDurationFinalization((Float)newValue);
+				setRunDurationFinalization((Double)newValue);
 				return;
 			case SolverPackage.SOLVER__RUN_DURATION_SOLVING:
-				setRunDurationSolving((Float)newValue);
+				setRunDurationSolving((Double)newValue);
 				return;
 			case SolverPackage.SOLVER__RUN_REQUEST_TERMINATE:
 				setRunRequestTerminate((Boolean)newValue);
@@ -2071,9 +2068,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE:
+			case SolverPackage.SOLVER___BUILD_LP_VAR__GENERATORLPVAR_DOUBLE_DOUBLE_ENUMLPVARTYPE:
 				try {
-					buildLpVar((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2), (EnumLpVarType)arguments.get(3));
+					buildLpVar((GeneratorLpVar)arguments.get(0), (Double)arguments.get(1), (Double)arguments.get(2), (EnumLpVarType)arguments.get(3));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -2103,9 +2100,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE:
+			case SolverPackage.SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_DOUBLE_ENUMLPCONSTYPE:
 				try {
-					buildLpCons((GeneratorElement)arguments.get(0), (GeneratorLpLinear)arguments.get(1), (Float)arguments.get(2), (EnumLpConsType)arguments.get(3));
+					buildLpCons((GeneratorElement)arguments.get(0), (GeneratorLpLinear)arguments.get(1), (Double)arguments.get(2), (EnumLpConsType)arguments.get(3));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -2122,9 +2119,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT:
+			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_DOUBLE:
 				try {
-					buildLpGoal((GeneratorLpGoal)arguments.get(0), (Float)arguments.get(1));
+					buildLpGoal((GeneratorLpGoal)arguments.get(0), (Double)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -2133,9 +2130,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL:
 				return constructSolverGoal((GeneratorGoal)arguments.get(0));
 			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__SOLUTION:
-				return constructSolverGoal((Solution)arguments.get(0));
+				constructSolverGoal((Solution)arguments.get(0));
+				return null;
 			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__SOLVER:
-				return constructSolverGoal((Solver)arguments.get(0));
+				constructSolverGoal((Solver)arguments.get(0));
+				return null;
 			case SolverPackage.SOLVER___MAKE_SOLUTION_GOALS__SOLUTION:
 				makeSolutionGoals((Solution)arguments.get(0));
 				return null;

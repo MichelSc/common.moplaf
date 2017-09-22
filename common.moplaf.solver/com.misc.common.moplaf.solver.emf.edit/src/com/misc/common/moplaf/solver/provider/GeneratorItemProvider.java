@@ -312,19 +312,19 @@ public class GeneratorItemProvider
 	@Override
 	public float getKPIAmount(Object element, Object kpi) {
 		GeneratorLpGoal goal = (GeneratorLpGoal) kpi;
-		return goal.getSelectedSolutionValue();
+		return (float) goal.getSelectedSolutionValue();
 	}
 
 	@Override
 	public float getKPIMinAmount(Object element, Object kpi) {
 		GeneratorLpGoal goal = (GeneratorLpGoal) kpi;
-		return goal.getMinValueIndicative();
+		return (float) goal.getMinValueIndicative();
 	}
 
 	@Override
 	public float getKPIMaxAmount(Object element, Object kpi) {
 		GeneratorLpGoal goal = (GeneratorLpGoal) kpi;
-		return goal.getMaxValueIndicative();
+		return (float) goal.getMaxValueIndicative();
 	}
 
 	@Override

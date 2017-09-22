@@ -60,6 +60,7 @@ public class GeneratorGoalItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSelectedSolutionDisplayPropertyDescriptor(object);
+			addObjectiveTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,6 +84,28 @@ public class GeneratorGoalItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 getString("_UI__30SolutionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Objective Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addObjectiveTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorGoal_ObjectiveType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_ObjectiveType_feature", "_UI_GeneratorGoal_type"),
+				 SolverPackage.Literals.GENERATOR_GOAL__OBJECTIVE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -126,6 +149,7 @@ public class GeneratorGoalItemProvider
 			case SolverPackage.GENERATOR_GOAL__NAME:
 			case SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY:
 			case SolverPackage.GENERATOR_GOAL__LABEL:
+			case SolverPackage.GENERATOR_GOAL__OBJECTIVE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

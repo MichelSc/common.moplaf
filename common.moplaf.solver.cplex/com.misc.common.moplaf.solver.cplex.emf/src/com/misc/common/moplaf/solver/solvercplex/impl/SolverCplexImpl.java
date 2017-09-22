@@ -286,7 +286,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float MIP_STRATEGY_BACKTRACK_EDEFAULT = 0.9999F;
+	protected static final double MIP_STRATEGY_BACKTRACK_EDEFAULT = 0.9999;
 	/**
 	 * The cached value of the '{@link #getMipStrategyBacktrack() <em>Mip Strategy Backtrack</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -295,7 +295,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * @generated
 	 * @ordered
 	 */
-	protected float mipStrategyBacktrack = MIP_STRATEGY_BACKTRACK_EDEFAULT;
+	protected double mipStrategyBacktrack = MIP_STRATEGY_BACKTRACK_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getMipStrategyHeuristicFreq() <em>Mip Strategy Heuristic Freq</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -623,7 +623,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getMipStrategyBacktrack() {
+	public double getMipStrategyBacktrack() {
 		return mipStrategyBacktrack;
 	}
 
@@ -632,8 +632,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMipStrategyBacktrack(float newMipStrategyBacktrack) {
-		float oldMipStrategyBacktrack = mipStrategyBacktrack;
+	public void setMipStrategyBacktrack(double newMipStrategyBacktrack) {
+		double oldMipStrategyBacktrack = mipStrategyBacktrack;
 		mipStrategyBacktrack = newMipStrategyBacktrack;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK, oldMipStrategyBacktrack, mipStrategyBacktrack));
@@ -747,7 +747,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			double[]    valuesArray = new double[nofVars];
 			int i = 0;
 			for ( SolutionVar varSol : vars){
-				float optimalValue = varSol.getOptimalValue();
+				double optimalValue = varSol.getOptimalValue();
 			    IloNumVar cplexvar = this.vars.get(varSol.getVar());
 			    varsArray[i] = cplexvar;
 			    valuesArray[i] = optimalValue;
@@ -768,7 +768,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		IloNumVarType vartypetobe = IloNumVarType.Float; 
 		if ( !this.isSolverLinearRelaxation() && type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER){
 			vartypetobe = IloNumVarType.Int; 
@@ -783,12 +783,12 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type) throws Exception {
 		IloLinearNumExpr expr = this.lp.linearNumExpr();
 	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())	{
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
 		    IloNumVar cplexvar = vars.get(lpvar);
-		    float coefficient = lpterm.getCoeff();
+		    double coefficient = lpterm.getCoeff();
 		    expr.addTerm(coefficient, cplexvar);;
 	    } // traverse the terms
 	    IloRange range = null;
@@ -811,7 +811,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build an lp goal term
 	 */
 	@Override
-	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, double coefficient) throws Exception {
 		IloNumVar cplexvar = vars.get(var);
 		this.objective.addTerm(coefficient, cplexvar);
 	}
@@ -986,7 +986,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				setMipCutsPathCut((Integer)newValue);
 				return;
 			case SolverCplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK:
-				setMipStrategyBacktrack((Float)newValue);
+				setMipStrategyBacktrack((Double)newValue);
 				return;
 			case SolverCplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
 				setMipStrategyHeuristicFreq((Integer)newValue);

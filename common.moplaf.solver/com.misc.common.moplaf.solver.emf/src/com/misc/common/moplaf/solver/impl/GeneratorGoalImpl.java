@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.Solution;
@@ -48,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getObjectiveType <em>Objective Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +114,26 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * @ordered
 	 */
 	protected EList<SolutionGoal> solution;
+
+	/**
+	 * The default value of the '{@link #getObjectiveType() <em>Objective Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObjectiveType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnumObjectiveType OBJECTIVE_TYPE_EDEFAULT = EnumObjectiveType.MAXIMUM;
+
+	/**
+	 * The cached value of the '{@link #getObjectiveType() <em>Objective Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObjectiveType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EnumObjectiveType objectiveType = OBJECTIVE_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -281,7 +303,28 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void build(Solver builder, float weight) throws Exception {
+	public EnumObjectiveType getObjectiveType() {
+		return objectiveType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObjectiveType(EnumObjectiveType newObjectiveType) {
+		EnumObjectiveType oldObjectiveType = objectiveType;
+		objectiveType = newObjectiveType == null ? OBJECTIVE_TYPE_EDEFAULT : newObjectiveType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_GOAL__OBJECTIVE_TYPE, oldObjectiveType, objectiveType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void build(Solver builder, double weight) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -292,7 +335,7 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void buildCons(Solver builder, float rhs) throws Exception {
+	public void buildCons(Solver builder, double rhs) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -317,6 +360,8 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				return getLabel();
 			case SolverPackage.GENERATOR_GOAL__SOLUTION:
 				return getSolution();
+			case SolverPackage.GENERATOR_GOAL__OBJECTIVE_TYPE:
+				return getObjectiveType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -340,6 +385,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				getSolution().clear();
 				getSolution().addAll((Collection<? extends SolutionGoal>)newValue);
 				return;
+			case SolverPackage.GENERATOR_GOAL__OBJECTIVE_TYPE:
+				setObjectiveType((EnumObjectiveType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -360,6 +408,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				return;
 			case SolverPackage.GENERATOR_GOAL__SOLUTION:
 				getSolution().clear();
+				return;
+			case SolverPackage.GENERATOR_GOAL__OBJECTIVE_TYPE:
+				setObjectiveType(OBJECTIVE_TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -383,6 +434,8 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 			case SolverPackage.GENERATOR_GOAL__SOLUTION:
 				return solution != null && !solution.isEmpty();
+			case SolverPackage.GENERATOR_GOAL__OBJECTIVE_TYPE:
+				return objectiveType != OBJECTIVE_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -395,17 +448,17 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case SolverPackage.GENERATOR_GOAL___BUILD__SOLVER_FLOAT:
+			case SolverPackage.GENERATOR_GOAL___BUILD__SOLVER_DOUBLE:
 				try {
-					build((Solver)arguments.get(0), (Float)arguments.get(1));
+					build((Solver)arguments.get(0), (Double)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__SOLVER_FLOAT:
+			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__SOLVER_DOUBLE:
 				try {
-					buildCons((Solver)arguments.get(0), (Float)arguments.get(1));
+					buildCons((Solver)arguments.get(0), (Double)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -431,6 +484,8 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		result.append(name);
 		result.append(", SelectedSolutionDisplay: ");
 		result.append(selectedSolutionDisplay);
+		result.append(", ObjectiveType: ");
+		result.append(objectiveType);
 		result.append(')');
 		return result.toString();
 	}

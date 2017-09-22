@@ -12,6 +12,8 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.EnumLpConsType;
+import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solver;
@@ -38,6 +40,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#getGoalBound <em>Goal Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#isOptimize <em>Optimize</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#isConstraint <em>Constraint</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#getConstraintAbsoluteTolerance <em>Constraint Absolute Tolerance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#getConstraintRelativeTolerance <em>Constraint Relative Tolerance</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,7 +65,7 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float GOAL_WEIGHT_EDEFAULT = 1.0F;
+	protected static final double GOAL_WEIGHT_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getGoalWeight() <em>Goal Weight</em>}' attribute.
@@ -71,7 +75,7 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * @generated
 	 * @ordered
 	 */
-	protected float goalWeight = GOAL_WEIGHT_EDEFAULT;
+	protected double goalWeight = GOAL_WEIGHT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getGoalBound() <em>Goal Bound</em>}' attribute.
@@ -81,7 +85,7 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float GOAL_BOUND_EDEFAULT = 0.0F;
+	protected static final double GOAL_BOUND_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getGoalBound() <em>Goal Bound</em>}' attribute.
@@ -91,7 +95,7 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * @generated
 	 * @ordered
 	 */
-	protected float goalBound = GOAL_BOUND_EDEFAULT;
+	protected double goalBound = GOAL_BOUND_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isOptimize() <em>Optimize</em>}' attribute.
@@ -134,6 +138,46 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	protected boolean constraint = CONSTRAINT_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getConstraintAbsoluteTolerance() <em>Constraint Absolute Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraintAbsoluteTolerance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double CONSTRAINT_ABSOLUTE_TOLERANCE_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getConstraintAbsoluteTolerance() <em>Constraint Absolute Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraintAbsoluteTolerance()
+	 * @generated
+	 * @ordered
+	 */
+	protected double constraintAbsoluteTolerance = CONSTRAINT_ABSOLUTE_TOLERANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConstraintRelativeTolerance() <em>Constraint Relative Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraintRelativeTolerance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double CONSTRAINT_RELATIVE_TOLERANCE_EDEFAULT = 1.0E-6;
+
+	/**
+	 * The cached value of the '{@link #getConstraintRelativeTolerance() <em>Constraint Relative Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraintRelativeTolerance()
+	 * @generated
+	 * @ordered
+	 */
+	protected double constraintRelativeTolerance = CONSTRAINT_RELATIVE_TOLERANCE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -167,11 +211,21 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 		}
 		Solver solver = this.getSolver();
 		if ( this.isOptimize()){
-			float weight = this.getGoalWeight();
+			double weight = this.getGoalWeight();
 			goal.build(solver, weight);
 		}
 		if ( this.isConstraint()){
-			float rhs = this.getGoalBound();
+			double direction = 0.0d;
+			switch ( goal.getObjectiveType().ordinal()){
+			case EnumObjectiveType.MAXIMUM_VALUE:
+				direction = -1.0d;
+				break;
+			case EnumObjectiveType.MINIMUM_VALUE:
+				direction = 1.0d;
+				break;
+			}
+			double rhs = this.getGoalBound()
+					   + direction*(this.getConstraintAbsoluteTolerance()+this.getGoalBound()*this.getConstraintRelativeTolerance());
 			goal.buildCons(solver, rhs);
 		}
 	}
@@ -238,7 +292,7 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getGoalWeight() {
+	public double getGoalWeight() {
 		return goalWeight;
 	}
 
@@ -247,8 +301,8 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGoalWeight(float newGoalWeight) {
-		float oldGoalWeight = goalWeight;
+	public void setGoalWeight(double newGoalWeight) {
+		double oldGoalWeight = goalWeight;
 		goalWeight = newGoalWeight;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT, oldGoalWeight, goalWeight));
@@ -259,7 +313,7 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getGoalBound() {
+	public double getGoalBound() {
 		return goalBound;
 	}
 
@@ -268,8 +322,8 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGoalBound(float newGoalBound) {
-		float oldGoalBound = goalBound;
+	public void setGoalBound(double newGoalBound) {
+		double oldGoalBound = goalBound;
 		goalBound = newGoalBound;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND, oldGoalBound, goalBound));
@@ -322,6 +376,48 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getConstraintAbsoluteTolerance() {
+		return constraintAbsoluteTolerance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConstraintAbsoluteTolerance(double newConstraintAbsoluteTolerance) {
+		double oldConstraintAbsoluteTolerance = constraintAbsoluteTolerance;
+		constraintAbsoluteTolerance = newConstraintAbsoluteTolerance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_ABSOLUTE_TOLERANCE, oldConstraintAbsoluteTolerance, constraintAbsoluteTolerance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getConstraintRelativeTolerance() {
+		return constraintRelativeTolerance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConstraintRelativeTolerance(double newConstraintRelativeTolerance) {
+		double oldConstraintRelativeTolerance = constraintRelativeTolerance;
+		constraintRelativeTolerance = newConstraintRelativeTolerance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_RELATIVE_TOLERANCE, oldConstraintRelativeTolerance, constraintRelativeTolerance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -336,6 +432,10 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 				return isOptimize();
 			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
 				return isConstraint();
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_ABSOLUTE_TOLERANCE:
+				return getConstraintAbsoluteTolerance();
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_RELATIVE_TOLERANCE:
+				return getConstraintRelativeTolerance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -352,16 +452,22 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 				setGoalToSolve((GeneratorGoal)newValue);
 				return;
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT:
-				setGoalWeight((Float)newValue);
+				setGoalWeight((Double)newValue);
 				return;
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND:
-				setGoalBound((Float)newValue);
+				setGoalBound((Double)newValue);
 				return;
 			case SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE:
 				setOptimize((Boolean)newValue);
 				return;
 			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
 				setConstraint((Boolean)newValue);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_ABSOLUTE_TOLERANCE:
+				setConstraintAbsoluteTolerance((Double)newValue);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_RELATIVE_TOLERANCE:
+				setConstraintRelativeTolerance((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -390,6 +496,12 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
 				setConstraint(CONSTRAINT_EDEFAULT);
 				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_ABSOLUTE_TOLERANCE:
+				setConstraintAbsoluteTolerance(CONSTRAINT_ABSOLUTE_TOLERANCE_EDEFAULT);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_RELATIVE_TOLERANCE:
+				setConstraintRelativeTolerance(CONSTRAINT_RELATIVE_TOLERANCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -412,6 +524,10 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 				return optimize != OPTIMIZE_EDEFAULT;
 			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
 				return constraint != CONSTRAINT_EDEFAULT;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_ABSOLUTE_TOLERANCE:
+				return constraintAbsoluteTolerance != CONSTRAINT_ABSOLUTE_TOLERANCE_EDEFAULT;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_RELATIVE_TOLERANCE:
+				return constraintRelativeTolerance != CONSTRAINT_RELATIVE_TOLERANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -434,6 +550,10 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 		result.append(optimize);
 		result.append(", Constraint: ");
 		result.append(constraint);
+		result.append(", ConstraintAbsoluteTolerance: ");
+		result.append(constraintAbsoluteTolerance);
+		result.append(", ConstraintRelativeTolerance: ");
+		result.append(constraintRelativeTolerance);
 		result.append(')');
 		return result.toString();
 	}

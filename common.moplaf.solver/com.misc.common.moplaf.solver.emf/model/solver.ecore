@@ -120,7 +120,7 @@
     <eOperations name="isSolutionZero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="solver" eType="#//Solution"/>
     </eOperations>
-    <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eParameters name="solver" eType="#//Solution"/>
     </eOperations>
     <eOperations name="build" eExceptions="#//Exception">
@@ -130,16 +130,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
         eType="#//SolutionVar" eOpposite="#//SolutionVar/var"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" changeable="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
         volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVar" eSuperTypes="#//GeneratorVar">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="#//EnumLpVarType"
         defaultValueLiteral="Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LowerBound" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UpperBound" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
         eType="#//GeneratorLpTerm" eOpposite="#//GeneratorLpTerm/LpVar"/>
   </eClassifiers>
@@ -158,12 +158,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpCons" eSuperTypes="#//GeneratorCons #//GeneratorLpLinear">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumLpConsType"
         defaultValueLiteral="Equal"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RighHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RighHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpTerm">
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpVar" lowerBound="1" eType="#//GeneratorLpVar"
         eOpposite="#//GeneratorLpVar/LpTerm"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coeff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coeff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpLinear" lowerBound="1"
         eType="#//GeneratorLpLinear" eOpposite="#//GeneratorLpLinear/LpTerm"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -223,8 +223,8 @@
     </eOperations>
     <eOperations name="buildLpVar" eExceptions="#//Exception">
       <eParameters name="var" eType="#//GeneratorLpVar"/>
-      <eParameters name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="type" eType="#//EnumLpVarType"/>
     </eOperations>
     <eOperations name="buildCons" eExceptions="#//Exception"/>
@@ -237,7 +237,7 @@
     <eOperations name="buildLpCons" eExceptions="#//Exception">
       <eParameters name="element" eType="#//GeneratorElement"/>
       <eParameters name="linear" eType="#//GeneratorLpLinear"/>
-      <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="type" eType="#//EnumLpConsType"/>
     </eOperations>
     <eOperations name="constructVarBinder">
@@ -246,15 +246,15 @@
     <eOperations name="buildGoals" eExceptions="#//Exception"/>
     <eOperations name="buildLpGoal" eExceptions="#//Exception">
       <eParameters name="goal" eType="#//GeneratorLpGoal"/>
-      <eParameters name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="constructSolverGoal" eType="#//SolverGeneratorGoal">
       <eParameters name="goal" eType="#//GeneratorGoal"/>
     </eOperations>
-    <eOperations name="constructSolverGoal" eType="#//SolverGoalPreviousSolver">
+    <eOperations name="constructSolverGoal">
       <eParameters name="previousSolution" eType="#//Solution"/>
     </eOperations>
-    <eOperations name="constructSolverGoal" eType="#//SolverGoalPreviousSolver">
+    <eOperations name="constructSolverGoal">
       <eParameters name="previousSolver" eType="#//Solver"/>
     </eOperations>
     <eOperations name="makeSolutionGoals">
@@ -270,10 +270,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunSolvingEnded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFinalizationEnded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationInitialization"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationFinalization"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationSolving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationSolving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunRequestTerminate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunTimeOut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
@@ -301,7 +301,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverLp" abstract="true" eSuperTypes="#//Solver #//SolverLpParams">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolOptimalityGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolOptimalityGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverGoal" abstract="true">
     <eOperations name="buildGoal" eExceptions="#//Exception"/>
@@ -314,17 +314,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="GoalToSolve" lowerBound="1"
         eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GoalWeight" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GoalBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GoalBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Optimize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolverGoalPreviousSolver" eSuperTypes="#//SolverGoal">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousSolver" lowerBound="1"
-        eType="#//Solver"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousSolution" eType="#//Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConstraintAbsoluteTolerance"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConstraintRelativeTolerance"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.000001"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Solution">
     <eOperations name="solutionVarFactory" eType="#//SolutionVar"/>
@@ -363,12 +362,12 @@
         eType="#//Solution" eOpposite="#//Solution/Elements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLp" eSuperTypes="#//Solution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionVar" eSuperTypes="#//SolutionElement">
     <eOperations name="isOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="isZero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OptimalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OptimalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" lowerBound="1" eType="#//GeneratorVar"
         eOpposite="#//GeneratorVar/Solution"/>
   </eClassifiers>
@@ -381,8 +380,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpCons" eSuperTypes="#//SolutionCons"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionGoal" eSuperTypes="#//SolutionElement">
     <eOperations name="refresh"/>
-    <eOperations name="buildGoalAsPreviousSolver" eExceptions="#//Exception">
-      <eParameters name="builder" eType="#//Solver"/>
+    <eOperations name="constructGoal">
+      <eParameters name="solver" eType="#//Solver"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"
         eOpposite="#//GeneratorGoal/Solution"/>
@@ -390,10 +389,10 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constrained" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Optimized" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpGoal" eSuperTypes="#//SolutionGoal">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ITupleVisitor" instanceClassName="com.misc.common.moplaf.solver.ITupleVisitor"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
@@ -441,11 +440,11 @@
     </eAnnotations>
     <eOperations name="build" eExceptions="#//Exception">
       <eParameters name="builder" eType="#//Solver"/>
-      <eParameters name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="buildCons" eExceptions="#//Exception">
       <eParameters name="builder" eType="#//Solver"/>
-      <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="getSolutionGoal" eType="#//SolutionGoal">
       <eParameters name="solution" eType="#//Solution"/>
@@ -459,41 +458,41 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
         eType="#//SolutionGoal" eOpposite="#//SolutionGoal/Goal"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpGoal" eSuperTypes="#//GeneratorGoal #//GeneratorLpLinear">
-    <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
-      <eParameters name="solution" eType="#//Solution"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectiveType" eType="#//EnumObjectiveType"
         defaultValueLiteral="Maximum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpGoal" eSuperTypes="#//GeneratorGoal #//GeneratorLpLinear">
+    <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="solution" eType="#//Solution"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionValue"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" changeable="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
         volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValueIndicative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValueIndicative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValueIndicative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValueIndicative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="100000000000"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpLinear">
     <eOperations name="constructTerm" eType="#//GeneratorLpTerm">
       <eParameters name="var" eType="#//GeneratorLpVar"/>
-      <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="contributeTerm" eType="#//GeneratorLpTerm">
       <eParameters name="var" eType="#//GeneratorLpVar"/>
-      <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
         eType="#//GeneratorLpTerm" containment="true" eOpposite="#//GeneratorLpTerm/LpLinear"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverLpParams" eSuperTypes="#//SolverParams">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverOptimalityTolerance"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.05"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.05"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLinearRelaxation"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverParams" eSuperTypes="#//SolutionProviderParams">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverMaxDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverMaxDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="100">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The maximum duration (in secs) allocated to the server"/>
@@ -513,7 +512,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinder" eSuperTypes="#//GeneratorVarBinder"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinderToSolution" eSuperTypes="#//GeneratorLpVarBinder"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinderToValue" eSuperTypes="#//GeneratorLpVarBinder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BoundValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BoundValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverVarBinder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solver" lowerBound="1"
@@ -523,10 +522,10 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverLpVarBinder" eSuperTypes="#//SolverVarBinder">
-    <eOperations name="getLowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getLowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eParameters name="var" eType="#//GeneratorLpVar"/>
     </eOperations>
-    <eOperations name="getUpperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getUpperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eParameters name="var" eType="#//GeneratorLpVar"/>
     </eOperations>
   </eClassifiers>

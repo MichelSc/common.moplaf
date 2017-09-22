@@ -261,12 +261,12 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Strategy Backtrack</em>' attribute.
-	 * @see #setMipStrategyBacktrack(float)
+	 * @see #setMipStrategyBacktrack(double)
 	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipStrategyBacktrack()
 	 * @model default="0.9999 "
 	 * @generated
 	 */
-	float getMipStrategyBacktrack();
+	double getMipStrategyBacktrack();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyBacktrack <em>Mip Strategy Backtrack</em>}' attribute.
@@ -276,7 +276,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * @see #getMipStrategyBacktrack()
 	 * @generated
 	 */
-	void setMipStrategyBacktrack(float value);
+	void setMipStrategyBacktrack(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Mip Strategy Heuristic Freq</b></em>' attribute.

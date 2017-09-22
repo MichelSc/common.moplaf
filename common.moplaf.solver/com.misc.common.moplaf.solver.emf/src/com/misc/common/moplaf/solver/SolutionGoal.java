@@ -138,12 +138,12 @@ public interface SolutionGoal extends SolutionElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bound</em>' attribute.
-	 * @see #setBound(float)
+	 * @see #setBound(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionGoal_Bound()
 	 * @model
 	 * @generated
 	 */
-	float getBound();
+	double getBound();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionGoal#getBound <em>Bound</em>}' attribute.
@@ -153,7 +153,7 @@ public interface SolutionGoal extends SolutionElement {
 	 * @see #getBound()
 	 * @generated
 	 */
-	void setBound(float value);
+	void setBound(double value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,9 +166,9 @@ public interface SolutionGoal extends SolutionElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @model
 	 * @generated
 	 */
-	void buildGoalAsPreviousSolver(Solver builder) throws Exception;
+	void constructGoal(Solver solver);
 
 } // SolutionGoal

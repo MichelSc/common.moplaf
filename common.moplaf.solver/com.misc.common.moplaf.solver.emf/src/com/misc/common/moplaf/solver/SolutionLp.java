@@ -40,12 +40,12 @@ public interface SolutionLp extends Solution {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(float)
+	 * @see #setValue(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionLp_Value()
 	 * @model
 	 * @generated
 	 */
-	float getValue();
+	double getValue();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionLp#getValue <em>Value</em>}' attribute.
@@ -55,5 +55,5 @@ public interface SolutionLp extends Solution {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(float value);
+	void setValue(double value);
 } // SolutionLp

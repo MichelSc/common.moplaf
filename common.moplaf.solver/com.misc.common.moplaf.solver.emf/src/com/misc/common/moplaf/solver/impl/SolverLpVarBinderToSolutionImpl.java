@@ -155,14 +155,14 @@ public class SolverLpVarBinderToSolutionImpl extends SolverLpVarBinderImpl imple
 	}
 
 	@Override
-	public float getLowerBound(GeneratorLpVar var) {
-		float bound = var.getSolutionValue(this.basicGetSelectedSolution());
+	public double getLowerBound(GeneratorLpVar var) {
+		double bound = var.getSolutionValue(this.basicGetSelectedSolution());
 		return bound;
 	}
 
 	@Override
-	public float getUpperBound(GeneratorLpVar var) {
-		float bound = var.getSolutionValue(this.basicGetSelectedSolution());
+	public double getUpperBound(GeneratorLpVar var) {
+		double bound = var.getSolutionValue(this.basicGetSelectedSolution());
 		return bound;
 	}
 	

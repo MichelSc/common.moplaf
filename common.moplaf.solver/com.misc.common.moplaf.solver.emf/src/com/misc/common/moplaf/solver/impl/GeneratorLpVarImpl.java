@@ -75,7 +75,7 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float LOWER_BOUND_EDEFAULT = 0.0F;
+	protected static final double LOWER_BOUND_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getLowerBound() <em>Lower Bound</em>}' attribute.
@@ -85,7 +85,7 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * @generated
 	 * @ordered
 	 */
-	protected float lowerBound = LOWER_BOUND_EDEFAULT;
+	protected double lowerBound = LOWER_BOUND_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUpperBound() <em>Upper Bound</em>}' attribute.
@@ -95,7 +95,7 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float UPPER_BOUND_EDEFAULT = 1.0F;
+	protected static final double UPPER_BOUND_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getUpperBound() <em>Upper Bound</em>}' attribute.
@@ -105,7 +105,7 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * @generated
 	 * @ordered
 	 */
-	protected float upperBound = UPPER_BOUND_EDEFAULT;
+	protected double upperBound = UPPER_BOUND_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getLpTerm() <em>Lp Term</em>}' reference list.
@@ -133,8 +133,8 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	@Override
 	public void build(Solver builder, SolverVarBinder modifier) throws Exception {
 		SolverLpVarBinder binder = (SolverLpVarBinder)modifier;
-		float lower_bound = binder == null ? this.getLowerBound() : binder.getLowerBound(this);
-		float upper_bound = binder == null ? this.getUpperBound() : binder.getUpperBound(this);
+		double lower_bound = binder == null ? this.getLowerBound() : binder.getLowerBound(this);
+		double upper_bound = binder == null ? this.getUpperBound() : binder.getUpperBound(this);
 		EnumLpVarType type = this.getType();
 		builder.buildLpVar(this, lower_bound, upper_bound, type);
 	}
@@ -175,7 +175,7 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getLowerBound() {
+	public double getLowerBound() {
 		return lowerBound;
 	}
 
@@ -184,19 +184,20 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLowerBound(float newLowerBound) {
-		float oldLowerBound = lowerBound;
+	public void setLowerBound(double newLowerBound) {
+		double oldLowerBound = lowerBound;
 		lowerBound = newLowerBound;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_VAR__LOWER_BOUND, oldLowerBound, lowerBound));
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getUpperBound() {
+	public double getUpperBound() {
 		return upperBound;
 	}
 
@@ -205,12 +206,13 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpperBound(float newUpperBound) {
-		float oldUpperBound = upperBound;
+	public void setUpperBound(double newUpperBound) {
+		double oldUpperBound = upperBound;
 		upperBound = newUpperBound;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_VAR__UPPER_BOUND, oldUpperBound, upperBound));
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,10 +289,10 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 				setType((EnumLpVarType)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_VAR__LOWER_BOUND:
-				setLowerBound((Float)newValue);
+				setLowerBound((Double)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_VAR__UPPER_BOUND:
-				setUpperBound((Float)newValue);
+				setUpperBound((Double)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
 				getLpTerm().clear();

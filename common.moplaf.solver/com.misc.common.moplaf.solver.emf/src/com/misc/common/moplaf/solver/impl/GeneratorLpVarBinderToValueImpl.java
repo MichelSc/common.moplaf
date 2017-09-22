@@ -33,7 +33,7 @@ public class GeneratorLpVarBinderToValueImpl extends GeneratorLpVarBinderImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float BOUND_VALUE_EDEFAULT = 0.0F;
+	protected static final double BOUND_VALUE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getBoundValue() <em>Bound Value</em>}' attribute.
@@ -43,7 +43,7 @@ public class GeneratorLpVarBinderToValueImpl extends GeneratorLpVarBinderImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected float boundValue = BOUND_VALUE_EDEFAULT;
+	protected double boundValue = BOUND_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class GeneratorLpVarBinderToValueImpl extends GeneratorLpVarBinderImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getBoundValue() {
+	public double getBoundValue() {
 		return boundValue;
 	}
 
@@ -78,8 +78,8 @@ public class GeneratorLpVarBinderToValueImpl extends GeneratorLpVarBinderImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBoundValue(float newBoundValue) {
-		float oldBoundValue = boundValue;
+	public void setBoundValue(double newBoundValue) {
+		double oldBoundValue = boundValue;
 		boundValue = newBoundValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_VAR_BINDER_TO_VALUE__BOUND_VALUE, oldBoundValue, boundValue));
@@ -108,7 +108,7 @@ public class GeneratorLpVarBinderToValueImpl extends GeneratorLpVarBinderImpl im
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SolverPackage.GENERATOR_LP_VAR_BINDER_TO_VALUE__BOUND_VALUE:
-				setBoundValue((Float)newValue);
+				setBoundValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

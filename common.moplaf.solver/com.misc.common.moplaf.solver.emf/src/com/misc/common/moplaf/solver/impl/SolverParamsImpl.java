@@ -64,7 +64,7 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SOLVER_MAX_DURATION_EDEFAULT = 100.0F;
+	protected static final double SOLVER_MAX_DURATION_EDEFAULT = 100.0;
 
 	/**
 	 * The cached value of the '{@link #getSolverMaxDuration() <em>Solver Max Duration</em>}' attribute.
@@ -74,7 +74,7 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 	 * @generated
 	 * @ordered
 	 */
-	protected float solverMaxDuration = SOLVER_MAX_DURATION_EDEFAULT;
+	protected double solverMaxDuration = SOLVER_MAX_DURATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +121,7 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSolverMaxDuration() {
+	public double getSolverMaxDuration() {
 		return solverMaxDuration;
 	}
 
@@ -130,8 +130,8 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSolverMaxDuration(float newSolverMaxDuration) {
-		float oldSolverMaxDuration = solverMaxDuration;
+	public void setSolverMaxDuration(double newSolverMaxDuration) {
+		double oldSolverMaxDuration = solverMaxDuration;
 		solverMaxDuration = newSolverMaxDuration;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION, oldSolverMaxDuration, solverMaxDuration));
@@ -165,7 +165,7 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 				setRemarks((String)newValue);
 				return;
 			case SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION:
-				setSolverMaxDuration((Float)newValue);
+				setSolverMaxDuration((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -47,7 +47,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT = 0.05F;
+	protected static final double SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT = 0.05;
 
 	/**
 	 * The cached value of the '{@link #getSolverOptimalityTolerance() <em>Solver Optimality Tolerance</em>}' attribute.
@@ -57,7 +57,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * @generated
 	 * @ordered
 	 */
-	protected float solverOptimalityTolerance = SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT;
+	protected double solverOptimalityTolerance = SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isSolverLinearRelaxation() <em>Solver Linear Relaxation</em>}' attribute.
@@ -87,7 +87,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SOL_OPTIMALITY_GAP_EDEFAULT = 0.0F;
+	protected static final double SOL_OPTIMALITY_GAP_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSolOptimalityGap() <em>Sol Optimality Gap</em>}' attribute.
@@ -97,7 +97,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * @generated
 	 * @ordered
 	 */
-	protected float solOptimalityGap = SOL_OPTIMALITY_GAP_EDEFAULT;
+	protected double solOptimalityGap = SOL_OPTIMALITY_GAP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,7 +123,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSolverOptimalityTolerance() {
+	public double getSolverOptimalityTolerance() {
 		return solverOptimalityTolerance;
 	}
 
@@ -132,8 +132,8 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSolverOptimalityTolerance(float newSolverOptimalityTolerance) {
-		float oldSolverOptimalityTolerance = solverOptimalityTolerance;
+	public void setSolverOptimalityTolerance(double newSolverOptimalityTolerance) {
+		double oldSolverOptimalityTolerance = solverOptimalityTolerance;
 		solverOptimalityTolerance = newSolverOptimalityTolerance;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE, oldSolverOptimalityTolerance, solverOptimalityTolerance));
@@ -165,7 +165,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSolOptimalityGap() {
+	public double getSolOptimalityGap() {
 		return solOptimalityGap;
 	}
 
@@ -174,8 +174,8 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSolOptimalityGap(float newSolOptimalityGap) {
-		float oldSolOptimalityGap = solOptimalityGap;
+	public void setSolOptimalityGap(double newSolOptimalityGap) {
+		double oldSolOptimalityGap = solOptimalityGap;
 		solOptimalityGap = newSolOptimalityGap;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP, oldSolOptimalityGap, solOptimalityGap));
@@ -208,13 +208,13 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE:
-				setSolverOptimalityTolerance((Float)newValue);
+				setSolverOptimalityTolerance((Double)newValue);
 				return;
 			case SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION:
 				setSolverLinearRelaxation((Boolean)newValue);
 				return;
 			case SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP:
-				setSolOptimalityGap((Float)newValue);
+				setSolOptimalityGap((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

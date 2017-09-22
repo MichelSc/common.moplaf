@@ -46,7 +46,7 @@ public class SolutionVarImpl extends SolutionElementImpl implements SolutionVar 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float OPTIMAL_VALUE_EDEFAULT = 0.0F;
+	protected static final double OPTIMAL_VALUE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getOptimalValue() <em>Optimal Value</em>}' attribute.
@@ -56,7 +56,7 @@ public class SolutionVarImpl extends SolutionElementImpl implements SolutionVar 
 	 * @generated
 	 * @ordered
 	 */
-	protected float optimalValue = OPTIMAL_VALUE_EDEFAULT;
+	protected double optimalValue = OPTIMAL_VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getVar() <em>Var</em>}' reference.
@@ -92,7 +92,7 @@ public class SolutionVarImpl extends SolutionElementImpl implements SolutionVar 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getOptimalValue() {
+	public double getOptimalValue() {
 		return optimalValue;
 	}
 
@@ -101,8 +101,8 @@ public class SolutionVarImpl extends SolutionElementImpl implements SolutionVar 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOptimalValue(float newOptimalValue) {
-		float oldOptimalValue = optimalValue;
+	public void setOptimalValue(double newOptimalValue) {
+		double oldOptimalValue = optimalValue;
 		optimalValue = newOptimalValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_VAR__OPTIMAL_VALUE, oldOptimalValue, optimalValue));
@@ -252,7 +252,7 @@ public class SolutionVarImpl extends SolutionElementImpl implements SolutionVar 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SolverPackage.SOLUTION_VAR__OPTIMAL_VALUE:
-				setOptimalValue((Float)newValue);
+				setOptimalValue((Double)newValue);
 				return;
 			case SolverPackage.SOLUTION_VAR__VAR:
 				setVar((GeneratorVar)newValue);

@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getLabel <em>Label</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getObjectiveType <em>Objective Type</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal()
@@ -152,12 +153,34 @@ public interface GeneratorGoal extends GeneratorElement {
 	EList<SolutionGoal> getSolution();
 
 	/**
+	 * Returns the value of the '<em><b>Objective Type</b></em>' attribute.
+	 * The default value is <code>"Maximum"</code>.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.solver.EnumObjectiveType}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Objective Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @return the value of the '<em>Objective Type</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.EnumObjectiveType
+	 * @see #setObjectiveType(EnumObjectiveType)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_ObjectiveType()
+	 * @model default="Maximum"
 	 * @generated
 	 */
-	void build(Solver builder, float weight) throws Exception;
+	EnumObjectiveType getObjectiveType();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getObjectiveType <em>Objective Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Objective Type</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.EnumObjectiveType
+	 * @see #getObjectiveType()
+	 * @generated
+	 */
+	void setObjectiveType(EnumObjectiveType value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,6 +188,14 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void buildCons(Solver builder, float rhs) throws Exception;
+	void build(Solver builder, double weight) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildCons(Solver builder, double rhs) throws Exception;
 
 } // GeneratorGoal

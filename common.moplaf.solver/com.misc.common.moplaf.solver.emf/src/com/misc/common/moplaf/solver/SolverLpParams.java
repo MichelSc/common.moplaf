@@ -40,12 +40,12 @@ public interface SolverLpParams extends SolverParams {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Solver Optimality Tolerance</em>' attribute.
-	 * @see #setSolverOptimalityTolerance(float)
+	 * @see #setSolverOptimalityTolerance(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverLpParams_SolverOptimalityTolerance()
 	 * @model default="0.05"
 	 * @generated
 	 */
-	float getSolverOptimalityTolerance();
+	double getSolverOptimalityTolerance();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverLpParams#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}' attribute.
@@ -55,7 +55,7 @@ public interface SolverLpParams extends SolverParams {
 	 * @see #getSolverOptimalityTolerance()
 	 * @generated
 	 */
-	void setSolverOptimalityTolerance(float value);
+	void setSolverOptimalityTolerance(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Solver Linear Relaxation</b></em>' attribute.

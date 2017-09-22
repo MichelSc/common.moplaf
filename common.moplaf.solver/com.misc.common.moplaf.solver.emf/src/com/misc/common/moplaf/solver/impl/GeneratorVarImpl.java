@@ -64,7 +64,7 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SELECTED_SOLUTION_VALUE_EDEFAULT = 0.0F;
+	protected static final double SELECTED_SOLUTION_VALUE_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,7 +101,7 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSelectedSolutionValue() {
+	public double getSelectedSolutionValue() {
 		Generator generator = this.getTuple().getGenerator();
 		Solution solution = generator.getSelected();
 		return this.getSolutionValue(solution);
@@ -114,7 +114,7 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	@Override
 	public void refreshSelectedSolution() {
 		String code = this.getCode();
-		float value = this.getSelectedSolutionValue();
+		double value = this.getSelectedSolutionValue();
 		String suffix = "";
 		if ( Math.abs(value)>0.001){
 			suffix = String.format(" =%1$5.1f", value);
@@ -160,7 +160,7 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSolutionValue(Solution solution) {
+	public double getSolutionValue(Solution solution) {
 		if ( solution == null ) { return 0.0f; }
 		SolutionVar solvar = this.getSolutionVar(solution);
 		if ( solvar==null) { return 0.0f; }

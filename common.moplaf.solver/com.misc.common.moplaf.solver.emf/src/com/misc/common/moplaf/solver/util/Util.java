@@ -24,7 +24,7 @@ public class Util {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	static public GeneratorLpTerm constructTerm(GeneratorLpLinear linear, GeneratorLpVar var, float coef) {
+	static public GeneratorLpTerm constructTerm(GeneratorLpLinear linear, GeneratorLpVar var, double coef) {
 		GeneratorLpTerm term = SolverFactory.eINSTANCE.createGeneratorLpTerm();
 		term.setCoeff(coef);
 		term.setLpVar(var);
@@ -40,11 +40,11 @@ public class Util {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	static public GeneratorLpTerm contributeTerm(GeneratorLpLinear linear, GeneratorLpVar var, float coef) {
+	static public GeneratorLpTerm contributeTerm(GeneratorLpLinear linear, GeneratorLpVar var, double coef) {
 		for ( GeneratorLpTerm term : linear.getLpTerm()){
 			if ( term.getLpVar()==var){
-				float coefAsIs = term.getCoeff();
-				float coefToBe = coefAsIs+coef;
+				double coefAsIs = term.getCoeff();
+				double coefToBe = coefAsIs+coef;
 				term.setCoeff(coefToBe);
 				return term;
 			}
@@ -55,7 +55,7 @@ public class Util {
 	/**
 	 * 
 	 */
-	static public GeneratorLpVar createGeneratorLpVar(String name, EnumLpVarType type, float lb, float ub){
+	static public GeneratorLpVar createGeneratorLpVar(String name, EnumLpVarType type, double lb, double ub){
 		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
 		var.setName(name);
 		var.setType(type);
@@ -67,7 +67,7 @@ public class Util {
 	/**
 	 * 
 	 */
-	static public GeneratorLpVar createGeneratorLpVarReal(String name, float lb, float ub){
+	static public GeneratorLpVar createGeneratorLpVarReal(String name, double lb, double ub){
 		GeneratorLpVar var = Util.createGeneratorLpVar(name, EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL, lb ,ub);
 		return var;
 	}
@@ -76,7 +76,7 @@ public class Util {
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarRealUnbounded(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, Float.MIN_VALUE, Float.MAX_VALUE);
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, Double.MIN_VALUE, Double.MAX_VALUE);
 		return var;
 	}
 
@@ -84,15 +84,15 @@ public class Util {
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarRealNegativeUnbounded(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, Float.MIN_VALUE, 0.0f);
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, Double.MIN_VALUE, 0.0d);
 		return var;
 	}
 
 	/**
 	 * 
 	 */
-	static public GeneratorLpVar createGeneratorLpVarRealNegativeBounded(String name, float bound){
-		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, bound, 0.0f);
+	static public GeneratorLpVar createGeneratorLpVarRealNegativeBounded(String name, double bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, bound, 0.0d);
 		return var;
 	}
 
@@ -100,28 +100,28 @@ public class Util {
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarRealPositiveUnbounded(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0f, Float.MAX_VALUE);
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0d, Double.MAX_VALUE);
 		return var;
 	}
 	/**
 	 * 
 	 */
-	static public GeneratorLpVar createGeneratorLpVarRealPositiveBounded(String name, float bound){
-		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0f, bound);
+	static public GeneratorLpVar createGeneratorLpVarRealPositiveBounded(String name, double bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0d, bound);
 		return var;
 	}
 	/**
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarRealBinary(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0f, 1.0f);
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0d, 1.0d);
 		return var;
 	}
 
 	/**
 	 * 
 	 */
-	static public GeneratorLpVar createGeneratorLpVarInteger(String name, float lb, float ub){
+	static public GeneratorLpVar createGeneratorLpVarInteger(String name, double lb, double ub){
 		GeneratorLpVar var = Util.createGeneratorLpVar(name, EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER, lb ,ub);
 		return var;
 	}
@@ -130,7 +130,7 @@ public class Util {
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarIntegerUnbounded(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, Float.MIN_VALUE, Float.MAX_VALUE);
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, Double.MIN_VALUE, Double.MAX_VALUE);
 		return var;
 	}
 
@@ -138,15 +138,15 @@ public class Util {
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarIntegerNegativeUnbounded(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, Float.MIN_VALUE, 0.0f);
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, Double.MIN_VALUE, 0.0d);
 		return var;
 	}
 
 	/**
 	 * 
 	 */
-	static public GeneratorLpVar createGeneratorLpVarIntegerNegativeBounded(String name, float bound){
-		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, bound, 0.0f);
+	static public GeneratorLpVar createGeneratorLpVarIntegerNegativeBounded(String name, double bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, bound, 0.0d);
 		return var;
 	}
 
@@ -154,21 +154,21 @@ public class Util {
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarIntegerPositiveUnbounded(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0f, Float.MAX_VALUE);
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0d, Double.MAX_VALUE);
 		return var;
 	}
 	/**
 	 * 
 	 */
-	static public GeneratorLpVar createGeneratorLpVarIntegerPositiveBounded(String name, float bound){
-		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0f, bound);
+	static public GeneratorLpVar createGeneratorLpVarIntegerPositiveBounded(String name, double bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0d, bound);
 		return var;
 	}
 	/**
 	 * 
 	 */
 	static public GeneratorLpVar createGeneratorLpVarIntegerBinary(String name){
-		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0f, 1.0f);
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0d, 1.0d);
 		return var;
 	}
 

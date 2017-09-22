@@ -39,12 +39,12 @@ public interface SolutionVar extends SolutionElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Optimal Value</em>' attribute.
-	 * @see #setOptimalValue(float)
+	 * @see #setOptimalValue(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionVar_OptimalValue()
 	 * @model
 	 * @generated
 	 */
-	float getOptimalValue();
+	double getOptimalValue();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionVar#getOptimalValue <em>Optimal Value</em>}' attribute.
@@ -54,7 +54,7 @@ public interface SolutionVar extends SolutionElement {
 	 * @see #getOptimalValue()
 	 * @generated
 	 */
-	void setOptimalValue(float value);
+	void setOptimalValue(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Var</b></em>' reference.

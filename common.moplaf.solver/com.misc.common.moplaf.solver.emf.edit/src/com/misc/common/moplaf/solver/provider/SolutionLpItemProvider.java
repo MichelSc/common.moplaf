@@ -143,21 +143,21 @@ public class SolutionLpItemProvider extends SolutionItemProvider implements IIte
 	@Override
 	public float getKPIAmount(Object element, Object kpi) {
 		SolutionLpGoal goal = (SolutionLpGoal)kpi;
-		return goal.getValue();
+		return (float) goal.getValue();
 	}
 
 	@Override
 	public float getKPIMinAmount(Object element, Object kpi) {
 		SolutionLpGoal goal = (SolutionLpGoal)kpi;
 		GeneratorLpGoal genarator_goal = (GeneratorLpGoal) goal.getGoal();
-		return genarator_goal.getMinValueIndicative();
+		return (float) genarator_goal.getMinValueIndicative();
 	}
 
 	@Override
 	public float getKPIMaxAmount(Object element, Object kpi) {
 		SolutionLpGoal goal = (SolutionLpGoal)kpi;
 		GeneratorLpGoal genarator_goal = (GeneratorLpGoal) goal.getGoal();
-		return genarator_goal.getMaxValueIndicative();
+		return (float) genarator_goal.getMaxValueIndicative();
 	}
 
 	@Override

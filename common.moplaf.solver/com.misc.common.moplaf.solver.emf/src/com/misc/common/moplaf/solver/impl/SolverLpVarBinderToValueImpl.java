@@ -37,16 +37,16 @@ public class SolverLpVarBinderToValueImpl extends SolverLpVarBinderImpl implemen
 	}
 
 	@Override
-	public float getLowerBound(GeneratorLpVar var) {
+	public double getLowerBound(GeneratorLpVar var) {
 		GeneratorLpVarBinderToValue binder = (GeneratorLpVarBinderToValue)this.getVarBinder(); 
-		float bound = binder.getBoundValue();
+		double bound = binder.getBoundValue();
 		return bound;
 	}
 
 	@Override
-	public float getUpperBound(GeneratorLpVar var) {
+	public double getUpperBound(GeneratorLpVar var) {
 		GeneratorLpVarBinderToValue binder = (GeneratorLpVarBinderToValue)this.getVarBinder(); 
-		float bound = binder.getBoundValue();
+		double bound = binder.getBoundValue();
 		return bound;
 	}
 	

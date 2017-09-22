@@ -21,7 +21,7 @@ public interface SolverLpVarBinder extends SolverVarBinder {
 	 * @model
 	 * @generated
 	 */
-	float getLowerBound(GeneratorLpVar var);
+	double getLowerBound(GeneratorLpVar var);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -29,5 +29,5 @@ public interface SolverLpVarBinder extends SolverVarBinder {
 	 * @model
 	 * @generated
 	 */
-	float getUpperBound(GeneratorLpVar var);
+	double getUpperBound(GeneratorLpVar var);
 } // SolverLpVarBinder

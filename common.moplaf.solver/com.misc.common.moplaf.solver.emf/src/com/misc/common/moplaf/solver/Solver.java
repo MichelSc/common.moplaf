@@ -262,12 +262,12 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Run Duration Initialization</em>' attribute.
-	 * @see #setRunDurationInitialization(float)
+	 * @see #setRunDurationInitialization(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_RunDurationInitialization()
 	 * @model
 	 * @generated
 	 */
-	float getRunDurationInitialization();
+	double getRunDurationInitialization();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getRunDurationInitialization <em>Run Duration Initialization</em>}' attribute.
@@ -277,7 +277,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @see #getRunDurationInitialization()
 	 * @generated
 	 */
-	void setRunDurationInitialization(float value);
+	void setRunDurationInitialization(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Run Duration Finalization</b></em>' attribute.
@@ -288,12 +288,12 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Run Duration Finalization</em>' attribute.
-	 * @see #setRunDurationFinalization(float)
+	 * @see #setRunDurationFinalization(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_RunDurationFinalization()
 	 * @model
 	 * @generated
 	 */
-	float getRunDurationFinalization();
+	double getRunDurationFinalization();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getRunDurationFinalization <em>Run Duration Finalization</em>}' attribute.
@@ -303,7 +303,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @see #getRunDurationFinalization()
 	 * @generated
 	 */
-	void setRunDurationFinalization(float value);
+	void setRunDurationFinalization(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Run Duration Solving</b></em>' attribute.
@@ -314,12 +314,12 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Run Duration Solving</em>' attribute.
-	 * @see #setRunDurationSolving(float)
+	 * @see #setRunDurationSolving(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_RunDurationSolving()
 	 * @model
 	 * @generated
 	 */
-	float getRunDurationSolving();
+	double getRunDurationSolving();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getRunDurationSolving <em>Run Duration Solving</em>}' attribute.
@@ -329,7 +329,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @see #getRunDurationSolving()
 	 * @generated
 	 */
-	void setRunDurationSolving(float value);
+	void setRunDurationSolving(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Run Request Terminate</b></em>' attribute.
@@ -720,7 +720,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void buildLpVar(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception;
+	void buildLpVar(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -729,14 +729,6 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @generated
 	 */
 	void buildCons() throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
-	 * @generated
-	 */
-	void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -760,7 +752,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception;
+	void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -781,6 +773,14 @@ public interface Solver extends SolutionProvider, SolverParams {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildLpGoal(GeneratorLpGoal goal, double weight) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -792,7 +792,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @model
 	 * @generated
 	 */
-	SolverGoalPreviousSolver constructSolverGoal(Solution previousSolution);
+	void constructSolverGoal(Solution previousSolution);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -800,7 +800,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @model
 	 * @generated
 	 */
-	SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver);
+	void constructSolverGoal(Solver previousSolver);
 
 	/**
 	 * <!-- begin-user-doc -->

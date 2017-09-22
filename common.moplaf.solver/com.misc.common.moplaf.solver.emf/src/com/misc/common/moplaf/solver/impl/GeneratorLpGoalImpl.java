@@ -50,7 +50,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getLpTerm <em>Lp Term</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getMinValueIndicative <em>Min Value Indicative</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getMaxValueIndicative <em>Max Value Indicative</em>}</li>
@@ -70,26 +69,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	protected EList<GeneratorLpTerm> lpTerm;
 
 	/**
-	 * The default value of the '{@link #getObjectiveType() <em>Objective Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getObjectiveType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final EnumObjectiveType OBJECTIVE_TYPE_EDEFAULT = EnumObjectiveType.MAXIMUM;
-
-	/**
-	 * The cached value of the '{@link #getObjectiveType() <em>Objective Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getObjectiveType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EnumObjectiveType objectiveType = OBJECTIVE_TYPE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSelectedSolutionValue() <em>Selected Solution Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,7 +76,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SELECTED_SOLUTION_VALUE_EDEFAULT = 0.0F;
+	protected static final double SELECTED_SOLUTION_VALUE_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #getMinValueIndicative() <em>Min Value Indicative</em>}' attribute.
@@ -107,7 +86,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float MIN_VALUE_INDICATIVE_EDEFAULT = 0.0F;
+	protected static final double MIN_VALUE_INDICATIVE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getMinValueIndicative() <em>Min Value Indicative</em>}' attribute.
@@ -117,7 +96,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @generated
 	 * @ordered
 	 */
-	protected float minValueIndicative = MIN_VALUE_INDICATIVE_EDEFAULT;
+	protected double minValueIndicative = MIN_VALUE_INDICATIVE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMaxValueIndicative() <em>Max Value Indicative</em>}' attribute.
@@ -127,7 +106,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float MAX_VALUE_INDICATIVE_EDEFAULT = 9.9999998E10F;
+	protected static final double MAX_VALUE_INDICATIVE_EDEFAULT = 1.0E11;
 
 	/**
 	 * The cached value of the '{@link #getMaxValueIndicative() <em>Max Value Indicative</em>}' attribute.
@@ -137,7 +116,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @generated
 	 * @ordered
 	 */
-	protected float maxValueIndicative = MAX_VALUE_INDICATIVE_EDEFAULT;
+	protected double maxValueIndicative = MAX_VALUE_INDICATIVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,29 +160,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public EnumObjectiveType getObjectiveType() {
-		return objectiveType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setObjectiveType(EnumObjectiveType newObjectiveType) {
-		EnumObjectiveType oldObjectiveType = objectiveType;
-		objectiveType = newObjectiveType == null ? OBJECTIVE_TYPE_EDEFAULT : newObjectiveType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE, oldObjectiveType, objectiveType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public float getSelectedSolutionValue() {
+	public double getSelectedSolutionValue() {
 		Generator generator = this.getGenerator();
 		Solution solution = generator.getSelected();
 		SolutionGoal solutionGoal = this.getSolutionGoal(solution);
@@ -212,7 +170,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 			return lpGoal.getValue(); 
 		} 
 		
-		return 0.0f;
+		return 0.0d;
 	}
 
 	/**
@@ -220,7 +178,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getMinValueIndicative() {
+	public double getMinValueIndicative() {
 		return minValueIndicative;
 	}
 
@@ -229,8 +187,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMinValueIndicative(float newMinValueIndicative) {
-		float oldMinValueIndicative = minValueIndicative;
+	public void setMinValueIndicative(double newMinValueIndicative) {
+		double oldMinValueIndicative = minValueIndicative;
 		minValueIndicative = newMinValueIndicative;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE, oldMinValueIndicative, minValueIndicative));
@@ -241,7 +199,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getMaxValueIndicative() {
+	public double getMaxValueIndicative() {
 		return maxValueIndicative;
 	}
 
@@ -250,8 +208,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxValueIndicative(float newMaxValueIndicative) {
-		float oldMaxValueIndicative = maxValueIndicative;
+	public void setMaxValueIndicative(double newMaxValueIndicative) {
+		double oldMaxValueIndicative = maxValueIndicative;
 		maxValueIndicative = newMaxValueIndicative;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE, oldMaxValueIndicative, maxValueIndicative));
@@ -264,7 +222,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	public void refreshSelectedSolution() {
 		String code = this.getCode();
 		String suffix = "";
-		float value = this.getSelectedSolutionValue();
+		double value = this.getSelectedSolutionValue();
 		suffix = String.format(" =%1$5.1f", value);
 		String selectedSolutionDisplay = String.format("%1$s %2$s", code, suffix);
 		this.setSelectedSolutionDisplay(selectedSolutionDisplay);
@@ -276,7 +234,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef) {
+	public GeneratorLpTerm constructTerm(GeneratorLpVar var, double coef) {
 		return Util.constructTerm(this, var, coef);
 		}
 
@@ -287,7 +245,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public GeneratorLpTerm contributeTerm(GeneratorLpVar var, float coef) {
+	public GeneratorLpTerm contributeTerm(GeneratorLpVar var, double coef) {
 		return Util.contributeTerm(this, var, coef);
 	}
 
@@ -295,13 +253,13 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSolutionValue(Solution solution) {
+	public double getSolutionValue(Solution solution) {
 		SolutionLp solutionLp = (SolutionLp)solution;
 		if ( solutionLp==null) { return 0.0f; }
-		float goalValue = 0.0f;
+		double goalValue = 0.0f;
 		for ( GeneratorLpTerm term : this.getLpTerm()){
-			float coeff = term.getCoeff();
-			float varValue = term.getLpVar().getSolutionValue(solution);
+			double coeff = term.getCoeff();
+			double varValue = term.getLpVar().getSolutionValue(solution);
 			goalValue += coeff*varValue;
 		}
 		
@@ -309,8 +267,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	}
 	
 
-	
-	
 	/**
 	 * Called by the framework when building the Solver model.
 	 * Add this linear as a contribution to the objective function with the given weight
@@ -318,7 +274,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public void build(Solver builder, float weight) throws Exception {
+	public void build(Solver builder, double weight) throws Exception {
 		builder.buildLpGoal(this, weight);
 	}
 
@@ -329,7 +285,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public void buildCons(Solver builder, float rhs) throws Exception{
+	public void buildCons(Solver builder, double rhs) throws Exception{
 			
 		GeneratorLpLinear linearExpr = this;
 		EnumLpConsType direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL;
@@ -384,8 +340,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		switch (featureID) {
 			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
 				return getLpTerm();
-			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
-				return getObjectiveType();
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue();
 			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
@@ -409,14 +363,11 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				getLpTerm().clear();
 				getLpTerm().addAll((Collection<? extends GeneratorLpTerm>)newValue);
 				return;
-			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
-				setObjectiveType((EnumObjectiveType)newValue);
-				return;
 			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
-				setMinValueIndicative((Float)newValue);
+				setMinValueIndicative((Double)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE:
-				setMaxValueIndicative((Float)newValue);
+				setMaxValueIndicative((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -432,9 +383,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		switch (featureID) {
 			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
 				getLpTerm().clear();
-				return;
-			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
-				setObjectiveType(OBJECTIVE_TYPE_EDEFAULT);
 				return;
 			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
 				setMinValueIndicative(MIN_VALUE_INDICATIVE_EDEFAULT);
@@ -456,8 +404,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		switch (featureID) {
 			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
 				return lpTerm != null && !lpTerm.isEmpty();
-			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
-				return objectiveType != OBJECTIVE_TYPE_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue() != SELECTED_SOLUTION_VALUE_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
@@ -509,8 +455,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == GeneratorLpLinear.class) {
 			switch (baseOperationID) {
-				case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT;
-				case SolverPackage.GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_GOAL___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT;
+				case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_DOUBLE: return SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_DOUBLE;
+				case SolverPackage.GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_DOUBLE: return SolverPackage.GENERATOR_LP_GOAL___CONTRIBUTE_TERM__GENERATORLPVAR_DOUBLE;
 				default: return -1;
 			}
 		}
@@ -527,10 +473,10 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		switch (operationID) {
 			case SolverPackage.GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION:
 				return getSolutionValue((Solution)arguments.get(0));
-			case SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT:
-				return constructTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
-			case SolverPackage.GENERATOR_LP_GOAL___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT:
-				return contributeTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
+			case SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_DOUBLE:
+				return constructTerm((GeneratorLpVar)arguments.get(0), (Double)arguments.get(1));
+			case SolverPackage.GENERATOR_LP_GOAL___CONTRIBUTE_TERM__GENERATORLPVAR_DOUBLE:
+				return contributeTerm((GeneratorLpVar)arguments.get(0), (Double)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -545,9 +491,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ObjectiveType: ");
-		result.append(objectiveType);
-		result.append(", MinValueIndicative: ");
+		result.append(" (MinValueIndicative: ");
 		result.append(minValueIndicative);
 		result.append(", MaxValueIndicative: ");
 		result.append(maxValueIndicative);

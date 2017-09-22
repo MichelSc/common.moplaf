@@ -62,7 +62,7 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float COEFF_EDEFAULT = 0.0F;
+	protected static final double COEFF_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getCoeff() <em>Coeff</em>}' attribute.
@@ -72,7 +72,7 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected float coeff = COEFF_EDEFAULT;
+	protected double coeff = COEFF_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -168,7 +168,7 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getCoeff() {
+	public double getCoeff() {
 		return coeff;
 	}
 
@@ -177,8 +177,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCoeff(float newCoeff) {
-		float oldCoeff = coeff;
+	public void setCoeff(double newCoeff) {
+		double oldCoeff = coeff;
 		coeff = newCoeff;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_TERM__COEFF, oldCoeff, coeff));
@@ -231,7 +231,7 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public String getDescription() {
 		GeneratorLpVar var = this.getLpVar();
-		float coefficient = this.getCoeff();
+		double coefficient = this.getCoeff();
 		String varcode = var==null ? "null" : var.getCode();
 		String code = String.format("%2$.1f %1$s", varcode, coefficient);
 		return code;
@@ -320,7 +320,7 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 				setLpVar((GeneratorLpVar)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_TERM__COEFF:
-				setCoeff((Float)newValue);
+				setCoeff((Double)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
 				setLpLinear((GeneratorLpLinear)newValue);

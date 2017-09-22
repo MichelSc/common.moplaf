@@ -60,6 +60,8 @@ public class SolverGeneratorGoalItemProvider extends SolverGoalItemProvider {
 			addGoalBoundPropertyDescriptor(object);
 			addOptimizePropertyDescriptor(object);
 			addConstraintPropertyDescriptor(object);
+			addConstraintAbsoluteTolerancePropertyDescriptor(object);
+			addConstraintRelativeTolerancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -175,6 +177,50 @@ public class SolverGeneratorGoalItemProvider extends SolverGoalItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Constraint Absolute Tolerance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConstraintAbsoluteTolerancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverGeneratorGoal_ConstraintAbsoluteTolerance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGeneratorGoal_ConstraintAbsoluteTolerance_feature", "_UI_SolverGeneratorGoal_type"),
+				 SolverPackage.Literals.SOLVER_GENERATOR_GOAL__CONSTRAINT_ABSOLUTE_TOLERANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Constraint Relative Tolerance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConstraintRelativeTolerancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverGeneratorGoal_ConstraintRelativeTolerance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGeneratorGoal_ConstraintRelativeTolerance_feature", "_UI_SolverGeneratorGoal_type"),
+				 SolverPackage.Literals.SOLVER_GENERATOR_GOAL__CONSTRAINT_RELATIVE_TOLERANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -205,6 +251,8 @@ public class SolverGeneratorGoalItemProvider extends SolverGoalItemProvider {
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND:
 			case SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE:
 			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_ABSOLUTE_TOLERANCE:
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT_RELATIVE_TOLERANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

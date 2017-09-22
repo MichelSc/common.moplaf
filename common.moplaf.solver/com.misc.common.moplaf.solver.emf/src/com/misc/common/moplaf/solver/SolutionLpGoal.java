@@ -39,12 +39,12 @@ public interface SolutionLpGoal extends SolutionGoal {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(float)
+	 * @see #setValue(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionLpGoal_Value()
 	 * @model
 	 * @generated
 	 */
-	float getValue();
+	double getValue();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionLpGoal#getValue <em>Value</em>}' attribute.
@@ -54,6 +54,6 @@ public interface SolutionLpGoal extends SolutionGoal {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(float value);
+	void setValue(double value);
 
 } // SolutionLpGoal

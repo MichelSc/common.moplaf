@@ -63,7 +63,7 @@ public interface GeneratorVar extends GeneratorTupleMember {
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	float getSelectedSolutionValue();
+	double getSelectedSolutionValue();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,7 +95,7 @@ public interface GeneratorVar extends GeneratorTupleMember {
 	 * @model
 	 * @generated
 	 */
-	float getSolutionValue(Solution solver);
+	double getSolutionValue(Solution solver);
 
 	/**
 	 * <!-- begin-user-doc -->

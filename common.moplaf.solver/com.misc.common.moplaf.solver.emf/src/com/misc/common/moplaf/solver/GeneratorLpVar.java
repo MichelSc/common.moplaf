@@ -74,12 +74,12 @@ public interface GeneratorLpVar extends GeneratorVar {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Lower Bound</em>' attribute.
-	 * @see #setLowerBound(float)
+	 * @see #setLowerBound(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar_LowerBound()
 	 * @model required="true"
 	 * @generated
 	 */
-	float getLowerBound();
+	double getLowerBound();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLowerBound <em>Lower Bound</em>}' attribute.
@@ -89,7 +89,7 @@ public interface GeneratorLpVar extends GeneratorVar {
 	 * @see #getLowerBound()
 	 * @generated
 	 */
-	void setLowerBound(float value);
+	void setLowerBound(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Upper Bound</b></em>' attribute.
@@ -101,12 +101,12 @@ public interface GeneratorLpVar extends GeneratorVar {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Upper Bound</em>' attribute.
-	 * @see #setUpperBound(float)
+	 * @see #setUpperBound(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar_UpperBound()
 	 * @model default="1" required="true"
 	 * @generated
 	 */
-	float getUpperBound();
+	double getUpperBound();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpVar#getUpperBound <em>Upper Bound</em>}' attribute.
@@ -116,7 +116,7 @@ public interface GeneratorLpVar extends GeneratorVar {
 	 * @see #getUpperBound()
 	 * @generated
 	 */
-	void setUpperBound(float value);
+	void setUpperBound(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Lp Term</b></em>' reference list.

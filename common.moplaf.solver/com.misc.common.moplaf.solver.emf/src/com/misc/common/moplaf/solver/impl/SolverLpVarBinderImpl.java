@@ -44,7 +44,7 @@ public class SolverLpVarBinderImpl extends SolverVarBinderImpl implements Solver
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getLowerBound(GeneratorLpVar var) {
+	public double getLowerBound(GeneratorLpVar var) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -55,7 +55,7 @@ public class SolverLpVarBinderImpl extends SolverVarBinderImpl implements Solver
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getUpperBound(GeneratorLpVar var) {
+	public double getUpperBound(GeneratorLpVar var) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

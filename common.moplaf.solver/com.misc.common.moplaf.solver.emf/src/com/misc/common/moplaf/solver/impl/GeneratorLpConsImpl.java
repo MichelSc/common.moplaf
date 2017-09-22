@@ -86,7 +86,7 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float RIGH_HAND_SIDE_EDEFAULT = 0.0F;
+	protected static final double RIGH_HAND_SIDE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getRighHandSide() <em>Righ Hand Side</em>}' attribute.
@@ -96,7 +96,7 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 * @generated
 	 * @ordered
 	 */
-	protected float righHandSide = RIGH_HAND_SIDE_EDEFAULT;
+	protected double righHandSide = RIGH_HAND_SIDE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,7 +163,7 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getRighHandSide() {
+	public double getRighHandSide() {
 		return righHandSide;
 	}
 
@@ -172,20 +172,19 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRighHandSide(float newRighHandSide) {
-		float oldRighHandSide = righHandSide;
+	public void setRighHandSide(double newRighHandSide) {
+		double oldRighHandSide = righHandSide;
 		righHandSide = newRighHandSide;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE, oldRighHandSide, righHandSide));
 	}
 
-	
 	/**
 	 * Create an new term to the linear. Assume that the var is not yet present in the linear.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef) {
+	public GeneratorLpTerm constructTerm(GeneratorLpVar var, double coef) {
 		return Util.constructTerm(this,  var, coef);
 		}
 
@@ -198,7 +197,7 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public GeneratorLpTerm contributeTerm(GeneratorLpVar var, float coef) {
+	public GeneratorLpTerm contributeTerm(GeneratorLpVar var, double coef) {
 		return Util.contributeTerm(this, var, coef);
 	}
 
@@ -276,7 +275,7 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 				setType((EnumLpConsType)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE:
-				setRighHandSide((Float)newValue);
+				setRighHandSide((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -362,8 +361,8 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == GeneratorLpLinear.class) {
 			switch (baseOperationID) {
-				case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT;
-				case SolverPackage.GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_CONS___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT;
+				case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_DOUBLE: return SolverPackage.GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_DOUBLE;
+				case SolverPackage.GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_DOUBLE: return SolverPackage.GENERATOR_LP_CONS___CONTRIBUTE_TERM__GENERATORLPVAR_DOUBLE;
 				default: return -1;
 			}
 		}
@@ -378,10 +377,10 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case SolverPackage.GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT:
-				return constructTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
-			case SolverPackage.GENERATOR_LP_CONS___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT:
-				return contributeTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
+			case SolverPackage.GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_DOUBLE:
+				return constructTerm((GeneratorLpVar)arguments.get(0), (Double)arguments.get(1));
+			case SolverPackage.GENERATOR_LP_CONS___CONTRIBUTE_TERM__GENERATORLPVAR_DOUBLE:
+				return contributeTerm((GeneratorLpVar)arguments.get(0), (Double)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

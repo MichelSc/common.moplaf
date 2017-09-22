@@ -27,6 +27,8 @@ package com.misc.common.moplaf.solver;
  *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalBound <em>Goal Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isOptimize <em>Optimize</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isConstraint <em>Constraint</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getConstraintAbsoluteTolerance <em>Constraint Absolute Tolerance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getConstraintRelativeTolerance <em>Constraint Relative Tolerance</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal()
@@ -70,12 +72,12 @@ public interface SolverGeneratorGoal extends SolverGoal {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Goal Weight</em>' attribute.
-	 * @see #setGoalWeight(float)
+	 * @see #setGoalWeight(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal_GoalWeight()
 	 * @model default="1.0" required="true"
 	 * @generated
 	 */
-	float getGoalWeight();
+	double getGoalWeight();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalWeight <em>Goal Weight</em>}' attribute.
@@ -85,7 +87,7 @@ public interface SolverGeneratorGoal extends SolverGoal {
 	 * @see #getGoalWeight()
 	 * @generated
 	 */
-	void setGoalWeight(float value);
+	void setGoalWeight(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Goal Bound</b></em>' attribute.
@@ -96,12 +98,12 @@ public interface SolverGeneratorGoal extends SolverGoal {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Goal Bound</em>' attribute.
-	 * @see #setGoalBound(float)
+	 * @see #setGoalBound(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal_GoalBound()
 	 * @model
 	 * @generated
 	 */
-	float getGoalBound();
+	double getGoalBound();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalBound <em>Goal Bound</em>}' attribute.
@@ -111,7 +113,7 @@ public interface SolverGeneratorGoal extends SolverGoal {
 	 * @see #getGoalBound()
 	 * @generated
 	 */
-	void setGoalBound(float value);
+	void setGoalBound(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Optimize</b></em>' attribute.
@@ -166,5 +168,58 @@ public interface SolverGeneratorGoal extends SolverGoal {
 	 * @generated
 	 */
 	void setConstraint(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraint Absolute Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraint Absolute Tolerance</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraint Absolute Tolerance</em>' attribute.
+	 * @see #setConstraintAbsoluteTolerance(double)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal_ConstraintAbsoluteTolerance()
+	 * @model
+	 * @generated
+	 */
+	double getConstraintAbsoluteTolerance();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getConstraintAbsoluteTolerance <em>Constraint Absolute Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Constraint Absolute Tolerance</em>' attribute.
+	 * @see #getConstraintAbsoluteTolerance()
+	 * @generated
+	 */
+	void setConstraintAbsoluteTolerance(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraint Relative Tolerance</b></em>' attribute.
+	 * The default value is <code>"0.000001"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraint Relative Tolerance</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraint Relative Tolerance</em>' attribute.
+	 * @see #setConstraintRelativeTolerance(double)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal_ConstraintRelativeTolerance()
+	 * @model default="0.000001"
+	 * @generated
+	 */
+	double getConstraintRelativeTolerance();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getConstraintRelativeTolerance <em>Constraint Relative Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Constraint Relative Tolerance</em>' attribute.
+	 * @see #getConstraintRelativeTolerance()
+	 * @generated
+	 */
+	void setConstraintRelativeTolerance(double value);
 
 } // SolverGeneratorGoal

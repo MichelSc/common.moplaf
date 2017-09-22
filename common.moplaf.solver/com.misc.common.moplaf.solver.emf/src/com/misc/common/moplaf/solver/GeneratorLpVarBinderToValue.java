@@ -29,12 +29,12 @@ public interface GeneratorLpVarBinderToValue extends GeneratorLpVarBinder {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bound Value</em>' attribute.
-	 * @see #setBoundValue(float)
+	 * @see #setBoundValue(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVarBinderToValue_BoundValue()
 	 * @model
 	 * @generated
 	 */
-	float getBoundValue();
+	double getBoundValue();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpVarBinderToValue#getBoundValue <em>Bound Value</em>}' attribute.
@@ -44,6 +44,6 @@ public interface GeneratorLpVarBinderToValue extends GeneratorLpVarBinder {
 	 * @see #getBoundValue()
 	 * @generated
 	 */
-	void setBoundValue(float value);
+	void setBoundValue(double value);
 
 } // GeneratorLpVarBinderToValue

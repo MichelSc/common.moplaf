@@ -58,34 +58,11 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider  {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addObjectiveTypePropertyDescriptor(object);
 			addSelectedSolutionValuePropertyDescriptor(object);
 			addMinValueIndicativePropertyDescriptor(object);
 			addMaxValueIndicativePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Objective Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addObjectiveTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpGoal_ObjectiveType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoal_ObjectiveType_feature", "_UI_GeneratorLpGoal_type"),
-				 SolverPackage.Literals.GENERATOR_LP_GOAL__OBJECTIVE_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10GeneralPropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -211,7 +188,6 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider  {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GeneratorLpGoal.class)) {
-			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
 			case SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE:
