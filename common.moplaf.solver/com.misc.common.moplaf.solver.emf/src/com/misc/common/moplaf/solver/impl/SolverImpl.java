@@ -50,7 +50,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -1241,9 +1240,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type)
 			throws Exception {
-		if (element instanceof GeneratorLpGoal) {
-			this.generatorGoalsToConstraint.put((GeneratorGoal) element, rhs);
-		}
+//		if (element instanceof GeneratorLpGoal) {
+//			this.generatorGoalsToConstraint.add((GeneratorGoal) element);
+//		}
 		this.buildLpConsImpl(element, linear, rhs, type);
 	}
 
@@ -1299,7 +1298,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildLpGoal(GeneratorLpGoal goal, double weight) throws Exception {
-		this.generatorGoalsToSolve.add(goal);
+//		this.generatorGoalsToSolve.add(goal);
 		
 		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
 			GeneratorLpVar lpvar = goalTerm.getLpVar();
@@ -1390,18 +1389,23 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		for (GeneratorGoal goal : generator.getGoals()) {
 			// construct the solution goal and initialize it with the solution value
 			SolutionGoal solutionGoal = solution.constructSolutionGoal(goal);
-
-			// is the goal an optimization goal?
-			if (this.generatorGoalsToSolve.contains(goal)) {
-				solutionGoal.setOptimized(true);
-			} 
-			
-			// is the goal a feasibility goal?
-			Double goalBound = this.generatorGoalsToConstraint.get(goal);
-			if ( goalBound != null ){ 
-				solutionGoal.setConstrained(true);
-				solutionGoal.setBound(goalBound);
-			}
+			// look up the solver goal
+			for ( SolverGoal solverGoal : this.getGoals()){
+				if ( solverGoal instanceof SolverGeneratorGoal ){
+					SolverGeneratorGoal solverGeneratorGoal = (SolverGeneratorGoal)solverGoal;
+					if ( goal == solverGeneratorGoal.getGoalToSolve()){
+						if ( solverGeneratorGoal.isConstraint()){
+							double goalBound = solverGeneratorGoal.getGoalBound();
+							solutionGoal.setBound(goalBound);
+							solutionGoal.setConstrained(true);
+						}
+						if ( solverGeneratorGoal.isOptimize()){
+							solutionGoal.setOptimized(true);
+						}
+						break; // stop traversing the solver goals
+					}
+				}
+			} // traverse the solver goals to retrieve the current generator goal
 		}
 	}
 
@@ -1421,8 +1425,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			solution.dispose();
 		}
 
-		this.generatorGoalsToConstraint = null;
-		this.generatorGoalsToSolve = null;
+//		this.generatorGoalsToConstraint = null;
+//		this.generatorGoalsToSolve = null;
 	}
 
 	/*
@@ -1515,17 +1519,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * Remember the goals to optimize.
-	 * This will be used when building the solution, that is in method {@link #makeSolutionGoals(Solution)}
-	 */
-	private HashSet<GeneratorGoal> generatorGoalsToSolve = new HashSet<GeneratorGoal>();
-
-	/**
-	 * Remember the goals used as constraint.
-	 * This will be used when building the solution, that is in method {@link #makeSolutionGoals(Solution)}
-	 */
-	private HashMap<GeneratorGoal, Double> generatorGoalsToConstraint = new HashMap<GeneratorGoal, Double>();
+//	/**
+//	 * Remember the goals to optimize.
+//	 * This will be used when building the solution, that is in method {@link #makeSolutionGoals(Solution)}
+//	 */
+//	private HashSet<GeneratorGoal> generatorGoalsToSolve = new HashSet<GeneratorGoal>();
+//
+//	/**
+//	 * Remember the goals used as constraint.
+//	 * This will be used when building the solution, that is in method {@link #makeSolutionGoals(Solution)}
+//	 */
+//	private HashSet<GeneratorGoal> generatorGoalsToConstraint = new HashSet<GeneratorGoal>();
 
 	private Date eLastMonitoredFeedback;
 	private static int eMonitorRefreshRateMillis = 100;
