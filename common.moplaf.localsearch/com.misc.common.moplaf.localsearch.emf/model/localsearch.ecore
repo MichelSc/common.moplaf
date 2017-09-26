@@ -4,45 +4,90 @@
     nsPrefix="ls">
   <eClassifiers xsi:type="ecore:EClass" name="Solution">
     <eOperations name="clone"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Moves" upperBound="-1"
-        eType="#//Move" containment="true"/>
+    <eOperations name="refresh">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Refresh derived elements"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="score" lowerBound="1" eType="#//Score"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Moves" upperBound="-1"
-        eType="#//Move"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Action:&#xD;&#xA;  plan this planUnit&#xD;&#xA;  plan some planUnit:&#xD;&#xA;     select a planUnit, or not&#xD;&#xA;     construct the Moves&#xD;&#xA;     estimate/score&#xD;&#xA;     apply/revert&#xD;&#xA;     repeat a given number of times"/>
+    </eAnnotations>
+    <eOperations name="createMoves">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Create all the moves to be considered on the received solution&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="scoreMoves">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Exectue all the moves and retain their scores&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="selectMove">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Select one of the move, and aligne the solution to it"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RootMoves" upperBound="-1"
+        eType="#//Move" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentMove" eType="#//Move"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedMove" eType="#//Move"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Move">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A move is a small change to the solution.&#xA;Small menaing a limited (constant) number of deltas with respect to the solution . &#xA;So the score a  move must be calculated in a constant time (with respect to the size of the solution).&#xA;A move is specific to a given solution (to a specific Action)."/>
+      <details key="documentation" value="A move is a small change to the solution.&#xA;Small meaning a limited (constant) number of deltas with respect to the solution . &#xA;So the score a  move must be calculated in a constant time (with respect to the size of the solution).&#xA;A move is specific to a given solution (to a specific Action)."/>
     </eAnnotations>
-    <eOperations name="apply"/>
-    <eOperations name="revert"/>
+    <eOperations name="apply">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Set the CurrentSolution to the SelectedMove"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="revert">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Revert all the changes performed by the Action, and the changes in the derived data, performed by the refresh.&#xD;&#xA;Note that the score has been saved in this.Score. The latter will not be undone."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="createScore"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="score" lowerBound="1" eType="#//Score"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Next" upperBound="-1" eType="#//Move"
-        eOpposite="#//Move/Previous"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NextMoves" upperBound="-1"
+        eType="#//Move" eOpposite="#//Move/Previous"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//Move"
-        eOpposite="#//Move/Next"/>
+        eOpposite="#//Move/NextMoves"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Score">
     <eOperations name="compare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="other" eType="#//Score"/>
     </eOperations>
+    <eOperations name="copy">
+      <eParameters name="other" eType="#//Score"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Strategy">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ActionsSets" upperBound="-1"
-        eType="#//ActionsSet" containment="true"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Solve the problem.&#xD;&#xA;Manage a pool of solutions.&#xD;&#xA;Carry out the improvment stetps one be one.&#xD;&#xA;For every improvment step:&#xD;&#xA;  - iterate a number of times (limited in number or in time)&#xD;&#xA; - select a solution in the pool&#xD;&#xA; - do the improvment&#xD;&#xA; - decide if the new solutions makes it to the pool or not&#xD;&#xA;   is this not too early?&#xD;&#xA;   should we not iterate a little bit before deciding copy or not copy?"/>
+    </eAnnotations>
+    <eOperations name="selectSolutionsToImprove"/>
+    <eOperations name="pruneSolution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Improvments" upperBound="-1"
+        eType="#//Improvment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BestSolution" eType="#//Solution"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pool">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
         eType="#//Solution" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionsSet">
+  <eClassifiers xsi:type="ecore:EClass" name="Improvment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possible better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions."/>
+    </eAnnotations>
+    <eOperations name="createActions"/>
+    <eOperations name="doIteration"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxIterations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSeconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
   </eClassifiers>
 </ecore:EPackage>
