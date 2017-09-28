@@ -447,12 +447,12 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sol Value</em>' attribute.
-	 * @see #setSolValue(float)
+	 * @see #setSolValue(double)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_SolValue()
 	 * @model
 	 * @generated
 	 */
-	float getSolValue();
+	double getSolValue();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getSolValue <em>Sol Value</em>}' attribute.
@@ -462,7 +462,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @see #getSolValue()
 	 * @generated
 	 */
-	void setSolValue(float value);
+	void setSolValue(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Run Interrupted</b></em>' attribute.

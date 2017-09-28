@@ -12,6 +12,7 @@
  */
 package solverjacop.impl;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -85,6 +86,7 @@ public class SolverjacopPackageImpl extends EPackageImpl implements SolverjacopP
 
 		// Initialize simple dependencies
 		SolverPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolverjacopPackage.createPackageContents();

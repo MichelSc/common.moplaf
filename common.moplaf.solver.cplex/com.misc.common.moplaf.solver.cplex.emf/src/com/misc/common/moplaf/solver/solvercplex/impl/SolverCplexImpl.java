@@ -1380,8 +1380,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		// do something with the solution
 		boolean unfeasible = false;
 		boolean optimal    = false;
-		float   goalvalue  = 0.0f;
-		float   mipgap     = 0.0f;
+		double   goalvalue  = 0.0d;
+		double   mipgap     = 0.0d;
 		
 
 		// handle the return status of cplex
@@ -1415,13 +1415,13 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		}
 		if ( feasible ) {
 			try {
-				goalvalue = (float) this.lp.getObjValue();
+				goalvalue = this.lp.getObjValue();
 			} catch (IloException e) {
 				Plugin.INSTANCE.logError("SolverCplex: getObjValue, exception "+e);
 				return new ReturnFeedback("SolverCplex.getObjValue", e);
 			}
 			try {
-				mipgap    = (float) this.lp.getMIPRelativeGap();
+				mipgap    = this.lp.getMIPRelativeGap();
 			} catch (IloException e) {
 				Plugin.INSTANCE.logError("SolverCplex: getMIPRelativeGap, exception "+e);
 				return new ReturnFeedback("SolverCplex.getMIPRelativeGap", e);
@@ -1431,9 +1431,9 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			for ( Map.Entry<GeneratorLpVar, IloNumVar> varentry : vars.entrySet())	{
 				IloNumVar cplexvar = varentry.getValue();
 				GeneratorLpVar lpvar = varentry.getKey();
-				float optimalvalue = 0.0f;
+				double optimalvalue = 0.0f;
 				try {
-					optimalvalue = (float) this.lp.getValue(cplexvar);
+					optimalvalue = this.lp.getValue(cplexvar);
 				} catch (IloException e) {
 					Plugin.INSTANCE.logInfo("SolverCplex: getValue, exception "+e+ ", object "+cplexvar.getName());
 					// michel 20161209: 
@@ -1443,7 +1443,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 					//    this is an open questions
 //					return new ReturnFeedback("SolverCplex.getMIPRelativeGap", e);
 				}
-				if ( Math.abs(optimalvalue)>0.00001){
+				if ( Math.abs(optimalvalue)>0.00001d){
 					SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
 					solvervar.setOptimalValue(optimalvalue);
 				}
@@ -1479,13 +1479,13 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	        String depth = String.format("actives %1$d, current %2$d, total: %3$d", nofActiveNodes, nofNodesCurrent, nofNodesTotal); 
 			
 			// value
-			float mipvalue = 0.0f;
-			float mipgap = 0.0f;
+			double mipvalue = 0.0;
+			double mipgap = 0.0;
 			boolean feasible = this.hasIncumbent();
 			if  (  feasible )  {
 				feasible = true;
-				mipvalue = (float) this.getIncumbentObjValue();
-				mipgap   = (float) this.getMIPRelativeGap();
+				mipvalue = this.getIncumbentObjValue();
+				mipgap   = this.getMIPRelativeGap();
 			}
 			
 			SolverCplexImpl.this.onSolverFeedback(depth, progress, mipgap, mipvalue, feasible);

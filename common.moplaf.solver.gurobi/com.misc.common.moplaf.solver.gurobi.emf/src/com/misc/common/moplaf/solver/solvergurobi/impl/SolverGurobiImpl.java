@@ -552,7 +552,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		char kind = GRB.CONTINUOUS;
 		if ( !this.isSolverLinearRelaxation()
 				&& type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
@@ -569,12 +569,12 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type) throws Exception {
 		GRBLinExpr expr = new GRBLinExpr();
 		for ( GeneratorLpTerm lpterm : linear.getLpTerm())	{
 			GeneratorLpVar lpvar = lpterm.getLpVar();
 			GRBVar grbvar = vars.get(lpvar);
-			float coefficient = lpterm.getCoeff();
+			double coefficient = lpterm.getCoeff();
 		    expr.addTerm(coefficient, grbvar); 
 		} // traverse the terms
 		// create the constraint
@@ -600,7 +600,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
      * Build the lp goal term
 	 */
 	@Override
-	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, double coefficient) throws Exception {
 		GRBVar grbvar = vars.get(var);
 		grbvar.set(DoubleAttr.Obj, coefficient);
 	}
@@ -676,16 +676,16 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			boolean optimal    = status==GRB.OPTIMAL;
 			boolean feasible   = model.get(GRB.IntAttr.SolCount)>0;
 			boolean unfeasible = status==GRB.INFEASIBLE;
-			float mipvalue = 0.0f;
+			double mipvalue = 0.0f;
 			if ( feasible || this.isSolverLinearRelaxation()) {
 				SolutionLp newSolution = (SolutionLp) this.constructSolution();
-				mipvalue = (float)model.get(GRB.DoubleAttr.ObjVal);
+				mipvalue = model.get(GRB.DoubleAttr.ObjVal);
 				newSolution.setValue(mipvalue);
 				for ( Map.Entry<GeneratorLpVar, GRBVar> varentry : this.vars.entrySet()) {
 					GeneratorLpVar lpvar = varentry.getKey();
 					SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
 					GRBVar grbvar = varentry.getValue();
-					float optimalvalue = (float) grbvar.get(GRB.DoubleAttr.X);
+					double optimalvalue = grbvar.get(GRB.DoubleAttr.X);
 					solvervar.setOptimalValue(optimalvalue);
 				} // traverse the vars
 				this.makeSolutionGoals(newSolution);
@@ -738,9 +738,9 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			String progress = "Unknown where "+where;
 			boolean feedback =  false;
 	        String depth = ""; 
-			float mipvalue = 0.0f;
+			double mipvalue = 0.0d;
 			boolean feasible = false;
-			float mipgap = 0.0f;
+			double mipgap = 0.0d;
 			// set the info fields
 			 try {
 				 if (where == GRB.CB_MESSAGE ) {
@@ -779,7 +779,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 						lastmsg = nodecnt;
 						double objbst = getDoubleInfo(GRB.CB_MIP_OBJBST); // current best objective
 						double objbnd = getDoubleInfo(GRB.CB_MIP_OBJBND); // current best bound
-						mipgap = (float) (Math.abs(objbst - objbnd) / Math.abs(objbst));
+						mipgap = Math.abs(objbst - objbnd) / Math.abs(objbst);
 						int actnodes = (int) getDoubleInfo(GRB.CB_MIP_NODLFT); // current unexplored node count
 						int countnodes = (int) getDoubleInfo(GRB.CB_MIP_NODCNT); // current count of nodes explored
 				        int itcnt    = (int) getDoubleInfo(GRB.CB_MIP_ITRCNT); // simplex iteration count
@@ -788,7 +788,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 				        depth = String.format("explored %1$d, unexplored %2$d, total: %3$d", actnodes, countnodes, actnodes+countnodes);
 				        progress = "MIP: "+itcnt;
 			        	feedback = true;
-				        mipvalue = (float)objbst;
+				        mipvalue = objbst;
 				        feasible = solcnt>0;
 				        SolverGurobiImpl.this.setSolOptimalityGap(mipgap); // update gap
 			        }

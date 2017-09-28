@@ -293,7 +293,7 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 	 */
 	public boolean isTightSelectedSolution() {
 		double epsilon = this.getLPMacroPlanner().getEpsilon();
-		float supplied = this.getSupplied().getSelectedSolutionValue();
+		double supplied = this.getSupplied().getSelectedSolutionValue();
 		float quantity_supplied = this.getSupply().getSupply().getQuantity()*this.getFraction();
 		boolean isTight = false;
 		if ( Math.abs(quantity_supplied-supplied)<epsilon ){

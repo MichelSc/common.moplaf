@@ -494,7 +494,7 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		if ( !SolverJavaILPImpl.this.isSolverLinearRelaxation() 
 		 && type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
 			problem.setVarType(var.getCode(), Integer.class);
@@ -509,7 +509,7 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type) throws Exception {
 		Linear linearconstraint = new Linear();
 	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
@@ -534,7 +534,7 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
      * Build the lp goal term
 	 */
 	@Override
-	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, double coefficient) throws Exception {
 		this.problem.getObjective().add(coefficient, var.getCode());
 	}
 
@@ -620,13 +620,13 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 			boolean feasible   = false;
 			boolean unfeasible = false;
 			boolean optimal    = false;
-			float   objective  = 0.0f;
+			double  objective  = 0.0d;
 
 			// do something with the solution
 			if ( result != null ) {
 				feasible = true; 
 				optimal  = true;
-				objective = result.getObjective().floatValue();
+				objective = result.getObjective().doubleValue();
 				
 				class VarSolProvider implements ITupleVisitor{
 					private SolutionLp solution;
@@ -641,9 +641,9 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 							}
 							else {
 								SolutionVar solvervar = this.solution.constructSolutionVar(var);
-								float floatoptimalvalue = optimalvalue.floatValue();
-								if ( floatoptimalvalue!=0.0f) {
-									solvervar.setOptimalValue(floatoptimalvalue);
+								double double_optimalvalue = optimalvalue.doubleValue();
+								if ( double_optimalvalue!=0.0f) {
+									solvervar.setOptimalValue(double_optimalvalue);
 								}
 							}
 						} // traverse the vars in the tuple

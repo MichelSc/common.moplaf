@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solverglpk.impl;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.solverglpk.SolverGLPK;
@@ -94,6 +95,7 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 
 		// Initialize simple dependencies
 		SolverPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolverglpkPackage.createPackageContents();

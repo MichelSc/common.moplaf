@@ -472,7 +472,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	 * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		this.var_counter++;
 		// map
 		int varnumber = this.var_counter; // index of the new variable 1-based
@@ -496,7 +496,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	 * Build the lp cons
 	 */
 	@Override
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type)
 			throws Exception {
 		this.cons_counter++; // 1-based
 		// map the constraint
@@ -517,7 +517,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 			varnumbers[termnumber] = varnumber;
 			termnumber++;
 		}
-		// constaint sense
+		// constraint sense
 		int kind = 0; // unknown
 		switch (type) {
 		case ENUM_LITERAL_LP_CONS_EQUAL:
@@ -541,7 +541,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	 * Build the lp goal
 	 */
 	@Override
-	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, double coefficient) throws Exception {
 		int varnumber = this.vars.get(var);
 		this.lp.setObj(varnumber, coefficient);
 	}
@@ -641,8 +641,8 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		boolean feasible   = false;
 		boolean unfeasible = false;
 		boolean optimal    = false;
-		float   mipvalue   = 0.0f;
-		float   mipgap     = 0.0f;
+		double   mipvalue  = 0.0d;
+		double   mipgap    = 0.0d;
 		if ( solved ){
 			switch ( rc ) {
 			case SOLVE_RC_SUBOPTIMAL:
@@ -657,8 +657,8 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 				try {
 					// get the solution values
 					double[] lpSolveVars= this.lp.getPtrVariables();
-					mipvalue = (float) this.lp.getObjective();
-					mipgap = (float) this.lp.getMipGap(false); // relative
+					mipvalue = this.lp.getObjective();
+					mipgap = this.lp.getMipGap(false); // relative
 					if ( optimal) { mipgap = 0.0f; }
 					// construct a solution
 					SolutionLp newSolution = (SolutionLp) this.constructSolution();
@@ -669,7 +669,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 						double optimalvalue = lpSolveVars[varindex-1];
 						if ( Math.abs(optimalvalue)>0.00001){
 							SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
-							solvervar.setOptimalValue((float) optimalvalue);
+							solvervar.setOptimalValue(optimalvalue);
 						}
 					} // traverse the vars
 					this.makeSolutionGoals(newSolution);
@@ -703,8 +703,8 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		public void msgfunc(LpSolve arg0, Object arg1, int arg2) throws LpSolveException {
 			SolverLpSolveImpl solver = SolverLpSolveImpl.this;
 			// gap
-			float mipgap = (float) solver.lp.getMipGap(false); // relative
-			float mipvalue = (float) solver.lp.getObjective();
+			double mipgap = solver.lp.getMipGap(false); // relative
+			double mipvalue = solver.lp.getObjective();
 
 			// Progress
 			String progress = "solving";

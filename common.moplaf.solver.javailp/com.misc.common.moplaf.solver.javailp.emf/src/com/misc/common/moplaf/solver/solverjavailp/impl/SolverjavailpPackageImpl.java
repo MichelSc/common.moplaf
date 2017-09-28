@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solverjavailp.impl;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.solverjavailp.SolverJavaILP;
@@ -95,6 +96,7 @@ public class SolverjavailpPackageImpl extends EPackageImpl implements Solverjava
 
 		// Initialize simple dependencies
 		SolverPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolverjavailpPackage.createPackageContents();

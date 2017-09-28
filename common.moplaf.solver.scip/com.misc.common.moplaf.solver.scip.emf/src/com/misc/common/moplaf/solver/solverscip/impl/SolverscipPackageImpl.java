@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solverscip.impl;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.solverscip.SolverScip;
@@ -85,6 +86,7 @@ public class SolverscipPackageImpl extends EPackageImpl implements SolverscipPac
 
 		// Initialize simple dependencies
 		SolverPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolverscipPackage.createPackageContents();

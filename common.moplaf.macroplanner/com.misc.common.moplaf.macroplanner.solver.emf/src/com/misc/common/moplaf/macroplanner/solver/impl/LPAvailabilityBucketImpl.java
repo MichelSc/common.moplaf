@@ -415,8 +415,8 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	 */
 	public boolean isTightSelectedSolution() {
 		double epsilon = this.getLPMacroPlanner().getEpsilon();
-		float reserved = this.getReserved().getSelectedSolutionValue();
-		float max = this.getAvailability().getAvailability().getQuantity();
+		float reserved = (float)this.getReserved().getSelectedSolutionValue();
+		float max = (float)this.getAvailability().getAvailability().getQuantity();
 		boolean isTight = false;
 		if ( Math.abs(reserved-max)<epsilon ){
 			isTight = true;
@@ -430,7 +430,7 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	 */
 	public boolean isSlackSelectedSolution() {
 		double epsilon = this.getLPMacroPlanner().getEpsilon();
-		float slack = this.getSlack().getSelectedSolutionValue();
+		double slack = this.getSlack().getSelectedSolutionValue();
 		boolean isSlack= slack>epsilon;
 		return isSlack;
 	}

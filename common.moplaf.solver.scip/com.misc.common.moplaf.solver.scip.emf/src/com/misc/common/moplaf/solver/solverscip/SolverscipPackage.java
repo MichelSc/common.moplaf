@@ -392,7 +392,7 @@ public interface SolverscipPackage extends EPackage {
 	int SOLVER_SCIP__GOALS = SolverPackage.SOLVER_LP__GOALS;
 
 	/**
-	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * The feature id for the '<em><b>Var Binders</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -623,7 +623,7 @@ public interface SolverscipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_SCIP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE;
+	int SOLVER_SCIP___BUILD_LP_VAR__GENERATORLPVAR_DOUBLE_DOUBLE_ENUMLPVARTYPE = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR_DOUBLE_DOUBLE_ENUMLPVARTYPE;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -659,7 +659,7 @@ public interface SolverscipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_SCIP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+	int SOLVER_SCIP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_DOUBLE_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_DOUBLE_ENUMLPCONSTYPE;
 
 	/**
 	 * The operation id for the '<em>Construct Var Binder</em>' operation.
@@ -686,7 +686,7 @@ public interface SolverscipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_SCIP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SolverPackage.SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
+	int SOLVER_SCIP___BUILD_LP_GOAL__GENERATORLPGOAL_DOUBLE = SolverPackage.SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL_DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Construct Solver Goal</em>' operation.

@@ -463,7 +463,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		int vartype = JniScipVartype.SCIP_VARTYPE_CONTINUOUS;
 		if ( !this.isSolverLinearRelaxation() && type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
 			vartype = JniScipVartype.SCIP_VARTYPE_INTEGER;
@@ -479,11 +479,11 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type) throws Exception {
 		// get the constraint attributes
 		String rowname = element.getCode();
-		float lb = rhs;
-		float ub = rhs;
+		double lb = rhs;
+		double ub = rhs;
 		switch (type ) {
 		    case ENUM_LITERAL_LP_CONS_EQUAL:
 		        break;
@@ -522,7 +522,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
      * Build the lp goal term
 	 */
 	@Override
-	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, double coefficient) throws Exception {
 	    long varindex = this.vars.get(var);
 	    this.envScip.chgVarObj(this.consScip, varindex, coefficient);
 	}
@@ -699,14 +699,14 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 				}
 				// construct a solution
 				SolutionLp newSolution = (SolutionLp) this.constructSolution();
-				newSolution.setValue((float)mipvalue);
+				newSolution.setValue(mipvalue);
 				for ( Map.Entry<GeneratorLpVar, Long> varentry : vars.entrySet())	{
 					long varindex = varentry.getValue();
 					GeneratorLpVar lpvar = varentry.getKey();
 					double optimalvalue = this.envScip.getSolVal(this.consScip, solveSolution, varindex);
 					if ( Math.abs(optimalvalue)>0.00001){
 						SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
-						solvervar.setOptimalValue((float)optimalvalue);
+						solvervar.setOptimalValue(optimalvalue);
 					}
 				} // traverse the vars
 				this.makeSolutionGoals(newSolution);
@@ -719,8 +719,8 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		this.setSolFeasible(feasible);
 		this.setSolUnfeasible(infeasible);
 		this.setSolOptimal(optimal);
-		this.setSolValue((float)mipvalue);
-		this.setSolOptimalityGap((float)mipgap);
+		this.setSolValue(mipvalue);
+		this.setSolOptimalityGap(mipgap);
 		
 		// release the lp
 		this.releaseLp();

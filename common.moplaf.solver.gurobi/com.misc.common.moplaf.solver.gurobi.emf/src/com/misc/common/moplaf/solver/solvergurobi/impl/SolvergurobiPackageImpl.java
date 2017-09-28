@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solvergurobi.impl;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.solvergurobi.SolverGurobi;
@@ -86,6 +87,7 @@ public class SolvergurobiPackageImpl extends EPackageImpl implements Solvergurob
 
 		// Initialize simple dependencies
 		SolverPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolvergurobiPackage.createPackageContents();

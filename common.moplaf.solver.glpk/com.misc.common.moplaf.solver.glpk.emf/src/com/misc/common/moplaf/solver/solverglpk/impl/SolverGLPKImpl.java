@@ -877,7 +877,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, double lowerBound, double upperBound, EnumLpVarType type) throws Exception {
 		// map
 		this.var_counter++;
 		int varnumber = this.var_counter;
@@ -908,7 +908,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, double rhs, EnumLpConsType type) throws Exception {
 		// map the constraint
 		this.cons_counter++;
 		int consnumber = this.cons_counter;
@@ -923,8 +923,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		// fill in the constraint
 		String rowname = element.getCode();
 		int nofterms = linear.getLpTerm().size();
-		float lb = rhs;
-		float ub = rhs;
+		double lb = rhs;
+		double ub = rhs;
 		int kind = GLPKConstants.GLP_DB;
 		switch (type ) {
 		    case ENUM_LITERAL_LP_CONS_EQUAL:
@@ -946,7 +946,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	    	termindex++;
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
 		    int lpvarindex = this.vars.get(lpvar);
-		    float coefficient = lpterm.getCoeff();
+		    double coefficient = lpterm.getCoeff();
 		    GLPK.intArray_setitem   (ind, termindex, lpvarindex);
 		    GLPK.doubleArray_setitem(val, termindex, coefficient);
 	    } // traverse the terms
@@ -960,7 +960,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 */
 	
 	@Override
-	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, double coefficient) throws Exception {
 	    int varindex = this.vars.get(var);
 		GLPK.glp_set_obj_coef(this.lp, varindex, coefficient);
 	}
@@ -1072,8 +1072,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		boolean feasible   = false;
 		boolean unfeasible = false;
 		boolean optimal    = false;
-		float   mipvalue = 0.0f;
-		float   mipgap   = 0.0f;
+		double   mipvalue = 0.0f;
+		double   mipgap   = 0.0f;
 
 		int mipstatus = GLPK.glp_mip_status(lp);
 		if      ( rc == GLPKConstants.GLP_ENOPFS )       { unfeasible = true; }
@@ -1084,7 +1084,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		
 		if ( feasible || this.isSolverLinearRelaxation()) {
 			// get the solution values
-			mipvalue = (float)GLPK.glp_mip_obj_val(lp);
+			mipvalue = GLPK.glp_mip_obj_val(lp);
 			mipgap   = this.getSolOptimalityGap(); // set by the call back, best I have
 			if ( optimal) { mipgap = 0.0f; }
 			// construct a solution

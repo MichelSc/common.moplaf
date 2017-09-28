@@ -445,7 +445,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SOL_VALUE_EDEFAULT = 0.0F;
+	protected static final double SOL_VALUE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSolValue() <em>Sol Value</em>}' attribute.
@@ -454,7 +454,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected float solValue = SOL_VALUE_EDEFAULT;
+	protected double solValue = SOL_VALUE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isRunInterrupted() <em>Run
@@ -656,16 +656,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSolValue() {
+	public double getSolValue() {
 		return solValue;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSolValue(float newSolValue) {
-		float oldSolValue = solValue;
+	public void setSolValue(double newSolValue) {
+		double oldSolValue = solValue;
 		solValue = newSolValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__SOL_VALUE, oldSolValue, solValue));
@@ -1656,7 +1657,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> Called when the solver return some feedback <!--
 	 * end-user-doc -->
 	 */
-	protected void onSolverFeedback(String TreeFootprint, String Progress, float OptimalityGap, float BestValue,
+	protected void onSolverFeedback(String TreeFootprint, String Progress, double OptimalityGap, double BestValue,
 			boolean Feasible) {
 		String valueasstring = Feasible ? String.format("%1$8.2f", BestValue) : "unfeasible";
 		String feedback = String.format("phase %1$s, gap %3$4.2f, value %4$s (%2$s)", Progress, TreeFootprint,
@@ -1673,7 +1674,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 																				// zero
 																				// padded
 			// work
-			int work = (int) (100 * (1.0f - OptimalityGap));
+			int work = (int) (100 * (1.0d - OptimalityGap));
 			String message = String.format("Progress %s %d", task, work);
 			Plugin.INSTANCE.logInfo(message);
 			goOn = this.setProgress(task, work);
@@ -1829,7 +1830,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				setSolOptimal((Boolean)newValue);
 				return;
 			case SolverPackage.SOLVER__SOL_VALUE:
-				setSolValue((Float)newValue);
+				setSolValue((Double)newValue);
 				return;
 			case SolverPackage.SOLVER__RUN_INTERRUPTED:
 				setRunInterrupted((Boolean)newValue);

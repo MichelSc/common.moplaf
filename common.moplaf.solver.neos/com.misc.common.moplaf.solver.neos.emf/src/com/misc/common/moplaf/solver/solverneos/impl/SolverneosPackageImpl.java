@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solverneos.impl;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.solverneos.EnumNeosSolverCategory;
 import com.misc.common.moplaf.solver.solverneos.EnumNeosSolverInput;
@@ -106,6 +107,7 @@ public class SolverneosPackageImpl extends EPackageImpl implements SolverneosPac
 
 		// Initialize simple dependencies
 		SolverPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolverneosPackage.createPackageContents();

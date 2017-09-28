@@ -206,7 +206,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public float getEventAmount(LPProductBucket bucket, int moment) {
-			return bucket.getConsumed().getSelectedSolutionValue();
+			return (float) bucket.getConsumed().getSelectedSolutionValue();
 		}
 
 		@Override
