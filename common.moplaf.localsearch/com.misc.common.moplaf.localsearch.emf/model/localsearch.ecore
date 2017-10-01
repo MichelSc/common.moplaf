@@ -14,7 +14,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Action:&#xD;&#xA;  plan this planUnit&#xD;&#xA;  plan some planUnit:&#xD;&#xA;     select a planUnit, or not&#xD;&#xA;     construct the Moves&#xD;&#xA;     estimate/score&#xD;&#xA;     apply/revert&#xD;&#xA;     repeat a given number of times"/>
+      <details key="documentation" value="Action,usage&#xD;&#xA;  plan this planUnit&#xD;&#xA;  plan some planUnit:&#xD;&#xA;     select a planUnit, or not&#xD;&#xA;     construct the Moves&#xD;&#xA;     estimate/score&#xD;&#xA;     apply/revert&#xD;&#xA;     repeat a given number of times&#xA;Action, implementation&#xA;  try out a set of moves, &#xA;  makes for every move the score available&#xA;  do (revert to) the move&#xA;  does not select (apply the move)"/>
     </eAnnotations>
     <eOperations name="createMoves">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -80,7 +80,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Improvment">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possible better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions."/>
+      <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possible better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xA;Hold the intelligence&#xA;  what actions to perform&#xA;  keep the new solution or go back to the &#xA;   at the end of the iteration&#xA;  after every action: move or not move&#xA;  at the end of the actions: &#xA;    keep&#xA;    back to the initial&#xA;    some new solution from the pool&#xA;  "/>
     </eAnnotations>
     <eOperations name="createActions"/>
     <eOperations name="doIteration"/>
