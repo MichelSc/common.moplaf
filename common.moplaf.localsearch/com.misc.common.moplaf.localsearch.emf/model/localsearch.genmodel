@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.localsearch.emf/src" modelPluginID="com.misc.common.moplaf.localsearch.emf"
+    modelName="Localsearch" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>localsearch.ecore</foreignModel>
+  <genPackages prefix="LocalSearch" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="localsearch.ecore#/">
+    <genClasses ecoreClass="localsearch.ecore#//Solution">
+      <genOperations ecoreOperation="localsearch.ecore#//Solution/clone"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Solution/refresh"/>
+    </genClasses>
+    <genClasses ecoreClass="localsearch.ecore#//Action">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/RootMoves"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentMove"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/SelectedMove"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Action/createMoves"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Action/scoreMoves"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Action/selectMove"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Action/doAction"/>
+    </genClasses>
+    <genClasses ecoreClass="localsearch.ecore#//Move">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Move/NextMoves"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Move/Previous"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Move/apply"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Move/revert"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Move/createScore"/>
+    </genClasses>
+    <genClasses ecoreClass="localsearch.ecore#//Score">
+      <genOperations ecoreOperation="localsearch.ecore#//Score/compare">
+        <genParameters ecoreParameter="localsearch.ecore#//Score/compare/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="localsearch.ecore#//Score/copy">
+        <genParameters ecoreParameter="localsearch.ecore#//Score/copy/other"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="localsearch.ecore#//Strategy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/Improvments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/BestSolution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/Solutions"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectSolutionsToImprove"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/pruneSolution"/>
+    </genClasses>
+    <genClasses ecoreClass="localsearch.ecore#//Improvment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/MaxIterations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/MaxSeconds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Improvment/Actions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Improvment/CurrentSolution"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Improvment/createActions"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Improvment/doIteration"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

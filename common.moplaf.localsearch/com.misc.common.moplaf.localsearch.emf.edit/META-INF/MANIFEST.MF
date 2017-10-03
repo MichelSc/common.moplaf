@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.misc.common.moplaf.localsearch.emf.edit;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: com.misc.common.moplaf.localsearch.provider.LocalsearchEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.misc.common.moplaf.localsearch.provider
+Require-Bundle: org.eclipse.core.runtime,
+ com.misc.common.moplaf.localsearch.emf;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ com.misc.common.moplaf.propagator2;visibility:=reexport,
+ com.misc.common.moplaf.propagator2.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

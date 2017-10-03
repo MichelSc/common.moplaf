@@ -1,6 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.misc.common.moplaf.localsearch.emf
-Bundle-SymbolicName: com.misc.common.moplaf.localsearch.emf; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.misc.common.moplaf.localsearch.emf;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.misc.common.moplaf.localsearch,
+ com.misc.common.moplaf.localsearch.impl,
+ com.misc.common.moplaf.localsearch.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.propagator2;visibility:=reexport,
+ com.misc.common.moplaf.emf;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
