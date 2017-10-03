@@ -157,6 +157,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSolution_Score() {
+		return (EReference)solutionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getSolution__Replicate() {
 		return solutionEClass.getEOperations().get(0);
 	}
@@ -276,6 +285,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 */
 	public EAttribute getMove_Valid() {
 		return (EAttribute)moveEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMove_Score() {
+		return (EReference)moveEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -487,6 +505,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		// Create classes and their features
 		solutionEClass = createEClass(SOLUTION);
+		createEReference(solutionEClass, SOLUTION__SCORE);
 		createEOperation(solutionEClass, SOLUTION___REPLICATE);
 		createEOperation(solutionEClass, SOLUTION___REFRESH);
 
@@ -503,6 +522,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(moveEClass, MOVE__NEXT_MOVES);
 		createEReference(moveEClass, MOVE__PREVIOUS);
 		createEAttribute(moveEClass, MOVE__VALID);
+		createEReference(moveEClass, MOVE__SCORE);
 		createEOperation(moveEClass, MOVE___APPLY);
 		createEOperation(moveEClass, MOVE___REVERT);
 		createEOperation(moveEClass, MOVE___IS_VALID_FEEDBACK);
@@ -562,11 +582,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		// Add supertypes to classes
 		solutionEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctions());
-		solutionEClass.getESuperTypes().add(this.getScore());
-		moveEClass.getESuperTypes().add(this.getScore());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(solutionEClass, Solution.class, "Solution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSolution_Score(), this.getScore(), null, "Score", null, 1, -1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSolution__Replicate(), null, "replicate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -589,6 +608,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getMove_NextMoves(), this.getMove(), this.getMove_Previous(), "NextMoves", null, 0, -1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMove_Previous(), this.getMove(), this.getMove_NextMoves(), "Previous", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMove_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getMove_Score(), this.getScore(), null, "Score", null, 1, -1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getMove__Apply(), null, "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -72,7 +72,6 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				Solution solution = (Solution)theEObject;
 				T result = caseSolution(solution);
 				if (result == null) result = caseObjectWithPropagatorFunctions(solution);
-				if (result == null) result = caseScore(solution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -85,7 +84,6 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 			case LocalSearchPackage.MOVE: {
 				Move move = (Move)theEObject;
 				T result = caseMove(move);
-				if (result == null) result = caseScore(move);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.localsearch;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,13 +24,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getNextMoves <em>Next Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove()
  * @model
  * @generated
  */
-public interface Move extends Score {
+public interface Move extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Next Moves</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Move}.
@@ -90,6 +92,22 @@ public interface Move extends Score {
 	 * @generated
 	 */
 	boolean isValid();
+
+	/**
+	 * Returns the value of the '<em><b>Score</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Score}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Score</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Score</em>' containment reference list.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove_Score()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Score> getScore();
 
 	/**
 	 * <!-- begin-user-doc -->

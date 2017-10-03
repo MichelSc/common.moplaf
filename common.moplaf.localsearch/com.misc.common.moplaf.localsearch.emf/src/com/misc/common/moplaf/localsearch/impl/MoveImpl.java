@@ -5,6 +5,7 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
 
+import com.misc.common.moplaf.localsearch.Score;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -19,6 +20,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,11 +36,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getNextMoves <em>Next Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getScore <em>Score</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MoveImpl extends ScoreImpl implements Move {
+public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	/**
 	 * The cached value of the '{@link #getNextMoves() <em>Next Moves</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -67,6 +71,16 @@ public class MoveImpl extends ScoreImpl implements Move {
 	 * @ordered
 	 */
 	protected static final boolean VALID_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Score> score;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,6 +185,18 @@ public class MoveImpl extends ScoreImpl implements Move {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Score> getScore() {
+		if (score == null) {
+			score = new EObjectContainmentEList<Score>(Score.class, this, LocalSearchPackage.MOVE__SCORE);
+		}
+		return score;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void apply() {
 		// to be implemented by the concrete class
@@ -228,6 +254,8 @@ public class MoveImpl extends ScoreImpl implements Move {
 				return ((InternalEList<?>)getNextMoves()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				return basicSetPrevious(null, msgs);
+			case LocalSearchPackage.MOVE__SCORE:
+				return ((InternalEList<?>)getScore()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,6 +275,8 @@ public class MoveImpl extends ScoreImpl implements Move {
 				return basicGetPrevious();
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid();
+			case LocalSearchPackage.MOVE__SCORE:
+				return getScore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,6 +297,10 @@ public class MoveImpl extends ScoreImpl implements Move {
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				setPrevious((Move)newValue);
 				return;
+			case LocalSearchPackage.MOVE__SCORE:
+				getScore().clear();
+				getScore().addAll((Collection<? extends Score>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -284,6 +318,9 @@ public class MoveImpl extends ScoreImpl implements Move {
 				return;
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				setPrevious((Move)null);
+				return;
+			case LocalSearchPackage.MOVE__SCORE:
+				getScore().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -303,6 +340,8 @@ public class MoveImpl extends ScoreImpl implements Move {
 				return previous != null;
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid() != VALID_EDEFAULT;
+			case LocalSearchPackage.MOVE__SCORE:
+				return score != null && !score.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

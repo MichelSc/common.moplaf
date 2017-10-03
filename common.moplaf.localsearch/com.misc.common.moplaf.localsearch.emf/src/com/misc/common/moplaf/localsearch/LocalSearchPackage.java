@@ -80,13 +80,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION__PROPAGATOR_FUNCTIONS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS;
 
 	/**
+	 * The feature id for the '<em><b>Score</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__SCORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 0;
+	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -116,31 +125,13 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION___ADD_PROPAGATOR_FUNCTIONS__STRING = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION___COMPARE__SCORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION___COPY__SCORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Replicate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION___REPLICATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
+	int SOLUTION___REPLICATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -149,7 +140,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 3;
+	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Solution</em>' class.
@@ -158,7 +149,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 4;
+	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
@@ -262,6 +253,97 @@ public interface LocalSearchPackage extends EPackage {
 	int SCORE = 3;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.MoveImpl <em>Move</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.localsearch.impl.MoveImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getMove()
+	 * @generated
+	 */
+	int MOVE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Next Moves</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__NEXT_MOVES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__PREVIOUS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__VALID = 2;
+
+	/**
+	 * The feature id for the '<em><b>Score</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__SCORE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Move</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE___APPLY = 0;
+
+	/**
+	 * The operation id for the '<em>Revert</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE___REVERT = 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE___IS_VALID_FEEDBACK = 2;
+
+	/**
+	 * The number of operations of the '<em>Move</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_OPERATION_COUNT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Score</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,106 +378,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCORE_OPERATION_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.MoveImpl <em>Move</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.localsearch.impl.MoveImpl
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getMove()
-	 * @generated
-	 */
-	int MOVE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__NEXT_MOVES = SCORE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Previous</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__PREVIOUS = SCORE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__VALID = SCORE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Move</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE_FEATURE_COUNT = SCORE_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Compare</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE___COMPARE__SCORE = SCORE___COMPARE__SCORE;
-
-	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE___COPY__SCORE = SCORE___COPY__SCORE;
-
-	/**
-	 * The operation id for the '<em>Apply</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE___APPLY = SCORE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Revert</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE___REVERT = SCORE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Valid Feedback</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE___IS_VALID_FEEDBACK = SCORE_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Move</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE_OPERATION_COUNT = SCORE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl <em>Strategy</em>}' class.
@@ -575,6 +557,17 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getSolution();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Solution#getScore <em>Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Score</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Solution#getScore()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EReference getSolution_Score();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#replicate() <em>Replicate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -719,6 +712,17 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMove_Valid();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Score</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#getScore()
+	 * @see #getMove()
+	 * @generated
+	 */
+	EReference getMove_Score();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#apply() <em>Apply</em>}' operation.
@@ -962,6 +966,14 @@ public interface LocalSearchPackage extends EPackage {
 		EClass SOLUTION = eINSTANCE.getSolution();
 
 		/**
+		 * The meta object literal for the '<em><b>Score</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLUTION__SCORE = eINSTANCE.getSolution_Score();
+
+		/**
 		 * The meta object literal for the '<em><b>Replicate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1076,6 +1088,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MOVE__VALID = eINSTANCE.getMove_Valid();
+
+		/**
+		 * The meta object literal for the '<em><b>Score</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MOVE__SCORE = eINSTANCE.getMove_Score();
 
 		/**
 		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
