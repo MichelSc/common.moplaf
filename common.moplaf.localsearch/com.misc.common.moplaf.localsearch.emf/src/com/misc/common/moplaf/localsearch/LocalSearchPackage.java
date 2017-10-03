@@ -80,7 +80,7 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION__PROPAGATOR_FUNCTIONS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Score</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Score</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -290,7 +290,7 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE__VALID = 2;
 
 	/**
-	 * The feature id for the '<em><b>Score</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Score</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -557,10 +557,10 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getSolution();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Solution#getScore <em>Score</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.Solution#getScore <em>Score</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Score</em>'.
+	 * @return the meta object for the containment reference '<em>Score</em>'.
 	 * @see com.misc.common.moplaf.localsearch.Solution#getScore()
 	 * @see #getSolution()
 	 * @generated
@@ -714,10 +714,10 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getMove_Valid();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Score</em>'.
+	 * @return the meta object for the containment reference '<em>Score</em>'.
 	 * @see com.misc.common.moplaf.localsearch.Move#getScore()
 	 * @see #getMove()
 	 * @generated
@@ -966,7 +966,7 @@ public interface LocalSearchPackage extends EPackage {
 		EClass SOLUTION = eINSTANCE.getSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>Score</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Score</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1090,7 +1090,7 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute MOVE__VALID = eINSTANCE.getMove_Valid();
 
 		/**
-		 * The meta object literal for the '<em><b>Score</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Score</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -9,15 +9,13 @@ import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.propagator2.impl.ObjectWithPropagatorFunctionsImpl;
 
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,14 +32,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements Solution {
 	/**
-	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference list.
+	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getScore()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Score> score;
+	protected Score score;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,11 +65,42 @@ public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Score> getScore() {
-		if (score == null) {
-			score = new EObjectContainmentEList<Score>(Score.class, this, LocalSearchPackage.SOLUTION__SCORE);
-		}
+	public Score getScore() {
 		return score;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetScore(Score newScore, NotificationChain msgs) {
+		Score oldScore = score;
+		score = newScore;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__SCORE, oldScore, newScore);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScore(Score newScore) {
+		if (newScore != score) {
+			NotificationChain msgs = null;
+			if (score != null)
+				msgs = ((InternalEObject)score).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.SOLUTION__SCORE, null, msgs);
+			if (newScore != null)
+				msgs = ((InternalEObject)newScore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.SOLUTION__SCORE, null, msgs);
+			msgs = basicSetScore(newScore, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__SCORE, newScore, newScore));
 	}
 
 	/**
@@ -105,7 +134,7 @@ public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements S
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
-				return ((InternalEList<?>)getScore()).basicRemove(otherEnd, msgs);
+				return basicSetScore(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -134,8 +163,7 @@ public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements S
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
-				getScore().clear();
-				getScore().addAll((Collection<? extends Score>)newValue);
+				setScore((Score)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -150,7 +178,7 @@ public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements S
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
-				getScore().clear();
+				setScore((Score)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -165,7 +193,7 @@ public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements S
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
-				return score != null && !score.isEmpty();
+				return score != null;
 		}
 		return super.eIsSet(featureID);
 	}

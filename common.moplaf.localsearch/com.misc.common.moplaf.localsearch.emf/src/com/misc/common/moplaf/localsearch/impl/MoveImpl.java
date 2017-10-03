@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -73,14 +72,14 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	protected static final boolean VALID_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference list.
+	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getScore()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Score> score;
+	protected Score score;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,11 +186,42 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Score> getScore() {
-		if (score == null) {
-			score = new EObjectContainmentEList<Score>(Score.class, this, LocalSearchPackage.MOVE__SCORE);
-		}
+	public Score getScore() {
 		return score;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetScore(Score newScore, NotificationChain msgs) {
+		Score oldScore = score;
+		score = newScore;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__SCORE, oldScore, newScore);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScore(Score newScore) {
+		if (newScore != score) {
+			NotificationChain msgs = null;
+			if (score != null)
+				msgs = ((InternalEObject)score).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.MOVE__SCORE, null, msgs);
+			if (newScore != null)
+				msgs = ((InternalEObject)newScore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.MOVE__SCORE, null, msgs);
+			msgs = basicSetScore(newScore, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__SCORE, newScore, newScore));
 	}
 
 	/**
@@ -255,7 +285,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				return basicSetPrevious(null, msgs);
 			case LocalSearchPackage.MOVE__SCORE:
-				return ((InternalEList<?>)getScore()).basicRemove(otherEnd, msgs);
+				return basicSetScore(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -298,8 +328,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 				setPrevious((Move)newValue);
 				return;
 			case LocalSearchPackage.MOVE__SCORE:
-				getScore().clear();
-				getScore().addAll((Collection<? extends Score>)newValue);
+				setScore((Score)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -320,7 +349,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 				setPrevious((Move)null);
 				return;
 			case LocalSearchPackage.MOVE__SCORE:
-				getScore().clear();
+				setScore((Score)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -341,7 +370,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid() != VALID_EDEFAULT;
 			case LocalSearchPackage.MOVE__SCORE:
-				return score != null && !score.isEmpty();
+				return score != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.localsearch;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,20 +22,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Solution extends ObjectWithPropagatorFunctions {
 	/**
-	 * Returns the value of the '<em><b>Score</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Score}.
+	 * Returns the value of the '<em><b>Score</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Score</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Score</em>' containment reference list.
+	 * @return the value of the '<em>Score</em>' containment reference.
+	 * @see #setScore(Score)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution_Score()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Score> getScore();
+	Score getScore();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Solution#getScore <em>Score</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Score</em>' containment reference.
+	 * @see #getScore()
+	 * @generated
+	 */
+	void setScore(Score value);
 
 	/**
 	 * <!-- begin-user-doc -->
