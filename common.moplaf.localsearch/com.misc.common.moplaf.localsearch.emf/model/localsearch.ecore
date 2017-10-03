@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="localsearch" nsURI="http://www.misc.com/common/moplaf/localsearch/model/0.1"
     nsPrefix="ls">
   <eClassifiers xsi:type="ecore:EClass" name="Solution" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions #//Score">
-    <eOperations name="clone" eType="#//Solution"/>
+    <eOperations name="replicate"/>
     <eOperations name="refresh">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Refresh derived elements"/>
