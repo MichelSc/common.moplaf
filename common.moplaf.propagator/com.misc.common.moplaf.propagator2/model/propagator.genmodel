@@ -76,7 +76,7 @@
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/getScope"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/getFactoryID"/>
     </genClasses>
-    <genClasses ecoreClass="propagator.ecore#//PropagatorFunctionBindings">
+    <genClasses image="false" ecoreClass="propagator.ecore#//PropagatorFunctionBindings">
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunctionBindings/doGetBindings"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunctionBindings/doCollectExplicitAntecedents">
         <genParameters ecoreParameter="propagator.ecore#//PropagatorFunctionBindings/doCollectExplicitAntecedents/antecedents"/>
