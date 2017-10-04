@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Strategy;
 
@@ -173,16 +172,6 @@ public class StrategyItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(LocalSearchPackage.Literals.STRATEGY__IMPROVMENTS,
-				 LocalSearchFactory.eINSTANCE.createImprovment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(LocalSearchPackage.Literals.STRATEGY__SOLUTIONS,
-				 LocalSearchFactory.eINSTANCE.createSolution()));
 	}
 
 	/**

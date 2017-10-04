@@ -4,7 +4,6 @@ package com.misc.common.moplaf.localsearch.provider;
 
 
 import com.misc.common.moplaf.localsearch.Improvment;
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
 import java.util.Collection;
@@ -65,7 +64,6 @@ public class ImprovmentItemProvider
 
 			addMaxIterationsPropertyDescriptor(object);
 			addMaxSecondsPropertyDescriptor(object);
-			addCurrentSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -110,28 +108,6 @@ public class ImprovmentItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Current Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCurrentSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Improvment_CurrentSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_CurrentSolution_feature", "_UI_Improvment_type"),
-				 LocalSearchPackage.Literals.IMPROVMENT__CURRENT_SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -223,11 +199,6 @@ public class ImprovmentItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(LocalSearchPackage.Literals.IMPROVMENT__ACTIONS,
-				 LocalSearchFactory.eINSTANCE.createAction()));
 	}
 
 	/**

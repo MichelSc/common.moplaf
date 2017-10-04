@@ -2,17 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="localsearch" nsURI="http://www.misc.com/common/moplaf/localsearch/model/0.1"
     nsPrefix="ls">
-  <eClassifiers xsi:type="ecore:EClass" name="Solution" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
-    <eOperations name="replicate"/>
-    <eOperations name="refresh">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Refresh derived elements"/>
-      </eAnnotations>
-    </eOperations>
+  <eClassifiers xsi:type="ecore:EClass" name="Solution" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
+    <eOperations name="replicate" eType="#//Solution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action">
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Action:&#xD;&#xA;  plan this planUnit&#xD;&#xA;  plan some planUnit:&#xD;&#xA;     select a planUnit, or not&#xD;&#xA;     construct the Moves&#xD;&#xA;     estimate/score&#xD;&#xA;     apply/revert&#xD;&#xA;     repeat a given number of times&#xD;&#xA;An action is the unit of execution with a given goal, that will be attained by considering a set of moves and evaluating them completly.&#xD;&#xA;The result of an action is not the next current solution to be considered, but only a step in its direction."/>
     </eAnnotations>
@@ -35,33 +30,42 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="RootMoves" upperBound="-1"
         eType="#//Move" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentMove" eType="#//Move"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedMove" eType="#//Move"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Move">
+  <eClassifiers xsi:type="ecore:EClass" name="Move" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A move is a small change to the solution.&#xA;Small meaning a limited (constant) number of deltas with respect to the solution . &#xA;So the score a  move must be calculated in a constant time (with respect to the size of the solution).&#xA;A move is specific to a given solution (to a specific Action)."/>
     </eAnnotations>
-    <eOperations name="apply">
+    <eOperations name="do">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Set the CurrentSolution to the SelectedMove"/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="revert">
+    <eOperations name="undo">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Revert all the changes performed by the Action, and the changes in the derived data, performed by the refresh.&#xD;&#xA;Note that the score has been saved in this.Score. The latter will not be undone."/>
       </eAnnotations>
     </eOperations>
     <eOperations name="isValidFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="NextMoves" upperBound="-1"
-        eType="#//Move" eOpposite="#//Move/Previous"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//Move"
-        eOpposite="#//Move/NextMoves"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DoEnabledFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UndoEnabledFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//Move"
+        eOpposite="#//Move/NextMoves"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NextMoves" upperBound="-1"
+        eType="#//Move" containment="true" eOpposite="#//Move/Previous"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Action" lowerBound="1"
+        eType="#//Action" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Score">
+  <eClassifiers xsi:type="ecore:EClass" name="Score" abstract="true">
     <eOperations name="compare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="other" eType="#//Score"/>
     </eOperations>
@@ -81,7 +85,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
         eType="#//Solution" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Improvment">
+  <eClassifiers xsi:type="ecore:EClass" name="Improvment" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possible better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xD;&#xA;An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution."/>
     </eAnnotations>
@@ -91,7 +95,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSeconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
         eType="#//Action" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
 </ecore:EPackage>

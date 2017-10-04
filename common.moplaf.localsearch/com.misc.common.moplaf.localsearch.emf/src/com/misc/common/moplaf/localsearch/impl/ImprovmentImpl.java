@@ -5,8 +5,6 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.Improvment;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-import com.misc.common.moplaf.localsearch.Solution;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -36,12 +34,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl#getMaxIterations <em>Max Iterations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl#getMaxSeconds <em>Max Seconds</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl#getActions <em>Actions</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl#getCurrentSolution <em>Current Solution</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ImprovmentImpl extends MinimalEObjectImpl.Container implements Improvment {
+public abstract class ImprovmentImpl extends MinimalEObjectImpl.Container implements Improvment {
 	/**
 	 * The default value of the '{@link #getMaxIterations() <em>Max Iterations</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -91,16 +88,6 @@ public class ImprovmentImpl extends MinimalEObjectImpl.Container implements Impr
 	 * @ordered
 	 */
 	protected EList<Action> actions;
-
-	/**
-	 * The cached value of the '{@link #getCurrentSolution() <em>Current Solution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentSolution()
-	 * @generated
-	 * @ordered
-	 */
-	protected Solution currentSolution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,44 +167,6 @@ public class ImprovmentImpl extends MinimalEObjectImpl.Container implements Impr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Solution getCurrentSolution() {
-		if (currentSolution != null && currentSolution.eIsProxy()) {
-			InternalEObject oldCurrentSolution = (InternalEObject)currentSolution;
-			currentSolution = (Solution)eResolveProxy(oldCurrentSolution);
-			if (currentSolution != oldCurrentSolution) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.IMPROVMENT__CURRENT_SOLUTION, oldCurrentSolution, currentSolution));
-			}
-		}
-		return currentSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solution basicGetCurrentSolution() {
-		return currentSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentSolution(Solution newCurrentSolution) {
-		Solution oldCurrentSolution = currentSolution;
-		currentSolution = newCurrentSolution;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.IMPROVMENT__CURRENT_SOLUTION, oldCurrentSolution, currentSolution));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void createActions() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -263,9 +212,6 @@ public class ImprovmentImpl extends MinimalEObjectImpl.Container implements Impr
 				return getMaxSeconds();
 			case LocalSearchPackage.IMPROVMENT__ACTIONS:
 				return getActions();
-			case LocalSearchPackage.IMPROVMENT__CURRENT_SOLUTION:
-				if (resolve) return getCurrentSolution();
-				return basicGetCurrentSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,9 +235,6 @@ public class ImprovmentImpl extends MinimalEObjectImpl.Container implements Impr
 				getActions().clear();
 				getActions().addAll((Collection<? extends Action>)newValue);
 				return;
-			case LocalSearchPackage.IMPROVMENT__CURRENT_SOLUTION:
-				setCurrentSolution((Solution)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -313,9 +256,6 @@ public class ImprovmentImpl extends MinimalEObjectImpl.Container implements Impr
 			case LocalSearchPackage.IMPROVMENT__ACTIONS:
 				getActions().clear();
 				return;
-			case LocalSearchPackage.IMPROVMENT__CURRENT_SOLUTION:
-				setCurrentSolution((Solution)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -334,8 +274,6 @@ public class ImprovmentImpl extends MinimalEObjectImpl.Container implements Impr
 				return maxSeconds != MAX_SECONDS_EDEFAULT;
 			case LocalSearchPackage.IMPROVMENT__ACTIONS:
 				return actions != null && !actions.isEmpty();
-			case LocalSearchPackage.IMPROVMENT__CURRENT_SOLUTION:
-				return currentSolution != null;
 		}
 		return super.eIsSet(featureID);
 	}

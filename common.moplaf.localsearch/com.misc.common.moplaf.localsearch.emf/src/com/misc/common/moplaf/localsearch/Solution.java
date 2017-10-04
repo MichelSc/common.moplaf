@@ -17,7 +17,7 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Solution extends ObjectWithPropagatorFunctions {
@@ -53,17 +53,6 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	void replicate();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Refresh derived elements
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refresh();
+	Solution replicate();
 
 } // Solution

@@ -134,22 +134,13 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION___REPLICATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
+	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
@@ -180,13 +171,13 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__CURRENT_MOVE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Selected Move</b></em>' reference.
+	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__SELECTED_MOVE = 2;
+	int ACTION__CURRENT_SOLUTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -263,31 +254,49 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__NEXT_MOVES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Previous</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__PREVIOUS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__VALID = 2;
+	int MOVE__VALID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__DO_ENABLED_FEEDBACK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__UNDO_ENABLED_FEEDBACK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__PREVIOUS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__NEXT_MOVES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -296,7 +305,25 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__SCORE = 3;
+	int MOVE__SCORE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__ACTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Current</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__CURRENT = 7;
 
 	/**
 	 * The number of structural features of the '<em>Move</em>' class.
@@ -305,25 +332,25 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_FEATURE_COUNT = 4;
+	int MOVE_FEATURE_COUNT = 8;
 
 	/**
-	 * The operation id for the '<em>Apply</em>' operation.
+	 * The operation id for the '<em>Do </em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE___APPLY = 0;
+	int MOVE___DO_ = 0;
 
 	/**
-	 * The operation id for the '<em>Revert</em>' operation.
+	 * The operation id for the '<em>Undo</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE___REVERT = 1;
+	int MOVE___UNDO = 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid Feedback</em>' operation.
@@ -490,22 +517,13 @@ public interface LocalSearchPackage extends EPackage {
 	int IMPROVMENT__ACTIONS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPROVMENT__CURRENT_SOLUTION = 3;
-
-	/**
 	 * The number of structural features of the '<em>Improvment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPROVMENT_FEATURE_COUNT = 4;
+	int IMPROVMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Create Actions</em>' operation.
@@ -578,16 +596,6 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getSolution__Replicate();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#refresh() <em>Refresh</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Solution#refresh()
-	 * @generated
-	 */
-	EOperation getSolution__Refresh();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -620,15 +628,15 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getAction_CurrentMove();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getSelectedMove <em>Selected Move</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Selected Move</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Action#getSelectedMove()
+	 * @return the meta object for the reference '<em>Current Solution</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getCurrentSolution()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EReference getAction_SelectedMove();
+	EReference getAction_CurrentSolution();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#createMoves() <em>Create Moves</em>}' operation.
@@ -681,10 +689,10 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getMove();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.localsearch.Move#getNextMoves <em>Next Moves</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Move#getNextMoves <em>Next Moves</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Next Moves</em>'.
+	 * @return the meta object for the containment reference list '<em>Next Moves</em>'.
 	 * @see com.misc.common.moplaf.localsearch.Move#getNextMoves()
 	 * @see #getMove()
 	 * @generated
@@ -692,10 +700,10 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getMove_NextMoves();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Previous</em>'.
+	 * @return the meta object for the container reference '<em>Previous</em>'.
 	 * @see com.misc.common.moplaf.localsearch.Move#getPrevious()
 	 * @see #getMove()
 	 * @generated
@@ -714,6 +722,28 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getMove_Valid();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getDoEnabledFeedback <em>Do Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Do Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#getDoEnabledFeedback()
+	 * @see #getMove()
+	 * @generated
+	 */
+	EAttribute getMove_DoEnabledFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Undo Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback()
+	 * @see #getMove()
+	 * @generated
+	 */
+	EAttribute getMove_UndoEnabledFeedback();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -725,24 +755,46 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getMove_Score();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#apply() <em>Apply</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Move#getAction <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Apply</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Move#apply()
+	 * @return the meta object for the reference '<em>Action</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#getAction()
+	 * @see #getMove()
 	 * @generated
 	 */
-	EOperation getMove__Apply();
+	EReference getMove_Action();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#revert() <em>Revert</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Revert</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Move#revert()
+	 * @return the meta object for the attribute '<em>Current</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#isCurrent()
+	 * @see #getMove()
 	 * @generated
 	 */
-	EOperation getMove__Revert();
+	EAttribute getMove_Current();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#do_() <em>Do </em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do </em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Move#do_()
+	 * @generated
+	 */
+	EOperation getMove__Do_();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#undo() <em>Undo</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Undo</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Move#undo()
+	 * @generated
+	 */
+	EOperation getMove__Undo();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#isValidFeedback() <em>Is Valid Feedback</em>}' operation.
@@ -891,17 +943,6 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getImprovment_Actions();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Improvment#getCurrentSolution <em>Current Solution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Solution</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Improvment#getCurrentSolution()
-	 * @see #getImprovment()
-	 * @generated
-	 */
-	EReference getImprovment_CurrentSolution();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Improvment#createActions() <em>Create Actions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -982,14 +1023,6 @@ public interface LocalSearchPackage extends EPackage {
 		EOperation SOLUTION___REPLICATE = eINSTANCE.getSolution__Replicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SOLUTION___REFRESH = eINSTANCE.getSolution__Refresh();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1016,12 +1049,12 @@ public interface LocalSearchPackage extends EPackage {
 		EReference ACTION__CURRENT_MOVE = eINSTANCE.getAction_CurrentMove();
 
 		/**
-		 * The meta object literal for the '<em><b>Selected Move</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Current Solution</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__SELECTED_MOVE = eINSTANCE.getAction_SelectedMove();
+		EReference ACTION__CURRENT_SOLUTION = eINSTANCE.getAction_CurrentSolution();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Moves</b></em>' operation.
@@ -1066,7 +1099,7 @@ public interface LocalSearchPackage extends EPackage {
 		EClass MOVE = eINSTANCE.getMove();
 
 		/**
-		 * The meta object literal for the '<em><b>Next Moves</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Next Moves</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1074,7 +1107,7 @@ public interface LocalSearchPackage extends EPackage {
 		EReference MOVE__NEXT_MOVES = eINSTANCE.getMove_NextMoves();
 
 		/**
-		 * The meta object literal for the '<em><b>Previous</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Previous</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1090,6 +1123,22 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute MOVE__VALID = eINSTANCE.getMove_Valid();
 
 		/**
+		 * The meta object literal for the '<em><b>Do Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE__DO_ENABLED_FEEDBACK = eINSTANCE.getMove_DoEnabledFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Undo Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE__UNDO_ENABLED_FEEDBACK = eINSTANCE.getMove_UndoEnabledFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Score</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1098,20 +1147,36 @@ public interface LocalSearchPackage extends EPackage {
 		EReference MOVE__SCORE = eINSTANCE.getMove_Score();
 
 		/**
-		 * The meta object literal for the '<em><b>Apply</b></em>' operation.
+		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MOVE___APPLY = eINSTANCE.getMove__Apply();
+		EReference MOVE__ACTION = eINSTANCE.getMove_Action();
 
 		/**
-		 * The meta object literal for the '<em><b>Revert</b></em>' operation.
+		 * The meta object literal for the '<em><b>Current</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MOVE___REVERT = eINSTANCE.getMove__Revert();
+		EAttribute MOVE__CURRENT = eINSTANCE.getMove_Current();
+
+		/**
+		 * The meta object literal for the '<em><b>Do </b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MOVE___DO_ = eINSTANCE.getMove__Do_();
+
+		/**
+		 * The meta object literal for the '<em><b>Undo</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MOVE___UNDO = eINSTANCE.getMove__Undo();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Feedback</b></em>' operation.
@@ -1230,14 +1295,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IMPROVMENT__ACTIONS = eINSTANCE.getImprovment_Actions();
-
-		/**
-		 * The meta object literal for the '<em><b>Current Solution</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IMPROVMENT__CURRENT_SOLUTION = eINSTANCE.getImprovment_CurrentSolution();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Actions</b></em>' operation.

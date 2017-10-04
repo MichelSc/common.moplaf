@@ -72,98 +72,6 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Solution} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SolutionItemProvider solutionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.Solution}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSolutionAdapter() {
-		if (solutionItemProvider == null) {
-			solutionItemProvider = new SolutionItemProvider(this);
-		}
-
-		return solutionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Action} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActionItemProvider actionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.Action}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createActionAdapter() {
-		if (actionItemProvider == null) {
-			actionItemProvider = new ActionItemProvider(this);
-		}
-
-		return actionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Move} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MoveItemProvider moveItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.Move}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMoveAdapter() {
-		if (moveItemProvider == null) {
-			moveItemProvider = new MoveItemProvider(this);
-		}
-
-		return moveItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Score} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ScoreItemProvider scoreItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.Score}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createScoreAdapter() {
-		if (scoreItemProvider == null) {
-			scoreItemProvider = new ScoreItemProvider(this);
-		}
-
-		return scoreItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Strategy} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,29 +92,6 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 		}
 
 		return strategyItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Improvment} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ImprovmentItemProvider improvmentItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.Improvment}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createImprovmentAdapter() {
-		if (improvmentItemProvider == null) {
-			improvmentItemProvider = new ImprovmentItemProvider(this);
-		}
-
-		return improvmentItemProvider;
 	}
 
 	/**
@@ -308,12 +193,7 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	 * @generated
 	 */
 	public void dispose() {
-		if (solutionItemProvider != null) solutionItemProvider.dispose();
-		if (actionItemProvider != null) actionItemProvider.dispose();
-		if (moveItemProvider != null) moveItemProvider.dispose();
-		if (scoreItemProvider != null) scoreItemProvider.dispose();
 		if (strategyItemProvider != null) strategyItemProvider.dispose();
-		if (improvmentItemProvider != null) improvmentItemProvider.dispose();
 	}
 
 }

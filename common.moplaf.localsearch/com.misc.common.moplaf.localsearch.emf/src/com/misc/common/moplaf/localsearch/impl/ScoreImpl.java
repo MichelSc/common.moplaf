@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ScoreImpl extends MinimalEObjectImpl.Container implements Score {
+public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements Score {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

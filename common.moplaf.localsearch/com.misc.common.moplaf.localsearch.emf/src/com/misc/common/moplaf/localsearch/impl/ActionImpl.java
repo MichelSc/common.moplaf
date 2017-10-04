@@ -6,6 +6,7 @@ import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
 
+import com.misc.common.moplaf.localsearch.Solution;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -34,12 +35,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getRootMoves <em>Root Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentMove <em>Current Move</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getSelectedMove <em>Selected Move</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentSolution <em>Current Solution</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
+public abstract class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	/**
 	 * The cached value of the '{@link #getRootMoves() <em>Root Moves</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -61,14 +62,14 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	protected Move currentMove;
 
 	/**
-	 * The cached value of the '{@link #getSelectedMove() <em>Selected Move</em>}' reference.
+	 * The cached value of the '{@link #getCurrentSolution() <em>Current Solution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectedMove()
+	 * @see #getCurrentSolution()
 	 * @generated
 	 * @ordered
 	 */
-	protected Move selectedMove;
+	protected Solution currentSolution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,16 +145,16 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Move getSelectedMove() {
-		if (selectedMove != null && selectedMove.eIsProxy()) {
-			InternalEObject oldSelectedMove = (InternalEObject)selectedMove;
-			selectedMove = (Move)eResolveProxy(oldSelectedMove);
-			if (selectedMove != oldSelectedMove) {
+	public Solution getCurrentSolution() {
+		if (currentSolution != null && currentSolution.eIsProxy()) {
+			InternalEObject oldCurrentSolution = (InternalEObject)currentSolution;
+			currentSolution = (Solution)eResolveProxy(oldCurrentSolution);
+			if (currentSolution != oldCurrentSolution) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__SELECTED_MOVE, oldSelectedMove, selectedMove));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__CURRENT_SOLUTION, oldCurrentSolution, currentSolution));
 			}
 		}
-		return selectedMove;
+		return currentSolution;
 	}
 
 	/**
@@ -161,8 +162,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Move basicGetSelectedMove() {
-		return selectedMove;
+	public Solution basicGetCurrentSolution() {
+		return currentSolution;
 	}
 
 	/**
@@ -170,11 +171,11 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelectedMove(Move newSelectedMove) {
-		Move oldSelectedMove = selectedMove;
-		selectedMove = newSelectedMove;
+	public void setCurrentSolution(Solution newCurrentSolution) {
+		Solution oldCurrentSolution = currentSolution;
+		currentSolution = newCurrentSolution;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__SELECTED_MOVE, oldSelectedMove, selectedMove));
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__CURRENT_SOLUTION, oldCurrentSolution, currentSolution));
 	}
 
 	/**
@@ -248,9 +249,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				if (resolve) return getCurrentMove();
 				return basicGetCurrentMove();
-			case LocalSearchPackage.ACTION__SELECTED_MOVE:
-				if (resolve) return getSelectedMove();
-				return basicGetSelectedMove();
+			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
+				if (resolve) return getCurrentSolution();
+				return basicGetCurrentSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,8 +272,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				setCurrentMove((Move)newValue);
 				return;
-			case LocalSearchPackage.ACTION__SELECTED_MOVE:
-				setSelectedMove((Move)newValue);
+			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
+				setCurrentSolution((Solution)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -292,8 +293,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				setCurrentMove((Move)null);
 				return;
-			case LocalSearchPackage.ACTION__SELECTED_MOVE:
-				setSelectedMove((Move)null);
+			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
+				setCurrentSolution((Solution)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -311,8 +312,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 				return rootMoves != null && !rootMoves.isEmpty();
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				return currentMove != null;
-			case LocalSearchPackage.ACTION__SELECTED_MOVE:
-				return selectedMove != null;
+			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
+				return currentSolution != null;
 		}
 		return super.eIsSet(featureID);
 	}

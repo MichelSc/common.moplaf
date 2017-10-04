@@ -4,7 +4,6 @@ package com.misc.common.moplaf.localsearch.provider;
 
 
 import com.misc.common.moplaf.localsearch.Action;
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
 import java.util.Collection;
@@ -63,7 +62,7 @@ public class ActionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCurrentMovePropertyDescriptor(object);
-			addSelectedMovePropertyDescriptor(object);
+			addCurrentSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,7 +81,7 @@ public class ActionItemProvider
 				 getString("_UI_Action_CurrentMove_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Action_CurrentMove_feature", "_UI_Action_type"),
 				 LocalSearchPackage.Literals.ACTION__CURRENT_MOVE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -91,19 +90,19 @@ public class ActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Selected Move feature.
+	 * This adds a property descriptor for the Current Solution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSelectedMovePropertyDescriptor(Object object) {
+	protected void addCurrentSolutionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Action_SelectedMove_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_SelectedMove_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__SELECTED_MOVE,
+				 getString("_UI_Action_CurrentSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_CurrentSolution_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__CURRENT_SOLUTION,
 				 true,
 				 false,
 				 true,
@@ -194,11 +193,6 @@ public class ActionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(LocalSearchPackage.Literals.ACTION__ROOT_MOVES,
-				 LocalSearchFactory.eINSTANCE.createMove()));
 	}
 
 	/**

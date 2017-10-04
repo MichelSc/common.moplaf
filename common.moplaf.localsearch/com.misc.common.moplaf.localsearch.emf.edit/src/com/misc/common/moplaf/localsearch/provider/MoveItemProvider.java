@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
 import com.misc.common.moplaf.localsearch.Move;
@@ -54,9 +53,12 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNextMovesPropertyDescriptor(object);
-			addPreviousPropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
+			addDoEnabledFeedbackPropertyDescriptor(object);
+			addUndoEnabledFeedbackPropertyDescriptor(object);
+			addNextMovesPropertyDescriptor(object);
+			addActionPropertyDescriptor(object);
+			addCurrentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,23 +86,45 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	}
 
 	/**
-	 * This adds a property descriptor for the Previous feature.
+	 * This adds a property descriptor for the Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPreviousPropertyDescriptor(Object object) {
+	protected void addActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Move_Previous_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Previous_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__PREVIOUS,
-				 true,
+				 getString("_UI_Move_Action_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Action_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__ACTION,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Current feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCurrentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_Current_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Current_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__CURRENT,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -128,6 +152,50 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	}
 
 	/**
+	 * This adds a property descriptor for the Do Enabled Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDoEnabledFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_DoEnabledFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_DoEnabledFeedback_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__DO_ENABLED_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Undo Enabled Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUndoEnabledFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_UndoEnabledFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_UndoEnabledFeedback_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__UNDO_ENABLED_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -139,6 +207,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(LocalSearchPackage.Literals.MOVE__NEXT_MOVES);
 			childrenFeatures.add(LocalSearchPackage.Literals.MOVE__SCORE);
 		}
 		return childrenFeatures;
@@ -194,6 +263,9 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		switch (notification.getFeatureID(Move.class)) {
 			case LocalSearchPackage.MOVE__VALID:
+			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.MOVE__CURRENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.MOVE__SCORE:
@@ -213,11 +285,6 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(LocalSearchPackage.Literals.MOVE__SCORE,
-				 LocalSearchFactory.eINSTANCE.createScore()));
 	}
 
 	/**

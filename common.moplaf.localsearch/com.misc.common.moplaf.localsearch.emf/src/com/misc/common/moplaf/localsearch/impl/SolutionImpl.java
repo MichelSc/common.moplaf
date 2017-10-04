@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements Solution {
+public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements Solution {
 	/**
 	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -108,18 +108,7 @@ public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void replicate() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void refresh() {
+	public Solution replicate() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -207,11 +196,7 @@ public class SolutionImpl extends ObjectWithPropagatorFunctionsImpl implements S
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case LocalSearchPackage.SOLUTION___REPLICATE:
-				replicate();
-				return null;
-			case LocalSearchPackage.SOLUTION___REFRESH:
-				refresh();
-				return null;
+				return replicate();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

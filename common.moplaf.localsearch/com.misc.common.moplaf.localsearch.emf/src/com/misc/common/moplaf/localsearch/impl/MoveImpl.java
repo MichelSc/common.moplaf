@@ -2,10 +2,13 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
 
 import com.misc.common.moplaf.localsearch.Score;
+import com.misc.common.moplaf.localsearch.Plugin;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -16,12 +19,14 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,35 +37,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getNextMoves <em>Next Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getNextMoves <em>Next Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getScore <em>Score</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
-	/**
-	 * The cached value of the '{@link #getNextMoves() <em>Next Moves</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextMoves()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Move> nextMoves;
-
-	/**
-	 * The cached value of the '{@link #getPrevious() <em>Previous</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPrevious()
-	 * @generated
-	 * @ordered
-	 */
-	protected Move previous;
-
+public abstract class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	/**
 	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,6 +61,36 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	protected static final boolean VALID_EDEFAULT = false;
 
 	/**
+	 * The default value of the '{@link #getDoEnabledFeedback() <em>Do Enabled Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDoEnabledFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback DO_ENABLED_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getUndoEnabledFeedback() <em>Undo Enabled Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUndoEnabledFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback UNDO_ENABLED_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNextMoves() <em>Next Moves</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextMoves()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Move> nextMoves;
+
+	/**
 	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,6 +99,16 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 * @ordered
 	 */
 	protected Score score;
+
+	/**
+	 * The default value of the '{@link #isCurrent() <em>Current</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCurrent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CURRENT_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,7 +136,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 */
 	public EList<Move> getNextMoves() {
 		if (nextMoves == null) {
-			nextMoves = new EObjectWithInverseResolvingEList<Move>(Move.class, this, LocalSearchPackage.MOVE__NEXT_MOVES, LocalSearchPackage.MOVE__PREVIOUS);
+			nextMoves = new EObjectContainmentWithInverseEList<Move>(Move.class, this, LocalSearchPackage.MOVE__NEXT_MOVES, LocalSearchPackage.MOVE__PREVIOUS);
 		}
 		return nextMoves;
 	}
@@ -118,24 +147,8 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 * @generated
 	 */
 	public Move getPrevious() {
-		if (previous != null && previous.eIsProxy()) {
-			InternalEObject oldPrevious = (InternalEObject)previous;
-			previous = (Move)eResolveProxy(oldPrevious);
-			if (previous != oldPrevious) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.MOVE__PREVIOUS, oldPrevious, previous));
-			}
-		}
-		return previous;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Move basicGetPrevious() {
-		return previous;
+		if (eContainerFeatureID() != LocalSearchPackage.MOVE__PREVIOUS) return null;
+		return (Move)eInternalContainer();
 	}
 
 	/**
@@ -144,12 +157,7 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 * @generated
 	 */
 	public NotificationChain basicSetPrevious(Move newPrevious, NotificationChain msgs) {
-		Move oldPrevious = previous;
-		previous = newPrevious;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__PREVIOUS, oldPrevious, newPrevious);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newPrevious, LocalSearchPackage.MOVE__PREVIOUS, msgs);
 		return msgs;
 	}
 
@@ -159,10 +167,12 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 * @generated
 	 */
 	public void setPrevious(Move newPrevious) {
-		if (newPrevious != previous) {
+		if (newPrevious != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.MOVE__PREVIOUS && newPrevious != null)) {
+			if (EcoreUtil.isAncestor(this, newPrevious))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (previous != null)
-				msgs = ((InternalEObject)previous).eInverseRemove(this, LocalSearchPackage.MOVE__NEXT_MOVES, Move.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPrevious != null)
 				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, LocalSearchPackage.MOVE__NEXT_MOVES, Move.class, msgs);
 			msgs = basicSetPrevious(newPrevious, msgs);
@@ -179,6 +189,41 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	public boolean isValid() {
 		boolean valid = this.isValidFeedback()==null;
 		return valid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback getDoEnabledFeedback() {
+		Move previous = this.getPrevious();
+		Action action = this.basicGetAction();
+		if ( previous==null) {
+			// root move
+			if ( action.getCurrentMove()==null) {
+				return EnabledFeedback.NOFEEDBACK;
+			} else {
+				return new EnabledFeedback(false, "Other move is already current");
+			}
+		} else {
+			// non root move
+			if ( previous.isCurrent()) {
+				return EnabledFeedback.NOFEEDBACK;
+			} else {
+				return new EnabledFeedback(false, "Other move than the previous is already current");
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback getUndoEnabledFeedback() {
+		if ( this.isCurrent()) {
+			return EnabledFeedback.NOFEEDBACK;
+		}
+		return new EnabledFeedback(false, "Not the current move");
 	}
 
 	/**
@@ -227,9 +272,56 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public void apply() {
-		// to be implemented by the concrete class
+	public Action getAction() {
+		Action action = basicGetAction();
+		return action != null && action.eIsProxy() ? (Action)eResolveProxy((InternalEObject)action) : action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Action basicGetAction() {
+		Move previous = this.getPrevious();
+		if ( previous!=null) {
+			// non root move
+			return previous.getAction();
+		}
+		
+		// root move
+		EObject container = this.eContainer;
+		if ( container instanceof Action){
+			return (Action) container;
+		}
+
+		String logMessage = String.format("The owner of the Move %s must be a Action or another Move and not %s",
+                this.getClass().getName(),
+                container == null ? "null" : container.getClass().getName());
+		Plugin.INSTANCE.logError(logMessage);
+
+		return null;	
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isCurrent() {
+		Action action = this.basicGetAction();
+		boolean current = action.getCurrentMove()==this;
+		return current;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void do_() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -238,9 +330,18 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void revert() {
+	public void undo() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void apply() {
+		// to be implemented by the concrete class
 		throw new UnsupportedOperationException();
 	}
 
@@ -262,12 +363,12 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case LocalSearchPackage.MOVE__PREVIOUS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPrevious((Move)otherEnd, msgs);
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNextMoves()).basicAdd(otherEnd, msgs);
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				if (previous != null)
-					msgs = ((InternalEObject)previous).eInverseRemove(this, LocalSearchPackage.MOVE__NEXT_MOVES, Move.class, msgs);
-				return basicSetPrevious((Move)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -280,10 +381,10 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return ((InternalEList<?>)getNextMoves()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				return basicSetPrevious(null, msgs);
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
+				return ((InternalEList<?>)getNextMoves()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.MOVE__SCORE:
 				return basicSetScore(null, msgs);
 		}
@@ -296,17 +397,39 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case LocalSearchPackage.MOVE__PREVIOUS:
+				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.MOVE__NEXT_MOVES, Move.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return getNextMoves();
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				if (resolve) return getPrevious();
-				return basicGetPrevious();
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid();
+			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
+				return getDoEnabledFeedback();
+			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
+				return getUndoEnabledFeedback();
+			case LocalSearchPackage.MOVE__PREVIOUS:
+				return getPrevious();
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
+				return getNextMoves();
 			case LocalSearchPackage.MOVE__SCORE:
 				return getScore();
+			case LocalSearchPackage.MOVE__ACTION:
+				if (resolve) return getAction();
+				return basicGetAction();
+			case LocalSearchPackage.MOVE__CURRENT:
+				return isCurrent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,12 +443,12 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case LocalSearchPackage.MOVE__PREVIOUS:
+				setPrevious((Move)newValue);
+				return;
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				getNextMoves().clear();
 				getNextMoves().addAll((Collection<? extends Move>)newValue);
-				return;
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				setPrevious((Move)newValue);
 				return;
 			case LocalSearchPackage.MOVE__SCORE:
 				setScore((Score)newValue);
@@ -342,11 +465,11 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				getNextMoves().clear();
-				return;
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				setPrevious((Move)null);
+				return;
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
+				getNextMoves().clear();
 				return;
 			case LocalSearchPackage.MOVE__SCORE:
 				setScore((Score)null);
@@ -363,14 +486,22 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return nextMoves != null && !nextMoves.isEmpty();
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				return previous != null;
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid() != VALID_EDEFAULT;
+			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
+				return DO_ENABLED_FEEDBACK_EDEFAULT == null ? getDoEnabledFeedback() != null : !DO_ENABLED_FEEDBACK_EDEFAULT.equals(getDoEnabledFeedback());
+			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
+				return UNDO_ENABLED_FEEDBACK_EDEFAULT == null ? getUndoEnabledFeedback() != null : !UNDO_ENABLED_FEEDBACK_EDEFAULT.equals(getUndoEnabledFeedback());
+			case LocalSearchPackage.MOVE__PREVIOUS:
+				return getPrevious() != null;
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
+				return nextMoves != null && !nextMoves.isEmpty();
 			case LocalSearchPackage.MOVE__SCORE:
 				return score != null;
+			case LocalSearchPackage.MOVE__ACTION:
+				return basicGetAction() != null;
+			case LocalSearchPackage.MOVE__CURRENT:
+				return isCurrent() != CURRENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -383,11 +514,11 @@ public class MoveImpl extends MinimalEObjectImpl.Container implements Move {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.MOVE___APPLY:
-				apply();
+			case LocalSearchPackage.MOVE___DO_:
+				do_();
 				return null;
-			case LocalSearchPackage.MOVE___REVERT:
-				revert();
+			case LocalSearchPackage.MOVE___UNDO:
+				undo();
 				return null;
 			case LocalSearchPackage.MOVE___IS_VALID_FEEDBACK:
 				return isValidFeedback();

@@ -58,12 +58,7 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case LocalSearchPackage.SOLUTION: return createSolution();
-			case LocalSearchPackage.ACTION: return createAction();
-			case LocalSearchPackage.MOVE: return createMove();
-			case LocalSearchPackage.SCORE: return createScore();
 			case LocalSearchPackage.STRATEGY: return createStrategy();
-			case LocalSearchPackage.IMPROVMENT: return createImprovment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -104,59 +99,9 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Solution createSolution() {
-		SolutionImpl solution = new SolutionImpl();
-		return solution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Action createAction() {
-		ActionImpl action = new ActionImpl();
-		return action;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Move createMove() {
-		MoveImpl move = new MoveImpl();
-		return move;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Score createScore() {
-		ScoreImpl score = new ScoreImpl();
-		return score;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Strategy createStrategy() {
 		StrategyImpl strategy = new StrategyImpl();
 		return strategy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Improvment createImprovment() {
-		ImprovmentImpl improvment = new ImprovmentImpl();
-		return improvment;
 	}
 
 	/**

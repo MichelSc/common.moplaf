@@ -24,11 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Improvment#getMaxIterations <em>Max Iterations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Improvment#getMaxSeconds <em>Max Seconds</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Improvment#getActions <em>Actions</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Improvment#getCurrentSolution <em>Current Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getImprovment()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Improvment extends EObject {
@@ -99,32 +98,6 @@ public interface Improvment extends EObject {
 	 * @generated
 	 */
 	EList<Action> getActions();
-
-	/**
-	 * Returns the value of the '<em><b>Current Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Current Solution</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Solution</em>' reference.
-	 * @see #setCurrentSolution(Solution)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getImprovment_CurrentSolution()
-	 * @model
-	 * @generated
-	 */
-	Solution getCurrentSolution();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Improvment#getCurrentSolution <em>Current Solution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Solution</em>' reference.
-	 * @see #getCurrentSolution()
-	 * @generated
-	 */
-	void setCurrentSolution(Solution value);
 
 	/**
 	 * <!-- begin-user-doc -->

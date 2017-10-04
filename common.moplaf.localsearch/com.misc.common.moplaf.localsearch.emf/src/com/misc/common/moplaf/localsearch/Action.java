@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getRootMoves <em>Root Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentMove <em>Current Move</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#getSelectedMove <em>Selected Move</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Action extends EObject {
@@ -81,30 +81,30 @@ public interface Action extends EObject {
 	void setCurrentMove(Move value);
 
 	/**
-	 * Returns the value of the '<em><b>Selected Move</b></em>' reference.
+	 * Returns the value of the '<em><b>Current Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Selected Move</em>' reference isn't clear,
+	 * If the meaning of the '<em>Current Solution</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Move</em>' reference.
-	 * @see #setSelectedMove(Move)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_SelectedMove()
+	 * @return the value of the '<em>Current Solution</em>' reference.
+	 * @see #setCurrentSolution(Solution)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_CurrentSolution()
 	 * @model
 	 * @generated
 	 */
-	Move getSelectedMove();
+	Solution getCurrentSolution();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getSelectedMove <em>Selected Move</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selected Move</em>' reference.
-	 * @see #getSelectedMove()
+	 * @param value the new value of the '<em>Current Solution</em>' reference.
+	 * @see #getCurrentSolution()
 	 * @generated
 	 */
-	void setSelectedMove(Move value);
+	void setCurrentSolution(Solution value);
 
 	/**
 	 * <!-- begin-user-doc -->

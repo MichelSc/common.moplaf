@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getScore()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Score extends EObject {
