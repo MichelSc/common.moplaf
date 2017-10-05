@@ -196,6 +196,9 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getDoEnabledFeedback() {
+		if ( !this.isValid()) {
+			return new EnabledFeedback(false, this.isValidFeedback());
+		}
 		Move previous = this.getPrevious();
 		Action action = this.basicGetAction();
 		if ( previous==null) {
@@ -317,14 +320,14 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void do_() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.doImpl();
 	}
 
+	protected void doImpl() {
+		// default implementation does nothing
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,15 +336,6 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	public void undo() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void apply() {
-		// to be implemented by the concrete class
 		throw new UnsupportedOperationException();
 	}
 

@@ -3,17 +3,23 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.DoCommand;
+import com.misc.common.moplaf.emf.edit.command.UndoCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
 import com.misc.common.moplaf.localsearch.Move;
+
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -297,5 +303,59 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	public ResourceLocator getResourceLocator() {
 		return LocalsearchEditPlugin.INSTANCE;
 	}
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class MoveDoCommand extends DoCommand{
+		private Move move;
+		
+		public MoveDoCommand(Move aMove)	{
+			super();
+			this.move = aMove;
+		}
+
+		@Override
+		public void execute() {
+			this.move.do_();;
+		}
+	} // class ScheduleIntializeCommand
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class MoveUndoCommand extends UndoCommand{
+		private Move move;
+		
+		public MoveUndoCommand(Move aMove)	{
+			super();
+			this.move = aMove;
+		}
+
+		@Override
+		public void execute() {
+			this.move.undo();;
+		}
+	} // class ScheduleIntializeCommand
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == DoCommand.class){
+			return new MoveDoCommand((Move) object); 
+		} else 	if ( commandClass == UndoCommand.class){
+			return new MoveUndoCommand((Move) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 }
