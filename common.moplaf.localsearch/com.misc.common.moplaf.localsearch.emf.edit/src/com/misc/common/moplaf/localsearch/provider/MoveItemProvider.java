@@ -62,8 +62,8 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			addValidPropertyDescriptor(object);
 			addDoEnabledFeedbackPropertyDescriptor(object);
 			addUndoEnabledFeedbackPropertyDescriptor(object);
+			addPreviousPropertyDescriptor(object);
 			addNextMovesPropertyDescriptor(object);
-			addActionPropertyDescriptor(object);
 			addCurrentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -87,29 +87,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Action feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addActionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Move_Action_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Action_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__ACTION,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
+				 getString("_UI__10MovePropertyCategory"),
 				 null));
 	}
 
@@ -131,7 +109,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MovePropertyCategory"),
 				 null));
 	}
 
@@ -153,7 +131,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MovePropertyCategory"),
 				 null));
 	}
 
@@ -175,7 +153,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MovePropertyCategory"),
 				 null));
 	}
 
@@ -197,7 +175,29 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MovePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Previous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPreviousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_Previous_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Previous_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__PREVIOUS,
+				 true,
+				 false,
+				 true,
 				 null,
+				 getString("_UI__10MovePropertyCategory"),
 				 null));
 	}
 
@@ -316,6 +316,11 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			super();
 			this.move = aMove;
 		}
+		
+		@Override
+		public boolean canExecute() {
+			return this.move.getDoEnabledFeedback().isEnabled();
+		}
 
 		@Override
 		public void execute() {
@@ -334,6 +339,11 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		public MoveUndoCommand(Move aMove)	{
 			super();
 			this.move = aMove;
+		}
+
+		@Override
+		public boolean canExecute() {
+			return this.move.getUndoEnabledFeedback().isEnabled();
 		}
 
 		@Override

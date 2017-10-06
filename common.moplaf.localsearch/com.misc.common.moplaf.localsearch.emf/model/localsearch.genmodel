@@ -24,16 +24,20 @@
       <genOperations ecoreOperation="localsearch.ecore#//Action/doAction"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Move">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Valid"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/DoEnabledFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/UndoEnabledFeedback"/>
-      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Valid"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/DoEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/UndoEnabledFeedback"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 Move" propertySortChoices="true"
           ecoreFeature="ecore:EReference localsearch.ecore#//Move/Previous"/>
-      <genFeatures notify="false" children="true" createChild="true" propertySortChoices="true"
-          ecoreFeature="ecore:EReference localsearch.ecore#//Move/NextMoves"/>
+      <genFeatures notify="false" children="true" createChild="true" propertyCategory="10 Move"
+          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Move/NextMoves"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Move/Score"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Move/Action"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Current"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Move/Action"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Current"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/do"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/undo"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/isValidFeedback"/>

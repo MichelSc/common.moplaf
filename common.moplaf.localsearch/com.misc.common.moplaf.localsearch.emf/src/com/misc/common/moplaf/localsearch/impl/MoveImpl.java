@@ -8,6 +8,7 @@ import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
 
 import com.misc.common.moplaf.localsearch.Score;
+import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Plugin;
 import java.lang.reflect.InvocationTargetException;
 
@@ -21,7 +22,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
+import org.eclipse.emf.ecore.change.util.ChangeRecorder;
+import org.eclipse.emf.ecore.change.ChangeDescription;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -223,6 +225,9 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getUndoEnabledFeedback() {
+		if ( this.changes==null) {
+			return new EnabledFeedback(false, "Not changes recorded");
+		}
 		if ( this.isCurrent()) {
 			return EnabledFeedback.NOFEEDBACK;
 		}
@@ -316,13 +321,22 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		boolean current = action.getCurrentMove()==this;
 		return current;
 	}
+	
+	private ChangeDescription  changes = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public void do_() {
+		Action action = this.getAction();
+		Solution currentSolution = action.getCurrentSolution();
+		ChangeRecorder recorder = new ChangeRecorder(currentSolution); // begin recording
+		
 		this.doImpl();
+
+		this.changes = recorder.endRecording();
+		action.setCurrentMove(this);
 	}
 
 	protected void doImpl() {
@@ -331,12 +345,12 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void undo() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.changes.apply();
+		this.changes = null;
+		Action action = this.getAction();
+		action.setCurrentMove(this.getPrevious());
 	}
 
 	/**
