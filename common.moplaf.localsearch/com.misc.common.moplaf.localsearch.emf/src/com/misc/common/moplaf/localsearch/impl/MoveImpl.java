@@ -39,19 +39,49 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getScore <em>Score</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getNextMoves <em>Next Moves</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getPrevious <em>Previous</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getNextMoves <em>Next Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getScore <em>Score</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getAction <em>Action</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class MoveImpl extends MinimalEObjectImpl.Container implements Move {
+	/**
+	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected Score score;
+
+	/**
+	 * The cached value of the '{@link #getNextMoves() <em>Next Moves</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextMoves()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Move> nextMoves;
+
+	/**
+	 * The default value of the '{@link #isCurrent() <em>Current</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCurrent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CURRENT_EDEFAULT = false;
+
 	/**
 	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,36 +111,6 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * @ordered
 	 */
 	protected static final EnabledFeedback UNDO_ENABLED_FEEDBACK_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNextMoves() <em>Next Moves</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextMoves()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Move> nextMoves;
-
-	/**
-	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScore()
-	 * @generated
-	 * @ordered
-	 */
-	protected Score score;
-
-	/**
-	 * The default value of the '{@link #isCurrent() <em>Current</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCurrent()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean CURRENT_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -400,12 +400,12 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case LocalSearchPackage.MOVE__SCORE:
+				return basicSetScore(null, msgs);
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				return basicSetPrevious(null, msgs);
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				return ((InternalEList<?>)getNextMoves()).basicRemove(otherEnd, msgs);
-			case LocalSearchPackage.MOVE__SCORE:
-				return basicSetScore(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -432,23 +432,23 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case LocalSearchPackage.MOVE__ACTION:
+				if (resolve) return getAction();
+				return basicGetAction();
+			case LocalSearchPackage.MOVE__SCORE:
+				return getScore();
+			case LocalSearchPackage.MOVE__PREVIOUS:
+				return getPrevious();
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
+				return getNextMoves();
+			case LocalSearchPackage.MOVE__CURRENT:
+				return isCurrent();
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid();
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 				return getDoEnabledFeedback();
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 				return getUndoEnabledFeedback();
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				return getPrevious();
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return getNextMoves();
-			case LocalSearchPackage.MOVE__SCORE:
-				return getScore();
-			case LocalSearchPackage.MOVE__ACTION:
-				if (resolve) return getAction();
-				return basicGetAction();
-			case LocalSearchPackage.MOVE__CURRENT:
-				return isCurrent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -462,15 +462,15 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case LocalSearchPackage.MOVE__SCORE:
+				setScore((Score)newValue);
+				return;
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				setPrevious((Move)newValue);
 				return;
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				getNextMoves().clear();
 				getNextMoves().addAll((Collection<? extends Move>)newValue);
-				return;
-			case LocalSearchPackage.MOVE__SCORE:
-				setScore((Score)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -484,14 +484,14 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case LocalSearchPackage.MOVE__SCORE:
+				setScore((Score)null);
+				return;
 			case LocalSearchPackage.MOVE__PREVIOUS:
 				setPrevious((Move)null);
 				return;
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				getNextMoves().clear();
-				return;
-			case LocalSearchPackage.MOVE__SCORE:
-				setScore((Score)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -505,22 +505,22 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case LocalSearchPackage.MOVE__ACTION:
+				return basicGetAction() != null;
+			case LocalSearchPackage.MOVE__SCORE:
+				return score != null;
+			case LocalSearchPackage.MOVE__PREVIOUS:
+				return getPrevious() != null;
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
+				return nextMoves != null && !nextMoves.isEmpty();
+			case LocalSearchPackage.MOVE__CURRENT:
+				return isCurrent() != CURRENT_EDEFAULT;
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid() != VALID_EDEFAULT;
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 				return DO_ENABLED_FEEDBACK_EDEFAULT == null ? getDoEnabledFeedback() != null : !DO_ENABLED_FEEDBACK_EDEFAULT.equals(getDoEnabledFeedback());
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 				return UNDO_ENABLED_FEEDBACK_EDEFAULT == null ? getUndoEnabledFeedback() != null : !UNDO_ENABLED_FEEDBACK_EDEFAULT.equals(getUndoEnabledFeedback());
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				return getPrevious() != null;
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return nextMoves != null && !nextMoves.isEmpty();
-			case LocalSearchPackage.MOVE__SCORE:
-				return score != null;
-			case LocalSearchPackage.MOVE__ACTION:
-				return basicGetAction() != null;
-			case LocalSearchPackage.MOVE__CURRENT:
-				return isCurrent() != CURRENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

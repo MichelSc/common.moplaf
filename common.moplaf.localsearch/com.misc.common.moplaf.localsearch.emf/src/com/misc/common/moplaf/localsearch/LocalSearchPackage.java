@@ -263,49 +263,13 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * The feature id for the '<em><b>Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__VALID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__DO_ENABLED_FEEDBACK = 1;
-
-	/**
-	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__UNDO_ENABLED_FEEDBACK = 2;
-
-	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__PREVIOUS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__NEXT_MOVES = 4;
+	int MOVE__ACTION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -314,16 +278,25 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__SCORE = 5;
+	int MOVE__SCORE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Action</b></em>' reference.
+	 * The feature id for the '<em><b>Previous</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__ACTION = 6;
+	int MOVE__PREVIOUS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__NEXT_MOVES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -332,7 +305,34 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__CURRENT = 7;
+	int MOVE__CURRENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__VALID = 5;
+
+	/**
+	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__DO_ENABLED_FEEDBACK = 6;
+
+	/**
+	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__UNDO_ENABLED_FEEDBACK = 7;
 
 	/**
 	 * The number of structural features of the '<em>Move</em>' class.

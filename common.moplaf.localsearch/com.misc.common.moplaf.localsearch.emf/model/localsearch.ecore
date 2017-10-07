@@ -48,23 +48,23 @@
       </eAnnotations>
     </eOperations>
     <eOperations name="isValidFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Action" lowerBound="1"
+        eType="#//Action" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//Move"
+        eOpposite="#//Move/NextMoves"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NextMoves" upperBound="-1"
+        eType="#//Move" containment="true" eOpposite="#//Move/Previous"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DoEnabledFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UndoEnabledFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//Move"
-        eOpposite="#//Move/NextMoves"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="NextMoves" upperBound="-1"
-        eType="#//Move" containment="true" eOpposite="#//Move/Previous"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Action" lowerBound="1"
-        eType="#//Action" changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
-        volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Score" abstract="true">
     <eOperations name="compare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">

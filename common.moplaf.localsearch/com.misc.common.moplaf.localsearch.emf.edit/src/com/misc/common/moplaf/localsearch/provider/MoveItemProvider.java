@@ -59,10 +59,10 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCurrentPropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
 			addDoEnabledFeedbackPropertyDescriptor(object);
 			addUndoEnabledFeedbackPropertyDescriptor(object);
-			addCurrentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -167,8 +167,8 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.MOVE__NEXT_MOVES);
 			childrenFeatures.add(LocalSearchPackage.Literals.MOVE__SCORE);
+			childrenFeatures.add(LocalSearchPackage.Literals.MOVE__NEXT_MOVES);
 		}
 		return childrenFeatures;
 	}
@@ -206,7 +206,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	@Override
 	public String getText(Object object) {
 		Move move = (Move)object;
-		return getString("_UI_Move_type") + " " + move.isValid();
+		return getString("_UI_Move_type") + " " + move.isCurrent();
 	}
 	
 
@@ -222,14 +222,14 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Move.class)) {
+			case LocalSearchPackage.MOVE__CURRENT:
 			case LocalSearchPackage.MOVE__VALID:
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
-			case LocalSearchPackage.MOVE__CURRENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
 			case LocalSearchPackage.MOVE__SCORE:
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

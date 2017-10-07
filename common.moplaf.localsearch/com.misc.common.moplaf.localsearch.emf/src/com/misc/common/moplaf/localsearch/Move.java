@@ -22,14 +22,14 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getAction <em>Action</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getNextMoves <em>Next Moves</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Move#getNextMoves <em>Next Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Move#getAction <em>Action</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove()

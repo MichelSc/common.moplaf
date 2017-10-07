@@ -266,15 +266,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getMove_NextMoves() {
-		return (EReference)moveEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMove_Previous() {
 		return (EReference)moveEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -283,8 +274,17 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMove_Previous() {
+		return (EReference)moveEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getMove_Valid() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)moveEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -293,7 +293,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getMove_DoEnabledFeedback() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)moveEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -302,7 +302,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getMove_UndoEnabledFeedback() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)moveEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -311,7 +311,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getMove_Score() {
-		return (EReference)moveEClass.getEStructuralFeatures().get(5);
+		return (EReference)moveEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -320,7 +320,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getMove_Action() {
-		return (EReference)moveEClass.getEStructuralFeatures().get(6);
+		return (EReference)moveEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -329,7 +329,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getMove_Current() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)moveEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -555,14 +555,14 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(actionEClass, ACTION___DO_ACTION);
 
 		moveEClass = createEClass(MOVE);
+		createEReference(moveEClass, MOVE__ACTION);
+		createEReference(moveEClass, MOVE__SCORE);
+		createEReference(moveEClass, MOVE__PREVIOUS);
+		createEReference(moveEClass, MOVE__NEXT_MOVES);
+		createEAttribute(moveEClass, MOVE__CURRENT);
 		createEAttribute(moveEClass, MOVE__VALID);
 		createEAttribute(moveEClass, MOVE__DO_ENABLED_FEEDBACK);
 		createEAttribute(moveEClass, MOVE__UNDO_ENABLED_FEEDBACK);
-		createEReference(moveEClass, MOVE__PREVIOUS);
-		createEReference(moveEClass, MOVE__NEXT_MOVES);
-		createEReference(moveEClass, MOVE__SCORE);
-		createEReference(moveEClass, MOVE__ACTION);
-		createEAttribute(moveEClass, MOVE__CURRENT);
 		createEOperation(moveEClass, MOVE___DO_);
 		createEOperation(moveEClass, MOVE___UNDO);
 		createEOperation(moveEClass, MOVE___IS_VALID_FEEDBACK);
@@ -645,14 +645,14 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEOperation(getAction__DoAction(), null, "doAction", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(moveEClass, Move.class, "Move", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMove_Action(), this.getAction(), null, "Action", null, 1, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getMove_Score(), this.getScore(), null, "Score", null, 1, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMove_Previous(), this.getMove(), this.getMove_NextMoves(), "Previous", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMove_NextMoves(), this.getMove(), this.getMove_Previous(), "NextMoves", null, 0, -1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMove_Current(), ecorePackage.getEBoolean(), "Current", null, 1, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMove_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMove_DoEnabledFeedback(), this.getEnabledFeedback(), "DoEnabledFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMove_UndoEnabledFeedback(), this.getEnabledFeedback(), "UndoEnabledFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getMove_Previous(), this.getMove(), this.getMove_NextMoves(), "Previous", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMove_NextMoves(), this.getMove(), this.getMove_Previous(), "NextMoves", null, 0, -1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMove_Score(), this.getScore(), null, "Score", null, 1, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMove_Action(), this.getAction(), null, "Action", null, 1, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_Current(), ecorePackage.getEBoolean(), "Current", null, 1, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getMove__Do_(), null, "do_", 0, 1, IS_UNIQUE, IS_ORDERED);
 
