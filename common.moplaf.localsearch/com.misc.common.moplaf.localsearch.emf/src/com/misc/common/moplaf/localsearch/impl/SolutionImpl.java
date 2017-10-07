@@ -108,7 +108,18 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Solution replicate() {
+	public Solution clone() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refresh() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -195,8 +206,11 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.SOLUTION___REPLICATE:
-				return replicate();
+			case LocalSearchPackage.SOLUTION___CLONE:
+				return clone();
+			case LocalSearchPackage.SOLUTION___REFRESH:
+				refresh();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

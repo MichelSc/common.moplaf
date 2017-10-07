@@ -56,10 +56,18 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void copy(Score other) {
+	public Score clone() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void copy(Score other) {
+		// default does nothing
 	}
 
 	/**
@@ -72,6 +80,8 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 		switch (operationID) {
 			case LocalSearchPackage.SCORE___COMPARE__SCORE:
 				return compare((Score)arguments.get(0));
+			case LocalSearchPackage.SCORE___CLONE:
+				return clone();
 			case LocalSearchPackage.SCORE___COPY__SCORE:
 				copy((Score)arguments.get(0));
 				return null;

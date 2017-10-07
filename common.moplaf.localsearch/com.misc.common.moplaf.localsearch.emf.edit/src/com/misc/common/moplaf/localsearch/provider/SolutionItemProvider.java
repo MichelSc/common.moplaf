@@ -166,7 +166,7 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 
 		@Override
 		public void execute(){
-			this.solution.replicate();
+			this.solution.clone();
 		}
 	} // class SolutionCloneCommand
 

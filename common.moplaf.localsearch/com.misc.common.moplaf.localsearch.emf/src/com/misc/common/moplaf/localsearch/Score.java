@@ -29,6 +29,14 @@ public interface Score extends EObject {
 	 * @model
 	 * @generated
 	 */
+	Score clone();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void copy(Score other);
 
 } // Score

@@ -53,6 +53,14 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	Solution replicate();
+	Solution clone();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
 
 } // Solution

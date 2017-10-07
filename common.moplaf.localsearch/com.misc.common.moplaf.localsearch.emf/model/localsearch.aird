@@ -88,6 +88,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_YVB4kag7EeefHcOEkF7e9A" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_YVB4kqg7EeefHcOEkF7e9A"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_grRywKtlEeeRZdrCM7yM5g" type="3010" element="_grJP4KtlEeeRZdrCM7yM5g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_grRywatlEeeRZdrCM7yM5g" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_grRywqtlEeeRZdrCM7yM5g"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_N-qz0aELEeeu55M0XQ06Gg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_N-qz0qELEeeu55M0XQ06Gg"/>
           </children>
@@ -163,9 +167,13 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_hXXG0KELEeeu55M0XQ06Gg" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_hXXG0aELEeeu55M0XQ06Gg"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_Wg3sAKKYEeeOU9Gk3qNtog" type="3010" element="_WgiU0KKYEeeOU9Gk3qNtog">
-              <styles xmi:type="notation:FontStyle" xmi:id="_Wg3sAaKYEeeOU9Gk3qNtog" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_Wg3sAqKYEeeOU9Gk3qNtog"/>
+            <children xmi:type="notation:Node" xmi:id="_vnsEgKthEeeRZdrCM7yM5g" type="3010" element="_vneCEKthEeeRZdrCM7yM5g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_vnsEgathEeeRZdrCM7yM5g" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_vnsEgqthEeeRZdrCM7yM5g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_zY6ogKtjEeeRZdrCM7yM5g" type="3010" element="_zYntkKtjEeeRZdrCM7yM5g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_zY6ogatjEeeRZdrCM7yM5g" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_zY6ogqtjEeeRZdrCM7yM5g"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_RaHnAqELEeeu55M0XQ06Gg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_RaHnA6ELEeeu55M0XQ06Gg"/>
@@ -414,10 +422,18 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_YULkAKg7EeefHcOEkF7e9A" name="replicate() : Solution" tooltipText="replicate() : Solution">
-        <target xmi:type="ecore:EOperation" href="localsearch.ecore#//Solution/replicate"/>
-        <semanticElements xmi:type="ecore:EOperation" href="localsearch.ecore#//Solution/replicate"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_YULkAKg7EeefHcOEkF7e9A" name="clone() : Solution" tooltipText="clone() : Solution">
+        <target xmi:type="ecore:EOperation" href="localsearch.ecore#//Solution/clone"/>
+        <semanticElements xmi:type="ecore:EOperation" href="localsearch.ecore#//Solution/clone"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_YUOAQKg7EeefHcOEkF7e9A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_grJP4KtlEeeRZdrCM7yM5g" name="refresh()" tooltipText="refresh()">
+        <target xmi:type="ecore:EOperation" href="localsearch.ecore#//Solution/refresh"/>
+        <semanticElements xmi:type="ecore:EOperation" href="localsearch.ecore#//Solution/refresh"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_grJP4atlEeeRZdrCM7yM5g" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
@@ -549,11 +565,19 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WgiU0KKYEeeOU9Gk3qNtog" name="copy(other Score)" tooltipText="copy(other)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_vneCEKthEeeRZdrCM7yM5g" name="clone() : Score" tooltipText="clone() : Score">
+        <target xmi:type="ecore:EOperation" href="localsearch.ecore#//Score/clone"/>
+        <semanticElements xmi:type="ecore:EOperation" href="localsearch.ecore#//Score/clone"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vnepIKthEeeRZdrCM7yM5g" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_zYntkKtjEeeRZdrCM7yM5g" name="copy(other Score)" tooltipText="copy(other)">
         <target xmi:type="ecore:EOperation" href="localsearch.ecore#//Score/copy"/>
         <semanticElements xmi:type="ecore:EOperation" href="localsearch.ecore#//Score/copy"/>
         <semanticElements xmi:type="ecore:EParameter" href="localsearch.ecore#//Score/copy/other"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Wgi74KKYEeeOU9Gk3qNtog" labelAlignment="LEFT">
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zYntkatjEeeRZdrCM7yM5g" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

@@ -3,7 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="localsearch" nsURI="http://www.misc.com/common/moplaf/localsearch/model/0.1"
     nsPrefix="ls">
   <eClassifiers xsi:type="ecore:EClass" name="Solution" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
-    <eOperations name="replicate" eType="#//Solution"/>
+    <eOperations name="clone" eType="#//Solution"/>
+    <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
         containment="true"/>
   </eClassifiers>
@@ -69,6 +70,7 @@
     <eOperations name="compare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="other" eType="#//Score"/>
     </eOperations>
+    <eOperations name="clone" eType="#//Score"/>
     <eOperations name="copy">
       <eParameters name="other" eType="#//Score"/>
     </eOperations>

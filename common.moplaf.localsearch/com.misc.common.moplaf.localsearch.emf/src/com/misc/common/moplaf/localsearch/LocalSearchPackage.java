@@ -125,13 +125,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION___ADD_PROPAGATOR_FUNCTIONS__STRING = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
-	 * The operation id for the '<em>Replicate</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION___REPLICATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
+	int SOLUTION___CLONE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Solution</em>' class.
@@ -140,7 +149,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
+	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
@@ -389,13 +398,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SCORE___COMPARE__SCORE = 0;
 
 	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE___CLONE = 1;
+
+	/**
 	 * The operation id for the '<em>Copy</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE___COPY__SCORE = 1;
+	int SCORE___COPY__SCORE = 2;
 
 	/**
 	 * The number of operations of the '<em>Score</em>' class.
@@ -404,7 +422,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE_OPERATION_COUNT = 2;
+	int SCORE_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl <em>Strategy</em>}' class.
@@ -586,14 +604,24 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolution_Score();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#replicate() <em>Replicate</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#clone() <em>Clone</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Replicate</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Solution#replicate()
+	 * @return the meta object for the '<em>Clone</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Solution#clone()
 	 * @generated
 	 */
-	EOperation getSolution__Replicate();
+	EOperation getSolution__Clone();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Solution#refresh()
+	 * @generated
+	 */
+	EOperation getSolution__Refresh();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Action <em>Action</em>}'.
@@ -827,6 +855,16 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getScore__Compare__Score();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Score#clone() <em>Clone</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clone</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Score#clone()
+	 * @generated
+	 */
+	EOperation getScore__Clone();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Score#copy(com.misc.common.moplaf.localsearch.Score) <em>Copy</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,12 +1053,20 @@ public interface LocalSearchPackage extends EPackage {
 		EReference SOLUTION__SCORE = eINSTANCE.getSolution_Score();
 
 		/**
-		 * The meta object literal for the '<em><b>Replicate</b></em>' operation.
+		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOLUTION___REPLICATE = eINSTANCE.getSolution__Replicate();
+		EOperation SOLUTION___CLONE = eINSTANCE.getSolution__Clone();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION___REFRESH = eINSTANCE.getSolution__Refresh();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
@@ -1203,6 +1249,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SCORE___COMPARE__SCORE = eINSTANCE.getScore__Compare__Score();
+
+		/**
+		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCORE___CLONE = eINSTANCE.getScore__Clone();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy</b></em>' operation.

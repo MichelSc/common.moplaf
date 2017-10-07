@@ -166,8 +166,17 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolution__Replicate() {
+	public EOperation getSolution__Clone() {
 		return solutionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSolution__Refresh() {
+		return solutionEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -373,8 +382,17 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getScore__Copy__Score() {
+	public EOperation getScore__Clone() {
 		return scoreEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getScore__Copy__Score() {
+		return scoreEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -524,7 +542,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		// Create classes and their features
 		solutionEClass = createEClass(SOLUTION);
 		createEReference(solutionEClass, SOLUTION__SCORE);
-		createEOperation(solutionEClass, SOLUTION___REPLICATE);
+		createEOperation(solutionEClass, SOLUTION___CLONE);
+		createEOperation(solutionEClass, SOLUTION___REFRESH);
 
 		actionEClass = createEClass(ACTION);
 		createEReference(actionEClass, ACTION__ROOT_MOVES);
@@ -550,6 +569,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		scoreEClass = createEClass(SCORE);
 		createEOperation(scoreEClass, SCORE___COMPARE__SCORE);
+		createEOperation(scoreEClass, SCORE___CLONE);
 		createEOperation(scoreEClass, SCORE___COPY__SCORE);
 
 		strategyEClass = createEClass(STRATEGY);
@@ -607,7 +627,9 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEClass(solutionEClass, Solution.class, "Solution", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolution_Score(), this.getScore(), null, "Score", null, 1, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getSolution__Replicate(), this.getSolution(), "replicate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSolution__Clone(), this.getSolution(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSolution__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAction_RootMoves(), this.getMove(), null, "RootMoves", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -642,6 +664,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		EOperation op = initEOperation(getScore__Compare__Score(), ecorePackage.getEBoolean(), "compare", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getScore(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getScore__Clone(), this.getScore(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getScore__Copy__Score(), null, "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getScore(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);

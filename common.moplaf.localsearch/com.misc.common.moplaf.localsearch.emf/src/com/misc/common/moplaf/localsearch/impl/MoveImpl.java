@@ -332,11 +332,21 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		Action action = this.getAction();
 		Solution currentSolution = action.getCurrentSolution();
 		ChangeRecorder recorder = new ChangeRecorder(currentSolution); // begin recording
-		
+
+		// procedural changes
 		this.doImpl();
 
+		// declarative changes, including the score
+		currentSolution.refresh();
+
 		this.changes = recorder.endRecording();
+		
+		// this is the current move
 		action.setCurrentMove(this);
+		
+		// keep the core for this move
+		Score new_score = currentSolution.getScore().clone();
+		this.setScore(new_score);  // owning
 	}
 
 	protected void doImpl() {
@@ -351,6 +361,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		this.changes = null;
 		Action action = this.getAction();
 		action.setCurrentMove(this.getPrevious());
+		// we keep the score; that is all the point of the Move!
 	}
 
 	/**

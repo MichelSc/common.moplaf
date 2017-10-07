@@ -62,33 +62,9 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			addValidPropertyDescriptor(object);
 			addDoEnabledFeedbackPropertyDescriptor(object);
 			addUndoEnabledFeedbackPropertyDescriptor(object);
-			addPreviousPropertyDescriptor(object);
-			addNextMovesPropertyDescriptor(object);
 			addCurrentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Next Moves feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNextMovesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Move_NextMoves_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_NextMoves_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__NEXT_MOVES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10MovePropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -180,28 +156,6 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	}
 
 	/**
-	 * This adds a property descriptor for the Previous feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPreviousPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Move_Previous_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Previous_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__PREVIOUS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10MovePropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -274,6 +228,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			case LocalSearchPackage.MOVE__CURRENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case LocalSearchPackage.MOVE__NEXT_MOVES:
 			case LocalSearchPackage.MOVE__SCORE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
