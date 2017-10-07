@@ -35,7 +35,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Move" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A move is a small change to the solution.&#xA;Small meaning a limited (constant) number of deltas with respect to the solution . &#xA;So the score a  move must be calculated in a constant time (with respect to the size of the solution).&#xA;A move is specific to a given solution (to a specific Action)."/>
+      <details key="documentation" value="A move is a small change to the solution.&#xA;Small meaning a limited (constant) number of deltas with respect to the solution . &#xA;So the score a  move must be calculated in a constant time (with respect to the size of the solution).&#xA;A move is specific to a given solution (to a specific Action).&#xA;A move is part of a tree structure, where the parent is the previous move exectuted, and the children are alternative next moves to be executed after this move..&#xA;A move supports an undo operation. All the changes in the current solution carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain."/>
     </eAnnotations>
     <eOperations name="do">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -89,7 +89,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Improvment" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possible better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xD;&#xA;An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution."/>
+      <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possibly better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xD;&#xA;An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution.&#xA;The framework will iterate on the improvments. The iterations will limited by a max number of iterations and and maximum duration."/>
     </eAnnotations>
     <eOperations name="createActions"/>
     <eOperations name="doIteration"/>
