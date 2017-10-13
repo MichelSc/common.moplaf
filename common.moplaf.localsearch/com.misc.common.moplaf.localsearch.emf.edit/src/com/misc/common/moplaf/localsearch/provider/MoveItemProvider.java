@@ -59,12 +59,58 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCurrentPropertyDescriptor(object);
-			addValidPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addValidFeedbackPropertyDescriptor(object);
 			addDoEnabledFeedbackPropertyDescriptor(object);
 			addUndoEnabledFeedbackPropertyDescriptor(object);
+			addValidPropertyDescriptor(object);
+			addCurrentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Description_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MovePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Valid Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_ValidFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_ValidFeedback_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__VALID_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MovePropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -205,8 +251,10 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	 */
 	@Override
 	public String getText(Object object) {
-		Move move = (Move)object;
-		return getString("_UI_Move_type") + " " + move.isCurrent();
+		String label = ((Move)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Move_type") :
+			getString("_UI_Move_type") + " " + label;
 	}
 	
 
@@ -222,10 +270,12 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Move.class)) {
-			case LocalSearchPackage.MOVE__CURRENT:
-			case LocalSearchPackage.MOVE__VALID:
+			case LocalSearchPackage.MOVE__DESCRIPTION:
+			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.MOVE__VALID:
+			case LocalSearchPackage.MOVE__CURRENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.MOVE__SCORE:
@@ -281,7 +331,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		public void execute() {
 			this.move.do_();;
 		}
-	} // class ScheduleIntializeCommand
+	} // MoveDoCommand
 
 	/**
 	 * 
@@ -305,7 +355,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		public void execute() {
 			this.move.undo();;
 		}
-	} // class ScheduleIntializeCommand
+	} // class MoveUndoCommand
 
 
 	/**

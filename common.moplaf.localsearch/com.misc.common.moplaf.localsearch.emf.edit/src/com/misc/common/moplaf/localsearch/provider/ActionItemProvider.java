@@ -3,19 +3,24 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.FinalizeCommand;
+import com.misc.common.moplaf.emf.edit.command.InitializeCommand;
+import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,6 +28,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -62,6 +68,9 @@ public class ActionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCurrentMovePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addValidFeedbackPropertyDescriptor(object);
+			addValidPropertyDescriptor(object);
 			addCurrentSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -90,6 +99,28 @@ public class ActionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Description_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10ActionPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Current Solution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,7 +138,51 @@ public class ActionItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10ActionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Valid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_Valid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Valid_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__VALID,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10ActionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Valid Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_ValidFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_ValidFeedback_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__VALID_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10ActionPropertyCategory"),
 				 null));
 	}
 
@@ -160,7 +235,10 @@ public class ActionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Action_type");
+		String label = ((Action)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Action_type") :
+			getString("_UI_Action_type") + " " + label;
 	}
 	
 
@@ -176,6 +254,11 @@ public class ActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Action.class)) {
+			case LocalSearchPackage.ACTION__DESCRIPTION:
+			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
+			case LocalSearchPackage.ACTION__VALID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case LocalSearchPackage.ACTION__ROOT_MOVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -205,5 +288,97 @@ public class ActionItemProvider
 	public ResourceLocator getResourceLocator() {
 		return LocalsearchEditPlugin.INSTANCE;
 	}
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class ActionInitializeCommand extends InitializeCommand{
+		private Action action;
+		
+		public ActionInitializeCommand(Action anAction)	{
+			super();
+			this.action = anAction;
+		}
+
+		@Override
+		public boolean canExecute() {
+			return this.action.isValid();
+		}
+
+		@Override
+		public void execute() {
+			this.action.initialize();
+		}
+	} // class ActionIntializeCommand
+
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class ActionRunCommand extends RunCommand{
+		private Action action;
+		
+		public ActionRunCommand(Action anAction)	{
+			super();
+			this.action = anAction;
+		}
+
+		@Override
+		public boolean canExecute() {
+			return this.action.isValid();
+		}
+
+		@Override
+		public void execute() {
+			this.action.run();
+		}
+	} // class ActionRunCommand
+
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class ActionFinalizeCommand extends FinalizeCommand{
+		private Action action;
+		
+		public ActionFinalizeCommand(Action anAction)	{
+			super();
+			this.action = anAction;
+		}
+
+		@Override
+		public boolean canExecute() {
+			return this.action.isValid();
+		}
+
+		@Override
+		public void execute() {
+			this.action.finalize();
+		}
+	} // class ActionFinalizeCommand
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == InitializeCommand.class){
+			return new ActionInitializeCommand((Action) object); 
+		} else if ( commandClass == FinalizeCommand.class){
+			return new ActionFinalizeCommand((Action) object); 
+		} else if ( commandClass == RunCommand.class){
+			return new ActionRunCommand((Action) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 }

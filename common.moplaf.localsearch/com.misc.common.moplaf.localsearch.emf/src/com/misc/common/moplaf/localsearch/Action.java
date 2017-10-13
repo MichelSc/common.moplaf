@@ -30,6 +30,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getRootMoves <em>Root Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentMove <em>Current Move</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}</li>
  * </ul>
  *
@@ -81,6 +84,21 @@ public interface Action extends EObject {
 	void setCurrentMove(Move value);
 
 	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
 	 * Returns the value of the '<em><b>Current Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -107,16 +125,34 @@ public interface Action extends EObject {
 	void setCurrentSolution(Solution value);
 
 	/**
+	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Create all the moves to be considered on the received solution
-	 * 
-	 * <!-- end-model-doc -->
-	 * @model
+	 * @return the value of the '<em>Valid</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Valid()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	void createMoves();
+	boolean isValid();
+
+	/**
+	 * Returns the value of the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Valid Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Valid Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_ValidFeedback()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getValidFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,7 +164,7 @@ public interface Action extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void scoreMoves();
+	void initialize();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,7 +175,7 @@ public interface Action extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void selectMove();
+	void run();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,6 +183,6 @@ public interface Action extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void doAction();
+	void finalize();
 
 } // Action

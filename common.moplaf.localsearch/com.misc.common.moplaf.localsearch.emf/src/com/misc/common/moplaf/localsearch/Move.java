@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * Small meaning a limited (constant) number of deltas with respect to the solution . 
  * So the score a  move must be calculated in a constant time (with respect to the size of the solution).
  * A move is specific to a given solution (to a specific Action).
+ * A move is part of a tree structure, where the parent is the previous move exectuted, and the children are alternative next moves to be executed after this move..
+ * A move supports an undo operation. All the changes in the current solution carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -26,10 +28,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getNextMoves <em>Next Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Move#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove()
@@ -54,6 +58,36 @@ public interface Move extends EObject {
 	 * @generated
 	 */
 	EList<Move> getNextMoves();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Returns the value of the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Valid Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Valid Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove_ValidFeedback()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getValidFeedback();
 
 	/**
 	 * Returns the value of the '<em><b>Previous</b></em>' container reference.
@@ -206,13 +240,5 @@ public interface Move extends EObject {
 	 * @generated
 	 */
 	void undo();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	String isValidFeedback();
 
 } // Move

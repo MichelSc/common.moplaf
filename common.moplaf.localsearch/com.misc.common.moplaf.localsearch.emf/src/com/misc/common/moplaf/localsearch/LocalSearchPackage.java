@@ -180,13 +180,40 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__CURRENT_MOVE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DESCRIPTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__VALID_FEEDBACK = 3;
+
+	/**
+	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__VALID = 4;
+
+	/**
 	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__CURRENT_SOLUTION = 2;
+	int ACTION__CURRENT_SOLUTION = 5;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -195,43 +222,34 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 3;
+	int ACTION_FEATURE_COUNT = 6;
 
 	/**
-	 * The operation id for the '<em>Create Moves</em>' operation.
+	 * The operation id for the '<em>Initialize</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION___CREATE_MOVES = 0;
+	int ACTION___INITIALIZE = 0;
 
 	/**
-	 * The operation id for the '<em>Score Moves</em>' operation.
+	 * The operation id for the '<em>Run</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION___SCORE_MOVES = 1;
+	int ACTION___RUN = 1;
 
 	/**
-	 * The operation id for the '<em>Select Move</em>' operation.
+	 * The operation id for the '<em>Finalize</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION___SELECT_MOVE = 2;
-
-	/**
-	 * The operation id for the '<em>Do Action</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___DO_ACTION = 3;
+	int ACTION___FINALIZE = 2;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -240,7 +258,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_OPERATION_COUNT = 4;
+	int ACTION_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.
@@ -299,22 +317,22 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE__NEXT_MOVES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Current</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__CURRENT = 4;
+	int MOVE__DESCRIPTION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__VALID = 5;
+	int MOVE__VALID_FEEDBACK = 5;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -335,13 +353,31 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE__UNDO_ENABLED_FEEDBACK = 7;
 
 	/**
+	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__VALID = 8;
+
+	/**
+	 * The feature id for the '<em><b>Current</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__CURRENT = 9;
+
+	/**
 	 * The number of structural features of the '<em>Move</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_FEATURE_COUNT = 8;
+	int MOVE_FEATURE_COUNT = 10;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -362,22 +398,13 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE___UNDO = 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid Feedback</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE___IS_VALID_FEEDBACK = 2;
-
-	/**
 	 * The number of operations of the '<em>Move</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_OPERATION_COUNT = 3;
+	int MOVE_OPERATION_COUNT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Score</em>' class.
@@ -656,6 +683,17 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getAction_CurrentMove();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getDescription()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Description();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -667,44 +705,56 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getAction_CurrentSolution();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#createMoves() <em>Create Moves</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Moves</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Action#createMoves()
+	 * @return the meta object for the attribute '<em>Valid</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#isValid()
+	 * @see #getAction()
 	 * @generated
 	 */
-	EOperation getAction__CreateMoves();
+	EAttribute getAction_Valid();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#scoreMoves() <em>Score Moves</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Score Moves</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Action#scoreMoves()
+	 * @return the meta object for the attribute '<em>Valid Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getValidFeedback()
+	 * @see #getAction()
 	 * @generated
 	 */
-	EOperation getAction__ScoreMoves();
+	EAttribute getAction_ValidFeedback();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#selectMove() <em>Select Move</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#initialize() <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Select Move</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Action#selectMove()
+	 * @return the meta object for the '<em>Initialize</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Action#initialize()
 	 * @generated
 	 */
-	EOperation getAction__SelectMove();
+	EOperation getAction__Initialize();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#doAction() <em>Do Action</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#run() <em>Run</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Do Action</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Action#doAction()
+	 * @return the meta object for the '<em>Run</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Action#run()
 	 * @generated
 	 */
-	EOperation getAction__DoAction();
+	EOperation getAction__Run();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#finalize() <em>Finalize</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Finalize</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Action#finalize()
+	 * @generated
+	 */
+	EOperation getAction__Finalize();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Move <em>Move</em>}'.
@@ -726,6 +776,28 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMove_NextMoves();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#getDescription()
+	 * @see #getMove()
+	 * @generated
+	 */
+	EAttribute getMove_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getValidFeedback <em>Valid Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Valid Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#getValidFeedback()
+	 * @see #getMove()
+	 * @generated
+	 */
+	EAttribute getMove_ValidFeedback();
 
 	/**
 	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}'.
@@ -823,16 +895,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getMove__Undo();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#isValidFeedback() <em>Is Valid Feedback</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Feedback</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Move#isValidFeedback()
-	 * @generated
-	 */
-	EOperation getMove__IsValidFeedback();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Score <em>Score</em>}'.
@@ -1095,6 +1157,14 @@ public interface LocalSearchPackage extends EPackage {
 		EReference ACTION__CURRENT_MOVE = eINSTANCE.getAction_CurrentMove();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__DESCRIPTION = eINSTANCE.getAction_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Current Solution</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1103,36 +1173,44 @@ public interface LocalSearchPackage extends EPackage {
 		EReference ACTION__CURRENT_SOLUTION = eINSTANCE.getAction_CurrentSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Moves</b></em>' operation.
+		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ACTION___CREATE_MOVES = eINSTANCE.getAction__CreateMoves();
+		EAttribute ACTION__VALID = eINSTANCE.getAction_Valid();
 
 		/**
-		 * The meta object literal for the '<em><b>Score Moves</b></em>' operation.
+		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ACTION___SCORE_MOVES = eINSTANCE.getAction__ScoreMoves();
+		EAttribute ACTION__VALID_FEEDBACK = eINSTANCE.getAction_ValidFeedback();
 
 		/**
-		 * The meta object literal for the '<em><b>Select Move</b></em>' operation.
+		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ACTION___SELECT_MOVE = eINSTANCE.getAction__SelectMove();
+		EOperation ACTION___INITIALIZE = eINSTANCE.getAction__Initialize();
 
 		/**
-		 * The meta object literal for the '<em><b>Do Action</b></em>' operation.
+		 * The meta object literal for the '<em><b>Run</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ACTION___DO_ACTION = eINSTANCE.getAction__DoAction();
+		EOperation ACTION___RUN = eINSTANCE.getAction__Run();
+
+		/**
+		 * The meta object literal for the '<em><b>Finalize</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTION___FINALIZE = eINSTANCE.getAction__Finalize();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.MoveImpl <em>Move</em>}' class.
@@ -1151,6 +1229,22 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MOVE__NEXT_MOVES = eINSTANCE.getMove_NextMoves();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE__DESCRIPTION = eINSTANCE.getMove_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE__VALID_FEEDBACK = eINSTANCE.getMove_ValidFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Previous</b></em>' container reference feature.
@@ -1223,14 +1317,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MOVE___UNDO = eINSTANCE.getMove__Undo();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid Feedback</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MOVE___IS_VALID_FEEDBACK = eINSTANCE.getMove__IsValidFeedback();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.

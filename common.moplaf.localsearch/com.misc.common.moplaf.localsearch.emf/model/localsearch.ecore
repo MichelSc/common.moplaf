@@ -12,25 +12,26 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Action:&#xD;&#xA;  plan this planUnit&#xD;&#xA;  plan some planUnit:&#xD;&#xA;     select a planUnit, or not&#xD;&#xA;     construct the Moves&#xD;&#xA;     estimate/score&#xD;&#xA;     apply/revert&#xD;&#xA;     repeat a given number of times&#xD;&#xA;An action is the unit of execution with a given goal, that will be attained by considering a set of moves and evaluating them completly.&#xD;&#xA;The result of an action is not the next current solution to be considered, but only a step in its direction."/>
     </eAnnotations>
-    <eOperations name="createMoves">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Create all the moves to be considered on the received solution&#xD;&#xA;"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="scoreMoves">
+    <eOperations name="initialize">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Exectue all the moves and retain their scores&#xD;&#xA;"/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="selectMove">
+    <eOperations name="run">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Select one of the move, and aligne the solution to it"/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="doAction"/>
+    <eOperations name="finalize"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RootMoves" upperBound="-1"
         eType="#//Move" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentMove" eType="#//Move"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Move" abstract="true">
@@ -47,7 +48,6 @@
         <details key="documentation" value="Revert all the changes performed by the Action, and the changes in the derived data, performed by the refresh.&#xD;&#xA;Note that the score has been saved in this.Score. The latter will not be undone."/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="isValidFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Action" lowerBound="1"
         eType="#//Action" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
@@ -56,15 +56,19 @@
         eOpposite="#//Move/NextMoves"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="NextMoves" upperBound="-1"
         eType="#//Move" containment="true" eOpposite="#//Move/Previous"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
-        volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DoEnabledFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UndoEnabledFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Score" abstract="true">
     <eOperations name="compare" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">

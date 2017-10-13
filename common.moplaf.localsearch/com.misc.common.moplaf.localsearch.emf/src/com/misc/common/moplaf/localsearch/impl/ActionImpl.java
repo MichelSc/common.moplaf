@@ -7,6 +7,8 @@ import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
 
 import com.misc.common.moplaf.localsearch.Solution;
+import com.misc.common.moplaf.propagator2.Plugin;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -35,6 +37,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getRootMoves <em>Root Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentMove <em>Current Move</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentSolution <em>Current Solution</em>}</li>
  * </ul>
  *
@@ -60,6 +65,36 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Move currentMove;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALID_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VALID_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #getCurrentSolution() <em>Current Solution</em>}' reference.
@@ -145,6 +180,17 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		// TODO: implement this method to return the 'Description' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Solution getCurrentSolution() {
 		if (currentSolution != null && currentSolution.eIsProxy()) {
 			InternalEObject oldCurrentSolution = (InternalEObject)currentSolution;
@@ -181,9 +227,46 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isValid() {
+		return this.getValidFeedback()==null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getValidFeedback() {
+		Solution current_solution = this.getCurrentSolution();
+		if ( current_solution==null) {
+			return "No current solution";
+		}
+		return null;
+	}
+	
+	/*
+	 * 
+	 */
+	protected void createMovesImpl() {
+		// default does nothing
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void initialize() {
+		Plugin.INSTANCE.logInfo("Action initialize: called");
+		this.createMovesImpl();
+		Plugin.INSTANCE.logInfo("Action initialize: done");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createMoves() {
+	public void run() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -194,29 +277,7 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void scoreMoves() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void selectMove() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void doAction() {
+	public void finalize() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -249,6 +310,12 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				if (resolve) return getCurrentMove();
 				return basicGetCurrentMove();
+			case LocalSearchPackage.ACTION__DESCRIPTION:
+				return getDescription();
+			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
+				return getValidFeedback();
+			case LocalSearchPackage.ACTION__VALID:
+				return isValid();
 			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
 				if (resolve) return getCurrentSolution();
 				return basicGetCurrentSolution();
@@ -312,6 +379,12 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return rootMoves != null && !rootMoves.isEmpty();
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				return currentMove != null;
+			case LocalSearchPackage.ACTION__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
+				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
+			case LocalSearchPackage.ACTION__VALID:
+				return isValid() != VALID_EDEFAULT;
 			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
 				return currentSolution != null;
 		}
@@ -326,17 +399,14 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.ACTION___CREATE_MOVES:
-				createMoves();
+			case LocalSearchPackage.ACTION___INITIALIZE:
+				initialize();
 				return null;
-			case LocalSearchPackage.ACTION___SCORE_MOVES:
-				scoreMoves();
+			case LocalSearchPackage.ACTION___RUN:
+				run();
 				return null;
-			case LocalSearchPackage.ACTION___SELECT_MOVE:
-				selectMove();
-				return null;
-			case LocalSearchPackage.ACTION___DO_ACTION:
-				doAction();
+			case LocalSearchPackage.ACTION___FINALIZE:
+				finalize();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

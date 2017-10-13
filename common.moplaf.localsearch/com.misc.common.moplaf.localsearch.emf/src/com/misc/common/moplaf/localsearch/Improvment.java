@@ -12,9 +12,10 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possible better at the end of the execution.
+ * An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possibly better at the end of the execution.
  * For this, it will execute a set of Actions.
  * An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution.
+ * The framework will iterate on the improvments. The iterations will limited by a max number of iterations and and maximum duration.
  * <!-- end-model-doc -->
  *
  * <p>

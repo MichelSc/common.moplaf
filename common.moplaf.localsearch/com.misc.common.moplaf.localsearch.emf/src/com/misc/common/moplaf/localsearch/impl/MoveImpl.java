@@ -43,10 +43,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getScore <em>Score</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getNextMoves <em>Next Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,24 +75,24 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	protected EList<Move> nextMoves;
 
 	/**
-	 * The default value of the '{@link #isCurrent() <em>Current</em>}' attribute.
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCurrent()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean CURRENT_EDEFAULT = false;
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
+	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isValid()
+	 * @see #getValidFeedback()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean VALID_EDEFAULT = false;
+	protected static final String VALID_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getDoEnabledFeedback() <em>Do Enabled Feedback</em>}' attribute.
@@ -111,6 +113,26 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * @ordered
 	 */
 	protected static final EnabledFeedback UNDO_ENABLED_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VALID_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isCurrent() <em>Current</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCurrent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CURRENT_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,6 +163,26 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 			nextMoves = new EObjectContainmentWithInverseEList<Move>(Move.class, this, LocalSearchPackage.MOVE__NEXT_MOVES, LocalSearchPackage.MOVE__PREVIOUS);
 		}
 		return nextMoves;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		// TODO: implement this method to return the 'Description' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getValidFeedback() {
+		// by default valid
+		return null;
 	}
 
 	/**
@@ -189,7 +231,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 */
 	public boolean isValid() {
-		boolean valid = this.isValidFeedback()==null;
+		boolean valid = this.getValidFeedback()==null;
 		return valid;
 	}
 
@@ -199,7 +241,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	public EnabledFeedback getDoEnabledFeedback() {
 		if ( !this.isValid()) {
-			return new EnabledFeedback(false, this.isValidFeedback());
+			return new EnabledFeedback(false, this.getValidFeedback());
 		}
 		Move previous = this.getPrevious();
 		Action action = this.basicGetAction();
@@ -367,15 +409,6 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public String isValidFeedback() {
-		// by default, the move is valid
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -441,14 +474,18 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return getPrevious();
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				return getNextMoves();
-			case LocalSearchPackage.MOVE__CURRENT:
-				return isCurrent();
-			case LocalSearchPackage.MOVE__VALID:
-				return isValid();
+			case LocalSearchPackage.MOVE__DESCRIPTION:
+				return getDescription();
+			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
+				return getValidFeedback();
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 				return getDoEnabledFeedback();
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 				return getUndoEnabledFeedback();
+			case LocalSearchPackage.MOVE__VALID:
+				return isValid();
+			case LocalSearchPackage.MOVE__CURRENT:
+				return isCurrent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -513,14 +550,18 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return getPrevious() != null;
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				return nextMoves != null && !nextMoves.isEmpty();
-			case LocalSearchPackage.MOVE__CURRENT:
-				return isCurrent() != CURRENT_EDEFAULT;
-			case LocalSearchPackage.MOVE__VALID:
-				return isValid() != VALID_EDEFAULT;
+			case LocalSearchPackage.MOVE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
+				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 				return DO_ENABLED_FEEDBACK_EDEFAULT == null ? getDoEnabledFeedback() != null : !DO_ENABLED_FEEDBACK_EDEFAULT.equals(getDoEnabledFeedback());
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 				return UNDO_ENABLED_FEEDBACK_EDEFAULT == null ? getUndoEnabledFeedback() != null : !UNDO_ENABLED_FEEDBACK_EDEFAULT.equals(getUndoEnabledFeedback());
+			case LocalSearchPackage.MOVE__VALID:
+				return isValid() != VALID_EDEFAULT;
+			case LocalSearchPackage.MOVE__CURRENT:
+				return isCurrent() != CURRENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -539,8 +580,6 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 			case LocalSearchPackage.MOVE___UNDO:
 				undo();
 				return null;
-			case LocalSearchPackage.MOVE___IS_VALID_FEEDBACK:
-				return isValidFeedback();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
