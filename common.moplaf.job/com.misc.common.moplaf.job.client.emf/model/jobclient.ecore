@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jobclient" nsURI="http://www.misc.com/common/moplaf/job/client/model/0.1"
     nsPrefix="jbc">
-  <eClassifiers xsi:type="ecore:EClass" name="JobRemote" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Job">
+  <eClassifiers xsi:type="ecore:EClass" name="JobRemote">
     <eOperations name="onProgress">
       <eParameters name="feedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ProgressFeedback"/>
     </eOperations>
@@ -11,13 +11,17 @@
     </eOperations>
     <eOperations name="refreshProgress"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubmissionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="HandlingEngine" eType="#//JobEngineProxy"
-        eOpposite="#//JobEngineProxy/SubmittedJobs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Result" eType="#//JobRemoteResult"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastProgressWork" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastProgressTask" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="job" upperBound="-1" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Job"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jobremote" eType="#//JobRemote"
+        eOpposite="#//JobRemote/jobremoteeOpposite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jobremoteeOpposite" eType="#//JobRemote"
+        eOpposite="#//JobRemote/jobremote"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngineProxy" abstract="true">
     <eOperations name="submitJob" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
@@ -26,8 +30,8 @@
     <eOperations name="getJob" eType="#//JobRemote">
       <eParameters name="submissionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SubmittedJobs" upperBound="-1"
-        eType="#//JobRemote" eOpposite="#//JobRemote/HandlingEngine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
+        eType="#//JobScheduler" eOpposite="#//JobScheduler/Engines"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobRemoteResult"/>
@@ -58,5 +62,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngineInProcess" eSuperTypes="#//JobEngineProxy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Asynchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobScheduler">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Jobs" upperBound="-1" eType="#//JobRemote"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Engines" upperBound="-1"
+        eType="#//JobEngineProxy" containment="true" eOpposite="#//JobEngineProxy/Scheduler"/>
   </eClassifiers>
 </ecore:EPackage>

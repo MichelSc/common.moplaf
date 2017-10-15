@@ -290,7 +290,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.RUN__RETURN_INFORMATION, oldReturnInformation, returnInformation));
 	}
-	
+
 	/*
 	 * 
 	 */
