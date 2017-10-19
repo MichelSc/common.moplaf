@@ -16,8 +16,8 @@
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Action">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/RootMoves"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentMove"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Action"
+          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentMove"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Description"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
