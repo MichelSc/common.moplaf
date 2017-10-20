@@ -264,12 +264,29 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void run() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Plugin.INSTANCE.logInfo("Action run: called");
+		for (Move rootMove : this.getRootMoves()) {
+			this.runDoMove(rootMove);
+		}
+		Plugin.INSTANCE.logInfo("Action run: done");
+	}
+	
+	private void runDoMove(Move move) {
+		Plugin.INSTANCE.logInfo("Action runMove: called, move: "+move.getDescription());
+		// do the move
+		move.do_();
+		
+		// do the next moves
+		for ( Move nextMove : move.getNextMoves()) {
+			this.runDoMove(nextMove);
+		}
+		
+		// undo the move
+		move.undo();
+
+		Plugin.INSTANCE.logInfo("Action runMove: done, move: "+move.getDescription());
 	}
 
 	/**
