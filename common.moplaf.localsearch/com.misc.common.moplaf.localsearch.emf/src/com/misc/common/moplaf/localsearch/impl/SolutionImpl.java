@@ -5,10 +5,12 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
-
+import com.misc.common.moplaf.localsearch.Strategy;
+import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.impl.ObjectWithPropagatorFunctionsImpl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +18,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +31,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getScore <em>Score</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getSolutionNr <em>Solution Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getAncestor <em>Ancestor</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getDescendants <em>Descendants</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getStrategy <em>Strategy</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,6 +49,44 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @ordered
 	 */
 	protected Score score;
+
+	/**
+	 * The default value of the '{@link #getSolutionNr() <em>Solution Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolutionNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SOLUTION_NR_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getSolutionNr() <em>Solution Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolutionNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int solutionNr = SOLUTION_NR_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getAncestor() <em>Ancestor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAncestor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Solution ancestor;
+
+	/**
+	 * The cached value of the '{@link #getDescendants() <em>Descendants</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescendants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Solution> descendants;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,10 +155,161 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getSolutionNr() {
+		return solutionNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolutionNr(int newSolutionNr) {
+		int oldSolutionNr = solutionNr;
+		solutionNr = newSolutionNr;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__SOLUTION_NR, oldSolutionNr, solutionNr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solution getAncestor() {
+		if (ancestor != null && ancestor.eIsProxy()) {
+			InternalEObject oldAncestor = (InternalEObject)ancestor;
+			ancestor = (Solution)eResolveProxy(oldAncestor);
+			if (ancestor != oldAncestor) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.SOLUTION__ANCESTOR, oldAncestor, ancestor));
+			}
+		}
+		return ancestor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solution basicGetAncestor() {
+		return ancestor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAncestor(Solution newAncestor, NotificationChain msgs) {
+		Solution oldAncestor = ancestor;
+		ancestor = newAncestor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__ANCESTOR, oldAncestor, newAncestor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAncestor(Solution newAncestor) {
+		if (newAncestor != ancestor) {
+			NotificationChain msgs = null;
+			if (ancestor != null)
+				msgs = ((InternalEObject)ancestor).eInverseRemove(this, LocalSearchPackage.SOLUTION__DESCENDANTS, Solution.class, msgs);
+			if (newAncestor != null)
+				msgs = ((InternalEObject)newAncestor).eInverseAdd(this, LocalSearchPackage.SOLUTION__DESCENDANTS, Solution.class, msgs);
+			msgs = basicSetAncestor(newAncestor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__ANCESTOR, newAncestor, newAncestor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Solution> getDescendants() {
+		if (descendants == null) {
+			descendants = new EObjectWithInverseResolvingEList<Solution>(Solution.class, this, LocalSearchPackage.SOLUTION__DESCENDANTS, LocalSearchPackage.SOLUTION__ANCESTOR);
+		}
+		return descendants;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Strategy getStrategy() {
+		if (eContainerFeatureID() != LocalSearchPackage.SOLUTION__STRATEGY) return null;
+		return (Strategy)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStrategy(Strategy newStrategy, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newStrategy, LocalSearchPackage.SOLUTION__STRATEGY, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStrategy(Strategy newStrategy) {
+		if (newStrategy != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.SOLUTION__STRATEGY && newStrategy != null)) {
+			if (EcoreUtil.isAncestor(this, newStrategy))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newStrategy != null)
+				msgs = ((InternalEObject)newStrategy).eInverseAdd(this, LocalSearchPackage.STRATEGY__SOLUTIONS, Strategy.class, msgs);
+			msgs = basicSetStrategy(newStrategy, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__STRATEGY, newStrategy, newStrategy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public Solution clone() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Plugin.INSTANCE.logInfo("Action initialize: called");
+		Strategy strategy = this.getStrategy();
+		Solution new_solution = this.cloneImpl();
+		// info about the solution
+		int new_nr = strategy.getCurrentSolutionNr()+1;
+		strategy.setCurrentSolutionNr(new_nr);
+		new_solution.setSolutionNr(new_nr);
+		new_solution.setAncestor(this);
+		strategy.getSolutions().add(new_solution);
+		Plugin.INSTANCE.logInfo("Action initialize: done");
+		return new_solution;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	protected Solution cloneImpl() {
+		// default implementation
+		Solution newSolution = (Solution)EcoreUtil.copy(this);
+		return newSolution;
 	}
 
 	/**
@@ -130,13 +328,56 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case LocalSearchPackage.SOLUTION__ANCESTOR:
+				if (ancestor != null)
+					msgs = ((InternalEObject)ancestor).eInverseRemove(this, LocalSearchPackage.SOLUTION__DESCENDANTS, Solution.class, msgs);
+				return basicSetAncestor((Solution)otherEnd, msgs);
+			case LocalSearchPackage.SOLUTION__DESCENDANTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDescendants()).basicAdd(otherEnd, msgs);
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetStrategy((Strategy)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
 				return basicSetScore(null, msgs);
+			case LocalSearchPackage.SOLUTION__ANCESTOR:
+				return basicSetAncestor(null, msgs);
+			case LocalSearchPackage.SOLUTION__DESCENDANTS:
+				return ((InternalEList<?>)getDescendants()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return basicSetStrategy(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.STRATEGY__SOLUTIONS, Strategy.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -149,6 +390,15 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
 				return getScore();
+			case LocalSearchPackage.SOLUTION__SOLUTION_NR:
+				return getSolutionNr();
+			case LocalSearchPackage.SOLUTION__ANCESTOR:
+				if (resolve) return getAncestor();
+				return basicGetAncestor();
+			case LocalSearchPackage.SOLUTION__DESCENDANTS:
+				return getDescendants();
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return getStrategy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +415,19 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__SCORE:
 				setScore((Score)newValue);
 				return;
+			case LocalSearchPackage.SOLUTION__SOLUTION_NR:
+				setSolutionNr((Integer)newValue);
+				return;
+			case LocalSearchPackage.SOLUTION__ANCESTOR:
+				setAncestor((Solution)newValue);
+				return;
+			case LocalSearchPackage.SOLUTION__DESCENDANTS:
+				getDescendants().clear();
+				getDescendants().addAll((Collection<? extends Solution>)newValue);
+				return;
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				setStrategy((Strategy)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -180,6 +443,18 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__SCORE:
 				setScore((Score)null);
 				return;
+			case LocalSearchPackage.SOLUTION__SOLUTION_NR:
+				setSolutionNr(SOLUTION_NR_EDEFAULT);
+				return;
+			case LocalSearchPackage.SOLUTION__ANCESTOR:
+				setAncestor((Solution)null);
+				return;
+			case LocalSearchPackage.SOLUTION__DESCENDANTS:
+				getDescendants().clear();
+				return;
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				setStrategy((Strategy)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,6 +469,14 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
 				return score != null;
+			case LocalSearchPackage.SOLUTION__SOLUTION_NR:
+				return solutionNr != SOLUTION_NR_EDEFAULT;
+			case LocalSearchPackage.SOLUTION__ANCESTOR:
+				return ancestor != null;
+			case LocalSearchPackage.SOLUTION__DESCENDANTS:
+				return descendants != null && !descendants.isEmpty();
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return getStrategy() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,6 +496,22 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (SolutionNr: ");
+		result.append(solutionNr);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SolutionImpl

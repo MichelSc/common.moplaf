@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentSolution <em>Current Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getSolution <em>Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -97,14 +97,14 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	protected static final boolean VALID_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getCurrentSolution() <em>Current Solution</em>}' reference.
+	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentSolution()
+	 * @see #getSolution()
 	 * @generated
 	 * @ordered
 	 */
-	protected Solution currentSolution;
+	protected Solution solution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,44 +189,6 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solution getCurrentSolution() {
-		if (currentSolution != null && currentSolution.eIsProxy()) {
-			InternalEObject oldCurrentSolution = (InternalEObject)currentSolution;
-			currentSolution = (Solution)eResolveProxy(oldCurrentSolution);
-			if (currentSolution != oldCurrentSolution) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__CURRENT_SOLUTION, oldCurrentSolution, currentSolution));
-			}
-		}
-		return currentSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solution basicGetCurrentSolution() {
-		return currentSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentSolution(Solution newCurrentSolution) {
-		Solution oldCurrentSolution = currentSolution;
-		currentSolution = newCurrentSolution;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__CURRENT_SOLUTION, oldCurrentSolution, currentSolution));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public boolean isValid() {
 		return this.getValidFeedback()==null;
@@ -235,11 +197,49 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solution getSolution() {
+		if (solution != null && solution.eIsProxy()) {
+			InternalEObject oldSolution = (InternalEObject)solution;
+			solution = (Solution)eResolveProxy(oldSolution);
+			if (solution != oldSolution) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__SOLUTION, oldSolution, solution));
+			}
+		}
+		return solution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solution basicGetSolution() {
+		return solution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolution(Solution newSolution) {
+		Solution oldSolution = solution;
+		solution = newSolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__SOLUTION, oldSolution, solution));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public String getValidFeedback() {
-		Solution current_solution = this.getCurrentSolution();
-		if ( current_solution==null) {
-			return "No current solution";
+		Solution solution = this.getSolution();
+		if ( solution==null) {
+			return "No solution associated with the action";
 		}
 		return null;
 	}
@@ -333,9 +333,9 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return getValidFeedback();
 			case LocalSearchPackage.ACTION__VALID:
 				return isValid();
-			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
-				if (resolve) return getCurrentSolution();
-				return basicGetCurrentSolution();
+			case LocalSearchPackage.ACTION__SOLUTION:
+				if (resolve) return getSolution();
+				return basicGetSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,8 +356,8 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				setCurrentMove((Move)newValue);
 				return;
-			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
-				setCurrentSolution((Solution)newValue);
+			case LocalSearchPackage.ACTION__SOLUTION:
+				setSolution((Solution)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -377,8 +377,8 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				setCurrentMove((Move)null);
 				return;
-			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
-				setCurrentSolution((Solution)null);
+			case LocalSearchPackage.ACTION__SOLUTION:
+				setSolution((Solution)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -402,8 +402,8 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.ACTION__VALID:
 				return isValid() != VALID_EDEFAULT;
-			case LocalSearchPackage.ACTION__CURRENT_SOLUTION:
-				return currentSolution != null;
+			case LocalSearchPackage.ACTION__SOLUTION:
+				return solution != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -11,6 +11,12 @@
     <genDataTypes ecoreDataType="localsearch.ecore#//EnabledFeedback"/>
     <genClasses ecoreClass="localsearch.ecore#//Solution">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Score"/>
+      <genFeatures createChild="false" propertyCategory="10 Solution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Solution/SolutionNr"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 Solution"
+          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Ancestor"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 Solution"
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Descendants"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Strategy"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/clone"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/refresh"/>
     </genClasses>
@@ -25,7 +31,7 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Valid"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 Action"
-          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentSolution"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/Solution"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/initialize"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/run"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/finalize"/>
@@ -64,8 +70,10 @@
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Strategy">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/Improvments"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/BestSolution"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 Strategy"
+          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/BestSolution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/Solutions"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/CurrentSolutionNr"/>
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectSolutionsToImprove"/>
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/pruneSolution"/>
     </genClasses>

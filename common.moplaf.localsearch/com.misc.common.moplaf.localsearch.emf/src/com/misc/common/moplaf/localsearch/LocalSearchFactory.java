@@ -22,15 +22,6 @@ public interface LocalSearchFactory extends EFactory {
 	LocalSearchFactory eINSTANCE = com.misc.common.moplaf.localsearch.impl.LocalSearchFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Strategy</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Strategy</em>'.
-	 * @generated
-	 */
-	Strategy createStrategy();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

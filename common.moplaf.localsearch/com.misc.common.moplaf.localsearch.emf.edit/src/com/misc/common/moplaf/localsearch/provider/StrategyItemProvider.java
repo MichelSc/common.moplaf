@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -62,6 +63,7 @@ public class StrategyItemProvider
 			super.getPropertyDescriptors(object);
 
 			addBestSolutionPropertyDescriptor(object);
+			addCurrentSolutionNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,7 +86,29 @@ public class StrategyItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Current Solution Nr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCurrentSolutionNrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Strategy_CurrentSolutionNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_CurrentSolutionNr_feature", "_UI_Strategy_type"),
+				 LocalSearchPackage.Literals.STRATEGY__CURRENT_SOLUTION_NR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -138,7 +162,8 @@ public class StrategyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Strategy_type");
+		Strategy strategy = (Strategy)object;
+		return getString("_UI_Strategy_type") + " " + strategy.getCurrentSolutionNr();
 	}
 	
 
@@ -154,6 +179,9 @@ public class StrategyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Strategy.class)) {
+			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case LocalSearchPackage.STRATEGY__IMPROVMENTS:
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

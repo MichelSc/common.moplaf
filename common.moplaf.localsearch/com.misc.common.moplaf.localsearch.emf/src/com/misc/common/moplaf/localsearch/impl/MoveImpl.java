@@ -372,7 +372,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	public void do_() {
 		Action action = this.getAction();
-		Solution currentSolution = action.getCurrentSolution();
+		Solution currentSolution = action.getSolution();
 		ChangeRecorder recorder = new ChangeRecorder(currentSolution); // begin recording
 
 		// procedural changes

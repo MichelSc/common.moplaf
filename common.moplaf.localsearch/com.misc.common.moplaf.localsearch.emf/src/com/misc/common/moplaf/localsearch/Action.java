@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getSolution <em>Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction()
@@ -99,32 +99,6 @@ public interface Action extends EObject {
 	String getDescription();
 
 	/**
-	 * Returns the value of the '<em><b>Current Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Current Solution</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Solution</em>' reference.
-	 * @see #setCurrentSolution(Solution)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_CurrentSolution()
-	 * @model
-	 * @generated
-	 */
-	Solution getCurrentSolution();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Solution</em>' reference.
-	 * @see #getCurrentSolution()
-	 * @generated
-	 */
-	void setCurrentSolution(Solution value);
-
-	/**
 	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -138,6 +112,32 @@ public interface Action extends EObject {
 	 * @generated
 	 */
 	boolean isValid();
+
+	/**
+	 * Returns the value of the '<em><b>Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Solution</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Solution</em>' reference.
+	 * @see #setSolution(Solution)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Solution()
+	 * @model required="true"
+	 * @generated
+	 */
+	Solution getSolution();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getSolution <em>Solution</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Solution</em>' reference.
+	 * @see #getSolution()
+	 * @generated
+	 */
+	void setSolution(Solution value);
 
 	/**
 	 * Returns the value of the '<em><b>Valid Feedback</b></em>' attribute.

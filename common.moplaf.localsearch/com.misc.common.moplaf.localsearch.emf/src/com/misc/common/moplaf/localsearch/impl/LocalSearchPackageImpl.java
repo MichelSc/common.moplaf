@@ -166,6 +166,42 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSolution_SolutionNr() {
+		return (EAttribute)solutionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSolution_Ancestor() {
+		return (EReference)solutionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSolution_Descendants() {
+		return (EReference)solutionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSolution_Strategy() {
+		return (EReference)solutionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getSolution__Clone() {
 		return solutionEClass.getEOperations().get(0);
 	}
@@ -220,8 +256,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_CurrentSolution() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(5);
+	public EAttribute getAction_Valid() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -229,8 +265,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Valid() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
+	public EReference getAction_Solution() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -463,6 +499,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStrategy_CurrentSolutionNr() {
+		return (EAttribute)strategyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getStrategy__SelectSolutionsToImprove() {
 		return strategyEClass.getEOperations().get(0);
 	}
@@ -569,6 +614,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		// Create classes and their features
 		solutionEClass = createEClass(SOLUTION);
 		createEReference(solutionEClass, SOLUTION__SCORE);
+		createEAttribute(solutionEClass, SOLUTION__SOLUTION_NR);
+		createEReference(solutionEClass, SOLUTION__ANCESTOR);
+		createEReference(solutionEClass, SOLUTION__DESCENDANTS);
+		createEReference(solutionEClass, SOLUTION__STRATEGY);
 		createEOperation(solutionEClass, SOLUTION___CLONE);
 		createEOperation(solutionEClass, SOLUTION___REFRESH);
 
@@ -578,7 +627,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(actionEClass, ACTION__DESCRIPTION);
 		createEAttribute(actionEClass, ACTION__VALID_FEEDBACK);
 		createEAttribute(actionEClass, ACTION__VALID);
-		createEReference(actionEClass, ACTION__CURRENT_SOLUTION);
+		createEReference(actionEClass, ACTION__SOLUTION);
 		createEOperation(actionEClass, ACTION___INITIALIZE);
 		createEOperation(actionEClass, ACTION___RUN);
 		createEOperation(actionEClass, ACTION___FINALIZE);
@@ -606,6 +655,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(strategyEClass, STRATEGY__IMPROVMENTS);
 		createEReference(strategyEClass, STRATEGY__BEST_SOLUTION);
 		createEReference(strategyEClass, STRATEGY__SOLUTIONS);
+		createEAttribute(strategyEClass, STRATEGY__CURRENT_SOLUTION_NR);
 		createEOperation(strategyEClass, STRATEGY___SELECT_SOLUTIONS_TO_IMPROVE);
 		createEOperation(strategyEClass, STRATEGY___PRUNE_SOLUTION);
 
@@ -656,6 +706,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		// Initialize classes, features, and operations; add parameters
 		initEClass(solutionEClass, Solution.class, "Solution", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolution_Score(), this.getScore(), null, "Score", null, 1, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolution_SolutionNr(), ecorePackage.getEInt(), "SolutionNr", null, 0, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolution_Ancestor(), this.getSolution(), this.getSolution_Descendants(), "Ancestor", null, 0, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolution_Descendants(), this.getSolution(), this.getSolution_Ancestor(), "Descendants", null, 0, -1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolution_Strategy(), this.getStrategy(), this.getStrategy_Solutions(), "Strategy", null, 1, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSolution__Clone(), this.getSolution(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -667,7 +721,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getAction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getAction_CurrentSolution(), this.getSolution(), null, "CurrentSolution", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_Solution(), this.getSolution(), null, "Solution", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAction__Initialize(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -701,10 +755,11 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		op = initEOperation(getScore__Copy__Score(), null, "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getScore(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(strategyEClass, Strategy.class, "Strategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(strategyEClass, Strategy.class, "Strategy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStrategy_Improvments(), this.getImprovment(), null, "Improvments", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStrategy_BestSolution(), this.getSolution(), null, "BestSolution", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStrategy_Solutions(), this.getSolution(), null, "Solutions", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStrategy_Solutions(), this.getSolution(), this.getSolution_Strategy(), "Solutions", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrategy_CurrentSolutionNr(), ecorePackage.getEInt(), "CurrentSolutionNr", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getStrategy__SelectSolutionsToImprove(), null, "selectSolutionsToImprove", 0, 1, IS_UNIQUE, IS_ORDERED);
 

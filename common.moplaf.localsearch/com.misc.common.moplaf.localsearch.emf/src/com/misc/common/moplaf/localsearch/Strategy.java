@@ -31,10 +31,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getImprovments <em>Improvments</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getBestSolution <em>Best Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Strategy extends EObject {
@@ -83,6 +84,7 @@ public interface Strategy extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Solutions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Solution}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Solutions</em>' containment reference list isn't clear,
@@ -91,10 +93,37 @@ public interface Strategy extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Solutions</em>' containment reference list.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Solutions()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.localsearch.Solution#getStrategy
+	 * @model opposite="Strategy" containment="true"
 	 * @generated
 	 */
 	EList<Solution> getSolutions();
+
+	/**
+	 * Returns the value of the '<em><b>Current Solution Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current Solution Nr</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Solution Nr</em>' attribute.
+	 * @see #setCurrentSolutionNr(int)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_CurrentSolutionNr()
+	 * @model
+	 * @generated
+	 */
+	int getCurrentSolutionNr();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Solution Nr</em>' attribute.
+	 * @see #getCurrentSolutionNr()
+	 * @generated
+	 */
+	void setCurrentSolutionNr(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

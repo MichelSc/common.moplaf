@@ -58,7 +58,6 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case LocalSearchPackage.STRATEGY: return createStrategy();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,16 +91,6 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Strategy createStrategy() {
-		StrategyImpl strategy = new StrategyImpl();
-		return strategy;
 	}
 
 	/**

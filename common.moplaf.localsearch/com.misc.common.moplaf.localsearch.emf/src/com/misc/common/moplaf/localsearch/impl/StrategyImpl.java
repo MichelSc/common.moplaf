@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -36,11 +37,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getImprovments <em>Improvments</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getBestSolution <em>Best Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getSolutions <em>Solutions</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StrategyImpl extends MinimalEObjectImpl.Container implements Strategy {
+public abstract class StrategyImpl extends MinimalEObjectImpl.Container implements Strategy {
 	/**
 	 * The cached value of the '{@link #getImprovments() <em>Improvments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -70,6 +72,26 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 	 * @ordered
 	 */
 	protected EList<Solution> solutions;
+
+	/**
+	 * The default value of the '{@link #getCurrentSolutionNr() <em>Current Solution Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentSolutionNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CURRENT_SOLUTION_NR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCurrentSolutionNr() <em>Current Solution Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentSolutionNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int currentSolutionNr = CURRENT_SOLUTION_NR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,9 +169,30 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 	 */
 	public EList<Solution> getSolutions() {
 		if (solutions == null) {
-			solutions = new EObjectContainmentEList<Solution>(Solution.class, this, LocalSearchPackage.STRATEGY__SOLUTIONS);
+			solutions = new EObjectContainmentWithInverseEList<Solution>(Solution.class, this, LocalSearchPackage.STRATEGY__SOLUTIONS, LocalSearchPackage.SOLUTION__STRATEGY);
 		}
 		return solutions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCurrentSolutionNr() {
+		return currentSolutionNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentSolutionNr(int newCurrentSolutionNr) {
+		int oldCurrentSolutionNr = currentSolutionNr;
+		currentSolutionNr = newCurrentSolutionNr;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR, oldCurrentSolutionNr, currentSolutionNr));
 	}
 
 	/**
@@ -172,6 +215,21 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case LocalSearchPackage.STRATEGY__SOLUTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSolutions()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -205,6 +263,8 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 				return basicGetBestSolution();
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				return getSolutions();
+			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
+				return getCurrentSolutionNr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,6 +289,9 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 				getSolutions().clear();
 				getSolutions().addAll((Collection<? extends Solution>)newValue);
 				return;
+			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
+				setCurrentSolutionNr((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -250,6 +313,9 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				getSolutions().clear();
 				return;
+			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
+				setCurrentSolutionNr(CURRENT_SOLUTION_NR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -268,6 +334,8 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 				return bestSolution != null;
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				return solutions != null && !solutions.isEmpty();
+			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
+				return currentSolutionNr != CURRENT_SOLUTION_NR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -288,6 +356,22 @@ public class StrategyImpl extends MinimalEObjectImpl.Container implements Strate
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (CurrentSolutionNr: ");
+		result.append(currentSolutionNr);
+		result.append(')');
+		return result.toString();
 	}
 
 } //StrategyImpl

@@ -72,29 +72,6 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Strategy} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StrategyItemProvider strategyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.Strategy}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStrategyAdapter() {
-		if (strategyItemProvider == null) {
-			strategyItemProvider = new StrategyItemProvider(this);
-		}
-
-		return strategyItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,7 +170,6 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	 * @generated
 	 */
 	public void dispose() {
-		if (strategyItemProvider != null) strategyItemProvider.dispose();
 	}
 
 }

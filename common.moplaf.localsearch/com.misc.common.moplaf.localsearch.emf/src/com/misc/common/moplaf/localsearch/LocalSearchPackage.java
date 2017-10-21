@@ -89,13 +89,49 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION__SCORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Solution Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__SOLUTION_NR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Ancestor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__ANCESTOR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Descendants</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__DESCENDANTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Strategy</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__STRATEGY = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 1;
+	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -207,13 +243,13 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__VALID = 4;
 
 	/**
-	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
+	 * The feature id for the '<em><b>Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__CURRENT_SOLUTION = 5;
+	int ACTION__SOLUTION = 5;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -489,13 +525,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__SOLUTIONS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__CURRENT_SOLUTION_NR = 3;
+
+	/**
 	 * The number of structural features of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_FEATURE_COUNT = 3;
+	int STRATEGY_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Select Solutions To Improve</em>' operation.
@@ -631,6 +676,50 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolution_Score();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Solution#getSolutionNr <em>Solution Nr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Solution Nr</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Solution#getSolutionNr()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EAttribute getSolution_SolutionNr();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Solution#getAncestor <em>Ancestor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ancestor</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Solution#getAncestor()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EReference getSolution_Ancestor();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.localsearch.Solution#getDescendants <em>Descendants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Descendants</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Solution#getDescendants()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EReference getSolution_Descendants();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Strategy</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Solution#getStrategy()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EReference getSolution_Strategy();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#clone() <em>Clone</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -694,17 +783,6 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getAction_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getCurrentSolution <em>Current Solution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Solution</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Action#getCurrentSolution()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EReference getAction_CurrentSolution();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,6 +792,17 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAction_Valid();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getSolution <em>Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Solution</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getSolution()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_Solution();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}'.
@@ -980,6 +1069,17 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getStrategy_Solutions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Current Solution Nr</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr()
+	 * @see #getStrategy()
+	 * @generated
+	 */
+	EAttribute getStrategy_CurrentSolutionNr();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectSolutionsToImprove() <em>Select Solutions To Improve</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1115,6 +1215,38 @@ public interface LocalSearchPackage extends EPackage {
 		EReference SOLUTION__SCORE = eINSTANCE.getSolution_Score();
 
 		/**
+		 * The meta object literal for the '<em><b>Solution Nr</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION__SOLUTION_NR = eINSTANCE.getSolution_SolutionNr();
+
+		/**
+		 * The meta object literal for the '<em><b>Ancestor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLUTION__ANCESTOR = eINSTANCE.getSolution_Ancestor();
+
+		/**
+		 * The meta object literal for the '<em><b>Descendants</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLUTION__DESCENDANTS = eINSTANCE.getSolution_Descendants();
+
+		/**
+		 * The meta object literal for the '<em><b>Strategy</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLUTION__STRATEGY = eINSTANCE.getSolution_Strategy();
+
+		/**
 		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1165,20 +1297,20 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute ACTION__DESCRIPTION = eINSTANCE.getAction_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Current Solution</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTION__CURRENT_SOLUTION = eINSTANCE.getAction_CurrentSolution();
-
-		/**
 		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ACTION__VALID = eINSTANCE.getAction_Valid();
+
+		/**
+		 * The meta object literal for the '<em><b>Solution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__SOLUTION = eINSTANCE.getAction_Solution();
 
 		/**
 		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
@@ -1385,6 +1517,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STRATEGY__SOLUTIONS = eINSTANCE.getStrategy_Solutions();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Solution Nr</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRATEGY__CURRENT_SOLUTION_NR = eINSTANCE.getStrategy_CurrentSolutionNr();
 
 		/**
 		 * The meta object literal for the '<em><b>Select Solutions To Improve</b></em>' operation.

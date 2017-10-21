@@ -71,7 +71,7 @@ public class ActionItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
-			addCurrentSolutionPropertyDescriptor(object);
+			addSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -121,28 +121,6 @@ public class ActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Current Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCurrentSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_CurrentSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_CurrentSolution_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__CURRENT_SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10ActionPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Valid feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,6 +138,28 @@ public class ActionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10ActionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_Solution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Solution_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__SOLUTION,
+				 true,
+				 false,
+				 true,
+				 null,
 				 getString("_UI__10ActionPropertyCategory"),
 				 null));
 	}
