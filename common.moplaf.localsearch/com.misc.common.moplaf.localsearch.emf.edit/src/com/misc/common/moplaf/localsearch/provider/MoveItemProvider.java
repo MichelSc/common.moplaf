@@ -4,6 +4,7 @@ package com.misc.common.moplaf.localsearch.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.DoCommand;
+import com.misc.common.moplaf.emf.edit.command.SelectCommand;
 import com.misc.common.moplaf.emf.edit.command.UndoCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
@@ -63,6 +64,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			addValidFeedbackPropertyDescriptor(object);
 			addDoEnabledFeedbackPropertyDescriptor(object);
 			addUndoEnabledFeedbackPropertyDescriptor(object);
+			addSelectEnabledFeedbackPropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
 			addCurrentPropertyDescriptor(object);
 		}
@@ -202,6 +204,28 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	}
 
 	/**
+	 * This adds a property descriptor for the Select Enabled Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectEnabledFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_SelectEnabledFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_SelectEnabledFeedback_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__SELECT_ENABLED_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MovePropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -273,6 +297,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__VALID:
 			case LocalSearchPackage.MOVE__CURRENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -352,7 +377,32 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		@Override
 		public void execute() {
-			this.move.undo();;
+			this.move.undo();
+		}
+	} // class MoveUndoCommand
+
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class MoveSelectCommand extends SelectCommand{
+		private Move move;
+		
+		public MoveSelectCommand(Move aMove)	{
+			super();
+			this.move = aMove;
+		}
+
+		@Override
+		public boolean canExecute() {
+			return this.move.getSelectEnabledFeedback().isEnabled();
+		}
+
+		@Override
+		public void execute() {
+			this.move.select();
 		}
 	} // class MoveUndoCommand
 
@@ -368,6 +418,8 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			return new MoveDoCommand((Move) object); 
 		} else 	if ( commandClass == UndoCommand.class){
 			return new MoveUndoCommand((Move) object); 
+		} else 	if ( commandClass == SelectCommand.class){
+			return new MoveSelectCommand((Move) object); 
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand

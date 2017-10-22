@@ -389,13 +389,22 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE__UNDO_ENABLED_FEEDBACK = 7;
 
 	/**
+	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__SELECT_ENABLED_FEEDBACK = 8;
+
+	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__VALID = 8;
+	int MOVE__VALID = 9;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -404,7 +413,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__CURRENT = 9;
+	int MOVE__CURRENT = 10;
 
 	/**
 	 * The number of structural features of the '<em>Move</em>' class.
@@ -413,7 +422,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_FEATURE_COUNT = 10;
+	int MOVE_FEATURE_COUNT = 11;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -434,13 +443,22 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE___UNDO = 1;
 
 	/**
+	 * The operation id for the '<em>Select</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE___SELECT = 2;
+
+	/**
 	 * The number of operations of the '<em>Move</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_OPERATION_COUNT = 2;
+	int MOVE_OPERATION_COUNT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Score</em>' class.
@@ -933,6 +951,17 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getMove_UndoEnabledFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Select Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#getSelectEnabledFeedback()
+	 * @see #getMove()
+	 * @generated
+	 */
+	EAttribute getMove_SelectEnabledFeedback();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -984,6 +1013,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getMove__Undo();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#select() <em>Select</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Select</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Move#select()
+	 * @generated
+	 */
+	EOperation getMove__Select();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Score <em>Score</em>}'.
@@ -1411,6 +1450,14 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute MOVE__UNDO_ENABLED_FEEDBACK = eINSTANCE.getMove_UndoEnabledFeedback();
 
 		/**
+		 * The meta object literal for the '<em><b>Select Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE__SELECT_ENABLED_FEEDBACK = eINSTANCE.getMove_SelectEnabledFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Score</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1449,6 +1496,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MOVE___UNDO = eINSTANCE.getMove__Undo();
+
+		/**
+		 * The meta object literal for the '<em><b>Select</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MOVE___SELECT = eINSTANCE.getMove__Select();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.

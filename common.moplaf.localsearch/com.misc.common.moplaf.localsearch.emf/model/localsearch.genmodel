@@ -53,11 +53,14 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/UndoEnabledFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/SelectEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Valid"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Current"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/do"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/undo"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Move/select"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Score">
       <genOperations ecoreOperation="localsearch.ecore#//Score/compare">

@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
  * </ul>
@@ -113,6 +114,16 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * @ordered
 	 */
 	protected static final EnabledFeedback UNDO_ENABLED_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getSelectEnabledFeedback() <em>Select Enabled Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectEnabledFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback SELECT_ENABLED_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
@@ -279,6 +290,17 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback getSelectEnabledFeedback() {
+		if ( !this.isValid()) {
+			return new EnabledFeedback(false, this.getValidFeedback());
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Score getScore() {
@@ -409,6 +431,45 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void select() {
+		Action action = this.getAction();
+		Move next_move = this.getNextMove(this);
+		while ( next_move==null && action.getCurrentMove()!=this) {
+			action.getCurrentMove().undo();
+			next_move = this.getNextMove(this);
+		}
+		while ( action.getCurrentMove()!=this ) {
+			next_move.do_();
+			next_move = this.getNextMove(this);
+		}
+	}
+	
+	/**
+	 * Return the next move with respect to the current move on the path to the target move
+	 * Return null if target_move is not accessible from the current move
+	 * Return null if target_move is the current node
+	 * @param target_move
+	 * @return
+	 */
+	private Move getNextMove(Move target_move) {
+		Action action = this.getAction();
+		Move current_move = action.getCurrentMove();
+		Move previous_move = target_move.getPrevious();
+		if ( target_move == current_move) {
+			return null;
+		} else if ( previous_move == current_move) {
+			return target_move;
+		} else if ( previous_move == null) {
+			return null;
+		} else {
+			return this.getNextMove(previous_move);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -482,6 +543,8 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return getDoEnabledFeedback();
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 				return getUndoEnabledFeedback();
+			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
+				return getSelectEnabledFeedback();
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid();
 			case LocalSearchPackage.MOVE__CURRENT:
@@ -558,6 +621,8 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return DO_ENABLED_FEEDBACK_EDEFAULT == null ? getDoEnabledFeedback() != null : !DO_ENABLED_FEEDBACK_EDEFAULT.equals(getDoEnabledFeedback());
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 				return UNDO_ENABLED_FEEDBACK_EDEFAULT == null ? getUndoEnabledFeedback() != null : !UNDO_ENABLED_FEEDBACK_EDEFAULT.equals(getUndoEnabledFeedback());
+			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
+				return SELECT_ENABLED_FEEDBACK_EDEFAULT == null ? getSelectEnabledFeedback() != null : !SELECT_ENABLED_FEEDBACK_EDEFAULT.equals(getSelectEnabledFeedback());
 			case LocalSearchPackage.MOVE__VALID:
 				return isValid() != VALID_EDEFAULT;
 			case LocalSearchPackage.MOVE__CURRENT:
@@ -579,6 +644,9 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return null;
 			case LocalSearchPackage.MOVE___UNDO:
 				undo();
+				return null;
+			case LocalSearchPackage.MOVE___SELECT:
+				select();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

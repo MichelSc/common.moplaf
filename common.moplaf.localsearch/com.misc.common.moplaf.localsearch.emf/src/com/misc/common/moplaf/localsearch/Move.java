@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}</li>
  * </ul>
@@ -163,6 +164,21 @@ public interface Move extends EObject {
 	EnabledFeedback getUndoEnabledFeedback();
 
 	/**
+	 * Returns the value of the '<em><b>Select Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Select Enabled Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Select Enabled Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove_SelectEnabledFeedback()
+	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getSelectEnabledFeedback();
+
+	/**
 	 * Returns the value of the '<em><b>Score</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -240,5 +256,17 @@ public interface Move extends EObject {
 	 * @generated
 	 */
 	void undo();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Revert all the changes performed by the Action, and the changes in the derived data, performed by the refresh.
+	 * Note that the score has been saved in this.Score. The latter will not be undone.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void select();
 
 } // Move

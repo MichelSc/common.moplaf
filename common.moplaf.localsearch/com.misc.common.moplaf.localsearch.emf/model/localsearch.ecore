@@ -56,6 +56,11 @@
         <details key="documentation" value="Revert all the changes performed by the Action, and the changes in the derived data, performed by the refresh.&#xD;&#xA;Note that the score has been saved in this.Score. The latter will not be undone."/>
       </eAnnotations>
     </eOperations>
+    <eOperations name="select">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Revert all the changes performed by the Action, and the changes in the derived data, performed by the refresh.&#xD;&#xA;Note that the score has been saved in this.Score. The latter will not be undone."/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Action" lowerBound="1"
         eType="#//Action" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
@@ -72,6 +77,9 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UndoEnabledFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectEnabledFeedback"
+        eType="#//EnabledFeedback" changeable="false" volatile="true" transient="true"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current" lowerBound="1"
