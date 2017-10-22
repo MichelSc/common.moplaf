@@ -62,11 +62,10 @@ public class ScoreItemProvider
 	 * This returns Score.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Score"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/gauge.png"));
 	}
 
 	/**

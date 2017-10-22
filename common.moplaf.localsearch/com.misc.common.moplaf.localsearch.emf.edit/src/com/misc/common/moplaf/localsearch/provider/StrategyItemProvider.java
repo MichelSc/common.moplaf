@@ -147,11 +147,10 @@ public class StrategyItemProvider
 	 * This returns Strategy.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Strategy"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/business-plan.png"));
 	}
 
 	/**

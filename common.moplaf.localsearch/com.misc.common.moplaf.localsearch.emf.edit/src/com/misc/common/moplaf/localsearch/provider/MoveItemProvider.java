@@ -236,11 +236,10 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	 * This returns Move.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Move"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/arrows.png"));
 	}
 
 	/**
