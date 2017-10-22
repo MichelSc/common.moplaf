@@ -6,6 +6,7 @@ package com.misc.common.moplaf.localsearch.provider;
 import com.misc.common.moplaf.emf.edit.command.DoCommand;
 import com.misc.common.moplaf.emf.edit.command.SelectCommand;
 import com.misc.common.moplaf.emf.edit.command.UndoCommand;
+import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
 import com.misc.common.moplaf.localsearch.Move;
@@ -61,11 +62,11 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
+			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
 			addDoEnabledFeedbackPropertyDescriptor(object);
 			addUndoEnabledFeedbackPropertyDescriptor(object);
 			addSelectEnabledFeedbackPropertyDescriptor(object);
-			addValidPropertyDescriptor(object);
 			addCurrentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -294,11 +295,11 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		switch (notification.getFeatureID(Move.class)) {
 			case LocalSearchPackage.MOVE__DESCRIPTION:
+			case LocalSearchPackage.MOVE__VALID:
 			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
 			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
-			case LocalSearchPackage.MOVE__VALID:
 			case LocalSearchPackage.MOVE__CURRENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -402,7 +403,8 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		@Override
 		public void execute() {
-			this.move.select();
+			Action action = this.move.getAction();
+			action.select(this.move);
 		}
 	} // class MoveUndoCommand
 

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
@@ -38,9 +39,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getRootMoves <em>Root Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentMove <em>Current Move</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getResetEnabledFeedback <em>Reset Enabled Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,16 +79,6 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidFeedback()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VALID_FEEDBACK_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,6 +89,16 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	protected static final boolean VALID_EDEFAULT = false;
 
 	/**
+	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALID_FEEDBACK_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,6 +107,16 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Solution solution;
+
+	/**
+	 * The default value of the '{@link #getResetEnabledFeedback() <em>Reset Enabled Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResetEnabledFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback RESET_ENABLED_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,6 +247,15 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback getResetEnabledFeedback() {
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public String getValidFeedback() {
 		Solution solution = this.getSolution();
@@ -303,6 +324,45 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void select(Move target_move) {
+		Move next_move = this.getNextMove(target_move);
+		while ( next_move==null && this.getCurrentMove()!=target_move) {
+			this.getCurrentMove().undo();
+			next_move = this.getNextMove(target_move);
+		}
+		while ( this.getCurrentMove()!=target_move ) {
+			next_move.do_();
+			next_move = this.getNextMove(target_move);
+		}
+	}
+
+	/**
+	 * Return the next move with respect to the current move on the path to the target move
+	 * Return null if target_move is not accessible from the current move
+	 * Return null if target_move is the current node
+	 * @param target_move
+	 * @return
+	 */
+	private Move getNextMove(Move target_move) {
+		if ( target_move == null || target_move == this.getCurrentMove()) {
+			return null;
+		}
+			
+		Move previous_move = target_move.getPrevious();
+		if ( previous_move == this.getCurrentMove()) {
+			return target_move;
+		} else if ( previous_move == null) {
+			return null;
+		} else {
+			return this.getNextMove(previous_move);
+		}
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -329,13 +389,15 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return basicGetCurrentMove();
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 				return getDescription();
-			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
-				return getValidFeedback();
 			case LocalSearchPackage.ACTION__VALID:
 				return isValid();
+			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
+				return getValidFeedback();
 			case LocalSearchPackage.ACTION__SOLUTION:
 				if (resolve) return getSolution();
 				return basicGetSolution();
+			case LocalSearchPackage.ACTION__RESET_ENABLED_FEEDBACK:
+				return getResetEnabledFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -398,12 +460,14 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return currentMove != null;
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
-				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.ACTION__VALID:
 				return isValid() != VALID_EDEFAULT;
+			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
+				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.ACTION__SOLUTION:
 				return solution != null;
+			case LocalSearchPackage.ACTION__RESET_ENABLED_FEEDBACK:
+				return RESET_ENABLED_FEEDBACK_EDEFAULT == null ? getResetEnabledFeedback() != null : !RESET_ENABLED_FEEDBACK_EDEFAULT.equals(getResetEnabledFeedback());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -424,6 +488,9 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return null;
 			case LocalSearchPackage.ACTION___FINALIZE:
 				finalize();
+				return null;
+			case LocalSearchPackage.ACTION___SELECT__MOVE:
+				select((Move)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

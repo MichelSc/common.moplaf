@@ -225,22 +225,22 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__DESCRIPTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__VALID_FEEDBACK = 3;
-
-	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__VALID = 4;
+	int ACTION__VALID = 3;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__VALID_FEEDBACK = 4;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference.
@@ -252,13 +252,22 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__SOLUTION = 5;
 
 	/**
+	 * The feature id for the '<em><b>Reset Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__RESET_ENABLED_FEEDBACK = 6;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 6;
+	int ACTION_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Initialize</em>' operation.
@@ -288,13 +297,22 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION___FINALIZE = 2;
 
 	/**
+	 * The operation id for the '<em>Select</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___SELECT__MOVE = 3;
+
+	/**
 	 * The number of operations of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_OPERATION_COUNT = 3;
+	int ACTION_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.
@@ -362,13 +380,22 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE__DESCRIPTION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Valid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__VALID = 5;
+
+	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__VALID_FEEDBACK = 5;
+	int MOVE__VALID_FEEDBACK = 6;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -377,7 +404,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__DO_ENABLED_FEEDBACK = 6;
+	int MOVE__DO_ENABLED_FEEDBACK = 7;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -386,7 +413,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__UNDO_ENABLED_FEEDBACK = 7;
+	int MOVE__UNDO_ENABLED_FEEDBACK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -395,16 +422,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__SELECT_ENABLED_FEEDBACK = 8;
-
-	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE__VALID = 9;
+	int MOVE__SELECT_ENABLED_FEEDBACK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -443,22 +461,13 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE___UNDO = 1;
 
 	/**
-	 * The operation id for the '<em>Select</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MOVE___SELECT = 2;
-
-	/**
 	 * The number of operations of the '<em>Move</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_OPERATION_COUNT = 3;
+	int MOVE_OPERATION_COUNT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Score</em>' class.
@@ -823,6 +832,17 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getAction_Solution();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getResetEnabledFeedback <em>Reset Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reset Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getResetEnabledFeedback()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_ResetEnabledFeedback();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -862,6 +882,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAction__Finalize();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#select(com.misc.common.moplaf.localsearch.Move) <em>Select</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Select</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Action#select(com.misc.common.moplaf.localsearch.Move)
+	 * @generated
+	 */
+	EOperation getAction__Select__Move();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Move <em>Move</em>}'.
@@ -1013,16 +1043,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getMove__Undo();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#select() <em>Select</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Select</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Move#select()
-	 * @generated
-	 */
-	EOperation getMove__Select();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Score <em>Score</em>}'.
@@ -1352,6 +1372,14 @@ public interface LocalSearchPackage extends EPackage {
 		EReference ACTION__SOLUTION = eINSTANCE.getAction_Solution();
 
 		/**
+		 * The meta object literal for the '<em><b>Reset Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__RESET_ENABLED_FEEDBACK = eINSTANCE.getAction_ResetEnabledFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1382,6 +1410,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ACTION___FINALIZE = eINSTANCE.getAction__Finalize();
+
+		/**
+		 * The meta object literal for the '<em><b>Select</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTION___SELECT__MOVE = eINSTANCE.getAction__Select__Move();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.MoveImpl <em>Move</em>}' class.
@@ -1496,14 +1532,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MOVE___UNDO = eINSTANCE.getMove__Undo();
-
-		/**
-		 * The meta object literal for the '<em><b>Select</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MOVE___SELECT = eINSTANCE.getMove__Select();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.
