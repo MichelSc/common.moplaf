@@ -31,6 +31,7 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 	private int ganttMaxDepth = 4;
 	private int ganttRowHeight = 40;
 	private int ganttEmptyRowHeight = 16;
+	private int ganttNodeFill = 80;
 
 	public int getGanttMaxDepth() {
 		return ganttMaxDepth;
@@ -54,6 +55,14 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 
 	public void setGanttEmptyRowHeight(int ganttEmptyRowHeight) {
 		this.ganttEmptyRowHeight = ganttEmptyRowHeight;
+	}
+
+	public int getGanttNodeFill() {
+		return ganttNodeFill;
+	}
+
+	public void setGanttNodeFill(int ganttNodeFill) {
+		this.ganttNodeFill = ganttNodeFill;
 	}
 
 	// The plug-in ID
@@ -114,10 +123,12 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 		int maxDepth       = prefStore.getInt(PREF_GANTT_MAX_DEPTH);
 		int rowHeight      = prefStore.getInt(PREF_GANTT_ROW_HEIGHT);
 		int emptyRowHeight = prefStore.getInt(PREF_GANTT_EMPTY_ROW_HEIGHT);
+		int nodeFill       = prefStore.getInt(PREF_GANTT_NODE_FILL);
 		
 		Plugin.INSTANCE.setGanttMaxDepth(maxDepth);
 		Plugin.INSTANCE.setGanttRowHeight(rowHeight);
 		Plugin.INSTANCE.setGanttEmptyRowHeight(emptyRowHeight);
+		Plugin.INSTANCE.setGanttNodeFill(nodeFill);
 		
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
 		      public void propertyChange(PropertyChangeEvent event) {
@@ -132,10 +143,11 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 			    			Plugin.INSTANCE.setGanttRowHeight(newValueAsInteger);
 			    	  } else if ( property.equals(PREF_GANTT_EMPTY_ROW_HEIGHT)){
 			    			Plugin.INSTANCE.setGanttEmptyRowHeight(newValueAsInteger);
+			    	  } else if ( property.equals(PREF_GANTT_NODE_FILL) ){
+			    			Plugin.INSTANCE.setGanttNodeFill(newValueAsInteger);
 			    	  } 
-		    	  }		    	  }
-
-		       });
+		    	  }
+		       }; // property changed
+		}); //addPropertyChangedListener
 	} // init preferences
-
 }

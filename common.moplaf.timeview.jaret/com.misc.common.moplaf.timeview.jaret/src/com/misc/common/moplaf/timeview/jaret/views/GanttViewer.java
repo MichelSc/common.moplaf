@@ -108,7 +108,12 @@ public class GanttViewer extends GanttViewerAbstract {
 	// Renderer
 	// ******************************
 	protected class IntervalRendeder extends DefaultRenderer{
-		
+
+		public IntervalRendeder() {
+			
+			super();
+		}
+
 		private Color getForeground(Interval interval, boolean selected){
 			Color color = null;
 			if ( interval instanceof GanttViewerInterval){
@@ -146,6 +151,32 @@ public class GanttViewer extends GanttViewerAbstract {
 			}
 			return interval.toString();
 		}
+		
+		
+	    /**
+	     * Calculate the actual drawing rectangle for the interval usig the BORDERFACTOR to determine the border.
+	     * 
+	     * @param horizontal true for horizontal false for vertical
+	     * @param drawingArea drawingArea
+	     * @param overlap true if it is an overlapping interval
+	     * @return the actual drawing rectangle
+	     */
+		@Override
+	    protected Rectangle getIRect(boolean horizontal, Rectangle drawingArea, boolean overlap) {
+			double border_factor = 1.0d-(Plugin.INSTANCE.getGanttNodeFill()/100.0d);
+	        if (horizontal) {
+	            int borderHeight = (int) (drawingArea.height * border_factor / 2);
+	            int height = drawingArea.height - (overlap ? 0 : 2 * borderHeight);
+	            int y = drawingArea.y + (overlap ? 0 : borderHeight);
+	            return new Rectangle(drawingArea.x, y, drawingArea.width - 1, height - 1);
+	        } else {
+	            int borderWidth = (int) (drawingArea.width * border_factor / 2);
+	            int width = drawingArea.width - (overlap ? 0 : 2 * borderWidth);
+	            int x = drawingArea.x + (overlap ? 0 : borderWidth);
+	            return new Rectangle(x, drawingArea.y, width - 1, drawingArea.height - 1);
+	        }
+	    }
+
 		@Override
 	    public void draw(GC gc, Rectangle drawingArea, TimeBarViewerDelegate delegate, Interval interval,
 	            boolean selected, boolean printing, boolean overlap) {

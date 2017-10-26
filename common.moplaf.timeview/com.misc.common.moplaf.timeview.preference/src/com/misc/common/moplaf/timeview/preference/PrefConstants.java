@@ -15,4 +15,5 @@ public interface PrefConstants {
 	String PREF_GANTT_MAX_DEPTH        = "com.misc.common.moplaf.timeview.Preference.ganttMaxDepth";
 	String PREF_GANTT_EMPTY_ROW_HEIGHT = "com.misc.common.moplaf.timeview.Preference.ganttEmptyRowHeight";
 	String PREF_GANTT_ROW_HEIGHT       = "com.misc.common.moplaf.timeview.Preference.ganttRowHeight";
+	String PREF_GANTT_NODE_FILL        = "com.misc.common.moplaf.timeview.Preference.ganttNodeFill";
 }

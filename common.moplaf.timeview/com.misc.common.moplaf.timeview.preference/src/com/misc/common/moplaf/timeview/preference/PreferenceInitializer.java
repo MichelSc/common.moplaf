@@ -24,11 +24,11 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer impleme
 		prefStore.setDefault(PREF_GANTT_MAX_DEPTH,        getDefaultGanttMaxDepth());
 		prefStore.setDefault(PREF_GANTT_ROW_HEIGHT,       getDefaultGanttRowHeight());
 		prefStore.setDefault(PREF_GANTT_EMPTY_ROW_HEIGHT, getDefaultGanttEmptyRowHeight());
+		prefStore.setDefault(PREF_GANTT_NODE_FILL,        getDefaultGanttNodeFill());
 	}
 
 	public static int getDefaultGanttMaxDepth()      { return 4; }
 	public static int getDefaultGanttRowHeight()     { return 40; }
 	public static int getDefaultGanttEmptyRowHeight(){ return 16; }
-	
-
+	public static int getDefaultGanttNodeFill()      { return 80; }
 }

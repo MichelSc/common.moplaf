@@ -32,6 +32,7 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 		this.addField(new IntegerFieldEditor(PREF_GANTT_MAX_DEPTH,        "Gantt Max Depth:"       , this.getFieldEditorParent()));
 		this.addField(new IntegerFieldEditor(PREF_GANTT_ROW_HEIGHT,       "Gantt Row Height:"      , this.getFieldEditorParent()));
 		this.addField(new IntegerFieldEditor(PREF_GANTT_EMPTY_ROW_HEIGHT, "Gantt Empty Row Height:", this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_GANTT_NODE_FILL,        "Gantt Node Fill (%):"   , this.getFieldEditorParent()));
 	}
 
 }
