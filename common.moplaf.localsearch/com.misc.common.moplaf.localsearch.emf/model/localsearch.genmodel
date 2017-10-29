@@ -65,8 +65,11 @@
       <genOperations ecoreOperation="localsearch.ecore#//Move/do"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/undo"/>
     </genClasses>
-    <genClasses ecoreClass="localsearch.ecore#//Score">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Feasible"/>
+    <genClasses ecoreClass="localsearch.ecore#//Score" labelFeature="#//localsearch/Score/Description">
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Feasible"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Description"/>
       <genOperations ecoreOperation="localsearch.ecore#//Score/isBetter">
         <genParameters ecoreParameter="localsearch.ecore#//Score/isBetter/other"/>
       </genOperations>

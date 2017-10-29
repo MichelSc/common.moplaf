@@ -157,7 +157,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MovePropertyCategory"),
 				 null));
 	}
 

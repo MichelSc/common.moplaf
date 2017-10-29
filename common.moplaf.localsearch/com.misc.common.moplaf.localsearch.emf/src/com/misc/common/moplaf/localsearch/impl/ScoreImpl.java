@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl#isFeasible <em>Feasible</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,6 +37,15 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected static final boolean FEASIBLE_EDEFAULT = false;
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,6 +73,17 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public boolean isFeasible() {
 		// TODO: implement this method to return the 'Feasible' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		// TODO: implement this method to return the 'Description' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -107,6 +128,8 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case LocalSearchPackage.SCORE__FEASIBLE:
 				return isFeasible();
+			case LocalSearchPackage.SCORE__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,6 +144,8 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case LocalSearchPackage.SCORE__FEASIBLE:
 				return isFeasible() != FEASIBLE_EDEFAULT;
+			case LocalSearchPackage.SCORE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}

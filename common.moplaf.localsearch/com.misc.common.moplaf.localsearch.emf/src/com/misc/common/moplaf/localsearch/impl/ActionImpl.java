@@ -323,7 +323,7 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 			}
 		}
 		for ( Move child_move : current_move.getNextMoves()) {
-			this.finalizeMove(new_best_move, child_move);
+			new_best_move = this.finalizeMove(new_best_move, child_move);
 		}
 		Plugin.INSTANCE.logInfo("Action finalizeMove: called, move: "+current_move.getDescription());
 		return new_best_move;

@@ -472,6 +472,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getScore_Description() {
+		return (EAttribute)scoreEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getScore__IsBetter__Score() {
 		return scoreEClass.getEOperations().get(0);
 	}
@@ -687,6 +696,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		scoreEClass = createEClass(SCORE);
 		createEAttribute(scoreEClass, SCORE__FEASIBLE);
+		createEAttribute(scoreEClass, SCORE__DESCRIPTION);
 		createEOperation(scoreEClass, SCORE___IS_BETTER__SCORE);
 		createEOperation(scoreEClass, SCORE___CLONE);
 		createEOperation(scoreEClass, SCORE___COPY__SCORE);
@@ -792,6 +802,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		initEClass(scoreEClass, Score.class, "Score", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScore_Feasible(), ecorePackage.getEBoolean(), "Feasible", null, 0, 1, Score.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScore_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Score.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getScore__IsBetter__Score(), ecorePackage.getEBoolean(), "isBetter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getScore(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);

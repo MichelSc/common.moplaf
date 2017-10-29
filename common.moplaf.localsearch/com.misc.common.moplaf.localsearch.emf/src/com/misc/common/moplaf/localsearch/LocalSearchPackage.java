@@ -479,13 +479,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SCORE__FEASIBLE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE__DESCRIPTION = 1;
+
+	/**
 	 * The number of structural features of the '<em>Score</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE_FEATURE_COUNT = 1;
+	int SCORE_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Is Better</em>' operation.
@@ -1064,6 +1073,17 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getScore();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Score#getDescription()
+	 * @see #getScore()
+	 * @generated
+	 */
+	EAttribute getScore_Description();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#isFeasible <em>Feasible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1563,6 +1583,7 @@ public interface LocalSearchPackage extends EPackage {
 		 */
 		EClass SCORE = eINSTANCE.getScore();
 
+
 		/**
 		 * The meta object literal for the '<em><b>Feasible</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1570,6 +1591,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCORE__FEASIBLE = eINSTANCE.getScore_Feasible();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCORE__DESCRIPTION = eINSTANCE.getScore_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Better</b></em>' operation.
