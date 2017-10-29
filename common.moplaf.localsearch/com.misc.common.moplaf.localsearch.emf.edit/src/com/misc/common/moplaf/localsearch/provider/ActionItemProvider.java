@@ -73,7 +73,6 @@ public class ActionItemProvider
 			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
 			addSolutionPropertyDescriptor(object);
-			addResetEnabledFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -163,28 +162,6 @@ public class ActionItemProvider
 				 true,
 				 null,
 				 getString("_UI__10ActionPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Reset Enabled Feedback feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addResetEnabledFeedbackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_ResetEnabledFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_ResetEnabledFeedback_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__RESET_ENABLED_FEEDBACK,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
 				 null));
 	}
 
@@ -280,7 +257,6 @@ public class ActionItemProvider
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 			case LocalSearchPackage.ACTION__VALID:
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
-			case LocalSearchPackage.ACTION__RESET_ENABLED_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.ACTION__ROOT_MOVES:
@@ -399,12 +375,6 @@ public class ActionItemProvider
 			super();
 			this.action = anAction;
 		}
-
-		@Override
-		public boolean canExecute() {
-			return this.action.getResetEnabledFeedback().isEnabled();
-		}
-
 		@Override
 		public void execute() {
 			this.action.select(null);

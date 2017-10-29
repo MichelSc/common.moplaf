@@ -32,12 +32,12 @@
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ValidFeedback"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 Action"
           propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/Solution"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ResetEnabledFeedback"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/initialize"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/run"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/finalize"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Action/reset"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Action/select">
+        <genParameters ecoreParameter="localsearch.ecore#//Action/select/target_move"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Move">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Move/Action"/>
@@ -61,13 +61,14 @@
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/SelectEnabledFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Current"/>
+      <genFeatures createChild="false" propertyCategory="10 Move" ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Solution"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/do"/>
       <genOperations ecoreOperation="localsearch.ecore#//Move/undo"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Move/select"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Score">
-      <genOperations ecoreOperation="localsearch.ecore#//Score/compare">
-        <genParameters ecoreParameter="localsearch.ecore#//Score/compare/other"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Feasible"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Score/isBetter">
+        <genParameters ecoreParameter="localsearch.ecore#//Score/isBetter/other"/>
       </genOperations>
       <genOperations ecoreOperation="localsearch.ecore#//Score/clone"/>
       <genOperations ecoreOperation="localsearch.ecore#//Score/copy">

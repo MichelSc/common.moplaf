@@ -252,22 +252,13 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__SOLUTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Reset Enabled Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__RESET_ENABLED_FEEDBACK = 6;
-
-	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 7;
+	int ACTION_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Initialize</em>' operation.
@@ -434,13 +425,22 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE__CURRENT = 10;
 
 	/**
+	 * The feature id for the '<em><b>Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__SOLUTION = 11;
+
+	/**
 	 * The number of structural features of the '<em>Move</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_FEATURE_COUNT = 11;
+	int MOVE_FEATURE_COUNT = 12;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -470,22 +470,31 @@ public interface LocalSearchPackage extends EPackage {
 	int MOVE_OPERATION_COUNT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Feasible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE__FEASIBLE = 0;
+
+	/**
 	 * The number of structural features of the '<em>Score</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE_FEATURE_COUNT = 0;
+	int SCORE_FEATURE_COUNT = 1;
 
 	/**
-	 * The operation id for the '<em>Compare</em>' operation.
+	 * The operation id for the '<em>Is Better</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE___COMPARE__SCORE = 0;
+	int SCORE___IS_BETTER__SCORE = 0;
 
 	/**
 	 * The operation id for the '<em>Clone</em>' operation.
@@ -832,17 +841,6 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getAction_Solution();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getResetEnabledFeedback <em>Reset Enabled Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reset Enabled Feedback</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Action#getResetEnabledFeedback()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_ResetEnabledFeedback();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1025,6 +1023,17 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getMove_Current();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#isSolution <em>Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Solution</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Move#isSolution()
+	 * @see #getMove()
+	 * @generated
+	 */
+	EAttribute getMove_Solution();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#do_() <em>Do </em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1055,14 +1064,25 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getScore();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Score#compare(com.misc.common.moplaf.localsearch.Score) <em>Compare</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#isFeasible <em>Feasible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Compare</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Score#compare(com.misc.common.moplaf.localsearch.Score)
+	 * @return the meta object for the attribute '<em>Feasible</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Score#isFeasible()
+	 * @see #getScore()
 	 * @generated
 	 */
-	EOperation getScore__Compare__Score();
+	EAttribute getScore_Feasible();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Score#isBetter(com.misc.common.moplaf.localsearch.Score) <em>Is Better</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Better</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Score#isBetter(com.misc.common.moplaf.localsearch.Score)
+	 * @generated
+	 */
+	EOperation getScore__IsBetter__Score();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Score#clone() <em>Clone</em>}' operation.
@@ -1372,14 +1392,6 @@ public interface LocalSearchPackage extends EPackage {
 		EReference ACTION__SOLUTION = eINSTANCE.getAction_Solution();
 
 		/**
-		 * The meta object literal for the '<em><b>Reset Enabled Feedback</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__RESET_ENABLED_FEEDBACK = eINSTANCE.getAction_ResetEnabledFeedback();
-
-		/**
 		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1518,6 +1530,14 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute MOVE__CURRENT = eINSTANCE.getMove_Current();
 
 		/**
+		 * The meta object literal for the '<em><b>Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE__SOLUTION = eINSTANCE.getMove_Solution();
+
+		/**
 		 * The meta object literal for the '<em><b>Do </b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1544,12 +1564,20 @@ public interface LocalSearchPackage extends EPackage {
 		EClass SCORE = eINSTANCE.getScore();
 
 		/**
-		 * The meta object literal for the '<em><b>Compare</b></em>' operation.
+		 * The meta object literal for the '<em><b>Feasible</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SCORE___COMPARE__SCORE = eINSTANCE.getScore__Compare__Score();
+		EAttribute SCORE__FEASIBLE = eINSTANCE.getScore_Feasible();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Better</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCORE___IS_BETTER__SCORE = eINSTANCE.getScore__IsBetter__Score();
 
 		/**
 		 * The meta object literal for the '<em><b>Clone</b></em>' operation.

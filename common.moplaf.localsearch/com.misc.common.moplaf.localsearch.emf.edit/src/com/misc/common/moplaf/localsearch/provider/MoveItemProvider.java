@@ -68,6 +68,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			addUndoEnabledFeedbackPropertyDescriptor(object);
 			addSelectEnabledFeedbackPropertyDescriptor(object);
 			addCurrentPropertyDescriptor(object);
+			addSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,6 +136,28 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 getString("_UI__10MovePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Move_Solution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Solution_feature", "_UI_Move_type"),
+				 LocalSearchPackage.Literals.MOVE__SOLUTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -301,6 +324,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
 			case LocalSearchPackage.MOVE__CURRENT:
+			case LocalSearchPackage.MOVE__SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.MOVE__SCORE:

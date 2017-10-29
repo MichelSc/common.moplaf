@@ -274,15 +274,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_ResetEnabledFeedback() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAction_ValidFeedback() {
 		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
 	}
@@ -436,6 +427,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMove_Solution() {
+		return (EAttribute)moveEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getMove__Do_() {
 		return moveEClass.getEOperations().get(0);
 	}
@@ -463,7 +463,16 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getScore__Compare__Score() {
+	public EAttribute getScore_Feasible() {
+		return (EAttribute)scoreEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getScore__IsBetter__Score() {
 		return scoreEClass.getEOperations().get(0);
 	}
 
@@ -655,7 +664,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(actionEClass, ACTION__VALID);
 		createEAttribute(actionEClass, ACTION__VALID_FEEDBACK);
 		createEReference(actionEClass, ACTION__SOLUTION);
-		createEAttribute(actionEClass, ACTION__RESET_ENABLED_FEEDBACK);
 		createEOperation(actionEClass, ACTION___INITIALIZE);
 		createEOperation(actionEClass, ACTION___RUN);
 		createEOperation(actionEClass, ACTION___FINALIZE);
@@ -673,11 +681,13 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(moveEClass, MOVE__UNDO_ENABLED_FEEDBACK);
 		createEAttribute(moveEClass, MOVE__SELECT_ENABLED_FEEDBACK);
 		createEAttribute(moveEClass, MOVE__CURRENT);
+		createEAttribute(moveEClass, MOVE__SOLUTION);
 		createEOperation(moveEClass, MOVE___DO_);
 		createEOperation(moveEClass, MOVE___UNDO);
 
 		scoreEClass = createEClass(SCORE);
-		createEOperation(scoreEClass, SCORE___COMPARE__SCORE);
+		createEAttribute(scoreEClass, SCORE__FEASIBLE);
+		createEOperation(scoreEClass, SCORE___IS_BETTER__SCORE);
 		createEOperation(scoreEClass, SCORE___CLONE);
 		createEOperation(scoreEClass, SCORE___COPY__SCORE);
 
@@ -752,7 +762,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getAction_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getAction_Solution(), this.getSolution(), null, "Solution", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_ResetEnabledFeedback(), this.getEnabledFeedback(), "ResetEnabledFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAction__Initialize(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -775,14 +784,16 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getMove_UndoEnabledFeedback(), this.getEnabledFeedback(), "UndoEnabledFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMove_SelectEnabledFeedback(), this.getEnabledFeedback(), "SelectEnabledFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMove_Current(), ecorePackage.getEBoolean(), "Current", null, 1, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMove_Solution(), ecorePackage.getEBoolean(), "Solution", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getMove__Do_(), null, "do_", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getMove__Undo(), null, "undo", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(scoreEClass, Score.class, "Score", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScore_Feasible(), ecorePackage.getEBoolean(), "Feasible", null, 0, 1, Score.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getScore__Compare__Score(), ecorePackage.getEBoolean(), "compare", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getScore__IsBetter__Score(), ecorePackage.getEBoolean(), "isBetter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getScore(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getScore__Clone(), this.getScore(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);

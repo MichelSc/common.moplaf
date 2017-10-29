@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Move#isSolution <em>Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove()
@@ -233,6 +234,32 @@ public interface Move extends EObject {
 	 * @generated
 	 */
 	boolean isCurrent();
+
+	/**
+	 * Returns the value of the '<em><b>Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Solution</em>' attribute.
+	 * @see #setSolution(boolean)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getMove_Solution()
+	 * @model
+	 * @generated
+	 */
+	boolean isSolution();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Move#isSolution <em>Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Solution</em>' attribute.
+	 * @see #isSolution()
+	 * @generated
+	 */
+	void setSolution(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

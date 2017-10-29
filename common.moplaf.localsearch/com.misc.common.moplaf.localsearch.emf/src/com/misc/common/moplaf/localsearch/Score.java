@@ -9,6 +9,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Score</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Score#isFeasible <em>Feasible</em>}</li>
+ * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getScore()
  * @model abstract="true"
@@ -16,12 +22,27 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Score extends EObject {
 	/**
+	 * Returns the value of the '<em><b>Feasible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Feasible</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Feasible</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getScore_Feasible()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isFeasible();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean compare(Score other);
+	boolean isBetter(Score other);
 
 	/**
 	 * <!-- begin-user-doc -->

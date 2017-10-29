@@ -6,7 +6,7 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
-
+import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.propagator2.Plugin;
 
@@ -42,7 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getSolution <em>Solution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getResetEnabledFeedback <em>Reset Enabled Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,16 +106,6 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Solution solution;
-
-	/**
-	 * The default value of the '{@link #getResetEnabledFeedback() <em>Reset Enabled Feedback</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResetEnabledFeedback()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final EnabledFeedback RESET_ENABLED_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,10 +236,9 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback getResetEnabledFeedback() {
-		return EnabledFeedback.NOFEEDBACK;
+		return new EnabledFeedback(false, "not implemented");
 	}
 
 	/**
@@ -313,14 +301,33 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void finalize() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Plugin.INSTANCE.logInfo("Action finalize: called");
+		Move best_move = null;
+		for (Move rootMove : this.getRootMoves()) {
+			best_move = this.finalizeMove(best_move, rootMove); 
+		}
+		this.select(best_move);
+		Plugin.INSTANCE.logInfo("Action finalize: done");
 	}
 
+	private Move finalizeMove(Move best_move, Move current_move) {
+		Plugin.INSTANCE.logInfo("Action finalizeMove: called, move: "+current_move.getDescription());
+		Move new_best_move = best_move;
+		if ( current_move.isSolution()) {
+			Score best_score = best_move == null ? this.getSolution().getScore() : best_move.getScore();
+			Score current_score = current_move.getScore();
+			if ( current_move.getScore().isFeasible() && current_score.isBetter(best_score)) {
+				new_best_move = current_move;
+			}
+		}
+		for ( Move child_move : current_move.getNextMoves()) {
+			this.finalizeMove(new_best_move, child_move);
+		}
+		Plugin.INSTANCE.logInfo("Action finalizeMove: called, move: "+current_move.getDescription());
+		return new_best_move;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,8 +403,6 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 			case LocalSearchPackage.ACTION__SOLUTION:
 				if (resolve) return getSolution();
 				return basicGetSolution();
-			case LocalSearchPackage.ACTION__RESET_ENABLED_FEEDBACK:
-				return getResetEnabledFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -466,8 +471,6 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.ACTION__SOLUTION:
 				return solution != null;
-			case LocalSearchPackage.ACTION__RESET_ENABLED_FEEDBACK:
-				return RESET_ENABLED_FEEDBACK_EDEFAULT == null ? getResetEnabledFeedback() != null : !RESET_ENABLED_FEEDBACK_EDEFAULT.equals(getResetEnabledFeedback());
 		}
 		return super.eIsSet(featureID);
 	}

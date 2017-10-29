@@ -50,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isSolution <em>Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -144,6 +145,26 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * @ordered
 	 */
 	protected static final boolean CURRENT_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isSolution() <em>Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSolution() <em>Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean solution = SOLUTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -383,6 +404,27 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		return current;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSolution() {
+		return solution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolution(boolean newSolution) {
+		boolean oldSolution = solution;
+		solution = newSolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__SOLUTION, oldSolution, solution));
+	}
+
 	private ChangeDescription  changes = null;
 
 	/**
@@ -516,6 +558,8 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return getSelectEnabledFeedback();
 			case LocalSearchPackage.MOVE__CURRENT:
 				return isCurrent();
+			case LocalSearchPackage.MOVE__SOLUTION:
+				return isSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -539,6 +583,9 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				getNextMoves().clear();
 				getNextMoves().addAll((Collection<? extends Move>)newValue);
 				return;
+			case LocalSearchPackage.MOVE__SOLUTION:
+				setSolution((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -559,6 +606,9 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return;
 			case LocalSearchPackage.MOVE__NEXT_MOVES:
 				getNextMoves().clear();
+				return;
+			case LocalSearchPackage.MOVE__SOLUTION:
+				setSolution(SOLUTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -594,6 +644,8 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return SELECT_ENABLED_FEEDBACK_EDEFAULT == null ? getSelectEnabledFeedback() != null : !SELECT_ENABLED_FEEDBACK_EDEFAULT.equals(getSelectEnabledFeedback());
 			case LocalSearchPackage.MOVE__CURRENT:
 				return isCurrent() != CURRENT_EDEFAULT;
+			case LocalSearchPackage.MOVE__SOLUTION:
+				return solution != SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -614,6 +666,22 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Solution: ");
+		result.append(solution);
+		result.append(')');
+		return result.toString();
 	}
 
 } //MoveImpl
