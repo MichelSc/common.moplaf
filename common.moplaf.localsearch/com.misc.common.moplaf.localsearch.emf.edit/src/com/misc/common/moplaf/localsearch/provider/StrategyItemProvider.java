@@ -64,6 +64,9 @@ public class StrategyItemProvider
 
 			addBestSolutionPropertyDescriptor(object);
 			addCurrentSolutionNrPropertyDescriptor(object);
+			addMaxNrSolutionsPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addSelectChancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +111,72 @@ public class StrategyItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__10StrategyPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Nr Solutions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxNrSolutionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Strategy_MaxNrSolutions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_MaxNrSolutions_feature", "_UI_Strategy_type"),
+				 LocalSearchPackage.Literals.STRATEGY__MAX_NR_SOLUTIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__10StrategyPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Strategy_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_Name_feature", "_UI_Strategy_type"),
+				 LocalSearchPackage.Literals.STRATEGY__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10StrategyPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Select Chance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectChancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Strategy_SelectChance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_SelectChance_feature", "_UI_Strategy_type"),
+				 LocalSearchPackage.Literals.STRATEGY__SELECT_CHANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
@@ -161,8 +230,10 @@ public class StrategyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Strategy strategy = (Strategy)object;
-		return getString("_UI_Strategy_type") + " " + strategy.getCurrentSolutionNr();
+		String label = ((Strategy)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Strategy_type") :
+			getString("_UI_Strategy_type") + " " + label;
 	}
 	
 
@@ -179,6 +250,9 @@ public class StrategyItemProvider
 
 		switch (notification.getFeatureID(Strategy.class)) {
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
+			case LocalSearchPackage.STRATEGY__MAX_NR_SOLUTIONS:
+			case LocalSearchPackage.STRATEGY__NAME:
+			case LocalSearchPackage.STRATEGY__SELECT_CHANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STRATEGY__IMPROVMENTS:

@@ -488,13 +488,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SCORE__DESCRIPTION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE__SCORE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Score</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE_FEATURE_COUNT = 2;
+	int SCORE_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Is Better</em>' operation.
@@ -579,31 +588,67 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__CURRENT_SOLUTION_NR = 3;
 
 	/**
+	 * The feature id for the '<em><b>Max Nr Solutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__MAX_NR_SOLUTIONS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__NAME = 5;
+
+	/**
+	 * The feature id for the '<em><b>Select Chance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__SELECT_CHANCE = 6;
+
+	/**
 	 * The number of structural features of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_FEATURE_COUNT = 4;
+	int STRATEGY_FEATURE_COUNT = 7;
 
 	/**
-	 * The operation id for the '<em>Select Solutions To Improve</em>' operation.
+	 * The operation id for the '<em>Select Solution To Improve</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___SELECT_SOLUTIONS_TO_IMPROVE = 0;
+	int STRATEGY___SELECT_SOLUTION_TO_IMPROVE = 0;
 
 	/**
-	 * The operation id for the '<em>Prune Solution</em>' operation.
+	 * The operation id for the '<em>Run</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___PRUNE_SOLUTION = 1;
+	int STRATEGY___RUN = 1;
+
+	/**
+	 * The operation id for the '<em>Prune</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___PRUNE = 2;
 
 	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
@@ -612,7 +657,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_OPERATION_COUNT = 2;
+	int STRATEGY_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl <em>Improvment</em>}' class.
@@ -652,22 +697,76 @@ public interface LocalSearchPackage extends EPackage {
 	int IMPROVMENT__ACTIONS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVMENT__SOLUTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Improvments Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVMENT__IMPROVMENTS_START = 4;
+
+	/**
+	 * The feature id for the '<em><b>Improvments End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVMENT__IMPROVMENTS_END = 5;
+
+	/**
+	 * The feature id for the '<em><b>Iterations</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVMENT__ITERATIONS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Duration Total</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVMENT__DURATION_TOTAL = 7;
+
+	/**
+	 * The feature id for the '<em><b>Duration Average</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVMENT__DURATION_AVERAGE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVMENT__NAME = 9;
+
+	/**
 	 * The number of structural features of the '<em>Improvment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPROVMENT_FEATURE_COUNT = 3;
-
-	/**
-	 * The operation id for the '<em>Create Actions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPROVMENT___CREATE_ACTIONS = 0;
+	int IMPROVMENT_FEATURE_COUNT = 10;
 
 	/**
 	 * The operation id for the '<em>Do Iteration</em>' operation.
@@ -676,7 +775,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPROVMENT___DO_ITERATION = 1;
+	int IMPROVMENT___DO_ITERATION = 0;
 
 	/**
 	 * The number of operations of the '<em>Improvment</em>' class.
@@ -685,7 +784,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPROVMENT_OPERATION_COUNT = 2;
+	int IMPROVMENT_OPERATION_COUNT = 1;
 
 
 	/**
@@ -1084,6 +1183,17 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getScore_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#getScore <em>Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Score</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Score#getScore()
+	 * @see #getScore()
+	 * @generated
+	 */
+	EAttribute getScore_Score();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#isFeasible <em>Feasible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1179,24 +1289,67 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getStrategy_CurrentSolutionNr();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectSolutionsToImprove() <em>Select Solutions To Improve</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions <em>Max Nr Solutions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Select Solutions To Improve</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#selectSolutionsToImprove()
+	 * @return the meta object for the attribute '<em>Max Nr Solutions</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions()
+	 * @see #getStrategy()
 	 * @generated
 	 */
-	EOperation getStrategy__SelectSolutionsToImprove();
+	EAttribute getStrategy_MaxNrSolutions();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#pruneSolution() <em>Prune Solution</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Prune Solution</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#pruneSolution()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getName()
+	 * @see #getStrategy()
 	 * @generated
 	 */
-	EOperation getStrategy__PruneSolution();
+	EAttribute getStrategy_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectChance <em>Select Chance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Select Chance</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getSelectChance()
+	 * @see #getStrategy()
+	 * @generated
+	 */
+	EAttribute getStrategy_SelectChance();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectSolutionToImprove() <em>Select Solution To Improve</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Select Solution To Improve</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#selectSolutionToImprove()
+	 * @generated
+	 */
+	EOperation getStrategy__SelectSolutionToImprove();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#run() <em>Run</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Run</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#run()
+	 * @generated
+	 */
+	EOperation getStrategy__Run();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#prune() <em>Prune</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Prune</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#prune()
+	 * @generated
+	 */
+	EOperation getStrategy__Prune();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Improvment <em>Improvment</em>}'.
@@ -1242,14 +1395,81 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getImprovment_Actions();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Improvment#createActions() <em>Create Actions</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Improvment#getSolution <em>Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Actions</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Improvment#createActions()
+	 * @return the meta object for the reference '<em>Solution</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Improvment#getSolution()
+	 * @see #getImprovment()
 	 * @generated
 	 */
-	EOperation getImprovment__CreateActions();
+	EReference getImprovment_Solution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Improvment#getImprovmentsStart <em>Improvments Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Improvments Start</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Improvment#getImprovmentsStart()
+	 * @see #getImprovment()
+	 * @generated
+	 */
+	EAttribute getImprovment_ImprovmentsStart();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Improvment#getImprovmentsEnd <em>Improvments End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Improvments End</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Improvment#getImprovmentsEnd()
+	 * @see #getImprovment()
+	 * @generated
+	 */
+	EAttribute getImprovment_ImprovmentsEnd();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Improvment#getIterations <em>Iterations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Iterations</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Improvment#getIterations()
+	 * @see #getImprovment()
+	 * @generated
+	 */
+	EAttribute getImprovment_Iterations();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Improvment#getDurationTotal <em>Duration Total</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration Total</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Improvment#getDurationTotal()
+	 * @see #getImprovment()
+	 * @generated
+	 */
+	EAttribute getImprovment_DurationTotal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Improvment#getDurationAverage <em>Duration Average</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration Average</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Improvment#getDurationAverage()
+	 * @see #getImprovment()
+	 * @generated
+	 */
+	EAttribute getImprovment_DurationAverage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Improvment#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Improvment#getName()
+	 * @see #getImprovment()
+	 * @generated
+	 */
+	EAttribute getImprovment_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Improvment#doIteration() <em>Do Iteration</em>}' operation.
@@ -1601,6 +1821,14 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute SCORE__DESCRIPTION = eINSTANCE.getScore_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCORE__SCORE = eINSTANCE.getScore_Score();
+
+		/**
 		 * The meta object literal for the '<em><b>Is Better</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1667,20 +1895,52 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute STRATEGY__CURRENT_SOLUTION_NR = eINSTANCE.getStrategy_CurrentSolutionNr();
 
 		/**
-		 * The meta object literal for the '<em><b>Select Solutions To Improve</b></em>' operation.
+		 * The meta object literal for the '<em><b>Max Nr Solutions</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___SELECT_SOLUTIONS_TO_IMPROVE = eINSTANCE.getStrategy__SelectSolutionsToImprove();
+		EAttribute STRATEGY__MAX_NR_SOLUTIONS = eINSTANCE.getStrategy_MaxNrSolutions();
 
 		/**
-		 * The meta object literal for the '<em><b>Prune Solution</b></em>' operation.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___PRUNE_SOLUTION = eINSTANCE.getStrategy__PruneSolution();
+		EAttribute STRATEGY__NAME = eINSTANCE.getStrategy_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Select Chance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRATEGY__SELECT_CHANCE = eINSTANCE.getStrategy_SelectChance();
+
+		/**
+		 * The meta object literal for the '<em><b>Select Solution To Improve</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___SELECT_SOLUTION_TO_IMPROVE = eINSTANCE.getStrategy__SelectSolutionToImprove();
+
+		/**
+		 * The meta object literal for the '<em><b>Run</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___RUN = eINSTANCE.getStrategy__Run();
+
+		/**
+		 * The meta object literal for the '<em><b>Prune</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___PRUNE = eINSTANCE.getStrategy__Prune();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl <em>Improvment</em>}' class.
@@ -1717,12 +1977,60 @@ public interface LocalSearchPackage extends EPackage {
 		EReference IMPROVMENT__ACTIONS = eINSTANCE.getImprovment_Actions();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Actions</b></em>' operation.
+		 * The meta object literal for the '<em><b>Solution</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation IMPROVMENT___CREATE_ACTIONS = eINSTANCE.getImprovment__CreateActions();
+		EReference IMPROVMENT__SOLUTION = eINSTANCE.getImprovment_Solution();
+
+		/**
+		 * The meta object literal for the '<em><b>Improvments Start</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPROVMENT__IMPROVMENTS_START = eINSTANCE.getImprovment_ImprovmentsStart();
+
+		/**
+		 * The meta object literal for the '<em><b>Improvments End</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPROVMENT__IMPROVMENTS_END = eINSTANCE.getImprovment_ImprovmentsEnd();
+
+		/**
+		 * The meta object literal for the '<em><b>Iterations</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPROVMENT__ITERATIONS = eINSTANCE.getImprovment_Iterations();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration Total</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPROVMENT__DURATION_TOTAL = eINSTANCE.getImprovment_DurationTotal();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration Average</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPROVMENT__DURATION_AVERAGE = eINSTANCE.getImprovment_DurationAverage();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPROVMENT__NAME = eINSTANCE.getImprovment_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Do Iteration</b></em>' operation.

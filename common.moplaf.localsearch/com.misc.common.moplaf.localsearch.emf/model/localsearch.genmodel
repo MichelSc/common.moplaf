@@ -70,6 +70,7 @@
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Feasible"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Description"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Score"/>
       <genOperations ecoreOperation="localsearch.ecore#//Score/isBetter">
         <genParameters ecoreParameter="localsearch.ecore#//Score/isBetter/other"/>
       </genOperations>
@@ -84,14 +85,24 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/BestSolution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Strategy/Solutions"/>
       <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/CurrentSolutionNr"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectSolutionsToImprove"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/pruneSolution"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/MaxNrSolutions"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/Name"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/SelectChance"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectSolutionToImprove"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/run"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/prune"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Improvment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/MaxIterations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/MaxSeconds"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Improvment/Actions"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Improvment/createActions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Improvment/Solution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/ImprovmentsStart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/ImprovmentsEnd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/Iterations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/DurationTotal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/DurationAverage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/Name"/>
       <genOperations ecoreOperation="localsearch.ecore#//Improvment/doIteration"/>
     </genClasses>
   </genPackages>

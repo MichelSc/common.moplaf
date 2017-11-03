@@ -64,6 +64,13 @@ public class ImprovmentItemProvider
 
 			addMaxIterationsPropertyDescriptor(object);
 			addMaxSecondsPropertyDescriptor(object);
+			addSolutionPropertyDescriptor(object);
+			addImprovmentsStartPropertyDescriptor(object);
+			addImprovmentsEndPropertyDescriptor(object);
+			addIterationsPropertyDescriptor(object);
+			addDurationTotalPropertyDescriptor(object);
+			addDurationAveragePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +115,160 @@ public class ImprovmentItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Improvment_Solution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_Solution_feature", "_UI_Improvment_type"),
+				 LocalSearchPackage.Literals.IMPROVMENT__SOLUTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Improvments Start feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addImprovmentsStartPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Improvment_ImprovmentsStart_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_ImprovmentsStart_feature", "_UI_Improvment_type"),
+				 LocalSearchPackage.Literals.IMPROVMENT__IMPROVMENTS_START,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Improvments End feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addImprovmentsEndPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Improvment_ImprovmentsEnd_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_ImprovmentsEnd_feature", "_UI_Improvment_type"),
+				 LocalSearchPackage.Literals.IMPROVMENT__IMPROVMENTS_END,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Iterations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIterationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Improvment_Iterations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_Iterations_feature", "_UI_Improvment_type"),
+				 LocalSearchPackage.Literals.IMPROVMENT__ITERATIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Duration Total feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDurationTotalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Improvment_DurationTotal_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_DurationTotal_feature", "_UI_Improvment_type"),
+				 LocalSearchPackage.Literals.IMPROVMENT__DURATION_TOTAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Duration Average feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDurationAveragePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Improvment_DurationAverage_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_DurationAverage_feature", "_UI_Improvment_type"),
+				 LocalSearchPackage.Literals.IMPROVMENT__DURATION_AVERAGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Improvment_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Improvment_Name_feature", "_UI_Improvment_type"),
+				 LocalSearchPackage.Literals.IMPROVMENT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -160,8 +321,10 @@ public class ImprovmentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Improvment improvment = (Improvment)object;
-		return getString("_UI_Improvment_type") + " " + improvment.getMaxIterations();
+		String label = ((Improvment)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Improvment_type") :
+			getString("_UI_Improvment_type") + " " + label;
 	}
 	
 
@@ -179,6 +342,12 @@ public class ImprovmentItemProvider
 		switch (notification.getFeatureID(Improvment.class)) {
 			case LocalSearchPackage.IMPROVMENT__MAX_ITERATIONS:
 			case LocalSearchPackage.IMPROVMENT__MAX_SECONDS:
+			case LocalSearchPackage.IMPROVMENT__IMPROVMENTS_START:
+			case LocalSearchPackage.IMPROVMENT__IMPROVMENTS_END:
+			case LocalSearchPackage.IMPROVMENT__ITERATIONS:
+			case LocalSearchPackage.IMPROVMENT__DURATION_TOTAL:
+			case LocalSearchPackage.IMPROVMENT__DURATION_AVERAGE:
+			case LocalSearchPackage.IMPROVMENT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.IMPROVMENT__ACTIONS:

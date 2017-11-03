@@ -32,6 +32,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getBestSolution <em>Best Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSelectChance <em>Select Chance</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy()
@@ -126,12 +129,82 @@ public interface Strategy extends EObject {
 	void setCurrentSolutionNr(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Max Nr Solutions</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Max Nr Solutions</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max Nr Solutions</em>' attribute.
+	 * @see #setMaxNrSolutions(int)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_MaxNrSolutions()
 	 * @model
 	 * @generated
 	 */
-	void selectSolutionsToImprove();
+	int getMaxNrSolutions();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions <em>Max Nr Solutions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Nr Solutions</em>' attribute.
+	 * @see #getMaxNrSolutions()
+	 * @generated
+	 */
+	void setMaxNrSolutions(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Select Chance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Select Chance</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Select Chance</em>' attribute.
+	 * @see #setSelectChance(double)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_SelectChance()
+	 * @model
+	 * @generated
+	 */
+	double getSelectChance();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectChance <em>Select Chance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Select Chance</em>' attribute.
+	 * @see #getSelectChance()
+	 * @generated
+	 */
+	void setSelectChance(double value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -139,6 +212,25 @@ public interface Strategy extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void pruneSolution();
+	Solution selectSolutionToImprove();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Select one of the move, and aligne the solution to it
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void run();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void prune();
 
 } // Strategy
