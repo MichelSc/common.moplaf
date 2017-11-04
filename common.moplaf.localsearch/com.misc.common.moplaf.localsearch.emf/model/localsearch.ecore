@@ -100,17 +100,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Score" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Strategy" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Strategy" abstract="true" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Solve the problem.&#xD;&#xA;Manage a pool of solutions.&#xD;&#xA;Carry out the improvment stetps one be one.&#xD;&#xA;For every improvment step:&#xD;&#xA;  - iterate a number of times (limited in number or in time)&#xD;&#xA; - select a solution in the pool&#xD;&#xA; - do the improvment&#xD;&#xA; - decide if the new solutions makes it to the pool or not&#xD;&#xA;   is this not too early?&#xD;&#xA;   should we not iterate a little bit before deciding copy or not copy?"/>
     </eAnnotations>
-    <eOperations name="selectSolutionToImprove" eType="#//Solution"/>
-    <eOperations name="run">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Select one of the move, and aligne the solution to it"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="prune"/>
+    <eOperations name="selectGoodSolution" eType="#//Solution"/>
+    <eOperations name="selectBadSolution" eType="#//Solution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Improvments" upperBound="-1"
         eType="#//Improvment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BestSolution" eType="#//Solution"/>
@@ -119,7 +114,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentSolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxNrSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChanceSelectBest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChanceSelectWorst" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Improvment" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

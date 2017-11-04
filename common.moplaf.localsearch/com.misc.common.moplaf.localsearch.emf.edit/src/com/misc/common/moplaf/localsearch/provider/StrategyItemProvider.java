@@ -3,12 +3,12 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.job.provider.RunItemProvider;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Strategy;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -17,14 +17,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -34,13 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class StrategyItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends RunItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -66,7 +54,8 @@ public class StrategyItemProvider
 			addCurrentSolutionNrPropertyDescriptor(object);
 			addMaxNrSolutionsPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addSelectChancePropertyDescriptor(object);
+			addChanceSelectBestPropertyDescriptor(object);
+			addChanceSelectWorstPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,19 +149,41 @@ public class StrategyItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Select Chance feature.
+	 * This adds a property descriptor for the Chance Select Best feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSelectChancePropertyDescriptor(Object object) {
+	protected void addChanceSelectBestPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Strategy_SelectChance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_SelectChance_feature", "_UI_Strategy_type"),
-				 LocalSearchPackage.Literals.STRATEGY__SELECT_CHANCE,
+				 getString("_UI_Strategy_ChanceSelectBest_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_ChanceSelectBest_feature", "_UI_Strategy_type"),
+				 LocalSearchPackage.Literals.STRATEGY__CHANCE_SELECT_BEST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__10StrategyPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Chance Select Worst feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addChanceSelectWorstPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Strategy_ChanceSelectWorst_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_ChanceSelectWorst_feature", "_UI_Strategy_type"),
+				 LocalSearchPackage.Literals.STRATEGY__CHANCE_SELECT_WORST,
 				 true,
 				 false,
 				 false,
@@ -252,7 +263,8 @@ public class StrategyItemProvider
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
 			case LocalSearchPackage.STRATEGY__MAX_NR_SOLUTIONS:
 			case LocalSearchPackage.STRATEGY__NAME:
-			case LocalSearchPackage.STRATEGY__SELECT_CHANCE:
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_BEST:
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_WORST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STRATEGY__IMPROVMENTS:

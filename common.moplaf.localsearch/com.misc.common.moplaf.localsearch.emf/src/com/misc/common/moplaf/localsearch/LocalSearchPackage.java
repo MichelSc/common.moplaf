@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.localsearch;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -552,13 +552,76 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__RUN_FEEDBACK = JobPackage.RUN__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__CANCEL_FEEDBACK = JobPackage.RUN__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__RESET_FEEDBACK = JobPackage.RUN__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__CANCELED = JobPackage.RUN__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__RETURN_SUCCESS = JobPackage.RUN__RETURN_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__RETURN_FEEDBACK = JobPackage.RUN__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__RETURN_INFORMATION = JobPackage.RUN__RETURN_INFORMATION;
+
+	/**
 	 * The feature id for the '<em><b>Improvments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__IMPROVMENTS = 0;
+	int STRATEGY__IMPROVMENTS = JobPackage.RUN_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Best Solution</b></em>' reference.
@@ -567,7 +630,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__BEST_SOLUTION = 1;
+	int STRATEGY__BEST_SOLUTION = JobPackage.RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Solutions</b></em>' containment reference list.
@@ -576,7 +639,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__SOLUTIONS = 2;
+	int STRATEGY__SOLUTIONS = JobPackage.RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
@@ -585,7 +648,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__CURRENT_SOLUTION_NR = 3;
+	int STRATEGY__CURRENT_SOLUTION_NR = JobPackage.RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Max Nr Solutions</b></em>' attribute.
@@ -594,7 +657,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__MAX_NR_SOLUTIONS = 4;
+	int STRATEGY__MAX_NR_SOLUTIONS = JobPackage.RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -603,16 +666,25 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__NAME = 5;
+	int STRATEGY__NAME = JobPackage.RUN_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Select Chance</b></em>' attribute.
+	 * The feature id for the '<em><b>Chance Select Best</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__SELECT_CHANCE = 6;
+	int STRATEGY__CHANCE_SELECT_BEST = JobPackage.RUN_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Chance Select Worst</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__CHANCE_SELECT_WORST = JobPackage.RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Strategy</em>' class.
@@ -621,16 +693,25 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_FEATURE_COUNT = 7;
+	int STRATEGY_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Select Solution To Improve</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___SELECT_SOLUTION_TO_IMPROVE = 0;
+	int STRATEGY___COPY_PARAMS__RUNPARAMS = JobPackage.RUN___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___RESET = JobPackage.RUN___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -639,16 +720,88 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___RUN = 1;
+	int STRATEGY___RUN = JobPackage.RUN___RUN;
 
 	/**
-	 * The operation id for the '<em>Prune</em>' operation.
+	 * The operation id for the '<em>Run</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___PRUNE = 2;
+	int STRATEGY___RUN__RUNCONTEXT = JobPackage.RUN___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___CANCEL = JobPackage.RUN___CANCEL;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SET_PROGRESS__STRING_FLOAT = JobPackage.RUN___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SET_PROGRESS__PROGRESSFEEDBACK = JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___GET_RETURN = JobPackage.RUN___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___CONSTRUCT_PARAMS = JobPackage.RUN___CONSTRUCT_PARAMS;
+
+	/**
+	 * The operation id for the '<em>Select Good Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SELECT_GOOD_SOLUTION = JobPackage.RUN_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Select Bad Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SELECT_BAD_SOLUTION = JobPackage.RUN_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
@@ -657,7 +810,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_OPERATION_COUNT = 3;
+	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl <em>Improvment</em>}' class.
@@ -1311,45 +1464,46 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getStrategy_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectChance <em>Select Chance</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getChanceSelectBest <em>Chance Select Best</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Select Chance</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#getSelectChance()
+	 * @return the meta object for the attribute '<em>Chance Select Best</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getChanceSelectBest()
 	 * @see #getStrategy()
 	 * @generated
 	 */
-	EAttribute getStrategy_SelectChance();
+	EAttribute getStrategy_ChanceSelectBest();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectSolutionToImprove() <em>Select Solution To Improve</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getChanceSelectWorst <em>Chance Select Worst</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Select Solution To Improve</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#selectSolutionToImprove()
+	 * @return the meta object for the attribute '<em>Chance Select Worst</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getChanceSelectWorst()
+	 * @see #getStrategy()
 	 * @generated
 	 */
-	EOperation getStrategy__SelectSolutionToImprove();
+	EAttribute getStrategy_ChanceSelectWorst();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#run() <em>Run</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectGoodSolution() <em>Select Good Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Run</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#run()
+	 * @return the meta object for the '<em>Select Good Solution</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#selectGoodSolution()
 	 * @generated
 	 */
-	EOperation getStrategy__Run();
+	EOperation getStrategy__SelectGoodSolution();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#prune() <em>Prune</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectBadSolution() <em>Select Bad Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Prune</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#prune()
+	 * @return the meta object for the '<em>Select Bad Solution</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#selectBadSolution()
 	 * @generated
 	 */
-	EOperation getStrategy__Prune();
+	EOperation getStrategy__SelectBadSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Improvment <em>Improvment</em>}'.
@@ -1911,36 +2065,36 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute STRATEGY__NAME = eINSTANCE.getStrategy_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Select Chance</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Chance Select Best</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRATEGY__SELECT_CHANCE = eINSTANCE.getStrategy_SelectChance();
+		EAttribute STRATEGY__CHANCE_SELECT_BEST = eINSTANCE.getStrategy_ChanceSelectBest();
 
 		/**
-		 * The meta object literal for the '<em><b>Select Solution To Improve</b></em>' operation.
+		 * The meta object literal for the '<em><b>Chance Select Worst</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___SELECT_SOLUTION_TO_IMPROVE = eINSTANCE.getStrategy__SelectSolutionToImprove();
+		EAttribute STRATEGY__CHANCE_SELECT_WORST = eINSTANCE.getStrategy_ChanceSelectWorst();
 
 		/**
-		 * The meta object literal for the '<em><b>Run</b></em>' operation.
+		 * The meta object literal for the '<em><b>Select Good Solution</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___RUN = eINSTANCE.getStrategy__Run();
+		EOperation STRATEGY___SELECT_GOOD_SOLUTION = eINSTANCE.getStrategy__SelectGoodSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>Prune</b></em>' operation.
+		 * The meta object literal for the '<em><b>Select Bad Solution</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___PRUNE = eINSTANCE.getStrategy__Prune();
+		EOperation STRATEGY___SELECT_BAD_SOLUTION = eINSTANCE.getStrategy__SelectBadSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl <em>Improvment</em>}' class.

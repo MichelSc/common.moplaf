@@ -2,6 +2,9 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.RunContext;
+import com.misc.common.moplaf.job.impl.RunImpl;
 import com.misc.common.moplaf.localsearch.Improvment;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Solution;
@@ -13,8 +16,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,8 +27,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -44,12 +45,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getSelectChance <em>Select Chance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getChanceSelectBest <em>Chance Select Best</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getChanceSelectWorst <em>Chance Select Worst</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class StrategyImpl extends MinimalEObjectImpl.Container implements Strategy {
+public abstract class StrategyImpl extends RunImpl implements Strategy {
 	/**
 	 * The cached value of the '{@link #getImprovments() <em>Improvments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -141,24 +143,44 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSelectChance() <em>Select Chance</em>}' attribute.
+	 * The default value of the '{@link #getChanceSelectBest() <em>Chance Select Best</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectChance()
+	 * @see #getChanceSelectBest()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double SELECT_CHANCE_EDEFAULT = 0.0;
+	protected static final double CHANCE_SELECT_BEST_EDEFAULT = 1.0;
 
 	/**
-	 * The cached value of the '{@link #getSelectChance() <em>Select Chance</em>}' attribute.
+	 * The cached value of the '{@link #getChanceSelectBest() <em>Chance Select Best</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelectChance()
+	 * @see #getChanceSelectBest()
 	 * @generated
 	 * @ordered
 	 */
-	protected double selectChance = SELECT_CHANCE_EDEFAULT;
+	protected double chanceSelectBest = CHANCE_SELECT_BEST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getChanceSelectWorst() <em>Chance Select Worst</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChanceSelectWorst()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double CHANCE_SELECT_WORST_EDEFAULT = 1.0;
+
+	/**
+	 * The cached value of the '{@link #getChanceSelectWorst() <em>Chance Select Worst</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChanceSelectWorst()
+	 * @generated
+	 * @ordered
+	 */
+	protected double chanceSelectWorst = CHANCE_SELECT_WORST_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,8 +331,8 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getSelectChance() {
-		return selectChance;
+	public double getChanceSelectBest() {
+		return chanceSelectBest;
 	}
 
 	/**
@@ -318,45 +340,98 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelectChance(double newSelectChance) {
-		double oldSelectChance = selectChance;
-		selectChance = newSelectChance;
+	public void setChanceSelectBest(double newChanceSelectBest) {
+		double oldChanceSelectBest = chanceSelectBest;
+		chanceSelectBest = newChanceSelectBest;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STRATEGY__SELECT_CHANCE, oldSelectChance, selectChance));
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STRATEGY__CHANCE_SELECT_BEST, oldChanceSelectBest, chanceSelectBest));
 	}
 
-	private static Random random = new Random();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getChanceSelectWorst() {
+		return chanceSelectWorst;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChanceSelectWorst(double newChanceSelectWorst) {
+		double oldChanceSelectWorst = chanceSelectWorst;
+		chanceSelectWorst = newChanceSelectWorst;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STRATEGY__CHANCE_SELECT_WORST, oldChanceSelectWorst, chanceSelectWorst));
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Solution selectSolutionToImprove() {
+	public Solution selectGoodSolution() {
 		// sort the solution from the best to the worst, thus by descending score
 		LinkedList<Solution> sorted_list = new LinkedList<Solution>(this.getSolutions());
 		sorted_list.sort((sol1, sol2)->Float.compare(sol2.getScore().getScore(), sol1.getScore().getScore()));
-		
-		while ( true ) {
-			// forever
-			// traverse the solutions from best to worst
-			double threshold = random.nextDouble();
-			double select_chance = this.getSelectChance(); // probability to select a solution; the higher, the more chance to get the best solution
-			double cumulated_chance = 0.0d; // chance to select one of the previous solutions
-			for ( Solution current_solution : sorted_list) {
-				double current_chance = (1-cumulated_chance)*select_chance;
-				cumulated_chance += current_chance;
-				if ( cumulated_chance>threshold) {
-					return current_solution;
-				} 
-			}
-		}
+		Solution selected = this.select(this.getChanceSelectBest(), sorted_list);
+		return selected;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void run() {
+	public Solution selectBadSolution() {
+		// sort the solution from the worst to the best, thus by ascending score
+		LinkedList<Solution> sorted_list = new LinkedList<Solution>(this.getSolutions());
+		sorted_list.sort((sol1, sol2)->Float.compare(sol1.getScore().getScore(), sol2.getScore().getScore()));
+		Solution selected = this.select(this.getChanceSelectWorst(), sorted_list);
+		return selected;
+	}
+
+	private static Random random = new Random();
+	private Solution select(double chanceFirst, List<Solution> sorted_list) {
+		// traverse the solutions from first to last
+		double threshold = random.nextDouble();
+		int nof_solutions = sorted_list.size();
+		String message = String.format("select, nofsolutions=%d, random=%f",
+				                       nof_solutions,
+				                       threshold);
+		Plugin.INSTANCE.log(message);
+		double total_chance = chanceFirst == 0.0d
+				            ? 1.0d
+				            : 1-Math.pow(1-chanceFirst, nof_solutions);
+		double cumulated_chance = 0.0d; // chance to select one of the previous solutions
+		for ( Solution current_solution : sorted_list) {
+			double current_chance = chanceFirst == 0.0d
+					              ? 1.0d / nof_solutions
+					              : (1-cumulated_chance)*chanceFirst;
+			cumulated_chance += current_chance;
+			boolean selected = cumulated_chance/total_chance>threshold;
+			message = String.format("..chance=%f, cumulated=%f/%f, selected=%b", 
+					current_chance, 
+					cumulated_chance,
+					total_chance,
+					selected);
+			Plugin.INSTANCE.log(message);
+//			if ( cumulated_chance/total_chance>threshold) {
+//				return current_solution;
+//			} 
+		}
+		// assert should never come here
+		return null;
+	}
+
+	/*
+	 * 
+	 */
+	@Override
+	protected ReturnFeedback runImpl(RunContext context) {
 		Plugin.INSTANCE.logInfo(String.format("Strategy %s started", this.getName()));
+		Solution sol = this.selectGoodSolution();
 
 		for( Improvment improvment : this.getImprovments()) {
 			Plugin.INSTANCE.logInfo(String.format("Improvments %s started", improvment.getName()));
@@ -367,7 +442,7 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 			long elapsed_millis = 0;
 			do {
 				// select a solution to improve
-				Solution solution = this.selectSolutionToImprove().clone();
+				Solution solution = this.selectGoodSolution().clone();
 				improvment.setSolution(solution);
 				improvment.doIteration();
 				// prune the solution pool
@@ -387,14 +462,15 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 			Plugin.INSTANCE.logInfo(String.format("Improvments %s finished", improvment.getName()));
 		}
 		Plugin.INSTANCE.logInfo(String.format("Strategy %s finished", this.getName()));
+		
+		return ReturnFeedback.SUCCESS;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void prune() {
-		// default implementation does nothing
+	
+	private void prune() {
+		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
+			Solution solution = this.selectBadSolution();
+			this.getSolutions().remove(solution);
+		}
 	}
 
 	/**
@@ -449,8 +525,10 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 				return getMaxNrSolutions();
 			case LocalSearchPackage.STRATEGY__NAME:
 				return getName();
-			case LocalSearchPackage.STRATEGY__SELECT_CHANCE:
-				return getSelectChance();
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_BEST:
+				return getChanceSelectBest();
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_WORST:
+				return getChanceSelectWorst();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -484,8 +562,11 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 			case LocalSearchPackage.STRATEGY__NAME:
 				setName((String)newValue);
 				return;
-			case LocalSearchPackage.STRATEGY__SELECT_CHANCE:
-				setSelectChance((Double)newValue);
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_BEST:
+				setChanceSelectBest((Double)newValue);
+				return;
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_WORST:
+				setChanceSelectWorst((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -517,8 +598,11 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 			case LocalSearchPackage.STRATEGY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case LocalSearchPackage.STRATEGY__SELECT_CHANCE:
-				setSelectChance(SELECT_CHANCE_EDEFAULT);
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_BEST:
+				setChanceSelectBest(CHANCE_SELECT_BEST_EDEFAULT);
+				return;
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_WORST:
+				setChanceSelectWorst(CHANCE_SELECT_WORST_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -544,8 +628,10 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 				return maxNrSolutions != MAX_NR_SOLUTIONS_EDEFAULT;
 			case LocalSearchPackage.STRATEGY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case LocalSearchPackage.STRATEGY__SELECT_CHANCE:
-				return selectChance != SELECT_CHANCE_EDEFAULT;
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_BEST:
+				return chanceSelectBest != CHANCE_SELECT_BEST_EDEFAULT;
+			case LocalSearchPackage.STRATEGY__CHANCE_SELECT_WORST:
+				return chanceSelectWorst != CHANCE_SELECT_WORST_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -558,14 +644,10 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.STRATEGY___SELECT_SOLUTION_TO_IMPROVE:
-				return selectSolutionToImprove();
-			case LocalSearchPackage.STRATEGY___RUN:
-				run();
-				return null;
-			case LocalSearchPackage.STRATEGY___PRUNE:
-				prune();
-				return null;
+			case LocalSearchPackage.STRATEGY___SELECT_GOOD_SOLUTION:
+				return selectGoodSolution();
+			case LocalSearchPackage.STRATEGY___SELECT_BAD_SOLUTION:
+				return selectBadSolution();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -586,8 +668,10 @@ public abstract class StrategyImpl extends MinimalEObjectImpl.Container implemen
 		result.append(maxNrSolutions);
 		result.append(", Name: ");
 		result.append(name);
-		result.append(", SelectChance: ");
-		result.append(selectChance);
+		result.append(", ChanceSelectBest: ");
+		result.append(chanceSelectBest);
+		result.append(", ChanceSelectWorst: ");
+		result.append(chanceSelectWorst);
 		result.append(')');
 		return result.toString();
 	}

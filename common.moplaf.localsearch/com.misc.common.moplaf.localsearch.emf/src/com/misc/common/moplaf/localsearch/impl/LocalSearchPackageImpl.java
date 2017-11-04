@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.Improvment;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
@@ -13,7 +14,6 @@ import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Strategy;
 
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -126,6 +126,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		isInited = true;
 
 		// Initialize simple dependencies
+		JobPackage.eINSTANCE.eClass();
 		PropagatorPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -580,7 +581,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_SelectChance() {
+	public EAttribute getStrategy_ChanceSelectBest() {
 		return (EAttribute)strategyEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -589,7 +590,16 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getStrategy__SelectSolutionToImprove() {
+	public EAttribute getStrategy_ChanceSelectWorst() {
+		return (EAttribute)strategyEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getStrategy__SelectGoodSolution() {
 		return strategyEClass.getEOperations().get(0);
 	}
 
@@ -598,17 +608,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getStrategy__Run() {
+	public EOperation getStrategy__SelectBadSolution() {
 		return strategyEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getStrategy__Prune() {
-		return strategyEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -808,10 +809,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(strategyEClass, STRATEGY__CURRENT_SOLUTION_NR);
 		createEAttribute(strategyEClass, STRATEGY__MAX_NR_SOLUTIONS);
 		createEAttribute(strategyEClass, STRATEGY__NAME);
-		createEAttribute(strategyEClass, STRATEGY__SELECT_CHANCE);
-		createEOperation(strategyEClass, STRATEGY___SELECT_SOLUTION_TO_IMPROVE);
-		createEOperation(strategyEClass, STRATEGY___RUN);
-		createEOperation(strategyEClass, STRATEGY___PRUNE);
+		createEAttribute(strategyEClass, STRATEGY__CHANCE_SELECT_BEST);
+		createEAttribute(strategyEClass, STRATEGY__CHANCE_SELECT_WORST);
+		createEOperation(strategyEClass, STRATEGY___SELECT_GOOD_SOLUTION);
+		createEOperation(strategyEClass, STRATEGY___SELECT_BAD_SOLUTION);
 
 		improvmentEClass = createEClass(IMPROVMENT);
 		createEAttribute(improvmentEClass, IMPROVMENT__MAX_ITERATIONS);
@@ -855,6 +856,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		// Obtain other dependent packages
 		PropagatorPackage thePropagatorPackage = (PropagatorPackage)EPackage.Registry.INSTANCE.getEPackage(PropagatorPackage.eNS_URI);
+		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -862,6 +864,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		// Add supertypes to classes
 		solutionEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctions());
+		strategyEClass.getESuperTypes().add(theJobPackage.getRun());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(solutionEClass, Solution.class, "Solution", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -930,13 +933,12 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getStrategy_CurrentSolutionNr(), ecorePackage.getEInt(), "CurrentSolutionNr", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_MaxNrSolutions(), ecorePackage.getEInt(), "MaxNrSolutions", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_SelectChance(), ecorePackage.getEDouble(), "SelectChance", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrategy_ChanceSelectBest(), ecorePackage.getEDouble(), "ChanceSelectBest", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrategy_ChanceSelectWorst(), ecorePackage.getEDouble(), "ChanceSelectWorst", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getStrategy__SelectSolutionToImprove(), this.getSolution(), "selectSolutionToImprove", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getStrategy__SelectGoodSolution(), this.getSolution(), "selectGoodSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getStrategy__Run(), null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getStrategy__Prune(), null, "prune", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getStrategy__SelectBadSolution(), this.getSolution(), "selectBadSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(improvmentEClass, Improvment.class, "Improvment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getImprovment_MaxIterations(), ecorePackage.getEInt(), "MaxIterations", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

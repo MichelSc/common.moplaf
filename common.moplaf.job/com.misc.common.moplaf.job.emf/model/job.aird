@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis xmi:id="_ApMekLFoEeaI1q7lMcyh3w" selectedViews="_ArlrQLFoEeaI1q7lMcyh3w _Ar0UwLFoEeaI1q7lMcyh3w _Ar6bYLFoEeaI1q7lMcyh3w _AsEzcLFoEeaI1q7lMcyh3w" version="11.1.0.201608251200">
+  <viewpoint:DAnalysis xmi:id="_ApMekLFoEeaI1q7lMcyh3w" selectedViews="_ArlrQLFoEeaI1q7lMcyh3w _Ar0UwLFoEeaI1q7lMcyh3w _Ar6bYLFoEeaI1q7lMcyh3w _AsEzcLFoEeaI1q7lMcyh3w" version="12.0.0.201704271200">
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>job.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_ArlrQLFoEeaI1q7lMcyh3w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_X7e30CzDEee875_-HYywiA" name="job class diagram" representation="_Bo9ScLFoEeaI1q7lMcyh3w">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_X7e30CzDEee875_-HYywiA" name="job class diagram" repPath="#_Bo9ScLFoEeaI1q7lMcyh3w">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="job.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_1y4NIEHyEeejVON0TodtEQ" name="Setter class diagram" representation="_1y6CUEHyEeejVON0TodtEQ">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_1y4NIEHyEeejVON0TodtEQ" name="Setter class diagram" repPath="#_1y6CUEHyEeejVON0TodtEQ">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="job.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_VGP54EIpEeez86CCT7Zmsg" name="run params diagram" representation="_VGRIAEIpEeez86CCT7Zmsg">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_VGP54EIpEeez86CCT7Zmsg" name="run params diagram" repPath="#_VGRIAEIpEeez86CCT7Zmsg">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="job.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -816,7 +816,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_DNwtELFoEeaI1q7lMcyh3w" sourceNode="_DJaYkLFoEeaI1q7lMcyh3w" targetNode="_DJdb4bFoEeaI1q7lMcyh3w">
       <target xmi:type="ecore:EClass" href="job.ecore#//Job"/>
-      <semanticElements xmi:type="ecore:EGenericType" href="job.ecore#//Job/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EClass" href="job.ecore#//Job"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_DNx7MLFoEeaI1q7lMcyh3w" targetArrow="InputClosedArrow">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -928,7 +928,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_QEvzILPEEeaWCLqKzjuliA" sourceNode="_MjpD4LPEEeaWCLqKzjuliA" targetNode="_DJaYkLFoEeaI1q7lMcyh3w">
       <target xmi:type="ecore:EClass" href="job.ecore#//JobConsole"/>
-      <semanticElements xmi:type="ecore:EGenericType" href="job.ecore#//JobConsole/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EClass" href="job.ecore#//JobConsole"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_QEwaMLPEEeaWCLqKzjuliA" targetArrow="InputClosedArrow">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>

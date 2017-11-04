@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.localsearch.provider;
 
+import com.misc.common.moplaf.job.provider.JobEditPlugin;
 import com.misc.common.moplaf.propagator2.provider.PropagatorEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
@@ -40,6 +41,7 @@ public final class LocalsearchEditPlugin extends EMFPlugin {
 	public LocalsearchEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     JobEditPlugin.INSTANCE,
 		     PropagatorEditPlugin.INSTANCE,
 		   });
 	}

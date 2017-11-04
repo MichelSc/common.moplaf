@@ -2,10 +2,11 @@
  */
 package com.misc.common.moplaf.localsearch.util;
 
+import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.localsearch.*;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -96,6 +97,8 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 			case LocalSearchPackage.STRATEGY: {
 				Strategy strategy = (Strategy)theEObject;
 				T result = caseStrategy(strategy);
+				if (result == null) result = caseRun(strategy);
+				if (result == null) result = caseRunParams(strategy);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,6 +214,36 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Run Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Run Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRunParams(RunParams object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Run</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Run</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRun(Run object) {
 		return null;
 	}
 

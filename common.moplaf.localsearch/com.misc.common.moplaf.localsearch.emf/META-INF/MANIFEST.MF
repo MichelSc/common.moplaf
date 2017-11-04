@@ -15,6 +15,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.propagator2;visibility:=reexport,
  com.misc.common.moplaf.emf;bundle-version="1.0.0",
- org.eclipse.emf.ecore.change;bundle-version="2.11.0"
+ org.eclipse.emf.ecore.change;bundle-version="2.11.0",
+ com.misc.common.moplaf.job.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore.change.util

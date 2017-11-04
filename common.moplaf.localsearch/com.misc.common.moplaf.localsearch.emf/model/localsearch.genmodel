@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.localsearch.emf/src" modelPluginID="com.misc.common.moplaf.localsearch.emf"
     modelName="Localsearch" modelPluginClass="com.misc.common.moplaf.localsearch.Plugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2"
     operationReflection="true" importOrganizing="true">
   <foreignModel>localsearch.ecore</foreignModel>
   <genPackages prefix="LocalSearch" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
@@ -70,7 +70,8 @@
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Feasible"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Description"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Score"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Score"/>
       <genOperations ecoreOperation="localsearch.ecore#//Score/isBetter">
         <genParameters ecoreParameter="localsearch.ecore#//Score/isBetter/other"/>
       </genOperations>
@@ -87,10 +88,11 @@
       <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/CurrentSolutionNr"/>
       <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/MaxNrSolutions"/>
       <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/Name"/>
-      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/SelectChance"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectSolutionToImprove"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/run"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/prune"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/ChanceSelectBest"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" propertyDescription=""
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/ChanceSelectWorst"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectGoodSolution"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectBadSolution"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Improvment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvment/MaxIterations"/>
