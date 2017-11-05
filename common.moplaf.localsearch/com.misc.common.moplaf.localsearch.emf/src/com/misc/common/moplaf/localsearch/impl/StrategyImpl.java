@@ -375,7 +375,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	public Solution selectGoodSolution() {
 		// sort the solution from the best to the worst, thus by descending score
 		LinkedList<Solution> sorted_list = new LinkedList<Solution>(this.getSolutions());
-		sorted_list.sort((sol1, sol2)->Float.compare(sol2.getScore().getScore(), sol1.getScore().getScore()));
+		sorted_list.sort((sol1, sol2)->sol1.getScore().isBetter(sol2.getScore())? -1 : +1);
 		Solution selected = this.select(this.getChanceSelectBest(), sorted_list);
 		return selected;
 	}
@@ -387,7 +387,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	public Solution selectBadSolution() {
 		// sort the solution from the worst to the best, thus by ascending score
 		LinkedList<Solution> sorted_list = new LinkedList<Solution>(this.getSolutions());
-		sorted_list.sort((sol1, sol2)->Float.compare(sol1.getScore().getScore(), sol2.getScore().getScore()));
+		sorted_list.sort((sol1, sol2)->sol1.getScore().isBetter(sol2.getScore())? +1 : -1);
 		Solution selected = this.select(this.getChanceSelectWorst(), sorted_list);
 		return selected;
 	}
@@ -411,7 +411,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					              : (1-cumulated_chance)*chanceFirst;
 			cumulated_chance += current_chance;
 			boolean selected = cumulated_chance/total_chance>threshold;
-			message = String.format("..chance=%f, cumulated=%f/%f, selected=%b", 
+			message = String.format("..solution=%d, chance=%f, cumulated=%f/%f, selected=%b",
+					current_solution.getSolutionNr(),
 					current_chance, 
 					cumulated_chance,
 					total_chance,
@@ -431,8 +432,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	protected ReturnFeedback runImpl(RunContext context) {
 		Plugin.INSTANCE.logInfo(String.format("Strategy %s started", this.getName()));
-		Solution sol = this.selectGoodSolution();
-
+	
 		for( Improvment improvment : this.getImprovments()) {
 			Plugin.INSTANCE.logInfo(String.format("Improvments %s started", improvment.getName()));
 			Date start = new Date();

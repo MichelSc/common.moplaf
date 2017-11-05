@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.Score#isFeasible <em>Feasible</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Score#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Score#getScore <em>Score</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getScore()
@@ -52,21 +51,6 @@ public interface Score extends EObject {
 	 * @generated
 	 */
 	String getDescription();
-
-	/**
-	 * Returns the value of the '<em><b>Score</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Score</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Score</em>' attribute.
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getScore_Score()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	float getScore();
 
 	/**
 	 * <!-- begin-user-doc -->

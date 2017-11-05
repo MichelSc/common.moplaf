@@ -70,8 +70,6 @@
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Feasible"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Description"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Score/Score"/>
       <genOperations ecoreOperation="localsearch.ecore#//Score/isBetter">
         <genParameters ecoreParameter="localsearch.ecore#//Score/isBetter/other"/>
       </genOperations>

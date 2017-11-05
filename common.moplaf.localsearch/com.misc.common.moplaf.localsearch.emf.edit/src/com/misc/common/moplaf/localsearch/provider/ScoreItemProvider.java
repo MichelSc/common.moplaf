@@ -61,7 +61,6 @@ public class ScoreItemProvider
 
 			addFeasiblePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addScorePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,28 +110,6 @@ public class ScoreItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Score feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addScorePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Score_Score_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Score_Score_feature", "_UI_Score_type"),
-				 LocalSearchPackage.Literals.SCORE__SCORE,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__10ScorePropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This returns Score.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,7 +148,6 @@ public class ScoreItemProvider
 		switch (notification.getFeatureID(Score.class)) {
 			case LocalSearchPackage.SCORE__FEASIBLE:
 			case LocalSearchPackage.SCORE__DESCRIPTION:
-			case LocalSearchPackage.SCORE__SCORE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
