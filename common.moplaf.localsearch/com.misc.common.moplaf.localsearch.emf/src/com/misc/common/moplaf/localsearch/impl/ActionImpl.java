@@ -7,9 +7,9 @@ import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.Improvement;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
+import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
-import com.misc.common.moplaf.propagator2.Plugin;
 
 import java.lang.reflect.InvocationTargetException;
 

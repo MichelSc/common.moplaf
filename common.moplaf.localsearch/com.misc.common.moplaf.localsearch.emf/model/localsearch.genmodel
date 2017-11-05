@@ -27,12 +27,12 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Description"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Valid"/>
+          propertyDescription="" ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Valid"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ValidFeedback"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 Action"
           propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/Solution"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ActionNr"/>
+      <genFeatures createChild="false" propertyCategory="10 Action" ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ActionNr"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Action/Improvement"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/initialize"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/run"/>
@@ -96,7 +96,7 @@
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectBadSolution"/>
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/sortSolutions"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="localsearch.ecore#//Improvement">
+    <genClasses ecoreClass="localsearch.ecore#//Improvement">
       <genFeatures createChild="false" propertyCategory="10 Improvement" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvement/MaxIterations"/>
       <genFeatures createChild="false" propertyCategory="10 Improvement" ecoreFeature="ecore:EAttribute localsearch.ecore#//Improvement/MaxSeconds"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Improvement/Actions"/>

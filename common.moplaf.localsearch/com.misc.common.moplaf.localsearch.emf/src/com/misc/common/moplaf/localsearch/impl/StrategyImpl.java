@@ -7,9 +7,9 @@ import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.impl.RunImpl;
 import com.misc.common.moplaf.localsearch.Improvement;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Strategy;
-import com.misc.common.moplaf.propagator2.Plugin;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -404,10 +404,10 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		// traverse the solutions from first to last
 		EList<Solution> list_solutions = this.getSolutions();
 		int nof_solutions = list_solutions.size();
-		String message = String.format("select, nofsolutions=%d, random=%f",
-				                       nof_solutions,
-				                       threshold);
-		Plugin.INSTANCE.log(message);
+//		String message = String.format("select, nofsolutions=%d, random=%f",
+//				                       nof_solutions,
+//				                       threshold);
+//		Plugin.INSTANCE.log(message);
 		double total_chance = chanceFirst == 0.0d
 				            ? 1.0d
 				            : 1-Math.pow(1-chanceFirst, nof_solutions);
@@ -421,13 +421,13 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					              : (1-cumulated_chance)*chanceFirst;
 			cumulated_chance += current_chance;
 			boolean selected = cumulated_chance/total_chance>threshold;
-			message = String.format("..solution=%d, chance=%f, cumulated=%f/%f, selected=%b",
-					current_solution.getSolutionNr(),
-					current_chance, 
-					cumulated_chance,
-					total_chance,
-					selected);
-			Plugin.INSTANCE.log(message);
+//			message = String.format("..solution=%d, chance=%f, cumulated=%f/%f, selected=%b",
+//					current_solution.getSolutionNr(),
+//					current_chance, 
+//					cumulated_chance,
+//					total_chance,
+//					selected);
+//			Plugin.INSTANCE.log(message);
 			if ( cumulated_chance/total_chance>threshold) {
 				return current_solution;
 			} 
@@ -478,10 +478,10 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					Solution next_solution = iterator.next();
 					if ( solution.getScore().isBetter(next_solution.getScore())) {
 						iterator.previous();
-						iterator.add(solution);
 						break;
 					}
 				}
+				iterator.add(solution);// owning
 				
 				// maintain best solution
 				Solution best_asis = this.getBestSolution();
