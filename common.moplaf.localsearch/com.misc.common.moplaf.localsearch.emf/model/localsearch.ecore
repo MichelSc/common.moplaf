@@ -44,6 +44,9 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
         eType="#//Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Improvement" lowerBound="1"
+        eType="#//Improvement" eOpposite="#//Improvement/Actions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Move" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -105,20 +108,20 @@
     <eOperations name="selectGoodSolution" eType="#//Solution"/>
     <eOperations name="selectBadSolution" eType="#//Solution"/>
     <eOperations name="sortSolutions"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Improvments" upperBound="-1"
-        eType="#//Improvment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Improvements" upperBound="-1"
+        eType="#//Improvement" containment="true" eOpposite="#//Improvement/Strategy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BestSolution" eType="#//Solution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
         eType="#//Solution" containment="true" eOpposite="#//Solution/Strategy"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentSolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxNrSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChanceSelectBest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectBestChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ChanceSelectWorst" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectWorstChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Improvment" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Improvement" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possibly better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xD;&#xA;An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution.&#xA;The framework will iterate on the improvments. The iterations will limited by a max number of iterations and and maximum duration."/>
     </eAnnotations>
@@ -126,7 +129,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxIterations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSeconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
-        eType="#//Action" containment="true"/>
+        eType="#//Action" containment="true" eOpposite="#//Action/Improvement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
         eType="#//Solution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImprovmentsStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -135,6 +138,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DurationTotal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DurationAverage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentActionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Strategy" lowerBound="1"
+        eType="#//Strategy" eOpposite="#//Strategy/Improvements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
 </ecore:EPackage>

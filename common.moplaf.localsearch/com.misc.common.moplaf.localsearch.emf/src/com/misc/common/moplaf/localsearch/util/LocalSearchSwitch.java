@@ -102,9 +102,9 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LocalSearchPackage.IMPROVMENT: {
-				Improvment improvment = (Improvment)theEObject;
-				T result = caseImprovment(improvment);
+			case LocalSearchPackage.IMPROVEMENT: {
+				Improvement improvement = (Improvement)theEObject;
+				T result = caseImprovement(improvement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -188,17 +188,17 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Improvment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Improvement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Improvment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Improvement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseImprovment(Improvment object) {
+	public T caseImprovement(Improvement object) {
 		return null;
 	}
 

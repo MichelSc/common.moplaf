@@ -27,14 +27,14 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getImprovments <em>Improvments</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getImprovements <em>Improvements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getBestSolution <em>Best Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getChanceSelectBest <em>Chance Select Best</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getChanceSelectWorst <em>Chance Select Worst</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSelectBestChance <em>Select Best Chance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSelectWorstChance <em>Select Worst Chance</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy()
@@ -43,20 +43,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Strategy extends Run {
 	/**
-	 * Returns the value of the '<em><b>Improvments</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Improvment}.
+	 * Returns the value of the '<em><b>Improvements</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Improvement}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Improvement#getStrategy <em>Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Improvments</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Improvements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Improvments</em>' containment reference list.
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Improvments()
-	 * @model containment="true"
+	 * @return the value of the '<em>Improvements</em>' containment reference list.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Improvements()
+	 * @see com.misc.common.moplaf.localsearch.Improvement#getStrategy
+	 * @model opposite="Strategy" containment="true"
 	 * @generated
 	 */
-	EList<Improvment> getImprovments();
+	EList<Improvement> getImprovements();
 
 	/**
 	 * Returns the value of the '<em><b>Best Solution</b></em>' reference.
@@ -181,58 +183,58 @@ public interface Strategy extends Run {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Chance Select Best</b></em>' attribute.
+	 * Returns the value of the '<em><b>Select Best Chance</b></em>' attribute.
 	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Chance Select Best</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Select Best Chance</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chance Select Best</em>' attribute.
-	 * @see #setChanceSelectBest(double)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_ChanceSelectBest()
+	 * @return the value of the '<em>Select Best Chance</em>' attribute.
+	 * @see #setSelectBestChance(double)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_SelectBestChance()
 	 * @model default="1.0"
 	 * @generated
 	 */
-	double getChanceSelectBest();
+	double getSelectBestChance();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getChanceSelectBest <em>Chance Select Best</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectBestChance <em>Select Best Chance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chance Select Best</em>' attribute.
-	 * @see #getChanceSelectBest()
+	 * @param value the new value of the '<em>Select Best Chance</em>' attribute.
+	 * @see #getSelectBestChance()
 	 * @generated
 	 */
-	void setChanceSelectBest(double value);
+	void setSelectBestChance(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Chance Select Worst</b></em>' attribute.
+	 * Returns the value of the '<em><b>Select Worst Chance</b></em>' attribute.
 	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Chance Select Worst</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Select Worst Chance</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chance Select Worst</em>' attribute.
-	 * @see #setChanceSelectWorst(double)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_ChanceSelectWorst()
+	 * @return the value of the '<em>Select Worst Chance</em>' attribute.
+	 * @see #setSelectWorstChance(double)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_SelectWorstChance()
 	 * @model default="1.0"
 	 * @generated
 	 */
-	double getChanceSelectWorst();
+	double getSelectWorstChance();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getChanceSelectWorst <em>Chance Select Worst</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectWorstChance <em>Select Worst Chance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chance Select Worst</em>' attribute.
-	 * @see #getChanceSelectWorst()
+	 * @param value the new value of the '<em>Select Worst Chance</em>' attribute.
+	 * @see #getSelectWorstChance()
 	 * @generated
 	 */
-	void setChanceSelectWorst(double value);
+	void setSelectWorstChance(double value);
 
 	/**
 	 * <!-- begin-user-doc -->

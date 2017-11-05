@@ -73,6 +73,7 @@ public class ActionItemProvider
 			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
 			addSolutionPropertyDescriptor(object);
+			addActionNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -162,6 +163,28 @@ public class ActionItemProvider
 				 true,
 				 null,
 				 getString("_UI__10ActionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Action Nr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActionNrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_ActionNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_ActionNr_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__ACTION_NR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -257,6 +280,7 @@ public class ActionItemProvider
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 			case LocalSearchPackage.ACTION__VALID:
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
+			case LocalSearchPackage.ACTION__ACTION_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.ACTION__ROOT_MOVES:

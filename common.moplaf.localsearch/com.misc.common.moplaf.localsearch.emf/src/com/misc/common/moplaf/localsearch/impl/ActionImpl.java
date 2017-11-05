@@ -4,6 +4,7 @@ package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Action;
+import com.misc.common.moplaf.localsearch.Improvement;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
 import com.misc.common.moplaf.localsearch.Score;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -42,6 +44,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getActionNr <em>Action Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getImprovement <em>Improvement</em>}</li>
  * </ul>
  *
  * @generated
@@ -106,6 +110,26 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Solution solution;
+
+	/**
+	 * The default value of the '{@link #getActionNr() <em>Action Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActionNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ACTION_NR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getActionNr() <em>Action Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActionNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int actionNr = ACTION_NR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,6 +260,68 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getActionNr() {
+		return actionNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActionNr(int newActionNr) {
+		int oldActionNr = actionNr;
+		actionNr = newActionNr;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__ACTION_NR, oldActionNr, actionNr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Improvement getImprovement() {
+		if (eContainerFeatureID() != LocalSearchPackage.ACTION__IMPROVEMENT) return null;
+		return (Improvement)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetImprovement(Improvement newImprovement, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newImprovement, LocalSearchPackage.ACTION__IMPROVEMENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImprovement(Improvement newImprovement) {
+		if (newImprovement != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.ACTION__IMPROVEMENT && newImprovement != null)) {
+			if (EcoreUtil.isAncestor(this, newImprovement))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newImprovement != null)
+				msgs = ((InternalEObject)newImprovement).eInverseAdd(this, LocalSearchPackage.IMPROVEMENT__ACTIONS, Improvement.class, msgs);
+			msgs = basicSetImprovement(newImprovement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__IMPROVEMENT, newImprovement, newImprovement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getResetEnabledFeedback() {
 		return new EnabledFeedback(false, "not implemented");
@@ -345,6 +431,22 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case LocalSearchPackage.ACTION__IMPROVEMENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetImprovement((Improvement)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * Return the next move with respect to the current move on the path to the target move
 	 * Return null if target_move is not accessible from the current move
 	 * Return null if target_move is the current node
@@ -377,8 +479,24 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case LocalSearchPackage.ACTION__ROOT_MOVES:
 				return ((InternalEList<?>)getRootMoves()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.ACTION__IMPROVEMENT:
+				return basicSetImprovement(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case LocalSearchPackage.ACTION__IMPROVEMENT:
+				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.IMPROVEMENT__ACTIONS, Improvement.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -403,6 +521,10 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 			case LocalSearchPackage.ACTION__SOLUTION:
 				if (resolve) return getSolution();
 				return basicGetSolution();
+			case LocalSearchPackage.ACTION__ACTION_NR:
+				return getActionNr();
+			case LocalSearchPackage.ACTION__IMPROVEMENT:
+				return getImprovement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -426,6 +548,12 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 			case LocalSearchPackage.ACTION__SOLUTION:
 				setSolution((Solution)newValue);
 				return;
+			case LocalSearchPackage.ACTION__ACTION_NR:
+				setActionNr((Integer)newValue);
+				return;
+			case LocalSearchPackage.ACTION__IMPROVEMENT:
+				setImprovement((Improvement)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -446,6 +574,12 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case LocalSearchPackage.ACTION__SOLUTION:
 				setSolution((Solution)null);
+				return;
+			case LocalSearchPackage.ACTION__ACTION_NR:
+				setActionNr(ACTION_NR_EDEFAULT);
+				return;
+			case LocalSearchPackage.ACTION__IMPROVEMENT:
+				setImprovement((Improvement)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -471,6 +605,10 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.ACTION__SOLUTION:
 				return solution != null;
+			case LocalSearchPackage.ACTION__ACTION_NR:
+				return actionNr != ACTION_NR_EDEFAULT;
+			case LocalSearchPackage.ACTION__IMPROVEMENT:
+				return getImprovement() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -497,6 +635,22 @@ public abstract class ActionImpl extends MinimalEObjectImpl.Container implements
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (ActionNr: ");
+		result.append(actionNr);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ActionImpl

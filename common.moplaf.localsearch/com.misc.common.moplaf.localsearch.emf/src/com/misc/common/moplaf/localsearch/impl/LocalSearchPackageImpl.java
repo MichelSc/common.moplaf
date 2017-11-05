@@ -5,7 +5,7 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.localsearch.Action;
-import com.misc.common.moplaf.localsearch.Improvment;
+import com.misc.common.moplaf.localsearch.Improvement;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Move;
@@ -70,7 +70,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass improvmentEClass = null;
+	private EClass improvementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,6 +268,24 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 */
 	public EReference getAction_Solution() {
 		return (EReference)actionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_ActionNr() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAction_Improvement() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -518,7 +536,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStrategy_Improvments() {
+	public EReference getStrategy_Improvements() {
 		return (EReference)strategyEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -572,7 +590,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_ChanceSelectBest() {
+	public EAttribute getStrategy_SelectBestChance() {
 		return (EAttribute)strategyEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -581,7 +599,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_ChanceSelectWorst() {
+	public EAttribute getStrategy_SelectWorstChance() {
 		return (EAttribute)strategyEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -617,8 +635,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getImprovment() {
-		return improvmentEClass;
+	public EClass getImprovement() {
+		return improvementEClass;
 	}
 
 	/**
@@ -626,8 +644,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_MaxIterations() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(0);
+	public EAttribute getImprovement_MaxIterations() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -635,8 +653,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_MaxSeconds() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(1);
+	public EAttribute getImprovement_MaxSeconds() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -644,8 +662,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getImprovment_Actions() {
-		return (EReference)improvmentEClass.getEStructuralFeatures().get(2);
+	public EReference getImprovement_Actions() {
+		return (EReference)improvementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -653,8 +671,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getImprovment_Solution() {
-		return (EReference)improvmentEClass.getEStructuralFeatures().get(3);
+	public EReference getImprovement_Solution() {
+		return (EReference)improvementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -662,8 +680,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_ImprovmentsStart() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(4);
+	public EAttribute getImprovement_ImprovmentsStart() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -671,8 +689,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_ImprovmentsEnd() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(5);
+	public EAttribute getImprovement_ImprovmentsEnd() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -680,8 +698,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_Iterations() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(6);
+	public EAttribute getImprovement_Iterations() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -689,8 +707,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_DurationTotal() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(7);
+	public EAttribute getImprovement_DurationTotal() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -698,8 +716,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_DurationAverage() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(8);
+	public EAttribute getImprovement_DurationAverage() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -707,8 +725,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImprovment_Name() {
-		return (EAttribute)improvmentEClass.getEStructuralFeatures().get(9);
+	public EAttribute getImprovement_Name() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -716,8 +734,26 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getImprovment__DoIteration() {
-		return improvmentEClass.getEOperations().get(0);
+	public EAttribute getImprovement_CurrentActionNr() {
+		return (EAttribute)improvementEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getImprovement_Strategy() {
+		return (EReference)improvementEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImprovement__DoIteration() {
+		return improvementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -773,6 +809,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(actionEClass, ACTION__VALID);
 		createEAttribute(actionEClass, ACTION__VALID_FEEDBACK);
 		createEReference(actionEClass, ACTION__SOLUTION);
+		createEAttribute(actionEClass, ACTION__ACTION_NR);
+		createEReference(actionEClass, ACTION__IMPROVEMENT);
 		createEOperation(actionEClass, ACTION___INITIALIZE);
 		createEOperation(actionEClass, ACTION___RUN);
 		createEOperation(actionEClass, ACTION___FINALIZE);
@@ -802,30 +840,32 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(scoreEClass, SCORE___COPY__SCORE);
 
 		strategyEClass = createEClass(STRATEGY);
-		createEReference(strategyEClass, STRATEGY__IMPROVMENTS);
+		createEReference(strategyEClass, STRATEGY__IMPROVEMENTS);
 		createEReference(strategyEClass, STRATEGY__BEST_SOLUTION);
 		createEReference(strategyEClass, STRATEGY__SOLUTIONS);
 		createEAttribute(strategyEClass, STRATEGY__CURRENT_SOLUTION_NR);
 		createEAttribute(strategyEClass, STRATEGY__MAX_NR_SOLUTIONS);
 		createEAttribute(strategyEClass, STRATEGY__NAME);
-		createEAttribute(strategyEClass, STRATEGY__CHANCE_SELECT_BEST);
-		createEAttribute(strategyEClass, STRATEGY__CHANCE_SELECT_WORST);
+		createEAttribute(strategyEClass, STRATEGY__SELECT_BEST_CHANCE);
+		createEAttribute(strategyEClass, STRATEGY__SELECT_WORST_CHANCE);
 		createEOperation(strategyEClass, STRATEGY___SELECT_GOOD_SOLUTION);
 		createEOperation(strategyEClass, STRATEGY___SELECT_BAD_SOLUTION);
 		createEOperation(strategyEClass, STRATEGY___SORT_SOLUTIONS);
 
-		improvmentEClass = createEClass(IMPROVMENT);
-		createEAttribute(improvmentEClass, IMPROVMENT__MAX_ITERATIONS);
-		createEAttribute(improvmentEClass, IMPROVMENT__MAX_SECONDS);
-		createEReference(improvmentEClass, IMPROVMENT__ACTIONS);
-		createEReference(improvmentEClass, IMPROVMENT__SOLUTION);
-		createEAttribute(improvmentEClass, IMPROVMENT__IMPROVMENTS_START);
-		createEAttribute(improvmentEClass, IMPROVMENT__IMPROVMENTS_END);
-		createEAttribute(improvmentEClass, IMPROVMENT__ITERATIONS);
-		createEAttribute(improvmentEClass, IMPROVMENT__DURATION_TOTAL);
-		createEAttribute(improvmentEClass, IMPROVMENT__DURATION_AVERAGE);
-		createEAttribute(improvmentEClass, IMPROVMENT__NAME);
-		createEOperation(improvmentEClass, IMPROVMENT___DO_ITERATION);
+		improvementEClass = createEClass(IMPROVEMENT);
+		createEAttribute(improvementEClass, IMPROVEMENT__MAX_ITERATIONS);
+		createEAttribute(improvementEClass, IMPROVEMENT__MAX_SECONDS);
+		createEReference(improvementEClass, IMPROVEMENT__ACTIONS);
+		createEReference(improvementEClass, IMPROVEMENT__SOLUTION);
+		createEAttribute(improvementEClass, IMPROVEMENT__IMPROVMENTS_START);
+		createEAttribute(improvementEClass, IMPROVEMENT__IMPROVMENTS_END);
+		createEAttribute(improvementEClass, IMPROVEMENT__ITERATIONS);
+		createEAttribute(improvementEClass, IMPROVEMENT__DURATION_TOTAL);
+		createEAttribute(improvementEClass, IMPROVEMENT__DURATION_AVERAGE);
+		createEAttribute(improvementEClass, IMPROVEMENT__NAME);
+		createEAttribute(improvementEClass, IMPROVEMENT__CURRENT_ACTION_NR);
+		createEReference(improvementEClass, IMPROVEMENT__STRATEGY);
+		createEOperation(improvementEClass, IMPROVEMENT___DO_ITERATION);
 
 		// Create data types
 		enabledFeedbackEDataType = createEDataType(ENABLED_FEEDBACK);
@@ -885,6 +925,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getAction_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getAction_Solution(), this.getSolution(), null, "Solution", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_ActionNr(), ecorePackage.getEInt(), "ActionNr", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_Improvement(), this.getImprovement(), this.getImprovement_Actions(), "Improvement", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAction__Initialize(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -926,14 +968,14 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		addEParameter(op, this.getScore(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(strategyEClass, Strategy.class, "Strategy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStrategy_Improvments(), this.getImprovment(), null, "Improvments", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStrategy_Improvements(), this.getImprovement(), this.getImprovement_Strategy(), "Improvements", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStrategy_BestSolution(), this.getSolution(), null, "BestSolution", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStrategy_Solutions(), this.getSolution(), this.getSolution_Strategy(), "Solutions", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_CurrentSolutionNr(), ecorePackage.getEInt(), "CurrentSolutionNr", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_MaxNrSolutions(), ecorePackage.getEInt(), "MaxNrSolutions", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_ChanceSelectBest(), ecorePackage.getEDouble(), "ChanceSelectBest", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_ChanceSelectWorst(), ecorePackage.getEDouble(), "ChanceSelectWorst", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrategy_SelectBestChance(), ecorePackage.getEDouble(), "SelectBestChance", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrategy_SelectWorstChance(), ecorePackage.getEDouble(), "SelectWorstChance", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getStrategy__SelectGoodSolution(), this.getSolution(), "selectGoodSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -941,19 +983,21 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		initEOperation(getStrategy__SortSolutions(), null, "sortSolutions", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(improvmentEClass, Improvment.class, "Improvment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getImprovment_MaxIterations(), ecorePackage.getEInt(), "MaxIterations", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImprovment_MaxSeconds(), ecorePackage.getEFloat(), "MaxSeconds", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getImprovment_Actions(), this.getAction(), null, "Actions", null, 0, -1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getImprovment_Solution(), this.getSolution(), null, "Solution", null, 1, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImprovment_ImprovmentsStart(), ecorePackage.getEDate(), "ImprovmentsStart", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImprovment_ImprovmentsEnd(), ecorePackage.getEDate(), "ImprovmentsEnd", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImprovment_Iterations(), ecorePackage.getEInt(), "Iterations", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImprovment_DurationTotal(), ecorePackage.getEFloat(), "DurationTotal", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImprovment_DurationAverage(), ecorePackage.getEFloat(), "DurationAverage", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImprovment_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Improvment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(improvementEClass, Improvement.class, "Improvement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImprovement_MaxIterations(), ecorePackage.getEInt(), "MaxIterations", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_MaxSeconds(), ecorePackage.getEFloat(), "MaxSeconds", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImprovement_Actions(), this.getAction(), this.getAction_Improvement(), "Actions", null, 0, -1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImprovement_Solution(), this.getSolution(), null, "Solution", null, 1, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_ImprovmentsStart(), ecorePackage.getEDate(), "ImprovmentsStart", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_ImprovmentsEnd(), ecorePackage.getEDate(), "ImprovmentsEnd", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_Iterations(), ecorePackage.getEInt(), "Iterations", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_DurationTotal(), ecorePackage.getEFloat(), "DurationTotal", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_DurationAverage(), ecorePackage.getEFloat(), "DurationAverage", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovement_CurrentActionNr(), ecorePackage.getEInt(), "CurrentActionNr", null, 0, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImprovement_Strategy(), this.getStrategy(), this.getStrategy_Improvements(), "Strategy", null, 1, 1, Improvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getImprovment__DoIteration(), null, "doIteration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getImprovement__DoIteration(), null, "doIteration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(enabledFeedbackEDataType, EnabledFeedback.class, "EnabledFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

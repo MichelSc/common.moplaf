@@ -34,6 +34,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getActionNr <em>Action Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getImprovement <em>Improvement</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction()
@@ -138,6 +140,60 @@ public interface Action extends EObject {
 	 * @generated
 	 */
 	void setSolution(Solution value);
+
+	/**
+	 * Returns the value of the '<em><b>Action Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Action Nr</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Action Nr</em>' attribute.
+	 * @see #setActionNr(int)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_ActionNr()
+	 * @model
+	 * @generated
+	 */
+	int getActionNr();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getActionNr <em>Action Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Action Nr</em>' attribute.
+	 * @see #getActionNr()
+	 * @generated
+	 */
+	void setActionNr(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Improvement</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Improvement#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Improvement</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Improvement</em>' container reference.
+	 * @see #setImprovement(Improvement)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Improvement()
+	 * @see com.misc.common.moplaf.localsearch.Improvement#getActions
+	 * @model opposite="Actions" required="true" transient="false"
+	 * @generated
+	 */
+	Improvement getImprovement();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getImprovement <em>Improvement</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Improvement</em>' container reference.
+	 * @see #getImprovement()
+	 * @generated
+	 */
+	void setImprovement(Improvement value);
 
 	/**
 	 * Returns the value of the '<em><b>Valid Feedback</b></em>' attribute.

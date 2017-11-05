@@ -91,8 +91,8 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 				return createStrategyAdapter();
 			}
 			@Override
-			public Adapter caseImprovment(Improvment object) {
-				return createImprovmentAdapter();
+			public Adapter caseImprovement(Improvement object) {
+				return createImprovementAdapter();
 			}
 			@Override
 			public Adapter caseObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions object) {
@@ -197,16 +197,16 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.Improvment <em>Improvment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.Improvement <em>Improvement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.localsearch.Improvment
+	 * @see com.misc.common.moplaf.localsearch.Improvement
 	 * @generated
 	 */
-	public Adapter createImprovmentAdapter() {
+	public Adapter createImprovementAdapter() {
 		return null;
 	}
 
