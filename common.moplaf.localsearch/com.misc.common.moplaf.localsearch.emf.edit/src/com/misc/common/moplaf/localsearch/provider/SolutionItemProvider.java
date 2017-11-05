@@ -7,6 +7,7 @@ package com.misc.common.moplaf.localsearch.provider;
 import com.misc.common.moplaf.emf.edit.command.CloneCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Solution;
+import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
 
 import java.util.Collection;
@@ -240,7 +241,11 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 
 		@Override
 		public void execute(){
-			this.solution.clone();
+			Solution this_solution = this.solution;
+			Strategy strategy = this_solution.getStrategy();
+			int this_solution_index = strategy.getSolutions().indexOf(this_solution);
+			Solution new_solution = this.solution.clone();
+			strategy.getSolutions().add(this_solution_index, new_solution); // insert next to the original
 		}
 	} // class SolutionCloneCommand
 

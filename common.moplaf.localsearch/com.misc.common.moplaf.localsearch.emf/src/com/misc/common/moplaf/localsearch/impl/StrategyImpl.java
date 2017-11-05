@@ -15,12 +15,11 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ListIterator;
 import java.util.Random;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -374,9 +373,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 */
 	public Solution selectGoodSolution() {
 		// sort the solution from the best to the worst, thus by descending score
-		LinkedList<Solution> sorted_list = new LinkedList<Solution>(this.getSolutions());
-		sorted_list.sort((sol1, sol2)->sol1.getScore().isBetter(sol2.getScore())? -1 : +1);
-		Solution selected = this.select(this.getChanceSelectBest(), sorted_list);
+		Solution selected = this.select(this.getChanceSelectBest(), false);
 		return selected;
 	}
 
@@ -386,17 +383,28 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 */
 	public Solution selectBadSolution() {
 		// sort the solution from the worst to the best, thus by ascending score
-		LinkedList<Solution> sorted_list = new LinkedList<Solution>(this.getSolutions());
-		sorted_list.sort((sol1, sol2)->sol1.getScore().isBetter(sol2.getScore())? +1 : -1);
-		Solution selected = this.select(this.getChanceSelectWorst(), sorted_list);
+		Solution selected = this.select(this.getChanceSelectWorst(), true);
 		return selected;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * Sort the solutions from best to worst.
+	 * Normally, the sort order is maintained by the framework and this method should not be necessary.
+	 * <!-- end-user-doc -->
+	 */
+	public void sortSolutions() {
+		EList<Solution> list = this.getSolutions();
+		ECollections.sort(list, (sol1, sol2)->sol1.getScore().isBetter(sol2.getScore())? -1 : +1);
+	}
+
 	private static Random random = new Random();
-	private Solution select(double chanceFirst, List<Solution> sorted_list) {
-		// traverse the solutions from first to last
+	
+	private Solution select(double chanceFirst, boolean reverse) {
 		double threshold = random.nextDouble();
-		int nof_solutions = sorted_list.size();
+		// traverse the solutions from first to last
+		EList<Solution> list_solutions = this.getSolutions();
+		int nof_solutions = list_solutions.size();
 		String message = String.format("select, nofsolutions=%d, random=%f",
 				                       nof_solutions,
 				                       threshold);
@@ -405,7 +413,10 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				            ? 1.0d
 				            : 1-Math.pow(1-chanceFirst, nof_solutions);
 		double cumulated_chance = 0.0d; // chance to select one of the previous solutions
-		for ( Solution current_solution : sorted_list) {
+
+		ListIterator<Solution> iterator = list_solutions.listIterator(reverse ? nof_solutions : 0);
+        while ( reverse ? iterator.hasPrevious() : iterator.hasNext()) {
+			Solution current_solution = reverse ? iterator.previous() : iterator.next();
 			double current_chance = chanceFirst == 0.0d
 					              ? 1.0d / nof_solutions
 					              : (1-cumulated_chance)*chanceFirst;
@@ -418,9 +429,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					total_chance,
 					selected);
 			Plugin.INSTANCE.log(message);
-//			if ( cumulated_chance/total_chance>threshold) {
-//				return current_solution;
-//			} 
+			if ( cumulated_chance/total_chance>threshold) {
+				return current_solution;
+			} 
 		}
 		// assert should never come here
 		return null;
@@ -431,10 +442,19 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 */
 	@Override
 	protected ReturnFeedback runImpl(RunContext context) {
-		Plugin.INSTANCE.logInfo(String.format("Strategy %s started", this.getName()));
+		
+		String message1 = String.format("Strategy %s started", this.getName());
+		Plugin.INSTANCE.logInfo(message1);
+		this.setProgress(message1, 0.0f);
+		
+		int iterations_total = 0;
 	
 		for( Improvment improvment : this.getImprovments()) {
-			Plugin.INSTANCE.logInfo(String.format("Improvments %s started", improvment.getName()));
+			
+			String message2 = String.format("Improvments %s started", improvment.getName());
+			Plugin.INSTANCE.logInfo(message2);
+			this.setProgress(message1, ++iterations_total);
+			
 			Date start = new Date();
 			Date now = null;
 			int nr_iterations = 0;
@@ -445,14 +465,46 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				Solution solution = this.selectGoodSolution().clone();
 				improvment.setSolution(solution);
 				improvment.doIteration();
-				// prune the solution pool
-				this.prune();
+				
+				// maintain the list of solutions, insert the solution after the next best
+				ListIterator<Solution> iterator = this.getSolutions().listIterator();
+				while ( iterator.hasNext()) {
+					Solution next_solution = iterator.next();
+					if ( solution.getScore().isBetter(next_solution.getScore())) {
+						iterator.previous();
+						iterator.add(solution);
+						break;
+					}
+				}
+				
+				// maintain best solution
+				Solution best_asis = this.getBestSolution();
+				if ( best_asis==null || solution.getScore().isBetter(best_asis.getScore())) {
+					this.setBestSolution(solution);
+				}
+				
 				// loop control
 				nr_iterations++;
 				now = new Date();
 				elapsed_millis = now.getTime()-start.getTime();
 				finished = nr_iterations>improvment.getMaxIterations() || elapsed_millis>improvment.getMaxSeconds()*1000;
+				
+				// feedback
+				String message3 = String.format("Improvments=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
+						improvment.getName(),
+						nr_iterations,
+						improvment.getMaxIterations(),
+						elapsed_millis/1000.0f,
+						improvment.getMaxSeconds(),
+						solution.getScore().getDescription());
+				Plugin.INSTANCE.logInfo(message3);
+				this.setProgress(message3, ++iterations_total);
+				
+				// prune the solution pool
+				this.prune();
+
 			} while ( !finished);
+			
 			improvment.setImprovmentsStart(start);
 			improvment.setImprovmentsEnd(now);
 			improvment.setDurationTotal(elapsed_millis/1000);
@@ -466,6 +518,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		return ReturnFeedback.SUCCESS;
 	}
 	
+	/**
+	 * 
+	 */
 	private void prune() {
 		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
 			Solution solution = this.selectBadSolution();
@@ -648,6 +703,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return selectGoodSolution();
 			case LocalSearchPackage.STRATEGY___SELECT_BAD_SOLUTION:
 				return selectBadSolution();
+			case LocalSearchPackage.STRATEGY___SORT_SOLUTIONS:
+				sortSolutions();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

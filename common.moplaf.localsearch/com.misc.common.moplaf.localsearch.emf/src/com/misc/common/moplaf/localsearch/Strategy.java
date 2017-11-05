@@ -250,4 +250,12 @@ public interface Strategy extends Run {
 	 */
 	Solution selectBadSolution();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void sortSolutions();
+
 } // Strategy

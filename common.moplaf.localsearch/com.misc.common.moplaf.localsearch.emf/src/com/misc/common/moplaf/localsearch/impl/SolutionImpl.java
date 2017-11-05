@@ -297,7 +297,6 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		strategy.setCurrentSolutionNr(new_nr);
 		new_solution.setSolutionNr(new_nr);
 		new_solution.setAncestor(this);
-		strategy.getSolutions().add(new_solution);
 		Plugin.INSTANCE.logInfo("Action initialize: done");
 		return new_solution;
 	}

@@ -106,6 +106,7 @@
     </eAnnotations>
     <eOperations name="selectGoodSolution" eType="#//Solution"/>
     <eOperations name="selectBadSolution" eType="#//Solution"/>
+    <eOperations name="sortSolutions"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Improvments" upperBound="-1"
         eType="#//Improvment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BestSolution" eType="#//Solution"/>

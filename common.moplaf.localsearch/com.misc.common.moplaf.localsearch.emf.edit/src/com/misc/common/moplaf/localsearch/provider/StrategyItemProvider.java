@@ -3,19 +3,23 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.SortCommand;
 import com.misc.common.moplaf.job.provider.RunItemProvider;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Strategy;
 
 import java.util.Collection;
 import java.util.List;
+
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -297,5 +301,37 @@ public class StrategyItemProvider
 	public ResourceLocator getResourceLocator() {
 		return LocalsearchEditPlugin.INSTANCE;
 	}
+	
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class StrategySortCommand extends SortCommand{
+		private Strategy strategy;
+		
+		public StrategySortCommand(Strategy aStrategy)	{
+			super();
+			this.strategy = aStrategy;
+		}
+
+		@Override
+		public void execute() {
+			this.strategy.sortSolutions();
+		}
+	} // class StrategySortCommand
+
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == SortCommand.class){
+			return new StrategySortCommand((Strategy) object); 
+		} 
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 }

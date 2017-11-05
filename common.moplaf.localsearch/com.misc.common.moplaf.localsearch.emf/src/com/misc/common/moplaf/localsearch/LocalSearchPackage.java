@@ -488,13 +488,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SCORE__DESCRIPTION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCORE__SCORE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Score</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE_FEATURE_COUNT = 2;
+	int SCORE_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Is Better</em>' operation.
@@ -795,13 +804,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___SELECT_BAD_SOLUTION = JobPackage.RUN_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Sort Solutions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SORT_SOLUTIONS = JobPackage.RUN_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 2;
+	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl <em>Improvment</em>}' class.
@@ -1327,6 +1345,17 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getScore_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#getScore <em>Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Score</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Score#getScore()
+	 * @see #getScore()
+	 * @generated
+	 */
+	EAttribute getScore_Score();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#isFeasible <em>Feasible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1484,6 +1513,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getStrategy__SelectBadSolution();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#sortSolutions() <em>Sort Solutions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sort Solutions</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#sortSolutions()
+	 * @generated
+	 */
+	EOperation getStrategy__SortSolutions();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Improvment <em>Improvment</em>}'.
@@ -1955,6 +1994,14 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute SCORE__DESCRIPTION = eINSTANCE.getScore_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCORE__SCORE = eINSTANCE.getScore_Score();
+
+		/**
 		 * The meta object literal for the '<em><b>Is Better</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2067,6 +2114,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation STRATEGY___SELECT_BAD_SOLUTION = eINSTANCE.getStrategy__SelectBadSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Sort Solutions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___SORT_SOLUTIONS = eINSTANCE.getStrategy__SortSolutions();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ImprovmentImpl <em>Improvment</em>}' class.
