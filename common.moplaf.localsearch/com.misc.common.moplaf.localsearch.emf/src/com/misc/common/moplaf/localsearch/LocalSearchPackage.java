@@ -488,22 +488,13 @@ public interface LocalSearchPackage extends EPackage {
 	int SCORE__DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Score</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCORE__SCORE = 2;
-
-	/**
 	 * The number of structural features of the '<em>Score</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCORE_FEATURE_COUNT = 3;
+	int SCORE_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Is Better</em>' operation.
@@ -1345,17 +1336,6 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getScore_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#getScore <em>Score</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Score</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Score#getScore()
-	 * @see #getScore()
-	 * @generated
-	 */
-	EAttribute getScore_Score();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Score#isFeasible <em>Feasible</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1992,14 +1972,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCORE__DESCRIPTION = eINSTANCE.getScore_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Score</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCORE__SCORE = eINSTANCE.getScore_Score();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Better</b></em>' operation.

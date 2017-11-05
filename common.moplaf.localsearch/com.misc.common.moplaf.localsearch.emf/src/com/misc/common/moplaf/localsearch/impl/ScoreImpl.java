@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl#isFeasible <em>Feasible</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl#getScore <em>Score</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,16 +46,6 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getScore() <em>Score</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScore()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float SCORE_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,17 +93,6 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getScore() {
-		// TODO: implement this method to return the 'Score' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isBetter(Score other) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -152,8 +130,6 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 				return isFeasible();
 			case LocalSearchPackage.SCORE__DESCRIPTION:
 				return getDescription();
-			case LocalSearchPackage.SCORE__SCORE:
-				return getScore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,8 +146,6 @@ public abstract class ScoreImpl extends MinimalEObjectImpl.Container implements 
 				return isFeasible() != FEASIBLE_EDEFAULT;
 			case LocalSearchPackage.SCORE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case LocalSearchPackage.SCORE__SCORE:
-				return getScore() != SCORE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

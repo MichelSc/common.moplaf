@@ -233,10 +233,6 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_wKPh4bzOEeeWF6HZ-Pf1wQ" fontColor="7490599" fontName="Noto Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_wKPh4rzOEeeWF6HZ-Pf1wQ"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_bLBcMMDPEeeykfPjWSRV0g" type="3010" element="_bK5gYMDPEeeykfPjWSRV0g">
-              <styles xmi:type="notation:FontStyle" xmi:id="_bLBcMcDPEeeykfPjWSRV0g" fontColor="7490599" fontName="Oxygen-Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_bLBcMsDPEeeykfPjWSRV0g"/>
-            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_RaHnAqELEeeu55M0XQ06Gg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_RaHnA6ELEeeu55M0XQ06Gg"/>
           </children>
@@ -775,12 +771,6 @@
         <target xmi:type="ecore:EAttribute" href="localsearch.ecore#//Score/Description"/>
         <semanticElements xmi:type="ecore:EAttribute" href="localsearch.ecore#//Score/Description"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wKKpYbzOEeeWF6HZ-Pf1wQ" labelColor="39,76,114" labelAlignment="LEFT" description="_dPvt0Kg1Eeep39QvNzSKCA"/>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_bK5gYMDPEeeykfPjWSRV0g" name="/Score : EFloat = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="localsearch.ecore#//Score/Score"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="localsearch.ecore#//Score/Score"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_bK6HcMDPEeeykfPjWSRV0g" labelColor="39,76,114" labelAlignment="LEFT" description="_dPvt0Kg1Eeep39QvNzSKCA"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
