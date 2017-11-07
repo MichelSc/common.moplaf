@@ -4,8 +4,6 @@ package com.misc.common.moplaf.localsearch;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Action</b></em>'.
@@ -33,16 +31,15 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getActionNr <em>Action Nr</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#getImprovement <em>Improvement</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction()
  * @model abstract="true"
  * @generated
  */
-public interface Action extends EObject {
+public interface Action extends SolutionChange {
 	/**
 	 * Returns the value of the '<em><b>Root Moves</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Move}.
@@ -116,32 +113,6 @@ public interface Action extends EObject {
 	boolean isValid();
 
 	/**
-	 * Returns the value of the '<em><b>Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Solution</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Solution</em>' reference.
-	 * @see #setSolution(Solution)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Solution()
-	 * @model required="true"
-	 * @generated
-	 */
-	Solution getSolution();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getSolution <em>Solution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Solution</em>' reference.
-	 * @see #getSolution()
-	 * @generated
-	 */
-	void setSolution(Solution value);
-
-	/**
 	 * Returns the value of the '<em><b>Action Nr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -168,32 +139,32 @@ public interface Action extends EObject {
 	void setActionNr(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Improvement</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Improvement#getActions <em>Actions</em>}'.
+	 * Returns the value of the '<em><b>Step</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Step#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Improvement</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Step</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Improvement</em>' container reference.
-	 * @see #setImprovement(Improvement)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Improvement()
-	 * @see com.misc.common.moplaf.localsearch.Improvement#getActions
-	 * @model opposite="Actions" required="true" transient="false"
+	 * @return the value of the '<em>Step</em>' reference.
+	 * @see #setStep(Step)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Step()
+	 * @see com.misc.common.moplaf.localsearch.Step#getActions
+	 * @model opposite="Actions" required="true"
 	 * @generated
 	 */
-	Improvement getImprovement();
+	Step getStep();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getImprovement <em>Improvement</em>}' container reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Improvement</em>' container reference.
-	 * @see #getImprovement()
+	 * @param value the new value of the '<em>Step</em>' reference.
+	 * @see #getStep()
 	 * @generated
 	 */
-	void setImprovement(Improvement value);
+	void setStep(Step value);
 
 	/**
 	 * Returns the value of the '<em><b>Valid Feedback</b></em>' attribute.

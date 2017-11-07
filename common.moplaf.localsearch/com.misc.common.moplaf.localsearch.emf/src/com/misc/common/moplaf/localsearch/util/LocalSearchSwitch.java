@@ -79,6 +79,7 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 			case LocalSearchPackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
+				if (result == null) result = caseSolutionChange(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -102,9 +103,23 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LocalSearchPackage.IMPROVEMENT: {
-				Improvement improvement = (Improvement)theEObject;
-				T result = caseImprovement(improvement);
+			case LocalSearchPackage.PHASE: {
+				Phase phase = (Phase)theEObject;
+				T result = casePhase(phase);
+				if (result == null) result = caseSolutionChange(phase);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LocalSearchPackage.STEP: {
+				Step step = (Step)theEObject;
+				T result = caseStep(step);
+				if (result == null) result = caseSolutionChange(step);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LocalSearchPackage.SOLUTION_CHANGE: {
+				SolutionChange solutionChange = (SolutionChange)theEObject;
+				T result = caseSolutionChange(solutionChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -188,17 +203,47 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Improvement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Phase</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Improvement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Phase</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseImprovement(Improvement object) {
+	public T casePhase(Phase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStep(Step object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionChange(SolutionChange object) {
 		return null;
 	}
 

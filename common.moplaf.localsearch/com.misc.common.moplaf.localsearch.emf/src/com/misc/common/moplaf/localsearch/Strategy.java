@@ -27,8 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getImprovements <em>Improvements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getBestSolution <em>Best Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getPhases <em>Phases</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
@@ -43,53 +42,26 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Strategy extends Run {
 	/**
-	 * Returns the value of the '<em><b>Improvements</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Improvement}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Improvement#getStrategy <em>Strategy</em>}'.
+	 * Returns the value of the '<em><b>Phases</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Phase}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Phase#getStrategy <em>Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Improvements</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Phases</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Improvements</em>' containment reference list.
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Improvements()
-	 * @see com.misc.common.moplaf.localsearch.Improvement#getStrategy
+	 * @return the value of the '<em>Phases</em>' containment reference list.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Phases()
+	 * @see com.misc.common.moplaf.localsearch.Phase#getStrategy
 	 * @model opposite="Strategy" containment="true"
 	 * @generated
 	 */
-	EList<Improvement> getImprovements();
-
-	/**
-	 * Returns the value of the '<em><b>Best Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Best Solution</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Best Solution</em>' reference.
-	 * @see #setBestSolution(Solution)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_BestSolution()
-	 * @model
-	 * @generated
-	 */
-	Solution getBestSolution();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getBestSolution <em>Best Solution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Best Solution</em>' reference.
-	 * @see #getBestSolution()
-	 * @generated
-	 */
-	void setBestSolution(Solution value);
+	EList<Phase> getPhases();
 
 	/**
 	 * Returns the value of the '<em><b>Solutions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Solution}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Solutions</em>' containment reference list isn't clear,
@@ -98,8 +70,7 @@ public interface Strategy extends Run {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Solutions</em>' containment reference list.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Solutions()
-	 * @see com.misc.common.moplaf.localsearch.Solution#getStrategy
-	 * @model opposite="Strategy" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Solution> getSolutions();

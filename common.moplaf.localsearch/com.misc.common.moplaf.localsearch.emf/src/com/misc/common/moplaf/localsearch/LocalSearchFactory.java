@@ -22,6 +22,15 @@ public interface LocalSearchFactory extends EFactory {
 	LocalSearchFactory eINSTANCE = com.misc.common.moplaf.localsearch.impl.LocalSearchFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Step</em>'.
+	 * @generated
+	 */
+	Step createStep();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

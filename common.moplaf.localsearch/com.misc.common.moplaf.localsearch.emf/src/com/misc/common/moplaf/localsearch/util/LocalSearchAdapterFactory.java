@@ -91,8 +91,16 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 				return createStrategyAdapter();
 			}
 			@Override
-			public Adapter caseImprovement(Improvement object) {
-				return createImprovementAdapter();
+			public Adapter casePhase(Phase object) {
+				return createPhaseAdapter();
+			}
+			@Override
+			public Adapter caseStep(Step object) {
+				return createStepAdapter();
+			}
+			@Override
+			public Adapter caseSolutionChange(SolutionChange object) {
+				return createSolutionChangeAdapter();
 			}
 			@Override
 			public Adapter caseObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions object) {
@@ -197,16 +205,44 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.Improvement <em>Improvement</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.Phase <em>Phase</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.localsearch.Improvement
+	 * @see com.misc.common.moplaf.localsearch.Phase
 	 * @generated
 	 */
-	public Adapter createImprovementAdapter() {
+	public Adapter createPhaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.Step <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.localsearch.Step
+	 * @generated
+	 */
+	public Adapter createStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.SolutionChange <em>Solution Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange
+	 * @generated
+	 */
+	public Adapter createSolutionChangeAdapter() {
 		return null;
 	}
 

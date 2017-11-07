@@ -125,28 +125,26 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	EList<Solution> getDescendants();
 
 	/**
-	 * Returns the value of the '<em><b>Strategy</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}'.
+	 * Returns the value of the '<em><b>Strategy</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Strategy</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Strategy</em>' container reference.
+	 * @return the value of the '<em>Strategy</em>' reference.
 	 * @see #setStrategy(Strategy)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution_Strategy()
-	 * @see com.misc.common.moplaf.localsearch.Strategy#getSolutions
-	 * @model opposite="Solutions" required="true" transient="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	Strategy getStrategy();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}' container reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Strategy</em>' container reference.
+	 * @param value the new value of the '<em>Strategy</em>' reference.
 	 * @see #getStrategy()
 	 * @generated
 	 */

@@ -89,6 +89,16 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	protected EList<Solution> descendants;
 
 	/**
+	 * The cached value of the '{@link #getStrategy() <em>Strategy</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected Strategy strategy;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -249,8 +259,15 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @generated
 	 */
 	public Strategy getStrategy() {
-		if (eContainerFeatureID() != LocalSearchPackage.SOLUTION__STRATEGY) return null;
-		return (Strategy)eInternalContainer();
+		if (strategy != null && strategy.eIsProxy()) {
+			InternalEObject oldStrategy = (InternalEObject)strategy;
+			strategy = (Strategy)eResolveProxy(oldStrategy);
+			if (strategy != oldStrategy) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.SOLUTION__STRATEGY, oldStrategy, strategy));
+			}
+		}
+		return strategy;
 	}
 
 	/**
@@ -258,9 +275,8 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStrategy(Strategy newStrategy, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newStrategy, LocalSearchPackage.SOLUTION__STRATEGY, msgs);
-		return msgs;
+	public Strategy basicGetStrategy() {
+		return strategy;
 	}
 
 	/**
@@ -269,19 +285,10 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @generated
 	 */
 	public void setStrategy(Strategy newStrategy) {
-		if (newStrategy != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.SOLUTION__STRATEGY && newStrategy != null)) {
-			if (EcoreUtil.isAncestor(this, newStrategy))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newStrategy != null)
-				msgs = ((InternalEObject)newStrategy).eInverseAdd(this, LocalSearchPackage.STRATEGY__SOLUTIONS, Strategy.class, msgs);
-			msgs = basicSetStrategy(newStrategy, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__STRATEGY, newStrategy, newStrategy));
+		Strategy oldStrategy = strategy;
+		strategy = newStrategy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__STRATEGY, oldStrategy, strategy));
 	}
 
 	/**
@@ -337,10 +344,6 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				return basicSetAncestor((Solution)otherEnd, msgs);
 			case LocalSearchPackage.SOLUTION__DESCENDANTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDescendants()).basicAdd(otherEnd, msgs);
-			case LocalSearchPackage.SOLUTION__STRATEGY:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetStrategy((Strategy)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -359,24 +362,8 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				return basicSetAncestor(null, msgs);
 			case LocalSearchPackage.SOLUTION__DESCENDANTS:
 				return ((InternalEList<?>)getDescendants()).basicRemove(otherEnd, msgs);
-			case LocalSearchPackage.SOLUTION__STRATEGY:
-				return basicSetStrategy(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case LocalSearchPackage.SOLUTION__STRATEGY:
-				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.STRATEGY__SOLUTIONS, Strategy.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -397,7 +384,8 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__DESCENDANTS:
 				return getDescendants();
 			case LocalSearchPackage.SOLUTION__STRATEGY:
-				return getStrategy();
+				if (resolve) return getStrategy();
+				return basicGetStrategy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -475,7 +463,7 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__DESCENDANTS:
 				return descendants != null && !descendants.isEmpty();
 			case LocalSearchPackage.SOLUTION__STRATEGY:
-				return getStrategy() != null;
+				return strategy != null;
 		}
 		return super.eIsSet(featureID);
 	}

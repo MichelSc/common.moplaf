@@ -54,7 +54,6 @@ public class StrategyItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBestSolutionPropertyDescriptor(object);
 			addCurrentSolutionNrPropertyDescriptor(object);
 			addMaxNrSolutionsPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
@@ -62,28 +61,6 @@ public class StrategyItemProvider
 			addSelectWorstChancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Best Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBestSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Strategy_BestSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_BestSolution_feature", "_UI_Strategy_type"),
-				 LocalSearchPackage.Literals.STRATEGY__BEST_SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10StrategyPropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -208,7 +185,7 @@ public class StrategyItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__IMPROVEMENTS);
+			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__PHASES);
 			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__SOLUTIONS);
 		}
 		return childrenFeatures;
@@ -271,7 +248,7 @@ public class StrategyItemProvider
 			case LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case LocalSearchPackage.STRATEGY__IMPROVEMENTS:
+			case LocalSearchPackage.STRATEGY__PHASES:
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

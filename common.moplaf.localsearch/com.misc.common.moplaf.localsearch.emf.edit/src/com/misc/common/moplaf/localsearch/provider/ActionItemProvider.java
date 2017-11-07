@@ -10,27 +10,19 @@ import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 
+import com.misc.common.moplaf.localsearch.StrategyLevel;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -40,13 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ActionItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends SolutionChangeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -72,8 +58,8 @@ public class ActionItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
-			addSolutionPropertyDescriptor(object);
 			addActionNrPropertyDescriptor(object);
+			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -145,28 +131,6 @@ public class ActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_Solution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Solution_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10ActionPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Action Nr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,6 +148,28 @@ public class ActionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__10ActionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Step feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStepPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_Step_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Step_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__STEP,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -258,7 +244,8 @@ public class ActionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Action)object).getDescription();
+		StrategyLevel labelValue = ((Action)object).getLevel();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Action_type") :
 			getString("_UI_Action_type") + " " + label;
@@ -300,17 +287,6 @@ public class ActionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return LocalsearchEditPlugin.INSTANCE;
 	}
 
 	/**

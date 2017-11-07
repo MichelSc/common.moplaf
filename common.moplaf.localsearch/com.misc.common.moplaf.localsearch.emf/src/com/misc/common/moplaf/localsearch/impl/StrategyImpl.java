@@ -5,10 +5,12 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.impl.RunImpl;
-import com.misc.common.moplaf.localsearch.Improvement;
+import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
+import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
 
 import java.lang.reflect.InvocationTargetException;
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -37,8 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getImprovements <em>Improvements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getBestSolution <em>Best Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getPhases <em>Phases</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getSolutions <em>Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
@@ -51,24 +53,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class StrategyImpl extends RunImpl implements Strategy {
 	/**
-	 * The cached value of the '{@link #getImprovements() <em>Improvements</em>}' containment reference list.
+	 * The cached value of the '{@link #getPhases() <em>Phases</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getImprovements()
+	 * @see #getPhases()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Improvement> improvements;
-
-	/**
-	 * The cached value of the '{@link #getBestSolution() <em>Best Solution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBestSolution()
-	 * @generated
-	 * @ordered
-	 */
-	protected Solution bestSolution;
+	protected EList<Phase> phases;
 
 	/**
 	 * The cached value of the '{@link #getSolutions() <em>Solutions</em>}' containment reference list.
@@ -204,49 +196,11 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Improvement> getImprovements() {
-		if (improvements == null) {
-			improvements = new EObjectContainmentWithInverseEList<Improvement>(Improvement.class, this, LocalSearchPackage.STRATEGY__IMPROVEMENTS, LocalSearchPackage.IMPROVEMENT__STRATEGY);
+	public EList<Phase> getPhases() {
+		if (phases == null) {
+			phases = new EObjectContainmentWithInverseEList<Phase>(Phase.class, this, LocalSearchPackage.STRATEGY__PHASES, LocalSearchPackage.PHASE__STRATEGY);
 		}
-		return improvements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solution getBestSolution() {
-		if (bestSolution != null && bestSolution.eIsProxy()) {
-			InternalEObject oldBestSolution = (InternalEObject)bestSolution;
-			bestSolution = (Solution)eResolveProxy(oldBestSolution);
-			if (bestSolution != oldBestSolution) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.STRATEGY__BEST_SOLUTION, oldBestSolution, bestSolution));
-			}
-		}
-		return bestSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solution basicGetBestSolution() {
-		return bestSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBestSolution(Solution newBestSolution) {
-		Solution oldBestSolution = bestSolution;
-		bestSolution = newBestSolution;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STRATEGY__BEST_SOLUTION, oldBestSolution, bestSolution));
+		return phases;
 	}
 
 	/**
@@ -256,7 +210,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 */
 	public EList<Solution> getSolutions() {
 		if (solutions == null) {
-			solutions = new EObjectContainmentWithInverseEList<Solution>(Solution.class, this, LocalSearchPackage.STRATEGY__SOLUTIONS, LocalSearchPackage.SOLUTION__STRATEGY);
+			solutions = new EObjectContainmentEList<Solution>(Solution.class, this, LocalSearchPackage.STRATEGY__SOLUTIONS);
 		}
 		return solutions;
 	}
@@ -448,16 +402,15 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		
 		int iterations_total = 0;
 	
-		for( Improvement improvement : this.getImprovements()) {
+		for( Phase phase : this.getPhases()) {
 			// initialize the improvement
-			improvement.setCurrentActionNr(0);
-			improvement.setImprovmentsStart(null);
-			improvement.setImprovmentsEnd(null);
-			improvement.setDurationTotal(0.0f);
-			improvement.setDurationAverage(0.0f);
-			improvement.setIterations(0);
+			phase.setPhaseStart(null);
+			phase.setPhaseEnd(null);
+			phase.setDurationTotal(0.0f);
+			phase.setDurationAverage(0.0f);
+			phase.setNrSteps(0);
 			
-			String message2 = String.format("Improvments %s started", improvement.getName());
+			String message2 = String.format("Phase %s started", phase.getName());
 			Plugin.INSTANCE.logInfo(message2);
 			this.setProgress(message1, ++iterations_total);
 			
@@ -469,10 +422,12 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			do {
 				// select a solution to improve
 				Solution solution = this.selectGoodSolution().clone();
-				improvement.setSolution(solution);
+				Step step = LocalSearchFactory.eINSTANCE.createStep();
+				phase.getSteps().add(step);
+				phase.setCurrentSolution(solution);
 				
 				// all the work is here
-				improvement.doIteration();
+				phase.doStep(step);
 				
 				// maintain the list of solutions, insert the solution after the next best
 				ListIterator<Solution> iterator = this.getSolutions().listIterator();
@@ -485,25 +440,19 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				}
 				iterator.add(solution);// owning
 				
-				// maintain best solution
-				Solution best_asis = this.getBestSolution();
-				if ( best_asis==null || solution.getScore().isBetter(best_asis.getScore())) {
-					this.setBestSolution(solution);
-				}
-				
 				// loop control
 				nr_iterations++;
 				now = new Date();
 				elapsed_millis = now.getTime()-start.getTime();
-				finished = nr_iterations>improvement.getMaxIterations() || elapsed_millis>improvement.getMaxSeconds()*1000;
+				finished = nr_iterations>phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
 				
 				// feedback
 				String message3 = String.format("Improvments=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
-						improvement.getName(),
+						phase.getName(),
 						nr_iterations,
-						improvement.getMaxIterations(),
+						phase.getMaxSteps(),
 						elapsed_millis/1000.0f,
-						improvement.getMaxSeconds(),
+						phase.getMaxSeconds(),
 						solution.getScore().getDescription());
 				Plugin.INSTANCE.logInfo(message3);
 				this.setProgress(message3, ++iterations_total);
@@ -513,13 +462,13 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 
 			} while ( !finished);
 			
-			improvement.setImprovmentsStart(start);
-			improvement.setImprovmentsEnd(now);
-			improvement.setDurationTotal(elapsed_millis/1000);
-			improvement.setDurationAverage(elapsed_millis/1000/nr_iterations);
-			improvement.setIterations(nr_iterations);
+			phase.setPhaseStart(start);
+			phase.setPhaseEnd(now);
+			phase.setDurationTotal(elapsed_millis/1000);
+			phase.setDurationAverage(elapsed_millis/1000/nr_iterations);
+			phase.setNrSteps(nr_iterations);
 			
-			Plugin.INSTANCE.logInfo(String.format("Improvments %s finished", improvement.getName()));
+			Plugin.INSTANCE.logInfo(String.format("Phase %s finished", phase.getName()));
 		}
 		Plugin.INSTANCE.logInfo(String.format("Strategy %s finished", this.getName()));
 		
@@ -545,10 +494,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LocalSearchPackage.STRATEGY__IMPROVEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getImprovements()).basicAdd(otherEnd, msgs);
-			case LocalSearchPackage.STRATEGY__SOLUTIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSolutions()).basicAdd(otherEnd, msgs);
+			case LocalSearchPackage.STRATEGY__PHASES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPhases()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -561,8 +508,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LocalSearchPackage.STRATEGY__IMPROVEMENTS:
-				return ((InternalEList<?>)getImprovements()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.STRATEGY__PHASES:
+				return ((InternalEList<?>)getPhases()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				return ((InternalEList<?>)getSolutions()).basicRemove(otherEnd, msgs);
 		}
@@ -577,11 +524,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LocalSearchPackage.STRATEGY__IMPROVEMENTS:
-				return getImprovements();
-			case LocalSearchPackage.STRATEGY__BEST_SOLUTION:
-				if (resolve) return getBestSolution();
-				return basicGetBestSolution();
+			case LocalSearchPackage.STRATEGY__PHASES:
+				return getPhases();
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				return getSolutions();
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
@@ -607,12 +551,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LocalSearchPackage.STRATEGY__IMPROVEMENTS:
-				getImprovements().clear();
-				getImprovements().addAll((Collection<? extends Improvement>)newValue);
-				return;
-			case LocalSearchPackage.STRATEGY__BEST_SOLUTION:
-				setBestSolution((Solution)newValue);
+			case LocalSearchPackage.STRATEGY__PHASES:
+				getPhases().clear();
+				getPhases().addAll((Collection<? extends Phase>)newValue);
 				return;
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				getSolutions().clear();
@@ -645,11 +586,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.STRATEGY__IMPROVEMENTS:
-				getImprovements().clear();
-				return;
-			case LocalSearchPackage.STRATEGY__BEST_SOLUTION:
-				setBestSolution((Solution)null);
+			case LocalSearchPackage.STRATEGY__PHASES:
+				getPhases().clear();
 				return;
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				getSolutions().clear();
@@ -681,10 +619,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.STRATEGY__IMPROVEMENTS:
-				return improvements != null && !improvements.isEmpty();
-			case LocalSearchPackage.STRATEGY__BEST_SOLUTION:
-				return bestSolution != null;
+			case LocalSearchPackage.STRATEGY__PHASES:
+				return phases != null && !phases.isEmpty();
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				return solutions != null && !solutions.isEmpty();
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
