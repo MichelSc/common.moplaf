@@ -470,6 +470,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				// select a solution to improve
 				Solution solution = this.selectGoodSolution().clone();
 				improvement.setSolution(solution);
+				
+				// all the work is here
 				improvement.doIteration();
 				
 				// maintain the list of solutions, insert the solution after the next best
