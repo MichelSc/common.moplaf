@@ -140,6 +140,10 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 		return host;
 	}
 
+	@Override
+	public int submitJob( JobRemote jobremote ) {
+		return -1;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -68,6 +68,33 @@ public interface JobclientFactory extends EFactory {
 	JobEngineInProcess createJobEngineInProcess();
 
 	/**
+	 * Returns a new object of class '<em>Job Scheduler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Job Scheduler</em>'.
+	 * @generated
+	 */
+	JobScheduler createJobScheduler();
+
+	/**
+	 * Returns a new object of class '<em>Job Scheduled</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Job Scheduled</em>'.
+	 * @generated
+	 */
+	JobScheduled createJobScheduled();
+
+	/**
+	 * Returns a new object of class '<em>Engine</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Engine</em>'.
+	 * @generated
+	 */
+	Engine createEngine();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

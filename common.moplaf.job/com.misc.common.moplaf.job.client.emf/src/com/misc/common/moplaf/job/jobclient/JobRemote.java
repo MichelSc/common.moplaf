@@ -17,6 +17,8 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Job;
 import com.misc.common.moplaf.job.ProgressFeedback;
 import java.util.Date;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,18 +30,23 @@ import java.util.Date;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getSubmissionID <em>Submission ID</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getHandlingEngine <em>Handling Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getResult <em>Result</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgress <em>Last Progress</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgressWork <em>Last Progress Work</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgressTask <em>Last Progress Task</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getJob <em>Job</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getJobremote <em>Jobremote</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getJobremoteeOpposite <em>Jobremotee Opposite</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getProgress <em>Progress</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getStartTime <em>Start Time</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote()
  * @model
  * @generated
  */
-public interface JobRemote extends Job {
+public interface JobRemote extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Submission ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -65,34 +72,6 @@ public interface JobRemote extends Job {
 	 * @generated
 	 */
 	void setSubmissionID(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Handling Engine</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy#getSubmittedJobs <em>Submitted Jobs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Handling Engine</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Handling Engine</em>' reference.
-	 * @see #setHandlingEngine(JobEngineProxy)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_HandlingEngine()
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy#getSubmittedJobs
-	 * @model opposite="SubmittedJobs"
-	 * @generated
-	 */
-	JobEngineProxy getHandlingEngine();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getHandlingEngine <em>Handling Engine</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Handling Engine</em>' reference.
-	 * @see #getHandlingEngine()
-	 * @generated
-	 */
-	void setHandlingEngine(JobEngineProxy value);
 
 	/**
 	 * Returns the value of the '<em><b>Result</b></em>' containment reference.
@@ -199,6 +178,156 @@ public interface JobRemote extends Job {
 	void setLastProgressTask(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Job</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.Job}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Job</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Job</em>' containment reference list.
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Job()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Job> getJob();
+
+	/**
+	 * Returns the value of the '<em><b>Jobremote</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getJobremoteeOpposite <em>Jobremotee Opposite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Jobremote</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Jobremote</em>' reference.
+	 * @see #setJobremote(JobRemote)
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Jobremote()
+	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#getJobremoteeOpposite
+	 * @model opposite="jobremoteeOpposite"
+	 * @generated
+	 */
+	JobRemote getJobremote();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getJobremote <em>Jobremote</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Jobremote</em>' reference.
+	 * @see #getJobremote()
+	 * @generated
+	 */
+	void setJobremote(JobRemote value);
+
+	/**
+	 * Returns the value of the '<em><b>Jobremotee Opposite</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getJobremote <em>Jobremote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Jobremotee Opposite</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Jobremotee Opposite</em>' reference.
+	 * @see #setJobremoteeOpposite(JobRemote)
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_JobremoteeOpposite()
+	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#getJobremote
+	 * @model opposite="jobremote"
+	 * @generated
+	 */
+	JobRemote getJobremoteeOpposite();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getJobremoteeOpposite <em>Jobremotee Opposite</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Jobremotee Opposite</em>' reference.
+	 * @see #getJobremoteeOpposite()
+	 * @generated
+	 */
+	void setJobremoteeOpposite(JobRemote value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Progress</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Progress</em>' attribute.
+	 * @see #setProgress(ProgressFeedback)
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Progress()
+	 * @model dataType="com.misc.common.moplaf.job.ProgressFeedback"
+	 * @generated
+	 */
+	ProgressFeedback getProgress();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getProgress <em>Progress</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Progress</em>' attribute.
+	 * @see #getProgress()
+	 * @generated
+	 */
+	void setProgress(ProgressFeedback value);
+
+	/**
+	 * Returns the value of the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start Time</em>' attribute.
+	 * @see #setStartTime(Date)
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_StartTime()
+	 * @model
+	 * @generated
+	 */
+	Date getStartTime();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getStartTime <em>Start Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Time</em>' attribute.
+	 * @see #getStartTime()
+	 * @generated
+	 */
+	void setStartTime(Date value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model feedbackDataType="com.misc.common.moplaf.job.ProgressFeedback"
@@ -221,5 +350,13 @@ public interface JobRemote extends Job {
 	 * @generated
 	 */
 	void refreshProgress();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.ReturnFeedback"
+	 * @generated
+	 */
+	ReturnFeedback run(SubmittedJob job);
 
 } // JobRemote

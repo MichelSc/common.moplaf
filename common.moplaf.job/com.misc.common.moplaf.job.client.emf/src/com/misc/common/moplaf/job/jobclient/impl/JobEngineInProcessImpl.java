@@ -12,8 +12,6 @@
  */
 package com.misc.common.moplaf.job.jobclient.impl;
 
-import com.misc.common.moplaf.common.ReturnFeedback;
-import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobEngineInProcess;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
@@ -172,15 +170,21 @@ public class JobEngineInProcessImpl extends JobEngineProxyImpl implements JobEng
 		return result.toString();
 	}
 
+	@Override
+	public int submitJob(JobRemote job) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	/**
 	 * 
-	 */
+	 */	/*BART
 	@Override
 	protected ReturnFeedback runJobImpl(JobRemote job) {
 		RunContext runContext = null;
 		ReturnFeedback result = job.run(runContext);
 		return result;
-	}
+	}*/
 	
 	
 

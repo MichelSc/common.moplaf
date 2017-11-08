@@ -12,9 +12,6 @@
  */
 package com.misc.common.moplaf.job.jobclient.util;
 
-import com.misc.common.moplaf.job.Job;
-import com.misc.common.moplaf.job.Run;
-
 import com.misc.common.moplaf.job.jobclient.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -82,8 +79,6 @@ public class JobclientSwitch<T> extends Switch<T> {
 			case JobclientPackage.JOB_REMOTE: {
 				JobRemote jobRemote = (JobRemote)theEObject;
 				T result = caseJobRemote(jobRemote);
-				if (result == null) result = caseJob(jobRemote);
-				if (result == null) result = caseRun(jobRemote);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,6 +110,24 @@ public class JobclientSwitch<T> extends Switch<T> {
 				JobEngineInProcess jobEngineInProcess = (JobEngineInProcess)theEObject;
 				T result = caseJobEngineInProcess(jobEngineInProcess);
 				if (result == null) result = caseJobEngineProxy(jobEngineInProcess);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobclientPackage.JOB_SCHEDULER: {
+				JobScheduler jobScheduler = (JobScheduler)theEObject;
+				T result = caseJobScheduler(jobScheduler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobclientPackage.JOB_SCHEDULED: {
+				JobScheduled jobScheduled = (JobScheduled)theEObject;
+				T result = caseJobScheduled(jobScheduled);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobclientPackage.ENGINE: {
+				Engine engine = (Engine)theEObject;
+				T result = caseEngine(engine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -198,6 +211,51 @@ public class JobclientSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Job Scheduler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Job Scheduler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJobScheduler(JobScheduler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Job Scheduled</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Job Scheduled</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJobScheduled(JobScheduled object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Engine</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Engine</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEngine(Engine object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Job Remote Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -209,36 +267,6 @@ public class JobclientSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobRemoteResult(JobRemoteResult object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Run</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Run</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRun(Run object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Job</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Job</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJob(Job object) {
 		return null;
 	}
 

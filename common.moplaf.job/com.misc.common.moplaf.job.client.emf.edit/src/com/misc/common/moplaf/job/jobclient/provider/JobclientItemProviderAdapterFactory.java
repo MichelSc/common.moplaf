@@ -174,6 +174,75 @@ public class JobclientItemProviderAdapterFactory extends JobclientAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.jobclient.JobScheduler} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JobSchedulerItemProvider jobSchedulerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.jobclient.JobScheduler}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJobSchedulerAdapter() {
+		if (jobSchedulerItemProvider == null) {
+			jobSchedulerItemProvider = new JobSchedulerItemProvider(this);
+		}
+
+		return jobSchedulerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.jobclient.JobScheduled} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JobScheduledItemProvider jobScheduledItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJobScheduledAdapter() {
+		if (jobScheduledItemProvider == null) {
+			jobScheduledItemProvider = new JobScheduledItemProvider(this);
+		}
+
+		return jobScheduledItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.jobclient.Engine} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EngineItemProvider engineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.jobclient.Engine}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEngineAdapter() {
+		if (engineItemProvider == null) {
+			engineItemProvider = new EngineItemProvider(this);
+		}
+
+		return engineItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +345,9 @@ public class JobclientItemProviderAdapterFactory extends JobclientAdapterFactory
 		if (jobRemoteResultItemProvider != null) jobRemoteResultItemProvider.dispose();
 		if (submittedJobItemProvider != null) submittedJobItemProvider.dispose();
 		if (jobEngineInProcessItemProvider != null) jobEngineInProcessItemProvider.dispose();
+		if (jobSchedulerItemProvider != null) jobSchedulerItemProvider.dispose();
+		if (jobScheduledItemProvider != null) jobScheduledItemProvider.dispose();
+		if (engineItemProvider != null) engineItemProvider.dispose();
 	}
 
 }

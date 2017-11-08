@@ -13,12 +13,10 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
+import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientFactory;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
-
-import com.misc.common.moplaf.job.provider.JobItemProvider;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -30,8 +28,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -40,7 +44,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JobRemoteItemProvider extends JobItemProvider {
+public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -63,10 +67,14 @@ public class JobRemoteItemProvider extends JobItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addSubmissionIDPropertyDescriptor(object);
-			addHandlingEnginePropertyDescriptor(object);
 			addLastProgressPropertyDescriptor(object);
 			addLastProgressWorkPropertyDescriptor(object);
 			addLastProgressTaskPropertyDescriptor(object);
+			addJobremotePropertyDescriptor(object);
+			addJobremoteeOppositePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addProgressPropertyDescriptor(object);
+			addStartTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,28 +98,6 @@ public class JobRemoteItemProvider extends JobItemProvider {
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__10JobPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Handling Engine feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHandlingEnginePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobRemote_HandlingEngine_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_HandlingEngine_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__HANDLING_ENGINE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
 				 null));
 	}
 
@@ -182,6 +168,116 @@ public class JobRemoteItemProvider extends JobItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Jobremote feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJobremotePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_jobremote_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_jobremote_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__JOBREMOTE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Jobremotee Opposite feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJobremoteeOppositePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_jobremoteeOpposite_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_jobremoteeOpposite_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__JOBREMOTEE_OPPOSITE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_Name_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Progress feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProgressPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_Progress_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_Progress_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__PROGRESS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_StartTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_StartTime_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__START_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -194,6 +290,7 @@ public class JobRemoteItemProvider extends JobItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JobclientPackage.Literals.JOB_REMOTE__RESULT);
+			childrenFeatures.add(JobclientPackage.Literals.JOB_REMOTE__JOB);
 		}
 		return childrenFeatures;
 	}
@@ -253,9 +350,13 @@ public class JobRemoteItemProvider extends JobItemProvider {
 			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
 			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
 			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+			case JobclientPackage.JOB_REMOTE__NAME:
+			case JobclientPackage.JOB_REMOTE__PROGRESS:
+			case JobclientPackage.JOB_REMOTE__START_TIME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobclientPackage.JOB_REMOTE__RESULT:
+			case JobclientPackage.JOB_REMOTE__JOB:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -277,6 +378,16 @@ public class JobRemoteItemProvider extends JobItemProvider {
 			(createChildParameter
 				(JobclientPackage.Literals.JOB_REMOTE__RESULT,
 				 JobclientFactory.eINSTANCE.createJobRemoteResult()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobclientPackage.Literals.JOB_REMOTE__JOB,
+				 JobFactory.eINSTANCE.createJob()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobclientPackage.Literals.JOB_REMOTE__JOB,
+				 JobFactory.eINSTANCE.createJobConsole()));
 	}
 
 	/**

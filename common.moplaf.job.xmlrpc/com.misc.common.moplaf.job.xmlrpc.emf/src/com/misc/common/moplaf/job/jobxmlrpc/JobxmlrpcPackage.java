@@ -84,7 +84,7 @@ public interface JobxmlrpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT__SUBMITTED_JOBS = JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS;
+	//BART int JOB_ENGINE_CLIENT__SUBMITTED_JOBS = JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

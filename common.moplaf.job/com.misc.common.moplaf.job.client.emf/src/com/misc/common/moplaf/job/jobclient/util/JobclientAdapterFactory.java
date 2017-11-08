@@ -12,9 +12,6 @@
  */
 package com.misc.common.moplaf.job.jobclient.util;
 
-import com.misc.common.moplaf.job.Job;
-import com.misc.common.moplaf.job.Run;
-
 import com.misc.common.moplaf.job.jobclient.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -105,12 +102,16 @@ public class JobclientAdapterFactory extends AdapterFactoryImpl {
 				return createJobEngineInProcessAdapter();
 			}
 			@Override
-			public Adapter caseRun(Run object) {
-				return createRunAdapter();
+			public Adapter caseJobScheduler(JobScheduler object) {
+				return createJobSchedulerAdapter();
 			}
 			@Override
-			public Adapter caseJob(Job object) {
-				return createJobAdapter();
+			public Adapter caseJobScheduled(JobScheduled object) {
+				return createJobScheduledAdapter();
+			}
+			@Override
+			public Adapter caseEngine(Engine object) {
+				return createEngineAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -203,6 +204,48 @@ public class JobclientAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobScheduler <em>Job Scheduler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler
+	 * @generated
+	 */
+	public Adapter createJobSchedulerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobScheduled <em>Job Scheduled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled
+	 * @generated
+	 */
+	public Adapter createJobScheduledAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.Engine <em>Engine</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.jobclient.Engine
+	 * @generated
+	 */
+	public Adapter createEngineAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobRemoteResult <em>Job Remote Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -213,34 +256,6 @@ public class JobclientAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJobRemoteResultAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Run <em>Run</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.Run
-	 * @generated
-	 */
-	public Adapter createRunAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Job <em>Job</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.Job
-	 * @generated
-	 */
-	public Adapter createJobAdapter() {
 		return null;
 	}
 

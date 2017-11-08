@@ -14,11 +14,14 @@ package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.job.JobPackage;
 
+import com.misc.common.moplaf.job.jobclient.Engine;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobEngineInProcess;
 import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
+import com.misc.common.moplaf.job.jobclient.JobScheduled;
+import com.misc.common.moplaf.job.jobclient.JobScheduler;
 import com.misc.common.moplaf.job.jobclient.JobclientFactory;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
@@ -72,6 +75,27 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	private EClass jobEngineInProcessEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jobSchedulerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jobScheduledEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass engineEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,7 +191,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobRemote_HandlingEngine() {
+	public EReference getJobRemote_Result() {
 		return (EReference)jobRemoteEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -176,17 +200,8 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobRemote_Result() {
-		return (EReference)jobRemoteEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getJobRemote_LastProgress() {
-		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -195,7 +210,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobRemote_LastProgressWork() {
-		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -204,7 +219,61 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobRemote_LastProgressTask() {
-		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobRemote_Job() {
+		return (EReference)jobRemoteEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobRemote_Jobremote() {
+		return (EReference)jobRemoteEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobRemote_JobremoteeOpposite() {
+		return (EReference)jobRemoteEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobRemote_Name() {
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobRemote_Progress() {
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobRemote_StartTime() {
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -239,6 +308,15 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getJobRemote__Run__SubmittedJob() {
+		return jobRemoteEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJobEngineProxy() {
 		return jobEngineProxyEClass;
 	}
@@ -248,17 +326,8 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobEngineProxy_SubmittedJobs() {
-		return (EReference)jobEngineProxyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getJobEngineProxy_Name() {
-		return (EAttribute)jobEngineProxyEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)jobEngineProxyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -419,6 +488,168 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJobScheduler() {
+		return jobSchedulerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobScheduler_Jobs() {
+		return (EReference)jobSchedulerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobScheduler_Jobschedueled() {
+		return (EReference)jobSchedulerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobScheduler_Engine() {
+		return (EReference)jobSchedulerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobScheduler_StartFeedback() {
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobScheduler_StopFeedback() {
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobScheduler_Started() {
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobScheduler_NbOfEngines() {
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobScheduler_NbOfJobs() {
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJobScheduler__Start() {
+		return jobSchedulerEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJobScheduler__Stop() {
+		return jobSchedulerEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getJobScheduled() {
+		return jobScheduledEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobScheduled_Job() {
+		return (EReference)jobScheduledEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobScheduled_ScheduledOn() {
+		return (EReference)jobScheduledEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJobScheduled__Kill() {
+		return jobScheduledEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEngine() {
+		return engineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEngine_Jobschedueled() {
+		return (EReference)engineEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEngine_Name() {
+		return (EAttribute)engineEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJobRemoteResult() {
 		return jobRemoteResultEClass;
 	}
@@ -453,17 +684,22 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		// Create classes and their features
 		jobRemoteEClass = createEClass(JOB_REMOTE);
 		createEAttribute(jobRemoteEClass, JOB_REMOTE__SUBMISSION_ID);
-		createEReference(jobRemoteEClass, JOB_REMOTE__HANDLING_ENGINE);
 		createEReference(jobRemoteEClass, JOB_REMOTE__RESULT);
 		createEAttribute(jobRemoteEClass, JOB_REMOTE__LAST_PROGRESS);
 		createEAttribute(jobRemoteEClass, JOB_REMOTE__LAST_PROGRESS_WORK);
 		createEAttribute(jobRemoteEClass, JOB_REMOTE__LAST_PROGRESS_TASK);
+		createEReference(jobRemoteEClass, JOB_REMOTE__JOB);
+		createEReference(jobRemoteEClass, JOB_REMOTE__JOBREMOTE);
+		createEReference(jobRemoteEClass, JOB_REMOTE__JOBREMOTEE_OPPOSITE);
+		createEAttribute(jobRemoteEClass, JOB_REMOTE__NAME);
+		createEAttribute(jobRemoteEClass, JOB_REMOTE__PROGRESS);
+		createEAttribute(jobRemoteEClass, JOB_REMOTE__START_TIME);
 		createEOperation(jobRemoteEClass, JOB_REMOTE___ON_PROGRESS__PROGRESSFEEDBACK);
 		createEOperation(jobRemoteEClass, JOB_REMOTE___ON_RETURN__RETURNFEEDBACK);
 		createEOperation(jobRemoteEClass, JOB_REMOTE___REFRESH_PROGRESS);
+		createEOperation(jobRemoteEClass, JOB_REMOTE___RUN__SUBMITTEDJOB);
 
 		jobEngineProxyEClass = createEClass(JOB_ENGINE_PROXY);
-		createEReference(jobEngineProxyEClass, JOB_ENGINE_PROXY__SUBMITTED_JOBS);
 		createEAttribute(jobEngineProxyEClass, JOB_ENGINE_PROXY__NAME);
 		createEOperation(jobEngineProxyEClass, JOB_ENGINE_PROXY___SUBMIT_JOB__JOBREMOTE);
 		createEOperation(jobEngineProxyEClass, JOB_ENGINE_PROXY___GET_JOB__INT);
@@ -487,6 +723,27 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 
 		jobEngineInProcessEClass = createEClass(JOB_ENGINE_IN_PROCESS);
 		createEAttribute(jobEngineInProcessEClass, JOB_ENGINE_IN_PROCESS__ASYNCHRONOUS);
+
+		jobSchedulerEClass = createEClass(JOB_SCHEDULER);
+		createEReference(jobSchedulerEClass, JOB_SCHEDULER__JOBS);
+		createEReference(jobSchedulerEClass, JOB_SCHEDULER__JOBSCHEDUELED);
+		createEReference(jobSchedulerEClass, JOB_SCHEDULER__ENGINE);
+		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__START_FEEDBACK);
+		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__STOP_FEEDBACK);
+		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__STARTED);
+		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__NB_OF_ENGINES);
+		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__NB_OF_JOBS);
+		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___START);
+		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___STOP);
+
+		jobScheduledEClass = createEClass(JOB_SCHEDULED);
+		createEReference(jobScheduledEClass, JOB_SCHEDULED__JOB);
+		createEReference(jobScheduledEClass, JOB_SCHEDULED__SCHEDULED_ON);
+		createEOperation(jobScheduledEClass, JOB_SCHEDULED___KILL);
+
+		engineEClass = createEClass(ENGINE);
+		createEReference(engineEClass, ENGINE__JOBSCHEDUELED);
+		createEAttribute(engineEClass, ENGINE__NAME);
 	}
 
 	/**
@@ -520,17 +777,21 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		jobRemoteEClass.getESuperTypes().add(theJobPackage.getJob());
 		jobEngineInProcessEClass.getESuperTypes().add(this.getJobEngineProxy());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobRemoteEClass, JobRemote.class, "JobRemote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobRemote_SubmissionID(), ecorePackage.getEInt(), "SubmissionID", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJobRemote_HandlingEngine(), this.getJobEngineProxy(), this.getJobEngineProxy_SubmittedJobs(), "HandlingEngine", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobRemote_Result(), this.getJobRemoteResult(), null, "Result", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobRemote_LastProgress(), ecorePackage.getEDate(), "LastProgress", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobRemote_LastProgressWork(), ecorePackage.getEFloat(), "LastProgressWork", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobRemote_LastProgressTask(), ecorePackage.getEString(), "LastProgressTask", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobRemote_Job(), theJobPackage.getJob(), null, "job", null, 0, -1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobRemote_Jobremote(), this.getJobRemote(), this.getJobRemote_JobremoteeOpposite(), "jobremote", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobRemote_JobremoteeOpposite(), this.getJobRemote(), this.getJobRemote_Jobremote(), "jobremoteeOpposite", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobRemote_Name(), ecorePackage.getEString(), "Name", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobRemote_Progress(), theJobPackage.getProgressFeedback(), "Progress", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobRemote_StartTime(), ecorePackage.getEDate(), "StartTime", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getJobRemote__OnProgress__ProgressFeedback(), null, "onProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theJobPackage.getProgressFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -540,8 +801,10 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 
 		initEOperation(getJobRemote__RefreshProgress(), null, "refreshProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getJobRemote__Run__SubmittedJob(), theJobPackage.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSubmittedJob(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(jobEngineProxyEClass, JobEngineProxy.class, "JobEngineProxy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJobEngineProxy_SubmittedJobs(), this.getJobRemote(), this.getJobRemote_HandlingEngine(), "SubmittedJobs", null, 0, -1, JobEngineProxy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngineProxy_Name(), ecorePackage.getEString(), "Name", null, 0, 1, JobEngineProxy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getJobEngineProxy__SubmitJob__JobRemote(), ecorePackage.getEInt(), "submitJob", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -574,6 +837,30 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 
 		initEClass(jobEngineInProcessEClass, JobEngineInProcess.class, "JobEngineInProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobEngineInProcess_Asynchronous(), ecorePackage.getEBoolean(), "Asynchronous", null, 0, 1, JobEngineInProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(jobSchedulerEClass, JobScheduler.class, "JobScheduler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJobScheduler_Jobs(), this.getJobRemote(), null, "Jobs", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduler_Jobschedueled(), this.getJobScheduled(), null, "jobschedueled", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduler_Engine(), this.getEngine(), null, "engine", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduler_StartFeedback(), theJobPackage.getEnabledFeedback(), "StartFeedback", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduler_StopFeedback(), theJobPackage.getEnabledFeedback(), "StopFeedback", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduler_Started(), ecorePackage.getEBoolean(), "Started", "false", 0, 1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduler_NbOfEngines(), ecorePackage.getEInt(), "nbOfEngines", null, 0, 1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduler_NbOfJobs(), ecorePackage.getEInt(), "nbOfJobs", null, 0, 1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getJobScheduler__Start(), null, "start", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getJobScheduler__Stop(), null, "stop", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(jobScheduledEClass, JobScheduled.class, "JobScheduled", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJobScheduled_Job(), theJobPackage.getJob(), null, "job", null, 1, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduled_ScheduledOn(), this.getEngine(), this.getEngine_Jobschedueled(), "ScheduledOn", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getJobScheduled__Kill(), null, "kill", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(engineEClass, Engine.class, "Engine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEngine_Jobschedueled(), this.getJobScheduled(), this.getJobScheduled_ScheduledOn(), "jobschedueled", null, 0, 1, Engine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEngine_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Engine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

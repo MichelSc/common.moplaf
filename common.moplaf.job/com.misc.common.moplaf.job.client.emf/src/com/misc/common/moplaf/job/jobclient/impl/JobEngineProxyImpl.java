@@ -18,22 +18,12 @@ import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,23 +33,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl#getSubmittedJobs <em>Submitted Jobs</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container implements JobEngineProxy {
-	/**
-	 * The cached value of the '{@link #getSubmittedJobs() <em>Submitted Jobs</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubmittedJobs()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<JobRemote> submittedJobs;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -104,18 +83,6 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<JobRemote> getSubmittedJobs() {
-		if (submittedJobs == null) {
-			submittedJobs = new EObjectWithInverseResolvingEList<JobRemote>(JobRemote.class, this, JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS, JobclientPackage.JOB_REMOTE__HANDLING_ENGINE);
-		}
-		return submittedJobs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -131,11 +98,22 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_ENGINE_PROXY__NAME, oldName, name));
 	}
+	/*
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 *//*BART
+	public int submitJob(JobRemote job) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
+	 *//*BART
 	public int submitJob(JobRemote job) {
 		// create a new submission id
 		int newId = 0;
@@ -186,40 +164,9 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubmittedJobs()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS:
-				return ((InternalEList<?>)getSubmittedJobs()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS:
-				return getSubmittedJobs();
 			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
 				return getName();
 		}
@@ -235,10 +182,6 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS:
-				getSubmittedJobs().clear();
-				getSubmittedJobs().addAll((Collection<? extends JobRemote>)newValue);
-				return;
 			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
 				setName((String)newValue);
 				return;
@@ -254,9 +197,6 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS:
-				getSubmittedJobs().clear();
-				return;
 			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -272,8 +212,6 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS:
-				return submittedJobs != null && !submittedJobs.isEmpty();
 			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

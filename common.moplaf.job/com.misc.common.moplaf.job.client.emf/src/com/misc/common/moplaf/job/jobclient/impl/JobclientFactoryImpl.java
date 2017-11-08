@@ -70,6 +70,9 @@ public class JobclientFactoryImpl extends EFactoryImpl implements JobclientFacto
 			case JobclientPackage.JOB_REMOTE_RESULT: return createJobRemoteResult();
 			case JobclientPackage.SUBMITTED_JOB: return createSubmittedJob();
 			case JobclientPackage.JOB_ENGINE_IN_PROCESS: return createJobEngineInProcess();
+			case JobclientPackage.JOB_SCHEDULER: return createJobScheduler();
+			case JobclientPackage.JOB_SCHEDULED: return createJobScheduled();
+			case JobclientPackage.ENGINE: return createEngine();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +116,36 @@ public class JobclientFactoryImpl extends EFactoryImpl implements JobclientFacto
 	public JobEngineInProcess createJobEngineInProcess() {
 		JobEngineInProcessImpl jobEngineInProcess = new JobEngineInProcessImpl();
 		return jobEngineInProcess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobScheduler createJobScheduler() {
+		JobSchedulerImpl jobScheduler = new JobSchedulerImpl();
+		return jobScheduler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobScheduled createJobScheduled() {
+		JobScheduledImpl jobScheduled = new JobScheduledImpl();
+		return jobScheduled;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Engine createEngine() {
+		EngineImpl engine = new EngineImpl();
+		return engine;
 	}
 
 	/**
