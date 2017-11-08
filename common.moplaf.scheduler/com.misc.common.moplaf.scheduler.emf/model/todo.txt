@@ -1,0 +1,34 @@
+Rework association Resource ScheduledTask
+  - side Task.ScheduledResource
+      set by procedural logic
+  - side Resource.ScheduledTasks
+      derived
+      sorted
+ This way ne do not need to refresh it.
+ 
+ Are there dependencies on the Resource.ScheduledTasks?
+   like number of tasks scheduled.
+   typically, resource expressions will depend on tasks expressions
+   
+ Number of tasks scheduled can be maintained.
+ 
+ Do I need the relation Resource.ScheduledTasks? No. 
+ 
+ Implement listening to candidate changes
+   - Task.ScheduledTask
+   - Task.Next, Previous
+   - Expression.CandidateValue
+   - Task.ResourceAsFirst, AsLast
+   
+   Value depends on candidate
+     so listen on candidate changes
+     refresh value ok
+     inbound binding is candidate
+     outbound binding is value
+     logic is: value = candidate (if candidate modified, value touched)
+     reverse logic: candidate = value: reset logic (if candidate modified, value touched)
+   
+ Implement refresher 
+   Candidate = Value
+   Value = candidate
+  

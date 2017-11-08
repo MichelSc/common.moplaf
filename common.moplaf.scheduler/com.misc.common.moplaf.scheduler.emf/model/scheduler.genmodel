@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.scheduler.emf/src" modelPluginID="com.misc.common.moplaf.scheduler.emf"
+    modelName="Scheduler" modelPluginClass="com.misc.common.moplaf.scheduler.Plugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch ../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>scheduler.ecore</foreignModel>
+  <genPackages prefix="Scheduler" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="scheduler.ecore#/">
+    <genClasses image="false" ecoreClass="scheduler.ecore#//Scheduler">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Scheduler/Schedules"/>
+      <genOperations ecoreOperation="scheduler.ecore#//Scheduler/constructScore"/>
+      <genOperations ecoreOperation="scheduler.ecore#//Scheduler/generateTasks">
+        <genParameters ecoreParameter="scheduler.ecore#//Scheduler/generateTasks/schedule"/>
+      </genOperations>
+      <genOperations ecoreOperation="scheduler.ecore#//Scheduler/generateResources">
+        <genParameters ecoreParameter="scheduler.ecore#//Scheduler/generateResources/schedule"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//Schedule">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Tasks"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Resources"/>
+      <genFeatures createChild="false" propertyCategory="10 Scheduler" ecoreFeature="ecore:EAttribute scheduler.ecore#//Schedule/NrScheduledTasks"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Scheduler"/>
+      <genOperations ecoreOperation="scheduler.ecore#//Schedule/initialize"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//Resource">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Resource/Schedule"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Scheduler"
+          ecoreFeature="ecore:EAttribute scheduler.ecore#//Resource/Description"/>
+      <genFeatures property="Readonly" children="true" createChild="false" propertyCategory="20 Schedule"
+          propertyDescription="" ecoreFeature="ecore:EReference scheduler.ecore#//Resource/ScheduledTasks"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Scheduler"
+          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Resource/FirstTask"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Scheduler"
+          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Resource/LastTask"/>
+      <genFeatures createChild="false" propertyCategory="10 Scheduler" ecoreFeature="ecore:EAttribute scheduler.ecore#//Resource/NrScheduledTasks"/>
+      <genFeatures createChild="false" propertyCategory="10 Scheduler" ecoreFeature="ecore:EAttribute scheduler.ecore#//Resource/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="scheduler.ecore#//Task">
+      <genFeatures notify="false" createChild="false" propertyCategory="10 Scheduler"
+          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Task/NextTask"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 Scheduler"
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Task/PreviousTask"/>
+      <genFeatures createChild="false" propertyCategory="10 Scheduler" propertySortChoices="true"
+          ecoreFeature="ecore:EReference scheduler.ecore#//Task/ScheduledResource"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Scheduler"
+          ecoreFeature="ecore:EAttribute scheduler.ecore#//Task/Description"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Task/Schedule"/>
+      <genFeatures createChild="false" propertyCategory="10 Scheduler" ecoreFeature="ecore:EAttribute scheduler.ecore#//Task/Name"/>
+      <genOperations ecoreOperation="scheduler.ecore#//Task/schedule">
+        <genParameters ecoreParameter="scheduler.ecore#//Task/schedule/resource"/>
+        <genParameters ecoreParameter="scheduler.ecore#//Task/schedule/previous"/>
+        <genParameters ecoreParameter="scheduler.ecore#//Task/schedule/next"/>
+      </genOperations>
+      <genOperations ecoreOperation="scheduler.ecore#//Task/unschedule"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//MoveSchedule" labelFeature="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch/Move/Description">
+      <genFeatures createChild="false" propertyCategory="20 Scheduler" propertySortChoices="true"
+          ecoreFeature="ecore:EReference scheduler.ecore#//MoveSchedule/TaskToSchedule"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//MoveTask" labelFeature="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch/Move/Description">
+      <genFeatures createChild="false" propertyCategory="20 Scheduler" propertySortChoices="true"
+          ecoreFeature="ecore:EReference scheduler.ecore#//MoveTask/InsertionPoint"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Scheduler"
+          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//MoveTask/Resource"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//ScheduleAfter" labelFeature="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch/Move/Description"/>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//ScheduleBefore"/>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//Unschedule" labelFeature="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch/Move/Description"/>
+  </genPackages>
+</genmodel:GenModel>
