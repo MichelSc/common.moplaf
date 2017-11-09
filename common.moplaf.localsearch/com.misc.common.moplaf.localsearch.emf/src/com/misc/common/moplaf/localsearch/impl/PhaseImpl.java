@@ -4,7 +4,6 @@ package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
-import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
@@ -24,7 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -52,7 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class PhaseImpl extends SolutionChangeImpl implements Phase {
+public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements Phase {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -253,21 +252,6 @@ public abstract class PhaseImpl extends SolutionChangeImpl implements Phase {
 	}
 
 
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSubChanges()
-	 */
-	@Override
-	public EList<SolutionChange> getSubChanges() {
-		// TODO Auto-generated method stub
-		EList<SolutionChange> list = super.getSubChanges();
-		for ( Step step: this.getSteps()) {
-			list.add(step);
-		}
-		return list;
-	}
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,7 +282,7 @@ public abstract class PhaseImpl extends SolutionChangeImpl implements Phase {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.PHASE__NAME, oldName, name));
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -12,6 +12,7 @@ import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
+import com.misc.common.moplaf.localsearch.StrategyLevel;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -374,7 +375,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					              ? 1.0d / nof_solutions
 					              : (1-cumulated_chance)*chanceFirst;
 			cumulated_chance += current_chance;
-			boolean selected = cumulated_chance/total_chance>threshold;
+//			boolean selected = cumulated_chance/total_chance>threshold;
 //			message = String.format("..solution=%d, chance=%f, cumulated=%f/%f, selected=%b",
 //					current_solution.getSolutionNr(),
 //					current_chance, 
@@ -421,13 +422,16 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			long elapsed_millis = 0;
 			do {
 				// select a solution to improve
-				Solution solution = this.selectGoodSolution().clone();
+				Solution start_solution = this.selectGoodSolution();
+				Solution solution = start_solution.clone();
+				
+				// step
 				Step step = LocalSearchFactory.eINSTANCE.createStep();
-				phase.getSteps().add(step);
-				phase.setCurrentSolution(solution);
 				
 				// all the work is here
+				step.setCurrentSolution(solution);
 				phase.doStep(step);
+				step.setCurrentSolution(null);
 				
 				// maintain the list of solutions, insert the solution after the next best
 				ListIterator<Solution> iterator = this.getSolutions().listIterator();
@@ -457,11 +461,29 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				Plugin.INSTANCE.logInfo(message3);
 				this.setProgress(message3, ++iterations_total);
 				
+				// keep or not keep
+				StrategyLevel keep_level = phase.getKeepLevel();
+				if ( keep_level.getValue()>=StrategyLevel.LEVEL_STEP_VALUE ) {
+					// keep the step
+					phase.getSteps().add(step);
+					if ( keep_level == StrategyLevel.LEVEL_STEP) {
+						// start solution
+						Solution start_solution_kept = start_solution.clone();
+						start_solution_kept.setAncestor(null);
+						step.setStartSolutionOwned(start_solution_kept); // owning
+						// end solution
+						Solution end_solution_kept = solution.clone();
+						step.setEndSolutionOwned(end_solution_kept);
+						end_solution_kept.setAncestor(start_solution); // owning
+					}
+				} 
+				
 				// prune the solution pool
 				this.prune();
 
-			} while ( !finished);
+			} while ( !finished); // loop on the steps
 			
+			// the phase is done
 			phase.setPhaseStart(start);
 			phase.setPhaseEnd(now);
 			phase.setDurationTotal(elapsed_millis/1000);

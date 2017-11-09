@@ -11,6 +11,8 @@ import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.Step;
+import com.misc.common.moplaf.localsearch.StrategyLevel;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -164,6 +166,11 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		return previous_step.getActions().get(nof_actions-1);
 	}
 
+
+	@Override
+	public StrategyLevel getLevel() {
+		return StrategyLevel.LEVEL_ACTION;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -118,7 +118,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectWorstChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Phase" abstract="true" eSuperTypes="#//SolutionChange">
+  <eClassifiers xsi:type="ecore:EClass" name="Phase" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possibly better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xD;&#xA;An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution.&#xA;The framework will iterate on the improvments. The iterations will limited by a max number of iterations and and maximum duration."/>
     </eAnnotations>
@@ -141,6 +141,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
   <eClassifiers xsi:type="ecore:EClass" name="Step" eSuperTypes="#//SolutionChange">
+    <eOperations name="doAction">
+      <eParameters name="action" eType="#//Action"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
         eType="#//Action" eOpposite="#//Action/Step"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StepNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -169,7 +172,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StrategyLevel">
     <eLiterals name="LevelNone"/>
-    <eLiterals name="LevelPhase" value="1" literal="KeepSolutions"/>
+    <eLiterals name="LevelPhase" value="1" literal="LevelPhase"/>
     <eLiterals name="LevelStep" value="2"/>
     <eLiterals name="LevelAction" value="3"/>
   </eClassifiers>

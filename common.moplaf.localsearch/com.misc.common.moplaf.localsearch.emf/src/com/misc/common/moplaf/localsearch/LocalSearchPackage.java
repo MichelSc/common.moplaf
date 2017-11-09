@@ -1014,94 +1014,13 @@ public interface LocalSearchPackage extends EPackage {
 	int PHASE = 5;
 
 	/**
-	 * The feature id for the '<em><b>End Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__END_SOLUTION_OWNED = SOLUTION_CHANGE__END_SOLUTION_OWNED;
-
-	/**
-	 * The feature id for the '<em><b>Start Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__START_SOLUTION = SOLUTION_CHANGE__START_SOLUTION;
-
-	/**
-	 * The feature id for the '<em><b>End Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
-
-	/**
-	 * The feature id for the '<em><b>Start Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__START_SOLUTION_OWNED = SOLUTION_CHANGE__START_SOLUTION_OWNED;
-
-	/**
-	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__PREVIOUS_CHANGE = SOLUTION_CHANGE__PREVIOUS_CHANGE;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__LEVEL = SOLUTION_CHANGE__LEVEL;
-
-	/**
-	 * The feature id for the '<em><b>Solutions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__SOLUTIONS = SOLUTION_CHANGE__SOLUTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Sub Changes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__SUB_CHANGES = SOLUTION_CHANGE__SUB_CHANGES;
-
-	/**
-	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHASE__CURRENT_SOLUTION = SOLUTION_CHANGE__CURRENT_SOLUTION;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__NAME = SOLUTION_CHANGE_FEATURE_COUNT + 0;
+	int PHASE__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Keep Level</b></em>' attribute.
@@ -1110,7 +1029,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__KEEP_LEVEL = SOLUTION_CHANGE_FEATURE_COUNT + 1;
+	int PHASE__KEEP_LEVEL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Max Steps</b></em>' attribute.
@@ -1119,7 +1038,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__MAX_STEPS = SOLUTION_CHANGE_FEATURE_COUNT + 2;
+	int PHASE__MAX_STEPS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Max Seconds</b></em>' attribute.
@@ -1128,7 +1047,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__MAX_SECONDS = SOLUTION_CHANGE_FEATURE_COUNT + 3;
+	int PHASE__MAX_SECONDS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Phase Start</b></em>' attribute.
@@ -1137,7 +1056,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__PHASE_START = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+	int PHASE__PHASE_START = 4;
 
 	/**
 	 * The feature id for the '<em><b>Phase End</b></em>' attribute.
@@ -1146,7 +1065,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__PHASE_END = SOLUTION_CHANGE_FEATURE_COUNT + 5;
+	int PHASE__PHASE_END = 5;
 
 	/**
 	 * The feature id for the '<em><b>Nr Steps</b></em>' attribute.
@@ -1155,7 +1074,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__NR_STEPS = SOLUTION_CHANGE_FEATURE_COUNT + 6;
+	int PHASE__NR_STEPS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Duration Total</b></em>' attribute.
@@ -1164,7 +1083,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__DURATION_TOTAL = SOLUTION_CHANGE_FEATURE_COUNT + 7;
+	int PHASE__DURATION_TOTAL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Duration Average</b></em>' attribute.
@@ -1173,7 +1092,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__DURATION_AVERAGE = SOLUTION_CHANGE_FEATURE_COUNT + 8;
+	int PHASE__DURATION_AVERAGE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Strategy</b></em>' container reference.
@@ -1182,7 +1101,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__STRATEGY = SOLUTION_CHANGE_FEATURE_COUNT + 9;
+	int PHASE__STRATEGY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -1191,7 +1110,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE__STEPS = SOLUTION_CHANGE_FEATURE_COUNT + 10;
+	int PHASE__STEPS = 10;
 
 	/**
 	 * The number of structural features of the '<em>Phase</em>' class.
@@ -1200,7 +1119,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 11;
+	int PHASE_FEATURE_COUNT = 11;
 
 	/**
 	 * The operation id for the '<em>Do Step</em>' operation.
@@ -1209,7 +1128,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE___DO_STEP__STEP = SOLUTION_CHANGE_OPERATION_COUNT + 0;
+	int PHASE___DO_STEP__STEP = 0;
 
 	/**
 	 * The number of operations of the '<em>Phase</em>' class.
@@ -1218,7 +1137,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 1;
+	int PHASE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StepImpl <em>Step</em>}' class.
@@ -1348,13 +1267,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Do Action</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP___DO_ACTION__ACTION = SOLUTION_CHANGE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 0;
+	int STEP_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.StrategyLevel <em>Strategy Level</em>}' enum.
@@ -2115,6 +2043,16 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getStep_Phase();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Step#doAction(com.misc.common.moplaf.localsearch.Action) <em>Do Action</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Action</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Step#doAction(com.misc.common.moplaf.localsearch.Action)
+	 * @generated
+	 */
+	EOperation getStep__DoAction__Action();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.SolutionChange <em>Solution Change</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2833,6 +2771,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STEP__PHASE = eINSTANCE.getStep_Phase();
+
+		/**
+		 * The meta object literal for the '<em><b>Do Action</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STEP___DO_ACTION__ACTION = eINSTANCE.getStep__DoAction__Action();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl <em>Solution Change</em>}' class.
