@@ -3,14 +3,16 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.DoCommand;
 import com.misc.common.moplaf.emf.edit.command.FinalizeCommand;
 import com.misc.common.moplaf.emf.edit.command.InitializeCommand;
 import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-
+import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -383,6 +385,25 @@ public class ActionItemProvider
 
 
 	/**
+	 *
+	 */
+	public class ActionDoCommand extends DoCommand{
+		private Action action;
+		
+		public ActionDoCommand(Action anAction)	{
+			super();
+			this.action= anAction;
+		}
+
+		@Override
+		public void execute() {
+			Step step = this.action.getStep();
+			step.doAction(this.action);
+		}
+	} // class ActionDoCommand
+
+
+	/**
 	 * 
 	 */
 	@Override
@@ -397,7 +418,9 @@ public class ActionItemProvider
 			return new ActionRunCommand((Action) object); 
 		} else if ( commandClass == ResetCommand.class){
 			return new ActionResetCommand((Action) object); 
-		}
+		} if ( commandClass == DoCommand.class){
+			return new ActionDoCommand((Action) object); 
+		} 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 

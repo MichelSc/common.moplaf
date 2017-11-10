@@ -280,13 +280,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION_CHANGE__CURRENT_SOLUTION = 8;
 
 	/**
+	 * The feature id for the '<em><b>Keep Solutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__KEEP_SOLUTIONS = 9;
+
+	/**
 	 * The number of structural features of the '<em>Solution Change</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_CHANGE_FEATURE_COUNT = 9;
+	int SOLUTION_CHANGE_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Solution Change</em>' class.
@@ -387,6 +396,15 @@ public interface LocalSearchPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__CURRENT_SOLUTION = SOLUTION_CHANGE__CURRENT_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Keep Solutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__KEEP_SOLUTIONS = SOLUTION_CHANGE__KEEP_SOLUTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Root Moves</b></em>' containment reference list.
@@ -1229,6 +1247,15 @@ public interface LocalSearchPackage extends EPackage {
 	 * @ordered
 	 */
 	int STEP__CURRENT_SOLUTION = SOLUTION_CHANGE__CURRENT_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Keep Solutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP__KEEP_SOLUTIONS = SOLUTION_CHANGE__KEEP_SOLUTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Actions</b></em>' reference list.
@@ -2162,6 +2189,17 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolutionChange_CurrentSolution();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.SolutionChange#isKeepSolutions <em>Keep Solutions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Keep Solutions</em>'.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#isKeepSolutions()
+	 * @see #getSolutionChange()
+	 * @generated
+	 */
+	EAttribute getSolutionChange_KeepSolutions();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.localsearch.StrategyLevel <em>Strategy Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2861,6 +2899,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SOLUTION_CHANGE__CURRENT_SOLUTION = eINSTANCE.getSolutionChange_CurrentSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Keep Solutions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION_CHANGE__KEEP_SOLUTIONS = eINSTANCE.getSolutionChange_KeepSolutions();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.StrategyLevel <em>Strategy Level</em>}' enum.

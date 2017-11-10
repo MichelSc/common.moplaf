@@ -99,23 +99,28 @@
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/sortSolutions"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Phase">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/KeepLevel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSteps"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSeconds"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseStart"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseEnd"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/NrSteps"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationTotal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationAverage"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/Name"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/KeepLevel"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSteps"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSeconds"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseStart"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseEnd"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/NrSteps"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationTotal"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationAverage"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Phase/Strategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Phase/Steps"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Phase/doStep"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Phase/doStep">
+        <genParameters ecoreParameter="localsearch.ecore#//Phase/doStep/step"/>
+      </genOperations>
     </genClasses>
-    <genClasses ecoreClass="localsearch.ecore#//Step">
+    <genClasses ecoreClass="localsearch.ecore#//Step" labelFeature="#//localsearch/Step/StepNr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Step/Actions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/StepNr"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Step/Phase"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Step/doAction">
+        <genParameters ecoreParameter="localsearch.ecore#//Step/doAction/action"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="localsearch.ecore#//SolutionChange">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/EndSolutionOwned"/>

@@ -85,7 +85,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -107,7 +107,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -129,7 +129,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -151,7 +151,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -173,7 +173,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -195,7 +195,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -217,7 +217,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -239,7 +239,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -261,7 +261,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -377,5 +377,5 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 	public ResourceLocator getResourceLocator() {
 		return LocalsearchEditPlugin.INSTANCE;
 	}
-
+	
 }

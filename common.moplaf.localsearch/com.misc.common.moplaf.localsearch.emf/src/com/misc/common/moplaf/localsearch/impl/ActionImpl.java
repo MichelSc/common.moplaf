@@ -172,6 +172,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		return StrategyLevel.LEVEL_ACTION;
 	}
 
+	@Override
+	public boolean isKeepSolutions() {
+		return this.getStep().getPhase().getKeepLevel()==this.getLevel();
+	}
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

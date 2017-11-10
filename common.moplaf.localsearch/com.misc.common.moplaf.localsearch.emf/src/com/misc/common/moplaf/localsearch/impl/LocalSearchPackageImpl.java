@@ -894,6 +894,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSolutionChange_KeepSolutions() {
+		return (EAttribute)solutionChangeEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getStrategyLevel() {
 		return strategyLevelEEnum;
 	}
@@ -1022,6 +1031,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__SOLUTIONS);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__SUB_CHANGES);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__CURRENT_SOLUTION);
+		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__KEEP_SOLUTIONS);
 
 		// Create enums
 		strategyLevelEEnum = createEEnum(STRATEGY_LEVEL);
@@ -1176,6 +1186,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getSolutionChange_Solutions(), this.getSolution(), null, "Solutions", null, 0, -1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_SubChanges(), this.getSolutionChange(), null, "SubChanges", null, 0, -1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_CurrentSolution(), this.getSolution(), null, "CurrentSolution", null, 0, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolutionChange_KeepSolutions(), ecorePackage.getEBoolean(), "KeepSolutions", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(strategyLevelEEnum, StrategyLevel.class, "StrategyLevel");

@@ -416,7 +416,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			this.setProgress(message1, ++iterations_total);
 			
 			Date start = new Date();
-			Date now = null;
+			Date end = null;
 			int nr_iterations = 0;
 			boolean finished = false;
 			long elapsed_millis = 0;
@@ -446,8 +446,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				
 				// loop control
 				nr_iterations++;
-				now = new Date();
-				elapsed_millis = now.getTime()-start.getTime();
+				end = new Date();
+				elapsed_millis = end.getTime()-start.getTime();
 				finished = nr_iterations>phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
 				
 				// feedback
@@ -485,7 +485,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			
 			// the phase is done
 			phase.setPhaseStart(start);
-			phase.setPhaseEnd(now);
+			phase.setPhaseEnd(end);
 			phase.setDurationTotal(elapsed_millis/1000);
 			phase.setDurationAverage(elapsed_millis/1000/nr_iterations);
 			phase.setNrSteps(nr_iterations);

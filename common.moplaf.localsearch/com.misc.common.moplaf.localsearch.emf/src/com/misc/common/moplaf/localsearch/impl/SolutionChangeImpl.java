@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSolutions <em>Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSubChanges <em>Sub Changes</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getCurrentSolution <em>Current Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#isKeepSolutions <em>Keep Solutions</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +81,16 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected Solution currentSolution;
+
+	/**
+	 * The default value of the '{@link #isKeepSolutions() <em>Keep Solutions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isKeepSolutions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean KEEP_SOLUTIONS_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,13 +167,26 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Solution basicGetStartSolution() {
-		// TODO: implement this method to return the 'Start Solution' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( this.isKeepSolutions() ) {
+			if ( this.getStartSolutionOwned()!=null) {
+				return this.getStartSolutionOwned();
+			} else {
+				SolutionChange previous = this.getPreviousChange();
+				if( previous!=null) {
+					return previous.getEndSolution();
+				} else {
+					return null;
+				}
+			}
+		} else {
+			if ( this.getSubChanges().size()>0 ){
+				return this.getSubChanges().get(0).getStartSolution();
+			} else {
+				return null;
+			}
+		}
 	}
 
 	/**
@@ -178,13 +202,22 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Solution basicGetEndSolution() {
-		// TODO: implement this method to return the 'End Solution' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( this.isKeepSolutions() ) {
+			if ( this.getEndSolutionOwned()!=null) {
+				return this.getStartSolutionOwned();
+			} else {
+				return null;
+			}
+		} else {
+			int subchanges = this.getSubChanges().size();
+			if ( subchanges>0 ){
+				return this.getSubChanges().get(subchanges-1).getEndSolution();
+			} else {
+				return null;
+			}
+		}
 	}
 
 	/**
@@ -327,6 +360,17 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isKeepSolutions() {
+		// TODO: implement this method to return the 'Keep Solutions' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -368,6 +412,8 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 			case LocalSearchPackage.SOLUTION_CHANGE__CURRENT_SOLUTION:
 				if (resolve) return getCurrentSolution();
 				return basicGetCurrentSolution();
+			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
+				return isKeepSolutions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -440,6 +486,8 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 				return !getSubChanges().isEmpty();
 			case LocalSearchPackage.SOLUTION_CHANGE__CURRENT_SOLUTION:
 				return currentSolution != null;
+			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
+				return isKeepSolutions() != KEEP_SOLUTIONS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -3,16 +3,19 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.DoCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Step;
-import com.misc.common.moplaf.localsearch.StrategyLevel;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -115,11 +118,8 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		StrategyLevel labelValue = ((Step)object).getLevel();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Step_type") :
-			getString("_UI_Step_type") + " " + label;
+		Step step = (Step)object;
+		return getString("_UI_Step_type") + " " + step.getStepNr();
 	}
 	
 
@@ -153,5 +153,38 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class StepDoCommand extends DoCommand{
+		private Step step;
+		
+		public StepDoCommand(Step aStep)	{
+			super();
+			this.step= aStep;
+		}
+
+		@Override
+		public void execute() {
+			Phase phase = this.step.getPhase();
+			phase.doStep(step);
+		}
+	} // class StepDoCommand
+
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == DoCommand.class){
+			return new StepDoCommand((Step) object); 
+		} 
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 }

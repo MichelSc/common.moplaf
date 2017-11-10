@@ -107,6 +107,11 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	public StrategyLevel getLevel() {
 		return StrategyLevel.LEVEL_STEP;
 	}
+	
+	@Override
+	public boolean isKeepSolutions() {
+		return this.getPhase().getKeepLevel()==this.getLevel();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,6 +216,7 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 		boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_ACTION_VALUE;
 		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
 		
+		// keep
 		Solution start_kept_solution = null;
 		if ( keep_solutions && this.getPreviousChange()==null) {
 			// start solution
@@ -225,6 +231,7 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 		action.finalize();
 		action.setCurrentSolution(null);
 		
+		// keep
 		if( keep_action ) {
 			this.getActions().add(action); // owning
 			action.setActionNr(this.getActions().size());

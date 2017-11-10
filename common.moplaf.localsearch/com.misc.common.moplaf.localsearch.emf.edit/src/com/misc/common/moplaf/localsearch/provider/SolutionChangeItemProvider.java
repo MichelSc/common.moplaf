@@ -70,6 +70,7 @@ public class SolutionChangeItemProvider
 			addSolutionsPropertyDescriptor(object);
 			addSubChangesPropertyDescriptor(object);
 			addCurrentSolutionPropertyDescriptor(object);
+			addKeepSolutionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -229,6 +230,28 @@ public class SolutionChangeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Keep Solutions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeepSolutionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionChange_KeepSolutions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_KeepSolutions_feature", "_UI_SolutionChange_type"),
+				 LocalSearchPackage.Literals.SOLUTION_CHANGE__KEEP_SOLUTIONS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -288,6 +311,7 @@ public class SolutionChangeItemProvider
 
 		switch (notification.getFeatureID(SolutionChange.class)) {
 			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
+			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:

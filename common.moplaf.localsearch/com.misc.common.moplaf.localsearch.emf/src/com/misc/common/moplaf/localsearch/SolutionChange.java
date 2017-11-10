@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getSolutions <em>Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getSubChanges <em>Sub Changes</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution <em>Current Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#isKeepSolutions <em>Keep Solutions</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange()
@@ -202,5 +203,20 @@ public interface SolutionChange extends EObject {
 	 * @generated
 	 */
 	void setCurrentSolution(Solution value);
+
+	/**
+	 * Returns the value of the '<em><b>Keep Solutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Keep Solutions</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Keep Solutions</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange_KeepSolutions()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isKeepSolutions();
 
 } // SolutionChange
