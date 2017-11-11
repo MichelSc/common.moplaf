@@ -58,6 +58,7 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 			addSolutionNrPropertyDescriptor(object);
 			addAncestorPropertyDescriptor(object);
 			addDescendantsPropertyDescriptor(object);
+			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -129,6 +130,28 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 	}
 
 	/**
+	 * This adds a property descriptor for the Step feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStepPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solution_Step_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_Step_feature", "_UI_Solution_type"),
+				 LocalSearchPackage.Literals.SOLUTION__STEP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10SolutionPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -194,6 +217,7 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 
 		switch (notification.getFeatureID(Solution.class)) {
 			case LocalSearchPackage.SOLUTION__SOLUTION_NR:
+			case LocalSearchPackage.SOLUTION__STEP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.SOLUTION__SCORE:

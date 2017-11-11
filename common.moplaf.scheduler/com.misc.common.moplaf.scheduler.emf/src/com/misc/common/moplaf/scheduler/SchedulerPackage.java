@@ -333,6 +333,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___SORT_SOLUTIONS = LocalSearchPackage.STRATEGY___SORT_SOLUTIONS;
 
 	/**
+	 * The operation id for the '<em>Make New Solution Nr</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___MAKE_NEW_SOLUTION_NR = LocalSearchPackage.STRATEGY___MAKE_NEW_SOLUTION_NR;
+
+	/**
 	 * The operation id for the '<em>Construct Score</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -431,6 +440,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE__STRATEGY = LocalSearchPackage.SOLUTION__STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__STEP = LocalSearchPackage.SOLUTION__STEP;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.

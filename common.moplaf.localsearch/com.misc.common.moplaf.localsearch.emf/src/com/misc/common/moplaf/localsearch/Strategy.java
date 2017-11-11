@@ -231,4 +231,12 @@ public interface Strategy extends Run {
 	 */
 	void sortSolutions();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	int makeNewSolutionNr();
+
 } // Strategy

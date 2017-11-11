@@ -2,8 +2,10 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
+import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
+import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
@@ -518,6 +520,55 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		Plugin.INSTANCE.logInfo(message2);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void doAction(Step step, Action action) {
+		Phase phase = this;
+		StrategyLevel keep_level = phase.getKeepLevel();
+		boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_ACTION_VALUE;
+		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
+		
+		Solution solution = step.getCurrentSolution();
+		
+		// keep
+		Solution start_kept_solution = null;
+		if ( keep_solutions && step.getActions().isEmpty()) {
+			// start solution
+			start_kept_solution  = solution.clone();
+			start_kept_solution .setAncestor(null);
+		}
+
+		// do the action
+		action.setCurrentSolution(solution);
+		action.initialize();
+		action.run();
+		action.finalize();
+		action.setCurrentSolution(null);
+		
+		// keep
+		if( keep_action ) {
+			Strategy strategy = this.getStrategy();
+			action.setActionNr(step.getActions().size());
+			step.getActions().add(action); // owning
+			if ( keep_solutions ) {
+				// start solution
+				action.setStartSolutionOwned(start_kept_solution);
+				if ( action.getCurrentMove()!=null) {
+					// new solution
+					// end solution
+					Solution start_solution = action.getStartSolution();
+					Solution end_solution_kept = solution.clone();
+					end_solution_kept.setSolutionNr(strategy.makeNewSolutionNr());
+					end_solution_kept.setAncestor(start_solution); // owning
+					action.setEndSolutionOwned(end_solution_kept);
+				}
+			}
+		}
+	}
+
+
 	protected void doStepImpl(Step step) {
 		
 	}
@@ -741,6 +792,9 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		switch (operationID) {
 			case LocalSearchPackage.PHASE___DO_STEP__STEP:
 				doStep((Step)arguments.get(0));
+				return null;
+			case LocalSearchPackage.PHASE___DO_ACTION__STEP_ACTION:
+				doAction((Step)arguments.get(0), (Action)arguments.get(1));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

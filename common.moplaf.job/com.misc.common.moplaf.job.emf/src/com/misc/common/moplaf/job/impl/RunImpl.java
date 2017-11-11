@@ -346,6 +346,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 			this.setReturnFeedback(null);
 			feedback = this.runImpl(runContext);
 		} catch (Exception e){
+			e.printStackTrace();
 			feedback = new ReturnFeedback("RunImpl.run ", e);
 		}
 		this.setReturn(feedback);

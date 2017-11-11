@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getAncestor <em>Ancestor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getDescendants <em>Descendants</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getStep <em>Step</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +89,26 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @ordered
 	 */
 	protected EList<Solution> descendants;
+
+	/**
+	 * The default value of the '{@link #getStep() <em>Step</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStep()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STEP_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStep() <em>Step</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStep()
+	 * @generated
+	 * @ordered
+	 */
+	protected String step = STEP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -271,19 +292,32 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getStep() {
+		return step;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStep(String newStep) {
+		String oldStep = step;
+		step = newStep;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__STEP, oldStep, step));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public Solution clone() {
-		Plugin.INSTANCE.logInfo("Action initialize: called");
-		Strategy strategy = this.getStrategy();
+		Plugin.INSTANCE.logInfo("Solution clone: called");
 		Solution new_solution = this.cloneImpl();
-		// info about the solution
-		if ( strategy!=null) {
-			int new_nr = strategy.getCurrentSolutionNr()+1;
-			strategy.setCurrentSolutionNr(new_nr);
-			new_solution.setSolutionNr(new_nr);
-		}
-		new_solution.setAncestor(this);
-		Plugin.INSTANCE.logInfo("Action initialize: done");
+		Plugin.INSTANCE.logInfo("Solution clone: done");
 		return new_solution;
 	}
 	
@@ -365,6 +399,8 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__STRATEGY:
 				if (resolve) return getStrategy();
 				return basicGetStrategy();
+			case LocalSearchPackage.SOLUTION__STEP:
+				return getStep();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -391,6 +427,9 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				getDescendants().clear();
 				getDescendants().addAll((Collection<? extends Solution>)newValue);
 				return;
+			case LocalSearchPackage.SOLUTION__STEP:
+				setStep((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -415,6 +454,9 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__DESCENDANTS:
 				getDescendants().clear();
 				return;
+			case LocalSearchPackage.SOLUTION__STEP:
+				setStep(STEP_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -437,6 +479,8 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				return descendants != null && !descendants.isEmpty();
 			case LocalSearchPackage.SOLUTION__STRATEGY:
 				return basicGetStrategy() != null;
+			case LocalSearchPackage.SOLUTION__STEP:
+				return STEP_EDEFAULT == null ? step != null : !STEP_EDEFAULT.equals(step);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -470,6 +514,8 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (SolutionNr: ");
 		result.append(solutionNr);
+		result.append(", Step: ");
+		result.append(step);
 		result.append(')');
 		return result.toString();
 	}

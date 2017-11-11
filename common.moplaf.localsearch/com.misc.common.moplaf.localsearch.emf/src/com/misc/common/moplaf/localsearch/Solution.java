@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getAncestor <em>Ancestor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getDescendants <em>Descendants</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getStep <em>Step</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution()
@@ -138,6 +139,32 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	 * @generated
 	 */
 	Strategy getStrategy();
+
+	/**
+	 * Returns the value of the '<em><b>Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Step</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Step</em>' attribute.
+	 * @see #setStep(String)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution_Step()
+	 * @model
+	 * @generated
+	 */
+	String getStep();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Solution#getStep <em>Step</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Step</em>' attribute.
+	 * @see #getStep()
+	 * @generated
+	 */
+	void setStep(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

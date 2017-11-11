@@ -332,4 +332,12 @@ public interface Phase extends EObject {
 	 */
 	void doStep(Step step);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void doAction(Step step, Action action);
+
 } // Phase

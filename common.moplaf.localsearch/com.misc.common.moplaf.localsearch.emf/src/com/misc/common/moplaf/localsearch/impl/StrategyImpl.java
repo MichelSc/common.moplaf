@@ -352,6 +352,16 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		ECollections.sort(list, (sol1, sol2)->sol1.getScore().isBetter(sol2.getScore())? -1 : +1);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int makeNewSolutionNr() {
+		int new_nr = this.getCurrentSolutionNr()+1;
+		this.setCurrentSolutionNr(new_nr);
+		return new_nr;
+	}
+
 	private static Random random = new Random();
 	
 	private Solution select(double chanceFirst, boolean reverse) {
@@ -404,6 +414,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		int iterations_total = 0;
 	
 		for( Phase phase : this.getPhases()) {
+			StrategyLevel keep_level = phase.getKeepLevel();
+			boolean keep_step = keep_level.getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
+			boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_STEP_VALUE;
 			// initialize the improvement
 			phase.setPhaseStart(null);
 			phase.setPhaseEnd(null);
@@ -423,10 +436,26 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			do {
 				// select a solution to improve
 				Solution start_solution = this.selectGoodSolution();
+
+				// makes the solution that will be owned by the step
+				// so the current solution from start to end
+				// current solutions for the steps and the actions
 				Solution solution = start_solution.clone();
+				solution.setSolutionNr(this.makeNewSolutionNr());
+				solution.setStep(String.format("%s:%04d", phase.getName(), nr_iterations));
 				
 				// step
 				Step step = LocalSearchFactory.eINSTANCE.createStep();
+				if ( keep_step ) {
+					phase.getSteps().add(step);
+					step.setStepNr(nr_iterations);
+				}
+				if ( keep_solutions) {
+					// start solution
+					Solution start_solution_kept = start_solution.clone();
+					start_solution_kept.setAncestor(null);
+					step.setStartSolutionOwned(start_solution_kept); // owning
+				}
 				
 				// all the work is here
 				step.setCurrentSolution(solution);
@@ -448,7 +477,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				nr_iterations++;
 				end = new Date();
 				elapsed_millis = end.getTime()-start.getTime();
-				finished = nr_iterations>phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
+				finished = nr_iterations>=phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
 				
 				// feedback
 				String message3 = String.format("Improvments=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
@@ -460,23 +489,14 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 						solution.getScore().getDescription());
 				Plugin.INSTANCE.logInfo(message3);
 				this.setProgress(message3, ++iterations_total);
-				
-				// keep or not keep
-				StrategyLevel keep_level = phase.getKeepLevel();
-				if ( keep_level.getValue()>=StrategyLevel.LEVEL_STEP_VALUE ) {
-					// keep the step
-					phase.getSteps().add(step);
-					if ( keep_level == StrategyLevel.LEVEL_STEP) {
-						// start solution
-						Solution start_solution_kept = start_solution.clone();
-						start_solution_kept.setAncestor(null);
-						step.setStartSolutionOwned(start_solution_kept); // owning
-						// end solution
-						Solution end_solution_kept = solution.clone();
-						step.setEndSolutionOwned(end_solution_kept);
-						end_solution_kept.setAncestor(start_solution); // owning
-					}
-				} 
+
+				if ( keep_solutions) {
+					// end solution
+					Solution end_solution_kept = solution.clone();
+					step.setEndSolutionOwned(end_solution_kept);
+					end_solution_kept.setSolutionNr(this.makeNewSolutionNr());;
+					end_solution_kept.setAncestor(start_solution); // owning
+				}
 				
 				// prune the solution pool
 				this.prune();
@@ -674,6 +694,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			case LocalSearchPackage.STRATEGY___SORT_SOLUTIONS:
 				sortSolutions();
 				return null;
+			case LocalSearchPackage.STRATEGY___MAKE_NEW_SOLUTION_NR:
+				return makeNewSolutionNr();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

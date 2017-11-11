@@ -95,12 +95,4 @@ public interface Step extends SolutionChange {
 	 */
 	void setPhase(Phase value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void doAction(Action action);
-
 } // Step

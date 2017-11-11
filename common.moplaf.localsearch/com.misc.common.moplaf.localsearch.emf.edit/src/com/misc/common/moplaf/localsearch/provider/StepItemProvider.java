@@ -70,7 +70,7 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 				 getString("_UI_Step_Actions_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Step_Actions_feature", "_UI_Step_type"),
 				 LocalSearchPackage.Literals.STEP__ACTIONS,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

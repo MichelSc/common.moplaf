@@ -126,13 +126,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION__STRATEGY = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__STEP = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 5;
+	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -1031,13 +1040,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___SORT_SOLUTIONS = JobPackage.RUN_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Make New Solution Nr</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___MAKE_NEW_SOLUTION_NR = JobPackage.RUN_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 3;
+	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
@@ -1167,13 +1185,22 @@ public interface LocalSearchPackage extends EPackage {
 	int PHASE___DO_STEP__STEP = 0;
 
 	/**
+	 * The operation id for the '<em>Do Action</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHASE___DO_ACTION__STEP_ACTION = 1;
+
+	/**
 	 * The number of operations of the '<em>Phase</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE_OPERATION_COUNT = 1;
+	int PHASE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StepImpl <em>Step</em>}' class.
@@ -1321,22 +1348,13 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Do Action</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STEP___DO_ACTION__ACTION = SOLUTION_CHANGE_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 1;
+	int STEP_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.StrategyLevel <em>Strategy Level</em>}' enum.
@@ -1423,6 +1441,17 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSolution_Strategy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Solution#getStep <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Step</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Solution#getStep()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EAttribute getSolution_Step();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#clone() <em>Clone</em>}' operation.
@@ -1913,6 +1942,16 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getStrategy__SortSolutions();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#makeNewSolutionNr() <em>Make New Solution Nr</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make New Solution Nr</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#makeNewSolutionNr()
+	 * @generated
+	 */
+	EOperation getStrategy__MakeNewSolutionNr();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Phase <em>Phase</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2054,6 +2093,16 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getPhase__DoStep__Step();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Phase#doAction(com.misc.common.moplaf.localsearch.Step, com.misc.common.moplaf.localsearch.Action) <em>Do Action</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Action</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Phase#doAction(com.misc.common.moplaf.localsearch.Step, com.misc.common.moplaf.localsearch.Action)
+	 * @generated
+	 */
+	EOperation getPhase__DoAction__Step_Action();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Step <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2095,16 +2144,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStep_Phase();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Step#doAction(com.misc.common.moplaf.localsearch.Action) <em>Do Action</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Do Action</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Step#doAction(com.misc.common.moplaf.localsearch.Action)
-	 * @generated
-	 */
-	EOperation getStep__DoAction__Action();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.SolutionChange <em>Solution Change</em>}'.
@@ -2330,6 +2369,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SOLUTION__STRATEGY = eINSTANCE.getSolution_Strategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION__STEP = eINSTANCE.getSolution_Step();
 
 		/**
 		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
@@ -2709,6 +2756,14 @@ public interface LocalSearchPackage extends EPackage {
 		EOperation STRATEGY___SORT_SOLUTIONS = eINSTANCE.getStrategy__SortSolutions();
 
 		/**
+		 * The meta object literal for the '<em><b>Make New Solution Nr</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___MAKE_NEW_SOLUTION_NR = eINSTANCE.getStrategy__MakeNewSolutionNr();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2815,6 +2870,14 @@ public interface LocalSearchPackage extends EPackage {
 		EOperation PHASE___DO_STEP__STEP = eINSTANCE.getPhase__DoStep__Step();
 
 		/**
+		 * The meta object literal for the '<em><b>Do Action</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PHASE___DO_ACTION__STEP_ACTION = eINSTANCE.getPhase__DoAction__Step_Action();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.StepImpl <em>Step</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2847,14 +2910,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STEP__PHASE = eINSTANCE.getStep_Phase();
-
-		/**
-		 * The meta object literal for the '<em><b>Do Action</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STEP___DO_ACTION__ACTION = eINSTANCE.getStep__DoAction__Action();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl <em>Solution Change</em>}' class.

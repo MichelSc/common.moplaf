@@ -5,12 +5,9 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
-import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
-
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.ListIterator;
 
@@ -208,51 +205,6 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void doAction(Action action) {
-		Phase phase = this.getPhase();
-		StrategyLevel keep_level = phase.getKeepLevel();
-		Solution solution = this.getCurrentSolution();
-		boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_ACTION_VALUE;
-		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
-		
-		// keep
-		Solution start_kept_solution = null;
-		if ( keep_solutions && this.getActions().isEmpty()) {
-			// start solution
-			start_kept_solution  = solution.clone();
-			start_kept_solution .setAncestor(null);
-		}
-
-		// do the action
-		action.setCurrentSolution(this.getCurrentSolution());
-		action.initialize();
-		action.run();
-		action.finalize();
-		action.setCurrentSolution(null);
-		
-		// keep
-		if( keep_action ) {
-			this.getActions().add(action); // owning
-			action.setActionNr(this.getActions().size());
-			if ( keep_solutions ) {
-				// start solution
-				action.setStartSolutionOwned(start_kept_solution);
-				if ( action.getCurrentMove()!=null) {
-					// new solution
-					// end solution
-					Solution end_solution_kept = solution.clone();
-					action.setEndSolutionOwned(end_solution_kept);
-					Solution start_solution = action.getStartSolution();
-					end_solution_kept.setAncestor(start_solution); // owning
-				}
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -377,21 +329,6 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 				return getPhase() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case LocalSearchPackage.STEP___DO_ACTION__ACTION:
-				doAction((Action)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

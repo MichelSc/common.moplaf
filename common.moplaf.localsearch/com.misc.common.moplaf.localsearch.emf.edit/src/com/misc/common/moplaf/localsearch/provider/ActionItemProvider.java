@@ -10,6 +10,7 @@ import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
 
@@ -61,7 +62,6 @@ public class ActionItemProvider
 			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
 			addActionNrPropertyDescriptor(object);
-			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -151,28 +151,6 @@ public class ActionItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__10ActionPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Step feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStepPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_Step_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Step_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__STEP,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
 				 null));
 	}
 
@@ -398,7 +376,8 @@ public class ActionItemProvider
 		@Override
 		public void execute() {
 			Step step = this.action.getStep();
-			step.doAction(this.action);
+			Phase phase = step.getPhase();
+			phase.doAction(step, this.action);
 		}
 	} // class ActionDoCommand
 
