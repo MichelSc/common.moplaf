@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -121,16 +122,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	protected int actionNr = ACTION_NR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStep() <em>Step</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStep()
-	 * @generated
-	 * @ordered
-	 */
-	protected Step step;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -162,8 +153,11 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 			return list_iterator.previous();
 		}
 		Step previous_step = (Step) step.getPreviousChange();
-		int nof_actions = previous_step.getActions().size();
-		return previous_step.getActions().get(nof_actions-1);
+		if ( previous_step!=null) {
+			int nof_actions = previous_step.getActions().size();
+			return previous_step.getActions().get(nof_actions-1);
+		}
+		return null;
 	}
 
 
@@ -274,24 +268,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	public Step getStep() {
-		if (step != null && step.eIsProxy()) {
-			InternalEObject oldStep = (InternalEObject)step;
-			step = (Step)eResolveProxy(oldStep);
-			if (step != oldStep) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__STEP, oldStep, step));
-			}
-		}
-		return step;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Step basicGetStep() {
-		return step;
+		if (eContainerFeatureID() != LocalSearchPackage.ACTION__STEP) return null;
+		return (Step)eInternalContainer();
 	}
 
 	/**
@@ -300,12 +278,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	public NotificationChain basicSetStep(Step newStep, NotificationChain msgs) {
-		Step oldStep = step;
-		step = newStep;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__STEP, oldStep, newStep);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newStep, LocalSearchPackage.ACTION__STEP, msgs);
 		return msgs;
 	}
 
@@ -315,10 +288,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	public void setStep(Step newStep) {
-		if (newStep != step) {
+		if (newStep != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.ACTION__STEP && newStep != null)) {
+			if (EcoreUtil.isAncestor(this, newStep))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (step != null)
-				msgs = ((InternalEObject)step).eInverseRemove(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newStep != null)
 				msgs = ((InternalEObject)newStep).eInverseAdd(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
 			msgs = basicSetStep(newStep, msgs);
@@ -448,8 +423,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case LocalSearchPackage.ACTION__STEP:
-				if (step != null)
-					msgs = ((InternalEObject)step).eInverseRemove(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetStep((Step)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -500,6 +475,20 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case LocalSearchPackage.ACTION__STEP:
+				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case LocalSearchPackage.ACTION__ROOT_MOVES:
@@ -516,8 +505,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				return getActionNr();
 			case LocalSearchPackage.ACTION__STEP:
-				if (resolve) return getStep();
-				return basicGetStep();
+				return getStep();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -593,7 +581,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				return actionNr != ACTION_NR_EDEFAULT;
 			case LocalSearchPackage.ACTION__STEP:
-				return step != null;
+				return getStep() != null;
 		}
 		return super.eIsSet(featureID);
 	}

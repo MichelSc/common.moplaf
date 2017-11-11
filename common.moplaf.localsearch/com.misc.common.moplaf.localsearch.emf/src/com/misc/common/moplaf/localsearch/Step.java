@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Step extends SolutionChange {
 	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' reference list.
+	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Action}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
@@ -33,10 +33,10 @@ public interface Step extends SolutionChange {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' reference list.
+	 * @return the value of the '<em>Actions</em>' containment reference list.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep_Actions()
 	 * @see com.misc.common.moplaf.localsearch.Action#getStep
-	 * @model opposite="Step"
+	 * @model opposite="Step" containment="true"
 	 * @generated
 	 */
 	EList<Action> getActions();

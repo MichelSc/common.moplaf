@@ -139,7 +139,7 @@ public interface Action extends SolutionChange {
 	void setActionNr(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Step</b></em>' reference.
+	 * Returns the value of the '<em><b>Step</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Step#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -147,20 +147,20 @@ public interface Action extends SolutionChange {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Step</em>' reference.
+	 * @return the value of the '<em>Step</em>' container reference.
 	 * @see #setStep(Step)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Step()
 	 * @see com.misc.common.moplaf.localsearch.Step#getActions
-	 * @model opposite="Actions" required="true"
+	 * @model opposite="Actions" required="true" transient="false"
 	 * @generated
 	 */
 	Step getStep();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Step</em>' reference.
+	 * @param value the new value of the '<em>Step</em>' container reference.
 	 * @see #getStep()
 	 * @generated
 	 */

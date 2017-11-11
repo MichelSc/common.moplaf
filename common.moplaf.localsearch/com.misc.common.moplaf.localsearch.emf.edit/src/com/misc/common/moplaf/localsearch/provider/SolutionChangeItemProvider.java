@@ -71,6 +71,7 @@ public class SolutionChangeItemProvider
 			addSubChangesPropertyDescriptor(object);
 			addCurrentSolutionPropertyDescriptor(object);
 			addKeepSolutionsPropertyDescriptor(object);
+			addNewSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -252,6 +253,28 @@ public class SolutionChangeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the New Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNewSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionChange_NewSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_NewSolution_feature", "_UI_SolutionChange_type"),
+				 LocalSearchPackage.Literals.SOLUTION_CHANGE__NEW_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -263,8 +286,7 @@ public class SolutionChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION_OWNED);
-			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION_OWNED);
+			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__SOLUTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -310,13 +332,12 @@ public class SolutionChangeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolutionChange.class)) {
-			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
-			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
 			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
+			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
+			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);

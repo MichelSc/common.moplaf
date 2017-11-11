@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSubChanges <em>Sub Changes</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getCurrentSolution <em>Current Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#isKeepSolutions <em>Keep Solutions</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#isNewSolution <em>New Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +92,16 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected static final boolean KEEP_SOLUTIONS_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isNewSolution() <em>New Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNewSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NEW_SOLUTION_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -206,9 +217,10 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	public Solution basicGetEndSolution() {
 		if ( this.isKeepSolutions() ) {
 			if ( this.getEndSolutionOwned()!=null) {
-				return this.getStartSolutionOwned();
+				return this.getEndSolutionOwned();
 			} else {
-				return null;
+				// no change, so this is the start solutions
+				return this.getStartSolution();
 			}
 		} else {
 			int subchanges = this.getSubChanges().size();
@@ -295,14 +307,27 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EList<Solution> getSolutions() {
-		// TODO: implement this method to return the 'Solutions' reference list
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		throw new UnsupportedOperationException();
+		EList<Solution> newList = new EObjectListDerived<Solution>(Solution.class, this, LocalSearchPackage.SOLUTION_CHANGE__SOLUTIONS, true);
+		this.collectSolutions(newList);
+		return newList;
+	}
+	
+	private void collectSolutions(EList<Solution> solutions) {
+		if ( this.isKeepSolutions()) {
+			if ( solutions.isEmpty()) {
+				solutions.add(this.getStartSolution());
+			}
+			solutions.add(this.getEndSolution());
+		} else {
+			for ( SolutionChange subchange : this.getSubChanges()) {
+				((SolutionChangeImpl)subchange).collectSolutions(solutions);
+			}
+		}
 	}
 
 	/**
@@ -369,6 +394,14 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isNewSolution() {
+		return this.getEndSolutionOwned()!=null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -414,6 +447,8 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 				return basicGetCurrentSolution();
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 				return isKeepSolutions();
+			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
+				return isNewSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -488,6 +523,8 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 				return currentSolution != null;
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 				return isKeepSolutions() != KEEP_SOLUTIONS_EDEFAULT;
+			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
+				return isNewSolution() != NEW_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class StepImpl extends SolutionChangeImpl implements Step {
 	/**
-	 * The cached value of the '{@link #getActions() <em>Actions</em>}' reference list.
+	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActions()
@@ -138,7 +138,7 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	 */
 	public EList<Action> getActions() {
 		if (actions == null) {
-			actions = new EObjectWithInverseResolvingEList<Action>(Action.class, this, LocalSearchPackage.STEP__ACTIONS, LocalSearchPackage.ACTION__STEP);
+			actions = new EObjectContainmentWithInverseEList<Action>(Action.class, this, LocalSearchPackage.STEP__ACTIONS, LocalSearchPackage.ACTION__STEP);
 		}
 		return actions;
 	}
@@ -218,10 +218,10 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 		
 		// keep
 		Solution start_kept_solution = null;
-		if ( keep_solutions && this.getPreviousChange()==null) {
+		if ( keep_solutions && this.getActions().isEmpty()) {
 			// start solution
-			Solution start_solution_kept = solution.clone();
-			start_solution_kept.setAncestor(null);
+			start_kept_solution  = solution.clone();
+			start_kept_solution .setAncestor(null);
 		}
 
 		// do the action
@@ -238,10 +238,14 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 			if ( keep_solutions ) {
 				// start solution
 				action.setStartSolutionOwned(start_kept_solution);
-				// end solution
-				Solution end_solution_kept = solution.clone();
-				action.setEndSolutionOwned(end_solution_kept);
-				end_solution_kept.setAncestor(start_kept_solution); // owning
+				if ( action.getCurrentMove()!=null) {
+					// new solution
+					// end solution
+					Solution end_solution_kept = solution.clone();
+					action.setEndSolutionOwned(end_solution_kept);
+					Solution start_solution = action.getStartSolution();
+					end_solution_kept.setAncestor(start_solution); // owning
+				}
 			}
 		}
 	}

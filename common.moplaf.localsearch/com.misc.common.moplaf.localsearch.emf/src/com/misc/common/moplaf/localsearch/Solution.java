@@ -133,22 +133,11 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Strategy</em>' reference.
-	 * @see #setStrategy(Strategy)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution_Strategy()
-	 * @model required="true"
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Strategy getStrategy();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Strategy</em>' reference.
-	 * @see #getStrategy()
-	 * @generated
-	 */
-	void setStrategy(Strategy value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -289,13 +289,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION_CHANGE__KEEP_SOLUTIONS = 9;
 
 	/**
+	 * The feature id for the '<em><b>New Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__NEW_SOLUTION = 10;
+
+	/**
 	 * The number of structural features of the '<em>Solution Change</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_CHANGE_FEATURE_COUNT = 10;
+	int SOLUTION_CHANGE_FEATURE_COUNT = 11;
 
 	/**
 	 * The number of operations of the '<em>Solution Change</em>' class.
@@ -407,6 +416,15 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__KEEP_SOLUTIONS = SOLUTION_CHANGE__KEEP_SOLUTIONS;
 
 	/**
+	 * The feature id for the '<em><b>New Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NEW_SOLUTION = SOLUTION_CHANGE__NEW_SOLUTION;
+
+	/**
 	 * The feature id for the '<em><b>Root Moves</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -461,7 +479,7 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__ACTION_NR = SOLUTION_CHANGE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Step</b></em>' reference.
+	 * The feature id for the '<em><b>Step</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1258,7 +1276,16 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP__KEEP_SOLUTIONS = SOLUTION_CHANGE__KEEP_SOLUTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * The feature id for the '<em><b>New Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP__NEW_SOLUTION = SOLUTION_CHANGE__NEW_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1483,10 +1510,10 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getAction_ActionNr();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Step</em>'.
+	 * @return the meta object for the container reference '<em>Step</em>'.
 	 * @see com.misc.common.moplaf.localsearch.Action#getStep()
 	 * @see #getAction()
 	 * @generated
@@ -2037,10 +2064,10 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getStep();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.localsearch.Step#getActions <em>Actions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Step#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @return the meta object for the containment reference list '<em>Actions</em>'.
 	 * @see com.misc.common.moplaf.localsearch.Step#getActions()
 	 * @see #getStep()
 	 * @generated
@@ -2198,6 +2225,17 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolutionChange_KeepSolutions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.SolutionChange#isNewSolution <em>New Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Solution</em>'.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#isNewSolution()
+	 * @see #getSolutionChange()
+	 * @generated
+	 */
+	EAttribute getSolutionChange_NewSolution();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.localsearch.StrategyLevel <em>Strategy Level</em>}'.
@@ -2360,7 +2398,7 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute ACTION__ACTION_NR = eINSTANCE.getAction_ActionNr();
 
 		/**
-		 * The meta object literal for the '<em><b>Step</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Step</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2787,7 +2825,7 @@ public interface LocalSearchPackage extends EPackage {
 		EClass STEP = eINSTANCE.getStep();
 
 		/**
-		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2907,6 +2945,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLUTION_CHANGE__KEEP_SOLUTIONS = eINSTANCE.getSolutionChange_KeepSolutions();
+
+		/**
+		 * The meta object literal for the '<em><b>New Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION_CHANGE__NEW_SOLUTION = eINSTANCE.getSolutionChange_NewSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.StrategyLevel <em>Strategy Level</em>}' enum.

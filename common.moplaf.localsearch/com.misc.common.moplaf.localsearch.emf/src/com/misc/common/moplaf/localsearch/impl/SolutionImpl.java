@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -87,16 +88,6 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @ordered
 	 */
 	protected EList<Solution> descendants;
-
-	/**
-	 * The cached value of the '{@link #getStrategy() <em>Strategy</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStrategy()
-	 * @generated
-	 * @ordered
-	 */
-	protected Strategy strategy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,36 +250,22 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @generated
 	 */
 	public Strategy getStrategy() {
-		if (strategy != null && strategy.eIsProxy()) {
-			InternalEObject oldStrategy = (InternalEObject)strategy;
-			strategy = (Strategy)eResolveProxy(oldStrategy);
-			if (strategy != oldStrategy) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.SOLUTION__STRATEGY, oldStrategy, strategy));
-			}
-		}
-		return strategy;
+		Strategy strategy = basicGetStrategy();
+		return strategy != null && strategy.eIsProxy() ? (Strategy)eResolveProxy((InternalEObject)strategy) : strategy;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Strategy basicGetStrategy() {
-		return strategy;
-	}
+		// root move
+		EObject container = this.eContainer;
+		if ( container instanceof Strategy){
+			return (Strategy) container;
+		}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStrategy(Strategy newStrategy) {
-		Strategy oldStrategy = strategy;
-		strategy = newStrategy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__STRATEGY, oldStrategy, strategy));
+		return null;
 	}
 
 	/**
@@ -300,9 +277,11 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		Strategy strategy = this.getStrategy();
 		Solution new_solution = this.cloneImpl();
 		// info about the solution
-		int new_nr = strategy.getCurrentSolutionNr()+1;
-		strategy.setCurrentSolutionNr(new_nr);
-		new_solution.setSolutionNr(new_nr);
+		if ( strategy!=null) {
+			int new_nr = strategy.getCurrentSolutionNr()+1;
+			strategy.setCurrentSolutionNr(new_nr);
+			new_solution.setSolutionNr(new_nr);
+		}
 		new_solution.setAncestor(this);
 		Plugin.INSTANCE.logInfo("Action initialize: done");
 		return new_solution;
@@ -412,9 +391,6 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				getDescendants().clear();
 				getDescendants().addAll((Collection<? extends Solution>)newValue);
 				return;
-			case LocalSearchPackage.SOLUTION__STRATEGY:
-				setStrategy((Strategy)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -439,9 +415,6 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__DESCENDANTS:
 				getDescendants().clear();
 				return;
-			case LocalSearchPackage.SOLUTION__STRATEGY:
-				setStrategy((Strategy)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -463,7 +436,7 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__DESCENDANTS:
 				return descendants != null && !descendants.isEmpty();
 			case LocalSearchPackage.SOLUTION__STRATEGY:
-				return strategy != null;
+				return basicGetStrategy() != null;
 		}
 		return super.eIsSet(featureID);
 	}
