@@ -239,4 +239,12 @@ public interface Strategy extends Run {
 	 */
 	int makeNewSolutionNr();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void prune();
+
 } // Strategy

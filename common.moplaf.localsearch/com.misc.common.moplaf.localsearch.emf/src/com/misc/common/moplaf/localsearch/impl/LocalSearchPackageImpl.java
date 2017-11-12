@@ -642,6 +642,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getStrategy__Prune() {
+		return strategyEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPhase() {
 		return phaseEClass;
 	}
@@ -750,7 +759,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPhase__DoStep__Step() {
+	public EOperation getPhase__DoPhase() {
 		return phaseEClass.getEOperations().get(0);
 	}
 
@@ -759,8 +768,17 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPhase__DoAction__Step_Action() {
+	public EOperation getPhase__DoStep__Step() {
 		return phaseEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPhase__DoAction__Step_Action() {
+		return phaseEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1018,6 +1036,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(strategyEClass, STRATEGY___SELECT_BAD_SOLUTION);
 		createEOperation(strategyEClass, STRATEGY___SORT_SOLUTIONS);
 		createEOperation(strategyEClass, STRATEGY___MAKE_NEW_SOLUTION_NR);
+		createEOperation(strategyEClass, STRATEGY___PRUNE);
 
 		phaseEClass = createEClass(PHASE);
 		createEAttribute(phaseEClass, PHASE__NAME);
@@ -1031,6 +1050,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(phaseEClass, PHASE__DURATION_AVERAGE);
 		createEReference(phaseEClass, PHASE__STRATEGY);
 		createEReference(phaseEClass, PHASE__STEPS);
+		createEOperation(phaseEClass, PHASE___DO_PHASE);
 		createEOperation(phaseEClass, PHASE___DO_STEP__STEP);
 		createEOperation(phaseEClass, PHASE___DO_ACTION__STEP_ACTION);
 
@@ -1173,6 +1193,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		initEOperation(getStrategy__MakeNewSolutionNr(), ecorePackage.getEInt(), "makeNewSolutionNr", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getStrategy__Prune(), null, "prune", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(phaseEClass, Phase.class, "Phase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPhase_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPhase_KeepLevel(), this.getStrategyLevel(), "KeepLevel", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1185,6 +1207,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getPhase_DurationAverage(), ecorePackage.getEFloat(), "DurationAverage", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPhase_Strategy(), this.getStrategy(), this.getStrategy_Phases(), "Strategy", null, 1, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPhase_Steps(), this.getStep(), this.getStep_Phase(), "Steps", null, 0, -1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPhase__DoPhase(), null, "doPhase", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getPhase__DoStep__Step(), null, "doStep", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getStep(), "step", 0, 1, IS_UNIQUE, IS_ORDERED);

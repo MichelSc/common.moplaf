@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.localsearch.Action;
+import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Solution;
@@ -15,6 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.ListIterator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -510,6 +512,123 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void doPhase() {
+		Phase phase = this;
+		Strategy strategy = phase.getStrategy();
+		StrategyLevel keep_level = phase.getKeepLevel();
+		boolean keep_step = keep_level.getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
+		boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_STEP_VALUE;
+		int iterations_total = 0;
+		
+		// initialize the improvement
+		phase.setPhaseStart(null);
+		phase.setPhaseEnd(null);
+		phase.setDurationTotal(0.0f);
+		phase.setDurationAverage(0.0f);
+		phase.setNrSteps(0);
+		
+		String message2 = String.format("Phase %s started", phase.getName());
+		Plugin.INSTANCE.logInfo(message2);
+		strategy.setProgress(message2, ++iterations_total);
+		
+		Date start = new Date();
+		Date end = null;
+		int nr_iterations = 0;
+		boolean finished = false;
+		long elapsed_millis = 0;
+		do {
+			// select a solution to improve
+			Solution start_solution = strategy.selectGoodSolution();
+			if ( start_solution==null ) {
+				Plugin.INSTANCE.logError(String.format("Phase%s, step %04d: no start solution, break", phase.getName(), nr_iterations));
+				finished = true;
+				break;
+			}
+
+			// makes the solution that will be owned by the step
+			// so the current solution from start to end
+			// current solutions for the steps and the actions
+			Solution solution = start_solution.clone();
+			solution.setStep(String.format("%s:%04d", phase.getName(), nr_iterations));
+			
+			// step
+			Step step = LocalSearchFactory.eINSTANCE.createStep();
+			if ( keep_step ) {
+				// keep
+				phase.getSteps().add(step);
+				step.setStepNr(nr_iterations);
+				// start solution
+				Solution start_solution_kept = start_solution.clone();
+				step.setStartSolutionOwned(start_solution_kept); // owning
+			}
+			
+			// all the work is here
+			step.setCurrentSolution(solution);
+			phase.doStep(step);
+			step.setCurrentSolution(null);
+			
+			if ( keep_solutions) {
+				// end solution
+				int new_solution_nr = strategy.makeNewSolutionNr();
+				Solution end_solution_kept = solution.clone();
+				step.setNewSolutionOwned(end_solution_kept);
+				end_solution_kept.setSolutionNr(new_solution_nr);
+			}
+			if ( keep_step ) {
+				Solution end_solution = step.getEndSolution();
+				int nr = end_solution.getSolutionNr();
+				solution.setSolutionNr(nr);
+			} else {
+				int new_solution_nr = strategy.makeNewSolutionNr();
+				solution.setSolutionNr(new_solution_nr);
+			}
+			
+			// maintain the list of solutions, insert the solution after the next best
+			ListIterator<Solution> iterator = strategy.getSolutions().listIterator();
+			while ( iterator.hasNext()) {
+				Solution next_solution = iterator.next();
+				if ( solution.getScore().isBetter(next_solution.getScore())) {
+					iterator.previous();
+					break;
+				}
+			}
+			iterator.add(solution);// owning
+			
+			// loop control
+			nr_iterations++;
+			end = new Date();
+			elapsed_millis = end.getTime()-start.getTime();
+			finished = nr_iterations>=phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
+			
+			// feedback
+			String message3 = String.format("phase=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
+					phase.getName(),
+					nr_iterations,
+					phase.getMaxSteps(),
+					elapsed_millis/1000.0f,
+					phase.getMaxSeconds(),
+					solution.getScore().getDescription());
+			Plugin.INSTANCE.logInfo(message3);
+			strategy.setProgress(message3, ++iterations_total);
+
+			// prune the solution pool
+			strategy.prune();
+
+		} while ( !finished); // loop on the steps
+		
+		// the phase is done
+		phase.setPhaseStart(start);
+		phase.setPhaseEnd(end);
+		phase.setDurationTotal(elapsed_millis/1000);
+		phase.setDurationAverage(nr_iterations==0 ? 0.0f: elapsed_millis/1000/nr_iterations);
+		phase.setNrSteps(nr_iterations);
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void doStep(Step step) {
 		String message1 = String.format("Phase %s step %d started", this.getName(), this.getNrSteps());
 		Plugin.INSTANCE.logInfo(message1);
@@ -776,6 +895,9 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case LocalSearchPackage.PHASE___DO_PHASE:
+				doPhase();
+				return null;
 			case LocalSearchPackage.PHASE___DO_STEP__STEP:
 				doStep((Step)arguments.get(0));
 				return null;

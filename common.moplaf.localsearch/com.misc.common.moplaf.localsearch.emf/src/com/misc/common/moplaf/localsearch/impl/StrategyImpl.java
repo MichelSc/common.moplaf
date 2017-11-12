@@ -5,19 +5,14 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.impl.RunImpl;
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
-import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
-import com.misc.common.moplaf.localsearch.StrategyLevel;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.ListIterator;
 import java.util.Random;
 import org.eclipse.emf.common.notify.Notification;
@@ -362,6 +357,21 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		return new_nr;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void prune() {
+		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
+			Solution solution = this.selectBadSolution();
+			Plugin.INSTANCE.logInfo(String.format("Strategy %s solution %s:%d pruned", 
+					this.getName(),
+					solution.getStep(),
+					solution.getSolutionNr()));
+			this.getSolutions().remove(solution);
+		}
+	}
+
 	private static Random random = new Random();
 	
 	private Solution select(double chanceFirst, boolean reverse) {
@@ -411,115 +421,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		Plugin.INSTANCE.logInfo(message1);
 		this.setProgress(message1, 0.0f);
 		
-		int iterations_total = 0;
-	
 		for( Phase phase : this.getPhases()) {
-			StrategyLevel keep_level = phase.getKeepLevel();
-			boolean keep_step = keep_level.getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
-			boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_STEP_VALUE;
-			// initialize the improvement
-			phase.setPhaseStart(null);
-			phase.setPhaseEnd(null);
-			phase.setDurationTotal(0.0f);
-			phase.setDurationAverage(0.0f);
-			phase.setNrSteps(0);
-			
-			String message2 = String.format("Phase %s started", phase.getName());
-			Plugin.INSTANCE.logInfo(message2);
-			this.setProgress(message1, ++iterations_total);
-			
-			Date start = new Date();
-			Date end = null;
-			int nr_iterations = 0;
-			boolean finished = false;
-			long elapsed_millis = 0;
-			do {
-				// select a solution to improve
-				Solution start_solution = this.selectGoodSolution();
-				if ( start_solution==null ) {
-					Plugin.INSTANCE.logError(String.format("Phase%s, step %04d: no start solution, break", phase.getName(), nr_iterations));
-					finished = true;
-					break;
-				}
-
-				// makes the solution that will be owned by the step
-				// so the current solution from start to end
-				// current solutions for the steps and the actions
-				Solution solution = start_solution.clone();
-				solution.setStep(String.format("%s:%04d", phase.getName(), nr_iterations));
-				
-				// step
-				Step step = LocalSearchFactory.eINSTANCE.createStep();
-				if ( keep_step ) {
-					// keep
-					phase.getSteps().add(step);
-					step.setStepNr(nr_iterations);
-					// start solution
-					Solution start_solution_kept = start_solution.clone();
-					step.setStartSolutionOwned(start_solution_kept); // owning
-				}
-				
-				// all the work is here
-				step.setCurrentSolution(solution);
-				phase.doStep(step);
-				step.setCurrentSolution(null);
-				
-				if ( keep_solutions) {
-					// end solution
-					int new_solution_nr = this.makeNewSolutionNr();
-					Solution end_solution_kept = solution.clone();
-					step.setNewSolutionOwned(end_solution_kept);
-					end_solution_kept.setSolutionNr(new_solution_nr);
-				}
-				if ( keep_step ) {
-					Solution end_solution = step.getEndSolution();
-					int nr = end_solution.getSolutionNr();
-					solution.setSolutionNr(nr);
-				} else {
-					int new_solution_nr = this.makeNewSolutionNr();
-					solution.setSolutionNr(new_solution_nr);
-				}
-				
-				// maintain the list of solutions, insert the solution after the next best
-				ListIterator<Solution> iterator = this.getSolutions().listIterator();
-				while ( iterator.hasNext()) {
-					Solution next_solution = iterator.next();
-					if ( solution.getScore().isBetter(next_solution.getScore())) {
-						iterator.previous();
-						break;
-					}
-				}
-				iterator.add(solution);// owning
-				
-				// loop control
-				nr_iterations++;
-				end = new Date();
-				elapsed_millis = end.getTime()-start.getTime();
-				finished = nr_iterations>=phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
-				
-				// feedback
-				String message3 = String.format("phase=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
-						phase.getName(),
-						nr_iterations,
-						phase.getMaxSteps(),
-						elapsed_millis/1000.0f,
-						phase.getMaxSeconds(),
-						solution.getScore().getDescription());
-				Plugin.INSTANCE.logInfo(message3);
-				this.setProgress(message3, ++iterations_total);
-
-				// prune the solution pool
-				this.prune();
-
-			} while ( !finished); // loop on the steps
-			
-			// the phase is done
-			phase.setPhaseStart(start);
-			phase.setPhaseEnd(end);
-			phase.setDurationTotal(elapsed_millis/1000);
-			phase.setDurationAverage(nr_iterations==0 ? 0.0f: elapsed_millis/1000/nr_iterations);
-			phase.setNrSteps(nr_iterations);
-			
+			phase.doPhase();
 			Plugin.INSTANCE.logInfo(String.format("Phase %s finished", phase.getName()));
 		}
 		Plugin.INSTANCE.logInfo(String.format("Strategy %s finished", this.getName()));
@@ -527,20 +430,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		return ReturnFeedback.SUCCESS;
 	}
 	
-	/**
-	 * 
-	 */
-	private void prune() {
-		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
-			Solution solution = this.selectBadSolution();
-			Plugin.INSTANCE.logInfo(String.format("Strategy %s solution %s:%d pruned", 
-					this.getName(),
-					solution.getStep(),
-					solution.getSolutionNr()));
-			this.getSolutions().remove(solution);
-		}
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -710,6 +599,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return null;
 			case LocalSearchPackage.STRATEGY___MAKE_NEW_SOLUTION_NR:
 				return makeNewSolutionNr();
+			case LocalSearchPackage.STRATEGY___PRUNE:
+				prune();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

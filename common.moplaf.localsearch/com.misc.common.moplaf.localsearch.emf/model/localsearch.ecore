@@ -104,6 +104,7 @@
     <eOperations name="selectBadSolution" eType="#//Solution"/>
     <eOperations name="sortSolutions"/>
     <eOperations name="makeNewSolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="prune"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Phases" upperBound="-1"
         eType="#//Phase" containment="true" eOpposite="#//Phase/Strategy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
@@ -120,6 +121,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possibly better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xD;&#xA;An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution.&#xA;The framework will iterate on the improvments. The iterations will limited by a max number of iterations and and maximum duration."/>
     </eAnnotations>
+    <eOperations name="doPhase"/>
     <eOperations name="doStep">
       <eParameters name="step" eType="#//Step"/>
     </eOperations>

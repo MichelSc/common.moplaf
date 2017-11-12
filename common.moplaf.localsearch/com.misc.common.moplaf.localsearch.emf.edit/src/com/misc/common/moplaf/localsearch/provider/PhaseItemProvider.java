@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.DoCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
@@ -10,11 +11,13 @@ import com.misc.common.moplaf.localsearch.Phase;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -378,4 +381,34 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 		return LocalsearchEditPlugin.INSTANCE;
 	}
 	
+	/**
+	 * 
+	 *
+	 */
+	public class PhaseDoCommand extends DoCommand{
+		private Phase phase;
+		
+		public PhaseDoCommand(Phase aPhase)	{
+			super();
+			this.phase= aPhase;
+		}
+
+		@Override
+		public void execute() {
+			phase.doPhase();
+		}
+	} // class PhaseDoCommand
+
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == DoCommand.class){
+			return new PhaseDoCommand((Phase) object); 
+		} 
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

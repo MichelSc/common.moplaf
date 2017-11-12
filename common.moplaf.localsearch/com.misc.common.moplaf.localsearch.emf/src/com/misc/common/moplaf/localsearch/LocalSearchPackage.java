@@ -1031,13 +1031,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___MAKE_NEW_SOLUTION_NR = JobPackage.RUN_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Prune</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___PRUNE = JobPackage.RUN_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 4;
+	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
@@ -1158,13 +1167,22 @@ public interface LocalSearchPackage extends EPackage {
 	int PHASE_FEATURE_COUNT = 11;
 
 	/**
+	 * The operation id for the '<em>Do Phase</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHASE___DO_PHASE = 0;
+
+	/**
 	 * The operation id for the '<em>Do Step</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE___DO_STEP__STEP = 0;
+	int PHASE___DO_STEP__STEP = 1;
 
 	/**
 	 * The operation id for the '<em>Do Action</em>' operation.
@@ -1173,7 +1191,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE___DO_ACTION__STEP_ACTION = 1;
+	int PHASE___DO_ACTION__STEP_ACTION = 2;
 
 	/**
 	 * The number of operations of the '<em>Phase</em>' class.
@@ -1182,7 +1200,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE_OPERATION_COUNT = 2;
+	int PHASE_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StepImpl <em>Step</em>}' class.
@@ -1921,6 +1939,16 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getStrategy__MakeNewSolutionNr();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#prune() <em>Prune</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Prune</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#prune()
+	 * @generated
+	 */
+	EOperation getStrategy__Prune();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Phase <em>Phase</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2050,6 +2078,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPhase_Steps();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Phase#doPhase() <em>Do Phase</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Phase</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Phase#doPhase()
+	 * @generated
+	 */
+	EOperation getPhase__DoPhase();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Phase#doStep(com.misc.common.moplaf.localsearch.Step) <em>Do Step</em>}' operation.
@@ -2728,6 +2766,14 @@ public interface LocalSearchPackage extends EPackage {
 		EOperation STRATEGY___MAKE_NEW_SOLUTION_NR = eINSTANCE.getStrategy__MakeNewSolutionNr();
 
 		/**
+		 * The meta object literal for the '<em><b>Prune</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___PRUNE = eINSTANCE.getStrategy__Prune();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2824,6 +2870,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PHASE__STEPS = eINSTANCE.getPhase_Steps();
+
+		/**
+		 * The meta object literal for the '<em><b>Do Phase</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PHASE___DO_PHASE = eINSTANCE.getPhase__DoPhase();
 
 		/**
 		 * The meta object literal for the '<em><b>Do Step</b></em>' operation.
