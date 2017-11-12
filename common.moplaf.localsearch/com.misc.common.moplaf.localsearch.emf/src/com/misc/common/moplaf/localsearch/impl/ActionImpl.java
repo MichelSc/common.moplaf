@@ -382,10 +382,16 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	private Move finalizeMove(Move best_move, Move current_move) {
 		Move new_best_move = best_move;
 		if ( current_move.isSolution()) {
-			Score best_score = best_move == null ? this.getCurrentSolution().getScore() : best_move.getScore();
 			Score current_score = current_move.getScore();
-			if ( current_move.getScore().isFeasible() && current_score.isBetter(best_score)) {
-				new_best_move = current_move;
+			if ( current_move.getScore().isFeasible() ) {
+				if ( best_move == null ){
+					new_best_move = current_move;
+				} else {
+					Score best_score = best_move.getScore();
+					if ( current_score.isBetter(best_score)) {
+						new_best_move = current_move;
+					}
+				}
 			}
 		}
 		for ( Move child_move : current_move.getNextMoves()) {
