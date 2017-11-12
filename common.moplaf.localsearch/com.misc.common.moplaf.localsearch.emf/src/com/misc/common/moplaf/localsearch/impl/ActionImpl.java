@@ -139,7 +139,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	protected EClass eStaticClass() {
 		return LocalSearchPackage.Literals.ACTION;
 	}
-	
+
+	@Override
+	public SolutionChange basicGetSuperChange() {
+		return this.getStep();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

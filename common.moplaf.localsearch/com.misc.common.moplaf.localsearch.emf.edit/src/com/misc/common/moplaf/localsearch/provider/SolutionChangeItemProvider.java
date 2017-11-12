@@ -287,8 +287,7 @@ public class SolutionChangeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolutionChange.class)) {
-			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
-			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
+			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION_OWNED:
 			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:

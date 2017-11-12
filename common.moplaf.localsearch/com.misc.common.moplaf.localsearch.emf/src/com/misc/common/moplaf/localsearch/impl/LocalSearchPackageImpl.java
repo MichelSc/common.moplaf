@@ -822,6 +822,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStep_StartSolutionOwned() {
+		return (EReference)stepEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSolutionChange() {
 		return solutionChangeEClass;
 	}
@@ -831,7 +840,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolutionChange_EndSolutionOwned() {
+	public EReference getSolutionChange_StartSolution() {
 		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -840,7 +849,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolutionChange_StartSolution() {
+	public EReference getSolutionChange_EndSolution() {
 		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -849,7 +858,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolutionChange_EndSolution() {
+	public EReference getSolutionChange_NewSolutionOwned() {
 		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -858,7 +867,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolutionChange_StartSolutionOwned() {
+	public EReference getSolutionChange_PreviousChange() {
 		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -867,17 +876,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolutionChange_PreviousChange() {
-		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSolutionChange_Level() {
-		return (EAttribute)solutionChangeEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)solutionChangeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -886,7 +886,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getSolutionChange_Solutions() {
-		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(6);
+		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -895,7 +895,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getSolutionChange_SubChanges() {
-		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(7);
+		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -904,7 +904,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getSolutionChange_CurrentSolution() {
-		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(8);
+		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -913,7 +913,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getSolutionChange_KeepSolutions() {
-		return (EAttribute)solutionChangeEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)solutionChangeEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -922,7 +922,16 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getSolutionChange_NewSolution() {
-		return (EAttribute)solutionChangeEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)solutionChangeEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSolutionChange_SuperChange() {
+		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1049,12 +1058,12 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(stepEClass, STEP__ACTIONS);
 		createEAttribute(stepEClass, STEP__STEP_NR);
 		createEReference(stepEClass, STEP__PHASE);
+		createEReference(stepEClass, STEP__START_SOLUTION_OWNED);
 
 		solutionChangeEClass = createEClass(SOLUTION_CHANGE);
-		createEReference(solutionChangeEClass, SOLUTION_CHANGE__END_SOLUTION_OWNED);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__START_SOLUTION);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__END_SOLUTION);
-		createEReference(solutionChangeEClass, SOLUTION_CHANGE__START_SOLUTION_OWNED);
+		createEReference(solutionChangeEClass, SOLUTION_CHANGE__NEW_SOLUTION_OWNED);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__PREVIOUS_CHANGE);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__LEVEL);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__SOLUTIONS);
@@ -1062,6 +1071,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__CURRENT_SOLUTION);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__KEEP_SOLUTIONS);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__NEW_SOLUTION);
+		createEReference(solutionChangeEClass, SOLUTION_CHANGE__SUPER_CHANGE);
 
 		// Create enums
 		strategyLevelEEnum = createEEnum(STRATEGY_LEVEL);
@@ -1209,12 +1219,12 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getStep_Actions(), this.getAction(), this.getAction_Step(), "Actions", null, 0, -1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStep_StepNr(), ecorePackage.getEInt(), "StepNr", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStep_Phase(), this.getPhase(), this.getPhase_Steps(), "Phase", null, 1, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStep_StartSolutionOwned(), this.getSolution(), null, "StartSolutionOwned", null, 1, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(solutionChangeEClass, SolutionChange.class, "SolutionChange", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSolutionChange_EndSolutionOwned(), this.getSolution(), null, "EndSolutionOwned", null, 1, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_StartSolution(), this.getSolution(), null, "StartSolution", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_EndSolution(), this.getSolution(), null, "EndSolution", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getSolutionChange_StartSolutionOwned(), this.getSolution(), null, "StartSolutionOwned", null, 1, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolutionChange_NewSolutionOwned(), this.getSolution(), null, "NewSolutionOwned", null, 1, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_PreviousChange(), this.getSolutionChange(), null, "PreviousChange", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionChange_Level(), this.getStrategyLevel(), "Level", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_Solutions(), this.getSolution(), null, "Solutions", null, 0, -1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1222,6 +1232,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getSolutionChange_CurrentSolution(), this.getSolution(), null, "CurrentSolution", null, 0, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionChange_KeepSolutions(), ecorePackage.getEBoolean(), "KeepSolutions", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionChange_NewSolution(), ecorePackage.getEBoolean(), "NewSolution", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getSolutionChange_SuperChange(), this.getSolutionChange(), null, "SuperChange", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(strategyLevelEEnum, StrategyLevel.class, "StrategyLevel");

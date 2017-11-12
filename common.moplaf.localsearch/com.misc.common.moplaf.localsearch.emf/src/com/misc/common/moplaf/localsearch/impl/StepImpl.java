@@ -5,6 +5,7 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
+import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStepNr <em>Step Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getPhase <em>Phase</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStartSolutionOwned <em>Start Solution Owned</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,6 +74,16 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	protected int stepNr = STEP_NR_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getStartSolutionOwned() <em>Start Solution Owned</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartSolutionOwned()
+	 * @generated
+	 * @ordered
+	 */
+	protected Solution startSolutionOwned;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -99,7 +111,7 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 		}
 		return list;
 	}
-
+	
 	@Override
 	public StrategyLevel getLevel() {
 		return StrategyLevel.LEVEL_STEP;
@@ -127,6 +139,13 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 		
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Solution basicGetStartSolution() {
+		return this.getStartSolutionOwned();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,6 +226,49 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Solution getStartSolutionOwned() {
+		return startSolutionOwned;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStartSolutionOwned(Solution newStartSolutionOwned, NotificationChain msgs) {
+		Solution oldStartSolutionOwned = startSolutionOwned;
+		startSolutionOwned = newStartSolutionOwned;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STEP__START_SOLUTION_OWNED, oldStartSolutionOwned, newStartSolutionOwned);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStartSolutionOwned(Solution newStartSolutionOwned) {
+		if (newStartSolutionOwned != startSolutionOwned) {
+			NotificationChain msgs = null;
+			if (startSolutionOwned != null)
+				msgs = ((InternalEObject)startSolutionOwned).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.STEP__START_SOLUTION_OWNED, null, msgs);
+			if (newStartSolutionOwned != null)
+				msgs = ((InternalEObject)newStartSolutionOwned).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.STEP__START_SOLUTION_OWNED, null, msgs);
+			msgs = basicSetStartSolutionOwned(newStartSolutionOwned, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STEP__START_SOLUTION_OWNED, newStartSolutionOwned, newStartSolutionOwned));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -233,6 +295,8 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.STEP__PHASE:
 				return basicSetPhase(null, msgs);
+			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
+				return basicSetStartSolutionOwned(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -265,6 +329,8 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 				return getStepNr();
 			case LocalSearchPackage.STEP__PHASE:
 				return getPhase();
+			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
+				return getStartSolutionOwned();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,6 +354,9 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 			case LocalSearchPackage.STEP__PHASE:
 				setPhase((Phase)newValue);
 				return;
+			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
+				setStartSolutionOwned((Solution)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -309,6 +378,9 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 			case LocalSearchPackage.STEP__PHASE:
 				setPhase((Phase)null);
 				return;
+			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
+				setStartSolutionOwned((Solution)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -327,6 +399,8 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 				return stepNr != STEP_NR_EDEFAULT;
 			case LocalSearchPackage.STEP__PHASE:
 				return getPhase() != null;
+			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
+				return startSolutionOwned != null;
 		}
 		return super.eIsSet(featureID);
 	}

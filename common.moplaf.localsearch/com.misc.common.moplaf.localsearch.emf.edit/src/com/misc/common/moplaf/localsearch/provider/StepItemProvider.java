@@ -166,6 +166,7 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 
 		switch (notification.getFeatureID(Step.class)) {
 			case LocalSearchPackage.STEP__STEP_NR:
+			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STEP__ACTIONS:

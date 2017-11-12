@@ -532,14 +532,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		
 		Solution solution = step.getCurrentSolution();
 		
-		// keep
-		Solution start_kept_solution = null;
-		if ( keep_solutions && step.getActions().isEmpty()) {
-			// start solution
-			start_kept_solution  = solution.clone();
-			start_kept_solution .setAncestor(null);
-		}
-
 		// do the action
 		action.setCurrentSolution(solution);
 		action.initialize();
@@ -552,18 +544,14 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			Strategy strategy = this.getStrategy();
 			action.setActionNr(step.getActions().size());
 			step.getActions().add(action); // owning
-			if ( keep_solutions ) {
-				// start solution
-				action.setStartSolutionOwned(start_kept_solution);
-				if ( action.getCurrentMove()!=null) {
-					// new solution
-					// end solution
-					Solution start_solution = action.getStartSolution();
-					Solution end_solution_kept = solution.clone();
-					end_solution_kept.setSolutionNr(strategy.makeNewSolutionNr());
-					end_solution_kept.setAncestor(start_solution); // owning
-					action.setEndSolutionOwned(end_solution_kept);
-				}
+			if ( keep_solutions && action.getCurrentMove()!=null) {
+				// new solution
+				// end solution
+				Solution start_solution = action.getStartSolution();
+				Solution end_solution_kept = solution.clone();
+				end_solution_kept.setSolutionNr(strategy.makeNewSolutionNr());
+				end_solution_kept.setAncestor(start_solution); // owning
+				action.setNewSolutionOwned(end_solution_kept);
 			}
 		}
 	}

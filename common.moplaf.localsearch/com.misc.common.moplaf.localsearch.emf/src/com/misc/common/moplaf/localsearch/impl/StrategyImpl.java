@@ -441,16 +441,14 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				// so the current solution from start to end
 				// current solutions for the steps and the actions
 				Solution solution = start_solution.clone();
-				solution.setSolutionNr(this.makeNewSolutionNr());
 				solution.setStep(String.format("%s:%04d", phase.getName(), nr_iterations));
 				
 				// step
 				Step step = LocalSearchFactory.eINSTANCE.createStep();
 				if ( keep_step ) {
+					// keep
 					phase.getSteps().add(step);
 					step.setStepNr(nr_iterations);
-				}
-				if ( keep_solutions) {
 					// start solution
 					Solution start_solution_kept = start_solution.clone();
 					start_solution_kept.setAncestor(null);
@@ -462,6 +460,14 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				phase.doStep(step);
 				step.setCurrentSolution(null);
 				
+				if ( keep_solutions) {
+					// end solution
+					Solution end_solution_kept = solution.clone();
+					step.setNewSolutionOwned(end_solution_kept);
+					end_solution_kept.setSolutionNr(this.makeNewSolutionNr());;
+					end_solution_kept.setAncestor(start_solution); // owning
+				}
+				
 				// maintain the list of solutions, insert the solution after the next best
 				ListIterator<Solution> iterator = this.getSolutions().listIterator();
 				while ( iterator.hasNext()) {
@@ -472,6 +478,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					}
 				}
 				iterator.add(solution);// owning
+				solution.setSolutionNr(this.makeNewSolutionNr());
 				
 				// loop control
 				nr_iterations++;
@@ -490,16 +497,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				Plugin.INSTANCE.logInfo(message3);
 				this.setProgress(message3, ++iterations_total);
 
-				if ( keep_solutions) {
-					// end solution
-					Solution end_solution_kept = solution.clone();
-					step.setEndSolutionOwned(end_solution_kept);
-					end_solution_kept.setSolutionNr(this.makeNewSolutionNr());;
-					end_solution_kept.setAncestor(start_solution); // owning
-				}
-				
 				// prune the solution pool
-				this.prune();
+				//this.prune();
 
 			} while ( !finished); // loop on the steps
 			
