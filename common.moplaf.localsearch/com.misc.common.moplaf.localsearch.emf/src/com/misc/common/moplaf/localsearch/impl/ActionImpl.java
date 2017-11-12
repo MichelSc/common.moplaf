@@ -340,9 +340,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void initialize() {
-		Plugin.INSTANCE.logInfo("Action initialize: called");
 		this.createMovesImpl();
-		Plugin.INSTANCE.logInfo("Action initialize: done");
 	}
 
 	/**
@@ -350,15 +348,13 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void run() {
-		Plugin.INSTANCE.logInfo("Action run: called");
+		Plugin.INSTANCE.logInfo(String.format("Action run: %s", this.getDescription()));
 		for (Move rootMove : this.getRootMoves()) {
 			this.runDoMove(rootMove);
 		}
-		Plugin.INSTANCE.logInfo("Action run: done");
 	}
 	
 	private void runDoMove(Move move) {
-		Plugin.INSTANCE.logInfo("Action runMove: called, move: "+move.getDescription());
 		// do the move
 		move.do_();
 		
@@ -369,8 +365,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		
 		// undo the move
 		move.undo();
-
-		Plugin.INSTANCE.logInfo("Action runMove: done, move: "+move.getDescription());
 	}
 
 	/**
@@ -378,17 +372,14 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void finalize() {
-		Plugin.INSTANCE.logInfo("Action finalize: called");
 		Move best_move = null;
 		for (Move rootMove : this.getRootMoves()) {
 			best_move = this.finalizeMove(best_move, rootMove); 
 		}
 		this.select(best_move);
-		Plugin.INSTANCE.logInfo("Action finalize: done");
 	}
 
 	private Move finalizeMove(Move best_move, Move current_move) {
-		Plugin.INSTANCE.logInfo("Action finalizeMove: called, move: "+current_move.getDescription());
 		Move new_best_move = best_move;
 		if ( current_move.isSolution()) {
 			Score best_score = best_move == null ? this.getCurrentSolution().getScore() : best_move.getScore();
@@ -400,7 +391,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		for ( Move child_move : current_move.getNextMoves()) {
 			new_best_move = this.finalizeMove(new_best_move, child_move);
 		}
-		Plugin.INSTANCE.logInfo("Action finalizeMove: called, move: "+current_move.getDescription());
 		return new_best_move;
 	}
 	/**

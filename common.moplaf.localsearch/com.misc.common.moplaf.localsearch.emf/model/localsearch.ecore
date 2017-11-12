@@ -8,10 +8,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Ancestor" eType="#//Solution"
-        eOpposite="#//Solution/Descendants"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Descendants" upperBound="-1"
-        eType="#//Solution" eOpposite="#//Solution/Ancestor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Strategy" lowerBound="1"
         eType="#//Strategy" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

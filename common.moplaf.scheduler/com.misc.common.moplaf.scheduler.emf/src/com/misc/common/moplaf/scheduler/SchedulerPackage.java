@@ -415,24 +415,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE__SOLUTION_NR = LocalSearchPackage.SOLUTION__SOLUTION_NR;
 
 	/**
-	 * The feature id for the '<em><b>Ancestor</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE__ANCESTOR = LocalSearchPackage.SOLUTION__ANCESTOR;
-
-	/**
-	 * The feature id for the '<em><b>Descendants</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE__DESCENDANTS = LocalSearchPackage.SOLUTION__DESCENDANTS;
-
-	/**
 	 * The feature id for the '<em><b>Strategy</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -436,6 +436,11 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			do {
 				// select a solution to improve
 				Solution start_solution = this.selectGoodSolution();
+				if ( start_solution==null ) {
+					Plugin.INSTANCE.logError(String.format("Phase%s, step %04d: no start solution, break", phase.getName(), nr_iterations));
+					finished = true;
+					break;
+				}
 
 				// makes the solution that will be owned by the step
 				// so the current solution from start to end
@@ -451,7 +456,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					step.setStepNr(nr_iterations);
 					// start solution
 					Solution start_solution_kept = start_solution.clone();
-					start_solution_kept.setAncestor(null);
 					step.setStartSolutionOwned(start_solution_kept); // owning
 				}
 				
@@ -462,10 +466,18 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				
 				if ( keep_solutions) {
 					// end solution
+					int new_solution_nr = this.makeNewSolutionNr();
 					Solution end_solution_kept = solution.clone();
 					step.setNewSolutionOwned(end_solution_kept);
-					end_solution_kept.setSolutionNr(this.makeNewSolutionNr());;
-					end_solution_kept.setAncestor(start_solution); // owning
+					end_solution_kept.setSolutionNr(new_solution_nr);
+				}
+				if ( keep_step ) {
+					Solution end_solution = step.getEndSolution();
+					int nr = end_solution.getSolutionNr();
+					solution.setSolutionNr(nr);
+				} else {
+					int new_solution_nr = this.makeNewSolutionNr();
+					solution.setSolutionNr(new_solution_nr);
 				}
 				
 				// maintain the list of solutions, insert the solution after the next best
@@ -478,7 +490,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 					}
 				}
 				iterator.add(solution);// owning
-				solution.setSolutionNr(this.makeNewSolutionNr());
 				
 				// loop control
 				nr_iterations++;
@@ -487,7 +498,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				finished = nr_iterations>=phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
 				
 				// feedback
-				String message3 = String.format("Improvments=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
+				String message3 = String.format("phase=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
 						phase.getName(),
 						nr_iterations,
 						phase.getMaxSteps(),
@@ -498,7 +509,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				this.setProgress(message3, ++iterations_total);
 
 				// prune the solution pool
-				//this.prune();
+				this.prune();
 
 			} while ( !finished); // loop on the steps
 			
@@ -506,7 +517,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			phase.setPhaseStart(start);
 			phase.setPhaseEnd(end);
 			phase.setDurationTotal(elapsed_millis/1000);
-			phase.setDurationAverage(elapsed_millis/1000/nr_iterations);
+			phase.setDurationAverage(nr_iterations==0 ? 0.0f: elapsed_millis/1000/nr_iterations);
 			phase.setNrSteps(nr_iterations);
 			
 			Plugin.INSTANCE.logInfo(String.format("Phase %s finished", phase.getName()));
@@ -522,6 +533,10 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	private void prune() {
 		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
 			Solution solution = this.selectBadSolution();
+			Plugin.INSTANCE.logInfo(String.format("Strategy %s solution %s:%d pruned", 
+					this.getName(),
+					solution.getStep(),
+					solution.getSolutionNr()));
 			this.getSolutions().remove(solution);
 		}
 	}

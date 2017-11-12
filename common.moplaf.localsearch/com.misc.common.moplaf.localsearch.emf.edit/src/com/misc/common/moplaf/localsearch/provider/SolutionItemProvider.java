@@ -56,8 +56,6 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 			super.getPropertyDescriptors(object);
 
 			addSolutionNrPropertyDescriptor(object);
-			addAncestorPropertyDescriptor(object);
-			addDescendantsPropertyDescriptor(object);
 			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -81,50 +79,6 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10SolutionPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Ancestor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAncestorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solution_Ancestor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_Ancestor_feature", "_UI_Solution_type"),
-				 LocalSearchPackage.Literals.SOLUTION__ANCESTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10SolutionPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Descendants feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescendantsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solution_Descendants_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_Descendants_feature", "_UI_Solution_type"),
-				 LocalSearchPackage.Literals.SOLUTION__DESCENDANTS,
-				 true,
-				 false,
-				 true,
-				 null,
 				 getString("_UI__10SolutionPropertyCategory"),
 				 null));
 	}
