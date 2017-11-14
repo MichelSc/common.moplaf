@@ -6,11 +6,11 @@ import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
+import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
-import com.misc.common.moplaf.propagator2.Plugin;
 
 import java.lang.reflect.InvocationTargetException;
 
