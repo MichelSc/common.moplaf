@@ -831,6 +831,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStep_Step() {
+		return (EAttribute)stepEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSolutionChange() {
 		return solutionChangeEClass;
 	}
@@ -1059,6 +1068,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(stepEClass, STEP__STEP_NR);
 		createEReference(stepEClass, STEP__PHASE);
 		createEReference(stepEClass, STEP__START_SOLUTION_OWNED);
+		createEAttribute(stepEClass, STEP__STEP);
 
 		solutionChangeEClass = createEClass(SOLUTION_CHANGE);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__START_SOLUTION);
@@ -1222,6 +1232,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getStep_StepNr(), ecorePackage.getEInt(), "StepNr", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStep_Phase(), this.getPhase(), this.getPhase_Steps(), "Phase", null, 1, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStep_StartSolutionOwned(), this.getSolution(), null, "StartSolutionOwned", null, 1, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStep_Step(), ecorePackage.getEString(), "Step", null, 0, 1, Step.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(solutionChangeEClass, SolutionChange.class, "SolutionChange", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolutionChange_StartSolution(), this.getSolution(), null, "StartSolution", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

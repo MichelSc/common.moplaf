@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStepNr <em>Step Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getPhase <em>Phase</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStartSolutionOwned <em>Start Solution Owned</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStep <em>Step</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +85,16 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	protected Solution startSolutionOwned;
 
 	/**
+	 * The default value of the '{@link #getStep() <em>Step</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStep()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STEP_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -104,7 +115,6 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 
 	@Override
 	public EList<SolutionChange> getSubChanges() {
-		// TODO Auto-generated method stub
 		EList<SolutionChange> list = super.getSubChanges();
 		for ( Action action: this.getActions()) {
 			list.add(action);
@@ -267,6 +277,15 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getStep() {
+		String step = String.format("%s:%04d", this.getPhase().getName(), this.getStepNr());
+		return step; 
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -331,6 +350,8 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 				return getPhase();
 			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
 				return getStartSolutionOwned();
+			case LocalSearchPackage.STEP__STEP:
+				return getStep();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -401,6 +422,8 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 				return getPhase() != null;
 			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
 				return startSolutionOwned != null;
+			case LocalSearchPackage.STEP__STEP:
+				return STEP_EDEFAULT == null ? getStep() != null : !STEP_EDEFAULT.equals(getStep());
 		}
 		return super.eIsSet(featureID);
 	}

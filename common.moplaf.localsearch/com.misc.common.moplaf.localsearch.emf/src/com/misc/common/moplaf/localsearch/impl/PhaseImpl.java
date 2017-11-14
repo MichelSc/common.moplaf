@@ -545,14 +545,15 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				break;
 			}
 
+			// step
+			Step step = LocalSearchFactory.eINSTANCE.createStep();
+
 			// makes the solution that will be owned by the step
 			// so the current solution from start to end
 			// current solutions for the steps and the actions
 			Solution solution = start_solution.clone();
-			solution.setStep(String.format("%s:%04d", phase.getName(), nr_iterations));
+			solution.setStep(step.getStep());
 			
-			// step
-			Step step = LocalSearchFactory.eINSTANCE.createStep();
 			if ( keep_step ) {
 				// keep
 				phase.getSteps().add(step);

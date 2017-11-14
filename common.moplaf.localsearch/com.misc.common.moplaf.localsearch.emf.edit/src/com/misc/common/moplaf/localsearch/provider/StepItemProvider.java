@@ -4,6 +4,8 @@ package com.misc.common.moplaf.localsearch.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.DoCommand;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Step;
@@ -25,10 +27,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.localsearch.Step} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class StepItemProvider extends SolutionChangeItemProvider {
+public class StepItemProvider extends SolutionChangeItemProvider implements IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -52,6 +55,7 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 
 			addActionsPropertyDescriptor(object);
 			addStepNrPropertyDescriptor(object);
+			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +100,28 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Step feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStepPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Step_Step_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Step_Step_feature", "_UI_Step_type"),
+				 LocalSearchPackage.Literals.STEP__STEP,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -167,6 +193,7 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 		switch (notification.getFeatureID(Step.class)) {
 			case LocalSearchPackage.STEP__STEP_NR:
 			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
+			case LocalSearchPackage.STEP__STEP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STEP__ACTIONS:
@@ -221,4 +248,80 @@ public class StepItemProvider extends SolutionChangeItemProvider {
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
+	@Override
+	public String getGridText(Object element, Object grid) {
+		Step step = (Step)element;
+		return step.getStep();
+	}
+
+	@Override
+	public Collection<?> getRows(Object element, Object grid) {
+		Step step = (Step)element;
+		return step.getActions();
+	}
+	
+	private abstract interface Column {
+		public String getText();
+		public Object getValue(Action action);
+	}
+	
+	private static Column[] columns = {
+			new Column() {
+				public String getText() {
+					return "New";
+				}
+				public Object getValue(Action action) {
+					return action.isNewSolution();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "SolNr";
+				}
+				public Object getValue(Action action) {
+					return action.getEndSolution().getSolutionNr();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "Action";
+				}
+				public Object getValue(Action action) {
+					return action.getDescription();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "Score";
+				}
+				public Object getValue(Action action) {
+					return action.getEndSolution().getScore().getDescription();
+				}
+			}
+	};
+
+	@Override
+	public String getRowText(Object element, Object grid, Object row) {
+		Action action = (Action)row;
+		String row_header = String.format("%d", action.getActionNr());
+		return row_header;
+	}
+
+	@Override
+	public int getNrColumns(Object element, Object grid) {
+		return columns.length;
+	}
+
+	@Override
+	public String getColumnText(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getText();
+	}
+
+	@Override
+	public Object getCellValue(Object element, Object grid, Object row, Object column) {
+		Action action = (Action)row;
+		Integer column_index = (Integer)column;
+		return columns[column_index].getValue(action);
+	}
 }

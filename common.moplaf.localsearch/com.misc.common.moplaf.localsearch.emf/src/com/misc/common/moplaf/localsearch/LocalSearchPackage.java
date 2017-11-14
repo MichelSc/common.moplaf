@@ -1348,13 +1348,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP__START_SOLUTION_OWNED = SOLUTION_CHANGE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+	int STEP_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Step</em>' class.
@@ -2164,6 +2173,17 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getStep_StartSolutionOwned();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Step#getStep <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Step</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Step#getStep()
+	 * @see #getStep()
+	 * @generated
+	 */
+	EAttribute getStep_Step();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.SolutionChange <em>Solution Change</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2936,6 +2956,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STEP__START_SOLUTION_OWNED = eINSTANCE.getStep_StartSolutionOwned();
+
+		/**
+		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STEP__STEP = eINSTANCE.getStep_Step();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl <em>Solution Change</em>}' class.
