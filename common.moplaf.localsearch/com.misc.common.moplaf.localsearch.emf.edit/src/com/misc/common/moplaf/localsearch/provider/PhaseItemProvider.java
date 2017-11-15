@@ -4,9 +4,11 @@ package com.misc.common.moplaf.localsearch.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.DoCommand;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
+import com.misc.common.moplaf.localsearch.Step;
 
 import java.util.Collection;
 import java.util.List;
@@ -32,10 +34,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.localsearch.Phase} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -411,4 +414,89 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 		} 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+	
+	@Override
+	public String getGridText(Object element, Object grid) {
+		Phase phase = (Phase)element;
+		return phase.getName();
+	}
+
+	@Override
+	public Collection<?> getRows(Object element, Object grid) {
+		Phase phase = (Phase)element;
+		return phase.getSteps();
+	}
+	
+	private abstract interface Column {
+		public String getText();
+		public int  getWidth();
+		public Object getValue(Step step);
+	}
+	
+	private static Column[] columns = {
+			new Column() {
+				public String getText() {
+					return "New";
+				}
+				public int  getWidth() {
+					return 40;
+				}
+				public Object getValue(Step step) {
+					return step.isNewSolution();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "SolNr";
+				}
+				public int  getWidth() {
+					return 40;
+				}
+				public Object getValue(Step step) {
+					return step.getEndSolution().getSolutionNr();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "Score";
+				}
+				public int  getWidth() {
+					return 200;
+				}
+				public Object getValue(Step step) {
+					return step.getEndSolution().getScore().getDescription();
+				}
+			}
+	};
+
+	@Override
+	public String getRowText(Object element, Object grid, Object row) {
+		Step step = (Step)row;
+		String row_header = String.format("%d", step.getStepNr());
+		return row_header;
+	}
+
+	@Override
+	public int getNrColumns(Object element, Object grid) {
+		return columns.length;
+	}
+
+	@Override
+	public String getColumnText(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getText();
+	}
+
+	@Override
+	public int getColumnWidth(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getWidth();
+	}
+
+	@Override
+	public Object getCellValue(Object element, Object grid, Object row, Object column) {
+		Step step = (Step)row;
+		Integer column_index = (Integer)column;
+		return columns[column_index].getValue(step);
+	}
 }
