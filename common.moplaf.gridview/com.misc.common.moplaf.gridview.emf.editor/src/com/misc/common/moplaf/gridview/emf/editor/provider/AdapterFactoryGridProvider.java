@@ -239,6 +239,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		 */
 		public abstract class TableColumnProvider  {
 			public abstract String getText(TableRowProvider row);
+			public abstract int getWidth();
 			public abstract Color getForeground(TableRowProvider row);
 			public abstract Color getBackground(TableRowProvider row); 
 			public abstract int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending);
@@ -255,6 +256,10 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				}
 				TableProvider provider = TableProvider.this; 
 				return provider.gridsProvider.getGridText(provider.element, provider.grid); 
+			}
+			@Override
+			public int getWidth() {
+				return 100;
 			}
 			@Override
 			public Color getForeground(TableRowProvider row) {
@@ -291,6 +296,10 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				TableProvider provider = TableProvider.this; 
 				return provider.gridsProvider.getColumnText(provider.element, provider.grid, this.gridColumn); 
 				
+			}
+			public int getWidth() {
+				TableProvider provider = TableProvider.this; 
+				return provider.gridsProvider.getColumnWidth(provider.element, provider.grid, this.gridColumn); 
 			}
 			@Override
 			public Color getForeground(TableRowProvider row) {
@@ -485,6 +494,11 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		public String getColumnText(int columnIndex) {
 			TableColumnProvider column = this.indexToColumn[columnIndex];
 			return column.getText(null);
+		}
+
+		public int getColumnWidth(int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getWidth();
 		}
 
 		public int getColumnAlignment(int columnIndex) {

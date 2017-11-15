@@ -262,6 +262,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 	
 	private abstract interface Column {
 		public String getText();
+		public int  getWidth();
 		public Object getValue(Action action);
 	}
 	
@@ -269,6 +270,9 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 			new Column() {
 				public String getText() {
 					return "New";
+				}
+				public int  getWidth() {
+					return 40;
 				}
 				public Object getValue(Action action) {
 					return action.isNewSolution();
@@ -278,6 +282,9 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 				public String getText() {
 					return "SolNr";
 				}
+				public int  getWidth() {
+					return 40;
+				}
 				public Object getValue(Action action) {
 					return action.getEndSolution().getSolutionNr();
 				}
@@ -286,6 +293,9 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 				public String getText() {
 					return "Action";
 				}
+				public int  getWidth() {
+					return 200;
+				}
 				public Object getValue(Action action) {
 					return action.getDescription();
 				}
@@ -293,6 +303,9 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 			new Column() {
 				public String getText() {
 					return "Score";
+				}
+				public int  getWidth() {
+					return 200;
 				}
 				public Object getValue(Action action) {
 					return action.getEndSolution().getScore().getDescription();
@@ -316,6 +329,12 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 	public String getColumnText(Object element, Object grid, Object column) {
 		Integer column_index = (Integer)column;
 		return columns[column_index].getText();
+	}
+
+	@Override
+	public int getColumnWidth(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getWidth();
 	}
 
 	@Override

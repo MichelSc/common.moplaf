@@ -377,7 +377,7 @@ public class GridViewer extends ContentViewer {
 				//TableViewerColumn column_viewer = new TableViewerColumn(viewer, SWT.NONE);
 				//TableColumn column = column_viewer.getColumn();
 				TableColumn column = new TableColumn(viewer.getTable(),SWT.NONE);
-				column.setWidth(200);
+				column.setWidth(provider.getColumnWidth(i));
 				column.addSelectionListener(new ColumnSelectionAdapter(grid, i, column));
 				column.setAlignment(provider.getColumnAlignment(i));
 			}
