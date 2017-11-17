@@ -91,9 +91,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ScheduledOn" eType="#//Engine"
         eOpposite="#//Engine/jobschedueled"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tousejob" upperBound="-1"
-        eType="ecore:EClass ../../com.misc.touse.moplaf.job.emf/model/tousejob.ecore#//ToUseJob"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Engine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jobschedueled" eType="#//JobScheduled"

@@ -98,6 +98,17 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_ENGINE_PROXY__NAME, oldName, name));
 	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int submitJob(JobRemote job) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	/*
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
