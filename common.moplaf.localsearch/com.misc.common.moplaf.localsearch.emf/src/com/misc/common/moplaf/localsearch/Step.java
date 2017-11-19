@@ -132,10 +132,21 @@ public interface Step extends SolutionChange {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Step</em>' attribute.
+	 * @see #setStep(String)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep_Step()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model
 	 * @generated
 	 */
 	String getStep();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Step#getStep <em>Step</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Step</em>' attribute.
+	 * @see #getStep()
+	 * @generated
+	 */
+	void setStep(String value);
 
 } // Step

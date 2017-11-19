@@ -241,6 +241,7 @@ public class SolutionChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__SOLUTION_OWNED);
 			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__SOLUTIONS);
 		}
 		return childrenFeatures;
@@ -287,11 +288,13 @@ public class SolutionChangeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolutionChange.class)) {
-			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION_OWNED:
 			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case LocalSearchPackage.SOLUTION_CHANGE__SOLUTION_OWNED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);

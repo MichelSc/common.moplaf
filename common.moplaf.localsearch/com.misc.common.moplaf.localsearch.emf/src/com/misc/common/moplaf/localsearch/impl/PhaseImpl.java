@@ -547,6 +547,10 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 
 			// step
 			Step step = LocalSearchFactory.eINSTANCE.createStep();
+			String step_name = String.format("%s:%04d", this.getName(), nr_iterations);
+			step.setStep(step_name);
+			step.setStepNr(nr_iterations);
+			this.setNrSteps(nr_iterations);
 
 			// makes the solution that will be owned by the step
 			// so the current solution from start to end
@@ -557,7 +561,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			if ( keep_step ) {
 				// keep
 				phase.getSteps().add(step);
-				step.setStepNr(nr_iterations);
 				// start solution
 				Solution start_solution_kept = start_solution.clone();
 				step.setStartSolutionOwned(start_solution_kept); // owning
@@ -568,7 +571,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			phase.doStep(step);
 			step.setCurrentSolution(null);
 			
-			if ( keep_solutions) {
+			if ( keep_solutions ) {
 				// end solution
 				int new_solution_nr = strategy.makeNewSolutionNr();
 				Solution end_solution_kept = solution.clone();
@@ -647,31 +650,28 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	public void doAction(Step step, Action action) {
 		Phase phase = this;
 		StrategyLevel keep_level = phase.getKeepLevel();
-		boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_ACTION_VALUE;
 		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
 		
 		Solution solution = step.getCurrentSolution();
 		
+		// keep or not keep
+		// if we keep, need to make a copy of the solution, so that the actions can refer to the elements of the solution
+		if( keep_action ) {
+			Strategy strategy = this.getStrategy();
+			action.setActionNr(step.getActions().size());
+			step.getActions().add(action); // owning
+			Solution owned_solution = solution.clone();
+			action.setSolutionOwned(owned_solution);
+			action.setCurrentSolution(owned_solution);
+		} else {
+			action.setCurrentSolution(solution);
+		}
 		// do the action
-		action.setCurrentSolution(solution);
 		action.initialize();
 		action.run();
 		action.finalize();
 		action.setCurrentSolution(null);
 		
-		// keep
-		if( keep_action ) {
-			Strategy strategy = this.getStrategy();
-			action.setActionNr(step.getActions().size());
-			step.getActions().add(action); // owning
-			if ( keep_solutions && action.getCurrentMove()!=null) {
-				// new solution
-				// end solution
-				Solution end_solution_kept = solution.clone();
-				end_solution_kept.setSolutionNr(strategy.makeNewSolutionNr());
-				action.setNewSolutionOwned(end_solution_kept);
-			}
-		}
 	}
 
 

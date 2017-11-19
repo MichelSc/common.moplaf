@@ -53,33 +53,10 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addActionsPropertyDescriptor(object);
 			addStepNrPropertyDescriptor(object);
 			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Actions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addActionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Step_Actions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Step_Actions_feature", "_UI_Step_type"),
-				 LocalSearchPackage.Literals.STEP__ACTIONS,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -100,7 +77,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
 				 null));
 	}
 
@@ -122,7 +99,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
 				 null));
 	}
 

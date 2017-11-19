@@ -157,11 +157,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		if ( list_iterator.hasPrevious()) {
 			return list_iterator.previous();
 		}
-		Step previous_step = (Step) step.getPreviousChange();
-		if ( previous_step!=null) {
-			int nof_actions = previous_step.getActions().size();
-			return previous_step.getActions().get(nof_actions-1);
-		}
 		return null;
 	}
 

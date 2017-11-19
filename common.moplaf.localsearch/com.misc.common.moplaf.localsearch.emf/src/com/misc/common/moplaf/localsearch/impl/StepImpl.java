@@ -95,6 +95,16 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	protected static final String STEP_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getStep() <em>Step</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStep()
+	 * @generated
+	 * @ordered
+	 */
+	protected String step = STEP_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -277,10 +287,22 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public String getStep() {
-		String step = String.format("%s:%04d", this.getPhase().getName(), this.getStepNr());
-		return step; 
+		return step;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStep(String newStep) {
+		String oldStep = step;
+		step = newStep;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STEP__STEP, oldStep, step));
 	}
 
 	/**
@@ -378,6 +400,9 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
 				setStartSolutionOwned((Solution)newValue);
 				return;
+			case LocalSearchPackage.STEP__STEP:
+				setStep((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,6 +427,9 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
 				setStartSolutionOwned((Solution)null);
 				return;
+			case LocalSearchPackage.STEP__STEP:
+				setStep(STEP_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -423,7 +451,7 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
 				return startSolutionOwned != null;
 			case LocalSearchPackage.STEP__STEP:
-				return STEP_EDEFAULT == null ? getStep() != null : !STEP_EDEFAULT.equals(getStep());
+				return STEP_EDEFAULT == null ? step != null : !STEP_EDEFAULT.equals(step);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -440,6 +468,8 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (StepNr: ");
 		result.append(stepNr);
+		result.append(", Step: ");
+		result.append(step);
 		result.append(')');
 		return result.toString();
 	}

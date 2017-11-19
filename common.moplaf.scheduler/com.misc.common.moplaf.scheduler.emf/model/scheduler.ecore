@@ -4,12 +4,6 @@
     nsPrefix="sched">
   <eClassifiers xsi:type="ecore:EClass" name="Scheduler" abstract="true" eSuperTypes="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.ecore#//Strategy">
     <eOperations name="constructScore" eType="ecore:EClass ../../com.misc.common.moplaf.localsearch.emf/model/localsearch.ecore#//Score"/>
-    <eOperations name="generateTasks">
-      <eParameters name="schedule" eType="#//Schedule"/>
-    </eOperations>
-    <eOperations name="generateResources">
-      <eParameters name="schedule" eType="#//Schedule"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Schedules" upperBound="-1"
         eType="#//Schedule" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>

@@ -208,13 +208,13 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION_CHANGE__END_SOLUTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>New Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>Solution Owned</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_CHANGE__NEW_SOLUTION_OWNED = 2;
+	int SOLUTION_CHANGE__SOLUTION_OWNED = 2;
 
 	/**
 	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
@@ -335,13 +335,13 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
 
 	/**
-	 * The feature id for the '<em><b>New Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>Solution Owned</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__NEW_SOLUTION_OWNED = SOLUTION_CHANGE__NEW_SOLUTION_OWNED;
+	int ACTION__SOLUTION_OWNED = SOLUTION_CHANGE__SOLUTION_OWNED;
 
 	/**
 	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
@@ -1231,13 +1231,13 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
 
 	/**
-	 * The feature id for the '<em><b>New Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>Solution Owned</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP__NEW_SOLUTION_OWNED = SOLUTION_CHANGE__NEW_SOLUTION_OWNED;
+	int STEP__SOLUTION_OWNED = SOLUTION_CHANGE__SOLUTION_OWNED;
 
 	/**
 	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
@@ -2216,15 +2216,15 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolutionChange_EndSolution();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getNewSolutionOwned <em>New Solution Owned</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getSolutionOwned <em>Solution Owned</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>New Solution Owned</em>'.
-	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getNewSolutionOwned()
+	 * @return the meta object for the containment reference '<em>Solution Owned</em>'.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getSolutionOwned()
 	 * @see #getSolutionChange()
 	 * @generated
 	 */
-	EReference getSolutionChange_NewSolutionOwned();
+	EReference getSolutionChange_SolutionOwned();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getPreviousChange <em>Previous Change</em>}'.
@@ -2992,12 +2992,12 @@ public interface LocalSearchPackage extends EPackage {
 		EReference SOLUTION_CHANGE__END_SOLUTION = eINSTANCE.getSolutionChange_EndSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>New Solution Owned</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Solution Owned</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOLUTION_CHANGE__NEW_SOLUTION_OWNED = eINSTANCE.getSolutionChange_NewSolutionOwned();
+		EReference SOLUTION_CHANGE__SOLUTION_OWNED = eINSTANCE.getSolutionChange_SolutionOwned();
 
 		/**
 		 * The meta object literal for the '<em><b>Previous Change</b></em>' reference feature.
