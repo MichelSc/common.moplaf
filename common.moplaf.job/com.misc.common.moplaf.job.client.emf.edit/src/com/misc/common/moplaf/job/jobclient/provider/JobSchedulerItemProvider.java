@@ -534,8 +534,7 @@ public class JobSchedulerItemProvider
 		public void execute() {
 			RunStartBackgroundCommand.this.jobscheduler.start();
 			Job job = new BackgroundRunJob ("Run in Background");
-		     //Plugin.INSTANCE.logInfo("solve, job submitted");
-		    job.schedule(); // start as soon as possible			}
+		    job.schedule();
 		}
 	} // class RunRunBackgroundCommand
 	
@@ -548,7 +547,7 @@ public class JobSchedulerItemProvider
 			Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if ( commandClass == StartCommand.class){
-			return new RunStartBackgroundCommand((JobScheduler) object); 
+			return new RunStartCommand((JobScheduler) object); 
 		}
 		else if ( commandClass == RefreshCommand.class){
 			return new RunRefreshCommand((JobScheduler) object); 
