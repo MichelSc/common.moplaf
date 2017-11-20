@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
-
 import com.misc.common.moplaf.job.jobclient.Engine;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
@@ -44,6 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#isStarted <em>Started</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNbOfEngines <em>Nb Of Engines</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNbOfJobs <em>Nb Of Jobs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getRefreshRate <em>Refresh Rate</em>}</li>
  * </ul>
  *
  * @generated
@@ -160,6 +161,35 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	protected int nbOfJobs = NB_OF_JOBS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getRefreshFeedback() <em>Refresh Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback REFRESH_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getRefreshRate() <em>Refresh Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshRate()
+	 * @ordered
+	 */
+	protected static final float REFRESH_RATE_EDEFAULT = 1.0F;
+
+	/**
+	 * The cached value of the '{@link #getRefreshRate() <em>Refresh Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected float refreshRate = REFRESH_RATE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -213,27 +243,46 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		}
 		return engine;
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public EnabledFeedback getStartFeedback() {
-		// TODO: implement this method to return the 'Start Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public JobScheduled getJobToProcess() {
+		EList<JobScheduled> jobs = this.getJobschedueled();
+		JobScheduled job = null;
+		for( int j = 0; j<jobs.size(); j++)
+		{
+			if( jobs.get(j).getJob() != null
+				&& !jobs.get(j).getJob().isFinished() 
+				&& jobs.get(j).getScheduledOn() == null )
+			{		
+				job = jobs.get(j);
+				j = jobs.size();
+			}
+		}
+		return job;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 */
+	public EnabledFeedback getStartFeedback() {
+		if ( this.isStarted()){
+			return new EnabledFeedback(false, "JobScheduler started");
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getStopFeedback() {
-		// TODO: implement this method to return the 'Stop Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( !this.isStarted()){
+			return new EnabledFeedback(false, "JobScheduler not yet started");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**
@@ -302,12 +351,12 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void start() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public EnabledFeedback getRefreshFeedback() {
+		if ( !this.isStarted()){
+			return new EnabledFeedback(false, "JobScheduler must be started");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**
@@ -315,10 +364,73 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public float getRefreshRate() {
+		return refreshRate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRefreshRate(float newRefreshRate) {
+		float oldRefreshRate = refreshRate;
+		refreshRate = newRefreshRate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_SCHEDULER__REFRESH_RATE, oldRefreshRate, refreshRate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void start() {
+		this.setStarted(true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void stop() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.setStarted(false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refresh() {
+		EList<Engine> engines = this.getEngine();
+		JobScheduled exists = this.getJobToProcess();
+		if( engines.size() > 0 
+			&& exists != null)
+		{
+			for( int e = 0; e < engines.size(); e++)
+			{
+				Engine engine = engines.get(e);
+				if( engine.getJobschedueled() == null )
+				{
+					JobScheduled toprocess = this.getJobToProcess();
+					if( toprocess != null )
+					{
+						engine.setJobschedueled(toprocess);
+					}
+				}
+			}
+			for( int e = 0; e < engines.size(); e++)
+			{
+				Engine engine = engines.get(e);
+				JobScheduled toprocess = engine.getJobschedueled();
+				if( toprocess != null
+					&& toprocess.getJob() != null
+					&& toprocess.getJob().getStatus() == "Created")
+				{
+					toprocess.getJob().run();
+					engine.setJobschedueled(null);
+				}
+			}
+		}
 	}
 
 	/**
@@ -363,6 +475,10 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return getNbOfEngines();
 			case JobclientPackage.JOB_SCHEDULER__NB_OF_JOBS:
 				return getNbOfJobs();
+			case JobclientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
+				return getRefreshFeedback();
+			case JobclientPackage.JOB_SCHEDULER__REFRESH_RATE:
+				return getRefreshRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -397,6 +513,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobclientPackage.JOB_SCHEDULER__NB_OF_JOBS:
 				setNbOfJobs((Integer)newValue);
 				return;
+			case JobclientPackage.JOB_SCHEDULER__REFRESH_RATE:
+				setRefreshRate((Float)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -427,6 +546,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobclientPackage.JOB_SCHEDULER__NB_OF_JOBS:
 				setNbOfJobs(NB_OF_JOBS_EDEFAULT);
 				return;
+			case JobclientPackage.JOB_SCHEDULER__REFRESH_RATE:
+				setRefreshRate(REFRESH_RATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -455,6 +577,10 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return nbOfEngines != NB_OF_ENGINES_EDEFAULT;
 			case JobclientPackage.JOB_SCHEDULER__NB_OF_JOBS:
 				return nbOfJobs != NB_OF_JOBS_EDEFAULT;
+			case JobclientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
+				return REFRESH_FEEDBACK_EDEFAULT == null ? getRefreshFeedback() != null : !REFRESH_FEEDBACK_EDEFAULT.equals(getRefreshFeedback());
+			case JobclientPackage.JOB_SCHEDULER__REFRESH_RATE:
+				return refreshRate != REFRESH_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -472,6 +598,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return null;
 			case JobclientPackage.JOB_SCHEDULER___STOP:
 				stop();
+				return null;
+			case JobclientPackage.JOB_SCHEDULER___REFRESH:
+				refresh();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -493,6 +622,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		result.append(nbOfEngines);
 		result.append(", nbOfJobs: ");
 		result.append(nbOfJobs);
+		result.append(", RefreshRate: ");
+		result.append(refreshRate);
 		result.append(')');
 		return result.toString();
 	}

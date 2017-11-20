@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#isStarted <em>Started</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNbOfEngines <em>Nb Of Engines</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNbOfJobs <em>Nb Of Jobs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate <em>Refresh Rate</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler()
@@ -190,6 +192,47 @@ public interface JobScheduler extends EObject {
 	void setNbOfJobs(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refresh Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refresh Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_RefreshFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getRefreshFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Refresh Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refresh Rate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refresh Rate</em>' attribute.
+	 * @see #setRefreshRate(float)
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_RefreshRate()
+	 * @model
+	 * @generated
+	 */
+	float getRefreshRate();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate <em>Refresh Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Refresh Rate</em>' attribute.
+	 * @see #getRefreshRate()
+	 * @generated
+	 */
+	void setRefreshRate(float value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -204,5 +247,14 @@ public interface JobScheduler extends EObject {
 	 * @generated
 	 */
 	void stop();
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
 
 } // JobScheduler

@@ -617,13 +617,31 @@ public interface JobclientPackage extends EPackage {
 	int JOB_SCHEDULER__NB_OF_JOBS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__REFRESH_FEEDBACK = 8;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__REFRESH_RATE = 9;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_FEATURE_COUNT = 8;
+	int JOB_SCHEDULER_FEATURE_COUNT = 10;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -644,13 +662,22 @@ public interface JobclientPackage extends EPackage {
 	int JOB_SCHEDULER___STOP = 1;
 
 	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER___REFRESH = 2;
+
+	/**
 	 * The number of operations of the '<em>Job Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_OPERATION_COUNT = 2;
+	int JOB_SCHEDULER_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.
@@ -1224,6 +1251,28 @@ public interface JobclientPackage extends EPackage {
 	EAttribute getJobScheduler_NbOfJobs();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback <em>Refresh Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Refresh Feedback</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_RefreshFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate <em>Refresh Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Refresh Rate</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_RefreshRate();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#start() <em>Start</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1242,6 +1291,16 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJobScheduler__Stop();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#refresh()
+	 * @generated
+	 */
+	EOperation getJobScheduler__Refresh_1();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobScheduled <em>Job Scheduled</em>}'.
@@ -1715,6 +1774,22 @@ public interface JobclientPackage extends EPackage {
 		EAttribute JOB_SCHEDULER__NB_OF_JOBS = eINSTANCE.getJobScheduler_NbOfJobs();
 
 		/**
+		 * The meta object literal for the '<em><b>Refresh Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__REFRESH_FEEDBACK = eINSTANCE.getJobScheduler_RefreshFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Rate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__REFRESH_RATE = eINSTANCE.getJobScheduler_RefreshRate();
+
+		/**
 		 * The meta object literal for the '<em><b>Start</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1729,6 +1804,14 @@ public interface JobclientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_SCHEDULER___STOP = eINSTANCE.getJobScheduler__Stop();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SCHEDULER___REFRESH = eINSTANCE.getJobScheduler__Refresh_1();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.

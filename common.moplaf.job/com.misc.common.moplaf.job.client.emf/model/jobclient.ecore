@@ -70,6 +70,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="JobScheduler">
     <eOperations name="start"/>
     <eOperations name="stop"/>
+    <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Jobs" upperBound="-1" eType="#//JobRemote"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="jobschedueled" upperBound="-1"
@@ -84,6 +85,9 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbOfEngines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbOfJobs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobScheduled">
     <eOperations name="kill"/>
