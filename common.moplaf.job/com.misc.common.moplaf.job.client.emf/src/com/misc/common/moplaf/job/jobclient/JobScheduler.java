@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getJobs <em>Jobs</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getJobschedueled <em>Jobschedueled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getEngine <em>Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getStartFeedback <em>Start Feedback</em>}</li>
@@ -34,22 +33,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface JobScheduler extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Jobs</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobRemote}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Jobs</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Jobs</em>' containment reference list.
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_Jobs()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<JobRemote> getJobs();
-
 	/**
 	 * Returns the value of the '<em><b>Jobschedueled</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.

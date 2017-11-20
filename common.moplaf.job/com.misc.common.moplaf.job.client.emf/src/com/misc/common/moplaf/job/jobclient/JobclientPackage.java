@@ -545,22 +545,13 @@ public interface JobclientPackage extends EPackage {
 	int JOB_SCHEDULER = 6;
 
 	/**
-	 * The feature id for the '<em><b>Jobs</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_SCHEDULER__JOBS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Jobschedueled</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__JOBSCHEDUELED = 1;
+	int JOB_SCHEDULER__JOBSCHEDUELED = 0;
 
 	/**
 	 * The feature id for the '<em><b>Engine</b></em>' containment reference list.
@@ -569,7 +560,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__ENGINE = 2;
+	int JOB_SCHEDULER__ENGINE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Start Feedback</b></em>' attribute.
@@ -578,7 +569,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__START_FEEDBACK = 3;
+	int JOB_SCHEDULER__START_FEEDBACK = 2;
 
 	/**
 	 * The feature id for the '<em><b>Stop Feedback</b></em>' attribute.
@@ -587,7 +578,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__STOP_FEEDBACK = 4;
+	int JOB_SCHEDULER__STOP_FEEDBACK = 3;
 
 	/**
 	 * The feature id for the '<em><b>Started</b></em>' attribute.
@@ -596,7 +587,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__STARTED = 5;
+	int JOB_SCHEDULER__STARTED = 4;
 
 	/**
 	 * The feature id for the '<em><b>Nb Of Engines</b></em>' attribute.
@@ -605,7 +596,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__NB_OF_ENGINES = 6;
+	int JOB_SCHEDULER__NB_OF_ENGINES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Nb Of Jobs</b></em>' attribute.
@@ -614,7 +605,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__NB_OF_JOBS = 7;
+	int JOB_SCHEDULER__NB_OF_JOBS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
@@ -623,7 +614,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__REFRESH_FEEDBACK = 8;
+	int JOB_SCHEDULER__REFRESH_FEEDBACK = 7;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Rate</b></em>' attribute.
@@ -632,7 +623,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__REFRESH_RATE = 9;
+	int JOB_SCHEDULER__REFRESH_RATE = 8;
 
 	/**
 	 * The number of structural features of the '<em>Job Scheduler</em>' class.
@@ -641,7 +632,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_FEATURE_COUNT = 10;
+	int JOB_SCHEDULER_FEATURE_COUNT = 9;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -1163,17 +1154,6 @@ public interface JobclientPackage extends EPackage {
 	EClass getJobScheduler();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getJobs <em>Jobs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Jobs</em>'.
-	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getJobs()
-	 * @see #getJobScheduler()
-	 * @generated
-	 */
-	EReference getJobScheduler_Jobs();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getJobschedueled <em>Jobschedueled</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1300,7 +1280,7 @@ public interface JobclientPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#refresh()
 	 * @generated
 	 */
-	EOperation getJobScheduler__Refresh_1();
+	EOperation getJobScheduler__Refresh();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobScheduled <em>Job Scheduled</em>}'.
@@ -1710,14 +1690,6 @@ public interface JobclientPackage extends EPackage {
 		EClass JOB_SCHEDULER = eINSTANCE.getJobScheduler();
 
 		/**
-		 * The meta object literal for the '<em><b>Jobs</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference JOB_SCHEDULER__JOBS = eINSTANCE.getJobScheduler_Jobs();
-
-		/**
 		 * The meta object literal for the '<em><b>Jobschedueled</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1811,7 +1783,7 @@ public interface JobclientPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB_SCHEDULER___REFRESH = eINSTANCE.getJobScheduler__Refresh_1();
+		EOperation JOB_SCHEDULER___REFRESH = eINSTANCE.getJobScheduler__Refresh();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.

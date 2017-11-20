@@ -71,8 +71,6 @@
     <eOperations name="start"/>
     <eOperations name="stop"/>
     <eOperations name="refresh"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Jobs" upperBound="-1" eType="#//JobRemote"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="jobschedueled" upperBound="-1"
         eType="#//JobScheduled" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="engine" upperBound="-1"

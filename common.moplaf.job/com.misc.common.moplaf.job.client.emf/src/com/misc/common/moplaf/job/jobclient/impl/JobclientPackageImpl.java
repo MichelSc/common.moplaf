@@ -497,7 +497,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobScheduler_Jobs() {
+	public EReference getJobScheduler_Jobschedueled() {
 		return (EReference)jobSchedulerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -506,7 +506,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobScheduler_Jobschedueled() {
+	public EReference getJobScheduler_Engine() {
 		return (EReference)jobSchedulerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -515,17 +515,8 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobScheduler_Engine() {
-		return (EReference)jobSchedulerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getJobScheduler_StartFeedback() {
-		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -534,7 +525,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobScheduler_StopFeedback() {
-		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -543,7 +534,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobScheduler_Started() {
-		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -552,7 +543,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobScheduler_NbOfEngines() {
-		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -561,7 +552,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobScheduler_NbOfJobs() {
-		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -570,7 +561,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobScheduler_RefreshFeedback() {
-		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -579,7 +570,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * @generated
 	 */
 	public EAttribute getJobScheduler_RefreshRate() {
-		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -605,7 +596,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJobScheduler__Refresh_1() {
+	public EOperation getJobScheduler__Refresh() {
 		return jobSchedulerEClass.getEOperations().get(2);
 	}
 
@@ -752,7 +743,6 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		createEAttribute(jobEngineInProcessEClass, JOB_ENGINE_IN_PROCESS__ASYNCHRONOUS);
 
 		jobSchedulerEClass = createEClass(JOB_SCHEDULER);
-		createEReference(jobSchedulerEClass, JOB_SCHEDULER__JOBS);
 		createEReference(jobSchedulerEClass, JOB_SCHEDULER__JOBSCHEDUELED);
 		createEReference(jobSchedulerEClass, JOB_SCHEDULER__ENGINE);
 		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__START_FEEDBACK);
@@ -869,7 +859,6 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		initEAttribute(getJobEngineInProcess_Asynchronous(), ecorePackage.getEBoolean(), "Asynchronous", null, 0, 1, JobEngineInProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobSchedulerEClass, JobScheduler.class, "JobScheduler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJobScheduler_Jobs(), this.getJobRemote(), null, "Jobs", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobScheduler_Jobschedueled(), this.getJobScheduled(), null, "jobschedueled", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobScheduler_Engine(), this.getEngine(), null, "engine", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduler_StartFeedback(), theJobPackage.getEnabledFeedback(), "StartFeedback", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -884,7 +873,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 
 		initEOperation(getJobScheduler__Stop(), null, "stop", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getJobScheduler__Refresh_1(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getJobScheduler__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobScheduledEClass, JobScheduled.class, "JobScheduled", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobScheduled_Job(), theJobPackage.getJob(), null, "job", null, 1, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

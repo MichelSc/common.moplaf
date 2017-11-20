@@ -256,7 +256,6 @@ public class JobSchedulerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobclientPackage.Literals.JOB_SCHEDULER__JOBS);
 			childrenFeatures.add(JobclientPackage.Literals.JOB_SCHEDULER__JOBSCHEDUELED);
 			childrenFeatures.add(JobclientPackage.Literals.JOB_SCHEDULER__ENGINE);
 		}
@@ -324,7 +323,6 @@ public class JobSchedulerItemProvider
 			case JobclientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case JobclientPackage.JOB_SCHEDULER__JOBS:
 			case JobclientPackage.JOB_SCHEDULER__JOBSCHEDUELED:
 			case JobclientPackage.JOB_SCHEDULER__ENGINE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -343,11 +341,6 @@ public class JobSchedulerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobclientPackage.Literals.JOB_SCHEDULER__JOBS,
-				 JobclientFactory.eINSTANCE.createJobRemote()));
 
 		newChildDescriptors.add
 			(createChildParameter
