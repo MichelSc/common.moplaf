@@ -575,7 +575,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				// end solution
 				int new_solution_nr = strategy.makeNewSolutionNr();
 				Solution end_solution_kept = solution.clone();
-				step.setNewSolutionOwned(end_solution_kept);
+				step.setSolutionOwned(end_solution_kept);
 				end_solution_kept.setSolutionNr(new_solution_nr);
 			}
 			if ( keep_step ) {

@@ -47,20 +47,4 @@ public interface Scheduler extends Strategy {
 	 */
 	Score constructScore();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void generateTasks(Schedule schedule);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void generateResources(Schedule schedule);
-
 } // Scheduler

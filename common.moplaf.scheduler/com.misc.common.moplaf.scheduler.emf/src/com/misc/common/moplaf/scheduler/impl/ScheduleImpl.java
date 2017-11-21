@@ -186,8 +186,6 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 		this.getResources().clear();
 		// construct tasks and resources
 		Scheduler scheduler = this.getScheduler();
-		scheduler.generateResources(this);
-		scheduler.generateTasks(this);
 		Score new_score = scheduler.constructScore();
 		this.setScore(new_score);
 	}

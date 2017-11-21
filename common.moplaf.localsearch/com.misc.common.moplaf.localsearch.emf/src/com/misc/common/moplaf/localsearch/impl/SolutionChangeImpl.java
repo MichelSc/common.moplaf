@@ -160,12 +160,7 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 */
 	public Solution basicGetEndSolution() {
 		if ( this.isKeepSolutions() ) {
-			if ( this.isNewSolution() ) {
-				return this.getNewSolutionOwned();
-			} else {
-				// no change, so this is the start solutions
-				return this.getStartSolution();
-			}
+			return this.getSolutionOwned();
 		} else {
 			int subchanges = this.getSubChanges().size();
 			if ( subchanges>0 ){
@@ -269,7 +264,7 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	private void collectNewSolutions(EList<Solution> solutions) {
 		if ( this.isKeepSolutions()) {
 			if ( this.isNewSolution() ) {
-				solutions.add(this.getNewSolutionOwned());
+				solutions.add(this.getSolutionOwned());
 			}
 		} else {
 			for ( SolutionChange subchange : this.getSubChanges()) {
@@ -342,9 +337,10 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public boolean isNewSolution() {
-		return this.getNewSolutionOwned()!=null;
+		return newSolution;
 	}
 
 	/**
