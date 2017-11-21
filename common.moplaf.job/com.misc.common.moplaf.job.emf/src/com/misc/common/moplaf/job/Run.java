@@ -28,6 +28,7 @@ import com.misc.common.moplaf.common.ReturnFeedback;
  *   <li>{@link com.misc.common.moplaf.job.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getResetFeedback <em>Reset Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#isCanceled <em>Canceled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Run#isReturned <em>Returned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getReturnFeedback <em>Return Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getReturnInformation <em>Return Information</em>}</li>
@@ -108,6 +109,32 @@ public interface Run extends RunParams {
 	 * @generated
 	 */
 	void setCanceled(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Returned</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Returned</em>' attribute.
+	 * @see #setReturned(boolean)
+	 * @see com.misc.common.moplaf.job.JobPackage#getRun_Returned()
+	 * @model
+	 * @generated
+	 */
+	boolean isReturned();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.Run#isReturned <em>Returned</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Returned</em>' attribute.
+	 * @see #isReturned()
+	 * @generated
+	 */
+	void setReturned(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Return Success</b></em>' attribute.
@@ -210,6 +237,14 @@ public interface Run extends RunParams {
 	 * @generated
 	 */
 	ReturnFeedback run(RunContext runContext);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model runContextDataType="com.misc.common.moplaf.job.RunContext"
+	 * @generated
+	 */
+	void runAsynch(RunContext runContext);
 
 	/**
 	 * <!-- begin-user-doc -->

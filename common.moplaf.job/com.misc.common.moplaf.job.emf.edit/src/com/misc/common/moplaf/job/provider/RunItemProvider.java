@@ -19,18 +19,12 @@ import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunBackgroundCommand;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.job.JobPackage;
-import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.Run;
-import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.RunParams;
 
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -76,6 +70,7 @@ public class RunItemProvider
 			addCancelFeedbackPropertyDescriptor(object);
 			addResetFeedbackPropertyDescriptor(object);
 			addCanceledPropertyDescriptor(object);
+			addReturnedPropertyDescriptor(object);
 			addReturnSuccessPropertyDescriptor(object);
 			addReturnFeedbackPropertyDescriptor(object);
 			addReturnInformationPropertyDescriptor(object);
@@ -168,6 +163,28 @@ public class RunItemProvider
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 getString("_UI__10JobControlPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Returned feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Run_Returned_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Run_Returned_feature", "_UI_Run_type"),
+				 JobPackage.Literals.RUN__RETURNED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10JobStatusPropertyCategory"),
 				 null));
 	}
 
@@ -279,6 +296,7 @@ public class RunItemProvider
 			case JobPackage.RUN__CANCEL_FEEDBACK:
 			case JobPackage.RUN__RESET_FEEDBACK:
 			case JobPackage.RUN__CANCELED:
+			case JobPackage.RUN__RETURNED:
 			case JobPackage.RUN__RETURN_SUCCESS:
 			case JobPackage.RUN__RETURN_FEEDBACK:
 			case JobPackage.RUN__RETURN_INFORMATION:
@@ -350,54 +368,9 @@ public class RunItemProvider
 			return isExecutable;
 		}
 		
-		class BackgroundRunJob extends Job implements RunContext{
-			public BackgroundRunJob(String name) {
-				super(name);
-			    this.setPriority(Job.SHORT);
-			    this.setUser(true);
-			    this.setSystem(false);
-			}
-
-			private IProgressMonitor monitor = null;
-			
-			/**
-			 * Call back from the applicative logic
-			 * 
-			 * @return true if the run may continue, false if the run must abort
- 			 */
-			@Override
-			public boolean onProgress(Run run, ProgressFeedback progress) {
-				boolean goOn = true;
-				if ( this.monitor != null){
-					if ( this.monitor.isCanceled())				{
-						goOn = false;
-					}
-					this.monitor.setTaskName(progress.getTask());
-				}
-				return goOn;
-			}
-
-			@Override
-			protected IStatus run(IProgressMonitor monitor) {
-				this.monitor = monitor;
-	    	    monitor.beginTask("Initialization", 100);
-
-	    	    // run the run
-	    	    RunRunBackgroundCommand.this.run.run(this);
-
-	    	    // run is finished
-	            this.monitor = null;
-	            return Status.OK_STATUS;
-			}
-			
-		};
-		
 		@Override
 		public void execute() {
-			
-			 Job job = new BackgroundRunJob ("Run in Background");
-		     //Plugin.INSTANCE.logInfo("solve, job submitted");
-		     job.schedule(); // start as soon as possible			}
+			this.run.runAsynch(null);
 		}
 	} // class RunRunBackgroundCommand
 	
