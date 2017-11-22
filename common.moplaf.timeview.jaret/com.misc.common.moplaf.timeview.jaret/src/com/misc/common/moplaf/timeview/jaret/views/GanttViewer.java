@@ -367,7 +367,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		
 		public String getTextToBe(){
 			String labelToBe = GanttViewer.this.getILabelProvider().getText(this.modelObject);
-			return labelToBe;
+			return labelToBe == null ? "" : labelToBe;
 		}
 	}
 	
@@ -389,7 +389,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		
 		public String getTextToBe(){
 			String labelToBe = GanttViewer.this.getILabelProvider().getText(this.modelObject);
-			return labelToBe;
+			return labelToBe == null ? "" : labelToBe;
 		}
 		
 		public Color getForegroundToBe(){

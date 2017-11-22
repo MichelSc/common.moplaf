@@ -17,8 +17,14 @@ public class Color {
 	private int g;
 	private int b;
 	
-	static public Color COLOR_BLACK = new Color(0,0,0);
-	static public Color COLOR_WHITE = new Color(255,255,255);
+	static public Color COLOR_BLACK   = new Color(  0,   0,   0);
+	static public Color COLOR_WHITE   = new Color(255, 255, 255);
+	static public Color COLOR_CYAN    = new Color(  0, 255, 255);
+	static public Color COLOR_MAGENTA = new Color(255,   0, 255);
+	static public Color COLOR_YELLOW  = new Color(255, 255,   0);
+	static public Color COLOR_BLUE    = new Color(  0,   0, 255);
+	static public Color COLOR_RED     = new Color(255,   0,   0);
+	static public Color COLOR_GREEN   = new Color(  0, 255,   0);
 	
 	public Color(int rgb) {
 		super();

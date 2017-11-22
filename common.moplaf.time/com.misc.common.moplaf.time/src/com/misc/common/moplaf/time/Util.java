@@ -53,6 +53,22 @@ public class Util {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	static public Date addMinutes(Date date, float minutes) {
+		return Util.addSeconds(date,  minutes*60.0f);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	static public Date addHours(Date date, float hours) {
+		return Util.addMinutes(date,  hours*60.0f);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	static public int getSecondsIntersection(Date from1, Date to1, Date from2, Date to2) {
 		Date from = new Date(Math.max(from1.getTime(), from2.getTime()));
 		Date to   = new Date(Math.min(to1.getTime(), to2.getTime()));
