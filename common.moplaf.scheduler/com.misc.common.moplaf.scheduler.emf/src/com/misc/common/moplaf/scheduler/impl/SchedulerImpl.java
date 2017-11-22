@@ -90,28 +90,6 @@ public abstract class SchedulerImpl extends StrategyImpl implements Scheduler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void generateTasks(Schedule schedule) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void generateResources(Schedule schedule) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public Task constructTask(EObject task) {
 		Task new_task = SchedulerFactory.eINSTANCE.createTask();
@@ -166,12 +144,6 @@ public abstract class SchedulerImpl extends StrategyImpl implements Scheduler {
 		switch (operationID) {
 			case SchedulerPackage.SCHEDULER___CONSTRUCT_SCORE:
 				return constructScore();
-			case SchedulerPackage.SCHEDULER___GENERATE_TASKS__SCHEDULE:
-				generateTasks((Schedule)arguments.get(0));
-				return null;
-			case SchedulerPackage.SCHEDULER___GENERATE_RESOURCES__SCHEDULE:
-				generateResources((Schedule)arguments.get(0));
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -36,9 +36,7 @@ public enum StrategyLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEVEL_PHASE(1, "LevelPhase", "KeepSolutions"),
-
-	/**
+	LEVEL_PHASE(1, "LevelPhase", "LevelPhase"), /**
 	 * The '<em><b>Level Step</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,7 +80,7 @@ public enum StrategyLevel implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LEVEL_PHASE
-	 * @model name="LevelPhase" literal="KeepSolutions"
+	 * @model name="LevelPhase"
 	 * @generated
 	 * @ordered
 	 */

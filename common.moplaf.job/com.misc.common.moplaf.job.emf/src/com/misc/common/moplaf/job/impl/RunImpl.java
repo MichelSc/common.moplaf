@@ -23,7 +23,13 @@ import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.RunContext;
 
 import com.misc.common.moplaf.job.RunParams;
+
 import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -43,6 +49,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getResetFeedback <em>Reset Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isCanceled <em>Canceled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturned <em>Returned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getReturnFeedback <em>Return Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getReturnInformation <em>Return Information</em>}</li>
@@ -100,6 +107,26 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * @ordered
 	 */
 	protected boolean canceled = CANCELED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isReturned() <em>Returned</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturned()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURNED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReturned() <em>Returned</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturned()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returned = RETURNED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isReturnSuccess() <em>Return Success</em>}' attribute.
@@ -199,6 +226,27 @@ public class RunImpl extends RunParamsImpl implements Run {
 		canceled = newCanceled;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.RUN__CANCELED, oldCanceled, canceled));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReturned() {
+		return returned;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReturned(boolean newReturned) {
+		boolean oldReturned = returned;
+		returned = newReturned;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.RUN__RETURNED, oldReturned, returned));
 	}
 
 	/**
@@ -309,6 +357,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 		this.setReturnSuccess(false);
 		this.setReturnFeedback("");
 		this.setReturnInformation("");
+		this.setReturned(false);
 		
 		this.resetImpl();
 	}
@@ -346,6 +395,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 			this.setReturnFeedback(null);
 			feedback = this.runImpl(runContext);
 		} catch (Exception e){
+			e.printStackTrace();
 			feedback = new ReturnFeedback("RunImpl.run ", e);
 		}
 		this.setReturn(feedback);
@@ -353,7 +403,77 @@ public class RunImpl extends RunParamsImpl implements Run {
 	}
 
 	
+	class BackgroundRunJob extends Job implements RunContext{
+		
+		public BackgroundRunJob(String name) {
+			super(name);
+		    this.setPriority(Job.SHORT);
+		    this.setUser(true);
+		    this.setSystem(false);
+		    this.callerContext = null;
+		}
+
+		public BackgroundRunJob(String name, RunContext callerContext) {
+			super(name);
+		    this.setPriority(Job.SHORT);
+		    this.setUser(true);
+		    this.setSystem(false);
+		    this.callerContext = callerContext;
+		}
+
+		private IProgressMonitor monitor = null;
+		private RunContext callerContext = null;
+		
+		/**
+		 * Call back from the applicative logic
+		 * 
+		 * @return true if the run may continue, false if the run must attempt to abort
+			 */
+		@Override
+		public boolean onProgress(Run run, ProgressFeedback progress) {
+			boolean goOn = true;
+			if ( this.monitor != null){
+				if ( this.monitor.isCanceled())				{
+					goOn = false;
+				}
+				this.monitor.setTaskName(progress.getTask());
+			}
+			if ( this.callerContext!=null ) {
+				if ( !this.callerContext.onProgress(run, progress)) {
+					goOn = false;
+				}
+			}
+			return goOn;
+		}
+
+		@Override
+		protected IStatus run(IProgressMonitor monitor) {
+			this.monitor = monitor;
+    	    monitor.beginTask("Initialization", 100);
+
+    	    // run the run and set the return feedback
+    	    RunImpl.this.run(this);
+    	    // tell the context it is finished 
+    	    // note: the run is Returned, isReturned will give true
+    	    // so can the context recognize that it is finished
+    	    RunImpl.this.setProgress("finished", Float.MAX_VALUE);
+
+    	    // run is finished
+            this.monitor = null;
+            return Status.OK_STATUS;
+		}
+		
+	};
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void runAsynch(RunContext runContext) {
+		 Job job = new BackgroundRunJob ("Run in Background");
+	     //Plugin.INSTANCE.logInfo("solve, job submitted");
+	     job.schedule(); // start as soon as possible			
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -394,7 +514,12 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public ReturnFeedback getReturn() {
-		return new ReturnFeedback(this.isReturnSuccess(), this.getReturnInformation());
+		if ( !this.isReturned() ) {
+			return null;
+		}
+		return new ReturnFeedback(this.isReturnSuccess(), 
+                                  this.getReturnFeedback(),
+				                  this.getReturnInformation());
 	}
 
 /**
@@ -405,6 +530,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 		this.setReturnSuccess    (feedback.isSuccess());
 		this.setReturnFeedback   (feedback.getFeedback());
 		this.setReturnInformation(feedback.getInformation());
+		this.setReturned(true);
 	}
 
 	/**
@@ -451,6 +577,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return getResetFeedback();
 			case JobPackage.RUN__CANCELED:
 				return isCanceled();
+			case JobPackage.RUN__RETURNED:
+				return isReturned();
 			case JobPackage.RUN__RETURN_SUCCESS:
 				return isReturnSuccess();
 			case JobPackage.RUN__RETURN_FEEDBACK:
@@ -471,6 +599,9 @@ public class RunImpl extends RunParamsImpl implements Run {
 		switch (featureID) {
 			case JobPackage.RUN__CANCELED:
 				setCanceled((Boolean)newValue);
+				return;
+			case JobPackage.RUN__RETURNED:
+				setReturned((Boolean)newValue);
 				return;
 			case JobPackage.RUN__RETURN_SUCCESS:
 				setReturnSuccess((Boolean)newValue);
@@ -495,6 +626,9 @@ public class RunImpl extends RunParamsImpl implements Run {
 		switch (featureID) {
 			case JobPackage.RUN__CANCELED:
 				setCanceled(CANCELED_EDEFAULT);
+				return;
+			case JobPackage.RUN__RETURNED:
+				setReturned(RETURNED_EDEFAULT);
 				return;
 			case JobPackage.RUN__RETURN_SUCCESS:
 				setReturnSuccess(RETURN_SUCCESS_EDEFAULT);
@@ -525,6 +659,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return RESET_FEEDBACK_EDEFAULT == null ? getResetFeedback() != null : !RESET_FEEDBACK_EDEFAULT.equals(getResetFeedback());
 			case JobPackage.RUN__CANCELED:
 				return canceled != CANCELED_EDEFAULT;
+			case JobPackage.RUN__RETURNED:
+				return returned != RETURNED_EDEFAULT;
 			case JobPackage.RUN__RETURN_SUCCESS:
 				return returnSuccess != RETURN_SUCCESS_EDEFAULT;
 			case JobPackage.RUN__RETURN_FEEDBACK:
@@ -550,6 +686,9 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return run();
 			case JobPackage.RUN___RUN__RUNCONTEXT:
 				return run((RunContext)arguments.get(0));
+			case JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT:
+				runAsynch((RunContext)arguments.get(0));
+				return null;
 			case JobPackage.RUN___CANCEL:
 				cancel();
 				return null;
@@ -580,6 +719,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Canceled: ");
 		result.append(canceled);
+		result.append(", Returned: ");
+		result.append(returned);
 		result.append(", ReturnSuccess: ");
 		result.append(returnSuccess);
 		result.append(", ReturnFeedback: ");

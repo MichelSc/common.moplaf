@@ -3,30 +3,42 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.DoCommand;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
+import com.misc.common.moplaf.localsearch.Step;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.localsearch.Phase} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class PhaseItemProvider extends SolutionChangeItemProvider {
+public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,7 +91,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -101,7 +113,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -123,7 +135,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -145,7 +157,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -167,7 +179,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -189,7 +201,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -211,7 +223,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -233,7 +245,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -255,7 +267,7 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -361,4 +373,130 @@ public class PhaseItemProvider extends SolutionChangeItemProvider {
 				 LocalSearchFactory.eINSTANCE.createStep()));
 	}
 
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return LocalsearchEditPlugin.INSTANCE;
+	}
+	
+	/**
+	 * 
+	 *
+	 */
+	public class PhaseDoCommand extends DoCommand{
+		private Phase phase;
+		
+		public PhaseDoCommand(Phase aPhase)	{
+			super();
+			this.phase= aPhase;
+		}
+
+		@Override
+		public void execute() {
+			phase.doPhase();
+		}
+	} // class PhaseDoCommand
+
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == DoCommand.class){
+			return new PhaseDoCommand((Phase) object); 
+		} 
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
+	
+	@Override
+	public String getGridText(Object element, Object grid) {
+		Phase phase = (Phase)element;
+		return phase.getName();
+	}
+
+	@Override
+	public Collection<?> getRows(Object element, Object grid) {
+		Phase phase = (Phase)element;
+		return phase.getSteps();
+	}
+	
+	private abstract interface Column {
+		public String getText();
+		public int  getWidth();
+		public Object getValue(Step step);
+	}
+	
+	private static Column[] columns = {
+			new Column() {
+				public String getText() {
+					return "New";
+				}
+				public int  getWidth() {
+					return 40;
+				}
+				public Object getValue(Step step) {
+					return step.isNewSolution();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "SolNr";
+				}
+				public int  getWidth() {
+					return 40;
+				}
+				public Object getValue(Step step) {
+					return step.getEndSolution().getSolutionNr();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "Score";
+				}
+				public int  getWidth() {
+					return 200;
+				}
+				public Object getValue(Step step) {
+					return step.getEndSolution().getScore().getDescription();
+				}
+			}
+	};
+
+	@Override
+	public String getRowText(Object element, Object grid, Object row) {
+		Step step = (Step)row;
+		String row_header = String.format("%d", step.getStepNr());
+		return row_header;
+	}
+
+	@Override
+	public int getNrColumns(Object element, Object grid) {
+		return columns.length;
+	}
+
+	@Override
+	public String getColumnText(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getText();
+	}
+
+	@Override
+	public int getColumnWidth(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getWidth();
+	}
+
+	@Override
+	public Object getCellValue(Object element, Object grid, Object row, Object column) {
+		Step step = (Step)row;
+		Integer column_index = (Integer)column;
+		return columns[column_index].getValue(step);
+	}
 }

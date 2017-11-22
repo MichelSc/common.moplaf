@@ -69,11 +69,11 @@ import java.util.Date;
 public interface IItemGridsProvider {
 	static int NO_ALIGN = 0;
 	
-	static int HORIZONTAl_ALIGN_LEFT = 1;
-	static int HORIZONTAl_ALIGN_RIGHT = 2;
+	static int HORIZONTAl_ALIGN_LEFT   = 1;
+	static int HORIZONTAl_ALIGN_RIGHT  = 2;
 	static int HORIZONTAl_ALIGN_CENTER = 4;
 
-	static int VERTICAL_ALIGN_TOP = 8;
+	static int VERTICAL_ALIGN_TOP    = 8;
 	static int VERTICAL_ALIGN_BOTTOM = 16;
 	static int VERTICAL_ALIGN_CENTER = 32;
 
@@ -142,6 +142,16 @@ public interface IItemGridsProvider {
 	}
 
 	/**
+	 * Return the height of a row of a grid published by the element.
+	 * @param element
+	 * @param grid
+	 * @return
+	 */
+	default int getRowHeight(Object element, Object grid, Object row) {
+		return 50;
+	}
+
+	/**
 	 * Compares 2 rows according to a given column.
 	 * @param element
 	 * @param grid
@@ -191,6 +201,16 @@ public interface IItemGridsProvider {
 	 */
 	default String getColumnText(Object element, Object grid, Object column) {
 		return "";
+	}
+	
+	/**
+	 * Return the width of a column of a grid published by the element.
+	 * @param element
+	 * @param grid
+	 * @return
+	 */
+	default int getColumnWidth(Object element, Object grid, Object column) {
+		return 200;
 	}
 	
 	/**
@@ -361,7 +381,6 @@ public interface IItemGridsProvider {
 			return 0;
 		}
 	}
-
 }
 
 

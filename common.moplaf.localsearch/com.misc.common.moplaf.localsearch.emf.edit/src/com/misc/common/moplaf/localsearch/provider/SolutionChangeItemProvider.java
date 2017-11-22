@@ -67,9 +67,9 @@ public class SolutionChangeItemProvider
 			addEndSolutionPropertyDescriptor(object);
 			addPreviousChangePropertyDescriptor(object);
 			addLevelPropertyDescriptor(object);
-			addSolutionsPropertyDescriptor(object);
-			addSubChangesPropertyDescriptor(object);
 			addCurrentSolutionPropertyDescriptor(object);
+			addKeepSolutionsPropertyDescriptor(object);
+			addNewSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,7 +92,7 @@ public class SolutionChangeItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
 				 null));
 	}
 
@@ -114,7 +114,7 @@ public class SolutionChangeItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
 				 null));
 	}
 
@@ -136,7 +136,7 @@ public class SolutionChangeItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
 				 null));
 	}
 
@@ -158,51 +158,7 @@ public class SolutionChangeItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Solutions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSolutionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_Solutions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_Solutions_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__SOLUTIONS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Sub Changes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSubChangesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_SubChanges_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_SubChanges_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__SUB_CHANGES,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
 				 null));
 	}
 
@@ -224,7 +180,52 @@ public class SolutionChangeItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
+				 null));
+	}
+
+	
+	/**
+	 * This adds a property descriptor for the Keep Solutions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeepSolutionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionChange_KeepSolutions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_KeepSolutions_feature", "_UI_SolutionChange_type"),
+				 LocalSearchPackage.Literals.SOLUTION_CHANGE__KEEP_SOLUTIONS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10SolutionChangePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the New Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNewSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionChange_NewSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_NewSolution_feature", "_UI_SolutionChange_type"),
+				 LocalSearchPackage.Literals.SOLUTION_CHANGE__NEW_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10SolutionChangePropertyCategory"),
 				 null));
 	}
 
@@ -240,8 +241,8 @@ public class SolutionChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION_OWNED);
-			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION_OWNED);
+			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__SOLUTION_OWNED);
+			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__SOLUTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -288,10 +289,11 @@ public class SolutionChangeItemProvider
 
 		switch (notification.getFeatureID(SolutionChange.class)) {
 			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
+			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
+			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
-			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
+			case LocalSearchPackage.SOLUTION_CHANGE__SOLUTION_OWNED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

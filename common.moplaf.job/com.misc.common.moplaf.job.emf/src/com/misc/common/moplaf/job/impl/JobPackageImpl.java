@@ -346,7 +346,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRun_ReturnSuccess() {
+	public EAttribute getRun_Returned() {
 		return (EAttribute)runEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -355,7 +355,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRun_ReturnFeedback() {
+	public EAttribute getRun_ReturnSuccess() {
 		return (EAttribute)runEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -364,8 +364,17 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRun_ReturnInformation() {
+	public EAttribute getRun_ReturnFeedback() {
 		return (EAttribute)runEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRun_ReturnInformation() {
+		return (EAttribute)runEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -400,7 +409,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__Cancel() {
+	public EOperation getRun__RunAsynch__RunContext() {
 		return runEClass.getEOperations().get(3);
 	}
 
@@ -409,7 +418,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__SetProgress__String_float() {
+	public EOperation getRun__Cancel() {
 		return runEClass.getEOperations().get(4);
 	}
 
@@ -418,7 +427,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__SetProgress__ProgressFeedback() {
+	public EOperation getRun__SetProgress__String_float() {
 		return runEClass.getEOperations().get(5);
 	}
 
@@ -427,7 +436,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__GetReturn() {
+	public EOperation getRun__SetProgress__ProgressFeedback() {
 		return runEClass.getEOperations().get(6);
 	}
 
@@ -436,7 +445,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__SetReturn__ReturnFeedback() {
+	public EOperation getRun__GetReturn() {
 		return runEClass.getEOperations().get(7);
 	}
 
@@ -445,8 +454,17 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__ConstructParams() {
+	public EOperation getRun__SetReturn__ReturnFeedback() {
 		return runEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRun__ConstructParams() {
+		return runEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -923,12 +941,14 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEAttribute(runEClass, RUN__CANCEL_FEEDBACK);
 		createEAttribute(runEClass, RUN__RESET_FEEDBACK);
 		createEAttribute(runEClass, RUN__CANCELED);
+		createEAttribute(runEClass, RUN__RETURNED);
 		createEAttribute(runEClass, RUN__RETURN_SUCCESS);
 		createEAttribute(runEClass, RUN__RETURN_FEEDBACK);
 		createEAttribute(runEClass, RUN__RETURN_INFORMATION);
 		createEOperation(runEClass, RUN___RESET);
 		createEOperation(runEClass, RUN___RUN);
 		createEOperation(runEClass, RUN___RUN__RUNCONTEXT);
+		createEOperation(runEClass, RUN___RUN_ASYNCH__RUNCONTEXT);
 		createEOperation(runEClass, RUN___CANCEL);
 		createEOperation(runEClass, RUN___SET_PROGRESS__STRING_FLOAT);
 		createEOperation(runEClass, RUN___SET_PROGRESS__PROGRESSFEEDBACK);
@@ -1049,6 +1069,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEAttribute(getRun_CancelFeedback(), this.getEnabledFeedback(), "CancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ResetFeedback(), this.getEnabledFeedback(), "ResetFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_Canceled(), ecorePackage.getEBoolean(), "Canceled", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_Returned(), ecorePackage.getEBoolean(), "Returned", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnSuccess(), ecorePackage.getEBoolean(), "ReturnSuccess", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnFeedback(), ecorePackage.getEString(), "ReturnFeedback", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnInformation(), ecorePackage.getEString(), "ReturnInformation", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1058,6 +1079,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEOperation(getRun__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getRun__Run__RunContext(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRunContext(), "runContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRun__RunAsynch__RunContext(), null, "runAsynch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRunContext(), "runContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRun__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);

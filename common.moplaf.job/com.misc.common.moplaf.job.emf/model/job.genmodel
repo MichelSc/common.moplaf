@@ -39,6 +39,7 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute job.ecore#//Run/ResetFeedback"/>
       <genFeatures createChild="false" propertyCategory="10 Job Control" ecoreFeature="ecore:EAttribute job.ecore#//Run/Canceled"/>
+      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Run/Returned"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
           ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnSuccess"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
@@ -49,6 +50,9 @@
       <genOperations ecoreOperation="job.ecore#//Run/run"/>
       <genOperations ecoreOperation="job.ecore#//Run/run.1">
         <genParameters ecoreParameter="job.ecore#//Run/run.1/runContext"/>
+      </genOperations>
+      <genOperations ecoreOperation="job.ecore#//Run/runAsynch">
+        <genParameters ecoreParameter="job.ecore#//Run/runAsynch/runContext"/>
       </genOperations>
       <genOperations ecoreOperation="job.ecore#//Run/cancel"/>
       <genOperations ecoreOperation="job.ecore#//Run/setProgress">

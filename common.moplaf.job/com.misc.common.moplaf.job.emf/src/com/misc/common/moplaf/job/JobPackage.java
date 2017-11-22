@@ -217,13 +217,22 @@ public interface JobPackage extends EPackage {
 	int RUN__CANCELED = RUN_PARAMS_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__RETURNED = RUN_PARAMS_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_SUCCESS = RUN_PARAMS_FEATURE_COUNT + 4;
+	int RUN__RETURN_SUCCESS = RUN_PARAMS_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -232,7 +241,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 5;
+	int RUN__RETURN_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -241,7 +250,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_INFORMATION = RUN_PARAMS_FEATURE_COUNT + 6;
+	int RUN__RETURN_INFORMATION = RUN_PARAMS_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Run</em>' class.
@@ -250,7 +259,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = RUN_PARAMS_FEATURE_COUNT + 7;
+	int RUN_FEATURE_COUNT = RUN_PARAMS_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -289,13 +298,22 @@ public interface JobPackage extends EPackage {
 	int RUN___RUN__RUNCONTEXT = RUN_PARAMS_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___RUN_ASYNCH__RUNCONTEXT = RUN_PARAMS_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CANCEL = RUN_PARAMS_OPERATION_COUNT + 3;
+	int RUN___CANCEL = RUN_PARAMS_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -304,7 +322,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_PROGRESS__STRING_FLOAT = RUN_PARAMS_OPERATION_COUNT + 4;
+	int RUN___SET_PROGRESS__STRING_FLOAT = RUN_PARAMS_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -313,7 +331,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 5;
+	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -322,7 +340,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___GET_RETURN = RUN_PARAMS_OPERATION_COUNT + 6;
+	int RUN___GET_RETURN = RUN_PARAMS_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
@@ -331,7 +349,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_RETURN__RETURNFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 7;
+	int RUN___SET_RETURN__RETURNFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -340,7 +358,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CONSTRUCT_PARAMS = RUN_PARAMS_OPERATION_COUNT + 8;
+	int RUN___CONSTRUCT_PARAMS = RUN_PARAMS_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Run</em>' class.
@@ -349,7 +367,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_OPERATION_COUNT = RUN_PARAMS_OPERATION_COUNT + 9;
+	int RUN_OPERATION_COUNT = RUN_PARAMS_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.JobImpl <em>Job</em>}' class.
@@ -396,6 +414,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB__CANCELED = RUN__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__RETURNED = RUN__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -542,6 +569,15 @@ public interface JobPackage extends EPackage {
 	int JOB___RUN__RUNCONTEXT = RUN___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___RUN_ASYNCH__RUNCONTEXT = RUN___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -649,6 +685,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_CONSOLE__CANCELED = JOB__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__RETURNED = JOB__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -820,6 +865,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_CONSOLE___RUN__RUNCONTEXT = JOB___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___RUN_ASYNCH__RUNCONTEXT = JOB___RUN_ASYNCH__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -1575,6 +1629,17 @@ public interface JobPackage extends EPackage {
 	EAttribute getRun_Canceled();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Run#isReturned <em>Returned</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Returned</em>'.
+	 * @see com.misc.common.moplaf.job.Run#isReturned()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_Returned();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Run#isReturnSuccess <em>Return Success</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1636,6 +1701,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRun__Run__RunContext();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Run#runAsynch(com.misc.common.moplaf.job.RunContext) <em>Run Asynch</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Run Asynch</em>' operation.
+	 * @see com.misc.common.moplaf.job.Run#runAsynch(com.misc.common.moplaf.job.RunContext)
+	 * @generated
+	 */
+	EOperation getRun__RunAsynch__RunContext();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Run#cancel() <em>Cancel</em>}' operation.
@@ -2330,6 +2405,14 @@ public interface JobPackage extends EPackage {
 		EAttribute RUN__CANCELED = eINSTANCE.getRun_Canceled();
 
 		/**
+		 * The meta object literal for the '<em><b>Returned</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__RETURNED = eINSTANCE.getRun_Returned();
+
+		/**
 		 * The meta object literal for the '<em><b>Return Success</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2376,6 +2459,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RUN___RUN__RUNCONTEXT = eINSTANCE.getRun__Run__RunContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Run Asynch</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN___RUN_ASYNCH__RUNCONTEXT = eINSTANCE.getRun__RunAsynch__RunContext();
 
 		/**
 		 * The meta object literal for the '<em><b>Cancel</b></em>' operation.

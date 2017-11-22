@@ -333,6 +333,24 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___SORT_SOLUTIONS = LocalSearchPackage.STRATEGY___SORT_SOLUTIONS;
 
 	/**
+	 * The operation id for the '<em>Make New Solution Nr</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___MAKE_NEW_SOLUTION_NR = LocalSearchPackage.STRATEGY___MAKE_NEW_SOLUTION_NR;
+
+	/**
+	 * The operation id for the '<em>Prune</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___PRUNE = LocalSearchPackage.STRATEGY___PRUNE;
+
+	/**
 	 * The operation id for the '<em>Construct Score</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -342,31 +360,13 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___CONSTRUCT_SCORE = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Tasks</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER___GENERATE_TASKS__SCHEDULE = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Generate Resources</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER___GENERATE_RESOURCES__SCHEDULE = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER_OPERATION_COUNT = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 3;
+	int SCHEDULER_OPERATION_COUNT = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl <em>Schedule</em>}' class.
@@ -406,24 +406,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE__SOLUTION_NR = LocalSearchPackage.SOLUTION__SOLUTION_NR;
 
 	/**
-	 * The feature id for the '<em><b>Ancestor</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE__ANCESTOR = LocalSearchPackage.SOLUTION__ANCESTOR;
-
-	/**
-	 * The feature id for the '<em><b>Descendants</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE__DESCENDANTS = LocalSearchPackage.SOLUTION__DESCENDANTS;
-
-	/**
 	 * The feature id for the '<em><b>Strategy</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -431,6 +413,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE__STRATEGY = LocalSearchPackage.SOLUTION__STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__STEP = LocalSearchPackage.SOLUTION__STEP;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -1713,26 +1704,6 @@ public interface SchedulerPackage extends EPackage {
 	EOperation getScheduler__ConstructScore();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Scheduler#generateTasks(com.misc.common.moplaf.scheduler.Schedule) <em>Generate Tasks</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Tasks</em>' operation.
-	 * @see com.misc.common.moplaf.scheduler.Scheduler#generateTasks(com.misc.common.moplaf.scheduler.Schedule)
-	 * @generated
-	 */
-	EOperation getScheduler__GenerateTasks__Schedule();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Scheduler#generateResources(com.misc.common.moplaf.scheduler.Schedule) <em>Generate Resources</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Resources</em>' operation.
-	 * @see com.misc.common.moplaf.scheduler.Scheduler#generateResources(com.misc.common.moplaf.scheduler.Schedule)
-	 * @generated
-	 */
-	EOperation getScheduler__GenerateResources__Schedule();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.Schedule <em>Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2121,22 +2092,6 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SCHEDULER___CONSTRUCT_SCORE = eINSTANCE.getScheduler__ConstructScore();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate Tasks</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCHEDULER___GENERATE_TASKS__SCHEDULE = eINSTANCE.getScheduler__GenerateTasks__Schedule();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate Resources</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCHEDULER___GENERATE_RESOURCES__SCHEDULE = eINSTANCE.getScheduler__GenerateResources__Schedule();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl <em>Schedule</em>}' class.

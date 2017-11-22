@@ -18,11 +18,8 @@
     <genClasses ecoreClass="localsearch.ecore#//Solution">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Score"/>
       <genFeatures createChild="false" propertyCategory="10 Solution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Solution/SolutionNr"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="10 Solution"
-          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Ancestor"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="10 Solution"
-          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Descendants"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Strategy"/>
+      <genFeatures createChild="false" propertyCategory="10 Solution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Solution/Step"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/clone"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/refresh"/>
     </genClasses>
@@ -37,7 +34,8 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ValidFeedback"/>
       <genFeatures createChild="false" propertyCategory="10 Action" ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ActionNr"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/Step"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference localsearch.ecore#//Action/Step"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/initialize"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/run"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/finalize"/>
@@ -97,36 +95,59 @@
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectGoodSolution"/>
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectBadSolution"/>
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/sortSolutions"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/makeNewSolutionNr"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/prune"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Phase">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/KeepLevel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSteps"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSeconds"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseStart"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseEnd"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/NrSteps"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationTotal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationAverage"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/Name"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/KeepLevel"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSteps"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/MaxSeconds"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseStart"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/PhaseEnd"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/NrSteps"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationTotal"/>
+      <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationAverage"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Phase/Strategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Phase/Steps"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Phase/doStep"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Phase/doPhase"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Phase/doStep">
+        <genParameters ecoreParameter="localsearch.ecore#//Phase/doStep/step"/>
+      </genOperations>
+      <genOperations ecoreOperation="localsearch.ecore#//Phase/doAction">
+        <genParameters ecoreParameter="localsearch.ecore#//Phase/doAction/step"/>
+        <genParameters ecoreParameter="localsearch.ecore#//Phase/doAction/action"/>
+      </genOperations>
     </genClasses>
-    <genClasses ecoreClass="localsearch.ecore#//Step">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Step/Actions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/StepNr"/>
+    <genClasses ecoreClass="localsearch.ecore#//Step" labelFeature="#//localsearch/Step/StepNr">
+      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Step/Actions"/>
+      <genFeatures createChild="false" propertyCategory="10 SolutionChange" ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/StepNr"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Step/Phase"/>
+      <genFeatures property="None" createChild="false" propertyDescription="" ecoreFeature="ecore:EReference localsearch.ecore#//Step/StartSolutionOwned"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 SolutionChange"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/Step"/>
     </genClasses>
     <genClasses image="false" ecoreClass="localsearch.ecore#//SolutionChange">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/EndSolutionOwned"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/StartSolution"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/EndSolution"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/StartSolutionOwned"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/PreviousChange"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//SolutionChange/Level"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/Solutions"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/SubChanges"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/CurrentSolution"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 SolutionChange"
+          ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/StartSolution"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 SolutionChange"
+          ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/EndSolution"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/NewSolutionOwned"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 SolutionChange"
+          ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/PreviousChange"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 SolutionChange"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//SolutionChange/Level"/>
+      <genFeatures property="None" notify="false" children="true" createChild="false"
+          propertyCategory="" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/Solutions"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/SubChanges"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 SolutionChange"
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/CurrentSolution"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 SolutionChange"
+          propertyDescription="" ecoreFeature="ecore:EAttribute localsearch.ecore#//SolutionChange/KeepSolutions"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 SolutionChange"
+          propertyDescription="" ecoreFeature="ecore:EAttribute localsearch.ecore#//SolutionChange/NewSolution"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/SuperChange"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

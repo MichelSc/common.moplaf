@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.localsearch.provider;
 
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.localsearch.util.LocalSearchAdapterFactory;
 
 import java.util.ArrayList;
@@ -61,7 +62,6 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public LocalSearchItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +69,7 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemGridsProvider.class); // moplaf interface
 	}
 
 	/**

@@ -106,7 +106,6 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 			case LocalSearchPackage.PHASE: {
 				Phase phase = (Phase)theEObject;
 				T result = casePhase(phase);
-				if (result == null) result = caseSolutionChange(phase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

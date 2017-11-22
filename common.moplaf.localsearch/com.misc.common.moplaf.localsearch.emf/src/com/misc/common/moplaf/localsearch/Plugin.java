@@ -42,10 +42,10 @@ public final class Plugin extends EMFPlugin {
 	 * Create the instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Plugin() {
 		super(new ResourceLocator [] {});
+		this.logger.setLogOnInfo(true);
 	}
 
 	/**

@@ -3,14 +3,17 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.DoCommand;
 import com.misc.common.moplaf.emf.edit.command.FinalizeCommand;
 import com.misc.common.moplaf.emf.edit.command.InitializeCommand;
 import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-
+import com.misc.common.moplaf.localsearch.Phase;
+import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -59,7 +62,6 @@ public class ActionItemProvider
 			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
 			addActionNrPropertyDescriptor(object);
-			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -149,28 +151,6 @@ public class ActionItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__10ActionPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Step feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStepPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_Step_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Step_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__STEP,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
 				 null));
 	}
 
@@ -383,6 +363,26 @@ public class ActionItemProvider
 
 
 	/**
+	 *
+	 */
+	public class ActionDoCommand extends DoCommand{
+		private Action action;
+		
+		public ActionDoCommand(Action anAction)	{
+			super();
+			this.action= anAction;
+		}
+
+		@Override
+		public void execute() {
+			Step step = this.action.getStep();
+			Phase phase = step.getPhase();
+			phase.doAction(step, this.action);
+		}
+	} // class ActionDoCommand
+
+
+	/**
 	 * 
 	 */
 	@Override
@@ -397,7 +397,9 @@ public class ActionItemProvider
 			return new ActionRunCommand((Action) object); 
 		} else if ( commandClass == ResetCommand.class){
 			return new ActionResetCommand((Action) object); 
-		}
+		} if ( commandClass == DoCommand.class){
+			return new ActionDoCommand((Action) object); 
+		} 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 

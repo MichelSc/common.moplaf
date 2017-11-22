@@ -31,18 +31,21 @@
     <eOperations name="run" eType="#//ReturnFeedback">
       <eParameters name="runContext" eType="#//RunContext"/>
     </eOperations>
+    <eOperations name="runAsynch">
+      <eParameters name="runContext" eType="#//RunContext"/>
+    </eOperations>
     <eOperations name="cancel"/>
     <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="task" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="work" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
+    <eOperations name="setReturn">
+      <eParameters name="feedback" eType="#//ReturnFeedback"/>
+    </eOperations>
     <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="progress" eType="#//ProgressFeedback"/>
     </eOperations>
     <eOperations name="getReturn" eType="#//ReturnFeedback"/>
-    <eOperations name="setReturn">
-      <eParameters name="feedback" eType="#//ReturnFeedback"/>
-    </eOperations>
     <eOperations name="constructParams" eType="#//RunParams"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
@@ -51,6 +54,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ResetFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Canceled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Returned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnSuccess" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnInformation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

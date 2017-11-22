@@ -11,6 +11,8 @@ import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.Step;
+import com.misc.common.moplaf.localsearch.StrategyLevel;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -119,16 +122,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	protected int actionNr = ACTION_NR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStep() <em>Step</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStep()
-	 * @generated
-	 * @ordered
-	 */
-	protected Step step;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -146,7 +139,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	protected EClass eStaticClass() {
 		return LocalSearchPackage.Literals.ACTION;
 	}
-	
+
+	@Override
+	public SolutionChange basicGetSuperChange() {
+		return this.getStep();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,9 +157,18 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		if ( list_iterator.hasPrevious()) {
 			return list_iterator.previous();
 		}
-		Step previous_step = (Step) step.getPreviousChange();
-		int nof_actions = previous_step.getActions().size();
-		return previous_step.getActions().get(nof_actions-1);
+		return null;
+	}
+
+
+	@Override
+	public StrategyLevel getLevel() {
+		return StrategyLevel.LEVEL_ACTION;
+	}
+
+	@Override
+	public boolean isKeepSolutions() {
+		return this.getStep().getPhase().getKeepLevel()==this.getLevel();
 	}
 
 
@@ -261,24 +268,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	public Step getStep() {
-		if (step != null && step.eIsProxy()) {
-			InternalEObject oldStep = (InternalEObject)step;
-			step = (Step)eResolveProxy(oldStep);
-			if (step != oldStep) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__STEP, oldStep, step));
-			}
-		}
-		return step;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Step basicGetStep() {
-		return step;
+		if (eContainerFeatureID() != LocalSearchPackage.ACTION__STEP) return null;
+		return (Step)eInternalContainer();
 	}
 
 	/**
@@ -287,12 +278,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	public NotificationChain basicSetStep(Step newStep, NotificationChain msgs) {
-		Step oldStep = step;
-		step = newStep;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__STEP, oldStep, newStep);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newStep, LocalSearchPackage.ACTION__STEP, msgs);
 		return msgs;
 	}
 
@@ -302,10 +288,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	public void setStep(Step newStep) {
-		if (newStep != step) {
+		if (newStep != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.ACTION__STEP && newStep != null)) {
+			if (EcoreUtil.isAncestor(this, newStep))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (step != null)
-				msgs = ((InternalEObject)step).eInverseRemove(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newStep != null)
 				msgs = ((InternalEObject)newStep).eInverseAdd(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
 			msgs = basicSetStep(newStep, msgs);
@@ -347,9 +335,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void initialize() {
-		Plugin.INSTANCE.logInfo("Action initialize: called");
 		this.createMovesImpl();
-		Plugin.INSTANCE.logInfo("Action initialize: done");
 	}
 
 	/**
@@ -357,15 +343,13 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void run() {
-		Plugin.INSTANCE.logInfo("Action run: called");
+		Plugin.INSTANCE.logInfo(String.format("Action run: %s", this.getDescription()));
 		for (Move rootMove : this.getRootMoves()) {
 			this.runDoMove(rootMove);
 		}
-		Plugin.INSTANCE.logInfo("Action run: done");
 	}
 	
 	private void runDoMove(Move move) {
-		Plugin.INSTANCE.logInfo("Action runMove: called, move: "+move.getDescription());
 		// do the move
 		move.do_();
 		
@@ -376,8 +360,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		
 		// undo the move
 		move.undo();
-
-		Plugin.INSTANCE.logInfo("Action runMove: done, move: "+move.getDescription());
 	}
 
 	/**
@@ -385,29 +367,31 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void finalize() {
-		Plugin.INSTANCE.logInfo("Action finalize: called");
 		Move best_move = null;
 		for (Move rootMove : this.getRootMoves()) {
 			best_move = this.finalizeMove(best_move, rootMove); 
 		}
 		this.select(best_move);
-		Plugin.INSTANCE.logInfo("Action finalize: done");
 	}
 
 	private Move finalizeMove(Move best_move, Move current_move) {
-		Plugin.INSTANCE.logInfo("Action finalizeMove: called, move: "+current_move.getDescription());
 		Move new_best_move = best_move;
 		if ( current_move.isSolution()) {
-			Score best_score = best_move == null ? this.getCurrentSolution().getScore() : best_move.getScore();
 			Score current_score = current_move.getScore();
-			if ( current_move.getScore().isFeasible() && current_score.isBetter(best_score)) {
-				new_best_move = current_move;
+			if ( current_move.getScore().isFeasible() ) {
+				if ( best_move == null ){
+					new_best_move = current_move;
+				} else {
+					Score best_score = best_move.getScore();
+					if ( current_score.isBetter(best_score)) {
+						new_best_move = current_move;
+					}
+				}
 			}
 		}
 		for ( Move child_move : current_move.getNextMoves()) {
 			new_best_move = this.finalizeMove(new_best_move, child_move);
 		}
-		Plugin.INSTANCE.logInfo("Action finalizeMove: called, move: "+current_move.getDescription());
 		return new_best_move;
 	}
 	/**
@@ -435,8 +419,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case LocalSearchPackage.ACTION__STEP:
-				if (step != null)
-					msgs = ((InternalEObject)step).eInverseRemove(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetStep((Step)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -487,6 +471,20 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case LocalSearchPackage.ACTION__STEP:
+				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.STEP__ACTIONS, Step.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case LocalSearchPackage.ACTION__ROOT_MOVES:
@@ -503,8 +501,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				return getActionNr();
 			case LocalSearchPackage.ACTION__STEP:
-				if (resolve) return getStep();
-				return basicGetStep();
+				return getStep();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -580,7 +577,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				return actionNr != ACTION_NR_EDEFAULT;
 			case LocalSearchPackage.ACTION__STEP:
-				return step != null;
+				return getStep() != null;
 		}
 		return super.eIsSet(featureID);
 	}
