@@ -208,13 +208,13 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION_CHANGE__END_SOLUTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>End Solution Owned</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_CHANGE__SOLUTION_OWNED = 2;
+	int SOLUTION_CHANGE__END_SOLUTION_OWNED = 2;
 
 	/**
 	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
@@ -335,13 +335,13 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
 
 	/**
-	 * The feature id for the '<em><b>Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>End Solution Owned</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__SOLUTION_OWNED = SOLUTION_CHANGE__SOLUTION_OWNED;
+	int ACTION__END_SOLUTION_OWNED = SOLUTION_CHANGE__END_SOLUTION_OWNED;
 
 	/**
 	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
@@ -806,6 +806,15 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__CANCELED = JobPackage.RUN__CANCELED;
 
 	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__RETURNED = JobPackage.RUN__RETURNED;
+
+	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -941,6 +950,15 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___RUN__RUNCONTEXT = JobPackage.RUN___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___RUN_ASYNCH__RUNCONTEXT = JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -959,6 +977,15 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___SET_PROGRESS__STRING_FLOAT = JobPackage.RUN___SET_PROGRESS__STRING_FLOAT;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,15 +1002,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRATEGY___GET_RETURN = JobPackage.RUN___GET_RETURN;
-
-	/**
-	 * The operation id for the '<em>Set Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRATEGY___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -1231,13 +1249,13 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
 
 	/**
-	 * The feature id for the '<em><b>Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>End Solution Owned</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP__SOLUTION_OWNED = SOLUTION_CHANGE__SOLUTION_OWNED;
+	int STEP__END_SOLUTION_OWNED = SOLUTION_CHANGE__END_SOLUTION_OWNED;
 
 	/**
 	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
@@ -2216,15 +2234,15 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolutionChange_EndSolution();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getSolutionOwned <em>Solution Owned</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolutionOwned <em>End Solution Owned</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Solution Owned</em>'.
-	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getSolutionOwned()
+	 * @return the meta object for the containment reference '<em>End Solution Owned</em>'.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getEndSolutionOwned()
 	 * @see #getSolutionChange()
 	 * @generated
 	 */
-	EReference getSolutionChange_SolutionOwned();
+	EReference getSolutionChange_EndSolutionOwned();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getPreviousChange <em>Previous Change</em>}'.
@@ -2992,12 +3010,12 @@ public interface LocalSearchPackage extends EPackage {
 		EReference SOLUTION_CHANGE__END_SOLUTION = eINSTANCE.getSolutionChange_EndSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>Solution Owned</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>End Solution Owned</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOLUTION_CHANGE__SOLUTION_OWNED = eINSTANCE.getSolutionChange_SolutionOwned();
+		EReference SOLUTION_CHANGE__END_SOLUTION_OWNED = eINSTANCE.getSolutionChange_EndSolutionOwned();
 
 		/**
 		 * The meta object literal for the '<em><b>Previous Change</b></em>' reference feature.
