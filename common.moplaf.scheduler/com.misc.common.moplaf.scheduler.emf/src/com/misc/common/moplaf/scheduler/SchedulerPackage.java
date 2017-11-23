@@ -108,6 +108,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER__CANCELED = LocalSearchPackage.STRATEGY__CANCELED;
 
 	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER__RETURNED = LocalSearchPackage.STRATEGY__RETURNED;
+
+	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,6 +259,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULER___RUN__RUNCONTEXT = LocalSearchPackage.STRATEGY___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___RUN_ASYNCH__RUNCONTEXT = LocalSearchPackage.STRATEGY___RUN_ASYNCH__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
