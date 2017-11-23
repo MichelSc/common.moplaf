@@ -133,7 +133,7 @@
           ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/StartSolution"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 SolutionChange"
           ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/EndSolution"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/NewSolutionOwned"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/EndSolutionOwned"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 SolutionChange"
           ecoreFeature="ecore:EReference localsearch.ecore#//SolutionChange/PreviousChange"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 SolutionChange"

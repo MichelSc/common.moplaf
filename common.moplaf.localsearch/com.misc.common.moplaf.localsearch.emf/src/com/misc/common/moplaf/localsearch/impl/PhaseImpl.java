@@ -605,7 +605,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			nr_iterations++;
 			end = new Date();
 			elapsed_millis = end.getTime()-start.getTime();
-			finished = nr_iterations>=phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
 			
 			// feedback
 			String message3 = String.format("phase=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
@@ -618,6 +617,18 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			Plugin.INSTANCE.logInfo(message3);
 			strategy.setProgress(message3, ++iterations_total);
 
+			// is finished 
+			if ( nr_iterations>=phase.getMaxSteps() ) {
+				finished = true;
+				Plugin.INSTANCE.logInfo("Phase finished, maxNrIterations reached");
+			} else if (elapsed_millis>phase.getMaxSeconds()*1000 ){
+				finished = true;
+				Plugin.INSTANCE.logInfo("Phase finished, maxSecondsreached");
+			} else if (strategy.isCanceled() ){
+				finished = true;
+				Plugin.INSTANCE.logInfo("Phase finished, cancelled");
+			} 
+			
 			// prune the solution pool
 			strategy.prune();
 
@@ -665,23 +676,19 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		action.setCurrentSolution(null);
 		
 		// keep or not keep
-		// if we keep, need to make a copy of the solution, so that the actions can refer to the elements of the solution
-		if( keep_action ) {
-			// action
-			action.setActionNr(step.getActions().size());
-			step.getActions().add(action); // owning
-			// solution
-			if ( action.getCurrentMove()!=null) {
-				Solution owned_solution = solution.clone();
-				int new_solution_nr = strategy.makeNewSolutionNr();
-				owned_solution.setSolutionNr(new_solution_nr);
-				action.setEndSolutionOwned(owned_solution);
-				action.setNewSolution(true);
-				step.setNewSolution(true);
-			} else {
-				action.setEndSolutionOwned(null);
-				action.setNewSolution(false);
-			}
+		if ( action.getCurrentMove()!=null) {
+			step.setNewSolution(true);
+			if( keep_action ) {
+				// action
+				action.setActionNr(step.getActions().size());
+				step.getActions().add(action); // owning
+				// solution
+					Solution owned_solution = solution.clone();
+					int new_solution_nr = strategy.makeNewSolutionNr();
+					owned_solution.setSolutionNr(new_solution_nr);
+					action.setEndSolutionOwned(owned_solution);
+					action.setNewSolution(true);
+			} 
 		}
 	}
 

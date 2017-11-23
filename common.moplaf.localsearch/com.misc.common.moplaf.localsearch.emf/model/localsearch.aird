@@ -1102,7 +1102,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_iwNr8MDPEeeykfPjWSRV0g" name="MaxNrSolutions : EInt" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_iwNr8MDPEeeykfPjWSRV0g" name="MaxNrSolutions : EInt = 10" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="localsearch.ecore#//Strategy/MaxNrSolutions"/>
         <semanticElements xmi:type="ecore:EAttribute" href="localsearch.ecore#//Strategy/MaxNrSolutions"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_l5E6UMDPEeeykfPjWSRV0g" labelAlignment="LEFT">

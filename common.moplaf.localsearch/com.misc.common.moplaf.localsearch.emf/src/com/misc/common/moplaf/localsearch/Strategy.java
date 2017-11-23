@@ -103,6 +103,7 @@ public interface Strategy extends Run {
 
 	/**
 	 * Returns the value of the '<em><b>Max Nr Solutions</b></em>' attribute.
+	 * The default value is <code>"10"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Max Nr Solutions</em>' attribute isn't clear,
@@ -112,7 +113,7 @@ public interface Strategy extends Run {
 	 * @return the value of the '<em>Max Nr Solutions</em>' attribute.
 	 * @see #setMaxNrSolutions(int)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_MaxNrSolutions()
-	 * @model
+	 * @model default="10"
 	 * @generated
 	 */
 	int getMaxNrSolutions();
