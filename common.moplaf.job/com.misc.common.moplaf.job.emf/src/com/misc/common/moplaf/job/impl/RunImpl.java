@@ -353,6 +353,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public void reset() {
+		this.runContext = null; 
+		
 		this.setCanceled(false);
 		this.setReturnSuccess(false);
 		this.setReturnFeedback("");
@@ -389,6 +391,9 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public ReturnFeedback run(RunContext runContext) {
+		if ( this.runContext!=null) {
+			throw new UnsupportedOperationException(String.format("Run object %s does not support concurrency", this.getClass().getName()));
+		}
 		this.runContext = runContext;
 		ReturnFeedback feedback = null;
 		try {
@@ -399,6 +404,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 			feedback = new ReturnFeedback("RunImpl.run ", e);
 		}
 		this.setReturn(feedback);
+		this.runContext = null;
 		return feedback;
 	}
 
