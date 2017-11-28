@@ -570,39 +570,41 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			step.setCurrentSolution(solution);
 			phase.doStep(step);
 			step.setCurrentSolution(null);
-			
-			if ( keep_solutions ) {
-				// end solution
-				int new_solution_nr = strategy.makeNewSolutionNr();
-				Solution end_solution_kept = solution.clone();
-				step.setSolutionOwned(end_solution_kept);
-				end_solution_kept.setSolutionNr(new_solution_nr);
-			}
-			if ( keep_step ) {
-				Solution end_solution = step.getEndSolution();
-				int nr = end_solution.getSolutionNr();
-				solution.setSolutionNr(nr);
-			} else {
-				int new_solution_nr = strategy.makeNewSolutionNr();
-				solution.setSolutionNr(new_solution_nr);
-			}
-			
-			// maintain the list of solutions, insert the solution after the next best
-			ListIterator<Solution> iterator = strategy.getSolutions().listIterator();
-			while ( iterator.hasNext()) {
-				Solution next_solution = iterator.next();
-				if ( solution.getScore().isBetter(next_solution.getScore())) {
-					iterator.previous();
-					break;
+
+			// solution nr
+			// keep solution
+			// put solution in pool
+			if ( step.isNewSolution() ) {
+				if ( keep_solutions || !keep_step ) {
+					// solutions maintained by this level or not at all
+					int new_solution_nr = strategy.makeNewSolutionNr();
+					solution.setSolutionNr(new_solution_nr);
+				} else {
+					// solution maintained by a lower level
+					int current_solution_nr = step.getEndSolution().getSolutionNr();
+					solution.setSolutionNr(current_solution_nr);
 				}
+				if ( keep_solutions ) {
+					// end solution
+					Solution end_solution_kept = solution.clone();
+					step.setEndSolutionOwned(end_solution_kept);
+				}
+				// maintain the list of solutions, insert the solution after the next best
+				ListIterator<Solution> iterator = strategy.getSolutions().listIterator();
+				while ( iterator.hasNext()) {
+					Solution next_solution = iterator.next();
+					if ( solution.getScore().isBetter(next_solution.getScore())) {
+						iterator.previous();
+						break;
+					}
+				}
+				iterator.add(solution);// owning
 			}
-			iterator.add(solution);// owning
 			
 			// loop control
 			nr_iterations++;
 			end = new Date();
 			elapsed_millis = end.getTime()-start.getTime();
-			finished = nr_iterations>=phase.getMaxSteps() || elapsed_millis>phase.getMaxSeconds()*1000;
 			
 			// feedback
 			String message3 = String.format("phase=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
@@ -615,6 +617,18 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			Plugin.INSTANCE.logInfo(message3);
 			strategy.setProgress(message3, ++iterations_total);
 
+			// is finished 
+			if ( nr_iterations>=phase.getMaxSteps() ) {
+				finished = true;
+				Plugin.INSTANCE.logInfo("Phase finished, maxNrIterations reached");
+			} else if (elapsed_millis>phase.getMaxSeconds()*1000 ){
+				finished = true;
+				Plugin.INSTANCE.logInfo("Phase finished, maxSecondsreached");
+			} else if (strategy.isCanceled() ){
+				finished = true;
+				Plugin.INSTANCE.logInfo("Phase finished, cancelled");
+			} 
+			
 			// prune the solution pool
 			strategy.prune();
 
@@ -648,30 +662,34 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void doAction(Step step, Action action) {
+		Solution solution = step.getCurrentSolution();
+		Strategy strategy = this.getStrategy();
 		Phase phase = this;
 		StrategyLevel keep_level = phase.getKeepLevel();
 		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
 		
-		Solution solution = step.getCurrentSolution();
-		
-		// keep or not keep
-		// if we keep, need to make a copy of the solution, so that the actions can refer to the elements of the solution
-		if( keep_action ) {
-			Strategy strategy = this.getStrategy();
-			action.setActionNr(step.getActions().size());
-			step.getActions().add(action); // owning
-			Solution owned_solution = solution.clone();
-			action.setSolutionOwned(owned_solution);
-			action.setCurrentSolution(owned_solution);
-		} else {
-			action.setCurrentSolution(solution);
-		}
 		// do the action
+		action.setCurrentSolution(solution);
 		action.initialize();
 		action.run();
 		action.finalize();
 		action.setCurrentSolution(null);
 		
+		// keep or not keep
+		if ( action.getCurrentMove()!=null) {
+			step.setNewSolution(true);
+			if( keep_action ) {
+				// action
+				action.setActionNr(step.getActions().size());
+				step.getActions().add(action); // owning
+				// solution
+					Solution owned_solution = solution.clone();
+					int new_solution_nr = strategy.makeNewSolutionNr();
+					owned_solution.setSolutionNr(new_solution_nr);
+					action.setEndSolutionOwned(owned_solution);
+					action.setNewSolution(true);
+			} 
+		}
 	}
 
 

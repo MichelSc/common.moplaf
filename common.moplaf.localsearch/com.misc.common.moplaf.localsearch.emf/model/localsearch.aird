@@ -1102,7 +1102,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_iwNr8MDPEeeykfPjWSRV0g" name="MaxNrSolutions : EInt" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_iwNr8MDPEeeykfPjWSRV0g" name="MaxNrSolutions : EInt = 10" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="localsearch.ecore#//Strategy/MaxNrSolutions"/>
         <semanticElements xmi:type="ecore:EAttribute" href="localsearch.ecore#//Strategy/MaxNrSolutions"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_l5E6UMDPEeeykfPjWSRV0g" labelAlignment="LEFT">
@@ -1543,9 +1543,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_tbmYgMOsEeezTMWgdZE5ew" name="[1..1] SolutionOwned" sourceNode="_I8WawMOMEeezTMWgdZE5ew" targetNode="_N-cKUKELEeeu55M0XQ06Gg">
-      <target xmi:type="ecore:EReference" href="localsearch.ecore#//SolutionChange/SolutionOwned"/>
-      <semanticElements xmi:type="ecore:EReference" href="localsearch.ecore#//SolutionChange/SolutionOwned"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_tbmYgMOsEeezTMWgdZE5ew" name="[1..1] EndSolutionOwned" sourceNode="_I8WawMOMEeezTMWgdZE5ew" targetNode="_N-cKUKELEeeu55M0XQ06Gg">
+      <target xmi:type="ecore:EReference" href="localsearch.ecore#//SolutionChange/EndSolutionOwned"/>
+      <semanticElements xmi:type="ecore:EReference" href="localsearch.ecore#//SolutionChange/EndSolutionOwned"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_tbm_kMOsEeezTMWgdZE5ew" description="_gDzzEKhEEeefHcOEkF7e9A" sourceArrow="FillDiamond" strokeColor="0,0,0">
         <customFeatures>routingStyle</customFeatures>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_tbm_kcOsEeezTMWgdZE5ew" showIcon="false">

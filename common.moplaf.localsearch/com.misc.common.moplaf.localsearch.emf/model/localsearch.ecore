@@ -110,7 +110,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
         eType="#//Solution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentSolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxNrSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxNrSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="10"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectBestChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1.0"/>
@@ -159,7 +160,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolution" eType="#//Solution"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SolutionOwned" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolutionOwned" lowerBound="1"
         eType="#//Solution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousChange" eType="#//SolutionChange"
         changeable="false" volatile="true" transient="true" derived="true"/>

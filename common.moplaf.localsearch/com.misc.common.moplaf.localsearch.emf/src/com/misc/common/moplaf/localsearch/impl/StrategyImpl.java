@@ -96,7 +96,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_NR_SOLUTIONS_EDEFAULT = 0;
+	protected static final int MAX_NR_SOLUTIONS_EDEFAULT = 10;
 
 	/**
 	 * The cached value of the '{@link #getMaxNrSolutions() <em>Max Nr Solutions</em>}' attribute.

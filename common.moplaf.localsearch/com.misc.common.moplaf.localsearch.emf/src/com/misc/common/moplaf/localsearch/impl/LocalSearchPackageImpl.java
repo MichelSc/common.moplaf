@@ -867,7 +867,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolutionChange_SolutionOwned() {
+	public EReference getSolutionChange_EndSolutionOwned() {
 		return (EReference)solutionChangeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1073,7 +1073,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		solutionChangeEClass = createEClass(SOLUTION_CHANGE);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__START_SOLUTION);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__END_SOLUTION);
-		createEReference(solutionChangeEClass, SOLUTION_CHANGE__SOLUTION_OWNED);
+		createEReference(solutionChangeEClass, SOLUTION_CHANGE__END_SOLUTION_OWNED);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__PREVIOUS_CHANGE);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__LEVEL);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__SOLUTIONS);
@@ -1190,7 +1190,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getStrategy_Phases(), this.getPhase(), this.getPhase_Strategy(), "Phases", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStrategy_Solutions(), this.getSolution(), null, "Solutions", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_CurrentSolutionNr(), ecorePackage.getEInt(), "CurrentSolutionNr", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_MaxNrSolutions(), ecorePackage.getEInt(), "MaxNrSolutions", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrategy_MaxNrSolutions(), ecorePackage.getEInt(), "MaxNrSolutions", "10", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_SelectBestChance(), ecorePackage.getEDouble(), "SelectBestChance", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_SelectWorstChance(), ecorePackage.getEDouble(), "SelectWorstChance", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1237,7 +1237,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEClass(solutionChangeEClass, SolutionChange.class, "SolutionChange", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolutionChange_StartSolution(), this.getSolution(), null, "StartSolution", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_EndSolution(), this.getSolution(), null, "EndSolution", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getSolutionChange_SolutionOwned(), this.getSolution(), null, "SolutionOwned", null, 1, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolutionChange_EndSolutionOwned(), this.getSolution(), null, "EndSolutionOwned", null, 1, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_PreviousChange(), this.getSolutionChange(), null, "PreviousChange", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionChange_Level(), this.getStrategyLevel(), "Level", null, 0, 1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSolutionChange_Solutions(), this.getSolution(), null, "Solutions", null, 0, -1, SolutionChange.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
