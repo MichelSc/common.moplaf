@@ -71,10 +71,13 @@
     <eOperations name="start"/>
     <eOperations name="stop"/>
     <eOperations name="refresh"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="jobschedueled" upperBound="-1"
-        eType="#//JobScheduled" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="engine" upperBound="-1"
-        eType="#//Engine" containment="true"/>
+    <eOperations name="submitRun">
+      <eParameters name="run" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Jobs" upperBound="-1" eType="#//JobScheduled"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Engines" upperBound="-1"
+        eType="#//Engine" containment="true" eOpposite="#//Engine/Scheduler"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StopFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
@@ -88,15 +91,37 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobScheduled">
-    <eOperations name="kill"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="job" lowerBound="1" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Job"
+    <eOperations name="cancel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Run" lowerBound="1" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ScheduledOn" eType="#//Engine"
-        eOpposite="#//Engine/jobschedueled"/>
+        eOpposite="#//Engine/JobsScheduled"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NotReadyToRun" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReadyToRun" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Returned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cancelled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Failed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Feedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubmissionTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Engine">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="jobschedueled" eType="#//JobScheduled"
-        eOpposite="#//JobScheduled/ScheduledOn"/>
+    <eOperations name="executeJob">
+      <eParameters name="job" eType="#//JobScheduled"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobsScheduled" upperBound="-1"
+        eType="#//JobScheduled" eOpposite="#//JobScheduled/ScheduledOn"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
+        eType="#//JobScheduler" eOpposite="#//JobScheduler/Engines"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecuteEnabledFeedback"
+        eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>
