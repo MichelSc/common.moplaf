@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemoteResult()
+ * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemoteResult()
  * @model
  * @generated
  */

@@ -3,11 +3,8 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
-import com.misc.common.moplaf.job.JobFactory;
-
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -15,9 +12,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,6 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -63,9 +58,45 @@ public class JobScheduledItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRunPropertyDescriptor(object);
 			addScheduledOnPropertyDescriptor(object);
+			addNotReadyToRunPropertyDescriptor(object);
+			addReadyToRunPropertyDescriptor(object);
+			addRunningPropertyDescriptor(object);
+			addReturnedPropertyDescriptor(object);
+			addCancelledPropertyDescriptor(object);
+			addFailedPropertyDescriptor(object);
+			addFeedbackPropertyDescriptor(object);
+			addSubmissionTimePropertyDescriptor(object);
+			addStartTimePropertyDescriptor(object);
+			addEndTimePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addStatusPropertyDescriptor(object);
+			addCancelTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Run feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRunPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Run_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Run_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__RUN,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,7 +112,7 @@ public class JobScheduledItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JobScheduled_ScheduledOn_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_ScheduledOn_feature", "_UI_JobScheduled_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULED__SCHEDULED_ON,
+				 JobClientPackage.Literals.JOB_SCHEDULED__SCHEDULED_ON,
 				 true,
 				 false,
 				 true,
@@ -91,33 +122,289 @@ public class JobScheduledItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Not Ready To Run feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobclientPackage.Literals.JOB_SCHEDULED__JOB);
-		}
-		return childrenFeatures;
+	protected void addNotReadyToRunPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_NotReadyToRun_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_NotReadyToRun_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__NOT_READY_TO_RUN,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Ready To Run feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
+	protected void addReadyToRunPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_ReadyToRun_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_ReadyToRun_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__READY_TO_RUN,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
 
-		return super.getChildFeature(object, child);
+	/**
+	 * This adds a property descriptor for the Running feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRunningPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Running_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Running_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__RUNNING,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Returned feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Returned_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Returned_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__RETURNED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Cancelled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCancelledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Cancelled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Cancelled_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__CANCELLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Failed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFailedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Failed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Failed_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__FAILED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Feedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Feedback_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__FEEDBACK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Submission Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSubmissionTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_SubmissionTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_SubmissionTime_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__SUBMISSION_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_StartTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_StartTime_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__START_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the End Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEndTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_EndTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_EndTime_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__END_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Description_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Status feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Status_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Status_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__STATUS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Cancel Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCancelTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_CancelTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_CancelTime_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__CANCEL_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -139,7 +426,8 @@ public class JobScheduledItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_JobScheduled_type");
+		JobScheduled jobScheduled = (JobScheduled)object;
+		return getString("_UI_JobScheduled_type") + " " + jobScheduled.isNotReadyToRun();
 	}
 	
 
@@ -155,8 +443,20 @@ public class JobScheduledItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobScheduled.class)) {
-			case JobclientPackage.JOB_SCHEDULED__JOB:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			case JobClientPackage.JOB_SCHEDULED__NOT_READY_TO_RUN:
+			case JobClientPackage.JOB_SCHEDULED__READY_TO_RUN:
+			case JobClientPackage.JOB_SCHEDULED__RUNNING:
+			case JobClientPackage.JOB_SCHEDULED__RETURNED:
+			case JobClientPackage.JOB_SCHEDULED__CANCELLED:
+			case JobClientPackage.JOB_SCHEDULED__FAILED:
+			case JobClientPackage.JOB_SCHEDULED__FEEDBACK:
+			case JobClientPackage.JOB_SCHEDULED__SUBMISSION_TIME:
+			case JobClientPackage.JOB_SCHEDULED__START_TIME:
+			case JobClientPackage.JOB_SCHEDULED__END_TIME:
+			case JobClientPackage.JOB_SCHEDULED__DESCRIPTION:
+			case JobClientPackage.JOB_SCHEDULED__STATUS:
+			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -172,16 +472,6 @@ public class JobScheduledItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobclientPackage.Literals.JOB_SCHEDULED__JOB,
-				 JobFactory.eINSTANCE.createJob()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobclientPackage.Literals.JOB_SCHEDULED__JOB,
-				 JobFactory.eINSTANCE.createJobConsole()));
 	}
 
 	/**

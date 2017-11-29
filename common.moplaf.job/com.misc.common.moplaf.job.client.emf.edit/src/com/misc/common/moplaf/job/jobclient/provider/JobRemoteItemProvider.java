@@ -14,9 +14,9 @@ package com.misc.common.moplaf.job.jobclient.provider;
 
 
 import com.misc.common.moplaf.job.JobFactory;
+import com.misc.common.moplaf.job.jobclient.JobClientFactory;
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
-import com.misc.common.moplaf.job.jobclient.JobclientFactory;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -92,7 +92,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_SubmissionID_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_SubmissionID_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__SUBMISSION_ID,
+				 JobClientPackage.Literals.JOB_REMOTE__SUBMISSION_ID,
 				 false,
 				 false,
 				 false,
@@ -114,7 +114,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_LastProgress_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_LastProgress_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__LAST_PROGRESS,
+				 JobClientPackage.Literals.JOB_REMOTE__LAST_PROGRESS,
 				 true,
 				 false,
 				 false,
@@ -136,7 +136,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_LastProgressWork_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_LastProgressWork_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__LAST_PROGRESS_WORK,
+				 JobClientPackage.Literals.JOB_REMOTE__LAST_PROGRESS_WORK,
 				 true,
 				 false,
 				 false,
@@ -158,7 +158,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_LastProgressTask_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_LastProgressTask_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__LAST_PROGRESS_TASK,
+				 JobClientPackage.Literals.JOB_REMOTE__LAST_PROGRESS_TASK,
 				 true,
 				 false,
 				 false,
@@ -180,7 +180,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_jobremote_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_jobremote_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__JOBREMOTE,
+				 JobClientPackage.Literals.JOB_REMOTE__JOBREMOTE,
 				 true,
 				 false,
 				 true,
@@ -202,7 +202,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_jobremoteeOpposite_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_jobremoteeOpposite_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__JOBREMOTEE_OPPOSITE,
+				 JobClientPackage.Literals.JOB_REMOTE__JOBREMOTEE_OPPOSITE,
 				 true,
 				 false,
 				 true,
@@ -224,7 +224,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_Name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_Name_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__NAME,
+				 JobClientPackage.Literals.JOB_REMOTE__NAME,
 				 true,
 				 false,
 				 false,
@@ -246,7 +246,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_Progress_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_Progress_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__PROGRESS,
+				 JobClientPackage.Literals.JOB_REMOTE__PROGRESS,
 				 true,
 				 false,
 				 false,
@@ -268,7 +268,7 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 				 getResourceLocator(),
 				 getString("_UI_JobRemote_StartTime_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_StartTime_feature", "_UI_JobRemote_type"),
-				 JobclientPackage.Literals.JOB_REMOTE__START_TIME,
+				 JobClientPackage.Literals.JOB_REMOTE__START_TIME,
 				 true,
 				 false,
 				 false,
@@ -289,8 +289,8 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobclientPackage.Literals.JOB_REMOTE__RESULT);
-			childrenFeatures.add(JobclientPackage.Literals.JOB_REMOTE__JOB);
+			childrenFeatures.add(JobClientPackage.Literals.JOB_REMOTE__RESULT);
+			childrenFeatures.add(JobClientPackage.Literals.JOB_REMOTE__JOB);
 		}
 		return childrenFeatures;
 	}
@@ -346,17 +346,17 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobRemote.class)) {
-			case JobclientPackage.JOB_REMOTE__SUBMISSION_ID:
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
-			case JobclientPackage.JOB_REMOTE__NAME:
-			case JobclientPackage.JOB_REMOTE__PROGRESS:
-			case JobclientPackage.JOB_REMOTE__START_TIME:
+			case JobClientPackage.JOB_REMOTE__SUBMISSION_ID:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+			case JobClientPackage.JOB_REMOTE__NAME:
+			case JobClientPackage.JOB_REMOTE__PROGRESS:
+			case JobClientPackage.JOB_REMOTE__START_TIME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case JobclientPackage.JOB_REMOTE__RESULT:
-			case JobclientPackage.JOB_REMOTE__JOB:
+			case JobClientPackage.JOB_REMOTE__RESULT:
+			case JobClientPackage.JOB_REMOTE__JOB:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -376,17 +376,17 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobclientPackage.Literals.JOB_REMOTE__RESULT,
-				 JobclientFactory.eINSTANCE.createJobRemoteResult()));
+				(JobClientPackage.Literals.JOB_REMOTE__RESULT,
+				 JobClientFactory.eINSTANCE.createJobRemoteResult()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobclientPackage.Literals.JOB_REMOTE__JOB,
+				(JobClientPackage.Literals.JOB_REMOTE__JOB,
 				 JobFactory.eINSTANCE.createJob()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobclientPackage.Literals.JOB_REMOTE__JOB,
+				(JobClientPackage.Literals.JOB_REMOTE__JOB,
 				 JobFactory.eINSTANCE.createJobConsole()));
 	}
 

@@ -5,25 +5,14 @@ package com.misc.common.moplaf.job.jobclient.provider;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.emf.edit.command.RunBackgroundCommand;
 import com.misc.common.moplaf.emf.edit.command.StartCommand;
 import com.misc.common.moplaf.emf.edit.command.StopCommand;
-import com.misc.common.moplaf.job.Plugin;
-import com.misc.common.moplaf.job.ProgressFeedback;
-import com.misc.common.moplaf.job.Run;
-import com.misc.common.moplaf.job.RunContext;
+import com.misc.common.moplaf.job.jobclient.JobClientFactory;
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
-import com.misc.common.moplaf.job.jobclient.JobclientFactory;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
-
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -81,9 +70,7 @@ public class JobSchedulerItemProvider
 
 			addStartFeedbackPropertyDescriptor(object);
 			addStopFeedbackPropertyDescriptor(object);
-			addStartedPropertyDescriptor(object);
-			addNbOfEnginesPropertyDescriptor(object);
-			addNbOfJobsPropertyDescriptor(object);
+			addRunningPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
 			addRefreshRatePropertyDescriptor(object);
 		}
@@ -103,7 +90,7 @@ public class JobSchedulerItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JobScheduler_StartFeedback_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_StartFeedback_feature", "_UI_JobScheduler_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULER__START_FEEDBACK,
+				 JobClientPackage.Literals.JOB_SCHEDULER__START_FEEDBACK,
 				 false,
 				 false,
 				 false,
@@ -125,7 +112,7 @@ public class JobSchedulerItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JobScheduler_StopFeedback_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_StopFeedback_feature", "_UI_JobScheduler_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULER__STOP_FEEDBACK,
+				 JobClientPackage.Literals.JOB_SCHEDULER__STOP_FEEDBACK,
 				 false,
 				 false,
 				 false,
@@ -135,67 +122,23 @@ public class JobSchedulerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Started feature.
+	 * This adds a property descriptor for the Running feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addStartedPropertyDescriptor(Object object) {
+	protected void addRunningPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JobScheduler_Started_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Started_feature", "_UI_JobScheduler_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULER__STARTED,
+				 getString("_UI_JobScheduler_Running_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Running_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__RUNNING,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Nb Of Engines feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNbOfEnginesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduler_nbOfEngines_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_nbOfEngines_feature", "_UI_JobScheduler_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULER__NB_OF_ENGINES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Nb Of Jobs feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNbOfJobsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduler_nbOfJobs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_nbOfJobs_feature", "_UI_JobScheduler_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULER__NB_OF_JOBS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -213,7 +156,7 @@ public class JobSchedulerItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JobScheduler_RefreshFeedback_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_RefreshFeedback_feature", "_UI_JobScheduler_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULER__REFRESH_FEEDBACK,
+				 JobClientPackage.Literals.JOB_SCHEDULER__REFRESH_FEEDBACK,
 				 false,
 				 false,
 				 false,
@@ -235,7 +178,7 @@ public class JobSchedulerItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JobScheduler_RefreshRate_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_RefreshRate_feature", "_UI_JobScheduler_type"),
-				 JobclientPackage.Literals.JOB_SCHEDULER__REFRESH_RATE,
+				 JobClientPackage.Literals.JOB_SCHEDULER__REFRESH_RATE,
 				 true,
 				 false,
 				 false,
@@ -256,8 +199,8 @@ public class JobSchedulerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobclientPackage.Literals.JOB_SCHEDULER__JOBSCHEDUELED);
-			childrenFeatures.add(JobclientPackage.Literals.JOB_SCHEDULER__ENGINE);
+			childrenFeatures.add(JobClientPackage.Literals.JOB_SCHEDULER__JOBS);
+			childrenFeatures.add(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES);
 		}
 		return childrenFeatures;
 	}
@@ -314,17 +257,15 @@ public class JobSchedulerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobScheduler.class)) {
-			case JobclientPackage.JOB_SCHEDULER__START_FEEDBACK:
-			case JobclientPackage.JOB_SCHEDULER__STOP_FEEDBACK:
-			case JobclientPackage.JOB_SCHEDULER__STARTED:
-			case JobclientPackage.JOB_SCHEDULER__NB_OF_ENGINES:
-			case JobclientPackage.JOB_SCHEDULER__NB_OF_JOBS:
-			case JobclientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
-			case JobclientPackage.JOB_SCHEDULER__REFRESH_RATE:
+			case JobClientPackage.JOB_SCHEDULER__START_FEEDBACK:
+			case JobClientPackage.JOB_SCHEDULER__STOP_FEEDBACK:
+			case JobClientPackage.JOB_SCHEDULER__RUNNING:
+			case JobClientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
+			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case JobclientPackage.JOB_SCHEDULER__JOBSCHEDUELED:
-			case JobclientPackage.JOB_SCHEDULER__ENGINE:
+			case JobClientPackage.JOB_SCHEDULER__JOBS:
+			case JobClientPackage.JOB_SCHEDULER__ENGINES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -344,13 +285,18 @@ public class JobSchedulerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobclientPackage.Literals.JOB_SCHEDULER__JOBSCHEDUELED,
-				 JobclientFactory.eINSTANCE.createJobScheduled()));
+				(JobClientPackage.Literals.JOB_SCHEDULER__JOBS,
+				 JobClientFactory.eINSTANCE.createJobScheduled()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobclientPackage.Literals.JOB_SCHEDULER__ENGINE,
-				 JobclientFactory.eINSTANCE.createEngine()));
+				(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES,
+				 JobClientFactory.eINSTANCE.createJobEngine()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES,
+				 JobClientFactory.eINSTANCE.createJobEngineInProcess()));
 	}
 
 	/**
@@ -448,89 +394,6 @@ public class JobSchedulerItemProvider
 		}
 	} // class RunRefreshCommand
 	
-	/*
-	 * RunStartBackgroundCommand
-	 */
-	public class RunStartBackgroundCommand extends RunBackgroundCommand{
-		private JobScheduler jobscheduler;
-		
-		// constructor
-		public RunStartBackgroundCommand(JobScheduler aJobScheduler)	{
-			this.jobscheduler = aJobScheduler;
-		}
-
-		@Override
-		protected boolean prepare(){
-			boolean isExecutable = true;
-			EnabledFeedback feedback = this.jobscheduler.getStartFeedback();
-			if ( !feedback.isEnabled() ) {
-				isExecutable = false;
-				this.setDescription(feedback.getFeedback());
-			}
-			return isExecutable;
-		}
-		
-		class BackgroundRunJob extends Job implements RunContext{
-			public BackgroundRunJob(String name) {
-				super(name);
-			    this.setPriority(Job.SHORT);
-			    this.setUser(true);
-			    this.setSystem(false);
-			}
-
-			private IProgressMonitor monitor = null;
-			
-			/**
-			 * Call back from the applicative logic
-			 * 
-			 * @return true if the run may continue, false if the run must abort
- 			 */
-			@Override
-			public boolean onProgress(Run run, ProgressFeedback progress) {
-				boolean goOn = true;
-				if ( this.monitor != null){
-					if ( this.monitor.isCanceled())				{
-						goOn = false;
-					}
-					this.monitor.setTaskName(progress.getTask());
-				}
-				return goOn;
-			}
-
-			@Override
-			protected IStatus run(IProgressMonitor monitor) {
-				this.monitor = monitor;
-	    	    monitor.beginTask("Initialization", 100);
-
-	    	    // run the run
-	    	    if( RunStartBackgroundCommand.this.jobscheduler.isStarted() )
-	    	    {
-	    	    	RunStartBackgroundCommand.this.jobscheduler.refresh();
-	    	    	try {
-	    				TimeUnit.SECONDS.sleep((long) RunStartBackgroundCommand.this.jobscheduler.getRefreshRate());
-	    			} catch (InterruptedException e) {
-	    				Plugin.INSTANCE.logError("RunStartBackgroundCommand "+this.getName()+" interrupted");
-	    			}
-	    	    	Job job = new BackgroundRunJob ("Run in Background");
-		   		    job.schedule(); 
-	    	    }
-	    	    
-
-	    	    // run is finished
-	            this.monitor = null;
-	            return Status.OK_STATUS;
-			}
-			
-		};
-		
-		@Override
-		public void execute() {
-			RunStartBackgroundCommand.this.jobscheduler.start();
-			Job job = new BackgroundRunJob ("Run in Background");
-		    job.schedule();
-		}
-	} // class RunRunBackgroundCommand
-	
 	
 	/**
 	 * 
@@ -547,9 +410,6 @@ public class JobSchedulerItemProvider
 		}
 		else if ( commandClass == StopCommand.class){
 			return new RunStopCommand((JobScheduler) object); 
-		}
-		else if ( commandClass == RunBackgroundCommand.class){
-			return new RunStartBackgroundCommand((JobScheduler) object); 
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand

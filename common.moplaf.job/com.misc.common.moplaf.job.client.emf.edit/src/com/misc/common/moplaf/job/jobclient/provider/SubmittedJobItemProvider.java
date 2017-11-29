@@ -13,8 +13,8 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
-import com.misc.common.moplaf.job.jobclient.JobclientFactory;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
+import com.misc.common.moplaf.job.jobclient.JobClientFactory;
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 
 import java.util.Collection;
@@ -87,7 +87,7 @@ public class SubmittedJobItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobclientPackage.Literals.SUBMITTED_JOB__JOB);
+			childrenFeatures.add(JobClientPackage.Literals.SUBMITTED_JOB__JOB);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +140,7 @@ public class SubmittedJobItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SubmittedJob.class)) {
-			case JobclientPackage.SUBMITTED_JOB__JOB:
+			case JobClientPackage.SUBMITTED_JOB__JOB:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -160,8 +160,8 @@ public class SubmittedJobItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobclientPackage.Literals.SUBMITTED_JOB__JOB,
-				 JobclientFactory.eINSTANCE.createJobRemote()));
+				(JobClientPackage.Literals.SUBMITTED_JOB__JOB,
+				 JobClientFactory.eINSTANCE.createJobRemote()));
 	}
 
 	/**

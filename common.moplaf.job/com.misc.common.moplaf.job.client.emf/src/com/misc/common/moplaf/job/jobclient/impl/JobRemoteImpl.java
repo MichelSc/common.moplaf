@@ -16,10 +16,9 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Job;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.ProgressFeedback;
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
-
 import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 import java.lang.reflect.InvocationTargetException;
 
@@ -258,7 +257,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JobclientPackage.Literals.JOB_REMOTE;
+		return JobClientPackage.Literals.JOB_REMOTE;
 	}
 
 	/**
@@ -279,7 +278,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		int oldSubmissionID = submissionID;
 		submissionID = newSubmissionID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__SUBMISSION_ID, oldSubmissionID, submissionID));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__SUBMISSION_ID, oldSubmissionID, submissionID));
 	}
 
 	/**
@@ -300,7 +299,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		JobRemoteResult oldResult = result;
 		result = newResult;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__RESULT, oldResult, newResult);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__RESULT, oldResult, newResult);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -315,14 +314,14 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		if (newResult != result) {
 			NotificationChain msgs = null;
 			if (result != null)
-				msgs = ((InternalEObject)result).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JobclientPackage.JOB_REMOTE__RESULT, null, msgs);
+				msgs = ((InternalEObject)result).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JobClientPackage.JOB_REMOTE__RESULT, null, msgs);
 			if (newResult != null)
-				msgs = ((InternalEObject)newResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JobclientPackage.JOB_REMOTE__RESULT, null, msgs);
+				msgs = ((InternalEObject)newResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JobClientPackage.JOB_REMOTE__RESULT, null, msgs);
 			msgs = basicSetResult(newResult, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__RESULT, newResult, newResult));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__RESULT, newResult, newResult));
 	}
 
 	/**
@@ -343,7 +342,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		Date oldLastProgress = lastProgress;
 		lastProgress = newLastProgress;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__LAST_PROGRESS, oldLastProgress, lastProgress));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__LAST_PROGRESS, oldLastProgress, lastProgress));
 	}
 
 	/**
@@ -364,7 +363,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		float oldLastProgressWork = lastProgressWork;
 		lastProgressWork = newLastProgressWork;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK, oldLastProgressWork, lastProgressWork));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__LAST_PROGRESS_WORK, oldLastProgressWork, lastProgressWork));
 	}
 
 	/**
@@ -385,7 +384,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		String oldLastProgressTask = lastProgressTask;
 		lastProgressTask = newLastProgressTask;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK, oldLastProgressTask, lastProgressTask));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__LAST_PROGRESS_TASK, oldLastProgressTask, lastProgressTask));
 	}
 
 	/**
@@ -395,7 +394,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	 */
 	public EList<Job> getJob() {
 		if (job == null) {
-			job = new EObjectContainmentEList<Job>(Job.class, this, JobclientPackage.JOB_REMOTE__JOB);
+			job = new EObjectContainmentEList<Job>(Job.class, this, JobClientPackage.JOB_REMOTE__JOB);
 		}
 		return job;
 	}
@@ -411,7 +410,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 			jobremote = (JobRemote)eResolveProxy(oldJobremote);
 			if (jobremote != oldJobremote) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JobclientPackage.JOB_REMOTE__JOBREMOTE, oldJobremote, jobremote));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JobClientPackage.JOB_REMOTE__JOBREMOTE, oldJobremote, jobremote));
 			}
 		}
 		return jobremote;
@@ -435,7 +434,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		JobRemote oldJobremote = jobremote;
 		jobremote = newJobremote;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__JOBREMOTE, oldJobremote, newJobremote);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__JOBREMOTE, oldJobremote, newJobremote);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -450,14 +449,14 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		if (newJobremote != jobremote) {
 			NotificationChain msgs = null;
 			if (jobremote != null)
-				msgs = ((InternalEObject)jobremote).eInverseRemove(this, JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, JobRemote.class, msgs);
+				msgs = ((InternalEObject)jobremote).eInverseRemove(this, JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, JobRemote.class, msgs);
 			if (newJobremote != null)
-				msgs = ((InternalEObject)newJobremote).eInverseAdd(this, JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, JobRemote.class, msgs);
+				msgs = ((InternalEObject)newJobremote).eInverseAdd(this, JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, JobRemote.class, msgs);
 			msgs = basicSetJobremote(newJobremote, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__JOBREMOTE, newJobremote, newJobremote));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__JOBREMOTE, newJobremote, newJobremote));
 	}
 
 	/**
@@ -471,7 +470,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 			jobremoteeOpposite = (JobRemote)eResolveProxy(oldJobremoteeOpposite);
 			if (jobremoteeOpposite != oldJobremoteeOpposite) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, oldJobremoteeOpposite, jobremoteeOpposite));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, oldJobremoteeOpposite, jobremoteeOpposite));
 			}
 		}
 		return jobremoteeOpposite;
@@ -495,7 +494,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		JobRemote oldJobremoteeOpposite = jobremoteeOpposite;
 		jobremoteeOpposite = newJobremoteeOpposite;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, oldJobremoteeOpposite, newJobremoteeOpposite);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, oldJobremoteeOpposite, newJobremoteeOpposite);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -510,14 +509,14 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		if (newJobremoteeOpposite != jobremoteeOpposite) {
 			NotificationChain msgs = null;
 			if (jobremoteeOpposite != null)
-				msgs = ((InternalEObject)jobremoteeOpposite).eInverseRemove(this, JobclientPackage.JOB_REMOTE__JOBREMOTE, JobRemote.class, msgs);
+				msgs = ((InternalEObject)jobremoteeOpposite).eInverseRemove(this, JobClientPackage.JOB_REMOTE__JOBREMOTE, JobRemote.class, msgs);
 			if (newJobremoteeOpposite != null)
-				msgs = ((InternalEObject)newJobremoteeOpposite).eInverseAdd(this, JobclientPackage.JOB_REMOTE__JOBREMOTE, JobRemote.class, msgs);
+				msgs = ((InternalEObject)newJobremoteeOpposite).eInverseAdd(this, JobClientPackage.JOB_REMOTE__JOBREMOTE, JobRemote.class, msgs);
 			msgs = basicSetJobremoteeOpposite(newJobremoteeOpposite, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, newJobremoteeOpposite, newJobremoteeOpposite));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, newJobremoteeOpposite, newJobremoteeOpposite));
 	}
 
 	/**
@@ -538,7 +537,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__NAME, oldName, name));
 	}
 
 	/**
@@ -559,7 +558,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		ProgressFeedback oldProgress = progress;
 		progress = newProgress;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__PROGRESS, oldProgress, progress));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__PROGRESS, oldProgress, progress));
 	}
 
 	/**
@@ -580,7 +579,7 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 		Date oldStartTime = startTime;
 		startTime = newStartTime;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__START_TIME, oldStartTime, startTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_REMOTE__START_TIME, oldStartTime, startTime));
 	}
 
 	/**
@@ -629,13 +628,13 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobclientPackage.JOB_REMOTE__JOBREMOTE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTE:
 				if (jobremote != null)
-					msgs = ((InternalEObject)jobremote).eInverseRemove(this, JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, JobRemote.class, msgs);
+					msgs = ((InternalEObject)jobremote).eInverseRemove(this, JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE, JobRemote.class, msgs);
 				return basicSetJobremote((JobRemote)otherEnd, msgs);
-			case JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
 				if (jobremoteeOpposite != null)
-					msgs = ((InternalEObject)jobremoteeOpposite).eInverseRemove(this, JobclientPackage.JOB_REMOTE__JOBREMOTE, JobRemote.class, msgs);
+					msgs = ((InternalEObject)jobremoteeOpposite).eInverseRemove(this, JobClientPackage.JOB_REMOTE__JOBREMOTE, JobRemote.class, msgs);
 				return basicSetJobremoteeOpposite((JobRemote)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -649,13 +648,13 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobclientPackage.JOB_REMOTE__RESULT:
+			case JobClientPackage.JOB_REMOTE__RESULT:
 				return basicSetResult(null, msgs);
-			case JobclientPackage.JOB_REMOTE__JOB:
+			case JobClientPackage.JOB_REMOTE__JOB:
 				return ((InternalEList<?>)getJob()).basicRemove(otherEnd, msgs);
-			case JobclientPackage.JOB_REMOTE__JOBREMOTE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTE:
 				return basicSetJobremote(null, msgs);
-			case JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
 				return basicSetJobremoteeOpposite(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -669,29 +668,29 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobclientPackage.JOB_REMOTE__SUBMISSION_ID:
+			case JobClientPackage.JOB_REMOTE__SUBMISSION_ID:
 				return getSubmissionID();
-			case JobclientPackage.JOB_REMOTE__RESULT:
+			case JobClientPackage.JOB_REMOTE__RESULT:
 				return getResult();
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS:
 				return getLastProgress();
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
 				return getLastProgressWork();
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
 				return getLastProgressTask();
-			case JobclientPackage.JOB_REMOTE__JOB:
+			case JobClientPackage.JOB_REMOTE__JOB:
 				return getJob();
-			case JobclientPackage.JOB_REMOTE__JOBREMOTE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTE:
 				if (resolve) return getJobremote();
 				return basicGetJobremote();
-			case JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
 				if (resolve) return getJobremoteeOpposite();
 				return basicGetJobremoteeOpposite();
-			case JobclientPackage.JOB_REMOTE__NAME:
+			case JobClientPackage.JOB_REMOTE__NAME:
 				return getName();
-			case JobclientPackage.JOB_REMOTE__PROGRESS:
+			case JobClientPackage.JOB_REMOTE__PROGRESS:
 				return getProgress();
-			case JobclientPackage.JOB_REMOTE__START_TIME:
+			case JobClientPackage.JOB_REMOTE__START_TIME:
 				return getStartTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -706,38 +705,38 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobclientPackage.JOB_REMOTE__SUBMISSION_ID:
+			case JobClientPackage.JOB_REMOTE__SUBMISSION_ID:
 				setSubmissionID((Integer)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__RESULT:
+			case JobClientPackage.JOB_REMOTE__RESULT:
 				setResult((JobRemoteResult)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS:
 				setLastProgress((Date)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
 				setLastProgressWork((Float)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
 				setLastProgressTask((String)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__JOB:
+			case JobClientPackage.JOB_REMOTE__JOB:
 				getJob().clear();
 				getJob().addAll((Collection<? extends Job>)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__JOBREMOTE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTE:
 				setJobremote((JobRemote)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
 				setJobremoteeOpposite((JobRemote)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__NAME:
+			case JobClientPackage.JOB_REMOTE__NAME:
 				setName((String)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__PROGRESS:
+			case JobClientPackage.JOB_REMOTE__PROGRESS:
 				setProgress((ProgressFeedback)newValue);
 				return;
-			case JobclientPackage.JOB_REMOTE__START_TIME:
+			case JobClientPackage.JOB_REMOTE__START_TIME:
 				setStartTime((Date)newValue);
 				return;
 		}
@@ -752,37 +751,37 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.JOB_REMOTE__SUBMISSION_ID:
+			case JobClientPackage.JOB_REMOTE__SUBMISSION_ID:
 				setSubmissionID(SUBMISSION_ID_EDEFAULT);
 				return;
-			case JobclientPackage.JOB_REMOTE__RESULT:
+			case JobClientPackage.JOB_REMOTE__RESULT:
 				setResult((JobRemoteResult)null);
 				return;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS:
 				setLastProgress(LAST_PROGRESS_EDEFAULT);
 				return;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
 				setLastProgressWork(LAST_PROGRESS_WORK_EDEFAULT);
 				return;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
 				setLastProgressTask(LAST_PROGRESS_TASK_EDEFAULT);
 				return;
-			case JobclientPackage.JOB_REMOTE__JOB:
+			case JobClientPackage.JOB_REMOTE__JOB:
 				getJob().clear();
 				return;
-			case JobclientPackage.JOB_REMOTE__JOBREMOTE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTE:
 				setJobremote((JobRemote)null);
 				return;
-			case JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
 				setJobremoteeOpposite((JobRemote)null);
 				return;
-			case JobclientPackage.JOB_REMOTE__NAME:
+			case JobClientPackage.JOB_REMOTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case JobclientPackage.JOB_REMOTE__PROGRESS:
+			case JobClientPackage.JOB_REMOTE__PROGRESS:
 				setProgress(PROGRESS_EDEFAULT);
 				return;
-			case JobclientPackage.JOB_REMOTE__START_TIME:
+			case JobClientPackage.JOB_REMOTE__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
 				return;
 		}
@@ -797,27 +796,27 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.JOB_REMOTE__SUBMISSION_ID:
+			case JobClientPackage.JOB_REMOTE__SUBMISSION_ID:
 				return submissionID != SUBMISSION_ID_EDEFAULT;
-			case JobclientPackage.JOB_REMOTE__RESULT:
+			case JobClientPackage.JOB_REMOTE__RESULT:
 				return result != null;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS:
 				return LAST_PROGRESS_EDEFAULT == null ? lastProgress != null : !LAST_PROGRESS_EDEFAULT.equals(lastProgress);
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
 				return lastProgressWork != LAST_PROGRESS_WORK_EDEFAULT;
-			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+			case JobClientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
 				return LAST_PROGRESS_TASK_EDEFAULT == null ? lastProgressTask != null : !LAST_PROGRESS_TASK_EDEFAULT.equals(lastProgressTask);
-			case JobclientPackage.JOB_REMOTE__JOB:
+			case JobClientPackage.JOB_REMOTE__JOB:
 				return job != null && !job.isEmpty();
-			case JobclientPackage.JOB_REMOTE__JOBREMOTE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTE:
 				return jobremote != null;
-			case JobclientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
+			case JobClientPackage.JOB_REMOTE__JOBREMOTEE_OPPOSITE:
 				return jobremoteeOpposite != null;
-			case JobclientPackage.JOB_REMOTE__NAME:
+			case JobClientPackage.JOB_REMOTE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case JobclientPackage.JOB_REMOTE__PROGRESS:
+			case JobClientPackage.JOB_REMOTE__PROGRESS:
 				return PROGRESS_EDEFAULT == null ? progress != null : !PROGRESS_EDEFAULT.equals(progress);
-			case JobclientPackage.JOB_REMOTE__START_TIME:
+			case JobClientPackage.JOB_REMOTE__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
 		}
 		return super.eIsSet(featureID);
@@ -831,16 +830,16 @@ public class JobRemoteImpl extends MinimalEObjectImpl.Container implements JobRe
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobclientPackage.JOB_REMOTE___ON_PROGRESS__PROGRESSFEEDBACK:
+			case JobClientPackage.JOB_REMOTE___ON_PROGRESS__PROGRESSFEEDBACK:
 				onProgress((ProgressFeedback)arguments.get(0));
 				return null;
-			case JobclientPackage.JOB_REMOTE___ON_RETURN__RETURNFEEDBACK:
+			case JobClientPackage.JOB_REMOTE___ON_RETURN__RETURNFEEDBACK:
 				onReturn((ReturnFeedback)arguments.get(0));
 				return null;
-			case JobclientPackage.JOB_REMOTE___REFRESH_PROGRESS:
+			case JobClientPackage.JOB_REMOTE___REFRESH_PROGRESS:
 				refreshProgress();
 				return null;
-			case JobclientPackage.JOB_REMOTE___RUN__SUBMITTEDJOB:
+			case JobClientPackage.JOB_REMOTE___RUN__SUBMITTEDJOB:
 				return run((SubmittedJob)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);

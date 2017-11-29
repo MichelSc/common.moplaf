@@ -12,9 +12,8 @@
  */
 package com.misc.common.moplaf.job.jobclient.impl;
 
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -43,7 +42,7 @@ public class JobRemoteResultImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JobclientPackage.Literals.JOB_REMOTE_RESULT;
+		return JobClientPackage.Literals.JOB_REMOTE_RESULT;
 	}
 
 } //JobRemoteResultImpl

@@ -15,8 +15,7 @@ package com.misc.common.moplaf.job.jobxmlrpc.provider;
 
 import com.misc.common.moplaf.job.jobclient.provider.JobEngineProxyItemProvider;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
-import com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage;
-
+import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -78,7 +77,7 @@ public class JobEngineClientItemProvider extends JobEngineProxyItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JobEngineClient_Host_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineClient_Host_feature", "_UI_JobEngineClient_type"),
-				 JobxmlrpcPackage.Literals.JOB_ENGINE_CLIENT__HOST,
+				 JobXmlRpcPackage.Literals.JOB_ENGINE_CLIENT__HOST,
 				 true,
 				 false,
 				 false,
@@ -100,7 +99,7 @@ public class JobEngineClientItemProvider extends JobEngineProxyItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JobEngineClient_Port_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineClient_Port_feature", "_UI_JobEngineClient_type"),
-				 JobxmlrpcPackage.Literals.JOB_ENGINE_CLIENT__PORT,
+				 JobXmlRpcPackage.Literals.JOB_ENGINE_CLIENT__PORT,
 				 true,
 				 false,
 				 false,
@@ -122,7 +121,7 @@ public class JobEngineClientItemProvider extends JobEngineProxyItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JobEngineClient_Path_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineClient_Path_feature", "_UI_JobEngineClient_type"),
-				 JobxmlrpcPackage.Literals.JOB_ENGINE_CLIENT__PATH,
+				 JobXmlRpcPackage.Literals.JOB_ENGINE_CLIENT__PATH,
 				 true,
 				 false,
 				 false,
@@ -169,9 +168,9 @@ public class JobEngineClientItemProvider extends JobEngineProxyItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobEngineClient.class)) {
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__HOST:
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PORT:
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__HOST:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getResetFeedback <em>Reset Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isCanceled <em>Canceled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isCancelled <em>Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturned <em>Returned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getReturnFeedback <em>Return Feedback</em>}</li>
@@ -89,24 +89,24 @@ public class RunImpl extends RunParamsImpl implements Run {
 	protected static final EnabledFeedback RESET_FEEDBACK_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
+	 * The default value of the '{@link #isCancelled() <em>Cancelled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCanceled()
+	 * @see #isCancelled()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean CANCELED_EDEFAULT = false;
+	protected static final boolean CANCELLED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
+	 * The cached value of the '{@link #isCancelled() <em>Cancelled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCanceled()
+	 * @see #isCancelled()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean canceled = CANCELED_EDEFAULT;
+	protected boolean cancelled = CANCELLED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isReturned() <em>Returned</em>}' attribute.
@@ -212,27 +212,6 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isCanceled() {
-		return canceled;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCanceled(boolean newCanceled) {
-		boolean oldCanceled = canceled;
-		canceled = newCanceled;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.RUN__CANCELED, oldCanceled, canceled));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isReturned() {
 		return returned;
 	}
@@ -262,7 +241,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getCancelFeedback() {
-		if ( this.isCanceled()){
+		if ( this.isCancelled()){
 			return new EnabledFeedback(false, "canceled");
 		}
 		return EnabledFeedback.NOFEEDBACK;
@@ -274,6 +253,27 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 */
 	public EnabledFeedback getResetFeedback() {
 		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isCancelled() {
+		return cancelled;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCancelled(boolean newCancelled) {
+		boolean oldCancelled = cancelled;
+		cancelled = newCancelled;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.RUN__CANCELLED, oldCancelled, cancelled));
 	}
 
 	/**
@@ -355,7 +355,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 	public void reset() {
 		this.runContext = null; 
 		
-		this.setCanceled(false);
+		this.setCancelled(false);
 		this.setReturnSuccess(false);
 		this.setReturnFeedback("");
 		this.setReturnInformation("");
@@ -486,7 +486,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public void cancel() {
-		this.setCanceled(true);
+		this.setCancelled(true);
 	}
 
 	/**
@@ -581,8 +581,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return getCancelFeedback();
 			case JobPackage.RUN__RESET_FEEDBACK:
 				return getResetFeedback();
-			case JobPackage.RUN__CANCELED:
-				return isCanceled();
+			case JobPackage.RUN__CANCELLED:
+				return isCancelled();
 			case JobPackage.RUN__RETURNED:
 				return isReturned();
 			case JobPackage.RUN__RETURN_SUCCESS:
@@ -603,8 +603,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobPackage.RUN__CANCELED:
-				setCanceled((Boolean)newValue);
+			case JobPackage.RUN__CANCELLED:
+				setCancelled((Boolean)newValue);
 				return;
 			case JobPackage.RUN__RETURNED:
 				setReturned((Boolean)newValue);
@@ -630,8 +630,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.RUN__CANCELED:
-				setCanceled(CANCELED_EDEFAULT);
+			case JobPackage.RUN__CANCELLED:
+				setCancelled(CANCELLED_EDEFAULT);
 				return;
 			case JobPackage.RUN__RETURNED:
 				setReturned(RETURNED_EDEFAULT);
@@ -663,8 +663,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return CANCEL_FEEDBACK_EDEFAULT == null ? getCancelFeedback() != null : !CANCEL_FEEDBACK_EDEFAULT.equals(getCancelFeedback());
 			case JobPackage.RUN__RESET_FEEDBACK:
 				return RESET_FEEDBACK_EDEFAULT == null ? getResetFeedback() != null : !RESET_FEEDBACK_EDEFAULT.equals(getResetFeedback());
-			case JobPackage.RUN__CANCELED:
-				return canceled != CANCELED_EDEFAULT;
+			case JobPackage.RUN__CANCELLED:
+				return cancelled != CANCELLED_EDEFAULT;
 			case JobPackage.RUN__RETURNED:
 				return returned != RETURNED_EDEFAULT;
 			case JobPackage.RUN__RETURN_SUCCESS:
@@ -700,13 +700,13 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return null;
 			case JobPackage.RUN___SET_PROGRESS__STRING_FLOAT:
 				return setProgress((String)arguments.get(0), (Float)arguments.get(1));
+			case JobPackage.RUN___SET_RETURN__RETURNFEEDBACK:
+				setReturn((ReturnFeedback)arguments.get(0));
+				return null;
 			case JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK:
 				return setProgress((ProgressFeedback)arguments.get(0));
 			case JobPackage.RUN___GET_RETURN:
 				return getReturn();
-			case JobPackage.RUN___SET_RETURN__RETURNFEEDBACK:
-				setReturn((ReturnFeedback)arguments.get(0));
-				return null;
 			case JobPackage.RUN___CONSTRUCT_PARAMS:
 				return constructParams();
 		}
@@ -723,8 +723,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Canceled: ");
-		result.append(canceled);
+		result.append(" (Cancelled: ");
+		result.append(cancelled);
 		result.append(", Returned: ");
 		result.append(returned);
 		result.append(", ReturnSuccess: ");

@@ -12,10 +12,9 @@
  */
 package com.misc.common.moplaf.job.jobclient.provider;
 
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -92,7 +91,7 @@ public class JobEngineProxyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_JobEngineProxy_Name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineProxy_Name_feature", "_UI_JobEngineProxy_type"),
-				 JobclientPackage.Literals.JOB_ENGINE_PROXY__NAME,
+				 JobClientPackage.Literals.JOB_ENGINE_PROXY__NAME,
 				 true,
 				 false,
 				 false,
@@ -128,7 +127,7 @@ public class JobEngineProxyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobEngineProxy.class)) {
-			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
+			case JobClientPackage.JOB_ENGINE_PROXY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

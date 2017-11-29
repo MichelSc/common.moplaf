@@ -13,10 +13,9 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
-
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -75,7 +74,7 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JobclientPackage.Literals.JOB_ENGINE_PROXY;
+		return JobClientPackage.Literals.JOB_ENGINE_PROXY;
 	}
 
 	/**
@@ -96,7 +95,7 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_ENGINE_PROXY__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_ENGINE_PROXY__NAME, oldName, name));
 	}
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,7 +177,7 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
+			case JobClientPackage.JOB_ENGINE_PROXY__NAME:
 				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -193,7 +192,7 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
+			case JobClientPackage.JOB_ENGINE_PROXY__NAME:
 				setName((String)newValue);
 				return;
 		}
@@ -208,7 +207,7 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
+			case JobClientPackage.JOB_ENGINE_PROXY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 		}
@@ -223,7 +222,7 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
+			case JobClientPackage.JOB_ENGINE_PROXY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
@@ -237,9 +236,9 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobclientPackage.JOB_ENGINE_PROXY___SUBMIT_JOB__JOBREMOTE:
+			case JobClientPackage.JOB_ENGINE_PROXY___SUBMIT_JOB__JOBREMOTE:
 				return submitJob((JobRemote)arguments.get(0));
-			case JobclientPackage.JOB_ENGINE_PROXY___GET_JOB__INT:
+			case JobClientPackage.JOB_ENGINE_PROXY___GET_JOB__INT:
 				return getJob((Integer)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);

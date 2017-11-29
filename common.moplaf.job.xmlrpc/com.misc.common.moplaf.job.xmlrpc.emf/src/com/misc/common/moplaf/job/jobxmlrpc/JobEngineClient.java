@@ -28,7 +28,7 @@ import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
  *   <li>{@link com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient#getPath <em>Path</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage#getJobEngineClient()
+ * @see com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage#getJobEngineClient()
  * @model
  * @generated
  */
@@ -45,7 +45,7 @@ public interface JobEngineClient extends JobEngineProxy {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host</em>' attribute.
 	 * @see #setHost(String)
-	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage#getJobEngineClient_Host()
+	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage#getJobEngineClient_Host()
 	 * @model default="localhost"
 	 * @generated
 	 */
@@ -72,7 +72,7 @@ public interface JobEngineClient extends JobEngineProxy {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(int)
-	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage#getJobEngineClient_Port()
+	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage#getJobEngineClient_Port()
 	 * @model default="8080"
 	 * @generated
 	 */
@@ -99,7 +99,7 @@ public interface JobEngineClient extends JobEngineProxy {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
-	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage#getJobEngineClient_Path()
+	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage#getJobEngineClient_Path()
 	 * @model default="xmlrpc"
 	 * @generated
 	 */

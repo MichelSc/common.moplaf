@@ -10,7 +10,7 @@
       <!-- @generated jobxmlrpc -->
       <factory
             uri="//www.misc.com/common/moplaf/job/client/xmlrpc/model/0.1"
-            class="com.misc.common.moplaf.job.jobxmlrpc.provider.JobxmlrpcItemProviderAdapterFactory"
+            class="com.misc.common.moplaf.job.jobxmlrpc.provider.JobXmlRpcItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

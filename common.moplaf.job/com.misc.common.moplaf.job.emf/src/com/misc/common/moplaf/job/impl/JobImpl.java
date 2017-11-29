@@ -388,7 +388,6 @@ public class JobImpl extends RunImpl implements Job {
 	 */
 	@Override
 	protected ReturnFeedback runImpl(RunContext runContext) {
-		this.reset(); // or let the user reset himself??
 		
 		this.setStarted(true);
 		this.setStartTime(new Date());

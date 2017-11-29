@@ -4,6 +4,7 @@ package com.misc.common.moplaf.job.jobclient;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 
+import com.misc.common.moplaf.job.Run;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -17,53 +18,53 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getJobschedueled <em>Jobschedueled</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getEngine <em>Engine</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getJobs <em>Jobs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getEngines <em>Engines</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getStopFeedback <em>Stop Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#isStarted <em>Started</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNbOfEngines <em>Nb Of Engines</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNbOfJobs <em>Nb Of Jobs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate <em>Refresh Rate</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler()
+ * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler()
  * @model
  * @generated
  */
 public interface JobScheduler extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Jobschedueled</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Jobs</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Jobschedueled</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Jobs</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Jobschedueled</em>' containment reference list.
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_Jobschedueled()
+	 * @return the value of the '<em>Jobs</em>' containment reference list.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Jobs()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<JobScheduled> getJobschedueled();
+	EList<JobScheduled> getJobs();
 
 	/**
-	 * Returns the value of the '<em><b>Engine</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.Engine}.
+	 * Returns the value of the '<em><b>Engines</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobEngine}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getScheduler <em>Scheduler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Engine</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Engines</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Engine</em>' containment reference list.
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_Engine()
-	 * @model containment="true"
+	 * @return the value of the '<em>Engines</em>' containment reference list.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Engines()
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getScheduler
+	 * @model opposite="Scheduler" containment="true"
 	 * @generated
 	 */
-	EList<Engine> getEngine();
+	EList<JobEngine> getEngines();
 
 	/**
 	 * Returns the value of the '<em><b>Start Feedback</b></em>' attribute.
@@ -74,7 +75,7 @@ public interface JobScheduler extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Feedback</em>' attribute.
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_StartFeedback()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_StartFeedback()
 	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -89,90 +90,38 @@ public interface JobScheduler extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Stop Feedback</em>' attribute.
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_StopFeedback()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_StopFeedback()
 	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EnabledFeedback getStopFeedback();
 
 	/**
-	 * Returns the value of the '<em><b>Started</b></em>' attribute.
+	 * Returns the value of the '<em><b>Running</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Started</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Running</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Started</em>' attribute.
-	 * @see #setStarted(boolean)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_Started()
+	 * @return the value of the '<em>Running</em>' attribute.
+	 * @see #setRunning(boolean)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Running()
 	 * @model default="false"
 	 * @generated
 	 */
-	boolean isStarted();
+	boolean isRunning();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#isStarted <em>Started</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#isRunning <em>Running</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Started</em>' attribute.
-	 * @see #isStarted()
+	 * @param value the new value of the '<em>Running</em>' attribute.
+	 * @see #isRunning()
 	 * @generated
 	 */
-	void setStarted(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Nb Of Engines</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nb Of Engines</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nb Of Engines</em>' attribute.
-	 * @see #setNbOfEngines(int)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_NbOfEngines()
-	 * @model
-	 * @generated
-	 */
-	int getNbOfEngines();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNbOfEngines <em>Nb Of Engines</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nb Of Engines</em>' attribute.
-	 * @see #getNbOfEngines()
-	 * @generated
-	 */
-	void setNbOfEngines(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Nb Of Jobs</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nb Of Jobs</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nb Of Jobs</em>' attribute.
-	 * @see #setNbOfJobs(int)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_NbOfJobs()
-	 * @model
-	 * @generated
-	 */
-	int getNbOfJobs();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNbOfJobs <em>Nb Of Jobs</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nb Of Jobs</em>' attribute.
-	 * @see #getNbOfJobs()
-	 * @generated
-	 */
-	void setNbOfJobs(int value);
+	void setRunning(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
@@ -183,7 +132,7 @@ public interface JobScheduler extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Refresh Feedback</em>' attribute.
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_RefreshFeedback()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_RefreshFeedback()
 	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -199,7 +148,7 @@ public interface JobScheduler extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Refresh Rate</em>' attribute.
 	 * @see #setRefreshRate(float)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobScheduler_RefreshRate()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_RefreshRate()
 	 * @model
 	 * @generated
 	 */
@@ -239,5 +188,13 @@ public interface JobScheduler extends EObject {
 	 * @generated
 	 */
 	void refresh();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void submitRun(Run run);
 
 } // JobScheduler

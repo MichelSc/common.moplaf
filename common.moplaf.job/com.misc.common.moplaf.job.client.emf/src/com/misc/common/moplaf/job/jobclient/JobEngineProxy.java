@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobEngineProxy()
+ * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngineProxy()
  * @model abstract="true"
  * @generated
  */
@@ -41,7 +41,7 @@ public interface JobEngineProxy extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobEngineProxy_Name()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngineProxy_Name()
 	 * @model
 	 * @generated
 	 */

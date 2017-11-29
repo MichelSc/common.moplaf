@@ -16,8 +16,7 @@ package com.misc.common.moplaf.job.jobxmlrpc.provider;
 import com.misc.common.moplaf.job.jobclient.provider.JobEngineItemProvider;
 
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
-import com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage;
-
+import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -78,7 +77,7 @@ public class JobEngineServerItemProvider extends JobEngineItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JobEngineServer_Port_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineServer_Port_feature", "_UI_JobEngineServer_type"),
-				 JobxmlrpcPackage.Literals.JOB_ENGINE_SERVER__PORT,
+				 JobXmlRpcPackage.Literals.JOB_ENGINE_SERVER__PORT,
 				 true,
 				 false,
 				 false,
@@ -100,7 +99,7 @@ public class JobEngineServerItemProvider extends JobEngineItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_JobEngineServer_Path_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineServer_Path_feature", "_UI_JobEngineServer_type"),
-				 JobxmlrpcPackage.Literals.JOB_ENGINE_SERVER__PATH,
+				 JobXmlRpcPackage.Literals.JOB_ENGINE_SERVER__PATH,
 				 true,
 				 false,
 				 false,
@@ -128,7 +127,7 @@ public class JobEngineServerItemProvider extends JobEngineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JobEngineServer)object).getLabel();
+		String label = ((JobEngineServer)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JobEngineServer_type") :
 			getString("_UI_JobEngineServer_type") + " " + label;
@@ -147,8 +146,8 @@ public class JobEngineServerItemProvider extends JobEngineItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobEngineServer.class)) {
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PORT:
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

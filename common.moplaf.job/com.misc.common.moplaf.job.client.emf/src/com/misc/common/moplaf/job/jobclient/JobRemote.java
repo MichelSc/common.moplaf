@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobRemote#getStartTime <em>Start Time</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote()
+ * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote()
  * @model
  * @generated
  */
@@ -57,7 +57,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Submission ID</em>' attribute.
 	 * @see #setSubmissionID(int)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_SubmissionID()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_SubmissionID()
 	 * @model
 	 * @generated
 	 */
@@ -83,7 +83,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Result</em>' containment reference.
 	 * @see #setResult(JobRemoteResult)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Result()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_Result()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -109,7 +109,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Progress</em>' attribute.
 	 * @see #setLastProgress(Date)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_LastProgress()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_LastProgress()
 	 * @model
 	 * @generated
 	 */
@@ -135,7 +135,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Progress Work</em>' attribute.
 	 * @see #setLastProgressWork(float)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_LastProgressWork()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_LastProgressWork()
 	 * @model
 	 * @generated
 	 */
@@ -161,7 +161,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Progress Task</em>' attribute.
 	 * @see #setLastProgressTask(String)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_LastProgressTask()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_LastProgressTask()
 	 * @model
 	 * @generated
 	 */
@@ -187,7 +187,7 @@ public interface JobRemote extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Job</em>' containment reference list.
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Job()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_Job()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -204,7 +204,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Jobremote</em>' reference.
 	 * @see #setJobremote(JobRemote)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Jobremote()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_Jobremote()
 	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#getJobremoteeOpposite
 	 * @model opposite="jobremoteeOpposite"
 	 * @generated
@@ -232,7 +232,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Jobremotee Opposite</em>' reference.
 	 * @see #setJobremoteeOpposite(JobRemote)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_JobremoteeOpposite()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_JobremoteeOpposite()
 	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#getJobremote
 	 * @model opposite="jobremote"
 	 * @generated
@@ -259,7 +259,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Name()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_Name()
 	 * @model
 	 * @generated
 	 */
@@ -285,7 +285,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Progress</em>' attribute.
 	 * @see #setProgress(ProgressFeedback)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_Progress()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_Progress()
 	 * @model dataType="com.misc.common.moplaf.job.ProgressFeedback"
 	 * @generated
 	 */
@@ -311,7 +311,7 @@ public interface JobRemote extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Time</em>' attribute.
 	 * @see #setStartTime(Date)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_StartTime()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobRemote_StartTime()
 	 * @model
 	 * @generated
 	 */
