@@ -413,12 +413,12 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	public boolean isNotReadyToRun() {
 		Run run = this.getRun();
 		if ( run==null) {
-			return false;
+			return true;
 		}
 		if ( !run.getRunFeedback().isEnabled() ) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -427,8 +427,13 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public boolean isReadyToRun() {
 		if ( this.isNotReadyToRun()) {
+			// not ready
+			return false;
+		} else if ( this.basicGetScheduledOn()!=null) {
+			// scheduled
 			return false;
 		} else if ( this.isRunning() ) {
+			// running
 			return false;
 		} else if ( this.isReturned()) {
 			return false;

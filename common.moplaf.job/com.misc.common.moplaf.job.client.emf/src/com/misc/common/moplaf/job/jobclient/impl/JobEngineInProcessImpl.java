@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
@@ -77,6 +78,8 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 
 	@Override
 	public void executeJob(JobScheduled job) {
+		Plugin.INSTANCE.logInfo("JobEnginInProcessImpl.executeJob");
+		this.setJobScheduled(job);
 		Run run = job.getRun();
 		run.runAsynch(new JobEngineRunContext());
 	}

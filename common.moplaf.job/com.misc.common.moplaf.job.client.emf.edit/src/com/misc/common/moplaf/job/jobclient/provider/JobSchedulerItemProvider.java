@@ -4,16 +4,20 @@ package com.misc.common.moplaf.job.jobclient.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.emf.edit.command.StartCommand;
 import com.misc.common.moplaf.emf.edit.command.StopCommand;
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,6 +25,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -414,4 +419,78 @@ public class JobSchedulerItemProvider
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
+	/*
+	 * RunCopyParamsCommand
+	 */
+	public class JobSchedulerSubmitRunCommand extends BaseCommand{
+		private JobScheduler scheduler;
+		private Run run;
+		
+		// constructor
+		public JobSchedulerSubmitRunCommand(JobScheduler scheduler, Run run)	{
+			super("ScheduleRun", "Schedule the Run");
+			this.scheduler = scheduler;
+			this.run = run;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.scheduler.submitRun(run);
+		}
+	} // class RunResetCommand
+	
+	protected Command createDropCommand(Object owner, Object droppedObject){ 
+		JobScheduler this_scheduler = (JobScheduler) owner;
+		if ( droppedObject instanceof Run){
+  	   		Run dropped_run= (Run) droppedObject;
+  	   	JobSchedulerSubmitRunCommand cmd = new JobSchedulerSubmitRunCommand(this_scheduler, dropped_run);
+		   	return cmd;
+		} 
+		return null;
+	}
+	
+	/**
+	 * Create a drag and drop command for this Run
+	 */
+	private class RunDragAndDropCommand extends DragAndDropCommand {
+
+		public RunDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			for (Object element : collection){
+				Command cmd = JobSchedulerItemProvider.this.createDropCommand(this.owner, element);
+				if ( cmd != null ){
+					compound.append(cmd);
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new RunDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
+	
 }

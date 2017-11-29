@@ -95,7 +95,7 @@ public class JobScheduledItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__70ReferencesPropertyCategory"),
 				 null));
 	}
 
@@ -117,7 +117,7 @@ public class JobScheduledItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__70ReferencesPropertyCategory"),
 				 null));
 	}
 
@@ -139,7 +139,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -161,7 +161,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -183,7 +183,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -205,7 +205,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -227,7 +227,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30RunPropertyCategory"),
 				 null));
 	}
 
@@ -249,7 +249,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -271,7 +271,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -293,7 +293,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__50TimesPropertyCategory"),
 				 null));
 	}
 
@@ -315,7 +315,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__50TimesPropertyCategory"),
 				 null));
 	}
 
@@ -337,7 +337,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__50TimesPropertyCategory"),
 				 null));
 	}
 
@@ -359,7 +359,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30RunPropertyCategory"),
 				 null));
 	}
 
@@ -381,7 +381,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -403,7 +403,7 @@ public class JobScheduledItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__50TimesPropertyCategory"),
 				 null));
 	}
 

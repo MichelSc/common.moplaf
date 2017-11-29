@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
@@ -286,11 +287,13 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
+		Plugin.INSTANCE.logInfo("JobScheduler.refresh");
 		boolean finished = false;
 		while ( !finished) {
 			JobScheduled job = this.getJobToProcess();
 			if ( job == null ) {
-				finished = false;
+				finished = true;
+				Plugin.INSTANCE.logInfo("JobScheduler.refresh: no job to schedule");
 			} else {
 				JobEngine engine = this.getEngines()
 						.stream()
@@ -298,8 +301,10 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 						.findAny()
 						.orElse(null);
 				if ( engine == null) {
-					finished = false;
+					finished = true;
+					Plugin.INSTANCE.logInfo("JobScheduler.refresh: no engine to schedule on");
 				} else {
+					Plugin.INSTANCE.logInfo("JobScheduler.refresh: execute Job");
 					engine.executeJob(job);
 				}
 			}

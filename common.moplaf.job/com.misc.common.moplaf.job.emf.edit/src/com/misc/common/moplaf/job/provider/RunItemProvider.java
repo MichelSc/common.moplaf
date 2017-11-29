@@ -14,6 +14,7 @@ package com.misc.common.moplaf.job.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.CancelCommand;
 import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunBackgroundCommand;
@@ -455,12 +456,13 @@ public class RunItemProvider
 	/*
 	 * RunCopyParamsCommand
 	 */
-	public class RunCopyParamsCommand extends ResetCommand{
+	public class RunCopyParamsCommand extends BaseCommand{
 		private Run run;
 		private RunParams runParams;
 		
 		// constructor
 		public RunCopyParamsCommand(Run aRun, RunParams params)	{
+			super("CopyParams", "Copy the Parmas");
 			this.run = aRun;
 			this.runParams = params;
 		}

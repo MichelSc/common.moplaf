@@ -233,6 +233,9 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getRunFeedback() {
+		if ( this.isReturned()) {
+			return new EnabledFeedback(false, "Run finished");
+		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
 
@@ -392,18 +395,25 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 */
 	public ReturnFeedback run(RunContext runContext) {
 		if ( this.runContext!=null) {
-			throw new UnsupportedOperationException(String.format("Run object %s does not support concurrency", this.getClass().getName()));
+			String message = String.format("Run object %s does not support concurrency", this.getClass().getName());
+			Plugin.INSTANCE.logError(message);
+			return new ReturnFeedback(false, message);
 		}
+
 		this.runContext = runContext;
 		ReturnFeedback feedback = null;
 		try {
 			this.setReturnFeedback(null);
+			Plugin.INSTANCE.logInfo("Run started");
 			feedback = this.runImpl(runContext);
+			Plugin.INSTANCE.logInfo("Run finished");
 		} catch (Exception e){
 			e.printStackTrace();
+			Plugin.INSTANCE.logInfo("Run error");
 			feedback = new ReturnFeedback("RunImpl.run ", e);
 		}
 		this.setReturn(feedback);
+		this.setProgress("finished", Float.MAX_VALUE);
 		this.runContext = null;
 		return feedback;
 	}
@@ -459,10 +469,6 @@ public class RunImpl extends RunParamsImpl implements Run {
 
     	    // run the run and set the return feedback
     	    RunImpl.this.run(this);
-    	    // tell the context it is finished 
-    	    // note: the run is Returned, isReturned will give true
-    	    // so can the context recognize that it is finished
-    	    RunImpl.this.setProgress("finished", Float.MAX_VALUE);
 
     	    // run is finished
             this.monitor = null;
@@ -476,8 +482,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public void runAsynch(RunContext runContext) {
-		 Job job = new BackgroundRunJob ("Run in Background");
-	     //Plugin.INSTANCE.logInfo("solve, job submitted");
+		 Job job = new BackgroundRunJob ("Run in Background", runContext);
+	     Plugin.INSTANCE.logInfo("Run submitted");
 	     job.schedule(); // start as soon as possible			
 	}
 
