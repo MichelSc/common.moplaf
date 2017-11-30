@@ -22,9 +22,16 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getEngines <em>Engines</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getStopFeedback <em>Stop Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getStatus <em>Status</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate <em>Refresh Rate</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#isRunning <em>Running</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsWaiting <em>Nr Jobs Waiting</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsRunning <em>Nr Jobs Running</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsFailed <em>Nr Jobs Failed</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsCancelled <em>Nr Jobs Cancelled</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler()
@@ -108,7 +115,7 @@ public interface JobScheduler extends EObject {
 	 * @return the value of the '<em>Running</em>' attribute.
 	 * @see #setRunning(boolean)
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Running()
-	 * @model default="false"
+	 * @model default="false" transient="true"
 	 * @generated
 	 */
 	boolean isRunning();
@@ -124,6 +131,81 @@ public interface JobScheduler extends EObject {
 	void setRunning(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Description()
+	 * @model changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Returns the value of the '<em><b>Nr Jobs Waiting</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nr Jobs Waiting</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nr Jobs Waiting</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_NrJobsWaiting()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNrJobsWaiting();
+
+	/**
+	 * Returns the value of the '<em><b>Nr Jobs Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nr Jobs Running</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nr Jobs Running</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_NrJobsRunning()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNrJobsRunning();
+
+	/**
+	 * Returns the value of the '<em><b>Nr Jobs Failed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nr Jobs Failed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nr Jobs Failed</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_NrJobsFailed()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNrJobsFailed();
+
+	/**
+	 * Returns the value of the '<em><b>Nr Jobs Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nr Jobs Cancelled</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nr Jobs Cancelled</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_NrJobsCancelled()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNrJobsCancelled();
+
+	/**
 	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -137,6 +219,32 @@ public interface JobScheduler extends EObject {
 	 * @generated
 	 */
 	EnabledFeedback getRefreshFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Refresh Rate</b></em>' attribute.
@@ -163,6 +271,21 @@ public interface JobScheduler extends EObject {
 	 * @generated
 	 */
 	void setRefreshRate(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Status()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getStatus();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class JobEngineImpl extends MinimalEObjectImpl.Container implements JobEngine {
+public abstract class JobEngineImpl extends MinimalEObjectImpl.Container implements JobEngine {
 	/**
 	 * The cached value of the '{@link #getJobScheduled() <em>Job Scheduled</em>}' reference.
 	 * <!-- begin-user-doc -->

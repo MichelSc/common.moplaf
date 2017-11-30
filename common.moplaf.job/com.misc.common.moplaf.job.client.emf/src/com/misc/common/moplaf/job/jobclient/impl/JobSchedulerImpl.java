@@ -42,9 +42,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getEngines <em>Engines</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getStopFeedback <em>Stop Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getRefreshRate <em>Refresh Rate</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#isRunning <em>Running</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsWaiting <em>Nr Jobs Waiting</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsRunning <em>Nr Jobs Running</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsFailed <em>Nr Jobs Failed</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsCancelled <em>Nr Jobs Cancelled</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +98,75 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	protected static final EnabledFeedback STOP_FEEDBACK_EDEFAULT = null;
 
 	/**
+	 * The default value of the '{@link #getRefreshFeedback() <em>Refresh Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback REFRESH_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATUS_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRefreshRate() <em>Refresh Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshRate()
+	 * @ordered
+	 */
+	protected static final float REFRESH_RATE_EDEFAULT = 1.0F;
+
+	/**
+	 * The cached value of the '{@link #getRefreshRate() <em>Refresh Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected float refreshRate = REFRESH_RATE_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isRunning() <em>Running</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,33 +187,44 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	protected boolean running = RUNNING_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRefreshFeedback() <em>Refresh Feedback</em>}' attribute.
+	 * The default value of the '{@link #getNrJobsWaiting() <em>Nr Jobs Waiting</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRefreshFeedback()
+	 * @see #getNrJobsWaiting()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EnabledFeedback REFRESH_FEEDBACK_EDEFAULT = null;
+	protected static final int NR_JOBS_WAITING_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getRefreshRate() <em>Refresh Rate</em>}' attribute.
+	 * The default value of the '{@link #getNrJobsRunning() <em>Nr Jobs Running</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRefreshRate()
-	 * @ordered
-	 */
-	protected static final float REFRESH_RATE_EDEFAULT = 1.0F;
-
-	/**
-	 * The cached value of the '{@link #getRefreshRate() <em>Refresh Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRefreshRate()
+	 * @see #getNrJobsRunning()
 	 * @generated
 	 * @ordered
 	 */
-	protected float refreshRate = REFRESH_RATE_EDEFAULT;
+	protected static final int NR_JOBS_RUNNING_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getNrJobsFailed() <em>Nr Jobs Failed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNrJobsFailed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NR_JOBS_FAILED_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getNrJobsCancelled() <em>Nr Jobs Cancelled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNrJobsCancelled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NR_JOBS_CANCELLED_EDEFAULT = 0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,11 +325,89 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public String getDescription() {
+		String description = String.format("Job %s %s", this.getName(), this.getStatus());
+
+		int waiting = this.getNrJobsWaiting();
+		if ( waiting>0 )   { description += String.format(", waiting=%d", waiting); }
+
+		int running = this.getNrJobsRunning();
+		if ( running>0 )   { description += String.format(", running=%d", running); }
+
+		int failed = this.getNrJobsFailed();
+		if ( failed>0 )    { description += String.format(", failed=%d", failed); }
+		
+		int cancelled = this.getNrJobsCancelled();
+		if ( cancelled>0 ) { description += String.format(", cancelled=%d", cancelled); }
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int getNrJobsWaiting() {
+		long nr = this.getJobs().stream().filter(j->j.isReadyToRun()).count();
+		return (int) nr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int getNrJobsRunning() {
+		long nr = this.getJobs().stream().filter(j->j.isRunning()).count();
+		return (int) nr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int getNrJobsFailed() {
+		long nr = this.getJobs().stream().filter(j->j.isFailed()).count();
+		return (int) nr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int getNrJobsCancelled() {
+		long nr = this.getJobs().stream().filter(j->j.isCancelled()).count();
+		return (int) nr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public EnabledFeedback getRefreshFeedback() {
 		if ( !this.isRunning()){
 			return new EnabledFeedback(false, "JobScheduler must be started");
 		}
 		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULER__NAME, oldName, name));
 	}
 
 	/**
@@ -270,6 +435,15 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public String getStatus() {
+		String status = this.isRunning() ? "Running" : "Stopped";
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void start() {
 		this.setRunning(true);
 	}
@@ -287,7 +461,15 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
-		Plugin.INSTANCE.logInfo("JobScheduler.refresh");
+		this.refreshExecuteJobs();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	private void refreshExecuteJobs() {
+		Plugin.INSTANCE.logInfo("JobScheduler.refreshExecuteJobs");
 		boolean finished = false;
 		while ( !finished) {
 			JobScheduled job = this.getJobToProcess();
@@ -369,12 +551,26 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return getStartFeedback();
 			case JobClientPackage.JOB_SCHEDULER__STOP_FEEDBACK:
 				return getStopFeedback();
-			case JobClientPackage.JOB_SCHEDULER__RUNNING:
-				return isRunning();
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
 				return getRefreshFeedback();
+			case JobClientPackage.JOB_SCHEDULER__STATUS:
+				return getStatus();
+			case JobClientPackage.JOB_SCHEDULER__DESCRIPTION:
+				return getDescription();
+			case JobClientPackage.JOB_SCHEDULER__NAME:
+				return getName();
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				return getRefreshRate();
+			case JobClientPackage.JOB_SCHEDULER__RUNNING:
+				return isRunning();
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_WAITING:
+				return getNrJobsWaiting();
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_RUNNING:
+				return getNrJobsRunning();
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_FAILED:
+				return getNrJobsFailed();
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_CANCELLED:
+				return getNrJobsCancelled();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -396,11 +592,14 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				getEngines().clear();
 				getEngines().addAll((Collection<? extends JobEngine>)newValue);
 				return;
-			case JobClientPackage.JOB_SCHEDULER__RUNNING:
-				setRunning((Boolean)newValue);
+			case JobClientPackage.JOB_SCHEDULER__NAME:
+				setName((String)newValue);
 				return;
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				setRefreshRate((Float)newValue);
+				return;
+			case JobClientPackage.JOB_SCHEDULER__RUNNING:
+				setRunning((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -420,11 +619,14 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULER__ENGINES:
 				getEngines().clear();
 				return;
-			case JobClientPackage.JOB_SCHEDULER__RUNNING:
-				setRunning(RUNNING_EDEFAULT);
+			case JobClientPackage.JOB_SCHEDULER__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				setRefreshRate(REFRESH_RATE_EDEFAULT);
+				return;
+			case JobClientPackage.JOB_SCHEDULER__RUNNING:
+				setRunning(RUNNING_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -446,12 +648,26 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return START_FEEDBACK_EDEFAULT == null ? getStartFeedback() != null : !START_FEEDBACK_EDEFAULT.equals(getStartFeedback());
 			case JobClientPackage.JOB_SCHEDULER__STOP_FEEDBACK:
 				return STOP_FEEDBACK_EDEFAULT == null ? getStopFeedback() != null : !STOP_FEEDBACK_EDEFAULT.equals(getStopFeedback());
-			case JobClientPackage.JOB_SCHEDULER__RUNNING:
-				return running != RUNNING_EDEFAULT;
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
 				return REFRESH_FEEDBACK_EDEFAULT == null ? getRefreshFeedback() != null : !REFRESH_FEEDBACK_EDEFAULT.equals(getRefreshFeedback());
+			case JobClientPackage.JOB_SCHEDULER__STATUS:
+				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
+			case JobClientPackage.JOB_SCHEDULER__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case JobClientPackage.JOB_SCHEDULER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				return refreshRate != REFRESH_RATE_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__RUNNING:
+				return running != RUNNING_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_WAITING:
+				return getNrJobsWaiting() != NR_JOBS_WAITING_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_RUNNING:
+				return getNrJobsRunning() != NR_JOBS_RUNNING_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_FAILED:
+				return getNrJobsFailed() != NR_JOBS_FAILED_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_CANCELLED:
+				return getNrJobsCancelled() != NR_JOBS_CANCELLED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -490,10 +706,12 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Running: ");
-		result.append(running);
+		result.append(" (Name: ");
+		result.append(name);
 		result.append(", RefreshRate: ");
 		result.append(refreshRate);
+		result.append(", Running: ");
+		result.append(running);
 		result.append(')');
 		return result.toString();
 	}

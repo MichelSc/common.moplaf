@@ -135,7 +135,7 @@ public interface JobScheduled extends EObject {
 	 * @return the value of the '<em>Running</em>' attribute.
 	 * @see #setRunning(boolean)
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_Running()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	boolean isRunning();

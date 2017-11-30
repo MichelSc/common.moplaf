@@ -75,9 +75,16 @@ public class JobSchedulerItemProvider
 
 			addStartFeedbackPropertyDescriptor(object);
 			addStopFeedbackPropertyDescriptor(object);
-			addRunningPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
+			addStatusPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addRefreshRatePropertyDescriptor(object);
+			addRunningPropertyDescriptor(object);
+			addNrJobsWaitingPropertyDescriptor(object);
+			addNrJobsRunningPropertyDescriptor(object);
+			addNrJobsFailedPropertyDescriptor(object);
+			addNrJobsCancelledPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,7 +107,7 @@ public class JobSchedulerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -122,7 +129,7 @@ public class JobSchedulerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -144,7 +151,117 @@ public class JobSchedulerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Description_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__30SchedulerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nr Jobs Waiting feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNrJobsWaitingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_NrJobsWaiting_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsWaiting_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_WAITING,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20StatusPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nr Jobs Running feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNrJobsRunningPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_NrJobsRunning_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsRunning_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_RUNNING,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20StatusPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nr Jobs Failed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNrJobsFailedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_NrJobsFailed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsFailed_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_FAILED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20StatusPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nr Jobs Cancelled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNrJobsCancelledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_NrJobsCancelled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsCancelled_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_CANCELLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -166,7 +283,29 @@ public class JobSchedulerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Name_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__30SchedulerPropertyCategory"),
 				 null));
 	}
 
@@ -188,7 +327,29 @@ public class JobSchedulerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30SchedulerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Status feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_Status_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Status_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__STATUS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -242,8 +403,7 @@ public class JobSchedulerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EnabledFeedback labelValue = ((JobScheduler)object).getStartFeedback();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((JobScheduler)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JobScheduler_type") :
 			getString("_UI_JobScheduler_type") + " " + label;
@@ -264,9 +424,16 @@ public class JobSchedulerItemProvider
 		switch (notification.getFeatureID(JobScheduler.class)) {
 			case JobClientPackage.JOB_SCHEDULER__START_FEEDBACK:
 			case JobClientPackage.JOB_SCHEDULER__STOP_FEEDBACK:
-			case JobClientPackage.JOB_SCHEDULER__RUNNING:
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
+			case JobClientPackage.JOB_SCHEDULER__STATUS:
+			case JobClientPackage.JOB_SCHEDULER__DESCRIPTION:
+			case JobClientPackage.JOB_SCHEDULER__NAME:
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
+			case JobClientPackage.JOB_SCHEDULER__RUNNING:
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_WAITING:
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_RUNNING:
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_FAILED:
+			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_CANCELLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
@@ -292,11 +459,6 @@ public class JobSchedulerItemProvider
 			(createChildParameter
 				(JobClientPackage.Literals.JOB_SCHEDULER__JOBS,
 				 JobClientFactory.eINSTANCE.createJobScheduled()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES,
-				 JobClientFactory.eINSTANCE.createJobEngine()));
 
 		newChildDescriptors.add
 			(createChildParameter

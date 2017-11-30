@@ -20,9 +20,6 @@ import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngineInProcess;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
-
-import java.util.Date;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

@@ -651,22 +651,40 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER__STOP_FEEDBACK = 3;
 
 	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_SCHEDULER__RUNNING = 4;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__REFRESH_FEEDBACK = 5;
+	int JOB_SCHEDULER__REFRESH_FEEDBACK = 4;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__STATUS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__DESCRIPTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__NAME = 7;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Rate</b></em>' attribute.
@@ -675,7 +693,52 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__REFRESH_RATE = 6;
+	int JOB_SCHEDULER__REFRESH_RATE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__RUNNING = 9;
+
+	/**
+	 * The feature id for the '<em><b>Nr Jobs Waiting</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__NR_JOBS_WAITING = 10;
+
+	/**
+	 * The feature id for the '<em><b>Nr Jobs Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__NR_JOBS_RUNNING = 11;
+
+	/**
+	 * The feature id for the '<em><b>Nr Jobs Failed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__NR_JOBS_FAILED = 12;
+
+	/**
+	 * The feature id for the '<em><b>Nr Jobs Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__NR_JOBS_CANCELLED = 13;
 
 	/**
 	 * The number of structural features of the '<em>Job Scheduler</em>' class.
@@ -684,7 +747,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_FEATURE_COUNT = 7;
+	int JOB_SCHEDULER_FEATURE_COUNT = 14;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -1367,6 +1430,61 @@ public interface JobClientPackage extends EPackage {
 	EAttribute getJobScheduler_Running();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getDescription()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsWaiting <em>Nr Jobs Waiting</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nr Jobs Waiting</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsWaiting()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_NrJobsWaiting();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsRunning <em>Nr Jobs Running</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nr Jobs Running</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsRunning()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_NrJobsRunning();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsFailed <em>Nr Jobs Failed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nr Jobs Failed</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsFailed()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_NrJobsFailed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsCancelled <em>Nr Jobs Cancelled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nr Jobs Cancelled</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsCancelled()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_NrJobsCancelled();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback <em>Refresh Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1378,6 +1496,17 @@ public interface JobClientPackage extends EPackage {
 	EAttribute getJobScheduler_RefreshFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getName()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_Name();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate <em>Refresh Rate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1387,6 +1516,17 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJobScheduler_RefreshRate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getStatus()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_Status();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#start() <em>Start</em>}' operation.
@@ -2074,6 +2214,46 @@ public interface JobClientPackage extends EPackage {
 		EAttribute JOB_SCHEDULER__RUNNING = eINSTANCE.getJobScheduler_Running();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__DESCRIPTION = eINSTANCE.getJobScheduler_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Nr Jobs Waiting</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__NR_JOBS_WAITING = eINSTANCE.getJobScheduler_NrJobsWaiting();
+
+		/**
+		 * The meta object literal for the '<em><b>Nr Jobs Running</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__NR_JOBS_RUNNING = eINSTANCE.getJobScheduler_NrJobsRunning();
+
+		/**
+		 * The meta object literal for the '<em><b>Nr Jobs Failed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__NR_JOBS_FAILED = eINSTANCE.getJobScheduler_NrJobsFailed();
+
+		/**
+		 * The meta object literal for the '<em><b>Nr Jobs Cancelled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__NR_JOBS_CANCELLED = eINSTANCE.getJobScheduler_NrJobsCancelled();
+
+		/**
 		 * The meta object literal for the '<em><b>Refresh Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2082,12 +2262,28 @@ public interface JobClientPackage extends EPackage {
 		EAttribute JOB_SCHEDULER__REFRESH_FEEDBACK = eINSTANCE.getJobScheduler_RefreshFeedback();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__NAME = eINSTANCE.getJobScheduler_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Refresh Rate</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute JOB_SCHEDULER__REFRESH_RATE = eINSTANCE.getJobScheduler_RefreshRate();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__STATUS = eINSTANCE.getJobScheduler_Status();
 
 		/**
 		 * The meta object literal for the '<em><b>Start</b></em>' operation.

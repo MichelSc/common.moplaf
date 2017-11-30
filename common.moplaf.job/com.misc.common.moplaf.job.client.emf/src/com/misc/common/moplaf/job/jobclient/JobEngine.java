@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngine()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface JobEngine extends EObject {
