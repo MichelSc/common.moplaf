@@ -145,7 +145,7 @@ public interface JobScheduler extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Description()
-	 * @model changeable="false" volatile="true" derived="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getDescription();
@@ -383,6 +383,6 @@ public interface JobScheduler extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void onLastFeedback();
+	void setLastFeedback();
 
 } // JobScheduler

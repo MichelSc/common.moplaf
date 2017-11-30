@@ -624,7 +624,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			} else if (elapsed_millis>phase.getMaxSeconds()*1000 ){
 				finished = true;
 				Plugin.INSTANCE.logInfo("Phase finished, maxSecondsreached");
-			} else if (strategy.isCanceled() ){
+			} else if (strategy.isCancelled() ){
 				finished = true;
 				Plugin.INSTANCE.logInfo("Phase finished, cancelled");
 			} 

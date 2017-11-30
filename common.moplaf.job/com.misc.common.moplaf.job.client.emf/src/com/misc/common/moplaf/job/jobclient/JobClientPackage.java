@@ -804,13 +804,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER___SUBMIT_RUN__RUN = 3;
 
 	/**
-	 * The operation id for the '<em>On Last Feedback</em>' operation.
+	 * The operation id for the '<em>Set Last Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER___ON_LAST_FEEDBACK = 4;
+	int JOB_SCHEDULER___SET_LAST_FEEDBACK = 4;
 
 	/**
 	 * The number of operations of the '<em>Job Scheduler</em>' class.
@@ -1627,14 +1627,14 @@ public interface JobClientPackage extends EPackage {
 	EOperation getJobScheduler__SubmitRun__Run();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#onLastFeedback() <em>On Last Feedback</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#setLastFeedback() <em>Set Last Feedback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>On Last Feedback</em>' operation.
-	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#onLastFeedback()
+	 * @return the meta object for the '<em>Set Last Feedback</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#setLastFeedback()
 	 * @generated
 	 */
-	EOperation getJobScheduler__OnLastFeedback();
+	EOperation getJobScheduler__SetLastFeedback();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobScheduled <em>Job Scheduled</em>}'.
@@ -2413,12 +2413,12 @@ public interface JobClientPackage extends EPackage {
 		EOperation JOB_SCHEDULER___SUBMIT_RUN__RUN = eINSTANCE.getJobScheduler__SubmitRun__Run();
 
 		/**
-		 * The meta object literal for the '<em><b>On Last Feedback</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Last Feedback</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB_SCHEDULER___ON_LAST_FEEDBACK = eINSTANCE.getJobScheduler__OnLastFeedback();
+		EOperation JOB_SCHEDULER___SET_LAST_FEEDBACK = eINSTANCE.getJobScheduler__SetLastFeedback();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.

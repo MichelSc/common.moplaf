@@ -2141,9 +2141,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_uTn04NXwEeedm6MzIqnXuw" name="onLastFeedback()" tooltipText="onLastFeedback()">
-        <target xmi:type="ecore:EOperation" href="jobclient.ecore#//JobScheduler/onLastFeedback"/>
-        <semanticElements xmi:type="ecore:EOperation" href="jobclient.ecore#//JobScheduler/onLastFeedback"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_uTn04NXwEeedm6MzIqnXuw" name="setLastFeedback()" tooltipText="setLastFeedback()">
+        <target xmi:type="ecore:EOperation" href="jobclient.ecore#//JobScheduler/setLastFeedback"/>
+        <semanticElements xmi:type="ecore:EOperation" href="jobclient.ecore#//JobScheduler/setLastFeedback"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_uTn04dXwEeedm6MzIqnXuw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>

@@ -544,6 +544,7 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public void refresh() {
 		this.refreshExecuteJobs();
+		this.setLastRefresh(new Date());
 	}
 
 	/**
@@ -589,12 +590,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void onLastFeedback() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setLastFeedback() {
+		this.setLastFeedback(new Date());
 	}
 
 	/**
@@ -807,8 +805,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULER___SUBMIT_RUN__RUN:
 				submitRun((Run)arguments.get(0));
 				return null;
-			case JobClientPackage.JOB_SCHEDULER___ON_LAST_FEEDBACK:
-				onLastFeedback();
+			case JobClientPackage.JOB_SCHEDULER___SET_LAST_FEEDBACK:
+				setLastFeedback();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

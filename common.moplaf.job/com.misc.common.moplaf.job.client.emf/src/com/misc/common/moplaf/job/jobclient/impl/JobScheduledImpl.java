@@ -735,6 +735,7 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		this.setCancelled(true);
 		this.getRun().cancel();
 		this.setCancelTime(new Date());
+		this.getScheduler().setLastFeedback();
 	}
 
 	/**
@@ -744,6 +745,7 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	public void setRunning() {
 		this.setRunning(true);
 		this.setStartTime(new Date());
+		this.getScheduler().setLastFeedback();
 	}
 
 	/**
@@ -755,6 +757,7 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		this.setReturned(true);
 		this.setFailed(feedback.isFailure());
 		this.setEndTime(new Date());
+		this.getScheduler().setLastFeedback();
 	}
 
 	/**

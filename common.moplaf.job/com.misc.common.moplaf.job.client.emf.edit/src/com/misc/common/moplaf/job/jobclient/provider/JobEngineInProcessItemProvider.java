@@ -54,17 +54,6 @@ public class JobEngineInProcessItemProvider extends JobEngineItemProvider {
 	}
 
 	/**
-	 * This returns JobEngineInProcess.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/JobEngineInProcess"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

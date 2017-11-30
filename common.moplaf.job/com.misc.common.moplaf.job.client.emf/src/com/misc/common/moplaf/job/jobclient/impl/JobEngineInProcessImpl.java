@@ -63,13 +63,14 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 		public boolean onProgress(Run run, ProgressFeedback progress) {
 			JobScheduled job = JobEngineInProcessImpl.this.getJobScheduled();
 			boolean goOn = true;
+			JobEngineInProcessImpl.this.getScheduler().setLastFeedback();
+			
 			if ( job.getStartTime()==null) {
 				// the first onProgress is called by before start
 				job.setRunning();
 			}
 			if ( run.isReturned()) {
 				// the run is finished
-//				JobScheduled job = JobEngineInProcessImpl.this.getJobScheduled();
 				job.setReturn(run.getReturn());
 				// release the engine
 				job.setScheduledOn(null);

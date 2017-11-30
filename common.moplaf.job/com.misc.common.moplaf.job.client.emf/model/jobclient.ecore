@@ -72,7 +72,7 @@
     <eOperations name="submitRun">
       <eParameters name="run" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"/>
     </eOperations>
-    <eOperations name="onLastFeedback"/>
+    <eOperations name="setLastFeedback"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Jobs" upperBound="-1" eType="#//JobScheduled"
         containment="true" eOpposite="#//JobScheduled/Scheduler"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Engines" upperBound="-1"
@@ -86,7 +86,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
