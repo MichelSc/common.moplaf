@@ -9,6 +9,7 @@ import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
+import com.misc.common.moplaf.job.jobclient.JobScheduler;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Date;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +49,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getCancelTime <em>Cancel Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getScheduler <em>Scheduler</em>}</li>
  * </ul>
  *
  * @generated
@@ -685,6 +688,47 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobScheduler getScheduler() {
+		if (eContainerFeatureID() != JobClientPackage.JOB_SCHEDULED__SCHEDULER) return null;
+		return (JobScheduler)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetScheduler(JobScheduler newScheduler, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newScheduler, JobClientPackage.JOB_SCHEDULED__SCHEDULER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScheduler(JobScheduler newScheduler) {
+		if (newScheduler != eInternalContainer() || (eContainerFeatureID() != JobClientPackage.JOB_SCHEDULED__SCHEDULER && newScheduler != null)) {
+			if (EcoreUtil.isAncestor(this, newScheduler))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newScheduler != null)
+				msgs = ((InternalEObject)newScheduler).eInverseAdd(this, JobClientPackage.JOB_SCHEDULER__JOBS, JobScheduler.class, msgs);
+			msgs = basicSetScheduler(newScheduler, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULED__SCHEDULER, newScheduler, newScheduler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void cancel() {
 		Plugin.INSTANCE.logInfo("JobScheduled cancelled");
@@ -725,6 +769,10 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				if (scheduledOn != null)
 					msgs = ((InternalEObject)scheduledOn).eInverseRemove(this, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, JobEngine.class, msgs);
 				return basicSetScheduledOn((JobEngine)otherEnd, msgs);
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetScheduler((JobScheduler)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -739,8 +787,24 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		switch (featureID) {
 			case JobClientPackage.JOB_SCHEDULED__SCHEDULED_ON:
 				return basicSetScheduledOn(null, msgs);
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
+				return basicSetScheduler(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
+				return eInternalContainer().eInverseRemove(this, JobClientPackage.JOB_SCHEDULER__JOBS, JobScheduler.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -785,6 +849,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return getCancelTime();
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
 				return getCancelEnabledFeedback();
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
+				return getScheduler();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -829,6 +895,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return;
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
 				setCancelTime((Date)newValue);
+				return;
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
+				setScheduler((JobScheduler)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -875,6 +944,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
 				setCancelTime(CANCEL_TIME_EDEFAULT);
 				return;
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
+				setScheduler((JobScheduler)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -919,6 +991,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return CANCEL_TIME_EDEFAULT == null ? cancelTime != null : !CANCEL_TIME_EDEFAULT.equals(cancelTime);
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
 				return CANCEL_ENABLED_FEEDBACK_EDEFAULT == null ? getCancelEnabledFeedback() != null : !CANCEL_ENABLED_FEEDBACK_EDEFAULT.equals(getCancelEnabledFeedback());
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
+				return getScheduler() != null;
 		}
 		return super.eIsSet(featureID);
 	}

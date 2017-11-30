@@ -83,12 +83,15 @@
       <genFeatures createChild="false" propertyCategory="20 Status" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/NrJobsFailed"/>
       <genFeatures createChild="false" propertyCategory="20 Status" propertyDescription=""
           ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/NrJobsCancelled"/>
+      <genFeatures createChild="false" propertyCategory="50 Times" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/LastRefresh"/>
+      <genFeatures createChild="false" propertyCategory="50 Times" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/LastFeedback"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/start"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/stop"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/refresh"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/submitRun">
         <genParameters ecoreParameter="jobclient.ecore#//JobScheduler/submitRun/run"/>
       </genOperations>
+      <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/onLastFeedback"/>
     </genClasses>
     <genClasses ecoreClass="jobclient.ecore#//JobScheduled">
       <genFeatures notify="false" createChild="false" propertyCategory="70 References"
@@ -115,6 +118,7 @@
       <genFeatures createChild="false" propertyCategory="50 Times" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/CancelTime"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/CancelEnabledFeedback"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduled/Scheduler"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/cancel"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/setRunning"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/setReturn">

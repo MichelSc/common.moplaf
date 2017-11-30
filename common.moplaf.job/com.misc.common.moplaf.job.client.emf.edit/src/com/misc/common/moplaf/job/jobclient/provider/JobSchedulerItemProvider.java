@@ -85,6 +85,8 @@ public class JobSchedulerItemProvider
 			addNrJobsRunningPropertyDescriptor(object);
 			addNrJobsFailedPropertyDescriptor(object);
 			addNrJobsCancelledPropertyDescriptor(object);
+			addLastRefreshPropertyDescriptor(object);
+			addLastFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -266,6 +268,50 @@ public class JobSchedulerItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Last Refresh feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastRefreshPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_LastRefresh_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_LastRefresh_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__LAST_REFRESH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Last Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_LastFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_LastFeedback_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__LAST_FEEDBACK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Refresh Feedback feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +480,8 @@ public class JobSchedulerItemProvider
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_RUNNING:
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_FAILED:
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_CANCELLED:
+			case JobClientPackage.JOB_SCHEDULER__LAST_REFRESH:
+			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:

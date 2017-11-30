@@ -5,6 +5,7 @@ package com.misc.common.moplaf.job.jobclient;
 import com.misc.common.moplaf.common.EnabledFeedback;
 
 import com.misc.common.moplaf.job.Run;
+import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -32,6 +33,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsRunning <em>Nr Jobs Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsFailed <em>Nr Jobs Failed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsCancelled <em>Nr Jobs Cancelled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastRefresh <em>Last Refresh</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastFeedback <em>Last Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler()
@@ -42,6 +45,7 @@ public interface JobScheduler extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Jobs</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduler <em>Scheduler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Jobs</em>' containment reference list isn't clear,
@@ -50,7 +54,8 @@ public interface JobScheduler extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Jobs</em>' containment reference list.
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Jobs()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduler
+	 * @model opposite="Scheduler" containment="true"
 	 * @generated
 	 */
 	EList<JobScheduled> getJobs();
@@ -206,6 +211,58 @@ public interface JobScheduler extends EObject {
 	int getNrJobsCancelled();
 
 	/**
+	 * Returns the value of the '<em><b>Last Refresh</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Refresh</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Refresh</em>' attribute.
+	 * @see #setLastRefresh(Date)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_LastRefresh()
+	 * @model
+	 * @generated
+	 */
+	Date getLastRefresh();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastRefresh <em>Last Refresh</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Refresh</em>' attribute.
+	 * @see #getLastRefresh()
+	 * @generated
+	 */
+	void setLastRefresh(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Last Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Feedback</em>' attribute.
+	 * @see #setLastFeedback(Date)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_LastFeedback()
+	 * @model
+	 * @generated
+	 */
+	Date getLastFeedback();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastFeedback <em>Last Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Feedback</em>' attribute.
+	 * @see #getLastFeedback()
+	 * @generated
+	 */
+	void setLastFeedback(Date value);
+
+	/**
 	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -319,5 +376,13 @@ public interface JobScheduler extends EObject {
 	 * @generated
 	 */
 	void submitRun(Run run);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void onLastFeedback();
 
 } // JobScheduler

@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelTime <em>Cancel Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduler <em>Scheduler</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled()
@@ -402,6 +403,34 @@ public interface JobScheduled extends EObject {
 	 * @generated
 	 */
 	EnabledFeedback getCancelEnabledFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Scheduler</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getJobs <em>Jobs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scheduler</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scheduler</em>' container reference.
+	 * @see #setScheduler(JobScheduler)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_Scheduler()
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getJobs
+	 * @model opposite="Jobs" transient="false"
+	 * @generated
+	 */
+	JobScheduler getScheduler();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduler <em>Scheduler</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scheduler</em>' container reference.
+	 * @see #getScheduler()
+	 * @generated
+	 */
+	void setScheduler(JobScheduler value);
 
 	/**
 	 * <!-- begin-user-doc -->

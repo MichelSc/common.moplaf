@@ -577,6 +577,24 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJobScheduler_LastRefresh() {
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobScheduler_LastFeedback() {
+		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getJobScheduler_RefreshFeedback() {
 		return (EAttribute)jobSchedulerEClass.getEStructuralFeatures().get(4);
 	}
@@ -642,6 +660,15 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 */
 	public EOperation getJobScheduler__SubmitRun__Run() {
 		return jobSchedulerEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJobScheduler__OnLastFeedback() {
+		return jobSchedulerEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -795,6 +822,15 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 */
 	public EAttribute getJobScheduled_CancelEnabledFeedback() {
 		return (EAttribute)jobScheduledEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobScheduled_Scheduler() {
+		return (EReference)jobScheduledEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -962,10 +998,13 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__NR_JOBS_RUNNING);
 		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__NR_JOBS_FAILED);
 		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__NR_JOBS_CANCELLED);
+		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__LAST_REFRESH);
+		createEAttribute(jobSchedulerEClass, JOB_SCHEDULER__LAST_FEEDBACK);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___START);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___STOP);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___REFRESH);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___SUBMIT_RUN__RUN);
+		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___ON_LAST_FEEDBACK);
 
 		jobScheduledEClass = createEClass(JOB_SCHEDULED);
 		createEReference(jobScheduledEClass, JOB_SCHEDULED__RUN);
@@ -984,6 +1023,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEAttribute(jobScheduledEClass, JOB_SCHEDULED__STATUS);
 		createEAttribute(jobScheduledEClass, JOB_SCHEDULED__CANCEL_TIME);
 		createEAttribute(jobScheduledEClass, JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK);
+		createEReference(jobScheduledEClass, JOB_SCHEDULED__SCHEDULER);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___CANCEL);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___SET_RUNNING);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___SET_RETURN__RETURNFEEDBACK);
@@ -1088,7 +1128,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		initEClass(jobEngineInProcessEClass, JobEngineInProcess.class, "JobEngineInProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jobSchedulerEClass, JobScheduler.class, "JobScheduler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJobScheduler_Jobs(), this.getJobScheduled(), null, "Jobs", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduler_Jobs(), this.getJobScheduled(), this.getJobScheduled_Scheduler(), "Jobs", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobScheduler_Engines(), this.getJobEngine(), this.getJobEngine_Scheduler(), "Engines", null, 0, -1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduler_StartFeedback(), theJobPackage.getEnabledFeedback(), "StartFeedback", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduler_StopFeedback(), theJobPackage.getEnabledFeedback(), "StopFeedback", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1102,6 +1142,8 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		initEAttribute(getJobScheduler_NrJobsRunning(), ecorePackage.getEInt(), "NrJobsRunning", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduler_NrJobsFailed(), ecorePackage.getEInt(), "NrJobsFailed", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduler_NrJobsCancelled(), ecorePackage.getEInt(), "NrJobsCancelled", null, 0, 1, JobScheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduler_LastRefresh(), ecorePackage.getEDate(), "LastRefresh", null, 0, 1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduler_LastFeedback(), ecorePackage.getEDate(), "LastFeedback", null, 0, 1, JobScheduler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getJobScheduler__Start(), null, "start", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1111,6 +1153,8 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 
 		op = initEOperation(getJobScheduler__SubmitRun__Run(), null, "submitRun", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theJobPackage.getRun(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getJobScheduler__OnLastFeedback(), null, "onLastFeedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobScheduledEClass, JobScheduled.class, "JobScheduled", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobScheduled_Run(), theJobPackage.getRun(), null, "Run", null, 1, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1129,6 +1173,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		initEAttribute(getJobScheduled_Status(), ecorePackage.getEString(), "Status", null, 0, 1, JobScheduled.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduled_CancelTime(), ecorePackage.getEDate(), "CancelTime", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduled_CancelEnabledFeedback(), theJobPackage.getEnabledFeedback(), "CancelEnabledFeedback", null, 0, 1, JobScheduled.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduled_Scheduler(), this.getJobScheduler(), this.getJobScheduler_Jobs(), "Scheduler", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getJobScheduled__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
