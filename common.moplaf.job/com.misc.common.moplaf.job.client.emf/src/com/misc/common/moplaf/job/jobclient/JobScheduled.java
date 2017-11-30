@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobclient;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Run;
 import java.util.Date;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelTime <em>Cancel Time</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled()
@@ -385,6 +387,21 @@ public interface JobScheduled extends EObject {
 	 * @generated
 	 */
 	void setCancelTime(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Cancel Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cancel Enabled Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cancel Enabled Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_CancelEnabledFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getCancelEnabledFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->

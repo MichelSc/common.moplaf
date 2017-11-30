@@ -163,7 +163,7 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10JobStatusPropertyCategory"),
 				 null));
 	}
 

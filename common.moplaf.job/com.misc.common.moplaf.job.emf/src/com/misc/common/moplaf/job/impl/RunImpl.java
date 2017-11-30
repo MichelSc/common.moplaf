@@ -245,7 +245,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 */
 	public EnabledFeedback getCancelFeedback() {
 		if ( this.isCancelled()){
-			return new EnabledFeedback(false, "canceled");
+			return new EnabledFeedback(false, "Cancelled");
 		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
@@ -401,6 +401,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 		}
 
 		this.runContext = runContext;
+		this.setProgress("started", 0.0f);
 		ReturnFeedback feedback = null;
 		try {
 			this.setReturnFeedback(null);
@@ -515,10 +516,10 @@ public class RunImpl extends RunParamsImpl implements Run {
 			return true;
 		}
 		boolean goOn = runContext.onProgress(this, progress);
-		if ( !goOn){
+		if ( !goOn && !this.isCancelled() ){
 			this.cancel();
 		}
-		return goOn;
+		return !this.isCancelled();
 	}
 
 	/**

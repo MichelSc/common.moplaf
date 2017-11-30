@@ -21,6 +21,8 @@ import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngineInProcess;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 
+import java.util.Date;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -62,10 +64,15 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 
 		@Override
 		public boolean onProgress(Run run, ProgressFeedback progress) {
+			JobScheduled job = JobEngineInProcessImpl.this.getJobScheduled();
 			boolean goOn = true;
+			if ( job.getStartTime()==null) {
+				// the first onProgress is called by before start
+				job.setRunning();
+			}
 			if ( run.isReturned()) {
 				// the run is finished
-				JobScheduled job = JobEngineInProcessImpl.this.getJobScheduled();
+//				JobScheduled job = JobEngineInProcessImpl.this.getJobScheduled();
 				job.setReturn(run.getReturn());
 				// release the engine
 				job.setScheduledOn(null);

@@ -877,13 +877,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULED__CANCEL_TIME = 14;
 
 	/**
+	 * The feature id for the '<em><b>Cancel Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK = 15;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduled</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED_FEATURE_COUNT = 15;
+	int JOB_SCHEDULED_FEATURE_COUNT = 16;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -1595,6 +1604,17 @@ public interface JobClientPackage extends EPackage {
 	EAttribute getJobScheduled_CancelTime();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cancel Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelEnabledFeedback()
+	 * @see #getJobScheduled()
+	 * @generated
+	 */
+	EAttribute getJobScheduled_CancelEnabledFeedback();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#cancel() <em>Cancel</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2230,6 +2250,14 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_SCHEDULED__CANCEL_TIME = eINSTANCE.getJobScheduled_CancelTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Cancel Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK = eINSTANCE.getJobScheduled_CancelEnabledFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Cancel</b></em>' operation.

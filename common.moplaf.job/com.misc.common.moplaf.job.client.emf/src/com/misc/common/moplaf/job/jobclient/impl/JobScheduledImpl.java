@@ -2,7 +2,9 @@
  */
 package com.misc.common.moplaf.job.jobclient.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
@@ -44,6 +46,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getCancelTime <em>Cancel Time</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -288,6 +291,16 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * @ordered
 	 */
 	protected Date cancelTime = CANCEL_TIME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCancelEnabledFeedback() <em>Cancel Enabled Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCancelEnabledFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback CANCEL_ENABLED_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -662,7 +675,19 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public EnabledFeedback getCancelEnabledFeedback() {
+		if ( !this.isRunning() ) {
+			return new EnabledFeedback(false, "Job is not running");
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void cancel() {
+		Plugin.INSTANCE.logInfo("JobScheduled cancelled");
 		this.setCancelled(true);
 		this.getRun().cancel();
 		this.setCancelTime(new Date());
@@ -758,6 +783,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return getStatus();
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
 				return getCancelTime();
+			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
+				return getCancelEnabledFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -890,6 +917,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
 				return CANCEL_TIME_EDEFAULT == null ? cancelTime != null : !CANCEL_TIME_EDEFAULT.equals(cancelTime);
+			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
+				return CANCEL_ENABLED_FEEDBACK_EDEFAULT == null ? getCancelEnabledFeedback() != null : !CANCEL_ENABLED_FEEDBACK_EDEFAULT.equals(getCancelEnabledFeedback());
 		}
 		return super.eIsSet(featureID);
 	}

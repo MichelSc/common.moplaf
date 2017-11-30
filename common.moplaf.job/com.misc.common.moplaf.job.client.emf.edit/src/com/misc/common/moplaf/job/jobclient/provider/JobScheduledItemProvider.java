@@ -3,15 +3,21 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.CancelCommand;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
+
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -73,6 +79,7 @@ public class JobScheduledItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addCancelTimePropertyDescriptor(object);
+			addCancelEnabledFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -223,7 +230,7 @@ public class JobScheduledItemProvider
 				 getString("_UI_JobScheduled_Cancelled_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Cancelled_feature", "_UI_JobScheduled_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULED__CANCELLED,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
@@ -408,6 +415,28 @@ public class JobScheduledItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Cancel Enabled Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCancelEnabledFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_CancelEnabledFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_CancelEnabledFeedback_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns JobScheduled.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -443,6 +472,7 @@ public class JobScheduledItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobScheduled.class)) {
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULED_ON:
 			case JobClientPackage.JOB_SCHEDULED__NOT_READY_TO_RUN:
 			case JobClientPackage.JOB_SCHEDULED__READY_TO_RUN:
 			case JobClientPackage.JOB_SCHEDULED__RUNNING:
@@ -456,6 +486,7 @@ public class JobScheduledItemProvider
 			case JobClientPackage.JOB_SCHEDULED__DESCRIPTION:
 			case JobClientPackage.JOB_SCHEDULED__STATUS:
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
+			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -484,5 +515,47 @@ public class JobScheduledItemProvider
 	public ResourceLocator getResourceLocator() {
 		return JobclientEditPlugin.INSTANCE;
 	}
+
+	/*
+	 * RunRefreshCommand
+	 */
+	public class JobScheduledCancelCommand extends CancelCommand{
+		private JobScheduled jobscheduled;
+		
+		// constructor
+		public JobScheduledCancelCommand(JobScheduled aJobScheduled)	{
+			this.jobscheduled = aJobScheduled;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			EnabledFeedback feedback = this.jobscheduled.getCancelEnabledFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.jobscheduled.cancel();
+		}
+	} 
+	
+	
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == CancelCommand.class){
+			return new JobScheduledCancelCommand((JobScheduled) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 }
