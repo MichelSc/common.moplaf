@@ -43,7 +43,7 @@ import com.misc.common.moplaf.job.RunContext;
  *
  * @generated
  */
-public class JobImpl extends RunImpl implements Job {
+public abstract class JobImpl extends RunImpl implements Job {
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->

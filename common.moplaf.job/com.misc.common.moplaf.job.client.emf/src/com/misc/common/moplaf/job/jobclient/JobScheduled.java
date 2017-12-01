@@ -29,9 +29,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getSubmissionTime <em>Submission Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getEndTime <em>End Time</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelTime <em>Cancel Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getStatus <em>Status</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelTime <em>Cancel Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduler <em>Scheduler</em>}</li>
  * </ul>

@@ -50,7 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class JobConsoleImpl extends JobImpl implements JobConsole {
+public abstract class JobConsoleImpl extends JobImpl implements JobConsole {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

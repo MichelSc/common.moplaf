@@ -128,75 +128,6 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Run} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RunItemProvider runItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.job.Run}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRunAdapter() {
-		if (runItemProvider == null) {
-			runItemProvider = new RunItemProvider(this);
-		}
-
-		return runItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Job} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JobItemProvider jobItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.job.Job}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createJobAdapter() {
-		if (jobItemProvider == null) {
-			jobItemProvider = new JobItemProvider(this);
-		}
-
-		return jobItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.JobConsole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JobConsoleItemProvider jobConsoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.job.JobConsole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createJobConsoleAdapter() {
-		if (jobConsoleItemProvider == null) {
-			jobConsoleItemProvider = new JobConsoleItemProvider(this);
-		}
-
-		return jobConsoleItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Setter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,9 +320,6 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	public void dispose() {
 		if (jobParameterItemProvider != null) jobParameterItemProvider.dispose();
 		if (runParamsItemProvider != null) runParamsItemProvider.dispose();
-		if (runItemProvider != null) runItemProvider.dispose();
-		if (jobItemProvider != null) jobItemProvider.dispose();
-		if (jobConsoleItemProvider != null) jobConsoleItemProvider.dispose();
 		if (setterItemProvider != null) setterItemProvider.dispose();
 		if (setterAttributeIntItemProvider != null) setterAttributeIntItemProvider.dispose();
 		if (setterAttributeFloatItemProvider != null) setterAttributeFloatItemProvider.dispose();

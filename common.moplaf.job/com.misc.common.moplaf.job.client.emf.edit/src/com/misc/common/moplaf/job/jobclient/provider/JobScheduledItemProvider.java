@@ -76,9 +76,9 @@ public class JobScheduledItemProvider
 			addSubmissionTimePropertyDescriptor(object);
 			addStartTimePropertyDescriptor(object);
 			addEndTimePropertyDescriptor(object);
+			addCancelTimePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
-			addCancelTimePropertyDescriptor(object);
 			addCancelEnabledFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -484,9 +484,9 @@ public class JobScheduledItemProvider
 			case JobClientPackage.JOB_SCHEDULED__SUBMISSION_TIME:
 			case JobClientPackage.JOB_SCHEDULED__START_TIME:
 			case JobClientPackage.JOB_SCHEDULED__END_TIME:
+			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
 			case JobClientPackage.JOB_SCHEDULED__DESCRIPTION:
 			case JobClientPackage.JOB_SCHEDULED__STATUS:
-			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -25,7 +25,7 @@
       <eParameters name="other" eType="#//RunParams"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//RunParams">
+  <eClassifiers xsi:type="ecore:EClass" name="Run" abstract="true" eSuperTypes="#//RunParams">
     <eOperations name="reset"/>
     <eOperations name="run" eType="#//ReturnFeedback"/>
     <eOperations name="run" eType="#//ReturnFeedback">
@@ -61,7 +61,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnInformation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="#//Run">
+  <eClassifiers xsi:type="ecore:EClass" name="Job" abstract="true" eSuperTypes="#//Run">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -73,7 +73,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JobConsole" eSuperTypes="#//Job">
+  <eClassifiers xsi:type="ecore:EClass" name="JobConsole" abstract="true" eSuperTypes="#//Job">
     <eOperations name="addParameter">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="type" eType="#//JobParameterType"/>

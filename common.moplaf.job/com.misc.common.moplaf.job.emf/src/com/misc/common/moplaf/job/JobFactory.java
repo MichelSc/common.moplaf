@@ -50,33 +50,6 @@ public interface JobFactory extends EFactory {
 	RunParams createRunParams();
 
 	/**
-	 * Returns a new object of class '<em>Run</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Run</em>'.
-	 * @generated
-	 */
-	Run createRun();
-
-	/**
-	 * Returns a new object of class '<em>Job</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Job</em>'.
-	 * @generated
-	 */
-	Job createJob();
-
-	/**
-	 * Returns a new object of class '<em>Console</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Console</em>'.
-	 * @generated
-	 */
-	JobConsole createJobConsole();
-
-	/**
 	 * Returns a new object of class '<em>Setter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

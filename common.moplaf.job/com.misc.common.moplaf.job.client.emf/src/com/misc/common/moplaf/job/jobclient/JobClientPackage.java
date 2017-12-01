@@ -940,13 +940,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULED__END_TIME = 11;
 
 	/**
+	 * The feature id for the '<em><b>Cancel Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULED__CANCEL_TIME = 12;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED__DESCRIPTION = 12;
+	int JOB_SCHEDULED__DESCRIPTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -955,16 +964,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED__STATUS = 13;
-
-	/**
-	 * The feature id for the '<em><b>Cancel Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_SCHEDULED__CANCEL_TIME = 14;
+	int JOB_SCHEDULED__STATUS = 14;
 
 	/**
 	 * The feature id for the '<em><b>Cancel Enabled Feedback</b></em>' attribute.

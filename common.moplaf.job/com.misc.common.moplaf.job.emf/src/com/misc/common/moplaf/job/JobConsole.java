@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EAttribute;
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getJobConsole()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface JobConsole extends Job {

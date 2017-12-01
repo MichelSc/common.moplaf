@@ -313,15 +313,6 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public JobScheduled getJobToProcess() {
-		JobScheduled job = this.getJobs().stream().filter(j->j.isReadyToRun()).findAny().orElse(null);
-		return job;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public EnabledFeedback getStartFeedback() {
 		if ( this.isRunning()){
 			return new EnabledFeedback(false, "JobScheduler started");
@@ -538,6 +529,33 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		this.setRunning(false);
 	}
 
+
+	/**
+	 * 
+	 * @return
+	 */
+	private JobScheduled getJobToProcess() {
+		JobScheduled job = this.getJobs()
+				.stream()
+				.filter(j->j.isReadyToRun())
+				.findAny()
+				.orElse(null);
+		return job;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	private JobEngine getJobEngineToProcess() {
+		JobEngine engine = this.getEngines()
+				.stream()
+				.filter(e->e.getExecuteEnabledFeedback().isEnabled())
+				.findAny()
+				.orElse(null);
+		return engine;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -560,11 +578,7 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				finished = true;
 				Plugin.INSTANCE.logInfo("JobScheduler.refresh: no job to schedule");
 			} else {
-				JobEngine engine = this.getEngines()
-						.stream()
-						.filter(e->e.getExecuteEnabledFeedback().isEnabled())
-						.findAny()
-						.orElse(null);
+				JobEngine engine = this.getJobEngineToProcess();
 				if ( engine == null) {
 					finished = true;
 					Plugin.INSTANCE.logInfo("JobScheduler.refresh: no engine to schedule on");

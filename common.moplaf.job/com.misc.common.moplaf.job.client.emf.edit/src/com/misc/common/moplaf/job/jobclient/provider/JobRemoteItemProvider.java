@@ -13,7 +13,6 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
-import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
@@ -378,16 +377,6 @@ public class JobRemoteItemProvider extends ItemProviderAdapter implements IEditi
 			(createChildParameter
 				(JobClientPackage.Literals.JOB_REMOTE__RESULT,
 				 JobClientFactory.eINSTANCE.createJobRemoteResult()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobClientPackage.Literals.JOB_REMOTE__JOB,
-				 JobFactory.eINSTANCE.createJob()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobClientPackage.Literals.JOB_REMOTE__JOB,
-				 JobFactory.eINSTANCE.createJobConsole()));
 	}
 
 	/**

@@ -5,6 +5,7 @@
 -->
 
 <plugin>
+   <extension-point id="run_factory" name="Run Factory for MOPLAF" schema="schema/run_factory.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated job -->

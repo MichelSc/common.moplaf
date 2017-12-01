@@ -45,9 +45,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getSubmissionTime <em>Submission Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getEndTime <em>End Time</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getCancelTime <em>Cancel Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getCancelTime <em>Cancel Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getScheduler <em>Scheduler</em>}</li>
  * </ul>
@@ -256,26 +256,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	protected Date endTime = END_TIME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String STATUS_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #getCancelTime() <em>Cancel Time</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,6 +274,26 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * @ordered
 	 */
 	protected Date cancelTime = CANCEL_TIME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATUS_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getCancelEnabledFeedback() <em>Cancel Enabled Feedback</em>}' attribute.
@@ -845,12 +845,12 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return getStartTime();
 			case JobClientPackage.JOB_SCHEDULED__END_TIME:
 				return getEndTime();
+			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
+				return getCancelTime();
 			case JobClientPackage.JOB_SCHEDULED__DESCRIPTION:
 				return getDescription();
 			case JobClientPackage.JOB_SCHEDULED__STATUS:
 				return getStatus();
-			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
-				return getCancelTime();
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
 				return getCancelEnabledFeedback();
 			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
@@ -987,12 +987,12 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
 			case JobClientPackage.JOB_SCHEDULED__END_TIME:
 				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
+			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
+				return CANCEL_TIME_EDEFAULT == null ? cancelTime != null : !CANCEL_TIME_EDEFAULT.equals(cancelTime);
 			case JobClientPackage.JOB_SCHEDULED__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case JobClientPackage.JOB_SCHEDULED__STATUS:
 				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
-			case JobClientPackage.JOB_SCHEDULED__CANCEL_TIME:
-				return CANCEL_TIME_EDEFAULT == null ? cancelTime != null : !CANCEL_TIME_EDEFAULT.equals(cancelTime);
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
 				return CANCEL_ENABLED_FEEDBACK_EDEFAULT == null ? getCancelEnabledFeedback() != null : !CANCEL_ENABLED_FEEDBACK_EDEFAULT.equals(getCancelEnabledFeedback());
 			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
