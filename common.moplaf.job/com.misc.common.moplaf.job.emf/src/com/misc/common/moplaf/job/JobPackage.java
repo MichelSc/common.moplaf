@@ -208,13 +208,22 @@ public interface JobPackage extends EPackage {
 	int RUN__RESET_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__LABEL = RUN_PARAMS_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__CANCELLED = RUN_PARAMS_FEATURE_COUNT + 3;
+	int RUN__CANCELLED = RUN_PARAMS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Returned</b></em>' attribute.
@@ -223,7 +232,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURNED = RUN_PARAMS_FEATURE_COUNT + 4;
+	int RUN__RETURNED = RUN_PARAMS_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -232,7 +241,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_SUCCESS = RUN_PARAMS_FEATURE_COUNT + 5;
+	int RUN__RETURN_SUCCESS = RUN_PARAMS_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -241,7 +250,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 6;
+	int RUN__RETURN_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -250,7 +259,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_INFORMATION = RUN_PARAMS_FEATURE_COUNT + 7;
+	int RUN__RETURN_INFORMATION = RUN_PARAMS_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Run</em>' class.
@@ -259,7 +268,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = RUN_PARAMS_FEATURE_COUNT + 8;
+	int RUN_FEATURE_COUNT = RUN_PARAMS_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -405,6 +414,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB__RESET_FEEDBACK = RUN__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__LABEL = RUN__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
@@ -676,6 +694,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_CONSOLE__RESET_FEEDBACK = JOB__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__LABEL = JOB__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
@@ -1618,6 +1645,17 @@ public interface JobPackage extends EPackage {
 	EAttribute getRun_ResetFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Run#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see com.misc.common.moplaf.job.Run#getLabel()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_Label();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Run#isCancelled <em>Cancelled</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2395,6 +2433,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RUN__RESET_FEEDBACK = eINSTANCE.getRun_ResetFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__LABEL = eINSTANCE.getRun_Label();
 
 		/**
 		 * The meta object literal for the '<em><b>Cancelled</b></em>' attribute feature.

@@ -38,6 +38,7 @@
           ecoreFeature="ecore:EAttribute job.ecore#//Run/CancelFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute job.ecore#//Run/ResetFeedback"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Run/Label"/>
       <genFeatures createChild="false" propertyCategory="10 Job Status" propertyDescription=""
           ecoreFeature="ecore:EAttribute job.ecore#//Run/Cancelled"/>
       <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Run/Returned"/>

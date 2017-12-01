@@ -630,7 +630,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		return getStatus();
+		String description = String.format("%s (%s)", this.getRun().getLabel(), this.getStatus());
+		return description;
 	}
 
 	/**

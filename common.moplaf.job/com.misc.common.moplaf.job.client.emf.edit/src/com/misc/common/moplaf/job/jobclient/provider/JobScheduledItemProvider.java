@@ -454,8 +454,10 @@ public class JobScheduledItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		JobScheduled jobScheduled = (JobScheduled)object;
-		return getString("_UI_JobScheduled_type") + " " + jobScheduled.isNotReadyToRun();
+		String label = ((JobScheduled)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_JobScheduled_type") :
+			getString("_UI_JobScheduled_type") + " " + label;
 	}
 	
 

@@ -1795,6 +1795,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_OMehIdRiEeeQQvp3fOYEhg" fontColor="7490599" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_OMehItRiEeeQQvp3fOYEhg"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_ZQ6vUNZtEee5aulSlYwmIA" type="3010" element="_ZQuiENZtEee5aulSlYwmIA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_ZQ6vUdZtEee5aulSlYwmIA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_ZQ6vUtZtEee5aulSlYwmIA"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_OMfIMNRiEeeQQvp3fOYEhg" type="3010" element="_OLzywNRiEeeQQvp3fOYEhg">
               <styles xmi:type="notation:FontStyle" xmi:id="_OMfIMdRiEeeQQvp3fOYEhg" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_OMfIMtRiEeeQQvp3fOYEhg"/>
@@ -2415,6 +2419,12 @@
         <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/ResetFeedback"/>
         <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/ResetFeedback"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_OLzLsNRiEeeQQvp3fOYEhg" labelColor="39,76,114" labelAlignment="LEFT" description="_GnNfYc4AEeeaJMFZbqIQDQ"/>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ZQuiENZtEee5aulSlYwmIA" name="/Label : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/Label"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/Label"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_ZQvJINZtEee5aulSlYwmIA" labelColor="39,76,114" labelAlignment="LEFT" description="_GnNfYc4AEeeaJMFZbqIQDQ"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_OLzywNRiEeeQQvp3fOYEhg" name="Cancelled : EBoolean = false" tooltipText="">

@@ -296,6 +296,7 @@ public class RunItemProvider
 			case JobPackage.RUN__RUN_FEEDBACK:
 			case JobPackage.RUN__CANCEL_FEEDBACK:
 			case JobPackage.RUN__RESET_FEEDBACK:
+			case JobPackage.RUN__LABEL:
 			case JobPackage.RUN__CANCELLED:
 			case JobPackage.RUN__RETURNED:
 			case JobPackage.RUN__RETURN_SUCCESS:

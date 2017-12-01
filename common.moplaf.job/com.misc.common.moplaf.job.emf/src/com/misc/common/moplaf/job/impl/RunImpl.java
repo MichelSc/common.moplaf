@@ -48,6 +48,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getResetFeedback <em>Reset Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isCancelled <em>Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturned <em>Returned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturnSuccess <em>Return Success</em>}</li>
@@ -87,6 +88,16 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * @ordered
 	 */
 	protected static final EnabledFeedback RESET_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isCancelled() <em>Cancelled</em>}' attribute.
@@ -256,6 +267,17 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 */
 	public EnabledFeedback getResetFeedback() {
 		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLabel() {
+		// TODO: implement this method to return the 'Label' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -588,6 +610,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return getCancelFeedback();
 			case JobPackage.RUN__RESET_FEEDBACK:
 				return getResetFeedback();
+			case JobPackage.RUN__LABEL:
+				return getLabel();
 			case JobPackage.RUN__CANCELLED:
 				return isCancelled();
 			case JobPackage.RUN__RETURNED:
@@ -670,6 +694,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return CANCEL_FEEDBACK_EDEFAULT == null ? getCancelFeedback() != null : !CANCEL_FEEDBACK_EDEFAULT.equals(getCancelFeedback());
 			case JobPackage.RUN__RESET_FEEDBACK:
 				return RESET_FEEDBACK_EDEFAULT == null ? getResetFeedback() != null : !RESET_FEEDBACK_EDEFAULT.equals(getResetFeedback());
+			case JobPackage.RUN__LABEL:
+				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 			case JobPackage.RUN__CANCELLED:
 				return cancelled != CANCELLED_EDEFAULT;
 			case JobPackage.RUN__RETURNED:

@@ -27,6 +27,7 @@ import com.misc.common.moplaf.common.ReturnFeedback;
  *   <li>{@link com.misc.common.moplaf.job.Run#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getResetFeedback <em>Reset Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Run#getLabel <em>Label</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#isCancelled <em>Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#isReturned <em>Returned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#isReturnSuccess <em>Return Success</em>}</li>
@@ -83,6 +84,21 @@ public interface Run extends RunParams {
 	 * @generated
 	 */
 	EnabledFeedback getResetFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getRun_Label()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getLabel();
 
 	/**
 	 * Returns the value of the '<em><b>Cancelled</b></em>' attribute.

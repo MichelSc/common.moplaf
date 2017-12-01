@@ -352,6 +352,12 @@ public class JobImpl extends RunImpl implements Job {
 			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.JOB__NAME, oldName, name));
 	}
 
+	
+	@Override
+	public String getLabel() {
+		return this.getName();
+	}
+
 	/*
 	 * 
 	 */
