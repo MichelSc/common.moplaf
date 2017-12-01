@@ -39,11 +39,11 @@
       <eParameters name="task" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="work" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
-    <eOperations name="setReturn">
-      <eParameters name="feedback" eType="#//ReturnFeedback"/>
-    </eOperations>
     <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="progress" eType="#//ProgressFeedback"/>
+    </eOperations>
+    <eOperations name="setReturn">
+      <eParameters name="feedback" eType="#//ReturnFeedback"/>
     </eOperations>
     <eOperations name="getReturn" eType="#//ReturnFeedback"/>
     <eOperations name="constructParams" eType="#//RunParams"/>
