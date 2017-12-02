@@ -8,6 +8,14 @@
   <foreignModel>jobclient.ecore</foreignModel>
   <genPackages prefix="JobClient" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
       ecorePackage="jobclient.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jobclient.ecore#//JobStatus">
+      <genEnumLiterals ecoreEnumLiteral="jobclient.ecore#//JobStatus/UNKNOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="jobclient.ecore#//JobStatus/NOT_READY"/>
+      <genEnumLiterals ecoreEnumLiteral="jobclient.ecore#//JobStatus/WAITING"/>
+      <genEnumLiterals ecoreEnumLiteral="jobclient.ecore#//JobStatus/RUNNING"/>
+      <genEnumLiterals ecoreEnumLiteral="jobclient.ecore#//JobStatus/COMPLETE"/>
+      <genEnumLiterals ecoreEnumLiteral="jobclient.ecore#//JobStatus/FAILLED"/>
+    </genEnums>
     <genClasses ecoreClass="jobclient.ecore#//JobRemote">
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
           ecoreFeature="ecore:EAttribute jobclient.ecore#//JobRemote/SubmissionID"/>
@@ -85,6 +93,8 @@
           ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/NrJobsCancelled"/>
       <genFeatures createChild="false" propertyCategory="50 Times" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/LastRefresh"/>
       <genFeatures createChild="false" propertyCategory="50 Times" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/LastFeedback"/>
+      <genFeatures createChild="false" propertyCategory="30 Scheduler" propertyDescription=""
+          ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/CurrentJobNr"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/start"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/stop"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/refresh"/>
@@ -92,6 +102,7 @@
         <genParameters ecoreParameter="jobclient.ecore#//JobScheduler/submitRun/run"/>
       </genOperations>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/setLastFeedback"/>
+      <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/makeNewJobNr"/>
     </genClasses>
     <genClasses ecoreClass="jobclient.ecore#//JobScheduled" labelFeature="#//jobclient/JobScheduled/Description">
       <genFeatures notify="false" createChild="false" propertyCategory="70 References"
@@ -119,6 +130,8 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/CancelEnabledFeedback"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduled/Scheduler"/>
+      <genFeatures createChild="false" propertyCategory="30 Run" propertyDescription=""
+          ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/JobNr"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/cancel"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/setRunning"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/setReturn">

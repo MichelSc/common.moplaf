@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduler <em>Scheduler</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getJobNr <em>Job Nr</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled()
@@ -350,6 +351,7 @@ public interface JobScheduled extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.job.jobclient.JobStatus}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Status</em>' attribute isn't clear,
@@ -357,11 +359,12 @@ public interface JobScheduled extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobStatus
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_Status()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	String getStatus();
+	JobStatus getStatus();
 
 	/**
 	 * Returns the value of the '<em><b>Cancel Time</b></em>' attribute.
@@ -431,6 +434,32 @@ public interface JobScheduled extends EObject {
 	 * @generated
 	 */
 	void setScheduler(JobScheduler value);
+
+	/**
+	 * Returns the value of the '<em><b>Job Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Job Nr</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Job Nr</em>' attribute.
+	 * @see #setJobNr(int)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_JobNr()
+	 * @model
+	 * @generated
+	 */
+	int getJobNr();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getJobNr <em>Job Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Job Nr</em>' attribute.
+	 * @see #getJobNr()
+	 * @generated
+	 */
+	void setJobNr(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -80,6 +80,7 @@ public class JobScheduledItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addCancelEnabledFeedbackPropertyDescriptor(object);
+			addJobNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -437,6 +438,28 @@ public class JobScheduledItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Job Nr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJobNrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_JobNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_JobNr_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__JOB_NR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__30RunPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This returns JobScheduled.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -488,6 +511,7 @@ public class JobScheduledItemProvider
 			case JobClientPackage.JOB_SCHEDULED__DESCRIPTION:
 			case JobClientPackage.JOB_SCHEDULED__STATUS:
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
+			case JobClientPackage.JOB_SCHEDULED__JOB_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -4,6 +4,7 @@ package com.misc.common.moplaf.job.jobclient;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -759,13 +760,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER__LAST_FEEDBACK = 15;
 
 	/**
+	 * The feature id for the '<em><b>Current Job Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__CURRENT_JOB_NR = 16;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_FEATURE_COUNT = 16;
+	int JOB_SCHEDULER_FEATURE_COUNT = 17;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -813,13 +823,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER___SET_LAST_FEEDBACK = 4;
 
 	/**
+	 * The operation id for the '<em>Make New Job Nr</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER___MAKE_NEW_JOB_NR = 5;
+
+	/**
 	 * The number of operations of the '<em>Job Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_OPERATION_COUNT = 5;
+	int JOB_SCHEDULER_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.
@@ -985,13 +1004,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULED__SCHEDULER = 16;
 
 	/**
+	 * The feature id for the '<em><b>Job Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULED__JOB_NR = 17;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduled</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED_FEATURE_COUNT = 17;
+	int JOB_SCHEDULED_FEATURE_COUNT = 18;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -1028,6 +1056,17 @@ public interface JobClientPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_SCHEDULED_OPERATION_COUNT = 3;
+
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.JobStatus <em>Job Status</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.jobclient.JobStatus
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobClientPackageImpl#getJobStatus()
+	 * @generated
+	 */
+	int JOB_STATUS = 9;
 
 
 	/**
@@ -1543,6 +1582,17 @@ public interface JobClientPackage extends EPackage {
 	EAttribute getJobScheduler_LastFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentJobNr <em>Current Job Nr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Current Job Nr</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentJobNr()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EAttribute getJobScheduler_CurrentJobNr();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback <em>Refresh Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1635,6 +1685,16 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJobScheduler__SetLastFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#makeNewJobNr() <em>Make New Job Nr</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make New Job Nr</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#makeNewJobNr()
+	 * @generated
+	 */
+	EOperation getJobScheduler__MakeNewJobNr();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobScheduled <em>Job Scheduled</em>}'.
@@ -1834,6 +1894,17 @@ public interface JobClientPackage extends EPackage {
 	EReference getJobScheduled_Scheduler();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getJobNr <em>Job Nr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Job Nr</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getJobNr()
+	 * @see #getJobScheduled()
+	 * @generated
+	 */
+	EAttribute getJobScheduled_JobNr();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#cancel() <em>Cancel</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1926,6 +1997,16 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJobEngine__ExecuteJob__JobScheduled();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.job.jobclient.JobStatus <em>Job Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Job Status</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobStatus
+	 * @generated
+	 */
+	EEnum getJobStatus();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2349,6 +2430,14 @@ public interface JobClientPackage extends EPackage {
 		EAttribute JOB_SCHEDULER__LAST_FEEDBACK = eINSTANCE.getJobScheduler_LastFeedback();
 
 		/**
+		 * The meta object literal for the '<em><b>Current Job Nr</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULER__CURRENT_JOB_NR = eINSTANCE.getJobScheduler_CurrentJobNr();
+
+		/**
 		 * The meta object literal for the '<em><b>Refresh Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2419,6 +2508,14 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_SCHEDULER___SET_LAST_FEEDBACK = eINSTANCE.getJobScheduler__SetLastFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Make New Job Nr</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SCHEDULER___MAKE_NEW_JOB_NR = eINSTANCE.getJobScheduler__MakeNewJobNr();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.
@@ -2567,6 +2664,14 @@ public interface JobClientPackage extends EPackage {
 		EReference JOB_SCHEDULED__SCHEDULER = eINSTANCE.getJobScheduled_Scheduler();
 
 		/**
+		 * The meta object literal for the '<em><b>Job Nr</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULED__JOB_NR = eINSTANCE.getJobScheduled_JobNr();
+
+		/**
 		 * The meta object literal for the '<em><b>Cancel</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2639,6 +2744,16 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED = eINSTANCE.getJobEngine__ExecuteJob__JobScheduled();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.JobStatus <em>Job Status</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.jobclient.JobStatus
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobClientPackageImpl#getJobStatus()
+		 * @generated
+		 */
+		EEnum JOB_STATUS = eINSTANCE.getJobStatus();
 
 	}
 

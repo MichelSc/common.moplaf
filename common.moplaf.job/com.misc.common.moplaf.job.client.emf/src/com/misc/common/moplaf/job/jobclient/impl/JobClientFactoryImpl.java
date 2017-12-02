@@ -5,6 +5,7 @@ package com.misc.common.moplaf.job.jobclient.impl;
 import com.misc.common.moplaf.job.jobclient.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -72,6 +73,36 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case JobClientPackage.JOB_STATUS:
+				return createJobStatusFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case JobClientPackage.JOB_STATUS:
+				return convertJobStatusToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JobRemote createJobRemote() {
 		JobRemoteImpl jobRemote = new JobRemoteImpl();
 		return jobRemote;
@@ -125,6 +156,26 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 	public JobScheduled createJobScheduled() {
 		JobScheduledImpl jobScheduled = new JobScheduledImpl();
 		return jobScheduled;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobStatus createJobStatusFromString(EDataType eDataType, String initialValue) {
+		JobStatus result = JobStatus.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJobStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

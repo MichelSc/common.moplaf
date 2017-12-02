@@ -73,6 +73,7 @@
       <eParameters name="run" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"/>
     </eOperations>
     <eOperations name="setLastFeedback"/>
+    <eOperations name="makeNewJobNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Jobs" upperBound="-1" eType="#//JobScheduled"
         containment="true" eOpposite="#//JobScheduled/Scheduler"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Engines" upperBound="-1"
@@ -101,6 +102,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastRefresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentJobNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobScheduled">
     <eOperations name="cancel"/>
@@ -127,13 +129,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="#//JobStatus"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelEnabledFeedback"
         eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" eType="#//JobScheduler"
         eOpposite="#//JobScheduler/Jobs"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true">
     <eOperations name="executeJob">
@@ -147,5 +150,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecuteEnabledFeedback"
         eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JobStatus">
+    <eLiterals name="UNKNOWN"/>
+    <eLiterals name="NOT_READY" value="1" literal="NotReady"/>
+    <eLiterals name="WAITING" value="2" literal="Waiting"/>
+    <eLiterals name="RUNNING" value="3" literal="Running"/>
+    <eLiterals name="COMPLETE" value="4" literal="Complete"/>
+    <eLiterals name="FAILLED" value="5" literal="Failed"/>
   </eClassifiers>
 </ecore:EPackage>

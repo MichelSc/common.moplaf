@@ -3,14 +3,17 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
+import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.emf.edit.command.StartCommand;
 import com.misc.common.moplaf.emf.edit.command.StopCommand;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
+import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
 
 import java.util.Collection;
@@ -41,17 +44,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.job.jobclient.JobScheduler} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class JobSchedulerItemProvider 
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -87,6 +87,7 @@ public class JobSchedulerItemProvider
 			addNrJobsCancelledPropertyDescriptor(object);
 			addLastRefreshPropertyDescriptor(object);
 			addLastFeedbackPropertyDescriptor(object);
+			addCurrentJobNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -312,6 +313,28 @@ public class JobSchedulerItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Current Job Nr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCurrentJobNrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_CurrentJobNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_CurrentJobNr_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__CURRENT_JOB_NR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__30SchedulerPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Refresh Feedback feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,6 +504,7 @@ public class JobSchedulerItemProvider
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_CANCELLED:
 			case JobClientPackage.JOB_SCHEDULER__LAST_REFRESH:
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
@@ -701,5 +725,139 @@ public class JobSchedulerItemProvider
 			int operation, Collection<?> collection) {
 		return new RunDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
+	
+	@Override
+	public String getGridText(Object element, Object grid) {
+		JobScheduler scheduler = (JobScheduler)element;
+		return scheduler.getName();
+	}
+
+	@Override
+	public Collection<?> getRows(Object element, Object grid) {
+		JobScheduler scheduler = (JobScheduler)element;
+		return scheduler.getJobs();
+	}
+	
+	private abstract interface Column {
+		public String getText();
+		public int  getWidth();
+		public Object getValue(JobScheduled job);
+		default public Object getBackgroundColor(JobScheduled job) {
+			return null;
+		}
+	}
+	
+	private static Column[] columns = {
+			new Column() {
+				public String getText() {
+					return "Job";
+				}
+				public int  getWidth() {
+					return 120;
+				}
+				public Object getValue(JobScheduled job) {
+					return job.getRun().getLabel();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "Status";
+				}
+				public int  getWidth() {
+					return 120;
+				}
+				public Object getValue(JobScheduled job) {
+					return job.getStatus().getLiteral();
+				}
+				public Object getBackgroundColor(JobScheduled job) {
+					switch ( job.getStatus() ) {
+					case NOT_READY:
+						return Color.COLOR_CYAN.toURI();
+					case WAITING:
+						return Color.COLOR_YELLOW.toURI();
+					case RUNNING:
+						return Color.COLOR_MAGENTA.toURI();
+					case COMPLETE:
+						return Color.COLOR_GREEN.toURI();
+					case FAILLED:
+						return Color.COLOR_RED.toURI();
+					default:
+						return null;
+					}
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "Submission";
+				}
+				public int  getWidth() {
+					return 160;
+				}
+				public Object getValue(JobScheduled job) {
+					return job.getSubmissionTime();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "Start";
+				}
+				public int  getWidth() {
+					return 160;
+				}
+				public Object getValue(JobScheduled job) {
+					return job.getStartTime();
+				}
+			}, 
+			new Column() {
+				public String getText() {
+					return "End";
+				}
+				public int  getWidth() {
+					return 160;
+				}
+				public Object getValue(JobScheduled job) {
+					return job.getEndTime();
+				}
+			}
+	};
+
+	@Override
+	public String getRowText(Object element, Object grid, Object row) {
+		JobScheduled job = (JobScheduled)row;
+		String row_header = String.format("%04d", job.getJobNr());
+		return row_header;
+	}
+
+	@Override
+	public int getNrColumns(Object element, Object grid) {
+		return columns.length;
+	}
+
+	@Override
+	public String getColumnText(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getText();
+	}
+
+	@Override
+	public int getColumnWidth(Object element, Object grid, Object column) {
+		Integer column_index = (Integer)column;
+		return columns[column_index].getWidth();
+	}
+
+	@Override
+	public Object getCellValue(Object element, Object grid, Object row, Object column) {
+		JobScheduled job = (JobScheduled)row;
+		Integer column_index = (Integer)column;
+		return columns[column_index].getValue(job);
+	}
+
+	@Override
+	public Object getCellBackground(Object element, Object grid, Object row, Object column) {
+		JobScheduled job = (JobScheduled)row;
+		Integer column_index = (Integer)column;
+		return columns[column_index].getBackgroundColor(job);
+	}
+	
 	
 }

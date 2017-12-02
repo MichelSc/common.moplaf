@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobclient.provider;
 
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.job.jobclient.util.JobClientAdapterFactory;
 
 import java.util.ArrayList;
@@ -61,7 +62,6 @@ public class JobClientItemProviderAdapterFactory extends JobClientAdapterFactory
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public JobClientItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +69,7 @@ public class JobClientItemProviderAdapterFactory extends JobClientAdapterFactory
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemGridsProvider.class); // moplaf interface
 	}
 
 	/**

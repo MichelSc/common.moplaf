@@ -57,6 +57,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsCancelled <em>Nr Jobs Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastRefresh <em>Last Refresh</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastFeedback <em>Last Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getCurrentJobNr <em>Current Job Nr</em>}</li>
  * </ul>
  *
  * @generated
@@ -272,6 +273,26 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	protected Date lastFeedback = LAST_FEEDBACK_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getCurrentJobNr() <em>Current Job Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentJobNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CURRENT_JOB_NR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCurrentJobNr() <em>Current Job Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentJobNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int currentJobNr = CURRENT_JOB_NR_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -454,6 +475,27 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		lastFeedback = newLastFeedback;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK, oldLastFeedback, lastFeedback));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCurrentJobNr() {
+		return currentJobNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentJobNr(int newCurrentJobNr) {
+		int oldCurrentJobNr = currentJobNr;
+		currentJobNr = newCurrentJobNr;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR, oldCurrentJobNr, currentJobNr));
 	}
 
 	/**
@@ -657,6 +699,7 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		this.getJobs().add(job);
 		job.setRun(run);
 		job.setSubmissionTime(new Date());
+		job.setJobNr(this.makeNewJobNr());
 	}
 
 	/**
@@ -665,6 +708,17 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public void setLastFeedback() {
 		this.setLastFeedback(new Date());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int makeNewJobNr() {
+		int new_nr = this.getCurrentJobNr()+1;
+		this.setCurrentJobNr(new_nr);
+		return new_nr;
 	}
 
 	/**
@@ -740,6 +794,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return getLastRefresh();
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				return getLastFeedback();
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
+				return getCurrentJobNr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -776,6 +832,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				setLastFeedback((Date)newValue);
 				return;
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
+				setCurrentJobNr((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -808,6 +867,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return;
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				setLastFeedback(LAST_FEEDBACK_EDEFAULT);
+				return;
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
+				setCurrentJobNr(CURRENT_JOB_NR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -853,6 +915,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return LAST_REFRESH_EDEFAULT == null ? lastRefresh != null : !LAST_REFRESH_EDEFAULT.equals(lastRefresh);
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				return LAST_FEEDBACK_EDEFAULT == null ? lastFeedback != null : !LAST_FEEDBACK_EDEFAULT.equals(lastFeedback);
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
+				return currentJobNr != CURRENT_JOB_NR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -880,6 +944,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULER___SET_LAST_FEEDBACK:
 				setLastFeedback();
 				return null;
+			case JobClientPackage.JOB_SCHEDULER___MAKE_NEW_JOB_NR:
+				return makeNewJobNr();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -904,6 +970,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		result.append(lastRefresh);
 		result.append(", LastFeedback: ");
 		result.append(lastFeedback);
+		result.append(", CurrentJobNr: ");
+		result.append(currentJobNr);
 		result.append(')');
 		return result.toString();
 	}
