@@ -18,8 +18,7 @@ import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
-import com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage;
-
+import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -128,7 +127,7 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JobxmlrpcPackage.Literals.JOB_ENGINE_CLIENT;
+		return JobXmlRpcPackage.Literals.JOB_ENGINE_CLIENT;
 	}
 
 	/**
@@ -140,6 +139,10 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 		return host;
 	}
 
+	@Override
+	public int submitJob( JobRemote jobremote ) {
+		return -1;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,7 +152,7 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 		String oldHost = host;
 		host = newHost;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobxmlrpcPackage.JOB_ENGINE_CLIENT__HOST, oldHost, host));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobXmlRpcPackage.JOB_ENGINE_CLIENT__HOST, oldHost, host));
 	}
 
 	/**
@@ -170,7 +173,7 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 		int oldPort = port;
 		port = newPort;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobxmlrpcPackage.JOB_ENGINE_CLIENT__PORT, oldPort, port));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobXmlRpcPackage.JOB_ENGINE_CLIENT__PORT, oldPort, port));
 	}
 
 	/**
@@ -191,7 +194,7 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 		String oldPath = path;
 		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobxmlrpcPackage.JOB_ENGINE_CLIENT__PATH, oldPath, path));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobXmlRpcPackage.JOB_ENGINE_CLIENT__PATH, oldPath, path));
 	}
 
 	/**
@@ -202,11 +205,11 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__HOST:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__HOST:
 				return getHost();
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PORT:
 				return getPort();
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PATH:
 				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -220,13 +223,13 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__HOST:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__HOST:
 				setHost((String)newValue);
 				return;
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PORT:
 				setPort((Integer)newValue);
 				return;
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PATH:
 				setPath((String)newValue);
 				return;
 		}
@@ -241,13 +244,13 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__HOST:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__HOST:
 				setHost(HOST_EDEFAULT);
 				return;
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PORT:
 				setPort(PORT_EDEFAULT);
 				return;
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
 		}
@@ -262,11 +265,11 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__HOST:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__HOST:
 				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PORT:
 				return port != PORT_EDEFAULT;
-			case JobxmlrpcPackage.JOB_ENGINE_CLIENT__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_CLIENT__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 		}
 		return super.eIsSet(featureID);

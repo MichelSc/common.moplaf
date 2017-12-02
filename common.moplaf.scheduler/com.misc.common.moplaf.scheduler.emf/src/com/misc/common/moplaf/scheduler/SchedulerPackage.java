@@ -99,13 +99,13 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER__RESET_FEEDBACK = LocalSearchPackage.STRATEGY__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER__CANCELED = LocalSearchPackage.STRATEGY__CANCELED;
+	int SCHEDULER__CANCELLED = LocalSearchPackage.STRATEGY__CANCELLED;
 
 	/**
 	 * The feature id for the '<em><b>Returned</b></em>' attribute.
@@ -288,6 +288,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___SET_PROGRESS__STRING_FLOAT = LocalSearchPackage.STRATEGY___SET_PROGRESS__STRING_FLOAT;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___SET_RETURN__RETURNFEEDBACK = LocalSearchPackage.STRATEGY___SET_RETURN__RETURNFEEDBACK;
+
+	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -304,15 +313,6 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULER___GET_RETURN = LocalSearchPackage.STRATEGY___GET_RETURN;
-
-	/**
-	 * The operation id for the '<em>Set Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER___SET_RETURN__RETURNFEEDBACK = LocalSearchPackage.STRATEGY___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.

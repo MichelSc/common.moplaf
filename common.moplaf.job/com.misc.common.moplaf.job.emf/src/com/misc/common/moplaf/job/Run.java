@@ -27,7 +27,8 @@ import com.misc.common.moplaf.common.ReturnFeedback;
  *   <li>{@link com.misc.common.moplaf.job.Run#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getResetFeedback <em>Reset Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Run#isCanceled <em>Canceled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Run#getLabel <em>Label</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Run#isCancelled <em>Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#isReturned <em>Returned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Run#getReturnFeedback <em>Return Feedback</em>}</li>
@@ -35,7 +36,7 @@ import com.misc.common.moplaf.common.ReturnFeedback;
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getRun()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Run extends RunParams {
@@ -85,30 +86,45 @@ public interface Run extends RunParams {
 	EnabledFeedback getResetFeedback();
 
 	/**
-	 * Returns the value of the '<em><b>Canceled</b></em>' attribute.
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Canceled</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Canceled</em>' attribute.
-	 * @see #setCanceled(boolean)
-	 * @see com.misc.common.moplaf.job.JobPackage#getRun_Canceled()
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getRun_Label()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getLabel();
+
+	/**
+	 * Returns the value of the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cancelled</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cancelled</em>' attribute.
+	 * @see #setCancelled(boolean)
+	 * @see com.misc.common.moplaf.job.JobPackage#getRun_Cancelled()
 	 * @model
 	 * @generated
 	 */
-	boolean isCanceled();
+	boolean isCancelled();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.Run#isCanceled <em>Canceled</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.Run#isCancelled <em>Cancelled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Canceled</em>' attribute.
-	 * @see #isCanceled()
+	 * @param value the new value of the '<em>Cancelled</em>' attribute.
+	 * @see #isCancelled()
 	 * @generated
 	 */
-	void setCanceled(boolean value);
+	void setCancelled(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Returned</b></em>' attribute.
@@ -245,6 +261,14 @@ public interface Run extends RunParams {
 	 * @generated
 	 */
 	void runAsynch(RunContext runContext);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model runContextDataType="com.misc.common.moplaf.job.RunContext"
+	 * @generated
+	 */
+	void runAsynch(RunContext runContext, boolean background);
 
 	/**
 	 * <!-- begin-user-doc -->

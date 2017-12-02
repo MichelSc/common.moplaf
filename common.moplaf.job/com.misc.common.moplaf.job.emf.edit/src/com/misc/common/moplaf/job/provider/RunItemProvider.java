@@ -14,6 +14,7 @@ package com.misc.common.moplaf.job.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.CancelCommand;
 import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunBackgroundCommand;
@@ -69,7 +70,7 @@ public class RunItemProvider
 			addRunFeedbackPropertyDescriptor(object);
 			addCancelFeedbackPropertyDescriptor(object);
 			addResetFeedbackPropertyDescriptor(object);
-			addCanceledPropertyDescriptor(object);
+			addCancelledPropertyDescriptor(object);
 			addReturnedPropertyDescriptor(object);
 			addReturnSuccessPropertyDescriptor(object);
 			addReturnFeedbackPropertyDescriptor(object);
@@ -145,24 +146,24 @@ public class RunItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Canceled feature.
+	 * This adds a property descriptor for the Cancelled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCanceledPropertyDescriptor(Object object) {
+	protected void addCancelledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Run_Canceled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Run_Canceled_feature", "_UI_Run_type"),
-				 JobPackage.Literals.RUN__CANCELED,
+				 getString("_UI_Run_Cancelled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Run_Cancelled_feature", "_UI_Run_type"),
+				 JobPackage.Literals.RUN__CANCELLED,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10JobControlPropertyCategory"),
+				 getString("_UI__10JobStatusPropertyCategory"),
 				 null));
 	}
 
@@ -295,7 +296,8 @@ public class RunItemProvider
 			case JobPackage.RUN__RUN_FEEDBACK:
 			case JobPackage.RUN__CANCEL_FEEDBACK:
 			case JobPackage.RUN__RESET_FEEDBACK:
-			case JobPackage.RUN__CANCELED:
+			case JobPackage.RUN__LABEL:
+			case JobPackage.RUN__CANCELLED:
 			case JobPackage.RUN__RETURNED:
 			case JobPackage.RUN__RETURN_SUCCESS:
 			case JobPackage.RUN__RETURN_FEEDBACK:
@@ -455,12 +457,13 @@ public class RunItemProvider
 	/*
 	 * RunCopyParamsCommand
 	 */
-	public class RunCopyParamsCommand extends ResetCommand{
+	public class RunCopyParamsCommand extends BaseCommand{
 		private Run run;
 		private RunParams runParams;
 		
 		// constructor
 		public RunCopyParamsCommand(Run aRun, RunParams params)	{
+			super("CopyParams", "Copy the Parmas");
 			this.run = aRun;
 			this.runParams = params;
 		}

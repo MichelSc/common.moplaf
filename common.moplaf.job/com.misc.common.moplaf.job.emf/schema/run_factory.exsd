@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.misc.common.moplaf.job.emf" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.misc.common.moplaf.job.emf" id="run_factory" name="Run Factory for MOPLAF"/>
+      </appInfo>
+      <documentation>
+         This extension is used to register Run factories
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="factory" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="factory">
+      <annotation>
+         <documentation>
+            This element is used to register a Run Factory
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.misc.common.moplaf.job.util.RunFactory"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         Following is how a factory can be registred 
+&lt;extension point=&quot;com.misc.common.moplaf.job.emf.run_factory&quot;&gt;
+  &lt;factory
+    class=&quot;com.misc.touse.moplaf.tousejob.util.RunFactory&quot;&gt;
+  &lt;/factory&gt;
+&lt;/extension&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         A Run factory implements the interface com.misc.common.moplaf.job.util.RunFactory.
+A Run implements the interface com.misc.common.moplaf.job.Run
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         No supplied implementation by this PlugIn
+      </documentation>
+   </annotation>
+
+
+</schema>

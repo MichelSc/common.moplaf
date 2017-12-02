@@ -34,7 +34,7 @@ import java.util.Date;
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getJob()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Job extends Run {

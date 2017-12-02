@@ -14,9 +14,9 @@ package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.Run;
-import com.misc.common.moplaf.job.jobclient.JobEngine;
+import com.misc.common.moplaf.job.jobclient.JobClientPackage;
+import com.misc.common.moplaf.job.jobclient.JobEngineOld;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
-import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -70,7 +70,7 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JobclientPackage.Literals.SUBMITTED_JOB;
+		return JobClientPackage.Literals.SUBMITTED_JOB;
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 		JobRemote oldJob = job;
 		job = newJob;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobclientPackage.SUBMITTED_JOB__JOB, oldJob, newJob);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobClientPackage.SUBMITTED_JOB__JOB, oldJob, newJob);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -106,14 +106,14 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 		if (newJob != job) {
 			NotificationChain msgs = null;
 			if (job != null)
-				msgs = ((InternalEObject)job).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JobclientPackage.SUBMITTED_JOB__JOB, null, msgs);
+				msgs = ((InternalEObject)job).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JobClientPackage.SUBMITTED_JOB__JOB, null, msgs);
 			if (newJob != null)
-				msgs = ((InternalEObject)newJob).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JobclientPackage.SUBMITTED_JOB__JOB, null, msgs);
+				msgs = ((InternalEObject)newJob).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JobClientPackage.SUBMITTED_JOB__JOB, null, msgs);
 			msgs = basicSetJob(newJob, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.SUBMITTED_JOB__JOB, newJob, newJob));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.SUBMITTED_JOB__JOB, newJob, newJob));
 	}
 
 	/**
@@ -121,9 +121,9 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JobEngine getJobEngine() {
-		if (eContainerFeatureID() != JobclientPackage.SUBMITTED_JOB__JOB_ENGINE) return null;
-		return (JobEngine)eInternalContainer();
+	public JobEngineOld getJobEngine() {
+		if (eContainerFeatureID() != JobClientPackage.SUBMITTED_JOB__JOB_ENGINE) return null;
+		return (JobEngineOld)eInternalContainer();
 	}
 
 	/**
@@ -131,8 +131,8 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetJobEngine(JobEngine newJobEngine, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newJobEngine, JobclientPackage.SUBMITTED_JOB__JOB_ENGINE, msgs);
+	public NotificationChain basicSetJobEngine(JobEngineOld newJobEngine, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newJobEngine, JobClientPackage.SUBMITTED_JOB__JOB_ENGINE, msgs);
 		return msgs;
 	}
 
@@ -141,20 +141,20 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setJobEngine(JobEngine newJobEngine) {
-		if (newJobEngine != eInternalContainer() || (eContainerFeatureID() != JobclientPackage.SUBMITTED_JOB__JOB_ENGINE && newJobEngine != null)) {
+	public void setJobEngine(JobEngineOld newJobEngine) {
+		if (newJobEngine != eInternalContainer() || (eContainerFeatureID() != JobClientPackage.SUBMITTED_JOB__JOB_ENGINE && newJobEngine != null)) {
 			if (EcoreUtil.isAncestor(this, newJobEngine))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newJobEngine != null)
-				msgs = ((InternalEObject)newJobEngine).eInverseAdd(this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS, JobEngine.class, msgs);
+				msgs = ((InternalEObject)newJobEngine).eInverseAdd(this, JobClientPackage.JOB_ENGINE_OLD__SUBMITTED_JOBS, JobEngineOld.class, msgs);
 			msgs = basicSetJobEngine(newJobEngine, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.SUBMITTED_JOB__JOB_ENGINE, newJobEngine, newJobEngine));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.SUBMITTED_JOB__JOB_ENGINE, newJobEngine, newJobEngine));
 	}
 
 	/**
@@ -165,10 +165,10 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobclientPackage.SUBMITTED_JOB__JOB_ENGINE:
+			case JobClientPackage.SUBMITTED_JOB__JOB_ENGINE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetJobEngine((JobEngine)otherEnd, msgs);
+				return basicSetJobEngine((JobEngineOld)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -181,9 +181,9 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobclientPackage.SUBMITTED_JOB__JOB:
+			case JobClientPackage.SUBMITTED_JOB__JOB:
 				return basicSetJob(null, msgs);
-			case JobclientPackage.SUBMITTED_JOB__JOB_ENGINE:
+			case JobClientPackage.SUBMITTED_JOB__JOB_ENGINE:
 				return basicSetJobEngine(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -197,8 +197,8 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case JobclientPackage.SUBMITTED_JOB__JOB_ENGINE:
-				return eInternalContainer().eInverseRemove(this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS, JobEngine.class, msgs);
+			case JobClientPackage.SUBMITTED_JOB__JOB_ENGINE:
+				return eInternalContainer().eInverseRemove(this, JobClientPackage.JOB_ENGINE_OLD__SUBMITTED_JOBS, JobEngineOld.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -211,9 +211,9 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobclientPackage.SUBMITTED_JOB__JOB:
+			case JobClientPackage.SUBMITTED_JOB__JOB:
 				return getJob();
-			case JobclientPackage.SUBMITTED_JOB__JOB_ENGINE:
+			case JobClientPackage.SUBMITTED_JOB__JOB_ENGINE:
 				return getJobEngine();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -227,11 +227,11 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobclientPackage.SUBMITTED_JOB__JOB:
+			case JobClientPackage.SUBMITTED_JOB__JOB:
 				setJob((JobRemote)newValue);
 				return;
-			case JobclientPackage.SUBMITTED_JOB__JOB_ENGINE:
-				setJobEngine((JobEngine)newValue);
+			case JobClientPackage.SUBMITTED_JOB__JOB_ENGINE:
+				setJobEngine((JobEngineOld)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -245,11 +245,11 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.SUBMITTED_JOB__JOB:
+			case JobClientPackage.SUBMITTED_JOB__JOB:
 				setJob((JobRemote)null);
 				return;
-			case JobclientPackage.SUBMITTED_JOB__JOB_ENGINE:
-				setJobEngine((JobEngine)null);
+			case JobClientPackage.SUBMITTED_JOB__JOB_ENGINE:
+				setJobEngine((JobEngineOld)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -263,9 +263,9 @@ public class SubmittedJobImpl extends MinimalEObjectImpl.Container implements Su
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobclientPackage.SUBMITTED_JOB__JOB:
+			case JobClientPackage.SUBMITTED_JOB__JOB:
 				return job != null;
-			case JobclientPackage.SUBMITTED_JOB__JOB_ENGINE:
+			case JobClientPackage.SUBMITTED_JOB__JOB_ENGINE:
 				return getJobEngine() != null;
 		}
 		return super.eIsSet(featureID);

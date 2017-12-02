@@ -48,7 +48,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getResetFeedback <em>Reset Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isCanceled <em>Canceled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isCancelled <em>Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturned <em>Returned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.RunImpl#getReturnFeedback <em>Return Feedback</em>}</li>
@@ -57,7 +58,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RunImpl extends RunParamsImpl implements Run {
+public abstract class RunImpl extends RunParamsImpl implements Run {
 	/**
 	 * The default value of the '{@link #getRunFeedback() <em>Run Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,24 +90,34 @@ public class RunImpl extends RunParamsImpl implements Run {
 	protected static final EnabledFeedback RESET_FEEDBACK_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCanceled()
+	 * @see #getLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean CANCELED_EDEFAULT = false;
+	protected static final String LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
+	 * The default value of the '{@link #isCancelled() <em>Cancelled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCanceled()
+	 * @see #isCancelled()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean canceled = CANCELED_EDEFAULT;
+	protected static final boolean CANCELLED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCancelled() <em>Cancelled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCancelled()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean cancelled = CANCELLED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isReturned() <em>Returned</em>}' attribute.
@@ -212,27 +223,6 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isCanceled() {
-		return canceled;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCanceled(boolean newCanceled) {
-		boolean oldCanceled = canceled;
-		canceled = newCanceled;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.RUN__CANCELED, oldCanceled, canceled));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isReturned() {
 		return returned;
 	}
@@ -254,6 +244,9 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getRunFeedback() {
+		if ( this.isReturned()) {
+			return new EnabledFeedback(false, "Run finished");
+		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
 
@@ -262,8 +255,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getCancelFeedback() {
-		if ( this.isCanceled()){
-			return new EnabledFeedback(false, "canceled");
+		if ( this.isCancelled()){
+			return new EnabledFeedback(false, "Cancelled");
 		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
@@ -274,6 +267,38 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 */
 	public EnabledFeedback getResetFeedback() {
 		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLabel() {
+		// TODO: implement this method to return the 'Label' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isCancelled() {
+		return cancelled;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCancelled(boolean newCancelled) {
+		boolean oldCancelled = cancelled;
+		cancelled = newCancelled;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.RUN__CANCELLED, oldCancelled, cancelled));
 	}
 
 	/**
@@ -355,7 +380,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 	public void reset() {
 		this.runContext = null; 
 		
-		this.setCanceled(false);
+		this.setCancelled(false);
 		this.setReturnSuccess(false);
 		this.setReturnFeedback("");
 		this.setReturnInformation("");
@@ -392,18 +417,26 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 */
 	public ReturnFeedback run(RunContext runContext) {
 		if ( this.runContext!=null) {
-			throw new UnsupportedOperationException(String.format("Run object %s does not support concurrency", this.getClass().getName()));
+			String message = String.format("Run object %s does not support concurrency", this.getClass().getName());
+			Plugin.INSTANCE.logError(message);
+			return new ReturnFeedback(false, message);
 		}
+
 		this.runContext = runContext;
+		this.setProgress("started", 0.0f);
 		ReturnFeedback feedback = null;
 		try {
 			this.setReturnFeedback(null);
+			Plugin.INSTANCE.logInfo("Run started");
 			feedback = this.runImpl(runContext);
+			Plugin.INSTANCE.logInfo("Run finished");
 		} catch (Exception e){
 			e.printStackTrace();
+			Plugin.INSTANCE.logInfo("Run error");
 			feedback = new ReturnFeedback("RunImpl.run ", e);
 		}
 		this.setReturn(feedback);
+		this.setProgress("finished", Float.MAX_VALUE);
 		this.runContext = null;
 		return feedback;
 	}
@@ -419,10 +452,10 @@ public class RunImpl extends RunParamsImpl implements Run {
 		    this.callerContext = null;
 		}
 
-		public BackgroundRunJob(String name, RunContext callerContext) {
+		public BackgroundRunJob(String name, RunContext callerContext, boolean background) {
 			super(name);
 		    this.setPriority(Job.SHORT);
-		    this.setUser(true);
+		    this.setUser(!background);
 		    this.setSystem(false);
 		    this.callerContext = callerContext;
 		}
@@ -459,10 +492,6 @@ public class RunImpl extends RunParamsImpl implements Run {
 
     	    // run the run and set the return feedback
     	    RunImpl.this.run(this);
-    	    // tell the context it is finished 
-    	    // note: the run is Returned, isReturned will give true
-    	    // so can the context recognize that it is finished
-    	    RunImpl.this.setProgress("finished", Float.MAX_VALUE);
 
     	    // run is finished
             this.monitor = null;
@@ -476,8 +505,16 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public void runAsynch(RunContext runContext) {
-		 Job job = new BackgroundRunJob ("Run in Background");
-	     //Plugin.INSTANCE.logInfo("solve, job submitted");
+		this.runAsynch(runContext, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void runAsynch(RunContext runContext, boolean background) {
+		 Job job = new BackgroundRunJob ("Run in Background", runContext, background);
+	     Plugin.INSTANCE.logInfo("Run submitted");
 	     job.schedule(); // start as soon as possible			
 	}
 
@@ -486,7 +523,7 @@ public class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public void cancel() {
-		this.setCanceled(true);
+		this.setCancelled(true);
 	}
 
 	/**
@@ -509,10 +546,10 @@ public class RunImpl extends RunParamsImpl implements Run {
 			return true;
 		}
 		boolean goOn = runContext.onProgress(this, progress);
-		if ( !goOn){
+		if ( !goOn && !this.isCancelled() ){
 			this.cancel();
 		}
-		return goOn;
+		return !this.isCancelled();
 	}
 
 	/**
@@ -581,8 +618,10 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return getCancelFeedback();
 			case JobPackage.RUN__RESET_FEEDBACK:
 				return getResetFeedback();
-			case JobPackage.RUN__CANCELED:
-				return isCanceled();
+			case JobPackage.RUN__LABEL:
+				return getLabel();
+			case JobPackage.RUN__CANCELLED:
+				return isCancelled();
 			case JobPackage.RUN__RETURNED:
 				return isReturned();
 			case JobPackage.RUN__RETURN_SUCCESS:
@@ -603,8 +642,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobPackage.RUN__CANCELED:
-				setCanceled((Boolean)newValue);
+			case JobPackage.RUN__CANCELLED:
+				setCancelled((Boolean)newValue);
 				return;
 			case JobPackage.RUN__RETURNED:
 				setReturned((Boolean)newValue);
@@ -630,8 +669,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.RUN__CANCELED:
-				setCanceled(CANCELED_EDEFAULT);
+			case JobPackage.RUN__CANCELLED:
+				setCancelled(CANCELLED_EDEFAULT);
 				return;
 			case JobPackage.RUN__RETURNED:
 				setReturned(RETURNED_EDEFAULT);
@@ -663,8 +702,10 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return CANCEL_FEEDBACK_EDEFAULT == null ? getCancelFeedback() != null : !CANCEL_FEEDBACK_EDEFAULT.equals(getCancelFeedback());
 			case JobPackage.RUN__RESET_FEEDBACK:
 				return RESET_FEEDBACK_EDEFAULT == null ? getResetFeedback() != null : !RESET_FEEDBACK_EDEFAULT.equals(getResetFeedback());
-			case JobPackage.RUN__CANCELED:
-				return canceled != CANCELED_EDEFAULT;
+			case JobPackage.RUN__LABEL:
+				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
+			case JobPackage.RUN__CANCELLED:
+				return cancelled != CANCELLED_EDEFAULT;
 			case JobPackage.RUN__RETURNED:
 				return returned != RETURNED_EDEFAULT;
 			case JobPackage.RUN__RETURN_SUCCESS:
@@ -695,6 +736,9 @@ public class RunImpl extends RunParamsImpl implements Run {
 			case JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT:
 				runAsynch((RunContext)arguments.get(0));
 				return null;
+			case JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN:
+				runAsynch((RunContext)arguments.get(0), (Boolean)arguments.get(1));
+				return null;
 			case JobPackage.RUN___CANCEL:
 				cancel();
 				return null;
@@ -702,11 +746,11 @@ public class RunImpl extends RunParamsImpl implements Run {
 				return setProgress((String)arguments.get(0), (Float)arguments.get(1));
 			case JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK:
 				return setProgress((ProgressFeedback)arguments.get(0));
-			case JobPackage.RUN___GET_RETURN:
-				return getReturn();
 			case JobPackage.RUN___SET_RETURN__RETURNFEEDBACK:
 				setReturn((ReturnFeedback)arguments.get(0));
 				return null;
+			case JobPackage.RUN___GET_RETURN:
+				return getReturn();
 			case JobPackage.RUN___CONSTRUCT_PARAMS:
 				return constructParams();
 		}
@@ -723,8 +767,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Canceled: ");
-		result.append(canceled);
+		result.append(" (Cancelled: ");
+		result.append(cancelled);
 		result.append(", Returned: ");
 		result.append(returned);
 		result.append(", ReturnSuccess: ");

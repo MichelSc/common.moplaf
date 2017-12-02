@@ -25,7 +25,7 @@
       <eParameters name="other" eType="#//RunParams"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//RunParams">
+  <eClassifiers xsi:type="ecore:EClass" name="Run" abstract="true" eSuperTypes="#//RunParams">
     <eOperations name="reset"/>
     <eOperations name="run" eType="#//ReturnFeedback"/>
     <eOperations name="run" eType="#//ReturnFeedback">
@@ -34,16 +34,20 @@
     <eOperations name="runAsynch">
       <eParameters name="runContext" eType="#//RunContext"/>
     </eOperations>
+    <eOperations name="runAsynch">
+      <eParameters name="runContext" eType="#//RunContext"/>
+      <eParameters name="background" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eOperations name="cancel"/>
     <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="task" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="work" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
-    <eOperations name="setReturn">
-      <eParameters name="feedback" eType="#//ReturnFeedback"/>
-    </eOperations>
     <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="progress" eType="#//ProgressFeedback"/>
+    </eOperations>
+    <eOperations name="setReturn">
+      <eParameters name="feedback" eType="#//ReturnFeedback"/>
     </eOperations>
     <eOperations name="getReturn" eType="#//ReturnFeedback"/>
     <eOperations name="constructParams" eType="#//RunParams"/>
@@ -53,13 +57,15 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ResetFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Canceled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cancelled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Returned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnSuccess" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnInformation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="#//Run">
+  <eClassifiers xsi:type="ecore:EClass" name="Job" abstract="true" eSuperTypes="#//Run">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -71,7 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JobConsole" eSuperTypes="#//Job">
+  <eClassifiers xsi:type="ecore:EClass" name="JobConsole" abstract="true" eSuperTypes="#//Job">
     <eOperations name="addParameter">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="type" eType="#//JobParameterType"/>

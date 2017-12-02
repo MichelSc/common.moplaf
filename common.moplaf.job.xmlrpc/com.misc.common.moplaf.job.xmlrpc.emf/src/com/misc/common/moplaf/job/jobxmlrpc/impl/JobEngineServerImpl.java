@@ -16,15 +16,14 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
+import com.misc.common.moplaf.job.jobclient.JobClientFactory;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
-import com.misc.common.moplaf.job.jobclient.JobclientFactory;
 import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
-import com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage;
-
+import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -124,7 +123,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JobxmlrpcPackage.Literals.JOB_ENGINE_SERVER;
+		return JobXmlRpcPackage.Literals.JOB_ENGINE_SERVER;
 	}
 
 	/**
@@ -145,7 +144,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		int oldPort = port;
 		port = newPort;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobxmlrpcPackage.JOB_ENGINE_SERVER__PORT, oldPort, port));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobXmlRpcPackage.JOB_ENGINE_SERVER__PORT, oldPort, port));
 	}
 
 	/**
@@ -166,7 +165,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		String oldPath = path;
 		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobxmlrpcPackage.JOB_ENGINE_SERVER__PATH, oldPath, path));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobXmlRpcPackage.JOB_ENGINE_SERVER__PATH, oldPath, path));
 	}
 
 	/**
@@ -177,9 +176,9 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PORT:
 				return getPort();
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PATH:
 				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -193,10 +192,10 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PORT:
 				setPort((Integer)newValue);
 				return;
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PATH:
 				setPath((String)newValue);
 				return;
 		}
@@ -211,10 +210,10 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PORT:
 				setPort(PORT_EDEFAULT);
 				return;
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
 		}
@@ -229,9 +228,9 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PORT:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PORT:
 				return port != PORT_EDEFAULT;
-			case JobxmlrpcPackage.JOB_ENGINE_SERVER__PATH:
+			case JobXmlRpcPackage.JOB_ENGINE_SERVER__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 		}
 		return super.eIsSet(featureID);
@@ -340,8 +339,8 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 				}
 			    // add the jobs
 				for ( JobRemote job : jobs){
-		    		SubmittedJob submittedJob = JobclientFactory.eINSTANCE.createSubmittedJob();
-		    		jobEngineServer.getSubmittedJobs().add(submittedJob);
+		    		SubmittedJob submittedJob = JobClientFactory.eINSTANCE.createSubmittedJob();
+//		    		jobEngineServer.getSubmittedJobs().add(submittedJob);
 		    		submittedJob.setJob(job);
 		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
 		    		ReturnFeedback jobFeedback = job.run(submittedJob);
@@ -365,7 +364,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	};
 
 
-	@Override
+//	@Override
 	protected void startImpl() {
 		Plugin.INSTANCE.logInfo("JobEngineServer.start: called");
 		// handler mapping

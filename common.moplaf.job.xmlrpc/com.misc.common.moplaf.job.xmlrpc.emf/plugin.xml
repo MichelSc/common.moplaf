@@ -10,7 +10,7 @@
       <!-- @generated jobxmlrpc -->
       <package
             uri="//www.misc.com/common/moplaf/job/client/xmlrpc/model/0.1"
-            class="com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage"
+            class="com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage"
             genModel="model/jobxmlrpc.genmodel"/>
    </extension>
 

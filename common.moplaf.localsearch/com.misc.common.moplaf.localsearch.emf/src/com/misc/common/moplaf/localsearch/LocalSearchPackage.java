@@ -797,13 +797,13 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__RESET_FEEDBACK = JobPackage.RUN__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__CANCELED = JobPackage.RUN__CANCELED;
+	int STRATEGY__CANCELLED = JobPackage.RUN__CANCELLED;
 
 	/**
 	 * The feature id for the '<em><b>Returned</b></em>' attribute.

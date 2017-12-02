@@ -43,7 +43,7 @@ import com.misc.common.moplaf.job.RunContext;
  *
  * @generated
  */
-public class JobImpl extends RunImpl implements Job {
+public abstract class JobImpl extends RunImpl implements Job {
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -352,6 +352,12 @@ public class JobImpl extends RunImpl implements Job {
 			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.JOB__NAME, oldName, name));
 	}
 
+	
+	@Override
+	public String getLabel() {
+		return this.getName();
+	}
+
 	/*
 	 * 
 	 */
@@ -388,7 +394,6 @@ public class JobImpl extends RunImpl implements Job {
 	 */
 	@Override
 	protected ReturnFeedback runImpl(RunContext runContext) {
-		this.reset(); // or let the user reset himself??
 		
 		this.setStarted(true);
 		this.setStartTime(new Date());

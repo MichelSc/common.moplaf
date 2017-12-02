@@ -30,7 +30,7 @@ import com.misc.common.moplaf.job.RunContext;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.SubmittedJob#getJobEngine <em>Job Engine</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getSubmittedJob()
+ * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getSubmittedJob()
  * @model
  * @generated
  */
@@ -45,7 +45,7 @@ public interface SubmittedJob extends EObject, RunContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Job</em>' containment reference.
 	 * @see #setJob(JobRemote)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getSubmittedJob_Job()
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getSubmittedJob_Job()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface SubmittedJob extends EObject, RunContext {
 
 	/**
 	 * Returns the value of the '<em><b>Job Engine</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getSubmittedJobs <em>Submitted Jobs</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngineOld#getSubmittedJobs <em>Submitted Jobs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Job Engine</em>' container reference isn't clear,
@@ -71,13 +71,13 @@ public interface SubmittedJob extends EObject, RunContext {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Job Engine</em>' container reference.
-	 * @see #setJobEngine(JobEngine)
-	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getSubmittedJob_JobEngine()
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getSubmittedJobs
+	 * @see #setJobEngine(JobEngineOld)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getSubmittedJob_JobEngine()
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngineOld#getSubmittedJobs
 	 * @model opposite="SubmittedJobs" required="true" transient="false"
 	 * @generated
 	 */
-	JobEngine getJobEngine();
+	JobEngineOld getJobEngine();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.SubmittedJob#getJobEngine <em>Job Engine</em>}' container reference.
@@ -87,6 +87,6 @@ public interface SubmittedJob extends EObject, RunContext {
 	 * @see #getJobEngine()
 	 * @generated
 	 */
-	void setJobEngine(JobEngine value);
+	void setJobEngine(JobEngineOld value);
 
 } // SubmittedJob

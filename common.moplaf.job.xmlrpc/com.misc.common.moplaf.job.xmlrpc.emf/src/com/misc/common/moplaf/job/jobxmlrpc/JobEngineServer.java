@@ -27,7 +27,7 @@ import com.misc.common.moplaf.job.jobclient.JobEngine;
  *   <li>{@link com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer#getPath <em>Path</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage#getJobEngineServer()
+ * @see com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage#getJobEngineServer()
  * @model
  * @generated
  */
@@ -43,7 +43,7 @@ public interface JobEngineServer extends JobEngine {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(int)
-	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage#getJobEngineServer_Port()
+	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage#getJobEngineServer_Port()
 	 * @model default="8080"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface JobEngineServer extends JobEngine {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
-	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage#getJobEngineServer_Path()
+	 * @see com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage#getJobEngineServer_Path()
 	 * @model default="xmlrpc"
 	 * @generated
 	 */

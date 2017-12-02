@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated jobclient -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.misc.common.moplaf.job.jobclient.presentation.JobClientModelWizardID"
+            name="%_UI_JobClientModelWizard_label"
+            class="com.misc.common.moplaf.job.jobclient.presentation.JobClientModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JobClientModelFile.gif">
+         <description>%_UI_JobClientModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated jobclient -->
+      <editor
+            id="com.misc.common.moplaf.job.jobclient.presentation.JobClientEditorID"
+            name="%_UI_JobClientEditor_label"
+            icon="icons/full/obj16/JobClientModelFile.gif"
+            extensions="jobclient"
+            class="com.misc.common.moplaf.job.jobclient.presentation.JobClientEditor"
+            contributorClass="com.misc.common.moplaf.job.jobclient.presentation.JobClientActionBarContributor">
+      </editor>
+   </extension>
+</plugin>
