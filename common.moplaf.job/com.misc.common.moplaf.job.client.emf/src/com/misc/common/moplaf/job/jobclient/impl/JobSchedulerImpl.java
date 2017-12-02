@@ -14,7 +14,12 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -512,6 +517,55 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		String status = this.isRunning() ? "Running" : "Stopped";
 		return status;
 	}
+	
+	private class BackgroundRefreshJob extends Job {
+		
+		public BackgroundRefreshJob() {
+			super(String.format("Background refresh job for scheudler %s", JobSchedulerImpl.this.getName()));
+		    this.setPriority(Job.SHORT);
+		    this.setUser(false); // no progress dialog
+		    this.setSystem(true);  // no contribution to progress view
+		}
+		
+		/**
+		 * 
+		 */
+		@Override
+		public boolean belongsTo(Object family) {
+			return family == com.misc.common.moplaf.job.jobclient.Plugin.JOB_FAMILY_JOBSCHEDULER_REFRESH;
+		}
+
+		/**
+		 * Call back from the applicative logic
+		 * 
+		 * @return true if the run may continue, false if the run must attempt to abort
+		 */
+		@Override
+		protected IStatus run(IProgressMonitor monitor) {
+//    	    monitor.beginTask("Initialization", 100);
+			JobSchedulerImpl scheduler = JobSchedulerImpl.this;
+			while ( scheduler.isRunning()) {
+				if( monitor.isCanceled()) {
+					String message = String.format("JobScheduler background job %s cancelled by system", this.getName());
+					Plugin.INSTANCE.logError(message);
+					scheduler.stop(); // will exit the while
+				} else {
+					scheduler.refresh();
+					// sleep refresh rate
+					float seconds_to_sleep = scheduler.getRefreshRate();
+					try {
+						TimeUnit.SECONDS.sleep((long) seconds_to_sleep);
+					} catch (InterruptedException e) {
+						String message = String.format("JobScheduler background job %s crashed, reason %s", this.getName(), e.getMessage());
+						Plugin.INSTANCE.logError(message);
+						scheduler.stop(); // will exit the while
+					}
+				}
+			}
+            return Status.OK_STATUS;
+		}
+	};
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -519,6 +573,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public void start() {
 		this.setRunning(true);
+		 Job job = new BackgroundRefreshJob();
+	     Plugin.INSTANCE.logInfo("JobScheduler started");
+	     job.schedule(); // start as soon as possible			
 	}
 
 	/**
@@ -527,6 +584,7 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public void stop() {
 		this.setRunning(false);
+	     Plugin.INSTANCE.logInfo("JobScheduler stopped");
 	}
 
 

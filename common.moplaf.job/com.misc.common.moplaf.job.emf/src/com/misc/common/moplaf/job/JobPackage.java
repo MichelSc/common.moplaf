@@ -316,13 +316,22 @@ public interface JobPackage extends EPackage {
 	int RUN___RUN_ASYNCH__RUNCONTEXT = RUN_PARAMS_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = RUN_PARAMS_OPERATION_COUNT + 4;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CANCEL = RUN_PARAMS_OPERATION_COUNT + 4;
+	int RUN___CANCEL = RUN_PARAMS_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -331,16 +340,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_PROGRESS__STRING_FLOAT = RUN_PARAMS_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Set Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUN___SET_RETURN__RETURNFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 6;
+	int RUN___SET_PROGRESS__STRING_FLOAT = RUN_PARAMS_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -352,13 +352,22 @@ public interface JobPackage extends EPackage {
 	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___SET_RETURN__RETURNFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 8;
+
+	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___GET_RETURN = RUN_PARAMS_OPERATION_COUNT + 8;
+	int RUN___GET_RETURN = RUN_PARAMS_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -367,7 +376,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CONSTRUCT_PARAMS = RUN_PARAMS_OPERATION_COUNT + 9;
+	int RUN___CONSTRUCT_PARAMS = RUN_PARAMS_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Run</em>' class.
@@ -376,7 +385,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_OPERATION_COUNT = RUN_PARAMS_OPERATION_COUNT + 10;
+	int RUN_OPERATION_COUNT = RUN_PARAMS_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.JobImpl <em>Job</em>}' class.
@@ -596,6 +605,15 @@ public interface JobPackage extends EPackage {
 	int JOB___RUN_ASYNCH__RUNCONTEXT = RUN___RUN_ASYNCH__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -614,15 +632,6 @@ public interface JobPackage extends EPackage {
 	int JOB___SET_PROGRESS__STRING_FLOAT = RUN___SET_PROGRESS__STRING_FLOAT;
 
 	/**
-	 * The operation id for the '<em>Set Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB___SET_RETURN__RETURNFEEDBACK = RUN___SET_RETURN__RETURNFEEDBACK;
-
-	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -630,6 +639,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB___SET_PROGRESS__PROGRESSFEEDBACK = RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___SET_RETURN__RETURNFEEDBACK = RUN___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -903,6 +921,15 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE___RUN_ASYNCH__RUNCONTEXT = JOB___RUN_ASYNCH__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = JOB___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -921,15 +948,6 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE___SET_PROGRESS__STRING_FLOAT = JOB___SET_PROGRESS__STRING_FLOAT;
 
 	/**
-	 * The operation id for the '<em>Set Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_CONSOLE___SET_RETURN__RETURNFEEDBACK = JOB___SET_RETURN__RETURNFEEDBACK;
-
-	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -937,6 +955,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_CONSOLE___SET_PROGRESS__PROGRESSFEEDBACK = JOB___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___SET_RETURN__RETURNFEEDBACK = JOB___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -1751,6 +1778,16 @@ public interface JobPackage extends EPackage {
 	EOperation getRun__RunAsynch__RunContext();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Run#runAsynch(com.misc.common.moplaf.job.RunContext, boolean) <em>Run Asynch</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Run Asynch</em>' operation.
+	 * @see com.misc.common.moplaf.job.Run#runAsynch(com.misc.common.moplaf.job.RunContext, boolean)
+	 * @generated
+	 */
+	EOperation getRun__RunAsynch__RunContext_boolean();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Run#cancel() <em>Cancel</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2513,6 +2550,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RUN___RUN_ASYNCH__RUNCONTEXT = eINSTANCE.getRun__RunAsynch__RunContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Run Asynch</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = eINSTANCE.getRun__RunAsynch__RunContext_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Cancel</b></em>' operation.

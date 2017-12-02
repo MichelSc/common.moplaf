@@ -4,6 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.job.client.emf;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
+Bundle-Activator: com.misc.common.moplaf.job.jobclient.Plugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -12,5 +13,6 @@ Export-Package: com.misc.common.moplaf.job.jobclient,
  com.misc.common.moplaf.job.jobclient.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- com.misc.common.moplaf.job.emf;visibility:=reexport
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
+ org.eclipse.core.jobs
 Bundle-ActivationPolicy: lazy

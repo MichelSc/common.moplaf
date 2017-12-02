@@ -427,7 +427,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__Cancel() {
+	public EOperation getRun__RunAsynch__RunContext_boolean() {
 		return runEClass.getEOperations().get(4);
 	}
 
@@ -436,8 +436,17 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__SetProgress__String_float() {
+	public EOperation getRun__Cancel() {
 		return runEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRun__SetProgress__String_float() {
+		return runEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -455,7 +464,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EOperation getRun__GetReturn() {
-		return runEClass.getEOperations().get(8);
+		return runEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -464,7 +473,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EOperation getRun__SetReturn__ReturnFeedback() {
-		return runEClass.getEOperations().get(6);
+		return runEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -473,7 +482,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EOperation getRun__ConstructParams() {
-		return runEClass.getEOperations().get(9);
+		return runEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -959,10 +968,11 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(runEClass, RUN___RUN);
 		createEOperation(runEClass, RUN___RUN__RUNCONTEXT);
 		createEOperation(runEClass, RUN___RUN_ASYNCH__RUNCONTEXT);
+		createEOperation(runEClass, RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN);
 		createEOperation(runEClass, RUN___CANCEL);
 		createEOperation(runEClass, RUN___SET_PROGRESS__STRING_FLOAT);
-		createEOperation(runEClass, RUN___SET_RETURN__RETURNFEEDBACK);
 		createEOperation(runEClass, RUN___SET_PROGRESS__PROGRESSFEEDBACK);
+		createEOperation(runEClass, RUN___SET_RETURN__RETURNFEEDBACK);
 		createEOperation(runEClass, RUN___GET_RETURN);
 		createEOperation(runEClass, RUN___CONSTRUCT_PARAMS);
 
@@ -1095,17 +1105,21 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		op = initEOperation(getRun__RunAsynch__RunContext(), null, "runAsynch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRunContext(), "runContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getRun__RunAsynch__RunContext_boolean(), null, "runAsynch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRunContext(), "runContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "background", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getRun__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getRun__SetProgress__String_float(), ecorePackage.getEBoolean(), "setProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "task", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "work", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRun__SetReturn__ReturnFeedback(), null, "setReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getReturnFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getRun__SetProgress__ProgressFeedback(), ecorePackage.getEBoolean(), "setProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getProgressFeedback(), "progress", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRun__SetReturn__ReturnFeedback(), null, "setReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getReturnFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRun__GetReturn(), this.getReturnFeedback(), "getReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 

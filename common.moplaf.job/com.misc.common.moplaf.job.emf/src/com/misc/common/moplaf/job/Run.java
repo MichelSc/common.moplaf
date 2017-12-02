@@ -265,6 +265,14 @@ public interface Run extends RunParams {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model runContextDataType="com.misc.common.moplaf.job.RunContext"
+	 * @generated
+	 */
+	void runAsynch(RunContext runContext, boolean background);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */

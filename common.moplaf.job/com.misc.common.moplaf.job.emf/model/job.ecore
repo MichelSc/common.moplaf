@@ -34,6 +34,10 @@
     <eOperations name="runAsynch">
       <eParameters name="runContext" eType="#//RunContext"/>
     </eOperations>
+    <eOperations name="runAsynch">
+      <eParameters name="runContext" eType="#//RunContext"/>
+      <eParameters name="background" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eOperations name="cancel"/>
     <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="task" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

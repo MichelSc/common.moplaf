@@ -251,6 +251,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_ohZRkc7fEeerOOVpHKeh9g" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ohZRks7fEeerOOVpHKeh9g"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_Gne7sNdBEeeO9d4T99PeXw" type="3010" element="_GnUjoNdBEeeO9d4T99PeXw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Gne7sddBEeeO9d4T99PeXw" fontName="Oxygen-Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Gne7stdBEeeO9d4T99PeXw"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_DOH5cLFoEeaI1q7lMcyh3w" type="3010" element="_DNoKM7FoEeaI1q7lMcyh3w">
               <styles xmi:type="notation:FontStyle" xmi:id="_DOH5cbFoEeaI1q7lMcyh3w" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_DOH5crFoEeaI1q7lMcyh3w"/>
@@ -757,6 +761,16 @@
         <semanticElements xmi:type="ecore:EOperation" href="job.ecore#//Run/runAsynch"/>
         <semanticElements xmi:type="ecore:EParameter" href="job.ecore#//Run/runAsynch/runContext"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_ohPgkM7fEeerOOVpHKeh9g" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_GnUjoNdBEeeO9d4T99PeXw" name="runAsynch(runContext RunContext, background EBoolean)" tooltipText="runAsynch(runContext, background)">
+        <target xmi:type="ecore:EOperation" href="job.ecore#//Run/runAsynch.1"/>
+        <semanticElements xmi:type="ecore:EOperation" href="job.ecore#//Run/runAsynch.1"/>
+        <semanticElements xmi:type="ecore:EParameter" href="job.ecore#//Run/runAsynch.1/background"/>
+        <semanticElements xmi:type="ecore:EParameter" href="job.ecore#//Run/runAsynch.1/runContext"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_GnUjoddBEeeO9d4T99PeXw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

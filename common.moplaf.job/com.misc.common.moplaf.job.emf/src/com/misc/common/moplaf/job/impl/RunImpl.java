@@ -452,10 +452,10 @@ public abstract class RunImpl extends RunParamsImpl implements Run {
 		    this.callerContext = null;
 		}
 
-		public BackgroundRunJob(String name, RunContext callerContext) {
+		public BackgroundRunJob(String name, RunContext callerContext, boolean background) {
 			super(name);
 		    this.setPriority(Job.SHORT);
-		    this.setUser(true);
+		    this.setUser(!background);
 		    this.setSystem(false);
 		    this.callerContext = callerContext;
 		}
@@ -505,7 +505,15 @@ public abstract class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public void runAsynch(RunContext runContext) {
-		 Job job = new BackgroundRunJob ("Run in Background", runContext);
+		this.runAsynch(runContext, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void runAsynch(RunContext runContext, boolean background) {
+		 Job job = new BackgroundRunJob ("Run in Background", runContext, background);
 	     Plugin.INSTANCE.logInfo("Run submitted");
 	     job.schedule(); // start as soon as possible			
 	}
@@ -728,16 +736,19 @@ public abstract class RunImpl extends RunParamsImpl implements Run {
 			case JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT:
 				runAsynch((RunContext)arguments.get(0));
 				return null;
+			case JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN:
+				runAsynch((RunContext)arguments.get(0), (Boolean)arguments.get(1));
+				return null;
 			case JobPackage.RUN___CANCEL:
 				cancel();
 				return null;
 			case JobPackage.RUN___SET_PROGRESS__STRING_FLOAT:
 				return setProgress((String)arguments.get(0), (Float)arguments.get(1));
+			case JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK:
+				return setProgress((ProgressFeedback)arguments.get(0));
 			case JobPackage.RUN___SET_RETURN__RETURNFEEDBACK:
 				setReturn((ReturnFeedback)arguments.get(0));
 				return null;
-			case JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK:
-				return setProgress((ProgressFeedback)arguments.get(0));
 			case JobPackage.RUN___GET_RETURN:
 				return getReturn();
 			case JobPackage.RUN___CONSTRUCT_PARAMS:

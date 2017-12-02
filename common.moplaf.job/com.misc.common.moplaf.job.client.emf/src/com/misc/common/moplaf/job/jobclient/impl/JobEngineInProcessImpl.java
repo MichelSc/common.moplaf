@@ -86,7 +86,8 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 		Plugin.INSTANCE.logInfo("JobEnginInProcessImpl.executeJob");
 		this.setJobScheduled(job);
 		Run run = job.getRun();
-		run.runAsynch(new JobEngineRunContext());
+		boolean run_in_background = true; // no dialog to cancel
+		run.runAsynch(new JobEngineRunContext(), run_in_background);
 	}
 
 } //JobEngineInProcessImpl
