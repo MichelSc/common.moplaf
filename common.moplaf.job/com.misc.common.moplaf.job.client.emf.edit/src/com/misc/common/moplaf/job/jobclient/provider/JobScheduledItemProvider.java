@@ -66,12 +66,7 @@ public class JobScheduledItemProvider
 
 			addRunPropertyDescriptor(object);
 			addScheduledOnPropertyDescriptor(object);
-			addNotReadyToRunPropertyDescriptor(object);
-			addReadyToRunPropertyDescriptor(object);
-			addRunningPropertyDescriptor(object);
-			addReturnedPropertyDescriptor(object);
 			addCancelledPropertyDescriptor(object);
-			addFailedPropertyDescriptor(object);
 			addFeedbackPropertyDescriptor(object);
 			addSubmissionTimePropertyDescriptor(object);
 			addStartTimePropertyDescriptor(object);
@@ -130,94 +125,6 @@ public class JobScheduledItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Not Ready To Run feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNotReadyToRunPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduled_NotReadyToRun_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_NotReadyToRun_feature", "_UI_JobScheduled_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULED__NOT_READY_TO_RUN,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Ready To Run feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReadyToRunPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduled_ReadyToRun_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_ReadyToRun_feature", "_UI_JobScheduled_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULED__READY_TO_RUN,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Running feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRunningPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduled_Running_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Running_feature", "_UI_JobScheduled_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULED__RUNNING,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Returned feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduled_Returned_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Returned_feature", "_UI_JobScheduled_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULED__RETURNED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Cancelled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,28 +139,6 @@ public class JobScheduledItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Cancelled_feature", "_UI_JobScheduled_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULED__CANCELLED,
 				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__30RunPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Failed feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFailedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduled_Failed_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Failed_feature", "_UI_JobScheduled_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULED__FAILED,
-				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,

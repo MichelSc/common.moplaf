@@ -80,7 +80,6 @@ public class JobSchedulerItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addRefreshRatePropertyDescriptor(object);
-			addRunningPropertyDescriptor(object);
 			addNrJobsWaitingPropertyDescriptor(object);
 			addNrJobsRunningPropertyDescriptor(object);
 			addNrJobsFailedPropertyDescriptor(object);
@@ -137,28 +136,6 @@ public class JobSchedulerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Running feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRunningPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduler_Running_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Running_feature", "_UI_JobScheduler_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULER__RUNNING,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,7 +171,7 @@ public class JobSchedulerItemProvider
 				 getString("_UI_JobScheduler_NrJobsWaiting_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsWaiting_feature", "_UI_JobScheduler_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_WAITING,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
@@ -216,7 +193,7 @@ public class JobSchedulerItemProvider
 				 getString("_UI_JobScheduler_NrJobsRunning_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsRunning_feature", "_UI_JobScheduler_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_RUNNING,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
@@ -238,7 +215,7 @@ public class JobSchedulerItemProvider
 				 getString("_UI_JobScheduler_NrJobsFailed_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsFailed_feature", "_UI_JobScheduler_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_FAILED,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
@@ -260,7 +237,7 @@ public class JobSchedulerItemProvider
 				 getString("_UI_JobScheduler_NrJobsCancelled_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_NrJobsCancelled_feature", "_UI_JobScheduler_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULER__NR_JOBS_CANCELLED,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
