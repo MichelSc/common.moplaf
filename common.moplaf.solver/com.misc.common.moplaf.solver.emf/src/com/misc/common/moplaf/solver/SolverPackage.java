@@ -108,13 +108,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR__RESET_FEEDBACK = JobPackage.RUN__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CANCELED = JobPackage.RUN__CANCELED;
+	int GENERATOR__LABEL = JobPackage.RUN__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CANCELLED = JobPackage.RUN__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__RETURNED = JobPackage.RUN__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -279,6 +297,24 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR___RUN__RUNCONTEXT = JobPackage.RUN___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___RUN_ASYNCH__RUNCONTEXT = JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -306,15 +342,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR___SET_PROGRESS__PROGRESSFEEDBACK = JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR___GET_RETURN = JobPackage.RUN___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +349,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___GET_RETURN = JobPackage.RUN___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -1531,13 +1567,31 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER__RESET_FEEDBACK = JobPackage.RUN__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__CANCELED = JobPackage.RUN__CANCELED;
+	int SOLUTION_PROVIDER__LABEL = JobPackage.RUN__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__CANCELLED = JobPackage.RUN__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__RETURNED = JobPackage.RUN__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -1639,6 +1693,24 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER___RUN__RUNCONTEXT = JobPackage.RUN___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___RUN_ASYNCH__RUNCONTEXT = JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1666,15 +1738,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK = JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_PROVIDER___GET_RETURN = JobPackage.RUN___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1682,6 +1745,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___GET_RETURN = JobPackage.RUN___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -1775,13 +1847,31 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER__RESET_FEEDBACK = SOLUTION_PROVIDER__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER__CANCELED = SOLUTION_PROVIDER__CANCELED;
+	int SOLUTION_READER__LABEL = SOLUTION_PROVIDER__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__CANCELLED = SOLUTION_PROVIDER__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__RETURNED = SOLUTION_PROVIDER__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -1892,6 +1982,24 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER___RUN__RUNCONTEXT = SOLUTION_PROVIDER___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___RUN_ASYNCH__RUNCONTEXT = SOLUTION_PROVIDER___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SOLUTION_PROVIDER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1919,15 +2027,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER___SET_PROGRESS__PROGRESSFEEDBACK = SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1935,6 +2034,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER___SET_RETURN__RETURNFEEDBACK = SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -2046,13 +2154,31 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN__RESET_FEEDBACK = SOLUTION_READER__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER_PATTERN__CANCELED = SOLUTION_READER__CANCELED;
+	int SOLUTION_READER_PATTERN__LABEL = SOLUTION_READER__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__CANCELLED = SOLUTION_READER__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__RETURNED = SOLUTION_READER__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -2208,6 +2334,24 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN___RUN__RUNCONTEXT = SOLUTION_READER___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___RUN_ASYNCH__RUNCONTEXT = SOLUTION_READER___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SOLUTION_READER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2235,15 +2379,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN___SET_PROGRESS__PROGRESSFEEDBACK = SOLUTION_READER___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER_PATTERN___GET_RETURN = SOLUTION_READER___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2251,6 +2386,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN___SET_RETURN__RETURNFEEDBACK = SOLUTION_READER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___GET_RETURN = SOLUTION_READER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -2453,13 +2597,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__RESET_FEEDBACK = SOLUTION_PROVIDER__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__CANCELED = SOLUTION_PROVIDER__CANCELED;
+	int SOLVER__LABEL = SOLUTION_PROVIDER__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__CANCELLED = SOLUTION_PROVIDER__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__RETURNED = SOLUTION_PROVIDER__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -2795,6 +2957,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___RUN__RUNCONTEXT = SOLUTION_PROVIDER___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___RUN_ASYNCH__RUNCONTEXT = SOLUTION_PROVIDER___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SOLUTION_PROVIDER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2822,15 +3002,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___SET_PROGRESS__PROGRESSFEEDBACK = SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2838,6 +3009,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER___SET_RETURN__RETURNFEEDBACK = SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -3196,13 +3376,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__RESET_FEEDBACK = SOLVER__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP__CANCELED = SOLVER__CANCELED;
+	int SOLVER_CP__LABEL = SOLVER__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__CANCELLED = SOLVER__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__RETURNED = SOLVER__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -3567,6 +3765,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___RUN__RUNCONTEXT = SOLVER___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___RUN_ASYNCH__RUNCONTEXT = SOLVER___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SOLVER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3594,15 +3810,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___SET_PROGRESS__PROGRESSFEEDBACK = SOLVER___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP___GET_RETURN = SOLVER___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3610,6 +3817,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP___SET_RETURN__RETURNFEEDBACK = SOLVER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___GET_RETURN = SOLVER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -3828,13 +4044,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__RESET_FEEDBACK = SOLVER__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP__CANCELED = SOLVER__CANCELED;
+	int SOLVER_LP__LABEL = SOLVER__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__CANCELLED = SOLVER__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__RETURNED = SOLVER__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -4197,6 +4431,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP___RUN__RUNCONTEXT = SOLVER___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___RUN_ASYNCH__RUNCONTEXT = SOLVER___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SOLVER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4224,15 +4476,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP___SET_PROGRESS__PROGRESSFEEDBACK = SOLVER___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP___GET_RETURN = SOLVER___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4240,6 +4483,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP___SET_RETURN__RETURNFEEDBACK = SOLVER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___GET_RETURN = SOLVER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.

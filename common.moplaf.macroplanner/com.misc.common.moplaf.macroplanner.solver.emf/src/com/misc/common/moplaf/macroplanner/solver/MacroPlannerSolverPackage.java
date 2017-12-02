@@ -180,13 +180,31 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_MACRO_PLANNER__RESET_FEEDBACK = SolverPackage.GENERATOR__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_MACRO_PLANNER__CANCELED = SolverPackage.GENERATOR__CANCELED;
+	int LP_MACRO_PLANNER__LABEL = SolverPackage.GENERATOR__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_MACRO_PLANNER__CANCELLED = SolverPackage.GENERATOR__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_MACRO_PLANNER__RETURNED = SolverPackage.GENERATOR__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -477,6 +495,24 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_MACRO_PLANNER___RUN__RUNCONTEXT = SolverPackage.GENERATOR___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_MACRO_PLANNER___RUN_ASYNCH__RUNCONTEXT = SolverPackage.GENERATOR___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_MACRO_PLANNER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SolverPackage.GENERATOR___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -504,15 +540,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_MACRO_PLANNER___SET_PROGRESS__PROGRESSFEEDBACK = SolverPackage.GENERATOR___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_MACRO_PLANNER___GET_RETURN = SolverPackage.GENERATOR___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -520,6 +547,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_MACRO_PLANNER___SET_RETURN__RETURNFEEDBACK = SolverPackage.GENERATOR___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_MACRO_PLANNER___GET_RETURN = SolverPackage.GENERATOR___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.

@@ -108,13 +108,31 @@ public interface SolverneosPackage extends EPackage {
 	int SOLVER_NEOS__RESET_FEEDBACK = SolverPackage.SOLVER_LP__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_NEOS__CANCELED = SolverPackage.SOLVER_LP__CANCELED;
+	int SOLVER_NEOS__LABEL = SolverPackage.SOLVER_LP__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_NEOS__CANCELLED = SolverPackage.SOLVER_LP__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_NEOS__RETURNED = SolverPackage.SOLVER_LP__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -639,6 +657,24 @@ public interface SolverneosPackage extends EPackage {
 	int SOLVER_NEOS___RUN__RUNCONTEXT = SolverPackage.SOLVER_LP___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_NEOS___RUN_ASYNCH__RUNCONTEXT = SolverPackage.SOLVER_LP___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_NEOS___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SolverPackage.SOLVER_LP___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,15 +702,6 @@ public interface SolverneosPackage extends EPackage {
 	int SOLVER_NEOS___SET_PROGRESS__PROGRESSFEEDBACK = SolverPackage.SOLVER_LP___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_NEOS___GET_RETURN = SolverPackage.SOLVER_LP___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -682,6 +709,15 @@ public interface SolverneosPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_NEOS___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_LP___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_NEOS___GET_RETURN = SolverPackage.SOLVER_LP___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.

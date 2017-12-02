@@ -104,13 +104,31 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__RESET_FEEDBACK = SolverPackage.SOLVER_CP__RESET_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_JACOP__CANCELED = SolverPackage.SOLVER_CP__CANCELED;
+	int SOLVER_JACOP__LABEL = SolverPackage.SOLVER_CP__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__CANCELLED = SolverPackage.SOLVER_CP__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__RETURNED = SolverPackage.SOLVER_CP__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -455,6 +473,24 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP___RUN__RUNCONTEXT = SolverPackage.SOLVER_CP___RUN__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___RUN_ASYNCH__RUNCONTEXT = SolverPackage.SOLVER_CP___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = SolverPackage.SOLVER_CP___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,15 +518,6 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP___SET_PROGRESS__PROGRESSFEEDBACK = SolverPackage.SOLVER_CP___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
-	 * The operation id for the '<em>Get Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP___GET_RETURN = SolverPackage.SOLVER_CP___GET_RETURN;
-
-	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -498,6 +525,15 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_CP___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___GET_RETURN = SolverPackage.SOLVER_CP___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
