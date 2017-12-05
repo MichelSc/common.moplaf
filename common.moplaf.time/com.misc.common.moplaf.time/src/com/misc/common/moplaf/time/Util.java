@@ -41,11 +41,11 @@ public class Util {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	static public Date addSeconds(Date date, float seconds) {
+	static public Date addSeconds(Date date, double seconds) {
 		if ( seconds == 0.0f) { return date; }
 		else {
-			float millisAsFromEpoch = date.getTime()+seconds*1000.0f;
-			return new Date((long)millisAsFromEpoch);
+			long millisAsFromEpoch = date.getTime()+(long)(seconds*1000.0d);
+			return new Date(millisAsFromEpoch);
 		}
 	}
 
@@ -53,16 +53,16 @@ public class Util {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	static public Date addMinutes(Date date, float minutes) {
-		return Util.addSeconds(date,  minutes*60.0f);
+	static public Date addMinutes(Date date, double minutes) {
+		return Util.addSeconds(date,  minutes*60.0d);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	static public Date addHours(Date date, float hours) {
-		return Util.addMinutes(date,  hours*60.0f);
+	static public Date addHours(Date date, double hours) {
+		return Util.addMinutes(date,  hours*60.0d);
 	}
 
 	/**
