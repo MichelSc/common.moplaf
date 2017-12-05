@@ -44,8 +44,20 @@ public class Util {
 	static public Date addSeconds(Date date, float seconds) {
 		if ( seconds == 0.0f) { return date; }
 		else {
-			float millisAsFromEpoch = date.getTime()+seconds*1000.0f;
-			return new Date((long)millisAsFromEpoch);
+			long millisAsFromEpoch = date.getTime()+(long)seconds*1000;
+			return new Date(millisAsFromEpoch);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	static public Date addSeconds(Date date, long seconds) {
+		if ( seconds == 0.0f) { return date; }
+		else {
+			long millisAsFromEpoch = date.getTime()+seconds*1000;
+			return new Date(millisAsFromEpoch);
 		}
 	}
 
