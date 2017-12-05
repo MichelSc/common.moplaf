@@ -34,6 +34,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Phase#getDurationAverage <em>Duration Average</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Phase#getStrategy <em>Strategy</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Phase#getSteps <em>Steps</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Phase#getSelectBestChance <em>Select Best Chance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Phase#getSelectWorstChance <em>Select Worst Chance</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getPhase()
@@ -98,6 +100,7 @@ public interface Phase extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Max Steps</b></em>' attribute.
+	 * The default value is <code>"10"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Max Steps</em>' attribute isn't clear,
@@ -107,7 +110,7 @@ public interface Phase extends EObject {
 	 * @return the value of the '<em>Max Steps</em>' attribute.
 	 * @see #setMaxSteps(int)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getPhase_MaxSteps()
-	 * @model
+	 * @model default="10"
 	 * @generated
 	 */
 	int getMaxSteps();
@@ -124,6 +127,7 @@ public interface Phase extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Max Seconds</b></em>' attribute.
+	 * The default value is <code>"60"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Max Seconds</em>' attribute isn't clear,
@@ -133,7 +137,7 @@ public interface Phase extends EObject {
 	 * @return the value of the '<em>Max Seconds</em>' attribute.
 	 * @see #setMaxSeconds(float)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getPhase_MaxSeconds()
-	 * @model
+	 * @model default="60"
 	 * @generated
 	 */
 	float getMaxSeconds();
@@ -323,6 +327,60 @@ public interface Phase extends EObject {
 	 * @generated
 	 */
 	EList<Step> getSteps();
+
+	/**
+	 * Returns the value of the '<em><b>Select Best Chance</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Select Best Chance</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Select Best Chance</em>' attribute.
+	 * @see #setSelectBestChance(double)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getPhase_SelectBestChance()
+	 * @model default="1.0"
+	 * @generated
+	 */
+	double getSelectBestChance();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Phase#getSelectBestChance <em>Select Best Chance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Select Best Chance</em>' attribute.
+	 * @see #getSelectBestChance()
+	 * @generated
+	 */
+	void setSelectBestChance(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Select Worst Chance</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Select Worst Chance</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Select Worst Chance</em>' attribute.
+	 * @see #setSelectWorstChance(double)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getPhase_SelectWorstChance()
+	 * @model default="1.0"
+	 * @generated
+	 */
+	double getSelectWorstChance();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Phase#getSelectWorstChance <em>Select Worst Chance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Select Worst Chance</em>' attribute.
+	 * @see #getSelectWorstChance()
+	 * @generated
+	 */
+	void setSelectWorstChance(double value);
 
 	/**
 	 * <!-- begin-user-doc -->

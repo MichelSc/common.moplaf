@@ -99,6 +99,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER__RESET_FEEDBACK = LocalSearchPackage.STRATEGY__RESET_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER__LABEL = LocalSearchPackage.STRATEGY__LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,24 +198,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER__NAME = LocalSearchPackage.STRATEGY__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Select Best Chance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER__SELECT_BEST_CHANCE = LocalSearchPackage.STRATEGY__SELECT_BEST_CHANCE;
-
-	/**
-	 * The feature id for the '<em><b>Select Worst Chance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER__SELECT_WORST_CHANCE = LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE;
-
-	/**
 	 * The feature id for the '<em><b>Schedules</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +233,7 @@ public interface SchedulerPackage extends EPackage {
 	 */
 	int SCHEDULER___RESET = LocalSearchPackage.STRATEGY___RESET;
 
+
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
 	 * <!-- begin-user-doc -->
@@ -270,6 +262,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___RUN_ASYNCH__RUNCONTEXT = LocalSearchPackage.STRATEGY___RUN_ASYNCH__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = LocalSearchPackage.STRATEGY___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,15 +289,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___SET_PROGRESS__STRING_FLOAT = LocalSearchPackage.STRATEGY___SET_PROGRESS__STRING_FLOAT;
 
 	/**
-	 * The operation id for the '<em>Set Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER___SET_RETURN__RETURNFEEDBACK = LocalSearchPackage.STRATEGY___SET_RETURN__RETURNFEEDBACK;
-
-	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -304,6 +296,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULER___SET_PROGRESS__PROGRESSFEEDBACK = LocalSearchPackage.STRATEGY___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___SET_RETURN__RETURNFEEDBACK = LocalSearchPackage.STRATEGY___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -330,7 +331,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER___SELECT_GOOD_SOLUTION = LocalSearchPackage.STRATEGY___SELECT_GOOD_SOLUTION;
+	int SCHEDULER___SELECT_GOOD_SOLUTION__DOUBLE = LocalSearchPackage.STRATEGY___SELECT_GOOD_SOLUTION__DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Select Bad Solution</em>' operation.
@@ -339,7 +340,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER___SELECT_BAD_SOLUTION = LocalSearchPackage.STRATEGY___SELECT_BAD_SOLUTION;
+	int SCHEDULER___SELECT_BAD_SOLUTION__DOUBLE = LocalSearchPackage.STRATEGY___SELECT_BAD_SOLUTION__DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Sort Solutions</em>' operation.
@@ -366,7 +367,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER___PRUNE = LocalSearchPackage.STRATEGY___PRUNE;
+	int SCHEDULER___PRUNE__DOUBLE = LocalSearchPackage.STRATEGY___PRUNE__DOUBLE;
 
 	/**
 	 * The operation id for the '<em>Construct Score</em>' operation.

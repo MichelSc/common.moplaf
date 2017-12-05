@@ -41,8 +41,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getSelectBestChance <em>Select Best Chance</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getSelectWorstChance <em>Select Worst Chance</em>}</li>
  * </ul>
  *
  * @generated
@@ -127,46 +125,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSelectBestChance() <em>Select Best Chance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelectBestChance()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double SELECT_BEST_CHANCE_EDEFAULT = 1.0;
-
-	/**
-	 * The cached value of the '{@link #getSelectBestChance() <em>Select Best Chance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelectBestChance()
-	 * @generated
-	 * @ordered
-	 */
-	protected double selectBestChance = SELECT_BEST_CHANCE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSelectWorstChance() <em>Select Worst Chance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelectWorstChance()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double SELECT_WORST_CHANCE_EDEFAULT = 1.0;
-
-	/**
-	 * The cached value of the '{@link #getSelectWorstChance() <em>Select Worst Chance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelectWorstChance()
-	 * @generated
-	 * @ordered
-	 */
-	protected double selectWorstChance = SELECT_WORST_CHANCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -277,52 +235,10 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public double getSelectBestChance() {
-		return selectBestChance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSelectBestChance(double newSelectBestChance) {
-		double oldSelectBestChance = selectBestChance;
-		selectBestChance = newSelectBestChance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STRATEGY__SELECT_BEST_CHANCE, oldSelectBestChance, selectBestChance));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getSelectWorstChance() {
-		return selectWorstChance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSelectWorstChance(double newSelectWorstChance) {
-		double oldSelectWorstChance = selectWorstChance;
-		selectWorstChance = newSelectWorstChance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE, oldSelectWorstChance, selectWorstChance));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Solution selectGoodSolution() {
+	public Solution selectGoodSolution(double chance) {
 		// sort the solution from the best to the worst, thus by descending score
-		Solution selected = this.select(this.getSelectBestChance(), false);
+		Solution selected = this.select(chance, false);
 		return selected;
 	}
 
@@ -330,9 +246,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Solution selectBadSolution() {
+	public Solution selectBadSolution(double chance) {
 		// sort the solution from the worst to the best, thus by ascending score
-		Solution selected = this.select(this.getSelectWorstChance(), true);
+		Solution selected = this.select(chance, true);
 		return selected;
 	}
 
@@ -361,9 +277,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void prune() {
+	public void prune(double chance) {
 		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
-			Solution solution = this.selectBadSolution();
+			Solution solution = this.selectBadSolution(chance);
 			Plugin.INSTANCE.logInfo(String.format("Strategy %s solution %s:%d pruned", 
 					this.getName(),
 					solution.getStep(),
@@ -479,10 +395,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return getMaxNrSolutions();
 			case LocalSearchPackage.STRATEGY__NAME:
 				return getName();
-			case LocalSearchPackage.STRATEGY__SELECT_BEST_CHANCE:
-				return getSelectBestChance();
-			case LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE:
-				return getSelectWorstChance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -513,12 +425,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			case LocalSearchPackage.STRATEGY__NAME:
 				setName((String)newValue);
 				return;
-			case LocalSearchPackage.STRATEGY__SELECT_BEST_CHANCE:
-				setSelectBestChance((Double)newValue);
-				return;
-			case LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE:
-				setSelectWorstChance((Double)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -546,12 +452,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			case LocalSearchPackage.STRATEGY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case LocalSearchPackage.STRATEGY__SELECT_BEST_CHANCE:
-				setSelectBestChance(SELECT_BEST_CHANCE_EDEFAULT);
-				return;
-			case LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE:
-				setSelectWorstChance(SELECT_WORST_CHANCE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -574,10 +474,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return maxNrSolutions != MAX_NR_SOLUTIONS_EDEFAULT;
 			case LocalSearchPackage.STRATEGY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case LocalSearchPackage.STRATEGY__SELECT_BEST_CHANCE:
-				return selectBestChance != SELECT_BEST_CHANCE_EDEFAULT;
-			case LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE:
-				return selectWorstChance != SELECT_WORST_CHANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -590,17 +486,17 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.STRATEGY___SELECT_GOOD_SOLUTION:
-				return selectGoodSolution();
-			case LocalSearchPackage.STRATEGY___SELECT_BAD_SOLUTION:
-				return selectBadSolution();
+			case LocalSearchPackage.STRATEGY___SELECT_GOOD_SOLUTION__DOUBLE:
+				return selectGoodSolution((Double)arguments.get(0));
+			case LocalSearchPackage.STRATEGY___SELECT_BAD_SOLUTION__DOUBLE:
+				return selectBadSolution((Double)arguments.get(0));
 			case LocalSearchPackage.STRATEGY___SORT_SOLUTIONS:
 				sortSolutions();
 				return null;
 			case LocalSearchPackage.STRATEGY___MAKE_NEW_SOLUTION_NR:
 				return makeNewSolutionNr();
-			case LocalSearchPackage.STRATEGY___PRUNE:
-				prune();
+			case LocalSearchPackage.STRATEGY___PRUNE__DOUBLE:
+				prune((Double)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -622,10 +518,6 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		result.append(maxNrSolutions);
 		result.append(", Name: ");
 		result.append(name);
-		result.append(", SelectBestChance: ");
-		result.append(selectBestChance);
-		result.append(", SelectWorstChance: ");
-		result.append(selectWorstChance);
 		result.append(')');
 		return result.toString();
 	}

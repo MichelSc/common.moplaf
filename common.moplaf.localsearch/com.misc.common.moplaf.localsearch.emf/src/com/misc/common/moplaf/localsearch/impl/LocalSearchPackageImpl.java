@@ -588,25 +588,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_SelectBestChance() {
-		return (EAttribute)strategyEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStrategy_SelectWorstChance() {
-		return (EAttribute)strategyEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getStrategy__SelectGoodSolution() {
+	public EOperation getStrategy__SelectGoodSolution__double() {
 		return strategyEClass.getEOperations().get(0);
 	}
 
@@ -615,7 +597,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getStrategy__SelectBadSolution() {
+	public EOperation getStrategy__SelectBadSolution__double() {
 		return strategyEClass.getEOperations().get(1);
 	}
 
@@ -642,7 +624,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getStrategy__Prune() {
+	public EOperation getStrategy__Prune__double() {
 		return strategyEClass.getEOperations().get(4);
 	}
 
@@ -752,6 +734,24 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 */
 	public EReference getPhase_Steps() {
 		return (EReference)phaseEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPhase_SelectBestChance() {
+		return (EAttribute)phaseEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPhase_SelectWorstChance() {
+		return (EAttribute)phaseEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1039,13 +1039,11 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(strategyEClass, STRATEGY__CURRENT_SOLUTION_NR);
 		createEAttribute(strategyEClass, STRATEGY__MAX_NR_SOLUTIONS);
 		createEAttribute(strategyEClass, STRATEGY__NAME);
-		createEAttribute(strategyEClass, STRATEGY__SELECT_BEST_CHANCE);
-		createEAttribute(strategyEClass, STRATEGY__SELECT_WORST_CHANCE);
-		createEOperation(strategyEClass, STRATEGY___SELECT_GOOD_SOLUTION);
-		createEOperation(strategyEClass, STRATEGY___SELECT_BAD_SOLUTION);
+		createEOperation(strategyEClass, STRATEGY___SELECT_GOOD_SOLUTION__DOUBLE);
+		createEOperation(strategyEClass, STRATEGY___SELECT_BAD_SOLUTION__DOUBLE);
 		createEOperation(strategyEClass, STRATEGY___SORT_SOLUTIONS);
 		createEOperation(strategyEClass, STRATEGY___MAKE_NEW_SOLUTION_NR);
-		createEOperation(strategyEClass, STRATEGY___PRUNE);
+		createEOperation(strategyEClass, STRATEGY___PRUNE__DOUBLE);
 
 		phaseEClass = createEClass(PHASE);
 		createEAttribute(phaseEClass, PHASE__NAME);
@@ -1059,6 +1057,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(phaseEClass, PHASE__DURATION_AVERAGE);
 		createEReference(phaseEClass, PHASE__STRATEGY);
 		createEReference(phaseEClass, PHASE__STEPS);
+		createEAttribute(phaseEClass, PHASE__SELECT_BEST_CHANCE);
+		createEAttribute(phaseEClass, PHASE__SELECT_WORST_CHANCE);
 		createEOperation(phaseEClass, PHASE___DO_PHASE);
 		createEOperation(phaseEClass, PHASE___DO_STEP__STEP);
 		createEOperation(phaseEClass, PHASE___DO_ACTION__STEP_ACTION);
@@ -1192,24 +1192,25 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getStrategy_CurrentSolutionNr(), ecorePackage.getEInt(), "CurrentSolutionNr", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_MaxNrSolutions(), ecorePackage.getEInt(), "MaxNrSolutions", "10", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_SelectBestChance(), ecorePackage.getEDouble(), "SelectBestChance", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_SelectWorstChance(), ecorePackage.getEDouble(), "SelectWorstChance", "1.0", 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getStrategy__SelectGoodSolution(), this.getSolution(), "selectGoodSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getStrategy__SelectGoodSolution__double(), this.getSolution(), "selectGoodSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDouble(), "chance", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getStrategy__SelectBadSolution(), this.getSolution(), "selectBadSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getStrategy__SelectBadSolution__double(), this.getSolution(), "selectBadSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDouble(), "chance", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getStrategy__SortSolutions(), null, "sortSolutions", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getStrategy__MakeNewSolutionNr(), ecorePackage.getEInt(), "makeNewSolutionNr", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getStrategy__Prune(), null, "prune", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getStrategy__Prune__double(), null, "prune", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDouble(), "chance", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(phaseEClass, Phase.class, "Phase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPhase_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPhase_KeepLevel(), this.getStrategyLevel(), "KeepLevel", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPhase_MaxSteps(), ecorePackage.getEInt(), "MaxSteps", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPhase_MaxSeconds(), ecorePackage.getEFloat(), "MaxSeconds", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPhase_MaxSteps(), ecorePackage.getEInt(), "MaxSteps", "10", 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPhase_MaxSeconds(), ecorePackage.getEFloat(), "MaxSeconds", "60", 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPhase_PhaseStart(), ecorePackage.getEDate(), "PhaseStart", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPhase_PhaseEnd(), ecorePackage.getEDate(), "PhaseEnd", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPhase_NrSteps(), ecorePackage.getEInt(), "NrSteps", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1217,6 +1218,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getPhase_DurationAverage(), ecorePackage.getEFloat(), "DurationAverage", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPhase_Strategy(), this.getStrategy(), this.getStrategy_Phases(), "Strategy", null, 1, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPhase_Steps(), this.getStep(), this.getStep_Phase(), "Steps", null, 0, -1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPhase_SelectBestChance(), ecorePackage.getEDouble(), "SelectBestChance", "1.0", 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPhase_SelectWorstChance(), ecorePackage.getEDouble(), "SelectWorstChance", "1.0", 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPhase__DoPhase(), null, "doPhase", 0, 1, IS_UNIQUE, IS_ORDERED);
 

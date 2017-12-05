@@ -69,6 +69,8 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 			addNrStepsPropertyDescriptor(object);
 			addDurationTotalPropertyDescriptor(object);
 			addDurationAveragePropertyDescriptor(object);
+			addSelectBestChancePropertyDescriptor(object);
+			addSelectWorstChancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -272,6 +274,50 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 	}
 
 	/**
+	 * This adds a property descriptor for the Select Best Chance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectBestChancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Phase_SelectBestChance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Phase_SelectBestChance_feature", "_UI_Phase_type"),
+				 LocalSearchPackage.Literals.PHASE__SELECT_BEST_CHANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__10StrategyPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Select Worst Chance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectWorstChancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Phase_SelectWorstChance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Phase_SelectWorstChance_feature", "_UI_Phase_type"),
+				 LocalSearchPackage.Literals.PHASE__SELECT_WORST_CHANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__10StrategyPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -347,6 +393,8 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 			case LocalSearchPackage.PHASE__NR_STEPS:
 			case LocalSearchPackage.PHASE__DURATION_TOTAL:
 			case LocalSearchPackage.PHASE__DURATION_AVERAGE:
+			case LocalSearchPackage.PHASE__SELECT_BEST_CHANCE:
+			case LocalSearchPackage.PHASE__SELECT_WORST_CHANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.PHASE__STEPS:

@@ -51,6 +51,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl#getDurationAverage <em>Duration Average</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl#getStrategy <em>Strategy</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl#getSteps <em>Steps</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl#getSelectBestChance <em>Select Best Chance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl#getSelectWorstChance <em>Select Worst Chance</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,7 +106,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_STEPS_EDEFAULT = 0;
+	protected static final int MAX_STEPS_EDEFAULT = 10;
 
 	/**
 	 * The cached value of the '{@link #getMaxSteps() <em>Max Steps</em>}' attribute.
@@ -124,7 +126,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float MAX_SECONDS_EDEFAULT = 0.0F;
+	protected static final float MAX_SECONDS_EDEFAULT = 60.0F;
 
 	/**
 	 * The cached value of the '{@link #getMaxSeconds() <em>Max Seconds</em>}' attribute.
@@ -245,6 +247,46 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<Step> steps;
+
+	/**
+	 * The default value of the '{@link #getSelectBestChance() <em>Select Best Chance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectBestChance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double SELECT_BEST_CHANCE_EDEFAULT = 1.0;
+
+	/**
+	 * The cached value of the '{@link #getSelectBestChance() <em>Select Best Chance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectBestChance()
+	 * @generated
+	 * @ordered
+	 */
+	protected double selectBestChance = SELECT_BEST_CHANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelectWorstChance() <em>Select Worst Chance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectWorstChance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double SELECT_WORST_CHANCE_EDEFAULT = 1.0;
+
+	/**
+	 * The cached value of the '{@link #getSelectWorstChance() <em>Select Worst Chance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectWorstChance()
+	 * @generated
+	 * @ordered
+	 */
+	protected double selectWorstChance = SELECT_WORST_CHANCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -511,6 +553,52 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getSelectBestChance() {
+		return selectBestChance;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectBestChance(double newSelectBestChance) {
+		double oldSelectBestChance = selectBestChance;
+		selectBestChance = newSelectBestChance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.PHASE__SELECT_BEST_CHANCE, oldSelectBestChance, selectBestChance));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getSelectWorstChance() {
+		return selectWorstChance;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectWorstChance(double newSelectWorstChance) {
+		double oldSelectWorstChance = selectWorstChance;
+		selectWorstChance = newSelectWorstChance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.PHASE__SELECT_WORST_CHANCE, oldSelectWorstChance, selectWorstChance));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void doPhase() {
 		Phase phase = this;
@@ -538,7 +626,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		long elapsed_millis = 0;
 		do {
 			// select a solution to improve
-			Solution start_solution = strategy.selectGoodSolution();
+			Solution start_solution = strategy.selectGoodSolution(this.getSelectBestChance());
 			if ( start_solution==null ) {
 				Plugin.INSTANCE.logError(String.format("Phase%s, step %04d: no start solution, break", phase.getName(), nr_iterations));
 				finished = true;
@@ -630,7 +718,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			} 
 			
 			// prune the solution pool
-			strategy.prune();
+			strategy.prune(this.getSelectWorstChance());
 
 		} while ( !finished); // loop on the steps
 		
@@ -776,6 +864,10 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				return getStrategy();
 			case LocalSearchPackage.PHASE__STEPS:
 				return getSteps();
+			case LocalSearchPackage.PHASE__SELECT_BEST_CHANCE:
+				return getSelectBestChance();
+			case LocalSearchPackage.PHASE__SELECT_WORST_CHANCE:
+				return getSelectWorstChance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -823,6 +915,12 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				getSteps().clear();
 				getSteps().addAll((Collection<? extends Step>)newValue);
 				return;
+			case LocalSearchPackage.PHASE__SELECT_BEST_CHANCE:
+				setSelectBestChance((Double)newValue);
+				return;
+			case LocalSearchPackage.PHASE__SELECT_WORST_CHANCE:
+				setSelectWorstChance((Double)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -868,6 +966,12 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			case LocalSearchPackage.PHASE__STEPS:
 				getSteps().clear();
 				return;
+			case LocalSearchPackage.PHASE__SELECT_BEST_CHANCE:
+				setSelectBestChance(SELECT_BEST_CHANCE_EDEFAULT);
+				return;
+			case LocalSearchPackage.PHASE__SELECT_WORST_CHANCE:
+				setSelectWorstChance(SELECT_WORST_CHANCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -902,6 +1006,10 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				return getStrategy() != null;
 			case LocalSearchPackage.PHASE__STEPS:
 				return steps != null && !steps.isEmpty();
+			case LocalSearchPackage.PHASE__SELECT_BEST_CHANCE:
+				return selectBestChance != SELECT_BEST_CHANCE_EDEFAULT;
+			case LocalSearchPackage.PHASE__SELECT_WORST_CHANCE:
+				return selectWorstChance != SELECT_WORST_CHANCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -955,6 +1063,10 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		result.append(durationTotal);
 		result.append(", DurationAverage: ");
 		result.append(durationAverage);
+		result.append(", SelectBestChance: ");
+		result.append(selectBestChance);
+		result.append(", SelectWorstChance: ");
+		result.append(selectWorstChance);
 		result.append(')');
 		return result.toString();
 	}

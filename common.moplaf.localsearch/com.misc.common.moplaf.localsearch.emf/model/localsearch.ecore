@@ -14,7 +14,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//SolutionChange">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Action:&#xD;&#xA;  plan this planUnit&#xD;&#xA;  plan some planUnit:&#xD;&#xA;     select a planUnit, or not&#xD;&#xA;     construct the Moves&#xD;&#xA;     estimate/score&#xD;&#xA;     apply/revert&#xD;&#xA;     repeat a given number of times&#xD;&#xA;An action is the unit of execution with a given goal, that will be attained by considering a set of moves and evaluating them completly.&#xD;&#xA;The result of an action is not the next current solution to be considered, but only a step in its direction."/>
+      <details key="documentation" value="An Action receives a Solution and modifies it in order to achieve some specific goal. For this, it considers a number of Moves, and retain the Move giving the best Solution.&#xA;&#xA;The specific logic of the Action is provided by the Action specialization, in the method createMovesImpl, that must create the Moves to be considered while executing the Action.&#xA;&#xA;The flow of an Action is thus 1) to receive a Solution in the reference CurrentSolution, 2) to create all the Moves to be considered, 3) to select the Move giving the best Score, 3) to leave the CurrentSolution as the solution corresponding to the best Move.&#xA;&#xA;Note that the system will select a Move, even if all of them result in worst Solution. If it is desired to consider the received solution as a candidate for the resulting Solution, it is then necessary to provides a Move doing nothing (a no-op Move)."/>
     </eAnnotations>
     <eOperations name="initialize">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -45,7 +45,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Move" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A move is a small change to the solution.&#xA;Small meaning a limited (constant) number of deltas with respect to the solution . &#xA;So the score a  move must be calculated in a constant time (with respect to the size of the solution).&#xA;A move is specific to a given solution (to a specific Action).&#xA;A move is part of a tree structure, where the parent is the previous move exectuted, and the children are alternative next moves to be executed after this move..&#xA;A move supports an undo operation. All the changes in the current solution carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain."/>
+      <details key="documentation" value="A move is a small change to the solution, composed of  a limited (constant) number of deltas with respect to the solution &#xA; &#xA;So the score of a  move must be calculated in a limited time (with respect to the size of the solution).&#xA;&#xA;A Move is part of a tree structure, where the parent is the previous move executed, and the children are alternative next moves to be executed after this move..&#xA;&#xA;A move supports an undo operation. All the changes in the current solution that are carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.&#xA;&#xA;A Move is specific to a given implementation (to a specific Action). The implementation must only provide logic for the do operation. The framework will iterate on the Moves, and for every Move, do the Move, trigger the Score calculation, compare it to the best Score so far, and finally undo the Move."/>
     </eAnnotations>
     <eOperations name="do">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -98,13 +98,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Strategy" abstract="true" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Solve the problem.&#xD;&#xA;Manage a pool of solutions.&#xD;&#xA;Carry out the improvment stetps one be one.&#xD;&#xA;For every improvment step:&#xD;&#xA;  - iterate a number of times (limited in number or in time)&#xD;&#xA; - select a solution in the pool&#xD;&#xA; - do the improvment&#xD;&#xA; - decide if the new solutions makes it to the pool or not&#xD;&#xA;   is this not too early?&#xD;&#xA;   should we not iterate a little bit before deciding copy or not copy?"/>
+      <details key="documentation" value="Conceptually, a Strategy is an engine for solving a given problem. It implements the execution of the resolution and knows the entire scenario to be solved, plus some complementary information about how to solve the problem.&#xA;&#xA;Functionally, a Strategy manages a pool of Solutions and executes a sequence of Phases, each Phase being an iteration of Steps.&#xA;&#xA;The Strategy implements logics for selecting a good/bad solution in the pool, as a function of a chance between 1.0 and 0.0. A value of 1.0 will return the most extreme Solution, while with a value of 0.0 every Solution has equal probability to be selected.&#xA;&#xA;A phase executes steps iteratively, up to a max number of iteration or a maximum duration. Each step 1) selects a solution in the pool, 2) improves it by executing Actions, 3) adds the new solution to the pool, and 4) prunes the pool.&#xA;"/>
     </eAnnotations>
-    <eOperations name="selectGoodSolution" eType="#//Solution"/>
-    <eOperations name="selectBadSolution" eType="#//Solution"/>
+    <eOperations name="selectGoodSolution" eType="#//Solution">
+      <eParameters name="chance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="selectBadSolution" eType="#//Solution">
+      <eParameters name="chance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
     <eOperations name="sortSolutions"/>
     <eOperations name="makeNewSolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eOperations name="prune"/>
+    <eOperations name="prune">
+      <eParameters name="chance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Phases" upperBound="-1"
         eType="#//Phase" containment="true" eOpposite="#//Phase/Strategy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
@@ -113,14 +119,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxNrSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="10"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectBestChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="1.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectWorstChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Phase" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possibly better at the end of the execution.&#xD;&#xA;For this, it will execute a set of Actions.&#xD;&#xA;An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution.&#xA;The framework will iterate on the improvments. The iterations will limited by a max number of iterations and and maximum duration."/>
+      <details key="documentation" value="A Phase is the main loop of the resolution process, while a Step is an iteration of this Loop. A Step is supposed to improve a solution.&#xA;&#xA;The phase will keep iterating up to a max number of iterations or to a max durations.&#xA;&#xA;The execution flow of a Step is 1) to select a solution in the pool as a function of the attribute SelectBestChance, 2) to improve the selected solution by performing Actions, 3) to put the resulting Solution in the pool and 4) to prune the pool of Solution as a function of the attribute SelectWorstChance.&#xA;&#xA;The Actions to be performed in a Step are provided by the concrete class, in the method doStempImpl, that must 1) create the Actions, 2) execute them by calling doAction.&#xA;&#xA;The KeepLevel attribute controls the level of Data to be kept for debugging purposes.&#xA;&#xA;"/>
     </eAnnotations>
     <eOperations name="doPhase"/>
     <eOperations name="doStep">
@@ -132,8 +134,10 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeepLevel" eType="#//StrategyLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSteps" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSeconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSteps" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSeconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="60"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="PhaseStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="PhaseEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NrSteps" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -143,6 +147,10 @@
         eType="#//Strategy" eOpposite="#//Strategy/Phases"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Steps" upperBound="-1"
         eType="#//Step" containment="true" eOpposite="#//Step/Phase"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectBestChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectWorstChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
   <eClassifiers xsi:type="ecore:EClass" name="Step" eSuperTypes="#//SolutionChange">

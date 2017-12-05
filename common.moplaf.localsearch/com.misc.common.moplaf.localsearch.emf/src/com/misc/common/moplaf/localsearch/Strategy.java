@@ -11,16 +11,14 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Solve the problem.
- * Manage a pool of solutions.
- * Carry out the improvment stetps one be one.
- * For every improvment step:
- *   - iterate a number of times (limited in number or in time)
- *  - select a solution in the pool
- *  - do the improvment
- *  - decide if the new solutions makes it to the pool or not
- *    is this not too early?
- *    should we not iterate a little bit before deciding copy or not copy?
+ * Conceptually, a Strategy is an engine for solving a given problem. It implements the execution of the resolution and knows the entire scenario to be solved, plus some complementary information about how to solve the problem.
+ * 
+ * Functionally, a Strategy manages a pool of Solutions and execute a sequence of Phases, each Phase being an iteration of Steps.
+ * 
+ * The Strategy implement logics for selecting a good/bad solution in the pool, as a function of a chance between 1.0 and 0.0. A value of 1.0 will return the most extreme Solution, while with a value of 0.0 every Solution has equal probability to be selected.
+ * 
+ * A phase executes steps iteratively, up to a max number of iteration or a maximum duration. Each step 1) selects a solution in the pool, 2) improves it by executing Actions, 3) adds the new solution to the pool, and 4) prune the pool.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
@@ -32,8 +30,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSelectBestChance <em>Select Best Chance</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSelectWorstChance <em>Select Worst Chance</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy()
@@ -155,58 +151,12 @@ public interface Strategy extends Run {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Select Best Chance</b></em>' attribute.
-	 * The default value is <code>"1.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Select Best Chance</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Select Best Chance</em>' attribute.
-	 * @see #setSelectBestChance(double)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_SelectBestChance()
-	 * @model default="1.0"
-	 * @generated
-	 */
-	double getSelectBestChance();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectBestChance <em>Select Best Chance</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Select Best Chance</em>' attribute.
-	 * @see #getSelectBestChance()
+	 * @model
 	 * @generated
 	 */
-	void setSelectBestChance(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Select Worst Chance</b></em>' attribute.
-	 * The default value is <code>"1.0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Select Worst Chance</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Select Worst Chance</em>' attribute.
-	 * @see #setSelectWorstChance(double)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_SelectWorstChance()
-	 * @model default="1.0"
-	 * @generated
-	 */
-	double getSelectWorstChance();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectWorstChance <em>Select Worst Chance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Select Worst Chance</em>' attribute.
-	 * @see #getSelectWorstChance()
-	 * @generated
-	 */
-	void setSelectWorstChance(double value);
+	Solution selectGoodSolution(double chance);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,15 +164,7 @@ public interface Strategy extends Run {
 	 * @model
 	 * @generated
 	 */
-	Solution selectGoodSolution();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Solution selectBadSolution();
+	Solution selectBadSolution(double chance);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,6 +188,6 @@ public interface Strategy extends Run {
 	 * @model
 	 * @generated
 	 */
-	void prune();
+	void prune(double chance);
 
 } // Strategy

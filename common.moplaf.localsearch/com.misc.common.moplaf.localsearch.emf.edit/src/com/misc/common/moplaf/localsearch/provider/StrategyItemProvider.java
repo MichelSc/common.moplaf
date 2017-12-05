@@ -57,8 +57,6 @@ public class StrategyItemProvider
 			addCurrentSolutionNrPropertyDescriptor(object);
 			addMaxNrSolutionsPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addSelectBestChancePropertyDescriptor(object);
-			addSelectWorstChancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -125,50 +123,6 @@ public class StrategyItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Select Best Chance feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSelectBestChancePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Strategy_SelectBestChance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_SelectBestChance_feature", "_UI_Strategy_type"),
-				 LocalSearchPackage.Literals.STRATEGY__SELECT_BEST_CHANCE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Select Worst Chance feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSelectWorstChancePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Strategy_SelectWorstChance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Strategy_SelectWorstChance_feature", "_UI_Strategy_type"),
-				 LocalSearchPackage.Literals.STRATEGY__SELECT_WORST_CHANCE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 getString("_UI__10StrategyPropertyCategory"),
 				 null));
 	}
@@ -244,8 +198,6 @@ public class StrategyItemProvider
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
 			case LocalSearchPackage.STRATEGY__MAX_NR_SOLUTIONS:
 			case LocalSearchPackage.STRATEGY__NAME:
-			case LocalSearchPackage.STRATEGY__SELECT_BEST_CHANCE:
-			case LocalSearchPackage.STRATEGY__SELECT_WORST_CHANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STRATEGY__PHASES:

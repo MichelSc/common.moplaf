@@ -89,14 +89,17 @@
       <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/MaxNrSolutions"/>
       <genFeatures createChild="false" propertyCategory="10 Strategy" propertyDescription=""
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/Name"/>
-      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/SelectBestChance"/>
-      <genFeatures createChild="false" propertyCategory="10 Strategy" propertyDescription=""
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Strategy/SelectWorstChance"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectGoodSolution"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectBadSolution"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectGoodSolution">
+        <genParameters ecoreParameter="localsearch.ecore#//Strategy/selectGoodSolution/chance"/>
+      </genOperations>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/selectBadSolution">
+        <genParameters ecoreParameter="localsearch.ecore#//Strategy/selectBadSolution/chance"/>
+      </genOperations>
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/sortSolutions"/>
       <genOperations ecoreOperation="localsearch.ecore#//Strategy/makeNewSolutionNr"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Strategy/prune"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Strategy/prune">
+        <genParameters ecoreParameter="localsearch.ecore#//Strategy/prune/chance"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Phase">
       <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/Name"/>
@@ -110,6 +113,9 @@
       <genFeatures createChild="false" propertyCategory="20 Execution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/DurationAverage"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Phase/Strategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Phase/Steps"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/SelectBestChance"/>
+      <genFeatures createChild="false" propertyCategory="10 Strategy" propertyDescription=""
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Phase/SelectWorstChance"/>
       <genOperations ecoreOperation="localsearch.ecore#//Phase/doPhase"/>
       <genOperations ecoreOperation="localsearch.ecore#//Phase/doStep">
         <genParameters ecoreParameter="localsearch.ecore#//Phase/doStep/step"/>

@@ -797,6 +797,15 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__RESET_FEEDBACK = JobPackage.RUN__RESET_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__LABEL = JobPackage.RUN__LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -887,31 +896,13 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__NAME = JobPackage.RUN_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Select Best Chance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRATEGY__SELECT_BEST_CHANCE = JobPackage.RUN_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Select Worst Chance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRATEGY__SELECT_WORST_CHANCE = JobPackage.RUN_FEATURE_COUNT + 6;
-
-	/**
 	 * The number of structural features of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 7;
+	int STRATEGY_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -959,6 +950,15 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___RUN_ASYNCH__RUNCONTEXT = JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT;
 
 	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = JobPackage.RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -977,15 +977,6 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___SET_PROGRESS__STRING_FLOAT = JobPackage.RUN___SET_PROGRESS__STRING_FLOAT;
 
 	/**
-	 * The operation id for the '<em>Set Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRATEGY___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
-
-	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -993,6 +984,15 @@ public interface LocalSearchPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRATEGY___SET_PROGRESS__PROGRESSFEEDBACK = JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -1019,7 +1019,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___SELECT_GOOD_SOLUTION = JobPackage.RUN_OPERATION_COUNT + 0;
+	int STRATEGY___SELECT_GOOD_SOLUTION__DOUBLE = JobPackage.RUN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Select Bad Solution</em>' operation.
@@ -1028,7 +1028,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___SELECT_BAD_SOLUTION = JobPackage.RUN_OPERATION_COUNT + 1;
+	int STRATEGY___SELECT_BAD_SOLUTION__DOUBLE = JobPackage.RUN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Sort Solutions</em>' operation.
@@ -1055,7 +1055,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY___PRUNE = JobPackage.RUN_OPERATION_COUNT + 4;
+	int STRATEGY___PRUNE__DOUBLE = JobPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
@@ -1176,13 +1176,31 @@ public interface LocalSearchPackage extends EPackage {
 	int PHASE__STEPS = 10;
 
 	/**
+	 * The feature id for the '<em><b>Select Best Chance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHASE__SELECT_BEST_CHANCE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Select Worst Chance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHASE__SELECT_WORST_CHANCE = 12;
+
+	/**
 	 * The number of structural features of the '<em>Phase</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHASE_FEATURE_COUNT = 11;
+	int PHASE_FEATURE_COUNT = 13;
 
 	/**
 	 * The operation id for the '<em>Do Phase</em>' operation.
@@ -1904,46 +1922,24 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getStrategy_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectBestChance <em>Select Best Chance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Select Best Chance</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#getSelectBestChance()
-	 * @see #getStrategy()
-	 * @generated
-	 */
-	EAttribute getStrategy_SelectBestChance();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Strategy#getSelectWorstChance <em>Select Worst Chance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Select Worst Chance</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#getSelectWorstChance()
-	 * @see #getStrategy()
-	 * @generated
-	 */
-	EAttribute getStrategy_SelectWorstChance();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectGoodSolution() <em>Select Good Solution</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectGoodSolution(double) <em>Select Good Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Select Good Solution</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#selectGoodSolution()
+	 * @see com.misc.common.moplaf.localsearch.Strategy#selectGoodSolution(double)
 	 * @generated
 	 */
-	EOperation getStrategy__SelectGoodSolution();
+	EOperation getStrategy__SelectGoodSolution__double();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectBadSolution() <em>Select Bad Solution</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#selectBadSolution(double) <em>Select Bad Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Select Bad Solution</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#selectBadSolution()
+	 * @see com.misc.common.moplaf.localsearch.Strategy#selectBadSolution(double)
 	 * @generated
 	 */
-	EOperation getStrategy__SelectBadSolution();
+	EOperation getStrategy__SelectBadSolution__double();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#sortSolutions() <em>Sort Solutions</em>}' operation.
@@ -1966,14 +1962,14 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getStrategy__MakeNewSolutionNr();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#prune() <em>Prune</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#prune(double) <em>Prune</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Prune</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Strategy#prune()
+	 * @see com.misc.common.moplaf.localsearch.Strategy#prune(double)
 	 * @generated
 	 */
-	EOperation getStrategy__Prune();
+	EOperation getStrategy__Prune__double();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Phase <em>Phase</em>}'.
@@ -2105,6 +2101,28 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPhase_Steps();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Phase#getSelectBestChance <em>Select Best Chance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Select Best Chance</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Phase#getSelectBestChance()
+	 * @see #getPhase()
+	 * @generated
+	 */
+	EAttribute getPhase_SelectBestChance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Phase#getSelectWorstChance <em>Select Worst Chance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Select Worst Chance</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Phase#getSelectWorstChance()
+	 * @see #getPhase()
+	 * @generated
+	 */
+	EAttribute getPhase_SelectWorstChance();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Phase#doPhase() <em>Do Phase</em>}' operation.
@@ -2756,28 +2774,12 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute STRATEGY__NAME = eINSTANCE.getStrategy_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Select Best Chance</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRATEGY__SELECT_BEST_CHANCE = eINSTANCE.getStrategy_SelectBestChance();
-
-		/**
-		 * The meta object literal for the '<em><b>Select Worst Chance</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRATEGY__SELECT_WORST_CHANCE = eINSTANCE.getStrategy_SelectWorstChance();
-
-		/**
 		 * The meta object literal for the '<em><b>Select Good Solution</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___SELECT_GOOD_SOLUTION = eINSTANCE.getStrategy__SelectGoodSolution();
+		EOperation STRATEGY___SELECT_GOOD_SOLUTION__DOUBLE = eINSTANCE.getStrategy__SelectGoodSolution__double();
 
 		/**
 		 * The meta object literal for the '<em><b>Select Bad Solution</b></em>' operation.
@@ -2785,7 +2787,7 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___SELECT_BAD_SOLUTION = eINSTANCE.getStrategy__SelectBadSolution();
+		EOperation STRATEGY___SELECT_BAD_SOLUTION__DOUBLE = eINSTANCE.getStrategy__SelectBadSolution__double();
 
 		/**
 		 * The meta object literal for the '<em><b>Sort Solutions</b></em>' operation.
@@ -2809,7 +2811,7 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRATEGY___PRUNE = eINSTANCE.getStrategy__Prune();
+		EOperation STRATEGY___PRUNE__DOUBLE = eINSTANCE.getStrategy__Prune__double();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
@@ -2908,6 +2910,22 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PHASE__STEPS = eINSTANCE.getPhase_Steps();
+
+		/**
+		 * The meta object literal for the '<em><b>Select Best Chance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PHASE__SELECT_BEST_CHANCE = eINSTANCE.getPhase_SelectBestChance();
+
+		/**
+		 * The meta object literal for the '<em><b>Select Worst Chance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PHASE__SELECT_WORST_CHANCE = eINSTANCE.getPhase_SelectWorstChance();
 
 		/**
 		 * The meta object literal for the '<em><b>Do Phase</b></em>' operation.
