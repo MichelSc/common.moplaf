@@ -77,7 +77,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		} else {
 			switch ( cellType ) {
 			case IItemGridsProvider.CELL_TYPE_STRING: 
-				return (String)cellValue;
+				return cellValue == null ? "" : (String)cellValue;
 			case IItemGridsProvider.CELL_TYPE_DATE: 
 				return String.format("%1$tF %1$tT", cellValue);
 			case IItemGridsProvider.CELL_TYPE_FLOAT:
@@ -89,7 +89,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			case IItemGridsProvider.CELL_TYPE_BOOLEAN:
 				return String.format("%1$b", cellValue);
 			default: 
-				return null;
+				return "";
 			}
 		}
 	}
@@ -193,7 +193,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			public String getText(Object columnObject) {
 				TableProvider provider = TableProvider.this; 
 				if ( columnObject == null ){
-					return provider.gridsProvider.getRowText(provider.element, provider.grid, this.gridRow);
+					String text =  provider.gridsProvider.getRowText(provider.element, provider.grid, this.gridRow);
+					return text==null ? "" : text;
 				}
 				Object cellValue  = provider.gridsProvider.getCellValue(provider.element, provider.grid, this.gridRow, columnObject);
 				int    cellType   = provider.gridsProvider.getCellType(provider.element, provider.grid, this.gridRow, columnObject);
@@ -255,7 +256,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 					return row.getText(null);
 				}
 				TableProvider provider = TableProvider.this; 
-				return provider.gridsProvider.getGridText(provider.element, provider.grid); 
+				String text = provider.gridsProvider.getGridText(provider.element, provider.grid);
+				return text==null ? "" : text;
 			}
 			@Override
 			public int getWidth() {
@@ -294,7 +296,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 					return row.getText(this.gridColumn);
 				}
 				TableProvider provider = TableProvider.this; 
-				return provider.gridsProvider.getColumnText(provider.element, provider.grid, this.gridColumn); 
+				String text =  provider.gridsProvider.getColumnText(provider.element, provider.grid, this.gridColumn);
+				return text==null ? "" : text;
 				
 			}
 			public int getWidth() {
@@ -435,7 +438,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		}
 		
 		public String getTableText() {
-			return this.gridsProvider.getGridText(this.element, this.grid);
+			String text = this.gridsProvider.getGridText(this.element, this.grid);
+			return text == null ? "" : text;
 		}
 
 		/**
