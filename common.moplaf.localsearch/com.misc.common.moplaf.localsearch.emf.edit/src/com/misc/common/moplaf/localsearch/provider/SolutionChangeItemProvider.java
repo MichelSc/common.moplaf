@@ -65,6 +65,7 @@ public class SolutionChangeItemProvider
 
 			addStartSolutionPropertyDescriptor(object);
 			addEndSolutionPropertyDescriptor(object);
+			addEndSolutionOwnedPropertyDescriptor(object);
 			addPreviousChangePropertyDescriptor(object);
 			addLevelPropertyDescriptor(object);
 			addCurrentSolutionPropertyDescriptor(object);
@@ -115,6 +116,28 @@ public class SolutionChangeItemProvider
 				 false,
 				 null,
 				 getString("_UI__10SolutionChangePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the End Solution Owned feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEndSolutionOwnedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionChange_EndSolutionOwned_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_EndSolutionOwned_feature", "_UI_SolutionChange_type"),
+				 LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION_OWNED,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
 				 null));
 	}
 

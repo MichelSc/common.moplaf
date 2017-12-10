@@ -188,7 +188,7 @@ public class ActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.ACTION__ROOT_MOVES);
+			childrenFeatures.add(LocalSearchPackage.Literals.ACTION__START_MOVES);
 		}
 		return childrenFeatures;
 	}
@@ -250,7 +250,7 @@ public class ActionItemProvider
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case LocalSearchPackage.ACTION__ROOT_MOVES:
+			case LocalSearchPackage.ACTION__START_MOVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

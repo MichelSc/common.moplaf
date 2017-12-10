@@ -657,21 +657,13 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			// all the work is here
 			step.setCurrentSolution(solution);
 			phase.doStep(step);
+			solution = step.getCurrentSolution();
 			step.setCurrentSolution(null);
 
 			// solution nr
 			// keep solution
 			// put solution in pool
 			if ( step.isNewSolution() ) {
-				if ( keep_solutions || !keep_step ) {
-					// solutions maintained by this level or not at all
-					int new_solution_nr = strategy.makeNewSolutionNr();
-					solution.setSolutionNr(new_solution_nr);
-				} else {
-					// solution maintained by a lower level
-					int current_solution_nr = step.getEndSolution().getSolutionNr();
-					solution.setSolutionNr(current_solution_nr);
-				}
 				if ( keep_solutions ) {
 					// end solution
 					Solution end_solution_kept = solution.clone();
@@ -750,34 +742,35 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void doAction(Step step, Action action) {
-		Solution solution = step.getCurrentSolution();
 		Strategy strategy = this.getStrategy();
 		Phase phase = this;
-		StrategyLevel keep_level = phase.getKeepLevel();
-		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
+		Solution solution = step.getCurrentSolution();
 		
 		// do the action
 		action.setCurrentSolution(solution);
 		action.initialize();
 		action.run();
 		action.finalize();
-		action.setCurrentSolution(null);
+
+		// new solution
+		if ( action.getCurrentMove()!=null) {
+			int new_solution_nr = strategy.makeNewSolutionNr();
+			solution.setSolutionNr(new_solution_nr);
+			step.setNewSolution(true);
+			action.setNewSolution(true);
+		}
 		
 		// keep or not keep
-		if ( action.getCurrentMove()!=null) {
-			step.setNewSolution(true);
-			if( keep_action ) {
-				// action
-				action.setActionNr(step.getActions().size());
-				step.getActions().add(action); // owning
-				// solution
-					Solution owned_solution = solution.clone();
-					int new_solution_nr = strategy.makeNewSolutionNr();
-					owned_solution.setSolutionNr(new_solution_nr);
-					action.setEndSolutionOwned(owned_solution);
-					action.setNewSolution(true);
-			} 
+		StrategyLevel keep_level = phase.getKeepLevel();
+		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
+		Solution next_solution = solution;
+		if ( keep_action) {
+			action.setActionNr(step.getActions().size());
+			step.getActions().add(action); // owning
+			next_solution = solution.clone();
+			action.setEndSolutionOwned(solution); // take ownership
 		}
+		step.setCurrentSolution(next_solution);
 	}
 
 

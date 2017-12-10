@@ -13,10 +13,17 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An Improvment is supposed to improve a solution. So it receives a solution, that will be modified and be possibly better at the end of the execution.
- * For this, it will execute a set of Actions.
- * An improvment is the unit of execution at the end of which it is evaluated if the current solution is kept or not, and what is the next current solution.
- * The framework will iterate on the improvments. The iterations will limited by a max number of iterations and and maximum duration.
+ * A Phase is the main loop of the resolution process, while a Step is an iteration of this Loop. A Step is supposed to improve a solution.
+ * 
+ * The phase will keep iterating up to a max number of iterations or to a max durations.
+ * 
+ * The execution flow of a Step is 1) to select a solution in the pool as a function of the attribute SelectBestChance, 2) to improve the selected solution by performing Actions, 3) to put the resulting Solution in the pool and 4) to prune the pool of Solution as a function of the attribute SelectWorstChance.
+ * 
+ * The Actions to be performed in a Step are provided by the concrete class, in the method doStempImpl, that must 1) create the Actions, 2) execute them by calling doAction.
+ * 
+ * The KeepLevel attribute controls the level of Data to be kept for debugging purposes.
+ * 
+ * 
  * <!-- end-model-doc -->
  *
  * <p>

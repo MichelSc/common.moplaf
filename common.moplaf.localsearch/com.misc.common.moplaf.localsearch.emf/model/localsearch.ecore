@@ -30,7 +30,7 @@
     <eOperations name="select">
       <eParameters name="target_move" eType="#//Move"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="RootMoves" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartMoves" upperBound="-1"
         eType="#//Move" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentMove" eType="#//Move"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

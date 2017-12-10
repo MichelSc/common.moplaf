@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-model-doc -->
  * Conceptually, a Strategy is an engine for solving a given problem. It implements the execution of the resolution and knows the entire scenario to be solved, plus some complementary information about how to solve the problem.
  * 
- * Functionally, a Strategy manages a pool of Solutions and execute a sequence of Phases, each Phase being an iteration of Steps.
+ * Functionally, a Strategy manages a pool of Solutions and executes a sequence of Phases, each Phase being an iteration of Steps.
  * 
- * The Strategy implement logics for selecting a good/bad solution in the pool, as a function of a chance between 1.0 and 0.0. A value of 1.0 will return the most extreme Solution, while with a value of 0.0 every Solution has equal probability to be selected.
+ * The Strategy implements logics for selecting a good/bad solution in the pool, as a function of a chance between 1.0 and 0.0. A value of 1.0 will return the most extreme Solution, while with a value of 0.0 every Solution has equal probability to be selected.
  * 
- * A phase executes steps iteratively, up to a max number of iteration or a maximum duration. Each step 1) selects a solution in the pool, 2) improves it by executing Actions, 3) adds the new solution to the pool, and 4) prune the pool.
+ * A phase executes steps iteratively, up to a max number of iteration or a maximum duration. Each step 1) selects a solution in the pool, 2) improves it by executing Actions, 3) adds the new solution to the pool, and 4) prunes the pool.
  * 
  * <!-- end-model-doc -->
  *

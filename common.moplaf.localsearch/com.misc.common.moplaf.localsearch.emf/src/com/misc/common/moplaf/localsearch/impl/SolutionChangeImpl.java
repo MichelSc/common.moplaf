@@ -160,11 +160,7 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 */
 	public Solution basicGetEndSolution() {
 		if ( this.isKeepSolutions() ) {
-			if ( this.isNewSolution()) {
-				return this.getEndSolutionOwned();
-			} else {
-				return this.getStartSolution();
-			}
+			return this.getEndSolutionOwned();
 		} else {
 			int subchanges = this.getSubChanges().size();
 			if ( subchanges>0 ){
@@ -258,7 +254,7 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
 		EList<Solution> newList = new EObjectListDerived<Solution>(Solution.class, this, LocalSearchPackage.SOLUTION_CHANGE__SOLUTIONS, true);
 		Solution startSolution = this.getStartSolution();
-		if ( startSolution!=null) {
+		if ( startSolution!=null ) {
 			newList.add(startSolution);
 			this.collectNewSolutions(newList);
 		}

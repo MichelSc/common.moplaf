@@ -416,13 +416,13 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__SUPER_CHANGE = SOLUTION_CHANGE__SUPER_CHANGE;
 
 	/**
-	 * The feature id for the '<em><b>Root Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Start Moves</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ROOT_MOVES = SOLUTION_CHANGE_FEATURE_COUNT + 0;
+	int ACTION__START_MOVES = SOLUTION_CHANGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Current Move</b></em>' reference.
@@ -1516,15 +1516,15 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getAction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Action#getRootMoves <em>Root Moves</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Action#getStartMoves <em>Start Moves</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Root Moves</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Action#getRootMoves()
+	 * @return the meta object for the containment reference list '<em>Start Moves</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getStartMoves()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EReference getAction_RootMoves();
+	EReference getAction_StartMoves();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getCurrentMove <em>Current Move</em>}'.
@@ -2463,12 +2463,12 @@ public interface LocalSearchPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Moves</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Start Moves</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__ROOT_MOVES = eINSTANCE.getAction_RootMoves();
+		EReference ACTION__START_MOVES = eINSTANCE.getAction_StartMoves();
 
 		/**
 		 * The meta object literal for the '<em><b>Current Move</b></em>' reference feature.

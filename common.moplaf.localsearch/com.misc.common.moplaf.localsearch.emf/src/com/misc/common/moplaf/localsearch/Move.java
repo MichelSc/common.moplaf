@@ -12,12 +12,15 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A move is a small change to the solution.
- * Small meaning a limited (constant) number of deltas with respect to the solution . 
- * So the score a  move must be calculated in a constant time (with respect to the size of the solution).
- * A move is specific to a given solution (to a specific Action).
- * A move is part of a tree structure, where the parent is the previous move exectuted, and the children are alternative next moves to be executed after this move..
- * A move supports an undo operation. All the changes in the current solution carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.
+ * A move is a small change to the solution, composed of  a limited (constant) number of deltas with respect to the solution 
+ *  
+ * So the score of a  move must be calculated in a limited time (with respect to the size of the solution).
+ * 
+ * A Move is part of a tree structure, where the parent is the previous move executed, and the children are alternative next moves to be executed after this move..
+ * 
+ * A move supports an undo operation. All the changes in the current solution that are carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.
+ * 
+ * A Move is specific to a given implementation (to a specific Action). The implementation must only provide logic for the do operation. The framework will iterate on the Moves, and for every Move, do the Move, trigger the Score calculation, compare it to the best Score so far, and finally undo the Move.
  * <!-- end-model-doc -->
  *
  * <p>

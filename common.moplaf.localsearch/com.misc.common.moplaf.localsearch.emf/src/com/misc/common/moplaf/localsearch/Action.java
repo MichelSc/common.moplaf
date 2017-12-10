@@ -10,23 +10,20 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Action:
- *   plan this planUnit
- *   plan some planUnit:
- *      select a planUnit, or not
- *      construct the Moves
- *      estimate/score
- *      apply/revert
- *      repeat a given number of times
- * An action is the unit of execution with a given goal, that will be attained by considering a set of moves and evaluating them completly.
- * The result of an action is not the next current solution to be considered, but only a step in its direction.
+ * An Action receives a Solution and modifies it in order to achieve some specific goal. For this, it considers a number of Moves, and retain the Move giving the best Solution.
+ * 
+ * The specific logic of the Action is provided by the Action specialization, in the method createMovesImpl, that must create the Moves to be considered while executing the Action.
+ * 
+ * The flow of an Action is thus 1) to receive a Solution in the reference CurrentSolution, 2) to create all the Moves to be considered, 3) to select the Move giving the best Score, 3) to leave the CurrentSolution as the solution corresponding to the best Move.
+ * 
+ * Note that the system will select a Move, even if all of them result in worst Solution. If it is desired to consider the received solution as a candidate for the resulting Solution, it is then necessary to provides a Move doing nothing (a no-op Move).
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#getRootMoves <em>Root Moves</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getStartMoves <em>Start Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentMove <em>Current Move</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}</li>
@@ -41,20 +38,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Action extends SolutionChange {
 	/**
-	 * Returns the value of the '<em><b>Root Moves</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Start Moves</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Move}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Root Moves</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Start Moves</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Moves</em>' containment reference list.
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_RootMoves()
+	 * @return the value of the '<em>Start Moves</em>' containment reference list.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_StartMoves()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Move> getRootMoves();
+	EList<Move> getStartMoves();
 
 	/**
 	 * Returns the value of the '<em><b>Current Move</b></em>' reference.

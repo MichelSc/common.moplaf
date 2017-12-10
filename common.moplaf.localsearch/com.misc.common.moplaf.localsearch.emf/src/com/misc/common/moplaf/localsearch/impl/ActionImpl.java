@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getRootMoves <em>Root Moves</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getStartMoves <em>Start Moves</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentMove <em>Current Move</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
@@ -52,14 +52,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	/**
-	 * The cached value of the '{@link #getRootMoves() <em>Root Moves</em>}' containment reference list.
+	 * The cached value of the '{@link #getStartMoves() <em>Start Moves</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRootMoves()
+	 * @see #getStartMoves()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Move> rootMoves;
+	protected EList<Move> startMoves;
 
 	/**
 	 * The cached value of the '{@link #getCurrentMove() <em>Current Move</em>}' reference.
@@ -140,6 +140,18 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		return LocalSearchPackage.Literals.ACTION;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Move> getStartMoves() {
+		if (startMoves == null) {
+			startMoves = new EObjectContainmentEList<Move>(Move.class, this, LocalSearchPackage.ACTION__START_MOVES);
+		}
+		return startMoves;
+	}
+
 	@Override
 	public SolutionChange basicGetSuperChange() {
 		return this.getStep();
@@ -171,18 +183,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		return this.getStep().getPhase().getKeepLevel()==this.getLevel();
 	}
 
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Move> getRootMoves() {
-		if (rootMoves == null) {
-			rootMoves = new EObjectContainmentEList<Move>(Move.class, this, LocalSearchPackage.ACTION__ROOT_MOVES);
-		}
-		return rootMoves;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -326,7 +326,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	/*
 	 * 
 	 */
-	protected void createMovesImpl() {
+	protected void initializeImpl() {
 		// default does nothing
 	}
 
@@ -335,7 +335,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void initialize() {
-		this.createMovesImpl();
+		this.initializeImpl();
 	}
 
 	/**
@@ -344,8 +344,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 */
 	public void run() {
 		Plugin.INSTANCE.logInfo(String.format("Action run: %s", this.getDescription()));
-		for (Move rootMove : this.getRootMoves()) {
-			this.runDoMove(rootMove);
+		for (Move startMove : this.getStartMoves()) {
+			this.runDoMove(startMove);
 		}
 	}
 	
@@ -368,8 +368,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 */
 	public void finalize() {
 		Move best_move = null;
-		for (Move rootMove : this.getRootMoves()) {
-			best_move = this.finalizeMove(best_move, rootMove); 
+		for (Move startMove : this.getStartMoves()) {
+			best_move = this.finalizeMove(best_move, startMove); 
 		}
 		this.select(best_move);
 	}
@@ -457,8 +457,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__ROOT_MOVES:
-				return ((InternalEList<?>)getRootMoves()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.ACTION__START_MOVES:
+				return ((InternalEList<?>)getStartMoves()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.ACTION__STEP:
 				return basicSetStep(null, msgs);
 		}
@@ -487,8 +487,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__ROOT_MOVES:
-				return getRootMoves();
+			case LocalSearchPackage.ACTION__START_MOVES:
+				return getStartMoves();
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				if (resolve) return getCurrentMove();
 				return basicGetCurrentMove();
@@ -515,9 +515,9 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__ROOT_MOVES:
-				getRootMoves().clear();
-				getRootMoves().addAll((Collection<? extends Move>)newValue);
+			case LocalSearchPackage.ACTION__START_MOVES:
+				getStartMoves().clear();
+				getStartMoves().addAll((Collection<? extends Move>)newValue);
 				return;
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				setCurrentMove((Move)newValue);
@@ -540,8 +540,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__ROOT_MOVES:
-				getRootMoves().clear();
+			case LocalSearchPackage.ACTION__START_MOVES:
+				getStartMoves().clear();
 				return;
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				setCurrentMove((Move)null);
@@ -564,8 +564,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__ROOT_MOVES:
-				return rootMoves != null && !rootMoves.isEmpty();
+			case LocalSearchPackage.ACTION__START_MOVES:
+				return startMoves != null && !startMoves.isEmpty();
 			case LocalSearchPackage.ACTION__CURRENT_MOVE:
 				return currentMove != null;
 			case LocalSearchPackage.ACTION__DESCRIPTION:
