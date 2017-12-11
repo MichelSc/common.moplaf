@@ -180,7 +180,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 
 	@Override
 	public boolean isKeepSolutions() {
-		return this.getStep().getPhase().getKeepLevel()==this.getLevel();
+		return this.getStep().getPhase().getKeepLevel().getValue()>=this.getLevel().getValue();
 	}
 
 

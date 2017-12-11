@@ -603,9 +603,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	public void doPhase() {
 		Phase phase = this;
 		Strategy strategy = phase.getStrategy();
-		StrategyLevel keep_level = phase.getKeepLevel();
-		boolean keep_step = keep_level.getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
-		boolean keep_solutions = keep_level.getValue()==StrategyLevel.LEVEL_STEP_VALUE;
 		int iterations_total = 0;
 		
 		// initialize the improvement
@@ -626,49 +623,29 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		long elapsed_millis = 0;
 		do {
 			// select a solution to improve
-			Solution start_solution = strategy.selectGoodSolution(this.getSelectBestChance());
-			if ( start_solution==null ) {
+			Solution solution_inpool = strategy.selectGoodSolution(this.getSelectBestChance());
+			if ( solution_inpool==null ) {
 				Plugin.INSTANCE.logError(String.format("Phase%s, step %04d: no start solution, break", phase.getName(), nr_iterations));
 				finished = true;
 				break;
 			}
+			Solution solution = solution_inpool.clone();
 
-			// step
+			// create the step
 			Step step = LocalSearchFactory.eINSTANCE.createStep();
 			String step_name = String.format("%s:%04d", this.getName(), nr_iterations);
 			step.setStep(step_name);
 			step.setStepNr(nr_iterations);
 			this.setNrSteps(nr_iterations);
-
-			// makes the solution that will be owned by the step
-			// so the current solution from start to end
-			// current solutions for the steps and the actions
-			Solution solution = start_solution.clone();
-			solution.setStep(step.getStep());
 			
-			if ( keep_step ) {
-				// keep
-				phase.getSteps().add(step);
-				// start solution
-				Solution start_solution_kept = start_solution.clone();
-				step.setStartSolutionOwned(start_solution_kept); // owning
-			}
-			
-			// all the work is here
+			// do the step
 			step.setCurrentSolution(solution);
 			phase.doStep(step);
 			solution = step.getCurrentSolution();
 			step.setCurrentSolution(null);
 
-			// solution nr
-			// keep solution
 			// put solution in pool
 			if ( step.isNewSolution() ) {
-				if ( keep_solutions ) {
-					// end solution
-					Solution end_solution_kept = solution.clone();
-					step.setEndSolutionOwned(end_solution_kept);
-				}
 				// maintain the list of solutions, insert the solution after the next best
 				ListIterator<Solution> iterator = strategy.getSolutions().listIterator();
 				while ( iterator.hasNext()) {
@@ -728,11 +705,31 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void doStep(Step step) {
+		boolean keep_step = this.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
+
 		String message1 = String.format("Phase %s step %d started", this.getName(), this.getNrSteps());
 		Plugin.INSTANCE.logInfo(message1);
 
+
+		// keep or not keep
+		Solution solution = step.getCurrentSolution();
+		solution.setStep(step.getStep());
+		if ( keep_step ) {
+			this.getSteps().add(step);
+			Solution start_solution_kept = solution.clone();
+			step.setStartSolutionOwned(start_solution_kept); // owning
+		}
+		
+		// do the step
 		this.doStepImpl(step);
 	
+		// keep or not keep
+		if ( keep_step ) {
+			// end solution
+			Solution end_solution_kept = solution.clone();
+			step.setEndSolutionOwned(end_solution_kept);
+		}
+		
 		String message2 = String.format("Phase %s step %d finished", this.getName(), this.getNrSteps());
 		Plugin.INSTANCE.logInfo(message2);
 	}
@@ -743,9 +740,15 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void doAction(Step step, Action action) {
 		Strategy strategy = this.getStrategy();
-		Phase phase = this;
 		Solution solution = step.getCurrentSolution();
-		
+		boolean keep_action = this.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
+
+		// keep or not keep
+		if ( keep_action) {
+			Solution start_solution = solution.clone();
+			action.setStartSolutionOwned(start_solution);
+		}
+
 		// do the action
 		action.setCurrentSolution(solution);
 		action.initialize();
@@ -761,8 +764,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		}
 		
 		// keep or not keep
-		StrategyLevel keep_level = phase.getKeepLevel();
-		boolean keep_action = keep_level.getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
 		Solution next_solution = solution;
 		if ( keep_action) {
 			action.setActionNr(step.getActions().size());

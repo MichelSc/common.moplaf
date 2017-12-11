@@ -159,32 +159,30 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StepNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Phase" lowerBound="1" eType="#//Phase"
         eOpposite="#//Phase/Steps"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolutionOwned" lowerBound="1"
-        eType="#//Solution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionChange" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolution" eType="#//Solution"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolution" eType="#//Solution"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolutionOwned" lowerBound="1"
-        eType="#//Solution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolutionOwned" eType="#//Solution"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolutionOwned" eType="#//Solution"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolution" lowerBound="1"
+        eType="#//Solution" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolution" lowerBound="1"
+        eType="#//Solution" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousChange" eType="#//SolutionChange"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Level" eType="#//StrategyLevel"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
-        eType="#//Solution" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubChanges" upperBound="-1"
         eType="#//SolutionChange" changeable="false" volatile="true" transient="true"
         derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperChange" eType="#//SolutionChange"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Level" eType="#//StrategyLevel"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeepSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NewSolution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperChange" eType="#//SolutionChange"
-        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StrategyLevel">
     <eLiterals name="LevelNone"/>

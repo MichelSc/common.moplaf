@@ -14,9 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -63,16 +61,61 @@ public class SolutionChangeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addStartSolutionOwnedPropertyDescriptor(object);
+			addEndSolutionOwnedPropertyDescriptor(object);
+			addCurrentSolutionPropertyDescriptor(object);
 			addStartSolutionPropertyDescriptor(object);
 			addEndSolutionPropertyDescriptor(object);
-			addEndSolutionOwnedPropertyDescriptor(object);
 			addPreviousChangePropertyDescriptor(object);
 			addLevelPropertyDescriptor(object);
-			addCurrentSolutionPropertyDescriptor(object);
 			addKeepSolutionsPropertyDescriptor(object);
 			addNewSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Start Solution Owned feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartSolutionOwnedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionChange_StartSolutionOwned_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_StartSolutionOwned_feature", "_UI_SolutionChange_type"),
+				 LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION_OWNED,
+				 false,
+				 false,
+				 false,
+				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the End Solution Owned feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEndSolutionOwnedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionChange_EndSolutionOwned_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_EndSolutionOwned_feature", "_UI_SolutionChange_type"),
+				 LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION_OWNED,
+				 false,
+				 false,
+				 false,
+				 null,
+				 getString("_UI__10SolutionChangePropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -116,28 +159,6 @@ public class SolutionChangeItemProvider
 				 false,
 				 null,
 				 getString("_UI__10SolutionChangePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the End Solution Owned feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEndSolutionOwnedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_EndSolutionOwned_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_EndSolutionOwned_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION_OWNED,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
 				 null));
 	}
 
@@ -264,7 +285,8 @@ public class SolutionChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__SOLUTIONS);
+			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION);
+			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION);
 		}
 		return childrenFeatures;
 	}
@@ -310,6 +332,7 @@ public class SolutionChangeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolutionChange.class)) {
+			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
 			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:

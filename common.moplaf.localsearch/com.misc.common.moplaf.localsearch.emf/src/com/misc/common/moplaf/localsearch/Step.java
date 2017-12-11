@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getActions <em>Actions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getStepNr <em>Step Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getPhase <em>Phase</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Step#getStartSolutionOwned <em>Start Solution Owned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getStep <em>Step</em>}</li>
  * </ul>
  *
@@ -96,32 +95,6 @@ public interface Step extends SolutionChange {
 	 * @generated
 	 */
 	void setPhase(Phase value);
-
-	/**
-	 * Returns the value of the '<em><b>Start Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Start Solution Owned</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Start Solution Owned</em>' containment reference.
-	 * @see #setStartSolutionOwned(Solution)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep_StartSolutionOwned()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Solution getStartSolutionOwned();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Step#getStartSolutionOwned <em>Start Solution Owned</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Start Solution Owned</em>' containment reference.
-	 * @see #getStartSolutionOwned()
-	 * @generated
-	 */
-	void setStartSolutionOwned(Solution value);
 
 	/**
 	 * Returns the value of the '<em><b>Step</b></em>' attribute.

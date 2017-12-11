@@ -54,7 +54,6 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 			super.getPropertyDescriptors(object);
 
 			addStepNrPropertyDescriptor(object);
-			addStartSolutionOwnedPropertyDescriptor(object);
 			addStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -79,28 +78,6 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__10SolutionChangePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Start Solution Owned feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStartSolutionOwnedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Step_StartSolutionOwned_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Step_StartSolutionOwned_feature", "_UI_Step_type"),
-				 LocalSearchPackage.Literals.STEP__START_SOLUTION_OWNED,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
 				 null));
 	}
 
@@ -192,7 +169,6 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 
 		switch (notification.getFeatureID(Step.class)) {
 			case LocalSearchPackage.STEP__STEP_NR:
-			case LocalSearchPackage.STEP__START_SOLUTION_OWNED:
 			case LocalSearchPackage.STEP__STEP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

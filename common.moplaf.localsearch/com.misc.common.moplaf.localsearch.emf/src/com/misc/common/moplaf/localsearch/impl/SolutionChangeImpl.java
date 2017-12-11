@@ -27,22 +27,32 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getStartSolutionOwned <em>Start Solution Owned</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getEndSolutionOwned <em>End Solution Owned</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getCurrentSolution <em>Current Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getStartSolution <em>Start Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getEndSolution <em>End Solution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getEndSolutionOwned <em>End Solution Owned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getPreviousChange <em>Previous Change</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getLevel <em>Level</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSolutions <em>Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSubChanges <em>Sub Changes</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getCurrentSolution <em>Current Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSuperChange <em>Super Change</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#isKeepSolutions <em>Keep Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#isNewSolution <em>New Solution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl#getSuperChange <em>Super Change</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container implements SolutionChange {
+	/**
+	 * The cached value of the '{@link #getStartSolutionOwned() <em>Start Solution Owned</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartSolutionOwned()
+	 * @generated
+	 * @ordered
+	 */
+	protected Solution startSolutionOwned;
+
 	/**
 	 * The cached value of the '{@link #getEndSolutionOwned() <em>End Solution Owned</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -54,16 +64,6 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	protected Solution endSolutionOwned;
 
 	/**
-	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLevel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final StrategyLevel LEVEL_EDEFAULT = StrategyLevel.LEVEL_NONE;
-
-	/**
 	 * The cached value of the '{@link #getCurrentSolution() <em>Current Solution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,6 +72,16 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected Solution currentSolution;
+
+	/**
+	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final StrategyLevel LEVEL_EDEFAULT = StrategyLevel.LEVEL_NONE;
 
 	/**
 	 * The default value of the '{@link #isKeepSolutions() <em>Keep Solutions</em>}' attribute.
@@ -127,21 +137,8 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Solution getStartSolution() {
-		Solution startSolution = basicGetStartSolution();
-		return startSolution != null && startSolution.eIsProxy() ? (Solution)eResolveProxy((InternalEObject)startSolution) : startSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Solution basicGetStartSolution() {
-		SolutionChange previous = this.getPreviousChange();
-		if( previous!=null) {
-			return previous.getEndSolution();
-		}
-		return this.getSuperChange().getStartSolution();
+	public Solution getStartSolutionOwned() {
+		return startSolutionOwned;
 	}
 
 	/**
@@ -149,27 +146,33 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Solution getEndSolution() {
-		Solution endSolution = basicGetEndSolution();
-		return endSolution != null && endSolution.eIsProxy() ? (Solution)eResolveProxy((InternalEObject)endSolution) : endSolution;
+	public NotificationChain basicSetStartSolutionOwned(Solution newStartSolutionOwned, NotificationChain msgs) {
+		Solution oldStartSolutionOwned = startSolutionOwned;
+		startSolutionOwned = newStartSolutionOwned;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED, oldStartSolutionOwned, newStartSolutionOwned);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public Solution basicGetEndSolution() {
-		if ( this.isKeepSolutions() ) {
-			return this.getEndSolutionOwned();
-		} else {
-			int subchanges = this.getSubChanges().size();
-			if ( subchanges>0 ){
-				return this.getSubChanges().get(subchanges-1).getEndSolution();
-			} else {
-				// no change, so this is the start solutions
-				return this.getStartSolution();
-			}
+	public void setStartSolutionOwned(Solution newStartSolutionOwned) {
+		if (newStartSolutionOwned != startSolutionOwned) {
+			NotificationChain msgs = null;
+			if (startSolutionOwned != null)
+				msgs = ((InternalEObject)startSolutionOwned).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED, null, msgs);
+			if (newStartSolutionOwned != null)
+				msgs = ((InternalEObject)newStartSolutionOwned).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED, null, msgs);
+			msgs = basicSetStartSolutionOwned(newStartSolutionOwned, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED, newStartSolutionOwned, newStartSolutionOwned));
 	}
 
 	/**
@@ -220,6 +223,63 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Solution getStartSolution() {
+		Solution startSolution = basicGetStartSolution();
+		return startSolution != null && startSolution.eIsProxy() ? (Solution)eResolveProxy((InternalEObject)startSolution) : startSolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Solution basicGetStartSolution() {
+		if ( this.isKeepSolutions() ) {
+			return this.getStartSolutionOwned();
+		} else {
+			int subchanges = this.getSubChanges().size();
+			if ( subchanges>0 ){
+				return this.getSubChanges().get(0).getStartSolution();
+			} else {
+				// no change, so this is the start solutions
+				return this.getStartSolution();
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solution getEndSolution() {
+		Solution endSolution = basicGetEndSolution();
+		return endSolution != null && endSolution.eIsProxy() ? (Solution)eResolveProxy((InternalEObject)endSolution) : endSolution;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Solution basicGetEndSolution() {
+		if ( this.isKeepSolutions() ) {
+			return this.getEndSolutionOwned();
+		} else {
+			int subchanges = this.getSubChanges().size();
+			if ( subchanges>0 ){
+				return this.getSubChanges().get(subchanges-1).getEndSolution();
+			} else {
+				// no change, so this is the start solutions
+				return this.getStartSolution();
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SolutionChange getPreviousChange() {
 		SolutionChange previousChange = basicGetPreviousChange();
 		return previousChange != null && previousChange.eIsProxy() ? (SolutionChange)eResolveProxy((InternalEObject)previousChange) : previousChange;
@@ -244,34 +304,34 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EList<Solution> getSolutions() {
-		// Ensure that you remove @generated or mark it @generated NOT
-		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<Solution> newList = new EObjectListDerived<Solution>(Solution.class, this, LocalSearchPackage.SOLUTION_CHANGE__SOLUTIONS, true);
-		Solution startSolution = this.getStartSolution();
-		if ( startSolution!=null ) {
-			newList.add(startSolution);
-			this.collectNewSolutions(newList);
-		}
-		return newList;
-	}
-	
-	private void collectNewSolutions(EList<Solution> solutions) {
-		if ( this.isKeepSolutions()) {
-			if ( this.isNewSolution() ) {
-				solutions.add(this.getEndSolutionOwned());
-			}
-		} else {
-			for ( SolutionChange subchange : this.getSubChanges()) {
-				((SolutionChangeImpl)subchange).collectNewSolutions(solutions);
-			}
-		}
-	}
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * <!-- end-user-doc -->
+//	 */
+//	public EList<Solution> getSolutions() {
+//		// Ensure that you remove @generated or mark it @generated NOT
+//		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+//		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+//		EList<Solution> newList = new EObjectListDerived<Solution>(Solution.class, this, LocalSearchPackage.SOLUTION_CHANGE__SOLUTIONS, true);
+//		Solution startSolution = this.getStartSolution();
+//		if ( startSolution!=null ) {
+//			newList.add(startSolution);
+//			this.collectNewSolutions(newList);
+//		}
+//		return newList;
+//	}
+//	
+//	private void collectNewSolutions(EList<Solution> solutions) {
+//		if ( this.isKeepSolutions()) {
+//			if ( this.isNewSolution() ) {
+//				solutions.add(this.getEndSolutionOwned());
+//			}
+//		} else {
+//			for ( SolutionChange subchange : this.getSubChanges()) {
+//				((SolutionChangeImpl)subchange).collectNewSolutions(solutions);
+//			}
+//		}
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -381,6 +441,8 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
+				return basicSetStartSolutionOwned(null, msgs);
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
 				return basicSetEndSolutionOwned(null, msgs);
 		}
@@ -395,33 +457,33 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
+				return getStartSolutionOwned();
+			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
+				return getEndSolutionOwned();
+			case LocalSearchPackage.SOLUTION_CHANGE__CURRENT_SOLUTION:
+				if (resolve) return getCurrentSolution();
+				return basicGetCurrentSolution();
 			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION:
 				if (resolve) return getStartSolution();
 				return basicGetStartSolution();
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION:
 				if (resolve) return getEndSolution();
 				return basicGetEndSolution();
-			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
-				return getEndSolutionOwned();
 			case LocalSearchPackage.SOLUTION_CHANGE__PREVIOUS_CHANGE:
 				if (resolve) return getPreviousChange();
 				return basicGetPreviousChange();
-			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
-				return getLevel();
-			case LocalSearchPackage.SOLUTION_CHANGE__SOLUTIONS:
-				return getSolutions();
 			case LocalSearchPackage.SOLUTION_CHANGE__SUB_CHANGES:
 				return getSubChanges();
-			case LocalSearchPackage.SOLUTION_CHANGE__CURRENT_SOLUTION:
-				if (resolve) return getCurrentSolution();
-				return basicGetCurrentSolution();
+			case LocalSearchPackage.SOLUTION_CHANGE__SUPER_CHANGE:
+				if (resolve) return getSuperChange();
+				return basicGetSuperChange();
+			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
+				return getLevel();
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 				return isKeepSolutions();
 			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
 				return isNewSolution();
-			case LocalSearchPackage.SOLUTION_CHANGE__SUPER_CHANGE:
-				if (resolve) return getSuperChange();
-				return basicGetSuperChange();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -434,6 +496,9 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
+				setStartSolutionOwned((Solution)newValue);
+				return;
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
 				setEndSolutionOwned((Solution)newValue);
 				return;
@@ -455,6 +520,9 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
+				setStartSolutionOwned((Solution)null);
+				return;
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
 				setEndSolutionOwned((Solution)null);
 				return;
@@ -476,28 +544,28 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
+				return startSolutionOwned != null;
+			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
+				return endSolutionOwned != null;
+			case LocalSearchPackage.SOLUTION_CHANGE__CURRENT_SOLUTION:
+				return currentSolution != null;
 			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION:
 				return basicGetStartSolution() != null;
 			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION:
 				return basicGetEndSolution() != null;
-			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
-				return endSolutionOwned != null;
 			case LocalSearchPackage.SOLUTION_CHANGE__PREVIOUS_CHANGE:
 				return basicGetPreviousChange() != null;
-			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
-				return getLevel() != LEVEL_EDEFAULT;
-			case LocalSearchPackage.SOLUTION_CHANGE__SOLUTIONS:
-				return !getSolutions().isEmpty();
 			case LocalSearchPackage.SOLUTION_CHANGE__SUB_CHANGES:
 				return !getSubChanges().isEmpty();
-			case LocalSearchPackage.SOLUTION_CHANGE__CURRENT_SOLUTION:
-				return currentSolution != null;
+			case LocalSearchPackage.SOLUTION_CHANGE__SUPER_CHANGE:
+				return basicGetSuperChange() != null;
+			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
+				return getLevel() != LEVEL_EDEFAULT;
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 				return isKeepSolutions() != KEEP_SOLUTIONS_EDEFAULT;
 			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
 				return newSolution != NEW_SOLUTION_EDEFAULT;
-			case LocalSearchPackage.SOLUTION_CHANGE__SUPER_CHANGE:
-				return basicGetSuperChange() != null;
 		}
 		return super.eIsSet(featureID);
 	}
