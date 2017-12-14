@@ -21,7 +21,6 @@ import com.misc.common.moplaf.emf.edit.command.DisconnectCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
