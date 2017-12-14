@@ -39,7 +39,6 @@ import org.eclipse.swt.widgets.ColorDialog;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.DateTime;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
@@ -110,17 +109,18 @@ public class AdapterFactoryContentProviderExtended extends
 
 		// Edit a field FilePath as String
 		CellEditor editFilePath(Composite composite, String path){
-	    	final String filePathAsIs= path;
-	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
-	            	protected Object openDialogBox(Control cellEditorWindow) {
-	                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.OPEN);
-  	                d.setFileName(filePathAsIs);
-  	                //d.setFilterPath(filePathAsString);
-	                String filePathToBe = d.open();  // open the dialog
-	                return filePathToBe;
-	            	} // opendialogBox
-	         };  // class ExtendedDialogCellEditor
-	         return result;  // return from EditDate
+//	    	final String filePathAsIs= path;
+//	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
+//	            	protected Object openDialogBox(Control cellEditorWindow) {
+//	                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.OPEN);
+//  	                d.setFileName(filePathAsIs);
+//  	                //d.setFilterPath(filePathAsString);
+//	                String filePathToBe = d.open();  // open the dialog
+//	                return filePathToBe;
+//	            	} // opendialogBox
+//	         };  // class ExtendedDialogCellEditor
+//	         return result;  // return from EditDate
+			return null;
 		}  // method EditDate
 		
 		// Edit a field Color as Integer
