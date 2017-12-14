@@ -19,6 +19,4 @@ Export-Package: com.misc.common.moplaf.emf.editor,
  com.misc.common.moplaf.emf.editor.provider
 Bundle-ClassPath: lib/org.eclipse.nebula.widgets.cdatetime_1.0.0.201606281412.jar,
  .
-Import-Package: org.eclipse.emf.edit.ui.provider,
- org.eclipse.ui,
- org.eclipse.ui.views.properties
+Import-Package: org.eclipse.emf.edit.ui.provider
