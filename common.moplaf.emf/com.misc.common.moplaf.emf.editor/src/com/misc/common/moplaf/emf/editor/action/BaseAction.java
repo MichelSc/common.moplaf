@@ -12,11 +12,11 @@ package com.misc.common.moplaf.emf.editor.action;
 
 
 
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 
 
 /**

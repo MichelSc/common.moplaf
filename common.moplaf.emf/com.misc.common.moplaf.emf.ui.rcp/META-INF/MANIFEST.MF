@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF MOPLAF UI dependencies for RCP
+Bundle-SymbolicName: com.misc.common.moplaf.emf.ui
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.misc.common.moplaf.emf.ui.Activator
+Bundle-Vendor: MISC
+Require-Bundle: org.eclipse.ui;visibility:=reexport,
+ org.eclipse.core.runtime;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.misc.common.moplaf.emf.ui
