@@ -44,6 +44,7 @@ import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
 import com.misc.common.moplaf.emf.editor.Util;
+import com.misc.common.moplaf.emf.ui.MoplafFileDialog;
 
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
@@ -110,18 +111,17 @@ public class AdapterFactoryContentProviderExtended extends
 
 		// Edit a field FilePath as String
 		CellEditor editFilePath(Composite composite, String path){
-//	    	final String filePathAsIs= path;
-//	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
-//	            	protected Object openDialogBox(Control cellEditorWindow) {
-//	                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.OPEN);
-//  	                d.setFileName(filePathAsIs);
-//  	                //d.setFilterPath(filePathAsString);
-//	                String filePathToBe = d.open();  // open the dialog
-//	                return filePathToBe;
-//	            	} // opendialogBox
-//	         };  // class ExtendedDialogCellEditor
-//	         return result;  // return from EditDate
-			return null;
+	    	final String filePathAsIs= path;
+	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
+	            	protected Object openDialogBox(Control cellEditorWindow) {
+	                MoplafFileDialog d = new MoplafFileDialog (cellEditorWindow.getShell(), SWT.OPEN);
+  	                d.setFileName(filePathAsIs);
+  	                //d.setFilterPath(filePathAsString);
+	                String filePathToBe = d.open();  // open the dialog
+	                return filePathToBe;
+	            	} // opendialogBox
+	         };  // class ExtendedDialogCellEditor
+	         return result;  // return from EditDate
 		}  // method EditDate
 		
 		// Edit a field Color as Integer
