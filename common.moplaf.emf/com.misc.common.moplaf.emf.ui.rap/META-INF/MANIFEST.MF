@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Moplaf EMF UI dependencies
+Bundle-SymbolicName: com.misc.common.moplaf.emf.ui
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.misc.common.moplaf.emf.ui.Activator
+Bundle-Vendor: MISC
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.rap.ui;bundle-version="3.3.0";visibility:=reexport,
+ org.eclipse.rap.ui.views;bundle-version="3.3.0";visibility:=reexport,
+ org.eclipse.emf.rap.common.ui;bundle-version="2.9.0";visibility:=reexport,
+ org.eclipse.emf.rap.edit.ui;bundle-version="2.9.0";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
