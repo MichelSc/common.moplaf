@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableColorProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
@@ -354,9 +355,9 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		protected TableColumnProvider[] indexToColumn = null;
 		protected TableRowProvider[]    indexToRow = null;
 		
-		/**
-		 * 
-		 */
+		/**********************************************************************
+		 * Constructor
+		 **********************************************************************/
 		public TableProvider(Object element, Object grid, IItemGridsProvider gridsProvider) {
 			super();
 			this.gridsProvider = gridsProvider;
@@ -397,6 +398,17 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
             }
 		}
 		
+		
+		/**********************************************************************
+		 * Private methods
+		 *********************************************************************/
+		private AdapterFactoryGridProvider getOuterType() {
+			return AdapterFactoryGridProvider.this;
+		}
+
+		/**********************************************************************
+		 * Specified by Object
+		 *********************************************************************/
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -437,79 +449,51 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			return true;
 		}
 		
-		public String getTableText() {
-			String text = this.gridsProvider.getGridText(this.element, this.grid);
-			return text == null ? "" : text;
-		}
-
-		/**
+		/**********************************************************************
 		 * specified by IBaseLabelProvider
-		 */
+		 *********************************************************************/
 		@Override
 		public void addListener(ILabelProviderListener listener) {
 			// TODO Auto-generated method stub
 			
 		}
 
-		/**
-		 * specified by IBaseLabelProvider
-		 */
 		@Override
 		public boolean isLabelProperty(Object element, String property) {
 			// TODO Auto-generated method stub
 			return false;
 		}
 
-		/**
-		 * specified by IBaseLabelProvider
-		 */
 		@Override
 		public void removeListener(ILabelProviderListener listener) {
 			// TODO Auto-generated method stub
 			
 		}
+		
+		/**********************************************************************
+		 * Specified by IContentProvider
+		 *********************************************************************/
+		@Override
+		public void dispose() {
+			// TODO Auto-generated method stub
+		}
 
 		@Override
-		public Image getColumnImage(Object element, int columnIndex) {
+		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 			// TODO Auto-generated method stub
-			return null;
-		}
-		
-		public int compareRows(Object row1, Object row2, int columnIndex, boolean ascending) {
-			TableRowProvider row1_provider = (TableRowProvider)row1;
-			TableRowProvider row2_provider = (TableRowProvider)row2;
-			TableColumnProvider columnProvider = this.indexToColumn[columnIndex];
-			return columnProvider.compare(row1_provider, row2_provider, ascending);
 		}
 
-		private AdapterFactoryGridProvider getOuterType() {
-			return AdapterFactoryGridProvider.this;
-		}
-
-		public TableColumnProvider[] getTableColumns() {
-			return this.indexToColumn;
-		}
-
+		/**********************************************************************
+		 * Specified by IStructuredContentProvider
+		 *********************************************************************/
 		@Override
 		public Object[] getElements(Object inputElement) {
 			return this.indexToRow;
 		}
 
-		public String getColumnText(int columnIndex) {
-			TableColumnProvider column = this.indexToColumn[columnIndex];
-			return column.getText(null);
-		}
-
-		public int getColumnWidth(int columnIndex) {
-			TableColumnProvider column = this.indexToColumn[columnIndex];
-			return column.getWidth();
-		}
-
-		public int getColumnAlignment(int columnIndex) {
-			TableColumnProvider column = this.indexToColumn[columnIndex];
-			return column.getAlignemet();
-		}
-
+		/**********************************************************************
+		 * Specified by ITableLabelProvider
+		 *********************************************************************/
 		@Override
 		public String getColumnText(Object element, int columnIndex) {
 			TableColumnProvider column = this.indexToColumn[columnIndex];
@@ -532,9 +516,44 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		}
 		
 		@Override
-		public void dispose() {
+		public Image getColumnImage(Object element, int columnIndex) {
 			// TODO Auto-generated method stub
-			IStructuredContentProvider.super.dispose();
+			return null;
+		}
+		
+		/**********************************************************************
+		 * Called by GridViewer
+		 * @return
+		 *********************************************************************/
+		public String getTableText() {
+			String text = this.gridsProvider.getGridText(this.element, this.grid);
+			return text == null ? "" : text;
+		}
+
+		public int compareRows(Object row1, Object row2, int columnIndex, boolean ascending) {
+			TableRowProvider row1_provider = (TableRowProvider)row1;
+			TableRowProvider row2_provider = (TableRowProvider)row2;
+			TableColumnProvider columnProvider = this.indexToColumn[columnIndex];
+			return columnProvider.compare(row1_provider, row2_provider, ascending);
+		}
+
+		public TableColumnProvider[] getTableColumns() {
+			return this.indexToColumn;
+		}
+
+		public String getColumnText(int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getText(null);
+		}
+
+		public int getColumnWidth(int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getWidth();
+		}
+
+		public int getColumnAlignment(int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getAlignemet();
 		}
 
 	};
