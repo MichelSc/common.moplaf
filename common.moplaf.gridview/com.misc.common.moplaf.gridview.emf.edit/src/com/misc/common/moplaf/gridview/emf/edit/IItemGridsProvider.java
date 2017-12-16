@@ -26,12 +26,12 @@ import java.util.Date;
  * the grid Object may be null if the object supports only one grid </li>
  * <li> 
  * a column:Object: an object identifying a column. 
- * The object can be an actual Object, or an Integer, if the no collection of Column Objects is provided (see further).
+ * The object can be an actual Object, or an Integer, if no collection of Column Objects is provided (see further).
  * In this latter case, the index is zero-based.
  *  </li>
  * <li> 
  * a row:Object: an object identifying a row. 
- * The object can be an actual Object, or an Integer, if the no collection of Row Objects is provided (see further).
+ * The object can be an actual Object, or an Integer, if no collection of Row Objects is provided (see further).
  * In this latter case, the index is zero-based.
  *  </li>
  * </ul>
