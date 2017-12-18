@@ -14,9 +14,8 @@ package com.misc.common.moplaf.job.jobxmlrpc.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
-import com.misc.common.moplaf.job.jobclient.JobRemote;
-import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
-import com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl;
+import com.misc.common.moplaf.job.jobclient.JobScheduled;
+import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.io.ByteArrayInputStream;
@@ -55,7 +54,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
  *
  * @generated
  */
-public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngineClient {
+public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClient {
 	/**
 	 * The default value of the '{@link #getHost() <em>Host</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -139,10 +138,6 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 		return host;
 	}
 
-	@Override
-	public int submitJob( JobRemote jobremote ) {
-		return -1;
-	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,82 +290,84 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 		return result.toString();
 	}
 	
+	
 
 	/**
 	 * 
 	 */
 	@Override
-	protected ReturnFeedback runJobImpl(JobRemote job) {
-		// the server connection
-		String host = this.getHost();
-		int port = this.getPort();
-		String path = this.getPath();
-		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
-		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
-		Plugin.INSTANCE.logInfo("JobEngineClient, url="+urlAsString);
-	    try {
-			config.setServerURL(new URL(urlAsString));
-		} catch (MalformedURLException e) {
-			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, connect exception "+ e.getMessage());
-			return new ReturnFeedback("JobEngineClient.runJobImpl, connect", e);
-		}
-	    
-	    XmlRpcClient client = new XmlRpcClient();
-	    client.setConfig(config);
-	    
-		// the job
-	    // create resourceFactory
-	    XMLResourceFactoryImpl rf = new XMLResourceFactoryImpl(); 
-		
-		// create the resourceSet
-	    ResourceSet rs = new ResourceSetImpl();
-	    rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", rf);
-	    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
-	    XMLResource resource = (XMLResource)rs.createResource(uri);
-	    EObject copyJob = EcoreUtil.copy(job);
-	    resource.getContents().add(copyJob);
-	    StringWriter stringWriter = new StringWriter();
-	    try {
-			resource.save(stringWriter, null);
-		} catch (IOException e) {
-			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, serialize "+ e.getMessage());
-			return new ReturnFeedback("JobEngineClient.runJobImpl, serialize", e);
-		}
-	    
-	    // do the call
-	    String jobAsString = stringWriter.toString();
-	    String resultAsString = "";
-	    Object[] params = new Object[]{jobAsString};
-	    try {
-	    	// parameter 1: the method being performed
-	    	resultAsString = (String) client.execute("handlejob.runJob", params);
-		} catch (XmlRpcException e) {
-			return new ReturnFeedback("JobEngineClient.runJobImpl, call", e);
-		}
-	    
-	    // deserialize the result as string
-	    URI uri2 = URI.createURI("http://www.misc.com/tmp/job.xml");
-	    XMLResource resource2 = (XMLResource)rs.createResource(uri);
-		InputStream inputStream = new ByteArrayInputStream(resultAsString.getBytes());
-	    try {
-	    	resource2.load(inputStream, null);
-		} catch (IOException e) {
-			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl: exception in load: "+e.getMessage());
-			return new ReturnFeedback("JobEngineClient.runJobImpl", e);
-		}
-	    
-	    // get the jogs
-		for (Object object : resource2.getContents()){
-	    	if ( object instanceof JobRemoteResult) {
-	    		JobRemoteResult result = (JobRemoteResult) object;
-	    		job.setResult(result);
-	    		Plugin.INSTANCE.logInfo("HandleJob.runJob: result received");
-	    		break;
-	    	}
-		}
-	    
+	public void executeJob(JobScheduled job) {
+		// TODO Auto-generated method stub
+//		// the server connection
+//		String host = this.getHost();
+//		int port = this.getPort();
+//		String path = this.getPath();
+//		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
+//		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+//		Plugin.INSTANCE.logInfo("JobEngineClient, url="+urlAsString);
+//	    try {
+//			config.setServerURL(new URL(urlAsString));
+//		} catch (MalformedURLException e) {
+//			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, connect exception "+ e.getMessage());
+//			return new ReturnFeedback("JobEngineClient.runJobImpl, connect", e);
+//		}
+//	    
+//	    XmlRpcClient client = new XmlRpcClient();
+//	    client.setConfig(config);
+//	    
+//		// the job
+//	    // create resourceFactory
+//	    XMLResourceFactoryImpl rf = new XMLResourceFactoryImpl(); 
+//		
+//		// create the resourceSet
+//	    ResourceSet rs = new ResourceSetImpl();
+//	    rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", rf);
+//	    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
+//	    XMLResource resource = (XMLResource)rs.createResource(uri);
+//	    EObject copyJob = EcoreUtil.copy(job);
+//	    resource.getContents().add(copyJob);
+//	    StringWriter stringWriter = new StringWriter();
+//	    try {
+//			resource.save(stringWriter, null);
+//		} catch (IOException e) {
+//			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, serialize "+ e.getMessage());
+//			return new ReturnFeedback("JobEngineClient.runJobImpl, serialize", e);
+//		}
+//	    
+//	    // do the call
+//	    String jobAsString = stringWriter.toString();
+//	    String resultAsString = "";
+//	    Object[] params = new Object[]{jobAsString};
+//	    try {
+//	    	// parameter 1: the method being performed
+//	    	resultAsString = (String) client.execute("handlejob.runJob", params);
+//		} catch (XmlRpcException e) {
+//			return new ReturnFeedback("JobEngineClient.runJobImpl, call", e);
+//		}
+//	    
+//	    // deserialize the result as string
+//	    URI uri2 = URI.createURI("http://www.misc.com/tmp/job.xml");
+//	    XMLResource resource2 = (XMLResource)rs.createResource(uri);
+//		InputStream inputStream = new ByteArrayInputStream(resultAsString.getBytes());
+//	    try {
+//	    	resource2.load(inputStream, null);
+//		} catch (IOException e) {
+//			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl: exception in load: "+e.getMessage());
+//			return new ReturnFeedback("JobEngineClient.runJobImpl", e);
+//		}
+//	    
+//	    // get the jogs
+//		for (Object object : resource2.getContents()){
+//	    	if ( object instanceof JobRemoteResult) {
+//	    		JobRemoteResult result = (JobRemoteResult) object;
+//	    		job.setResult(result);
+//	    		Plugin.INSTANCE.logInfo("HandleJob.runJob: result received");
+//	    		break;
+//	    	}
+//		}
+//	    
 		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
-	    return ReturnFeedback.SUCCESS; 
+//	    return ReturnFeedback.SUCCESS; 
 	}
 
 } //JobEngineClientImpl

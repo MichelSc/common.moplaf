@@ -3,8 +3,7 @@
 package com.misc.common.moplaf.job.jobxmlrpc.util;
 
 import com.misc.common.moplaf.job.jobclient.JobEngine;
-import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
-
+import com.misc.common.moplaf.job.jobclient.JobSource;
 import com.misc.common.moplaf.job.jobxmlrpc.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -79,12 +78,12 @@ public class JobXmlRpcAdapterFactory extends AdapterFactoryImpl {
 				return createJobEngineServerAdapter();
 			}
 			@Override
-			public Adapter caseJobEngineProxy(JobEngineProxy object) {
-				return createJobEngineProxyAdapter();
-			}
-			@Override
 			public Adapter caseJobEngine(JobEngine object) {
 				return createJobEngineAdapter();
+			}
+			@Override
+			public Adapter caseJobSource(JobSource object) {
+				return createJobSourceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -135,20 +134,6 @@ public class JobXmlRpcAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy <em>Job Engine Proxy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy
-	 * @generated
-	 */
-	public Adapter createJobEngineProxyAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobEngine <em>Job Engine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -159,6 +144,20 @@ public class JobXmlRpcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJobEngineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobSource <em>Job Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource
+	 * @generated
+	 */
+	public Adapter createJobSourceAdapter() {
 		return null;
 	}
 

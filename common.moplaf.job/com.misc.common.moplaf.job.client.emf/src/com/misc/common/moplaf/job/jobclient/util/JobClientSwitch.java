@@ -66,36 +66,6 @@ public class JobClientSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case JobClientPackage.JOB_REMOTE: {
-				JobRemote jobRemote = (JobRemote)theEObject;
-				T result = caseJobRemote(jobRemote);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JobClientPackage.JOB_ENGINE_PROXY: {
-				JobEngineProxy jobEngineProxy = (JobEngineProxy)theEObject;
-				T result = caseJobEngineProxy(jobEngineProxy);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JobClientPackage.JOB_REMOTE_RESULT: {
-				JobRemoteResult jobRemoteResult = (JobRemoteResult)theEObject;
-				T result = caseJobRemoteResult(jobRemoteResult);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JobClientPackage.JOB_ENGINE_OLD: {
-				JobEngineOld jobEngineOld = (JobEngineOld)theEObject;
-				T result = caseJobEngineOld(jobEngineOld);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JobClientPackage.SUBMITTED_JOB: {
-				SubmittedJob submittedJob = (SubmittedJob)theEObject;
-				T result = caseSubmittedJob(submittedJob);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JobClientPackage.JOB_ENGINE_IN_PROCESS: {
 				JobEngineInProcess jobEngineInProcess = (JobEngineInProcess)theEObject;
 				T result = caseJobEngineInProcess(jobEngineInProcess);
@@ -129,81 +99,6 @@ public class JobClientSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Job Remote</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Job Remote</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJobRemote(JobRemote object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Job Engine Proxy</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Job Engine Proxy</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJobEngineProxy(JobEngineProxy object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Job Remote Result</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Job Remote Result</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJobRemoteResult(JobRemoteResult object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Job Engine Old</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Job Engine Old</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJobEngineOld(JobEngineOld object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Submitted Job</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Submitted Job</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSubmittedJob(SubmittedJob object) {
-		return null;
 	}
 
 	/**

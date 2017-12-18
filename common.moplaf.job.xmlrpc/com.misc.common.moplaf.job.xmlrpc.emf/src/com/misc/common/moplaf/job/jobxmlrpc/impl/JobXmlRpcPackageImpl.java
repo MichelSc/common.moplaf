@@ -235,8 +235,8 @@ public class JobXmlRpcPackageImpl extends EPackageImpl implements JobXmlRpcPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		jobEngineClientEClass.getESuperTypes().add(theJobClientPackage.getJobEngineProxy());
-		jobEngineServerEClass.getESuperTypes().add(theJobClientPackage.getJobEngine());
+		jobEngineClientEClass.getESuperTypes().add(theJobClientPackage.getJobEngine());
+		jobEngineServerEClass.getESuperTypes().add(theJobClientPackage.getJobSource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobEngineClientEClass, JobEngineClient.class, "JobEngineClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

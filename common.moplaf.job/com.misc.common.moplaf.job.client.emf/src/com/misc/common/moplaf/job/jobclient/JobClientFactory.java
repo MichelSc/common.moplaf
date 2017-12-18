@@ -22,33 +22,6 @@ public interface JobClientFactory extends EFactory {
 	JobClientFactory eINSTANCE = com.misc.common.moplaf.job.jobclient.impl.JobClientFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Job Remote</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Job Remote</em>'.
-	 * @generated
-	 */
-	JobRemote createJobRemote();
-
-	/**
-	 * Returns a new object of class '<em>Job Remote Result</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Job Remote Result</em>'.
-	 * @generated
-	 */
-	JobRemoteResult createJobRemoteResult();
-
-	/**
-	 * Returns a new object of class '<em>Submitted Job</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Submitted Job</em>'.
-	 * @generated
-	 */
-	SubmittedJob createSubmittedJob();
-
-	/**
 	 * Returns a new object of class '<em>Job Engine In Process</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

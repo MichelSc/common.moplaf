@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobclient.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
@@ -38,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getJobScheduled <em>Job Scheduled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getScheduler <em>Scheduler</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getStartFeedback <em>Start Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getStopFeedback <em>Stop Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getStatus <em>Status</em>}</li>
@@ -57,6 +60,26 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	 * @ordered
 	 */
 	protected EList<JobScheduled> jobScheduled;
+
+	/**
+	 * The default value of the '{@link #getStartFeedback() <em>Start Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback START_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getStopFeedback() <em>Stop Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStopFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback STOP_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -202,6 +225,28 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SOURCE__SCHEDULER, newScheduler, newScheduler));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback getStartFeedback() {
+		// TODO: implement this method to return the 'Start Feedback' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback getStopFeedback() {
+		// TODO: implement this method to return the 'Stop Feedback' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -406,6 +451,10 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 				return getJobScheduled();
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				return getScheduler();
+			case JobClientPackage.JOB_SOURCE__START_FEEDBACK:
+				return getStartFeedback();
+			case JobClientPackage.JOB_SOURCE__STOP_FEEDBACK:
+				return getStopFeedback();
 			case JobClientPackage.JOB_SOURCE__NAME:
 				return getName();
 			case JobClientPackage.JOB_SOURCE__DESCRIPTION:
@@ -488,6 +537,10 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 				return jobScheduled != null && !jobScheduled.isEmpty();
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				return getScheduler() != null;
+			case JobClientPackage.JOB_SOURCE__START_FEEDBACK:
+				return START_FEEDBACK_EDEFAULT == null ? getStartFeedback() != null : !START_FEEDBACK_EDEFAULT.equals(getStartFeedback());
+			case JobClientPackage.JOB_SOURCE__STOP_FEEDBACK:
+				return STOP_FEEDBACK_EDEFAULT == null ? getStopFeedback() != null : !STOP_FEEDBACK_EDEFAULT.equals(getStopFeedback());
 			case JobClientPackage.JOB_SOURCE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JobClientPackage.JOB_SOURCE__DESCRIPTION:

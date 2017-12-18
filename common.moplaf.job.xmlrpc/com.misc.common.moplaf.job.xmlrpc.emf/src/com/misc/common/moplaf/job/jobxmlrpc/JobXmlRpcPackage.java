@@ -68,13 +68,40 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_CLIENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__JOB_SCHEDULED = JobClientPackage.JOB_ENGINE__JOB_SCHEDULED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT__NAME = JobClientPackage.JOB_ENGINE_PROXY__NAME;
+	int JOB_ENGINE_CLIENT__NAME = JobClientPackage.JOB_ENGINE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Scheduler</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__SCHEDULER = JobClientPackage.JOB_ENGINE__SCHEDULER;
+
+	/**
+	 * The feature id for the '<em><b>Execute Enabled Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__EXECUTE_ENABLED_FEEDBACK = JobClientPackage.JOB_ENGINE__EXECUTE_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Host</b></em>' attribute.
@@ -83,7 +110,7 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT__HOST = JobClientPackage.JOB_ENGINE_PROXY_FEATURE_COUNT + 0;
+	int JOB_ENGINE_CLIENT__HOST = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.
@@ -92,7 +119,7 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT__PORT = JobClientPackage.JOB_ENGINE_PROXY_FEATURE_COUNT + 1;
+	int JOB_ENGINE_CLIENT__PORT = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -101,7 +128,7 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT__PATH = JobClientPackage.JOB_ENGINE_PROXY_FEATURE_COUNT + 2;
+	int JOB_ENGINE_CLIENT__PATH = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Job Engine Client</em>' class.
@@ -110,25 +137,16 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT_FEATURE_COUNT = JobClientPackage.JOB_ENGINE_PROXY_FEATURE_COUNT + 3;
+	int JOB_ENGINE_CLIENT_FEATURE_COUNT = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Submit Job</em>' operation.
+	 * The operation id for the '<em>Execute Job</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT___SUBMIT_JOB__JOBREMOTE = JobClientPackage.JOB_ENGINE_PROXY___SUBMIT_JOB__JOBREMOTE;
-
-	/**
-	 * The operation id for the '<em>Get Job</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_CLIENT___GET_JOB__INT = JobClientPackage.JOB_ENGINE_PROXY___GET_JOB__INT;
+	int JOB_ENGINE_CLIENT___EXECUTE_JOB__JOBSCHEDULED = JobClientPackage.JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED;
 
 	/**
 	 * The number of operations of the '<em>Job Engine Client</em>' class.
@@ -137,7 +155,7 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT_OPERATION_COUNT = JobClientPackage.JOB_ENGINE_PROXY_OPERATION_COUNT + 0;
+	int JOB_ENGINE_CLIENT_OPERATION_COUNT = JobClientPackage.JOB_ENGINE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobxmlrpc.impl.JobEngineServerImpl <em>Job Engine Server</em>}' class.
@@ -150,22 +168,13 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference.
+	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER__JOB_SCHEDULED = JobClientPackage.JOB_ENGINE__JOB_SCHEDULED;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_SERVER__NAME = JobClientPackage.JOB_ENGINE__NAME;
+	int JOB_ENGINE_SERVER__JOB_SCHEDULED = JobClientPackage.JOB_SOURCE__JOB_SCHEDULED;
 
 	/**
 	 * The feature id for the '<em><b>Scheduler</b></em>' container reference.
@@ -174,16 +183,70 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER__SCHEDULER = JobClientPackage.JOB_ENGINE__SCHEDULER;
+	int JOB_ENGINE_SERVER__SCHEDULER = JobClientPackage.JOB_SOURCE__SCHEDULER;
 
 	/**
-	 * The feature id for the '<em><b>Execute Enabled Feedback</b></em>' attribute.
+	 * The feature id for the '<em><b>Start Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER__EXECUTE_ENABLED_FEEDBACK = JobClientPackage.JOB_ENGINE__EXECUTE_ENABLED_FEEDBACK;
+	int JOB_ENGINE_SERVER__START_FEEDBACK = JobClientPackage.JOB_SOURCE__START_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Stop Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__STOP_FEEDBACK = JobClientPackage.JOB_SOURCE__STOP_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__NAME = JobClientPackage.JOB_SOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__DESCRIPTION = JobClientPackage.JOB_SOURCE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__STATUS = JobClientPackage.JOB_SOURCE__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__AUTO_START_STOP = JobClientPackage.JOB_SOURCE__AUTO_START_STOP;
+
+	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__RUNNING = JobClientPackage.JOB_SOURCE__RUNNING;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.
@@ -192,7 +255,7 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER__PORT = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 0;
+	int JOB_ENGINE_SERVER__PORT = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -201,7 +264,7 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER__PATH = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 1;
+	int JOB_ENGINE_SERVER__PATH = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Job Engine Server</em>' class.
@@ -210,16 +273,52 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER_FEATURE_COUNT = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 2;
+	int JOB_ENGINE_SERVER_FEATURE_COUNT = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Execute Job</em>' operation.
+	 * The operation id for the '<em>Start</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER___EXECUTE_JOB__JOBSCHEDULED = JobClientPackage.JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED;
+	int JOB_ENGINE_SERVER___START = JobClientPackage.JOB_SOURCE___START;
+
+	/**
+	 * The operation id for the '<em>Stop</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___STOP = JobClientPackage.JOB_SOURCE___STOP;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___REFRESH = JobClientPackage.JOB_SOURCE___REFRESH;
+
+	/**
+	 * The operation id for the '<em>On Job Running</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___ON_JOB_RUNNING__JOBSCHEDULED = JobClientPackage.JOB_SOURCE___ON_JOB_RUNNING__JOBSCHEDULED;
+
+	/**
+	 * The operation id for the '<em>On Job Returned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___ON_JOB_RETURNED__JOBSCHEDULED_RETURNFEEDBACK = JobClientPackage.JOB_SOURCE___ON_JOB_RETURNED__JOBSCHEDULED_RETURNFEEDBACK;
 
 	/**
 	 * The number of operations of the '<em>Job Engine Server</em>' class.
@@ -228,7 +327,7 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER_OPERATION_COUNT = JobClientPackage.JOB_ENGINE_OPERATION_COUNT + 0;
+	int JOB_ENGINE_SERVER_OPERATION_COUNT = JobClientPackage.JOB_SOURCE_OPERATION_COUNT + 0;
 
 
 	/**

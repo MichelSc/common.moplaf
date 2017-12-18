@@ -12,7 +12,7 @@
  */
 package com.misc.common.moplaf.job.jobxmlrpc;
 
-import com.misc.common.moplaf.job.jobclient.JobEngine;
+import com.misc.common.moplaf.job.jobclient.JobSource;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +31,7 @@ import com.misc.common.moplaf.job.jobclient.JobEngine;
  * @model
  * @generated
  */
-public interface JobEngineServer extends JobEngine {
+public interface JobEngineServer extends JobSource {
 	/**
 	 * Returns the value of the '<em><b>Port</b></em>' attribute.
 	 * The default value is <code>"8080"</code>.

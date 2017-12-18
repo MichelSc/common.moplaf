@@ -68,26 +68,6 @@ public class JobClientAdapterFactory extends AdapterFactoryImpl {
 	protected JobClientSwitch<Adapter> modelSwitch =
 		new JobClientSwitch<Adapter>() {
 			@Override
-			public Adapter caseJobRemote(JobRemote object) {
-				return createJobRemoteAdapter();
-			}
-			@Override
-			public Adapter caseJobEngineProxy(JobEngineProxy object) {
-				return createJobEngineProxyAdapter();
-			}
-			@Override
-			public Adapter caseJobRemoteResult(JobRemoteResult object) {
-				return createJobRemoteResultAdapter();
-			}
-			@Override
-			public Adapter caseJobEngineOld(JobEngineOld object) {
-				return createJobEngineOldAdapter();
-			}
-			@Override
-			public Adapter caseSubmittedJob(SubmittedJob object) {
-				return createSubmittedJobAdapter();
-			}
-			@Override
 			public Adapter caseJobEngineInProcess(JobEngineInProcess object) {
 				return createJobEngineInProcessAdapter();
 			}
@@ -126,76 +106,6 @@ public class JobClientAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobRemote <em>Job Remote</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.jobclient.JobRemote
-	 * @generated
-	 */
-	public Adapter createJobRemoteAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy <em>Job Engine Proxy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy
-	 * @generated
-	 */
-	public Adapter createJobEngineProxyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobRemoteResult <em>Job Remote Result</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.jobclient.JobRemoteResult
-	 * @generated
-	 */
-	public Adapter createJobRemoteResultAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobEngineOld <em>Job Engine Old</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngineOld
-	 * @generated
-	 */
-	public Adapter createJobEngineOldAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.SubmittedJob <em>Submitted Job</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.jobclient.SubmittedJob
-	 * @generated
-	 */
-	public Adapter createSubmittedJobAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobEngineInProcess <em>Job Engine In Process</em>}'.

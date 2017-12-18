@@ -3,17 +3,23 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.emf.edit.command.StartCommand;
+import com.misc.common.moplaf.emf.edit.command.StopCommand;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
-
 import com.misc.common.moplaf.job.jobclient.JobSource;
+
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -61,6 +67,8 @@ public class JobSourceItemProvider
 			super.getPropertyDescriptors(object);
 
 			addJobScheduledPropertyDescriptor(object);
+			addStartFeedbackPropertyDescriptor(object);
+			addStopFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
@@ -88,6 +96,50 @@ public class JobSourceItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobSource_StartFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobSource_StartFeedback_feature", "_UI_JobSource_type"),
+				 JobClientPackage.Literals.JOB_SOURCE__START_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Stop Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStopFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobSource_StopFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobSource_StopFeedback_feature", "_UI_JobSource_type"),
+				 JobClientPackage.Literals.JOB_SOURCE__STOP_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -240,6 +292,8 @@ public class JobSourceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobSource.class)) {
+			case JobClientPackage.JOB_SOURCE__START_FEEDBACK:
+			case JobClientPackage.JOB_SOURCE__STOP_FEEDBACK:
 			case JobClientPackage.JOB_SOURCE__NAME:
 			case JobClientPackage.JOB_SOURCE__DESCRIPTION:
 			case JobClientPackage.JOB_SOURCE__STATUS:
@@ -273,5 +327,105 @@ public class JobSourceItemProvider
 	public ResourceLocator getResourceLocator() {
 		return JobclientEditPlugin.INSTANCE;
 	}
+
+	/*
+	 * JobSourceStartCommand
+	 */
+	private class JobSourceStartCommand extends StartCommand{
+		private JobSource jobsource;
+		
+		// constructor
+		public JobSourceStartCommand(JobSource source)	{
+			this.jobsource = source;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			EnabledFeedback feedback = this.jobsource.getStartFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.jobsource.start();
+		}
+	} // class JobSourceStartCommand
+	
+	/*
+	 * JobSourceStopCommand
+	 */
+	private class JobSourceStopCommand extends StopCommand{
+		private JobSource jobsource;
+		
+		// constructor
+		public JobSourceStopCommand(JobSource source)	{
+			this.jobsource = source;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			EnabledFeedback feedback = this.jobsource.getStopFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.jobsource.stop();
+		}
+	} // class JobSourceStopCommand
+	
+	/*
+	 * JobSourceRefreshCommand
+	 */
+	private class JobSourceRefreshCommand extends RefreshCommand{
+		private JobSource jobsource;
+		
+		// constructor
+		public JobSourceRefreshCommand(JobSource source)	{
+			this.jobsource = source;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.jobsource.refresh();
+		}
+	} // class JobSourceRefreshCommand
+	
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == StartCommand.class){
+			return new JobSourceStartCommand((JobSource) object); 
+		}
+		else if ( commandClass == RefreshCommand.class){
+			return new JobSourceRefreshCommand((JobSource) object); 
+		}
+		else if ( commandClass == StopCommand.class){
+			return new JobSourceStopCommand((JobSource) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 }

@@ -13,8 +13,7 @@
 package com.misc.common.moplaf.job.jobxmlrpc.provider;
 
 
-import com.misc.common.moplaf.job.jobclient.provider.JobEngineItemProvider;
-
+import com.misc.common.moplaf.job.jobclient.provider.JobSourceItemProvider;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.util.Collection;
@@ -36,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JobEngineServerItemProvider extends JobEngineItemProvider {
+public class JobEngineServerItemProvider extends JobSourceItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

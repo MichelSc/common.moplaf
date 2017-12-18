@@ -17,11 +17,7 @@ import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
-import com.misc.common.moplaf.job.jobclient.JobRemote;
-import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
-import com.misc.common.moplaf.job.jobclient.SubmittedJob;
-import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
-
+import com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.io.ByteArrayInputStream;
@@ -66,7 +62,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  *
  * @generated
  */
-public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServer {
+public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServer {
 	/**
 	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -327,35 +323,35 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 				return "erreur";
 			}
 		    
-		    try {
-			    // get the jogs
-		    	EList<JobRemote> jobs = new BasicEList<JobRemote>();
-				for (Object object : resource.getContents()){
-			    	if ( object instanceof JobRemote) {
-			    		JobRemote job = (JobRemote) object;
-			    		jobs.add(job);
-			    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job received");
-			    	}
-				}
-			    // add the jobs
-				for ( JobRemote job : jobs){
-		    		SubmittedJob submittedJob = JobClientFactory.eINSTANCE.createSubmittedJob();
-//		    		jobEngineServer.getSubmittedJobs().add(submittedJob);
-		    		submittedJob.setJob(job);
-		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
-		    		ReturnFeedback jobFeedback = job.run(submittedJob);
-		    		JobRemoteResult result = job.getResult();
-		    		EObject resultCopy = EcoreUtil.copy(result);
-		    		resource.getContents().add(resultCopy);
-					Plugin.INSTANCE.logInfo("HandleJob.runJob: job executed");
-				}
-				Writer outputStream = new StringWriter();
-				resource.save(outputStream, null);
-				resultAsString = outputStream.toString();
-		    }
-			catch (Exception e) {
-				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
-			}
+//		    try {
+//			    // get the jogs
+//		    	EList<JobRemote> jobs = new BasicEList<JobRemote>();
+//				for (Object object : resource.getContents()){
+//			    	if ( object instanceof JobRemote) {
+//			    		JobRemote job = (JobRemote) object;
+//			    		jobs.add(job);
+//			    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job received");
+//			    	}
+//				}
+//			    // add the jobs
+//				for ( JobRemote job : jobs){
+//		    		SubmittedJob submittedJob = JobClientFactory.eINSTANCE.createSubmittedJob();
+////		    		jobEngineServer.getSubmittedJobs().add(submittedJob);
+//		    		submittedJob.setJob(job);
+//		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
+//		    		ReturnFeedback jobFeedback = job.run(submittedJob);
+//		    		JobRemoteResult result = job.getResult();
+//		    		EObject resultCopy = EcoreUtil.copy(result);
+//		    		resource.getContents().add(resultCopy);
+//					Plugin.INSTANCE.logInfo("HandleJob.runJob: job executed");
+//				}
+//				Writer outputStream = new StringWriter();
+//				resource.save(outputStream, null);
+//				resultAsString = outputStream.toString();
+//		    }
+//			catch (Exception e) {
+//				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
+//			}
 			
 			Plugin.INSTANCE.logInfo("HandleJob.runJob: call done ");
 			return resultAsString;

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobclient;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled <em>Job Scheduled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getScheduler <em>Scheduler</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getStartFeedback <em>Start Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getStopFeedback <em>Stop Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getStatus <em>Status</em>}</li>
@@ -76,6 +79,36 @@ public interface JobSource extends EObject {
 	 * @generated
 	 */
 	void setScheduler(JobScheduler value);
+
+	/**
+	 * Returns the value of the '<em><b>Start Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobSource_StartFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getStartFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Stop Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Stop Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stop Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobSource_StopFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getStopFeedback();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

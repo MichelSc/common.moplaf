@@ -533,13 +533,13 @@ public class JobSchedulerItemProvider
 	}
 	
 	/*
-	 * RunStartCommand
+	 * SchedulerStartCommand
 	 */
-	public class RunStartCommand extends StartCommand{
+	private class SchedulerStartCommand extends StartCommand{
 		private JobScheduler jobscheduler;
 		
 		// constructor
-		public RunStartCommand(JobScheduler aJobScheduler)	{
+		public SchedulerStartCommand(JobScheduler aJobScheduler)	{
 			this.jobscheduler = aJobScheduler;
 		}
 
@@ -558,16 +558,16 @@ public class JobSchedulerItemProvider
 		public void execute() {
 			this.jobscheduler.start();
 		}
-	} // class RunStartCommand
+	} // class SchedulerStartCommand
 	
 	/*
-	 * RunStopCommand
+	 * SchedulerStopCommand
 	 */
-	public class RunStopCommand extends StopCommand{
+	private class SchedulerStopCommand extends StopCommand{
 		private JobScheduler jobscheduler;
 		
 		// constructor
-		public RunStopCommand(JobScheduler aJobScheduler)	{
+		public SchedulerStopCommand(JobScheduler aJobScheduler)	{
 			this.jobscheduler = aJobScheduler;
 		}
 
@@ -586,16 +586,16 @@ public class JobSchedulerItemProvider
 		public void execute() {
 			this.jobscheduler.stop();
 		}
-	} // class RunStopCommand
+	} // class SchedulerStopCommand
 	
 	/*
-	 * RunRefreshCommand
+	 * SchedulerRefreshCommand
 	 */
-	public class RunRefreshCommand extends RefreshCommand{
+	private class SchedulerRefreshCommand extends RefreshCommand{
 		private JobScheduler jobscheduler;
 		
 		// constructor
-		public RunRefreshCommand(JobScheduler aJobScheduler)	{
+		public SchedulerRefreshCommand(JobScheduler aJobScheduler)	{
 			this.jobscheduler = aJobScheduler;
 		}
 
@@ -625,13 +625,13 @@ public class JobSchedulerItemProvider
 			Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if ( commandClass == StartCommand.class){
-			return new RunStartCommand((JobScheduler) object); 
+			return new SchedulerStartCommand((JobScheduler) object); 
 		}
 		else if ( commandClass == RefreshCommand.class){
-			return new RunRefreshCommand((JobScheduler) object); 
+			return new SchedulerRefreshCommand((JobScheduler) object); 
 		}
 		else if ( commandClass == StopCommand.class){
-			return new RunStopCommand((JobScheduler) object); 
+			return new SchedulerStopCommand((JobScheduler) object); 
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand

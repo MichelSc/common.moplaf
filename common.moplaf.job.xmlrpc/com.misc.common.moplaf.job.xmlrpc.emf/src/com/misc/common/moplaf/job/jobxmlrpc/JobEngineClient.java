@@ -12,7 +12,7 @@
  */
 package com.misc.common.moplaf.job.jobxmlrpc;
 
-import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
+import com.misc.common.moplaf.job.jobclient.JobEngine;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
  * @model
  * @generated
  */
-public interface JobEngineClient extends JobEngineProxy {
+public interface JobEngineClient extends JobEngine {
 
 	/**
 	 * Returns the value of the '<em><b>Host</b></em>' attribute.

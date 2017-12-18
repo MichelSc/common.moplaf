@@ -57,9 +57,6 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case JobClientPackage.JOB_REMOTE: return createJobRemote();
-			case JobClientPackage.JOB_REMOTE_RESULT: return createJobRemoteResult();
-			case JobClientPackage.SUBMITTED_JOB: return createSubmittedJob();
 			case JobClientPackage.JOB_ENGINE_IN_PROCESS: return createJobEngineInProcess();
 			case JobClientPackage.JOB_SCHEDULER: return createJobScheduler();
 			case JobClientPackage.JOB_SCHEDULED: return createJobScheduled();
@@ -97,36 +94,6 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JobRemote createJobRemote() {
-		JobRemoteImpl jobRemote = new JobRemoteImpl();
-		return jobRemote;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JobRemoteResult createJobRemoteResult() {
-		JobRemoteResultImpl jobRemoteResult = new JobRemoteResultImpl();
-		return jobRemoteResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SubmittedJob createSubmittedJob() {
-		SubmittedJobImpl submittedJob = new SubmittedJobImpl();
-		return submittedJob;
 	}
 
 	/**

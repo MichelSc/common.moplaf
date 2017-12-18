@@ -3,8 +3,7 @@
 package com.misc.common.moplaf.job.jobxmlrpc.util;
 
 import com.misc.common.moplaf.job.jobclient.JobEngine;
-import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
-
+import com.misc.common.moplaf.job.jobclient.JobSource;
 import com.misc.common.moplaf.job.jobxmlrpc.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -72,14 +71,14 @@ public class JobXmlRpcSwitch<T> extends Switch<T> {
 			case JobXmlRpcPackage.JOB_ENGINE_CLIENT: {
 				JobEngineClient jobEngineClient = (JobEngineClient)theEObject;
 				T result = caseJobEngineClient(jobEngineClient);
-				if (result == null) result = caseJobEngineProxy(jobEngineClient);
+				if (result == null) result = caseJobEngine(jobEngineClient);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JobXmlRpcPackage.JOB_ENGINE_SERVER: {
 				JobEngineServer jobEngineServer = (JobEngineServer)theEObject;
 				T result = caseJobEngineServer(jobEngineServer);
-				if (result == null) result = caseJobEngine(jobEngineServer);
+				if (result == null) result = caseJobSource(jobEngineServer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,21 +117,6 @@ public class JobXmlRpcSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Job Engine Proxy</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Job Engine Proxy</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJobEngineProxy(JobEngineProxy object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Job Engine</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -144,6 +128,21 @@ public class JobXmlRpcSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobEngine(JobEngine object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Job Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Job Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJobSource(JobSource object) {
 		return null;
 	}
 
