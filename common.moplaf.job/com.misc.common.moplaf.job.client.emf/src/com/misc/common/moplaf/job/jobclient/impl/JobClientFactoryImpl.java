@@ -63,6 +63,7 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 			case JobClientPackage.JOB_ENGINE_IN_PROCESS: return createJobEngineInProcess();
 			case JobClientPackage.JOB_SCHEDULER: return createJobScheduler();
 			case JobClientPackage.JOB_SCHEDULED: return createJobScheduled();
+			case JobClientPackage.JOB_SOURCE: return createJobSource();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -156,6 +157,16 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 	public JobScheduled createJobScheduled() {
 		JobScheduledImpl jobScheduled = new JobScheduledImpl();
 		return jobScheduled;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobSource createJobSource() {
+		JobSourceImpl jobSource = new JobSourceImpl();
+		return jobSource;
 	}
 
 	/**

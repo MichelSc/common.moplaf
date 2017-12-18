@@ -315,7 +315,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 			String resultAsString = "";
 			Plugin.INSTANCE.logInfo("HandleJob.runJob: called ");
 
-			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+//			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 			
 			InputStream inputStream = new ByteArrayInputStream(jobAsString.getBytes());
 		    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");

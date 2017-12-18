@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelEnabledFeedback <em>Cancel Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getJobNr <em>Job Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled()
@@ -420,7 +421,7 @@ public interface JobScheduled extends EObject {
 	 * @see #setScheduler(JobScheduler)
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_Scheduler()
 	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getJobs
-	 * @model opposite="Jobs" transient="false"
+	 * @model opposite="Jobs" required="true" transient="false"
 	 * @generated
 	 */
 	JobScheduler getScheduler();
@@ -460,6 +461,34 @@ public interface JobScheduled extends EObject {
 	 * @generated
 	 */
 	void setJobNr(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled <em>Job Scheduled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(JobSource)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_Source()
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled
+	 * @model opposite="JobScheduled"
+	 * @generated
+	 */
+	JobSource getSource();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getSource <em>Source</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(JobSource value);
 
 	/**
 	 * <!-- begin-user-doc -->

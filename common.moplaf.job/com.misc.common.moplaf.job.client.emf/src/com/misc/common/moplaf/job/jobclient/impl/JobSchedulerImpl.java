@@ -10,6 +10,7 @@ import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
+import com.misc.common.moplaf.job.jobclient.JobSource;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -58,6 +59,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastRefresh <em>Last Refresh</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastFeedback <em>Last Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getCurrentJobNr <em>Current Job Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getSources <em>Sources</em>}</li>
  * </ul>
  *
  * @generated
@@ -293,6 +295,16 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	protected int currentJobNr = CURRENT_JOB_NR_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getSources() <em>Sources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<JobSource> sources;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -501,6 +513,18 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<JobSource> getSources() {
+		if (sources == null) {
+			sources = new EObjectContainmentWithInverseEList<JobSource>(JobSource.class, this, JobClientPackage.JOB_SCHEDULER__SOURCES, JobClientPackage.JOB_SOURCE__SCHEDULER);
+		}
+		return sources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getRefreshFeedback() {
 		if ( !this.isRunning()){
@@ -615,9 +639,14 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public void start() {
 		this.setRunning(true);
-		 Job job = new BackgroundRefreshJob();
-	     Plugin.INSTANCE.logInfo("JobScheduler started");
-	     job.schedule(); // start as soon as possible			
+		Job job = new BackgroundRefreshJob();
+	    Plugin.INSTANCE.logInfo("JobScheduler started");
+	    job.schedule(); // start as soon as possible
+	    for ( JobSource source : this.getSources()) {
+	    	if ( source.isAutoStartStop()) {
+	    		source.start();
+	    	}
+	    }
 	}
 
 	/**
@@ -626,7 +655,13 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public void stop() {
 		this.setRunning(false);
-	     Plugin.INSTANCE.logInfo("JobScheduler stopped");
+		Plugin.INSTANCE.logInfo("JobScheduler stopped");
+	    for ( JobSource source : this.getSources()) {
+	    	if ( source.isAutoStartStop()) {
+	    		source.stop();
+	    	}
+	    	
+	    }
 	}
 
 
@@ -663,6 +698,12 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	public void refresh() {
 		this.refreshExecuteJobs();
 		this.setLastRefresh(new Date());
+	    for ( JobSource source : this.getSources()) {
+	    	if ( source.isRunning()) {
+	    		source.refresh();
+	    	}
+	    	
+	    }
 	}
 
 	/**
@@ -694,12 +735,13 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void submitRun(Run run) {
+	public JobScheduled submitRun(Run run) {
 		JobScheduled job = JobClientFactory.eINSTANCE.createJobScheduled();
 		this.getJobs().add(job);
 		job.setRun(run);
 		job.setSubmissionTime(new Date());
 		job.setJobNr(this.makeNewJobNr());
+		return job;
 	}
 
 	/**
@@ -713,7 +755,6 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public int makeNewJobNr() {
 		int new_nr = this.getCurrentJobNr()+1;
@@ -734,6 +775,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJobs()).basicAdd(otherEnd, msgs);
 			case JobClientPackage.JOB_SCHEDULER__ENGINES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEngines()).basicAdd(otherEnd, msgs);
+			case JobClientPackage.JOB_SCHEDULER__SOURCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSources()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -750,6 +793,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return ((InternalEList<?>)getJobs()).basicRemove(otherEnd, msgs);
 			case JobClientPackage.JOB_SCHEDULER__ENGINES:
 				return ((InternalEList<?>)getEngines()).basicRemove(otherEnd, msgs);
+			case JobClientPackage.JOB_SCHEDULER__SOURCES:
+				return ((InternalEList<?>)getSources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -796,6 +841,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return getLastFeedback();
 			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
 				return getCurrentJobNr();
+			case JobClientPackage.JOB_SCHEDULER__SOURCES:
+				return getSources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -835,6 +882,10 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
 				setCurrentJobNr((Integer)newValue);
 				return;
+			case JobClientPackage.JOB_SCHEDULER__SOURCES:
+				getSources().clear();
+				getSources().addAll((Collection<? extends JobSource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -870,6 +921,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return;
 			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
 				setCurrentJobNr(CURRENT_JOB_NR_EDEFAULT);
+				return;
+			case JobClientPackage.JOB_SCHEDULER__SOURCES:
+				getSources().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -917,6 +971,8 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				return LAST_FEEDBACK_EDEFAULT == null ? lastFeedback != null : !LAST_FEEDBACK_EDEFAULT.equals(lastFeedback);
 			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
 				return currentJobNr != CURRENT_JOB_NR_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__SOURCES:
+				return sources != null && !sources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -939,8 +995,7 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 				refresh();
 				return null;
 			case JobClientPackage.JOB_SCHEDULER___SUBMIT_RUN__RUN:
-				submitRun((Run)arguments.get(0));
-				return null;
+				return submitRun((Run)arguments.get(0));
 			case JobClientPackage.JOB_SCHEDULER___SET_LAST_FEEDBACK:
 				setLastFeedback();
 				return null;

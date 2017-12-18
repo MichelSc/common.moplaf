@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastRefresh <em>Last Refresh</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastFeedback <em>Last Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentJobNr <em>Current Job Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getSources <em>Sources</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler()
@@ -290,6 +291,24 @@ public interface JobScheduler extends EObject {
 	void setCurrentJobNr(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Sources</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobSource}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobSource#getScheduler <em>Scheduler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sources</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sources</em>' containment reference list.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Sources()
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getScheduler
+	 * @model opposite="Scheduler" containment="true"
+	 * @generated
+	 */
+	EList<JobSource> getSources();
+
+	/**
 	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -402,7 +421,7 @@ public interface JobScheduler extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void submitRun(Run run);
+	JobScheduled submitRun(Run run);
 
 	/**
 	 * <!-- begin-user-doc -->

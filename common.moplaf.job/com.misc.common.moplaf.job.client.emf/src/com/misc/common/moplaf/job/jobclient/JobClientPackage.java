@@ -769,13 +769,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER__CURRENT_JOB_NR = 16;
 
 	/**
+	 * The feature id for the '<em><b>Sources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__SOURCES = 17;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_FEATURE_COUNT = 17;
+	int JOB_SCHEDULER_FEATURE_COUNT = 18;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -1013,13 +1022,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULED__JOB_NR = 17;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULED__SOURCE = 18;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduled</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED_FEATURE_COUNT = 18;
+	int JOB_SCHEDULED_FEATURE_COUNT = 19;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -1059,6 +1077,142 @@ public interface JobClientPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl <em>Job Source</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobClientPackageImpl#getJobSource()
+	 * @generated
+	 */
+	int JOB_SOURCE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__JOB_SCHEDULED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Scheduler</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__SCHEDULER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__DESCRIPTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__STATUS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__AUTO_START_STOP = 5;
+
+	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__RUNNING = 6;
+
+	/**
+	 * The number of structural features of the '<em>Job Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE_FEATURE_COUNT = 7;
+
+	/**
+	 * The operation id for the '<em>Start</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE___START = 0;
+
+	/**
+	 * The operation id for the '<em>Stop</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE___STOP = 1;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE___REFRESH = 2;
+
+	/**
+	 * The operation id for the '<em>On Job Running</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE___ON_JOB_RUNNING__JOBSCHEDULED = 3;
+
+	/**
+	 * The operation id for the '<em>On Job Returned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE___ON_JOB_RETURNED__JOBSCHEDULED_RETURNFEEDBACK = 4;
+
+	/**
+	 * The number of operations of the '<em>Job Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE_OPERATION_COUNT = 5;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.JobStatus <em>Job Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1066,7 +1220,7 @@ public interface JobClientPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.jobclient.impl.JobClientPackageImpl#getJobStatus()
 	 * @generated
 	 */
-	int JOB_STATUS = 9;
+	int JOB_STATUS = 10;
 
 
 	/**
@@ -1593,6 +1747,17 @@ public interface JobClientPackage extends EPackage {
 	EAttribute getJobScheduler_CurrentJobNr();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getSources <em>Sources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sources</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getSources()
+	 * @see #getJobScheduler()
+	 * @generated
+	 */
+	EReference getJobScheduler_Sources();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshFeedback <em>Refresh Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1905,6 +2070,17 @@ public interface JobClientPackage extends EPackage {
 	EAttribute getJobScheduled_JobNr();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getSource()
+	 * @see #getJobScheduled()
+	 * @generated
+	 */
+	EReference getJobScheduled_Source();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#cancel() <em>Cancel</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1997,6 +2173,143 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJobEngine__ExecuteJob__JobScheduled();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobSource <em>Job Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Job Source</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource
+	 * @generated
+	 */
+	EClass getJobSource();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled <em>Job Scheduled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Job Scheduled</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled()
+	 * @see #getJobSource()
+	 * @generated
+	 */
+	EReference getJobSource_JobScheduled();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.jobclient.JobSource#getScheduler <em>Scheduler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Scheduler</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getScheduler()
+	 * @see #getJobSource()
+	 * @generated
+	 */
+	EReference getJobSource_Scheduler();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobSource#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getName()
+	 * @see #getJobSource()
+	 * @generated
+	 */
+	EAttribute getJobSource_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobSource#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getDescription()
+	 * @see #getJobSource()
+	 * @generated
+	 */
+	EAttribute getJobSource_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobSource#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getStatus()
+	 * @see #getJobSource()
+	 * @generated
+	 */
+	EAttribute getJobSource_Status();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobSource#isAutoStartStop <em>Auto Start Stop</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Auto Start Stop</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#isAutoStartStop()
+	 * @see #getJobSource()
+	 * @generated
+	 */
+	EAttribute getJobSource_AutoStartStop();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobSource#isRunning <em>Running</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Running</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#isRunning()
+	 * @see #getJobSource()
+	 * @generated
+	 */
+	EAttribute getJobSource_Running();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobSource#start() <em>Start</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Start</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#start()
+	 * @generated
+	 */
+	EOperation getJobSource__Start();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobSource#stop() <em>Stop</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Stop</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#stop()
+	 * @generated
+	 */
+	EOperation getJobSource__Stop();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobSource#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#refresh()
+	 * @generated
+	 */
+	EOperation getJobSource__Refresh();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobSource#onJobRunning(com.misc.common.moplaf.job.jobclient.JobScheduled) <em>On Job Running</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>On Job Running</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#onJobRunning(com.misc.common.moplaf.job.jobclient.JobScheduled)
+	 * @generated
+	 */
+	EOperation getJobSource__OnJobRunning__JobScheduled();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobSource#onJobReturned(com.misc.common.moplaf.job.jobclient.JobScheduled, com.misc.common.moplaf.common.ReturnFeedback) <em>On Job Returned</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>On Job Returned</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#onJobReturned(com.misc.common.moplaf.job.jobclient.JobScheduled, com.misc.common.moplaf.common.ReturnFeedback)
+	 * @generated
+	 */
+	EOperation getJobSource__OnJobReturned__JobScheduled_ReturnFeedback();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.job.jobclient.JobStatus <em>Job Status</em>}'.
@@ -2438,6 +2751,14 @@ public interface JobClientPackage extends EPackage {
 		EAttribute JOB_SCHEDULER__CURRENT_JOB_NR = eINSTANCE.getJobScheduler_CurrentJobNr();
 
 		/**
+		 * The meta object literal for the '<em><b>Sources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_SCHEDULER__SOURCES = eINSTANCE.getJobScheduler_Sources();
+
+		/**
 		 * The meta object literal for the '<em><b>Refresh Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2672,6 +2993,14 @@ public interface JobClientPackage extends EPackage {
 		EAttribute JOB_SCHEDULED__JOB_NR = eINSTANCE.getJobScheduled_JobNr();
 
 		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_SCHEDULED__SOURCE = eINSTANCE.getJobScheduled_Source();
+
+		/**
 		 * The meta object literal for the '<em><b>Cancel</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2744,6 +3073,112 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED = eINSTANCE.getJobEngine__ExecuteJob__JobScheduled();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl <em>Job Source</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobClientPackageImpl#getJobSource()
+		 * @generated
+		 */
+		EClass JOB_SOURCE = eINSTANCE.getJobSource();
+
+		/**
+		 * The meta object literal for the '<em><b>Job Scheduled</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_SOURCE__JOB_SCHEDULED = eINSTANCE.getJobSource_JobScheduled();
+
+		/**
+		 * The meta object literal for the '<em><b>Scheduler</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_SOURCE__SCHEDULER = eINSTANCE.getJobSource_Scheduler();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SOURCE__NAME = eINSTANCE.getJobSource_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SOURCE__DESCRIPTION = eINSTANCE.getJobSource_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SOURCE__STATUS = eINSTANCE.getJobSource_Status();
+
+		/**
+		 * The meta object literal for the '<em><b>Auto Start Stop</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SOURCE__AUTO_START_STOP = eINSTANCE.getJobSource_AutoStartStop();
+
+		/**
+		 * The meta object literal for the '<em><b>Running</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SOURCE__RUNNING = eINSTANCE.getJobSource_Running();
+
+		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SOURCE___START = eINSTANCE.getJobSource__Start();
+
+		/**
+		 * The meta object literal for the '<em><b>Stop</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SOURCE___STOP = eINSTANCE.getJobSource__Stop();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SOURCE___REFRESH = eINSTANCE.getJobSource__Refresh();
+
+		/**
+		 * The meta object literal for the '<em><b>On Job Running</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SOURCE___ON_JOB_RUNNING__JOBSCHEDULED = eINSTANCE.getJobSource__OnJobRunning__JobScheduled();
+
+		/**
+		 * The meta object literal for the '<em><b>On Job Returned</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SOURCE___ON_JOB_RETURNED__JOBSCHEDULED_RETURNFEEDBACK = eINSTANCE.getJobSource__OnJobReturned__JobScheduled_ReturnFeedback();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.JobStatus <em>Job Status</em>}' enum.

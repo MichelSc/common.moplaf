@@ -413,6 +413,7 @@ public class JobSchedulerItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JobClientPackage.Literals.JOB_SCHEDULER__JOBS);
 			childrenFeatures.add(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES);
+			childrenFeatures.add(JobClientPackage.Literals.JOB_SCHEDULER__SOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -486,6 +487,7 @@ public class JobSchedulerItemProvider
 				return;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
 			case JobClientPackage.JOB_SCHEDULER__ENGINES:
+			case JobClientPackage.JOB_SCHEDULER__SOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -512,6 +514,11 @@ public class JobSchedulerItemProvider
 			(createChildParameter
 				(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES,
 				 JobClientFactory.eINSTANCE.createJobEngineInProcess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobClientPackage.Literals.JOB_SCHEDULER__SOURCES,
+				 JobClientFactory.eINSTANCE.createJobSource()));
 	}
 
 	/**

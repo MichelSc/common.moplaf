@@ -69,7 +69,7 @@
     <eOperations name="start"/>
     <eOperations name="stop"/>
     <eOperations name="refresh"/>
-    <eOperations name="submitRun">
+    <eOperations name="submitRun" eType="#//JobScheduled">
       <eParameters name="run" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"/>
     </eOperations>
     <eOperations name="setLastFeedback"/>
@@ -103,6 +103,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastRefresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentJobNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Sources" upperBound="-1"
+        eType="#//JobSource" containment="true" eOpposite="#//JobSource/Scheduler"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobScheduled">
     <eOperations name="cancel"/>
@@ -134,9 +136,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelEnabledFeedback"
         eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" eType="#//JobScheduler"
-        eOpposite="#//JobScheduler/Jobs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
+        eType="#//JobScheduler" eOpposite="#//JobScheduler/Jobs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" eType="#//JobSource"
+        eOpposite="#//JobSource/JobScheduled"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true">
     <eOperations name="executeJob">
@@ -158,5 +162,29 @@
     <eLiterals name="RUNNING" value="3" literal="Running"/>
     <eLiterals name="COMPLETE" value="4" literal="Complete"/>
     <eLiterals name="FAILLED" value="5" literal="Failed"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobSource">
+    <eOperations name="start"/>
+    <eOperations name="stop"/>
+    <eOperations name="refresh"/>
+    <eOperations name="onJobRunning">
+      <eParameters name="job" eType="#//JobScheduled"/>
+    </eOperations>
+    <eOperations name="onJobReturned">
+      <eParameters name="job" eType="#//JobScheduled"/>
+      <eParameters name="feedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobScheduled" upperBound="-1"
+        eType="#//JobScheduled" eOpposite="#//JobScheduled/Source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
+        eType="#//JobScheduler" eOpposite="#//JobScheduler/Sources"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AutoStartStop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true" defaultValueLiteral="false"/>
   </eClassifiers>
 </ecore:EPackage>

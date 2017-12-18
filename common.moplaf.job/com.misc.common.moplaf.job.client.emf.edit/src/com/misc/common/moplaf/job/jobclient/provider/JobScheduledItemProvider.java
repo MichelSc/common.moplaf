@@ -76,6 +76,7 @@ public class JobScheduledItemProvider
 			addStatusPropertyDescriptor(object);
 			addCancelEnabledFeedbackPropertyDescriptor(object);
 			addJobNrPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -341,6 +342,28 @@ public class JobScheduledItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__30RunPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_Source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Source_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__SOURCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
 				 null));
 	}
 
