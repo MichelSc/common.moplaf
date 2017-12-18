@@ -643,7 +643,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobSource_JobScheduled() {
+	public EReference getJobSource_JobsScheduled() {
 		return (EReference)jobSourceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -861,7 +861,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEOperation(jobEngineEClass, JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED);
 
 		jobSourceEClass = createEClass(JOB_SOURCE);
-		createEReference(jobSourceEClass, JOB_SOURCE__JOB_SCHEDULED);
+		createEReference(jobSourceEClass, JOB_SOURCE__JOBS_SCHEDULED);
 		createEReference(jobSourceEClass, JOB_SOURCE__SCHEDULER);
 		createEAttribute(jobSourceEClass, JOB_SOURCE__START_FEEDBACK);
 		createEAttribute(jobSourceEClass, JOB_SOURCE__STOP_FEEDBACK);
@@ -968,7 +968,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		initEAttribute(getJobScheduled_CancelEnabledFeedback(), theJobPackage.getEnabledFeedback(), "CancelEnabledFeedback", null, 0, 1, JobScheduled.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getJobScheduled_Scheduler(), this.getJobScheduler(), this.getJobScheduler_Jobs(), "Scheduler", null, 1, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduled_JobNr(), ecorePackage.getEInt(), "JobNr", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJobScheduled_Source(), this.getJobSource(), this.getJobSource_JobScheduled(), "Source", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduled_Source(), this.getJobSource(), this.getJobSource_JobsScheduled(), "Source", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getJobScheduled__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -986,8 +986,8 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		op = initEOperation(getJobEngine__ExecuteJob__JobScheduled(), null, "executeJob", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getJobScheduled(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(jobSourceEClass, JobSource.class, "JobSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJobSource_JobScheduled(), this.getJobScheduled(), this.getJobScheduled_Source(), "JobScheduled", null, 0, -1, JobSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(jobSourceEClass, JobSource.class, "JobSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJobSource_JobsScheduled(), this.getJobScheduled(), this.getJobScheduled_Source(), "JobsScheduled", null, 0, -1, JobSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobSource_Scheduler(), this.getJobScheduler(), this.getJobScheduler_Sources(), "Scheduler", null, 1, 1, JobSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobSource_StartFeedback(), theJobPackage.getEnabledFeedback(), "StartFeedback", null, 0, 1, JobSource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobSource_StopFeedback(), theJobPackage.getEnabledFeedback(), "StopFeedback", null, 0, 1, JobSource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1015,6 +1015,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		addEEnumLiteral(jobStatusEEnum, JobStatus.UNKNOWN);
 		addEEnumLiteral(jobStatusEEnum, JobStatus.NOT_READY);
 		addEEnumLiteral(jobStatusEEnum, JobStatus.WAITING);
+		addEEnumLiteral(jobStatusEEnum, JobStatus.SCHEDULED);
 		addEEnumLiteral(jobStatusEEnum, JobStatus.RUNNING);
 		addEEnumLiteral(jobStatusEEnum, JobStatus.COMPLETE);
 		addEEnumLiteral(jobStatusEEnum, JobStatus.FAILLED);

@@ -514,11 +514,6 @@ public class JobSchedulerItemProvider
 			(createChildParameter
 				(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES,
 				 JobClientFactory.eINSTANCE.createJobEngineInProcess()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobClientPackage.Literals.JOB_SCHEDULER__SOURCES,
-				 JobClientFactory.eINSTANCE.createJobSource()));
 	}
 
 	/**
@@ -759,6 +754,8 @@ public class JobSchedulerItemProvider
 						return Color.COLOR_CYAN.toURI();
 					case WAITING:
 						return Color.COLOR_YELLOW.toURI();
+					case SCHEDULED:
+						return Color.COLOR_BLUE.toURI();
 					case RUNNING:
 						return Color.COLOR_MAGENTA.toURI();
 					case COMPLETE:

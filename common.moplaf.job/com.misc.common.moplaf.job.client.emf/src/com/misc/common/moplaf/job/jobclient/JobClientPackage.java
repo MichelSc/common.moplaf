@@ -686,13 +686,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SOURCE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference list.
+	 * The feature id for the '<em><b>Jobs Scheduled</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SOURCE__JOB_SCHEDULED = 0;
+	int JOB_SOURCE__JOBS_SCHEDULED = 0;
 
 	/**
 	 * The feature id for the '<em><b>Scheduler</b></em>' container reference.
@@ -1442,15 +1442,15 @@ public interface JobClientPackage extends EPackage {
 	EClass getJobSource();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled <em>Job Scheduled</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobclient.JobSource#getJobsScheduled <em>Jobs Scheduled</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Job Scheduled</em>'.
-	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled()
+	 * @return the meta object for the reference list '<em>Jobs Scheduled</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getJobsScheduled()
 	 * @see #getJobSource()
 	 * @generated
 	 */
-	EReference getJobSource_JobScheduled();
+	EReference getJobSource_JobsScheduled();
 
 	/**
 	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.jobclient.JobSource#getScheduler <em>Scheduler</em>}'.
@@ -2082,12 +2082,12 @@ public interface JobClientPackage extends EPackage {
 		EClass JOB_SOURCE = eINSTANCE.getJobSource();
 
 		/**
-		 * The meta object literal for the '<em><b>Job Scheduled</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Jobs Scheduled</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JOB_SOURCE__JOB_SCHEDULED = eINSTANCE.getJobSource_JobScheduled();
+		EReference JOB_SOURCE__JOBS_SCHEDULED = eINSTANCE.getJobSource_JobsScheduled();
 
 		/**
 		 * The meta object literal for the '<em><b>Scheduler</b></em>' container reference feature.

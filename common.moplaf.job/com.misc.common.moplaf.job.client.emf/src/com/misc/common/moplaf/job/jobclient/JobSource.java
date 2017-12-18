@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getJobScheduled <em>Job Scheduled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getJobsScheduled <em>Jobs Scheduled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobSource#getStopFeedback <em>Stop Feedback</em>}</li>
@@ -30,27 +30,27 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobSource()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface JobSource extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Job Scheduled</b></em>' reference list.
+	 * Returns the value of the '<em><b>Jobs Scheduled</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Job Scheduled</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Jobs Scheduled</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Job Scheduled</em>' reference list.
-	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobSource_JobScheduled()
+	 * @return the value of the '<em>Jobs Scheduled</em>' reference list.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobSource_JobsScheduled()
 	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getSource
 	 * @model opposite="Source"
 	 * @generated
 	 */
-	EList<JobScheduled> getJobScheduled();
+	EList<JobScheduled> getJobsScheduled();
 
 	/**
 	 * Returns the value of the '<em><b>Scheduler</b></em>' container reference.

@@ -78,7 +78,7 @@
         eType="#//JobScheduler" eOpposite="#//JobScheduler/Jobs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Source" eType="#//JobSource"
-        eOpposite="#//JobSource/JobScheduled"/>
+        eOpposite="#//JobSource/JobsScheduled"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true">
     <eOperations name="executeJob">
@@ -97,11 +97,12 @@
     <eLiterals name="UNKNOWN"/>
     <eLiterals name="NOT_READY" value="1" literal="NotReady"/>
     <eLiterals name="WAITING" value="2" literal="Waiting"/>
-    <eLiterals name="RUNNING" value="3" literal="Running"/>
-    <eLiterals name="COMPLETE" value="4" literal="Complete"/>
-    <eLiterals name="FAILLED" value="5" literal="Failed"/>
+    <eLiterals name="SCHEDULED" value="3" literal="Scheduled"/>
+    <eLiterals name="RUNNING" value="4" literal="Running"/>
+    <eLiterals name="COMPLETE" value="5" literal="Complete"/>
+    <eLiterals name="FAILLED" value="6" literal="Failed"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JobSource">
+  <eClassifiers xsi:type="ecore:EClass" name="JobSource" abstract="true">
     <eOperations name="start"/>
     <eOperations name="stop"/>
     <eOperations name="refresh"/>
@@ -112,7 +113,7 @@
       <eParameters name="job" eType="#//JobScheduled"/>
       <eParameters name="feedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="JobScheduled" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobsScheduled" upperBound="-1"
         eType="#//JobScheduled" eOpposite="#//JobScheduled/Source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
         eType="#//JobScheduler" eOpposite="#//JobScheduler/Sources"/>

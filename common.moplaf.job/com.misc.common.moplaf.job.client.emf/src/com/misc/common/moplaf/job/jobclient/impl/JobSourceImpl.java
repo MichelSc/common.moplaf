@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getJobScheduled <em>Job Scheduled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getJobsScheduled <em>Jobs Scheduled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl#getStopFeedback <em>Stop Feedback</em>}</li>
@@ -50,16 +50,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSource {
+public abstract class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSource {
 	/**
-	 * The cached value of the '{@link #getJobScheduled() <em>Job Scheduled</em>}' reference list.
+	 * The cached value of the '{@link #getJobsScheduled() <em>Jobs Scheduled</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJobScheduled()
+	 * @see #getJobsScheduled()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<JobScheduled> jobScheduled;
+	protected EList<JobScheduled> jobsScheduled;
 
 	/**
 	 * The default value of the '{@link #getStartFeedback() <em>Start Feedback</em>}' attribute.
@@ -179,11 +179,11 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<JobScheduled> getJobScheduled() {
-		if (jobScheduled == null) {
-			jobScheduled = new EObjectWithInverseResolvingEList<JobScheduled>(JobScheduled.class, this, JobClientPackage.JOB_SOURCE__JOB_SCHEDULED, JobClientPackage.JOB_SCHEDULED__SOURCE);
+	public EList<JobScheduled> getJobsScheduled() {
+		if (jobsScheduled == null) {
+			jobsScheduled = new EObjectWithInverseResolvingEList<JobScheduled>(JobScheduled.class, this, JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED, JobClientPackage.JOB_SCHEDULED__SOURCE);
 		}
-		return jobScheduled;
+		return jobsScheduled;
 	}
 
 	/**
@@ -277,7 +277,7 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	public String getDescription() {
 		String description = String.format("Source %s %s", this.getName(), this.getStatus());
 
-		int submitted = this.getJobScheduled().size();
+		int submitted = this.getJobsScheduled().size();
 		if ( submitted>0 )   { description += String.format(", submitted=%d", submitted); }
 
 		return description;
@@ -399,8 +399,8 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobClientPackage.JOB_SOURCE__JOB_SCHEDULED:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJobScheduled()).basicAdd(otherEnd, msgs);
+			case JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJobsScheduled()).basicAdd(otherEnd, msgs);
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -417,8 +417,8 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobClientPackage.JOB_SOURCE__JOB_SCHEDULED:
-				return ((InternalEList<?>)getJobScheduled()).basicRemove(otherEnd, msgs);
+			case JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED:
+				return ((InternalEList<?>)getJobsScheduled()).basicRemove(otherEnd, msgs);
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				return basicSetScheduler(null, msgs);
 		}
@@ -447,8 +447,8 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobClientPackage.JOB_SOURCE__JOB_SCHEDULED:
-				return getJobScheduled();
+			case JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED:
+				return getJobsScheduled();
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				return getScheduler();
 			case JobClientPackage.JOB_SOURCE__START_FEEDBACK:
@@ -478,9 +478,9 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobClientPackage.JOB_SOURCE__JOB_SCHEDULED:
-				getJobScheduled().clear();
-				getJobScheduled().addAll((Collection<? extends JobScheduled>)newValue);
+			case JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED:
+				getJobsScheduled().clear();
+				getJobsScheduled().addAll((Collection<? extends JobScheduled>)newValue);
 				return;
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				setScheduler((JobScheduler)newValue);
@@ -506,8 +506,8 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobClientPackage.JOB_SOURCE__JOB_SCHEDULED:
-				getJobScheduled().clear();
+			case JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED:
+				getJobsScheduled().clear();
 				return;
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				setScheduler((JobScheduler)null);
@@ -533,8 +533,8 @@ public class JobSourceImpl extends MinimalEObjectImpl.Container implements JobSo
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobClientPackage.JOB_SOURCE__JOB_SCHEDULED:
-				return jobScheduled != null && !jobScheduled.isEmpty();
+			case JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED:
+				return jobsScheduled != null && !jobsScheduled.isEmpty();
 			case JobClientPackage.JOB_SOURCE__SCHEDULER:
 				return getScheduler() != null;
 			case JobClientPackage.JOB_SOURCE__START_FEEDBACK:

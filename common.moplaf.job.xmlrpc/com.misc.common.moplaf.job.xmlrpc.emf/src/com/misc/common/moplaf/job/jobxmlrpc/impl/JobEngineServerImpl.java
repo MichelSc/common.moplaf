@@ -12,20 +12,17 @@
  */
 package com.misc.common.moplaf.job.jobxmlrpc.impl;
 
-import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
-import com.misc.common.moplaf.job.jobclient.JobClientFactory;
+import com.misc.common.moplaf.job.jobclient.JobScheduled;
+import com.misc.common.moplaf.job.jobclient.JobScheduler;
 import com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
-import java.io.Writer;
-
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.XmlRpcRequest;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
@@ -38,9 +35,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
@@ -311,7 +306,8 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			String resultAsString = "";
 			Plugin.INSTANCE.logInfo("HandleJob.runJob: called ");
 
-//			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+			JobScheduler scheduler = jobEngineServer.getScheduler();
 			
 			InputStream inputStream = new ByteArrayInputStream(jobAsString.getBytes());
 		    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
@@ -323,44 +319,40 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				return "erreur";
 			}
 		    
-//		    try {
-//			    // get the jogs
-//		    	EList<JobRemote> jobs = new BasicEList<JobRemote>();
-//				for (Object object : resource.getContents()){
-//			    	if ( object instanceof JobRemote) {
-//			    		JobRemote job = (JobRemote) object;
-//			    		jobs.add(job);
-//			    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job received");
-//			    	}
-//				}
-//			    // add the jobs
-//				for ( JobRemote job : jobs){
-//		    		SubmittedJob submittedJob = JobClientFactory.eINSTANCE.createSubmittedJob();
-////		    		jobEngineServer.getSubmittedJobs().add(submittedJob);
-//		    		submittedJob.setJob(job);
-//		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
-//		    		ReturnFeedback jobFeedback = job.run(submittedJob);
-//		    		JobRemoteResult result = job.getResult();
-//		    		EObject resultCopy = EcoreUtil.copy(result);
-//		    		resource.getContents().add(resultCopy);
-//					Plugin.INSTANCE.logInfo("HandleJob.runJob: job executed");
-//				}
+		    try {
+			    // get the jogs
+		    	EList<Run> jobs = new BasicEList<Run>();
+				for (Object object : resource.getContents()){
+			    	if ( object instanceof Run) {
+			    		Run job = (Run) object;
+			    		jobs.add(job);
+			    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job received");
+			    	}
+				}
+			    // add the jobs
+				for ( Run job : jobs){
+		    		JobScheduled submittedJob = scheduler.submitRun(job);
+		    		jobEngineServer.getJobsScheduled().add(submittedJob);
+		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
+				}
 //				Writer outputStream = new StringWriter();
 //				resource.save(outputStream, null);
 //				resultAsString = outputStream.toString();
-//		    }
-//			catch (Exception e) {
-//				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
-//			}
+		    }
+			catch (Exception e) {
+				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
+			}
 			
 			Plugin.INSTANCE.logInfo("HandleJob.runJob: call done ");
 			return resultAsString;
 		}
-
 	};
 
 
-//	@Override
+	/**
+	 * Specified by JobSource
+	 */
+	@Override
 	protected void startImpl() {
 		Plugin.INSTANCE.logInfo("JobEngineServer.start: called");
 		// handler mapping
@@ -398,11 +390,16 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		this.webServer = webserver;
 	}
 
+	/**
+	 * Specified by JobSource
+	 */
 	@Override
 	protected void stopImpl() {
 		if ( this.webServer!=null){
+			Plugin.INSTANCE.logInfo("JobEngineServer.shutdown: before");
 			this.webServer.shutdown();
 			this.webServer = null;
+			Plugin.INSTANCE.logInfo("JobEngineServer.shutdown: before");
 		}
 	}
 	

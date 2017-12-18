@@ -45,6 +45,14 @@ public enum JobStatus implements Enumerator {
 	 * @ordered
 	 */
 	WAITING(2, "WAITING", "Waiting"), /**
+	 * The '<em><b>SCHEDULED</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SCHEDULED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SCHEDULED(3, "SCHEDULED", "Scheduled"), /**
 	 * The '<em><b>RUNNING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,7 +60,7 @@ public enum JobStatus implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RUNNING(3, "RUNNING", "Running"), /**
+	RUNNING(4, "RUNNING", "Running"), /**
 	 * The '<em><b>COMPLETE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,7 +68,7 @@ public enum JobStatus implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLETE(4, "COMPLETE", "Complete"), /**
+	COMPLETE(5, "COMPLETE", "Complete"), /**
 	 * The '<em><b>FAILLED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +76,7 @@ public enum JobStatus implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAILLED(5, "FAILLED", "Failed");
+	FAILLED(6, "FAILLED", "Failed");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -116,6 +124,21 @@ public enum JobStatus implements Enumerator {
 	public static final int WAITING_VALUE = 2;
 
 	/**
+	 * The '<em><b>SCHEDULED</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>SCHEDULED</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #SCHEDULED
+	 * @model literal="Scheduled"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SCHEDULED_VALUE = 3;
+
+	/**
 	 * The '<em><b>RUNNING</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -128,7 +151,7 @@ public enum JobStatus implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RUNNING_VALUE = 3;
+	public static final int RUNNING_VALUE = 4;
 
 	/**
 	 * The '<em><b>COMPLETE</b></em>' literal value.
@@ -143,7 +166,7 @@ public enum JobStatus implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPLETE_VALUE = 4;
+	public static final int COMPLETE_VALUE = 5;
 
 	/**
 	 * The '<em><b>FAILLED</b></em>' literal value.
@@ -158,7 +181,7 @@ public enum JobStatus implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FAILLED_VALUE = 5;
+	public static final int FAILLED_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Job Status</b></em>' enumerators.
@@ -171,6 +194,7 @@ public enum JobStatus implements Enumerator {
 			UNKNOWN,
 			NOT_READY,
 			WAITING,
+			SCHEDULED,
 			RUNNING,
 			COMPLETE,
 			FAILLED,
@@ -233,6 +257,7 @@ public enum JobStatus implements Enumerator {
 			case UNKNOWN_VALUE: return UNKNOWN;
 			case NOT_READY_VALUE: return NOT_READY;
 			case WAITING_VALUE: return WAITING;
+			case SCHEDULED_VALUE: return SCHEDULED;
 			case RUNNING_VALUE: return RUNNING;
 			case COMPLETE_VALUE: return COMPLETE;
 			case FAILLED_VALUE: return FAILLED;

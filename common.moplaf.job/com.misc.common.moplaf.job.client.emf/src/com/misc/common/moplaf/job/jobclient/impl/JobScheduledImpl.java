@@ -479,7 +479,7 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		if ( this.isNotReadyToRun()) {
 			// not ready
 			return false;
-		} else if ( this.basicGetScheduledOn()!=null) {
+		} else if ( this.getScheduledOn()!=null) {
 			// scheduled
 			return false;
 		} else if ( this.isRunning() ) {
@@ -679,6 +679,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 			return JobStatus.COMPLETE;
 		} else if ( this.isRunning() ) {
 			return JobStatus.RUNNING;
+		} else if ( this.getScheduledOn()!=null) {
+			return JobStatus.SCHEDULED;
 		} else if ( this.isReadyToRun()) {
 			return JobStatus.WAITING;
 		} else if ( this.isNotReadyToRun() ) {
@@ -832,9 +834,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, JobClientPackage.JOB_SOURCE__JOB_SCHEDULED, JobSource.class, msgs);
+				msgs = ((InternalEObject)source).eInverseRemove(this, JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED, JobSource.class, msgs);
 			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, JobClientPackage.JOB_SOURCE__JOB_SCHEDULED, JobSource.class, msgs);
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED, JobSource.class, msgs);
 			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -894,7 +896,7 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return basicSetScheduler((JobScheduler)otherEnd, msgs);
 			case JobClientPackage.JOB_SCHEDULED__SOURCE:
 				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, JobClientPackage.JOB_SOURCE__JOB_SCHEDULED, JobSource.class, msgs);
+					msgs = ((InternalEObject)source).eInverseRemove(this, JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED, JobSource.class, msgs);
 				return basicSetSource((JobSource)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

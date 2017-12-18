@@ -66,7 +66,7 @@ public class JobSourceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addJobScheduledPropertyDescriptor(object);
+			addJobsScheduledPropertyDescriptor(object);
 			addStartFeedbackPropertyDescriptor(object);
 			addStopFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
@@ -79,19 +79,19 @@ public class JobSourceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Job Scheduled feature.
+	 * This adds a property descriptor for the Jobs Scheduled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addJobScheduledPropertyDescriptor(Object object) {
+	protected void addJobsScheduledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JobSource_JobScheduled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobSource_JobScheduled_feature", "_UI_JobSource_type"),
-				 JobClientPackage.Literals.JOB_SOURCE__JOB_SCHEDULED,
+				 getString("_UI_JobSource_JobsScheduled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobSource_JobsScheduled_feature", "_UI_JobSource_type"),
+				 JobClientPackage.Literals.JOB_SOURCE__JOBS_SCHEDULED,
 				 true,
 				 false,
 				 true,
@@ -252,17 +252,6 @@ public class JobSourceItemProvider
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This returns JobSource.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/JobSource"));
 	}
 
 	/**
