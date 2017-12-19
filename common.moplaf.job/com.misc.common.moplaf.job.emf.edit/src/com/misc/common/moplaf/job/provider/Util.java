@@ -41,7 +41,7 @@ public class Util {
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
-				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.provider.Util.collectNewChildSolverDescriptors exception caught "+e.getMessage());
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.provider.Util.collectNewChildRunDescriptors exception caught "+e.getMessage());
 			}
 		}
 	}  // method collectNewChildRunDescriptors2

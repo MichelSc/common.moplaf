@@ -5,6 +5,7 @@
 -->
 
 <plugin>
+   <extension-point id="jobsource_factory" name="JobSource Factory" schema="schema/jobsource_factory.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated jobclient -->

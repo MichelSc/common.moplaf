@@ -431,11 +431,13 @@ public class JobScheduledItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+		
+		Util.collectNewChildJobEngineDescriptors2(newChildDescriptors, object, JobClientPackage.Literals.JOB_SCHEDULER__ENGINES);
+		Util.collectNewChildJobSourceDescriptors2(newChildDescriptors, object, JobClientPackage.Literals.JOB_SCHEDULER__SOURCES);
 	}
 
 	/**
