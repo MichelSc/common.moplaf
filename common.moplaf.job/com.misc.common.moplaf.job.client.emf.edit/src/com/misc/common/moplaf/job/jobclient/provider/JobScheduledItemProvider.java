@@ -75,8 +75,9 @@ public class JobScheduledItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addCancelEnabledFeedbackPropertyDescriptor(object);
-			addJobNrPropertyDescriptor(object);
+			addScheduleNrPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
+			addExecuteNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -280,6 +281,28 @@ public class JobScheduledItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Execute Nr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExecuteNrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduled_ExecuteNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_ExecuteNr_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__EXECUTE_NR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20StatusPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Cancel Time feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,24 +347,24 @@ public class JobScheduledItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Job Nr feature.
+	 * This adds a property descriptor for the Schedule Nr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addJobNrPropertyDescriptor(Object object) {
+	protected void addScheduleNrPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JobScheduled_JobNr_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_JobNr_feature", "_UI_JobScheduled_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULED__JOB_NR,
+				 getString("_UI_JobScheduled_ScheduleNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_ScheduleNr_feature", "_UI_JobScheduled_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULED__SCHEDULE_NR,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__30RunPropertyCategory"),
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -419,7 +442,8 @@ public class JobScheduledItemProvider
 			case JobClientPackage.JOB_SCHEDULED__DESCRIPTION:
 			case JobClientPackage.JOB_SCHEDULED__STATUS:
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
-			case JobClientPackage.JOB_SCHEDULED__JOB_NR:
+			case JobClientPackage.JOB_SCHEDULED__SCHEDULE_NR:
+			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

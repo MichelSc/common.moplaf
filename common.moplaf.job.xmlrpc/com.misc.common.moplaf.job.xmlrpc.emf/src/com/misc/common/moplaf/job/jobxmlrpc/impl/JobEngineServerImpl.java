@@ -332,7 +332,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			    // add the jobs
 				for ( Run job : jobs){
 		    		JobScheduled submittedJob = scheduler.submitRun(job);
-		    		result = submittedJob.getJobNr();
+		    		result = submittedJob.getScheduleNr();
 					jobEngineServer.getJobsScheduled().add(submittedJob);
 		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
 				}

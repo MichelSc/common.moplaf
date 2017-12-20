@@ -299,7 +299,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 * 
 	 */
 	@Override
-	protected void executeJobImpl(JobScheduled job) {
+	protected int executeJobImpl(JobScheduled job) {
 		// the server connection
 		String host = this.getHost();
 		int port = this.getPort();
@@ -335,21 +335,27 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		}
 	    
 	    // do the call
-    	Object result = null;
+    	Object resultAsObject = null;
+    	int executeNr = -1;
 	    String jobAsString = stringWriter.toString();
 	    Object[] params = new Object[]{jobAsString};
 	    try {
 	    	// parameter 1: the method being performed
-	    	result = client.execute("handlejob.runJob", params);
+	    	resultAsObject = client.execute("handlejob.runJob", params);
 		} catch (XmlRpcException e) {
 			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, client.execute"+ e.getMessage());
 		}
-	    if ( result instanceof Integer) {
-	    	int objectNr = ((Integer)result).intValue(); // to be kept somewhere
-			Plugin.INSTANCE.logError(String.format("JobEngineClient.runJobImpl, result %d", objectNr));
+	    if ( resultAsObject instanceof Integer) {
+	    	executeNr = ((Integer)resultAsObject).intValue(); // to be kept somewhere
+			Plugin.INSTANCE.logInfo(String.format("JobEngineClient.runJobImpl, result %d", executeNr));
+	    } else if ( resultAsObject == null ){
+	    	Plugin.INSTANCE.logError(String.format("JobEngineClient.runJobImpl, no value returned"));
+	    } else {
+	    	Plugin.INSTANCE.logError(String.format("JobEngineClient.runJobImpl, unexpected value returned %s ", resultAsObject.getClass().getName()));
 	    }
 	    
 		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
+		return executeNr;
 	}
 
 } //JobEngineClientImpl

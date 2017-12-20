@@ -58,7 +58,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsCancelled <em>Nr Jobs Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastRefresh <em>Last Refresh</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastFeedback <em>Last Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getCurrentJobNr <em>Current Job Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getCurrentScheduleNr <em>Current Schedule Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getSources <em>Sources</em>}</li>
  * </ul>
  *
@@ -275,24 +275,24 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	protected Date lastFeedback = LAST_FEEDBACK_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCurrentJobNr() <em>Current Job Nr</em>}' attribute.
+	 * The default value of the '{@link #getCurrentScheduleNr() <em>Current Schedule Nr</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentJobNr()
+	 * @see #getCurrentScheduleNr()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int CURRENT_JOB_NR_EDEFAULT = 0;
+	protected static final int CURRENT_SCHEDULE_NR_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getCurrentJobNr() <em>Current Job Nr</em>}' attribute.
+	 * The cached value of the '{@link #getCurrentScheduleNr() <em>Current Schedule Nr</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentJobNr()
+	 * @see #getCurrentScheduleNr()
 	 * @generated
 	 * @ordered
 	 */
-	protected int currentJobNr = CURRENT_JOB_NR_EDEFAULT;
+	protected int currentScheduleNr = CURRENT_SCHEDULE_NR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSources() <em>Sources</em>}' containment reference list.
@@ -496,8 +496,8 @@ return description;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getCurrentJobNr() {
-		return currentJobNr;
+	public int getCurrentScheduleNr() {
+		return currentScheduleNr;
 	}
 
 	/**
@@ -505,11 +505,11 @@ return description;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCurrentJobNr(int newCurrentJobNr) {
-		int oldCurrentJobNr = currentJobNr;
-		currentJobNr = newCurrentJobNr;
+	public void setCurrentScheduleNr(int newCurrentScheduleNr) {
+		int oldCurrentScheduleNr = currentScheduleNr;
+		currentScheduleNr = newCurrentScheduleNr;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR, oldCurrentJobNr, currentJobNr));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR, oldCurrentScheduleNr, currentScheduleNr));
 	}
 
 	/**
@@ -738,7 +738,7 @@ return description;
 		this.getJobs().add(job);
 		job.setRun(run);
 		job.setSubmissionTime(new Date());
-		job.setJobNr(this.makeNewJobNr());
+		job.setScheduleNr(this.makeNewScheduleNr());
 		return job;
 	}
 
@@ -754,9 +754,9 @@ return description;
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public int makeNewJobNr() {
-		int new_nr = this.getCurrentJobNr()+1;
-		this.setCurrentJobNr(new_nr);
+	public int makeNewScheduleNr() {
+		int new_nr = this.getCurrentScheduleNr()+1;
+		this.setCurrentScheduleNr(new_nr);
 		return new_nr;
 	}
 
@@ -837,8 +837,8 @@ return description;
 				return getLastRefresh();
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				return getLastFeedback();
-			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
-				return getCurrentJobNr();
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR:
+				return getCurrentScheduleNr();
 			case JobClientPackage.JOB_SCHEDULER__SOURCES:
 				return getSources();
 		}
@@ -877,8 +877,8 @@ return description;
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				setLastFeedback((Date)newValue);
 				return;
-			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
-				setCurrentJobNr((Integer)newValue);
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR:
+				setCurrentScheduleNr((Integer)newValue);
 				return;
 			case JobClientPackage.JOB_SCHEDULER__SOURCES:
 				getSources().clear();
@@ -917,8 +917,8 @@ return description;
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				setLastFeedback(LAST_FEEDBACK_EDEFAULT);
 				return;
-			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
-				setCurrentJobNr(CURRENT_JOB_NR_EDEFAULT);
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR:
+				setCurrentScheduleNr(CURRENT_SCHEDULE_NR_EDEFAULT);
 				return;
 			case JobClientPackage.JOB_SCHEDULER__SOURCES:
 				getSources().clear();
@@ -967,8 +967,8 @@ return description;
 				return LAST_REFRESH_EDEFAULT == null ? lastRefresh != null : !LAST_REFRESH_EDEFAULT.equals(lastRefresh);
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
 				return LAST_FEEDBACK_EDEFAULT == null ? lastFeedback != null : !LAST_FEEDBACK_EDEFAULT.equals(lastFeedback);
-			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
-				return currentJobNr != CURRENT_JOB_NR_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR:
+				return currentScheduleNr != CURRENT_SCHEDULE_NR_EDEFAULT;
 			case JobClientPackage.JOB_SCHEDULER__SOURCES:
 				return sources != null && !sources.isEmpty();
 		}
@@ -997,8 +997,8 @@ return description;
 			case JobClientPackage.JOB_SCHEDULER___SET_LAST_FEEDBACK:
 				setLastFeedback();
 				return null;
-			case JobClientPackage.JOB_SCHEDULER___MAKE_NEW_JOB_NR:
-				return makeNewJobNr();
+			case JobClientPackage.JOB_SCHEDULER___MAKE_NEW_SCHEDULE_NR:
+				return makeNewScheduleNr();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1023,8 +1023,8 @@ return description;
 		result.append(lastRefresh);
 		result.append(", LastFeedback: ");
 		result.append(lastFeedback);
-		result.append(", CurrentJobNr: ");
-		result.append(currentJobNr);
+		result.append(", CurrentScheduleNr: ");
+		result.append(currentScheduleNr);
 		result.append(')');
 		return result.toString();
 	}

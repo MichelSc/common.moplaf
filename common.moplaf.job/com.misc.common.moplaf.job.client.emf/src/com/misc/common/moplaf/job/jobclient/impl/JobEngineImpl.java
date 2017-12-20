@@ -201,10 +201,11 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public void executeJob(JobScheduled job) {
 		Plugin.INSTANCE.logInfo("JobEngine.executeJob");
 		this.getJobsScheduled().add(job);
-		this.executeJobImpl(job);
+		int executeNr = this.executeJobImpl(job);
+		job.setExecuteNr(executeNr);
 	}
 	
-	protected void executeJobImpl(JobScheduled job) {
+	protected int executeJobImpl(JobScheduled job) {
 		throw new UnsupportedOperationException();
 	}
 

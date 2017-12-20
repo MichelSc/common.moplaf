@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getNrJobsCancelled <em>Nr Jobs Cancelled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastRefresh <em>Last Refresh</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastFeedback <em>Last Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentJobNr <em>Current Job Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentScheduleNr <em>Current Schedule Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getSources <em>Sources</em>}</li>
  * </ul>
  *
@@ -265,30 +265,30 @@ public interface JobScheduler extends EObject {
 	void setLastFeedback(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Current Job Nr</b></em>' attribute.
+	 * Returns the value of the '<em><b>Current Schedule Nr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current Job Nr</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Current Schedule Nr</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Job Nr</em>' attribute.
-	 * @see #setCurrentJobNr(int)
-	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_CurrentJobNr()
+	 * @return the value of the '<em>Current Schedule Nr</em>' attribute.
+	 * @see #setCurrentScheduleNr(int)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_CurrentScheduleNr()
 	 * @model
 	 * @generated
 	 */
-	int getCurrentJobNr();
+	int getCurrentScheduleNr();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentJobNr <em>Current Job Nr</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentScheduleNr <em>Current Schedule Nr</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Job Nr</em>' attribute.
-	 * @see #getCurrentJobNr()
+	 * @param value the new value of the '<em>Current Schedule Nr</em>' attribute.
+	 * @see #getCurrentScheduleNr()
 	 * @generated
 	 */
-	void setCurrentJobNr(int value);
+	void setCurrentScheduleNr(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Sources</b></em>' containment reference list.
@@ -437,6 +437,6 @@ public interface JobScheduler extends EObject {
 	 * @model
 	 * @generated
 	 */
-	int makeNewJobNr();
+	int makeNewScheduleNr();
 
 } // JobScheduler

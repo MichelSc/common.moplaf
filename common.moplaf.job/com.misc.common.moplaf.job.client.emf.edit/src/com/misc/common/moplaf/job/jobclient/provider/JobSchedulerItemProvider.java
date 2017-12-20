@@ -85,7 +85,7 @@ public class JobSchedulerItemProvider
 			addNrJobsCancelledPropertyDescriptor(object);
 			addLastRefreshPropertyDescriptor(object);
 			addLastFeedbackPropertyDescriptor(object);
-			addCurrentJobNrPropertyDescriptor(object);
+			addCurrentScheduleNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -289,19 +289,19 @@ public class JobSchedulerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Current Job Nr feature.
+	 * This adds a property descriptor for the Current Schedule Nr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCurrentJobNrPropertyDescriptor(Object object) {
+	protected void addCurrentScheduleNrPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JobScheduler_CurrentJobNr_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_CurrentJobNr_feature", "_UI_JobScheduler_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULER__CURRENT_JOB_NR,
+				 getString("_UI_JobScheduler_CurrentScheduleNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_CurrentScheduleNr_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__CURRENT_SCHEDULE_NR,
 				 true,
 				 false,
 				 false,
@@ -481,7 +481,7 @@ public class JobSchedulerItemProvider
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_CANCELLED:
 			case JobClientPackage.JOB_SCHEDULER__LAST_REFRESH:
 			case JobClientPackage.JOB_SCHEDULER__LAST_FEEDBACK:
-			case JobClientPackage.JOB_SCHEDULER__CURRENT_JOB_NR:
+			case JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
@@ -796,7 +796,7 @@ public class JobSchedulerItemProvider
 	@Override
 	public String getRowText(Object element, Object grid, Object row) {
 		JobScheduled job = (JobScheduled)row;
-		String row_header = String.format("%04d", job.getJobNr());
+		String row_header = String.format("%04d", job.getScheduleNr());
 		return row_header;
 	}
 
