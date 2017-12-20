@@ -395,7 +395,7 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("Job %s %s", this.getName(), this.getStatus());
+		String description = String.format("Job (%s %s", this.getName(), this.getStatus());
 
 		int waiting = this.getNrJobsWaiting();
 		if ( waiting>0 )   { description += String.format(", waiting=%d", waiting); }
@@ -408,7 +408,9 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 		
 		int cancelled = this.getNrJobsCancelled();
 		if ( cancelled>0 ) { description += String.format(", cancelled=%d", cancelled); }
-		return description;
+
+		description += ")";
+return description;
 	}
 
 	/**
@@ -711,20 +713,16 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	private void refreshExecuteJobs() {
-		Plugin.INSTANCE.logInfo("JobScheduler.refreshExecuteJobs");
 		boolean finished = false;
 		while ( !finished) {
 			JobScheduled job = this.getJobToProcess();
 			if ( job == null ) {
 				finished = true;
-				Plugin.INSTANCE.logInfo("JobScheduler.refresh: no job to schedule");
 			} else {
 				JobEngine engine = this.getJobEngineToProcess();
 				if ( engine == null) {
 					finished = true;
-					Plugin.INSTANCE.logInfo("JobScheduler.refresh: no engine to schedule on");
 				} else {
-					Plugin.INSTANCE.logInfo("JobScheduler.refresh: execute Job");
 					engine.executeJob(job);
 				}
 			}

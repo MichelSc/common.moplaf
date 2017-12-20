@@ -335,14 +335,19 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		}
 	    
 	    // do the call
+    	Object result = null;
 	    String jobAsString = stringWriter.toString();
 	    Object[] params = new Object[]{jobAsString};
 	    try {
 	    	// parameter 1: the method being performed
-	    	client.execute("handlejob.runJob", params);
+	    	result = client.execute("handlejob.runJob", params);
 		} catch (XmlRpcException e) {
 			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, client.execute"+ e.getMessage());
 		}
+	    if ( result instanceof Integer) {
+	    	int objectNr = ((Integer)result).intValue(); // to be kept somewhere
+			Plugin.INSTANCE.logError(String.format("JobEngineClient.runJobImpl, result %d", objectNr));
+	    }
 	    
 		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
 	}

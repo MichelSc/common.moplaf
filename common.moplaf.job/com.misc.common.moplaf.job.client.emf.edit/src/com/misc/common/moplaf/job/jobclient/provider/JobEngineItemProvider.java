@@ -93,7 +93,7 @@ public class JobEngineItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -115,7 +115,7 @@ public class JobEngineItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30EnginePropertyCategory"),
 				 null));
 	}
 
@@ -137,7 +137,7 @@ public class JobEngineItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 

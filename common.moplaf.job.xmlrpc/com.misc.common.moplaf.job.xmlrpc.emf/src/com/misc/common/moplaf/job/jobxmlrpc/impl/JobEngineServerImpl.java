@@ -277,7 +277,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 *
 	 */
 	public interface HandleJob {
-		public String runJob(String jobAsString);
+		public int runJob(String jobAsString);
 	}
 	
 	/**
@@ -302,8 +302,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		 * Its result is then serialized and returned as String.
 		 */
 		@Override
-		public String runJob(String jobAsString) {
-			String resultAsString = "";
+		public int runJob(String jobAsString) {
 			Plugin.INSTANCE.logInfo("HandleJob.runJob: called ");
 
 			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
@@ -316,9 +315,10 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		    	resource.load(inputStream, null);
 			} catch (IOException e) {
 				Plugin.INSTANCE.logError("HandleJob.runJob: exception in load: "+e.getMessage());
-				return "erreur";
+				return -1;
 			}
-		    
+
+		    int result =-1;
 		    try {
 			    // get the jogs
 		    	EList<Run> jobs = new BasicEList<Run>();
@@ -332,19 +332,17 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			    // add the jobs
 				for ( Run job : jobs){
 		    		JobScheduled submittedJob = scheduler.submitRun(job);
-		    		jobEngineServer.getJobsScheduled().add(submittedJob);
+		    		result = submittedJob.getJobNr();
+					jobEngineServer.getJobsScheduled().add(submittedJob);
 		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
 				}
-//				Writer outputStream = new StringWriter();
-//				resource.save(outputStream, null);
-//				resultAsString = outputStream.toString();
 		    }
 			catch (Exception e) {
 				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
 			}
 			
 			Plugin.INSTANCE.logInfo("HandleJob.runJob: call done ");
-			return resultAsString;
+			return result;
 		}
 	};
 

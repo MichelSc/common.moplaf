@@ -82,7 +82,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30EnginePropertyCategory"),
 				 null));
 	}
 
@@ -104,7 +104,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30EnginePropertyCategory"),
 				 null));
 	}
 
@@ -126,19 +126,8 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30EnginePropertyCategory"),
 				 null));
-	}
-
-	/**
-	 * This returns JobEngineClient.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/JobEngineClient"));
 	}
 
 	/**

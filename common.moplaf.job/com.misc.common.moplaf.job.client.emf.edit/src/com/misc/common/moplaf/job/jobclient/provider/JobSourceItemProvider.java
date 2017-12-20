@@ -70,7 +70,6 @@ public class JobSourceItemProvider
 			addStartFeedbackPropertyDescriptor(object);
 			addStopFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addAutoStartStopPropertyDescriptor(object);
 			addRunningPropertyDescriptor(object);
@@ -92,11 +91,11 @@ public class JobSourceItemProvider
 				 getString("_UI_JobSource_JobsScheduled_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobSource_JobsScheduled_feature", "_UI_JobSource_type"),
 				 JobClientPackage.Literals.JOB_SOURCE__JOBS_SCHEDULED,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -118,7 +117,7 @@ public class JobSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -140,7 +139,7 @@ public class JobSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -162,29 +161,7 @@ public class JobSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobSource_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobSource_Description_feature", "_UI_JobSource_type"),
-				 JobClientPackage.Literals.JOB_SOURCE__DESCRIPTION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30ServerPropertyCategory"),
 				 null));
 	}
 
@@ -206,7 +183,7 @@ public class JobSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -228,7 +205,7 @@ public class JobSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30ServerPropertyCategory"),
 				 null));
 	}
 
@@ -246,11 +223,11 @@ public class JobSourceItemProvider
 				 getString("_UI_JobSource_Running_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobSource_Running_feature", "_UI_JobSource_type"),
 				 JobClientPackage.Literals.JOB_SOURCE__RUNNING,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 

@@ -8,14 +8,14 @@
   <foreignModel>jobxmlrpc.ecore</foreignModel>
   <genPackages prefix="JobXmlRpc" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
       ecorePackage="jobxmlrpc.ecore#/">
-    <genClasses ecoreClass="jobxmlrpc.ecore#//JobEngineClient">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Host"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Port"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Path"/>
+    <genClasses image="false" ecoreClass="jobxmlrpc.ecore#//JobEngineClient">
+      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Host"/>
+      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Port"/>
+      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Path"/>
     </genClasses>
     <genClasses ecoreClass="jobxmlrpc.ecore#//JobEngineServer" labelFeature="../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient/JobSource/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineServer/Port"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineServer/Path"/>
+      <genFeatures createChild="false" propertyCategory="30 Server" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineServer/Port"/>
+      <genFeatures createChild="false" propertyCategory="30 Server" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineServer/Path"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

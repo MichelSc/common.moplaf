@@ -81,7 +81,7 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30ServerPropertyCategory"),
 				 null));
 	}
 
@@ -103,7 +103,7 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30ServerPropertyCategory"),
 				 null));
 	}
 
