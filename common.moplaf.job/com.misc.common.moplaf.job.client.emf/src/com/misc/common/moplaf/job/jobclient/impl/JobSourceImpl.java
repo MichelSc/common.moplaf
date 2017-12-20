@@ -230,23 +230,23 @@ public abstract class JobSourceImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback getStartFeedback() {
-		// TODO: implement this method to return the 'Start Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( this.isRunning()){
+			return new EnabledFeedback(false, "JobSource started");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback getStopFeedback() {
-		// TODO: implement this method to return the 'Stop Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( !this.isRunning()){
+			return new EnabledFeedback(false, "JobSource not yet started");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**

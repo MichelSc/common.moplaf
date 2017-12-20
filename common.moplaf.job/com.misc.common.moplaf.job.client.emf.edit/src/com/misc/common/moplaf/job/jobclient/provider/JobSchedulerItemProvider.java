@@ -11,7 +11,6 @@ import com.misc.common.moplaf.emf.edit.command.StartCommand;
 import com.misc.common.moplaf.emf.edit.command.StopCommand;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.job.Run;
-import com.misc.common.moplaf.job.jobclient.JobClientFactory;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
@@ -499,21 +498,13 @@ public class JobSchedulerItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(JobClientPackage.Literals.JOB_SCHEDULER__JOBS,
-				 JobClientFactory.eINSTANCE.createJobScheduled()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobClientPackage.Literals.JOB_SCHEDULER__ENGINES,
-				 JobClientFactory.eINSTANCE.createJobEngineInProcess()));
+		Util.collectNewChildJobEngineDescriptors2(newChildDescriptors, object, JobClientPackage.Literals.JOB_SCHEDULER__ENGINES);
+		Util.collectNewChildJobSourceDescriptors2(newChildDescriptors, object, JobClientPackage.Literals.JOB_SCHEDULER__SOURCES);
 	}
 
 	/**

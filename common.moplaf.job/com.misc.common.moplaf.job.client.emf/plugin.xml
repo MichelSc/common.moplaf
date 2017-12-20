@@ -6,6 +6,7 @@
 
 <plugin>
    <extension-point id="jobsource_factory" name="JobSource Factory" schema="schema/jobsource_factory.exsd"/>
+   <extension-point id="jobengine_factory" name="JobEngine factory for MOPLAF" schema="schema/jobengine_factory.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated jobclient -->
@@ -13,6 +14,13 @@
             uri="http://www.misc.com/common/moplaf/job/client/model/0.1"
             class="com.misc.common.moplaf.job.jobclient.JobClientPackage"
             genModel="model/jobclient.genmodel"/>
+   </extension>
+   <extension
+         point="com.misc.common.moplaf.job.client.emf.jobengine_factory">
+      <factory
+            class="com.misc.common.moplaf.job.jobclient.util.JobEngineFactoryInProcess"
+            factory="com.misc.common.moplaf.job.jobclient.util.JobEngineFactoryInProcess">
+      </factory>
    </extension>
 
 </plugin>

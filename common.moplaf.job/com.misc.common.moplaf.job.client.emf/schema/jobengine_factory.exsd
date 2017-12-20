@@ -68,7 +68,7 @@
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="factory" type="string" use="required">
+         <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
                   This element is used to register a JobEngine Factory

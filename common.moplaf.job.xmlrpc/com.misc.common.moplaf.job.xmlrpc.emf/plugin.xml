@@ -13,5 +13,19 @@
             class="com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage"
             genModel="model/jobxmlrpc.genmodel"/>
    </extension>
+   <extension
+         point="com.misc.common.moplaf.job.client.emf.jobengine_factory">
+      <factory
+            class="com.misc.common.moplaf.job.jobxmlrpc.util.JobEngineFactoryClient"
+            factory="com.misc.common.moplaf.job.jobxmlrpc.util.JobEngineFactoryClient">
+      </factory>
+   </extension>
+   <extension
+         point="com.misc.common.moplaf.job.client.emf.jobsource_factory">
+      <factory
+            class="com.misc.common.moplaf.job.jobxmlrpc.util.JobSourceFactoryServer"
+            factory="com.misc.common.moplaf.job.jobxmlrpc.util.JobSourceFactoryServer">
+      </factory>
+   </extension>
 
 </plugin>
