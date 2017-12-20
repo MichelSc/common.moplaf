@@ -446,9 +446,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		if (newScheduledOn != scheduledOn) {
 			NotificationChain msgs = null;
 			if (scheduledOn != null)
-				msgs = ((InternalEObject)scheduledOn).eInverseRemove(this, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, JobEngine.class, msgs);
+				msgs = ((InternalEObject)scheduledOn).eInverseRemove(this, JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED, JobEngine.class, msgs);
 			if (newScheduledOn != null)
-				msgs = ((InternalEObject)newScheduledOn).eInverseAdd(this, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, JobEngine.class, msgs);
+				msgs = ((InternalEObject)newScheduledOn).eInverseAdd(this, JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED, JobEngine.class, msgs);
 			msgs = basicSetScheduledOn(newScheduledOn, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -888,7 +888,7 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		switch (featureID) {
 			case JobClientPackage.JOB_SCHEDULED__SCHEDULED_ON:
 				if (scheduledOn != null)
-					msgs = ((InternalEObject)scheduledOn).eInverseRemove(this, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, JobEngine.class, msgs);
+					msgs = ((InternalEObject)scheduledOn).eInverseRemove(this, JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED, JobEngine.class, msgs);
 				return basicSetScheduledOn((JobEngine)otherEnd, msgs);
 			case JobClientPackage.JOB_SCHEDULED__SCHEDULER:
 				if (eInternalContainer() != null)

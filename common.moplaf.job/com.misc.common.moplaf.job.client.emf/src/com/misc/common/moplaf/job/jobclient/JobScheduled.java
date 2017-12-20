@@ -71,7 +71,7 @@ public interface JobScheduled extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Scheduled On</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobScheduled <em>Job Scheduled</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobsScheduled <em>Jobs Scheduled</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scheduled On</em>' reference isn't clear,
@@ -81,8 +81,8 @@ public interface JobScheduled extends EObject {
 	 * @return the value of the '<em>Scheduled On</em>' reference.
 	 * @see #setScheduledOn(JobEngine)
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_ScheduledOn()
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getJobScheduled
-	 * @model opposite="JobScheduled"
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getJobsScheduled
+	 * @model opposite="JobsScheduled"
 	 * @generated
 	 */
 	JobEngine getScheduledOn();

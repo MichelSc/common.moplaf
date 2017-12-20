@@ -589,7 +589,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobEngine_JobScheduled() {
+	public EReference getJobEngine_JobsScheduled() {
 		return (EReference)jobEngineEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -854,7 +854,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___SET_RETURN__RETURNFEEDBACK);
 
 		jobEngineEClass = createEClass(JOB_ENGINE);
-		createEReference(jobEngineEClass, JOB_ENGINE__JOB_SCHEDULED);
+		createEReference(jobEngineEClass, JOB_ENGINE__JOBS_SCHEDULED);
 		createEAttribute(jobEngineEClass, JOB_ENGINE__NAME);
 		createEReference(jobEngineEClass, JOB_ENGINE__SCHEDULER);
 		createEAttribute(jobEngineEClass, JOB_ENGINE__EXECUTE_ENABLED_FEEDBACK);
@@ -951,7 +951,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 
 		initEClass(jobScheduledEClass, JobScheduled.class, "JobScheduled", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobScheduled_Run(), theJobPackage.getRun(), null, "Run", null, 1, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJobScheduled_ScheduledOn(), this.getJobEngine(), this.getJobEngine_JobScheduled(), "ScheduledOn", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduled_ScheduledOn(), this.getJobEngine(), this.getJobEngine_JobsScheduled(), "ScheduledOn", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduled_NotReadyToRun(), ecorePackage.getEBoolean(), "NotReadyToRun", null, 0, 1, JobScheduled.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduled_ReadyToRun(), ecorePackage.getEBoolean(), "ReadyToRun", null, 0, 1, JobScheduled.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduled_Running(), ecorePackage.getEBoolean(), "Running", null, 0, 1, JobScheduled.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -978,7 +978,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		addEParameter(op, theJobPackage.getReturnFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobEngineEClass, JobEngine.class, "JobEngine", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJobEngine_JobScheduled(), this.getJobScheduled(), this.getJobScheduled_ScheduledOn(), "JobScheduled", null, 0, -1, JobEngine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobEngine_JobsScheduled(), this.getJobScheduled(), this.getJobScheduled_ScheduledOn(), "JobsScheduled", null, 0, -1, JobEngine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngine_Name(), ecorePackage.getEString(), "Name", null, 0, 1, JobEngine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobEngine_Scheduler(), this.getJobScheduler(), this.getJobScheduler_Engines(), "Scheduler", null, 1, 1, JobEngine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngine_ExecuteEnabledFeedback(), theJobPackage.getEnabledFeedback(), "ExecuteEnabledFeedback", null, 0, 1, JobEngine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

@@ -68,13 +68,13 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_CLIENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference.
+	 * The feature id for the '<em><b>Jobs Scheduled</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT__JOB_SCHEDULED = JobClientPackage.JOB_ENGINE__JOB_SCHEDULED;
+	int JOB_ENGINE_CLIENT__JOBS_SCHEDULED = JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

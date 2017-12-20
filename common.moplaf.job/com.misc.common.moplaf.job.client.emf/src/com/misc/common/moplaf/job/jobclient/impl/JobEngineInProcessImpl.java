@@ -53,7 +53,7 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 
 	@Override
 	public EnabledFeedback getExecuteEnabledFeedback() {
-		if ( this.getJobScheduled()!=null) {
+		if ( this.getJobsScheduled().size()>0 ) {
 			return new EnabledFeedback(false, "Job already scheduled on the engine");
 		}
 		return EnabledFeedback.NOFEEDBACK;
@@ -63,7 +63,7 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 
 		@Override
 		public boolean onProgress(Run run, ProgressFeedback progress) {
-			JobScheduled job = JobEngineInProcessImpl.this.getJobScheduled().stream()
+			JobScheduled job = JobEngineInProcessImpl.this.getJobsScheduled().stream()
 					.filter(js -> js.getRun()==run)
 					.findFirst()
 					.orElse(null);

@@ -52,7 +52,7 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Run" lowerBound="1" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ScheduledOn" eType="#//JobEngine"
-        eOpposite="#//JobEngine/JobScheduled"/>
+        eOpposite="#//JobEngine/JobsScheduled"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NotReadyToRun" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReadyToRun" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -84,7 +84,7 @@
     <eOperations name="executeJob">
       <eParameters name="job" eType="#//JobScheduled"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="JobScheduled" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobsScheduled" upperBound="-1"
         eType="#//JobScheduled" eOpposite="#//JobScheduled/ScheduledOn"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"

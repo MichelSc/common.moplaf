@@ -908,9 +908,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_LmAUoM4AEeeaJMFZbqIQDQ" sourceNode="_Gm4vQM4AEeeaJMFZbqIQDQ" targetNode="_Ll18kM4AEeeaJMFZbqIQDQ" beginLabel="[0..1] ScheduledOn" endLabel="[0..*] JobScheduled">
-      <target xmi:type="ecore:EReference" href="jobclient.ecore#//JobEngine/JobScheduled"/>
-      <semanticElements xmi:type="ecore:EReference" href="jobclient.ecore#//JobEngine/JobScheduled"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_LmAUoM4AEeeaJMFZbqIQDQ" sourceNode="_Gm4vQM4AEeeaJMFZbqIQDQ" targetNode="_Ll18kM4AEeeaJMFZbqIQDQ" beginLabel="[0..1] ScheduledOn" endLabel="[0..*] JobsScheduled">
+      <target xmi:type="ecore:EReference" href="jobclient.ecore#//JobEngine/JobsScheduled"/>
+      <semanticElements xmi:type="ecore:EReference" href="jobclient.ecore#//JobEngine/JobsScheduled"/>
       <semanticElements xmi:type="ecore:EReference" href="jobclient.ecore#//JobScheduled/ScheduledOn"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_LmAUoc4AEeeaJMFZbqIQDQ" sourceArrow="InputArrow" strokeColor="0,0,0">
         <customFeatures>routingStyle</customFeatures>

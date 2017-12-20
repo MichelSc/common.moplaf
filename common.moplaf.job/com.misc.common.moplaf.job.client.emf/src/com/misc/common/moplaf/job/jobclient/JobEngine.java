@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobScheduled <em>Job Scheduled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobsScheduled <em>Jobs Scheduled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getExecuteEnabledFeedback <em>Execute Enabled Feedback</em>}</li>
@@ -37,22 +37,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface JobEngine extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Job Scheduled</b></em>' reference list.
+	 * Returns the value of the '<em><b>Jobs Scheduled</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduledOn <em>Scheduled On</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Job Scheduled</em>' reference isn't clear,
+	 * If the meaning of the '<em>Jobs Scheduled</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Job Scheduled</em>' reference list.
-	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngine_JobScheduled()
+	 * @return the value of the '<em>Jobs Scheduled</em>' reference list.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngine_JobsScheduled()
 	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduledOn
 	 * @model opposite="ScheduledOn"
 	 * @generated
 	 */
-	EList<JobScheduled> getJobScheduled();
+	EList<JobScheduled> getJobsScheduled();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

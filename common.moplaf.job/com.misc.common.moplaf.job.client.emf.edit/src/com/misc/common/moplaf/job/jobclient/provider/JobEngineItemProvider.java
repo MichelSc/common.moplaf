@@ -68,7 +68,7 @@ public class JobEngineItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addJobScheduledPropertyDescriptor(object);
+			addJobsScheduledPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addExecuteEnabledFeedbackPropertyDescriptor(object);
 		}
@@ -76,24 +76,24 @@ public class JobEngineItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Job Scheduled feature.
+	 * This adds a property descriptor for the Jobs Scheduled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addJobScheduledPropertyDescriptor(Object object) {
+	protected void addJobsScheduledPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JobEngine_JobScheduled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_JobScheduled_feature", "_UI_JobEngine_type"),
-				 JobClientPackage.Literals.JOB_ENGINE__JOB_SCHEDULED,
+				 getString("_UI_JobEngine_JobsScheduled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_JobsScheduled_feature", "_UI_JobEngine_type"),
+				 JobClientPackage.Literals.JOB_ENGINE__JOBS_SCHEDULED,
 				 true,
 				 false,
 				 true,
 				 null,
-				 getString("_UI__20StatusPropertyCategory"),
+				 null,
 				 null));
 	}
 
