@@ -643,6 +643,15 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getJobEngine__RefreshJobStatus__JobScheduled() {
+		return jobEngineEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJobSource() {
 		return jobSourceEClass;
 	}
@@ -869,6 +878,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEReference(jobEngineEClass, JOB_ENGINE__SCHEDULER);
 		createEAttribute(jobEngineEClass, JOB_ENGINE__EXECUTE_ENABLED_FEEDBACK);
 		createEOperation(jobEngineEClass, JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED);
+		createEOperation(jobEngineEClass, JOB_ENGINE___REFRESH_JOB_STATUS__JOBSCHEDULED);
 
 		jobSourceEClass = createEClass(JOB_SOURCE);
 		createEReference(jobSourceEClass, JOB_SOURCE__JOBS_SCHEDULED);
@@ -995,6 +1005,9 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		initEAttribute(getJobEngine_ExecuteEnabledFeedback(), theJobPackage.getEnabledFeedback(), "ExecuteEnabledFeedback", null, 0, 1, JobEngine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getJobEngine__ExecuteJob__JobScheduled(), null, "executeJob", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getJobScheduled(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getJobEngine__RefreshJobStatus__JobScheduled(), null, "refreshJobStatus", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getJobScheduled(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobSourceEClass, JobSource.class, "JobSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

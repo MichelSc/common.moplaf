@@ -903,9 +903,16 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public void setRunning() {
-		this.setRunning(true);
-		this.setStartTime(new Date());
-		this.getScheduler().setLastFeedback();
+		// the first onProgress is called by before start
+		if ( this.getStartTime()==null) {
+			JobSource source = this.getSource();
+			if ( source!=null) {
+				source.onJobRunning(this);
+				this.setRunning(true);
+				this.setStartTime(new Date());
+				this.getScheduler().setLastFeedback();
+			}
+		}
 	}
 
 	/**
@@ -913,11 +920,17 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public void setReturn(ReturnFeedback feedback) {
+		JobSource source = this.getSource();
 		this.setRunning(false);
 		this.setReturned(true);
 		this.setFailed(feedback.isFailure());
 		this.setEndTime(new Date());
 		this.getScheduler().setLastFeedback();
+		// release the engine
+		this.setScheduledOn(null);
+		if ( source!=null) {
+			source.onJobReturned(this, feedback);
+		}
 	}
 
 	/**

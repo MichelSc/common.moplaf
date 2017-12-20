@@ -699,13 +699,23 @@ return description;
 	 */
 	public void refresh() {
 		this.refreshExecuteJobs();
+		
+		this.refreshScheduledJobStatus();
+		
 		this.setLastRefresh(new Date());
 	    for ( JobSource source : this.getSources()) {
 	    	if ( source.isRunning()) {
 	    		source.refresh();
 	    	}
-	    	
 	    }
+	}
+	
+	private void refreshScheduledJobStatus() {
+		for ( JobEngine engine : this.getEngines()) {
+			for ( JobScheduled job : engine.getJobsScheduled()) {
+				engine.refreshJobStatus(job);;
+			}
+		}
 	}
 
 	/**

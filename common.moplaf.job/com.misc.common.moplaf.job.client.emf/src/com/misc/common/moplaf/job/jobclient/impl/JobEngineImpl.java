@@ -205,6 +205,14 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		job.setExecuteNr(executeNr);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refreshJobStatus(JobScheduled job) {
+		// default does nothing
+	}
+
 	protected int executeJobImpl(JobScheduled job) {
 		throw new UnsupportedOperationException();
 	}
@@ -357,6 +365,9 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (operationID) {
 			case JobClientPackage.JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED:
 				executeJob((JobScheduled)arguments.get(0));
+				return null;
+			case JobClientPackage.JOB_ENGINE___REFRESH_JOB_STATUS__JOBSCHEDULED:
+				refreshJobStatus((JobScheduled)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

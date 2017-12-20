@@ -131,4 +131,12 @@ public interface JobEngine extends EObject {
 	 */
 	void executeJob(JobScheduled job);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshJobStatus(JobScheduled job);
+
 } // JobEngine

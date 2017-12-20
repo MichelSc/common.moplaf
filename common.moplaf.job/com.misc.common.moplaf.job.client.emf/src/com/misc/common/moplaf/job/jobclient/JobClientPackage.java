@@ -123,13 +123,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED = 0;
 
 	/**
+	 * The operation id for the '<em>Refresh Job Status</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE___REFRESH_JOB_STATUS__JOBSCHEDULED = 1;
+
+	/**
 	 * The number of operations of the '<em>Job Engine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_OPERATION_COUNT = 1;
+	int JOB_ENGINE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineInProcessImpl <em>Job Engine In Process</em>}' class.
@@ -194,6 +203,15 @@ public interface JobClientPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_IN_PROCESS___EXECUTE_JOB__JOBSCHEDULED = JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED;
+
+	/**
+	 * The operation id for the '<em>Refresh Job Status</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_IN_PROCESS___REFRESH_JOB_STATUS__JOBSCHEDULED = JOB_ENGINE___REFRESH_JOB_STATUS__JOBSCHEDULED;
 
 	/**
 	 * The number of operations of the '<em>Job Engine In Process</em>' class.
@@ -1452,6 +1470,16 @@ public interface JobClientPackage extends EPackage {
 	EOperation getJobEngine__ExecuteJob__JobScheduled();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#refreshJobStatus(com.misc.common.moplaf.job.jobclient.JobScheduled) <em>Refresh Job Status</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Job Status</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#refreshJobStatus(com.misc.common.moplaf.job.jobclient.JobScheduled)
+	 * @generated
+	 */
+	EOperation getJobEngine__RefreshJobStatus__JobScheduled();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobSource <em>Job Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2098,6 +2126,14 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED = eINSTANCE.getJobEngine__ExecuteJob__JobScheduled();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Job Status</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_ENGINE___REFRESH_JOB_STATUS__JOBSCHEDULED = eINSTANCE.getJobEngine__RefreshJobStatus__JobScheduled();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl <em>Job Source</em>}' class.

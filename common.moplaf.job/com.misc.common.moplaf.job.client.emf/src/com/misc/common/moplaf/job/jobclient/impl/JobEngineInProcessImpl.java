@@ -20,8 +20,6 @@ import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngineInProcess;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
-import com.misc.common.moplaf.job.jobclient.JobSource;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -67,29 +65,15 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 					.filter(js -> js.getRun()==run)
 					.findFirst()
 					.orElse(null);
-			JobSource source = job.getSource();
+
 			boolean goOn = true;
-			JobEngineInProcessImpl.this.getScheduler().setLastFeedback();
-			
-			if ( job.getStartTime()==null) {
-				// the first onProgress is called by before start
-				job.setRunning();
-				if ( source!=null) {
-					source.onJobRunning(job);
-				}
-				
-			}
 			if ( run.isReturned()) {
 				// the run is finished
 				ReturnFeedback feedback = run.getReturn();
 				job.setReturn(feedback);
-				// release the engine
-				job.setScheduledOn(null);
-				if ( source!=null) {
-					source.onJobReturned(job, feedback);
-				}
 			} else {
 				// report the progress
+				job.setRunning();
 			}
 			return goOn;
 		}

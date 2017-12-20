@@ -85,6 +85,9 @@
     <eOperations name="executeJob">
       <eParameters name="job" eType="#//JobScheduled"/>
     </eOperations>
+    <eOperations name="refreshJobStatus">
+      <eParameters name="job" eType="#//JobScheduled"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="JobsScheduled" upperBound="-1"
         eType="#//JobScheduled" eOpposite="#//JobScheduled/ScheduledOn"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

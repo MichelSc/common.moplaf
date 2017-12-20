@@ -13,8 +13,10 @@
 package com.misc.common.moplaf.job.jobxmlrpc.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
+import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
@@ -357,5 +359,29 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
 		return executeNr;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void refreshJobStatus(JobScheduled job) {
+		JobStatus status = null;
+		if ( status!=null) {
+			switch (status) {
+			case COMPLETE:
+				job.setReturn(ReturnFeedback.SUCCESS);
+				break;
+			case FAILLED:
+				job.setReturn(ReturnFeedback.FAILURE);
+				break;
+			case RUNNING:
+				job.setRunning();
+				break;
+			}
+		}
+	}
+
+
 
 } //JobEngineClientImpl
