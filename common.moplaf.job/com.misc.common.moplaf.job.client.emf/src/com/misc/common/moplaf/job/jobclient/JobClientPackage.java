@@ -69,7 +69,7 @@ public interface JobClientPackage extends EPackage {
 	int JOB_ENGINE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference.
+	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -142,7 +142,7 @@ public interface JobClientPackage extends EPackage {
 	int JOB_ENGINE_IN_PROCESS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference.
+	 * The feature id for the '<em><b>Job Scheduled</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1378,10 +1378,10 @@ public interface JobClientPackage extends EPackage {
 	EClass getJobEngine();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobScheduled <em>Job Scheduled</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobScheduled <em>Job Scheduled</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Job Scheduled</em>'.
+	 * @return the meta object for the reference list '<em>Job Scheduled</em>'.
 	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getJobScheduled()
 	 * @see #getJobEngine()
 	 * @generated
@@ -2032,7 +2032,7 @@ public interface JobClientPackage extends EPackage {
 		EClass JOB_ENGINE = eINSTANCE.getJobEngine();
 
 		/**
-		 * The meta object literal for the '<em><b>Job Scheduled</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Job Scheduled</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

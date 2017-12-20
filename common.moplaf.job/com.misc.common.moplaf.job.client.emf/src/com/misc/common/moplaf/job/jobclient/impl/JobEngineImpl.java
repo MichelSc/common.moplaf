@@ -19,6 +19,7 @@ import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,7 +29,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,14 +51,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public abstract class JobEngineImpl extends MinimalEObjectImpl.Container implements JobEngine {
 	/**
-	 * The cached value of the '{@link #getJobScheduled() <em>Job Scheduled</em>}' reference.
+	 * The cached value of the '{@link #getJobScheduled() <em>Job Scheduled</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getJobScheduled()
 	 * @generated
 	 * @ordered
 	 */
-	protected JobScheduled jobScheduled;
+	protected EList<JobScheduled> jobScheduled;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -111,59 +114,11 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JobScheduled getJobScheduled() {
-		if (jobScheduled != null && jobScheduled.eIsProxy()) {
-			InternalEObject oldJobScheduled = (InternalEObject)jobScheduled;
-			jobScheduled = (JobScheduled)eResolveProxy(oldJobScheduled);
-			if (jobScheduled != oldJobScheduled) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, oldJobScheduled, jobScheduled));
-			}
+	public EList<JobScheduled> getJobScheduled() {
+		if (jobScheduled == null) {
+			jobScheduled = new EObjectWithInverseResolvingEList<JobScheduled>(JobScheduled.class, this, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, JobClientPackage.JOB_SCHEDULED__SCHEDULED_ON);
 		}
 		return jobScheduled;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JobScheduled basicGetJobScheduled() {
-		return jobScheduled;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetJobScheduled(JobScheduled newJobScheduled, NotificationChain msgs) {
-		JobScheduled oldJobScheduled = jobScheduled;
-		jobScheduled = newJobScheduled;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, oldJobScheduled, newJobScheduled);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setJobScheduled(JobScheduled newJobScheduled) {
-		if (newJobScheduled != jobScheduled) {
-			NotificationChain msgs = null;
-			if (jobScheduled != null)
-				msgs = ((InternalEObject)jobScheduled).eInverseRemove(this, JobClientPackage.JOB_SCHEDULED__SCHEDULED_ON, JobScheduled.class, msgs);
-			if (newJobScheduled != null)
-				msgs = ((InternalEObject)newJobScheduled).eInverseAdd(this, JobClientPackage.JOB_SCHEDULED__SCHEDULED_ON, JobScheduled.class, msgs);
-			msgs = basicSetJobScheduled(newJobScheduled, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_ENGINE__JOB_SCHEDULED, newJobScheduled, newJobScheduled));
 	}
 
 	/**
@@ -245,7 +200,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public void executeJob(JobScheduled job) {
 		Plugin.INSTANCE.logInfo("JobEngine.executeJob");
-		this.setJobScheduled(job);
+		this.getJobScheduled().add(job);
 		this.executeJobImpl(job);
 	}
 	
@@ -263,9 +218,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOB_SCHEDULED:
-				if (jobScheduled != null)
-					msgs = ((InternalEObject)jobScheduled).eInverseRemove(this, JobClientPackage.JOB_SCHEDULED__SCHEDULED_ON, JobScheduled.class, msgs);
-				return basicSetJobScheduled((JobScheduled)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJobScheduled()).basicAdd(otherEnd, msgs);
 			case JobClientPackage.JOB_ENGINE__SCHEDULER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -288,7 +241,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOB_SCHEDULED:
-				return basicSetJobScheduled(null, msgs);
+				return ((InternalEList<?>)getJobScheduled()).basicRemove(otherEnd, msgs);
 			case JobClientPackage.JOB_ENGINE__SCHEDULER:
 				return basicSetScheduler(null, msgs);
 		}
@@ -318,8 +271,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOB_SCHEDULED:
-				if (resolve) return getJobScheduled();
-				return basicGetJobScheduled();
+				return getJobScheduled();
 			case JobClientPackage.JOB_ENGINE__NAME:
 				return getName();
 			case JobClientPackage.JOB_ENGINE__SCHEDULER:
@@ -340,7 +292,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOB_SCHEDULED:
-				setJobScheduled((JobScheduled)newValue);
+				getJobScheduled().clear();
+				getJobScheduled().addAll((Collection<? extends JobScheduled>)newValue);
 				return;
 			case JobClientPackage.JOB_ENGINE__NAME:
 				setName((String)newValue);
@@ -361,7 +314,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOB_SCHEDULED:
-				setJobScheduled((JobScheduled)null);
+				getJobScheduled().clear();
 				return;
 			case JobClientPackage.JOB_ENGINE__NAME:
 				setName(NAME_EDEFAULT);
@@ -382,7 +335,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOB_SCHEDULED:
-				return jobScheduled != null;
+				return jobScheduled != null && !jobScheduled.isEmpty();
 			case JobClientPackage.JOB_ENGINE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JobClientPackage.JOB_ENGINE__SCHEDULER:

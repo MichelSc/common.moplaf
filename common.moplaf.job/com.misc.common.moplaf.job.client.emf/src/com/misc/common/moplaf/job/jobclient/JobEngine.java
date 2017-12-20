@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.job.jobclient;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -36,7 +37,8 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface JobEngine extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Job Scheduled</b></em>' reference.
+	 * Returns the value of the '<em><b>Job Scheduled</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduledOn <em>Scheduled On</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -44,24 +46,13 @@ public interface JobEngine extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Job Scheduled</em>' reference.
-	 * @see #setJobScheduled(JobScheduled)
+	 * @return the value of the '<em>Job Scheduled</em>' reference list.
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngine_JobScheduled()
 	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduledOn
 	 * @model opposite="ScheduledOn"
 	 * @generated
 	 */
-	JobScheduled getJobScheduled();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobScheduled <em>Job Scheduled</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Job Scheduled</em>' reference.
-	 * @see #getJobScheduled()
-	 * @generated
-	 */
-	void setJobScheduled(JobScheduled value);
+	EList<JobScheduled> getJobScheduled();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
