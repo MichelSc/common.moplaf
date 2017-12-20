@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.job.jobxmlrpc.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
@@ -288,13 +289,17 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		return result.toString();
 	}
 	
-	
+	@Override
+	public EnabledFeedback getExecuteEnabledFeedback() {
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
 
 	/**
 	 * 
 	 */
 	@Override
-	public void executeJob(JobScheduled job) {
+	protected void executeJobImpl(JobScheduled job) {
 		// the server connection
 		String host = this.getHost();
 		int port = this.getPort();

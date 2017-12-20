@@ -275,7 +275,7 @@ public abstract class JobSourceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("Source %s %s", this.getName(), this.getStatus());
+		String description = String.format("Source %s (%s)", this.getName(), this.getStatus());
 
 		int submitted = this.getJobsScheduled().size();
 		if ( submitted>0 )   { description += String.format(", submitted=%d", submitted); }
@@ -341,7 +341,8 @@ public abstract class JobSourceImpl extends MinimalEObjectImpl.Container impleme
 	public void start() {
 		Plugin.INSTANCE.logInfo(String.format("JobSource %s about to start", this.getName()));
 		this.startImpl();
-		Plugin.INSTANCE.logInfo(String.format("JobSource %s about started", this.getName()));
+		this.setRunning(true);
+		Plugin.INSTANCE.logInfo(String.format("JobSource %s started", this.getName()));
 	}
 	
 	/**
@@ -357,7 +358,8 @@ public abstract class JobSourceImpl extends MinimalEObjectImpl.Container impleme
 	public void stop() {
 		Plugin.INSTANCE.logInfo(String.format("JobSource %s about to stop", this.getName()));
 		this.stopImpl();
-		Plugin.INSTANCE.logInfo(String.format("JobSource %s about stopped", this.getName()));
+		this.setRunning(false);
+		Plugin.INSTANCE.logInfo(String.format("JobSource %s stopped", this.getName()));
 	}
 
 	/**

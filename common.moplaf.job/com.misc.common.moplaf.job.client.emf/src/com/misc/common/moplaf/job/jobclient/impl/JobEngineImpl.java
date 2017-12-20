@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
@@ -241,11 +242,14 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void executeJob(JobScheduled job) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		Plugin.INSTANCE.logInfo("JobEngine.executeJob");
+		this.setJobScheduled(job);
+		this.executeJobImpl(job);
+	}
+	
+	protected void executeJobImpl(JobScheduled job) {
 		throw new UnsupportedOperationException();
 	}
 

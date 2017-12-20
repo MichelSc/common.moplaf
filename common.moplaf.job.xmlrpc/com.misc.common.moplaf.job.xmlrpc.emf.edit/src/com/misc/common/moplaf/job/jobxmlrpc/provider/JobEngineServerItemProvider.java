@@ -126,7 +126,7 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JobEngineServer)object).getName();
+		String label = ((JobEngineServer)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JobEngineServer_type") :
 			getString("_UI_JobEngineServer_type") + " " + label;
