@@ -534,4 +534,18 @@
         eType="#//SolutionLp"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverLpVarBinderToValue" eSuperTypes="#//SolverLpVarBinder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinderCustom" eSuperTypes="#//GeneratorLpVarBinder">
+    <eOperations name="getLowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="var" eType="#//GeneratorLpVar"/>
+      <eParameters name="solution" eType="#//SolutionLp"/>
+    </eOperations>
+    <eOperations name="getUpperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="var" eType="#//GeneratorLpVar"/>
+      <eParameters name="solution" eType="#//SolutionLp"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverLpVarBinderCustom" eSuperTypes="#//SolverLpVarBinder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedSolution" lowerBound="1"
+        eType="#//SolutionLp"/>
+  </eClassifiers>
 </ecore:EPackage>

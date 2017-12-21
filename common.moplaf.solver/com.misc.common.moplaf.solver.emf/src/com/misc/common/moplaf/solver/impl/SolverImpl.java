@@ -28,8 +28,9 @@ import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
-import com.misc.common.moplaf.solver.GeneratorLpVarBinder;
+import com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom;
 import com.misc.common.moplaf.solver.GeneratorLpVarBinderToSolution;
+import com.misc.common.moplaf.solver.GeneratorLpVarBinderToValue;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.GeneratorVarBinder;
@@ -1254,7 +1255,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		SolverVarBinder solver_binder = null;
 		if ( binder instanceof GeneratorLpVarBinderToSolution){
 			solver_binder = SolverFactory.eINSTANCE.createSolverLpVarBinderToSolution();
-		} else if ( binder instanceof GeneratorLpVarBinder){
+		} else if ( binder instanceof GeneratorLpVarBinderCustom){
+			solver_binder = SolverFactory.eINSTANCE.createSolverLpVarBinderCustom();
+		} else if ( binder instanceof GeneratorLpVarBinderToValue){
 			solver_binder = SolverFactory.eINSTANCE.createSolverLpVarBinderToValue();
 		} else {
 			throw new UnsupportedOperationException();

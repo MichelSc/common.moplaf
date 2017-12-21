@@ -7420,6 +7420,161 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP_VAR_BINDER_TO_VALUE_OPERATION_COUNT = SOLVER_LP_VAR_BINDER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarBinderCustomImpl <em>Generator Lp Var Binder Custom</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpVarBinderCustomImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarBinderCustom()
+	 * @generated
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM = 50;
+
+	/**
+	 * The feature id for the '<em><b>Bound Vars</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM__BOUND_VARS = GENERATOR_LP_VAR_BINDER__BOUND_VARS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM__NAME = GENERATOR_LP_VAR_BINDER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM__LABEL = GENERATOR_LP_VAR_BINDER__LABEL;
+
+	/**
+	 * The number of structural features of the '<em>Generator Lp Var Binder Custom</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM_FEATURE_COUNT = GENERATOR_LP_VAR_BINDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Lower Bound</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM___GET_LOWER_BOUND__GENERATORLPVAR_SOLUTIONLP = GENERATOR_LP_VAR_BINDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Upper Bound</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM___GET_UPPER_BOUND__GENERATORLPVAR_SOLUTIONLP = GENERATOR_LP_VAR_BINDER_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Generator Lp Var Binder Custom</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_CUSTOM_OPERATION_COUNT = GENERATOR_LP_VAR_BINDER_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverLpVarBinderCustomImpl <em>Lp Var Binder Custom</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.SolverLpVarBinderCustomImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpVarBinderCustom()
+	 * @generated
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM = 51;
+
+	/**
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM__SOLVER = SOLVER_LP_VAR_BINDER__SOLVER;
+
+	/**
+	 * The feature id for the '<em><b>Var Binder</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM__VAR_BINDER = SOLVER_LP_VAR_BINDER__VAR_BINDER;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM__LABEL = SOLVER_LP_VAR_BINDER__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Selected Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM__SELECTED_SOLUTION = SOLVER_LP_VAR_BINDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Lp Var Binder Custom</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM_FEATURE_COUNT = SOLVER_LP_VAR_BINDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Lower Bound</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM___GET_LOWER_BOUND__GENERATORLPVAR = SOLVER_LP_VAR_BINDER___GET_LOWER_BOUND__GENERATORLPVAR;
+
+	/**
+	 * The operation id for the '<em>Get Upper Bound</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM___GET_UPPER_BOUND__GENERATORLPVAR = SOLVER_LP_VAR_BINDER___GET_UPPER_BOUND__GENERATORLPVAR;
+
+	/**
+	 * The number of operations of the '<em>Lp Var Binder Custom</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_CUSTOM_OPERATION_COUNT = SOLVER_LP_VAR_BINDER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>ITuple Visitor</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7427,7 +7582,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getITupleVisitor()
 	 * @generated
 	 */
-	int ITUPLE_VISITOR = 57;
+	int ITUPLE_VISITOR = 59;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -7437,7 +7592,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 58;
+	int EXCEPTION = 60;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.
@@ -7447,7 +7602,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpVarType()
 	 * @generated
 	 */
-	int ENUM_LP_VAR_TYPE = 50;
+	int ENUM_LP_VAR_TYPE = 52;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpConsType <em>Enum Lp Cons Type</em>}' enum.
@@ -7457,7 +7612,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpConsType()
 	 * @generated
 	 */
-	int ENUM_LP_CONS_TYPE = 51;
+	int ENUM_LP_CONS_TYPE = 53;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumObjectiveType <em>Enum Objective Type</em>}' enum.
@@ -7467,7 +7622,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumObjectiveType()
 	 * @generated
 	 */
-	int ENUM_OBJECTIVE_TYPE = 52;
+	int ENUM_OBJECTIVE_TYPE = 54;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumSolverLogLevel <em>Enum Solver Log Level</em>}' enum.
@@ -7477,7 +7632,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumSolverLogLevel()
 	 * @generated
 	 */
-	int ENUM_SOLVER_LOG_LEVEL = 53;
+	int ENUM_SOLVER_LOG_LEVEL = 55;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLinearType <em>Enum Cp Linear Type</em>}' enum.
@@ -7487,7 +7642,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLinearType()
 	 * @generated
 	 */
-	int ENUM_CP_LINEAR_TYPE = 54;
+	int ENUM_CP_LINEAR_TYPE = 56;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLogicalType <em>Enum Cp Logical Type</em>}' enum.
@@ -7497,7 +7652,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLogicalType()
 	 * @generated
 	 */
-	int ENUM_CP_LOGICAL_TYPE = 55;
+	int ENUM_CP_LOGICAL_TYPE = 57;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}' enum.
@@ -7507,7 +7662,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpFileFormat()
 	 * @generated
 	 */
-	int ENUM_LP_FILE_FORMAT = 56;
+	int ENUM_LP_FILE_FORMAT = 58;
 
 
 	/**
@@ -8434,6 +8589,57 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSolverLpVarBinderToValue();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom <em>Generator Lp Var Binder Custom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generator Lp Var Binder Custom</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom
+	 * @generated
+	 */
+	EClass getGeneratorLpVarBinderCustom();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom#getLowerBound(com.misc.common.moplaf.solver.GeneratorLpVar, com.misc.common.moplaf.solver.SolutionLp) <em>Get Lower Bound</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Lower Bound</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom#getLowerBound(com.misc.common.moplaf.solver.GeneratorLpVar, com.misc.common.moplaf.solver.SolutionLp)
+	 * @generated
+	 */
+	EOperation getGeneratorLpVarBinderCustom__GetLowerBound__GeneratorLpVar_SolutionLp();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom#getUpperBound(com.misc.common.moplaf.solver.GeneratorLpVar, com.misc.common.moplaf.solver.SolutionLp) <em>Get Upper Bound</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Upper Bound</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom#getUpperBound(com.misc.common.moplaf.solver.GeneratorLpVar, com.misc.common.moplaf.solver.SolutionLp)
+	 * @generated
+	 */
+	EOperation getGeneratorLpVarBinderCustom__GetUpperBound__GeneratorLpVar_SolutionLp();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverLpVarBinderCustom <em>Lp Var Binder Custom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Lp Var Binder Custom</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverLpVarBinderCustom
+	 * @generated
+	 */
+	EClass getSolverLpVarBinderCustom();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.SolverLpVarBinderCustom#getSelectedSolution <em>Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverLpVarBinderCustom#getSelectedSolution()
+	 * @see #getSolverLpVarBinderCustom()
+	 * @generated
+	 */
+	EReference getSolverLpVarBinderCustom_SelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverGoal <em>Goal</em>}'.
@@ -11062,6 +11268,50 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOLVER_LP_VAR_BINDER_TO_VALUE = eINSTANCE.getSolverLpVarBinderToValue();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarBinderCustomImpl <em>Generator Lp Var Binder Custom</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.impl.GeneratorLpVarBinderCustomImpl
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarBinderCustom()
+		 * @generated
+		 */
+		EClass GENERATOR_LP_VAR_BINDER_CUSTOM = eINSTANCE.getGeneratorLpVarBinderCustom();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Lower Bound</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_LP_VAR_BINDER_CUSTOM___GET_LOWER_BOUND__GENERATORLPVAR_SOLUTIONLP = eINSTANCE.getGeneratorLpVarBinderCustom__GetLowerBound__GeneratorLpVar_SolutionLp();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Upper Bound</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_LP_VAR_BINDER_CUSTOM___GET_UPPER_BOUND__GENERATORLPVAR_SOLUTIONLP = eINSTANCE.getGeneratorLpVarBinderCustom__GetUpperBound__GeneratorLpVar_SolutionLp();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverLpVarBinderCustomImpl <em>Lp Var Binder Custom</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.impl.SolverLpVarBinderCustomImpl
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpVarBinderCustom()
+		 * @generated
+		 */
+		EClass SOLVER_LP_VAR_BINDER_CUSTOM = eINSTANCE.getSolverLpVarBinderCustom();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected Solution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLVER_LP_VAR_BINDER_CUSTOM__SELECTED_SOLUTION = eINSTANCE.getSolverLpVarBinderCustom_SelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl <em>Goal</em>}' class.

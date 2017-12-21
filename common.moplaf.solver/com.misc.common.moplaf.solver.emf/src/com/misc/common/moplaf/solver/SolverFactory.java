@@ -158,6 +158,24 @@ public interface SolverFactory extends EFactory {
 	SolverLpVarBinderToValue createSolverLpVarBinderToValue();
 
 	/**
+	 * Returns a new object of class '<em>Generator Lp Var Binder Custom</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Lp Var Binder Custom</em>'.
+	 * @generated
+	 */
+	GeneratorLpVarBinderCustom createGeneratorLpVarBinderCustom();
+
+	/**
+	 * Returns a new object of class '<em>Lp Var Binder Custom</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lp Var Binder Custom</em>'.
+	 * @generated
+	 */
+	SolverLpVarBinderCustom createSolverLpVarBinderCustom();
+
+	/**
 	 * Returns a new object of class '<em>Generator Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
