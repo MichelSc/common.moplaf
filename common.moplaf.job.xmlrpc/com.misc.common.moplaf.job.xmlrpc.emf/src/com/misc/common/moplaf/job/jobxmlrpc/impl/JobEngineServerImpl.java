@@ -17,6 +17,7 @@ import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
+import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
@@ -276,24 +277,25 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * @author michel
 	 *
 	 */
-	public interface HandleJob {
+	public interface ServerCallInterface {
 		public int runJob(String jobAsString);
+		public int getJobStatus(int jobExecuteNr);
 	}
 	
 	/**
 	 * The handler instance for this {@link JobEngineServerImpl}
 	 * 
 	 */
-	private HandleJob runJobHandler = new HandleJobImpl();
+	private ServerCallInterface runJobHandler = new ServerCallInterfaceImpl();
 	
 	
 	/**
 	 * @author michel
 	 *
 	 */
-	public class HandleJobImpl implements HandleJob {
+	public class ServerCallInterfaceImpl implements ServerCallInterface {
 		
-		public HandleJobImpl() {};
+		public ServerCallInterfaceImpl() {};
 
 		/**
 		 * Run this job
@@ -303,7 +305,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		 */
 		@Override
 		public int runJob(String jobAsString) {
-			Plugin.INSTANCE.logInfo("HandleJob.runJob: called ");
+			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
 
 			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 			JobScheduler scheduler = jobEngineServer.getScheduler();
@@ -314,7 +316,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		    try {
 		    	resource.load(inputStream, null);
 			} catch (IOException e) {
-				Plugin.INSTANCE.logError("HandleJob.runJob: exception in load: "+e.getMessage());
+				Plugin.INSTANCE.logError("ServerCallInterface.runJob: exception in load: "+e.getMessage());
 				return -1;
 			}
 
@@ -326,7 +328,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			    	if ( object instanceof Run) {
 			    		Run job = (Run) object;
 			    		jobs.add(job);
-			    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job received");
+			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job received");
 			    	}
 				}
 			    // add the jobs
@@ -334,15 +336,35 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		    		JobScheduled submittedJob = scheduler.submitRun(job);
 		    		result = submittedJob.getScheduleNr();
 					jobEngineServer.getJobsScheduled().add(submittedJob);
-		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
+		    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
 				}
 		    }
 			catch (Exception e) {
-				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
+				Plugin.INSTANCE.logError("ServerCallInterface.runJob: exception "+e.getMessage());
 			}
 			
-			Plugin.INSTANCE.logInfo("HandleJob.runJob: call done ");
+			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: call done ");
 			return result;
+		}
+
+		/**
+		 * 
+		 */
+		@Override
+		public int getJobStatus(int jobExecuteNr) {
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatuts: jobExecutenr= %d", jobExecuteNr));
+			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+			JobScheduled job = jobEngineServer.getJobsScheduled()
+					.stream()
+					.filter(j -> j.getExecuteNr()==jobExecuteNr)
+					.findFirst()
+					.orElse(null);
+			if ( job == null ) {
+				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatuts: jobExecutenr= %d, job not found", jobExecuteNr));
+				return JobStatus.UNKNOWN_VALUE;
+			}
+					
+			return job.getStatus().getValue();
 		}
 	};
 
@@ -362,7 +384,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			Plugin.INSTANCE.logInfo("JobEngineServer.start: intialize MappingHandler");
 			mapping.setRequestProcessorFactoryFactory(new JobEngineRequestProcessorFactoryFactory());
 			Plugin.INSTANCE.logInfo("JobEngineServer.start: done with adding factory");
-			mapping.addHandler("handlejob", HandleJob.class);
+			mapping.addHandler("handlejob", ServerCallInterface.class);
 			Plugin.INSTANCE.logInfo("JobEngineServer.start: done with adding handler");
 		} catch (XmlRpcException e1) {
 			Plugin.INSTANCE.logError("JobEngineServer.start: exception when starting the server "+e1.getMessage());

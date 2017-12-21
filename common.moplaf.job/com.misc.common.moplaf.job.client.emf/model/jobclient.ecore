@@ -81,7 +81,7 @@
         eOpposite="#//JobSource/JobsScheduled"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecuteNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true" eSuperTypes="#//JobSchedulerService">
     <eOperations name="executeJob">
       <eParameters name="job" eType="#//JobScheduled"/>
     </eOperations>
@@ -90,7 +90,6 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="JobsScheduled" upperBound="-1"
         eType="#//JobScheduled" eOpposite="#//JobScheduled/ScheduledOn"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
         eType="#//JobScheduler" eOpposite="#//JobScheduler/Engines"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecuteEnabledFeedback"
@@ -106,9 +105,7 @@
     <eLiterals name="COMPLETE" value="5" literal="Complete"/>
     <eLiterals name="FAILLED" value="6" literal="Failed"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JobSource" abstract="true">
-    <eOperations name="start"/>
-    <eOperations name="stop"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JobSource" abstract="true" eSuperTypes="#//JobSchedulerService">
     <eOperations name="refresh"/>
     <eOperations name="onJobRunning">
       <eParameters name="job" eType="#//JobScheduled"/>
@@ -121,16 +118,20 @@
         eType="#//JobScheduled" eOpposite="#//JobScheduled/Source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
         eType="#//JobScheduler" eOpposite="#//JobScheduler/Sources"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobSchedulerService">
+    <eOperations name="start"/>
+    <eOperations name="stop"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StopFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AutoStartStop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AutoStartStop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true" defaultValueLiteral="false"/>
   </eClassifiers>

@@ -303,9 +303,9 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	@Override
 	protected int executeJobImpl(JobScheduled job) {
 		// the server connection
-		String host = this.getHost();
-		int port = this.getPort();
-		String path = this.getPath();
+		String host        = this.getHost();
+		int    port        = this.getPort();
+		String path        = this.getPath();
 		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
 		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 		Plugin.INSTANCE.logInfo("JobEngineClient, url="+urlAsString);
@@ -314,16 +314,13 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		} catch (MalformedURLException e) {
 			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, connect exception "+ e.getMessage());
 		}
-	    
 	    XmlRpcClient client = new XmlRpcClient();
 	    client.setConfig(config);
 	    
 		// the job
-	    // create resourceFactory
+	    // create resourceFactory, resourceSet
 	    XMLResourceFactoryImpl rf = new XMLResourceFactoryImpl(); 
-		
-		// create the resourceSet
-	    ResourceSet rs = new ResourceSetImpl();
+	    ResourceSet            rs = new ResourceSetImpl();
 	    rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", rf);
 	    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
 	    XMLResource resource = (XMLResource)rs.createResource(uri);
