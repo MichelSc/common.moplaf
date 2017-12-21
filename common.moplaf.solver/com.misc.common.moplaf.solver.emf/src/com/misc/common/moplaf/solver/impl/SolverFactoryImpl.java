@@ -101,6 +101,8 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.SOLVER_LP_VAR_BINDER: return createSolverLpVarBinder();
 			case SolverPackage.SOLVER_LP_VAR_BINDER_TO_SOLUTION: return createSolverLpVarBinderToSolution();
 			case SolverPackage.SOLVER_LP_VAR_BINDER_TO_VALUE: return createSolverLpVarBinderToValue();
+			case SolverPackage.GENERATOR_LP_VAR_BINDER_CUSTOM: return createGeneratorLpVarBinderCustom();
+			case SolverPackage.SOLVER_LP_VAR_BINDER_CUSTOM: return createSolverLpVarBinderCustom();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -306,6 +308,26 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public SolverLpVarBinderToValue createSolverLpVarBinderToValue() {
 		SolverLpVarBinderToValueImpl solverLpVarBinderToValue = new SolverLpVarBinderToValueImpl();
 		return solverLpVarBinderToValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorLpVarBinderCustom createGeneratorLpVarBinderCustom() {
+		GeneratorLpVarBinderCustomImpl generatorLpVarBinderCustom = new GeneratorLpVarBinderCustomImpl();
+		return generatorLpVarBinderCustom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverLpVarBinderCustom createSolverLpVarBinderCustom() {
+		SolverLpVarBinderCustomImpl solverLpVarBinderCustom = new SolverLpVarBinderCustomImpl();
+		return solverLpVarBinderCustom;
 	}
 
 	/**

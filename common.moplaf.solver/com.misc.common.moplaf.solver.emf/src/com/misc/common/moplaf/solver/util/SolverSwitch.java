@@ -481,6 +481,22 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.GENERATOR_LP_VAR_BINDER_CUSTOM: {
+				GeneratorLpVarBinderCustom generatorLpVarBinderCustom = (GeneratorLpVarBinderCustom)theEObject;
+				T result = caseGeneratorLpVarBinderCustom(generatorLpVarBinderCustom);
+				if (result == null) result = caseGeneratorLpVarBinder(generatorLpVarBinderCustom);
+				if (result == null) result = caseGeneratorVarBinder(generatorLpVarBinderCustom);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_LP_VAR_BINDER_CUSTOM: {
+				SolverLpVarBinderCustom solverLpVarBinderCustom = (SolverLpVarBinderCustom)theEObject;
+				T result = caseSolverLpVarBinderCustom(solverLpVarBinderCustom);
+				if (result == null) result = caseSolverLpVarBinder(solverLpVarBinderCustom);
+				if (result == null) result = caseSolverVarBinder(solverLpVarBinderCustom);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -752,6 +768,36 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolverLpVarBinderToValue(SolverLpVarBinderToValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Var Binder Custom</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Var Binder Custom</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorLpVarBinderCustom(GeneratorLpVarBinderCustom object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lp Var Binder Custom</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lp Var Binder Custom</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverLpVarBinderCustom(SolverLpVarBinderCustom object) {
 		return null;
 	}
 

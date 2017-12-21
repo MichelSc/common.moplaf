@@ -37,6 +37,7 @@ import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorLpVarBinder;
+import com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom;
 import com.misc.common.moplaf.solver.GeneratorLpVarBinderToSolution;
 import com.misc.common.moplaf.solver.GeneratorLpVarBinderToValue;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -68,6 +69,7 @@ import com.misc.common.moplaf.solver.SolverGoal;
 import com.misc.common.moplaf.solver.SolverLp;
 import com.misc.common.moplaf.solver.SolverLpParams;
 import com.misc.common.moplaf.solver.SolverLpVarBinder;
+import com.misc.common.moplaf.solver.SolverLpVarBinderCustom;
 import com.misc.common.moplaf.solver.SolverLpVarBinderToSolution;
 import com.misc.common.moplaf.solver.SolverLpVarBinderToValue;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -214,6 +216,20 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	private EClass solverLpVarBinderToValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generatorLpVarBinderCustomEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass solverLpVarBinderCustomEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1356,6 +1372,51 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EClass getSolverLpVarBinderToValue() {
 		return solverLpVarBinderToValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGeneratorLpVarBinderCustom() {
+		return generatorLpVarBinderCustomEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneratorLpVarBinderCustom__GetLowerBound__GeneratorLpVar_SolutionLp() {
+		return generatorLpVarBinderCustomEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneratorLpVarBinderCustom__GetUpperBound__GeneratorLpVar_SolutionLp() {
+		return generatorLpVarBinderCustomEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSolverLpVarBinderCustom() {
+		return solverLpVarBinderCustomEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSolverLpVarBinderCustom_SelectedSolution() {
+		return (EReference)solverLpVarBinderCustomEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3285,6 +3346,13 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		solverLpVarBinderToValueEClass = createEClass(SOLVER_LP_VAR_BINDER_TO_VALUE);
 
+		generatorLpVarBinderCustomEClass = createEClass(GENERATOR_LP_VAR_BINDER_CUSTOM);
+		createEOperation(generatorLpVarBinderCustomEClass, GENERATOR_LP_VAR_BINDER_CUSTOM___GET_LOWER_BOUND__GENERATORLPVAR_SOLUTIONLP);
+		createEOperation(generatorLpVarBinderCustomEClass, GENERATOR_LP_VAR_BINDER_CUSTOM___GET_UPPER_BOUND__GENERATORLPVAR_SOLUTIONLP);
+
+		solverLpVarBinderCustomEClass = createEClass(SOLVER_LP_VAR_BINDER_CUSTOM);
+		createEReference(solverLpVarBinderCustomEClass, SOLVER_LP_VAR_BINDER_CUSTOM__SELECTED_SOLUTION);
+
 		// Create enums
 		enumLpVarTypeEEnum = createEEnum(ENUM_LP_VAR_TYPE);
 		enumLpConsTypeEEnum = createEEnum(ENUM_LP_CONS_TYPE);
@@ -3375,6 +3443,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		solverLpVarBinderEClass.getESuperTypes().add(this.getSolverVarBinder());
 		solverLpVarBinderToSolutionEClass.getESuperTypes().add(this.getSolverLpVarBinder());
 		solverLpVarBinderToValueEClass.getESuperTypes().add(this.getSolverLpVarBinder());
+		generatorLpVarBinderCustomEClass.getESuperTypes().add(this.getGeneratorLpVarBinder());
+		solverLpVarBinderCustomEClass.getESuperTypes().add(this.getSolverLpVarBinder());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3818,6 +3888,19 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getSolverLpVarBinderToSolution_SelectedSolution(), this.getSolutionLp(), null, "SelectedSolution", null, 1, 1, SolverLpVarBinderToSolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(solverLpVarBinderToValueEClass, SolverLpVarBinderToValue.class, "SolverLpVarBinderToValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(generatorLpVarBinderCustomEClass, GeneratorLpVarBinderCustom.class, "GeneratorLpVarBinderCustom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getGeneratorLpVarBinderCustom__GetLowerBound__GeneratorLpVar_SolutionLp(), ecorePackage.getEDouble(), "getLowerBound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSolutionLp(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGeneratorLpVarBinderCustom__GetUpperBound__GeneratorLpVar_SolutionLp(), ecorePackage.getEDouble(), "getUpperBound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSolutionLp(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(solverLpVarBinderCustomEClass, SolverLpVarBinderCustom.class, "SolverLpVarBinderCustom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSolverLpVarBinderCustom_SelectedSolution(), this.getSolutionLp(), null, "SelectedSolution", null, 1, 1, SolverLpVarBinderCustom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumLpVarTypeEEnum, EnumLpVarType.class, "EnumLpVarType");

@@ -405,6 +405,52 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneratorLpVarBinderCustomItemProvider generatorLpVarBinderCustomItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneratorLpVarBinderCustomAdapter() {
+		if (generatorLpVarBinderCustomItemProvider == null) {
+			generatorLpVarBinderCustomItemProvider = new GeneratorLpVarBinderCustomItemProvider(this);
+		}
+
+		return generatorLpVarBinderCustomItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverLpVarBinderCustom} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverLpVarBinderCustomItemProvider solverLpVarBinderCustomItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverLpVarBinderCustom}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverLpVarBinderCustomAdapter() {
+		if (solverLpVarBinderCustomItemProvider == null) {
+			solverLpVarBinderCustomItemProvider = new SolverLpVarBinderCustomItemProvider(this);
+		}
+
+		return solverLpVarBinderCustomItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverGeneratorGoal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -997,6 +1043,8 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (solverLpVarBinderItemProvider != null) solverLpVarBinderItemProvider.dispose();
 		if (solverLpVarBinderToSolutionItemProvider != null) solverLpVarBinderToSolutionItemProvider.dispose();
 		if (solverLpVarBinderToValueItemProvider != null) solverLpVarBinderToValueItemProvider.dispose();
+		if (generatorLpVarBinderCustomItemProvider != null) generatorLpVarBinderCustomItemProvider.dispose();
+		if (solverLpVarBinderCustomItemProvider != null) solverLpVarBinderCustomItemProvider.dispose();
 	}
 
 }

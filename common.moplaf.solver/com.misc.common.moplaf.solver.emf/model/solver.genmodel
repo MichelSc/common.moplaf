@@ -472,5 +472,18 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverLpVarBinderToSolution/SelectedSolution"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolverLpVarBinderToValue"/>
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVarBinderCustom">
+      <genOperations ecoreOperation="solver.ecore#//GeneratorLpVarBinderCustom/getLowerBound">
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpVarBinderCustom/getLowerBound/var"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpVarBinderCustom/getLowerBound/solution"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//GeneratorLpVarBinderCustom/getUpperBound">
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpVarBinderCustom/getUpperBound/var"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpVarBinderCustom/getUpperBound/solution"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLpVarBinderCustom">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverLpVarBinderCustom/SelectedSolution"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -280,6 +280,14 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createSolverLpVarBinderToValueAdapter();
 			}
 			@Override
+			public Adapter caseGeneratorLpVarBinderCustom(GeneratorLpVarBinderCustom object) {
+				return createGeneratorLpVarBinderCustomAdapter();
+			}
+			@Override
+			public Adapter caseSolverLpVarBinderCustom(SolverLpVarBinderCustom object) {
+				return createSolverLpVarBinderCustomAdapter();
+			}
+			@Override
 			public Adapter caseRunParams(RunParams object) {
 				return createRunParamsAdapter();
 			}
@@ -556,6 +564,34 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolverLpVarBinderToValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom <em>Generator Lp Var Binder Custom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpVarBinderCustom
+	 * @generated
+	 */
+	public Adapter createGeneratorLpVarBinderCustomAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolverLpVarBinderCustom <em>Lp Var Binder Custom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolverLpVarBinderCustom
+	 * @generated
+	 */
+	public Adapter createSolverLpVarBinderCustomAdapter() {
 		return null;
 	}
 
