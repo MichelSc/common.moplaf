@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.job.jobxmlrpc.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
@@ -422,6 +423,25 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			Plugin.INSTANCE.logInfo("JobEngineServer.shutdown: before");
 		}
 	}
+
+	@Override
+	public void refresh() {
+		super.refresh();
+	}
+
+	@Override
+	public void onJobRunning(JobScheduled job) {
+		super.onJobRunning(job);
+	}
+
+	@Override
+	public void onJobReturned(JobScheduled job, ReturnFeedback feedback) {
+		super.onJobReturned(job, feedback);
+		Plugin.INSTANCE.logInfo("JobEngineServer.onJobReturned: called");
+		job.setRun(null); // release the run, as it is contained in no resource
+	}
+	
+	
 	
 	
 
