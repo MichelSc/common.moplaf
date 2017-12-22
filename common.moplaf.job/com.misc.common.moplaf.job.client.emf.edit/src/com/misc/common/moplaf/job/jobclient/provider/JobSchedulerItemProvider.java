@@ -726,7 +726,9 @@ public class JobSchedulerItemProvider
 					return 120;
 				}
 				public Object getValue(JobScheduled job) {
-					return job.getRun().getLabel();
+					Run run = job.getRun();
+					String text = run==null ? "null" : run.getLabel();
+					return text;
 				}
 			}, 
 			new Column() {

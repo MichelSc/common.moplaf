@@ -408,7 +408,7 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("Job (%s %s", this.getName(), this.getStatus());
+		String description = String.format("Job %s (%s", this.getName(), this.getStatus());
 
 		int waiting = this.getNrJobsWaiting();
 		if ( waiting>0 )   { description += String.format(", waiting=%d", waiting); }
@@ -761,8 +761,9 @@ return description;
 	}
 	
 	private void refreshScheduledJobStatus() {
-		for ( JobEngine engine : this.getEngines()) {
-			for ( JobScheduled job : engine.getJobsScheduled()) {
+		for ( JobScheduled job : this.getJobs()) {
+			JobEngine engine = job.getScheduledOn();
+			if ( engine!=null) {
 				engine.refreshJobStatus(job);;
 			}
 		}

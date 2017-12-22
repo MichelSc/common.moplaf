@@ -685,7 +685,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("%s (%s)", this.getRun().getLabel(), this.getStatus());
+		String run_label = this.getRun()==null ? "null" : this.getRun().getLabel();
+		String description = String.format("%s (%s)", run_label, this.getStatus());
 		return description;
 	}
 
@@ -908,10 +909,10 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 			JobSource source = this.getSource();
 			if ( source!=null) {
 				source.onJobRunning(this);
-				this.setRunning(true);
-				this.setStartTime(new Date());
-				this.getScheduler().setLastFeedback();
 			}
+			this.setRunning(true);
+			this.setStartTime(new Date());
+			this.getScheduler().setLastFeedback();
 		}
 	}
 

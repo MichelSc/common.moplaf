@@ -364,8 +364,10 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatuts: jobExecutenr= %d, job not found", jobExecuteNr));
 				return JobStatus.UNKNOWN_VALUE;
 			}
-					
-			return job.getStatus().getValue();
+
+			int status = job.getStatus().getValue();
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatuts: status= %d", status));
+			return status;
 		}
 	};
 

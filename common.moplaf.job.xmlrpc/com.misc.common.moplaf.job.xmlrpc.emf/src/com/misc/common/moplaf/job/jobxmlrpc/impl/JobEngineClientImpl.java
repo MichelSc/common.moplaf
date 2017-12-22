@@ -302,20 +302,6 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	protected int executeJobImpl(JobScheduled job) {
-		// the server connection
-		String host        = this.getHost();
-		int    port        = this.getPort();
-		String path        = this.getPath();
-		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
-		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
-		Plugin.INSTANCE.logInfo("JobEngineClient, url="+urlAsString);
-	    try {
-			config.setServerURL(new URL(urlAsString));
-		} catch (MalformedURLException e) {
-			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, connect exception "+ e.getMessage());
-		}
-	    XmlRpcClient client = new XmlRpcClient();
-	    client.setConfig(config);
 	    
 		// the job
 	    // create resourceFactory, resourceSet
@@ -333,17 +319,30 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, serialize "+ e.getMessage());
 		}
 	    
-	    // do the call
-    	Object resultAsObject = null;
-    	int executeNr = -1;
+	    // to the call
 	    String jobAsString = stringWriter.toString();
-	    Object[] params = new Object[]{jobAsString};
+	    int executeNr = this.callHandleJobRunJob(jobAsString);
+	    
+		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
+		return executeNr;
+	}
+	
+	private Object call(String method, Object[] params) {
+		Object result; 
 	    try {
 	    	// parameter 1: the method being performed
-	    	resultAsObject = client.execute("handlejob.runJob", params);
+	    	result = this.xmlRpcClient.execute(method, params);
 		} catch (XmlRpcException e) {
 			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, client.execute"+ e.getMessage());
+			result = null;
 		}
+	    return result;
+	}
+	
+	private int callHandleJobRunJob(String jobAsString) {
+    	int executeNr = -1;
+	    Object[] params = new Object[]{jobAsString};
+    	Object resultAsObject = this.call("handlejob.runJob", params);
 	    if ( resultAsObject instanceof Integer) {
 	    	executeNr = ((Integer)resultAsObject).intValue(); // to be kept somewhere
 			Plugin.INSTANCE.logInfo(String.format("JobEngineClient.runJobImpl, result %d", executeNr));
@@ -352,9 +351,23 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	    } else {
 	    	Plugin.INSTANCE.logError(String.format("JobEngineClient.runJobImpl, unexpected value returned %s ", resultAsObject.getClass().getName()));
 	    }
-	    
-		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
-		return executeNr;
+	    return executeNr;
+	}
+	
+	private JobStatus callGetStatus(int executeNr) {
+		JobStatus status = JobStatus.UNKNOWN;
+	    Object[] params = new Object[]{executeNr};
+    	Object resultAsObject = this.call("handlejob.getJobStatus", params);
+	    if ( resultAsObject instanceof Integer) {
+	    	int statusAsNr = ((Integer)resultAsObject).intValue(); 
+	    	status = JobStatus.get(statusAsNr);
+			Plugin.INSTANCE.logInfo(String.format("JobEngineClient.getJobStatus, result %d", statusAsNr));
+	    } else if ( resultAsObject == null ){
+	    	Plugin.INSTANCE.logError(String.format("JobEngineClient.getJobStatus, no value returned"));
+	    } else {
+	    	Plugin.INSTANCE.logError(String.format("JobEngineClient.getJobStatus, unexpected value returned %s ", resultAsObject.getClass().getName()));
+	    }
+	    return status;
 	}
 	
 	/**
@@ -363,7 +376,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	public void refreshJobStatus(JobScheduled job) {
-		JobStatus status = null;
+		JobStatus status = this.callGetStatus(job.getExecuteNr());
 		if ( status!=null) {
 			switch (status) {
 			case COMPLETE:
@@ -377,6 +390,37 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 				break;
 			}
 		}
+	}
+	
+	private XmlRpcClient xmlRpcClient = null;
+
+	@Override
+	protected void startImpl() {
+		
+		// the server connection
+		String host        = this.getHost();
+		int    port        = this.getPort();
+		String path        = this.getPath();
+		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
+		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+		Plugin.INSTANCE.logInfo("JobEngineClient, url="+urlAsString);
+	    try {
+			config.setServerURL(new URL(urlAsString));
+		} catch (MalformedURLException e) {
+			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, connect exception "+ e.getMessage());
+		}
+	    XmlRpcClient client = new XmlRpcClient();
+	    client.setConfig(config);
+	    
+	    this.xmlRpcClient = client;
+
+	}
+
+	@Override
+	protected void stopImpl() {
+		super.stopImpl();
+		
+	    this.xmlRpcClient = null;
 	}
 
 
