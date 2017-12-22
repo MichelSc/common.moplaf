@@ -49,6 +49,15 @@ public interface JobClientFactory extends EFactory {
 	JobScheduled createJobScheduled();
 
 	/**
+	 * Returns a new object of class '<em>Job Scheduler Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Job Scheduler Service</em>'.
+	 * @generated
+	 */
+	JobSchedulerService createJobSchedulerService();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

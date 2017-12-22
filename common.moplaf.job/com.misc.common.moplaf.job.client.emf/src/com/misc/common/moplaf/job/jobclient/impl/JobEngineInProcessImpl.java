@@ -51,6 +51,10 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 
 	@Override
 	public EnabledFeedback getExecuteEnabledFeedback() {
+		EnabledFeedback feedback = super.getExecuteEnabledFeedback();
+		if ( !feedback.isEnabled()) {
+			return feedback;
+		}
 		if ( this.getJobsScheduled().size()>0 ) {
 			return new EnabledFeedback(false, "Job already scheduled on the engine");
 		}

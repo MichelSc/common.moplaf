@@ -61,7 +61,7 @@ public class JobEngineInProcessItemProvider extends JobEngineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JobEngineInProcess)object).getName();
+		String label = ((JobEngineInProcess)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JobEngineInProcess_type") :
 			getString("_UI_JobEngineInProcess_type") + " " + label;

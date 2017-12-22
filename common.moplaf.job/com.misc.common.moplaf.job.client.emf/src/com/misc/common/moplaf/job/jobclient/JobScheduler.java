@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastRefresh <em>Last Refresh</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getLastFeedback <em>Last Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getCurrentScheduleNr <em>Current Schedule Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getServices <em>Services</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getSources <em>Sources</em>}</li>
  * </ul>
  *
@@ -65,7 +66,6 @@ public interface JobScheduler extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Engines</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobEngine}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getScheduler <em>Scheduler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Engines</em>' containment reference list isn't clear,
@@ -73,12 +73,22 @@ public interface JobScheduler extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Engines</em>' containment reference list.
+	 * @see #isSetEngines()
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Engines()
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getScheduler
-	 * @model opposite="Scheduler" containment="true"
+	 * @model containment="true" unsettable="true" changeable="false"
 	 * @generated
 	 */
 	EList<JobEngine> getEngines();
+
+	/**
+	 * Returns whether the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getEngines <em>Engines</em>}' containment reference list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Engines</em>' containment reference list is set.
+	 * @see #getEngines()
+	 * @generated
+	 */
+	boolean isSetEngines();
 
 	/**
 	 * Returns the value of the '<em><b>Start Feedback</b></em>' attribute.
@@ -291,22 +301,59 @@ public interface JobScheduler extends EObject {
 	void setCurrentScheduleNr(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Sources</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobSource}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobSource#getScheduler <em>Scheduler</em>}'.
+	 * Returns the value of the '<em><b>Services</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobSchedulerService}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sources</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Services</em>' reference list.
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Services()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<JobSchedulerService> getServices();
+
+	/**
+	 * Returns the value of the '<em><b>Sources</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobSource}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sources</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sources</em>' containment reference list.
+	 * @see #isSetSources()
+	 * @see #unsetSources()
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduler_Sources()
-	 * @see com.misc.common.moplaf.job.jobclient.JobSource#getScheduler
-	 * @model opposite="Scheduler" containment="true"
+	 * @model containment="true" unsettable="true"
 	 * @generated
 	 */
 	EList<JobSource> getSources();
+
+	/**
+	 * Unsets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getSources <em>Sources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetSources()
+	 * @see #getSources()
+	 * @generated
+	 */
+	void unsetSources();
+
+	/**
+	 * Returns whether the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getSources <em>Sources</em>}' containment reference list is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Sources</em>' containment reference list is set.
+	 * @see #unsetSources()
+	 * @see #getSources()
+	 * @generated
+	 */
+	boolean isSetSources();
 
 	/**
 	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.

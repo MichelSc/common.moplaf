@@ -88,6 +88,10 @@ public class JobClientAdapterFactory extends AdapterFactoryImpl {
 				return createJobSourceAdapter();
 			}
 			@Override
+			public Adapter caseJobSchedulerService(JobSchedulerService object) {
+				return createJobSchedulerServiceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -174,6 +178,20 @@ public class JobClientAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJobSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.JobSchedulerService <em>Job Scheduler Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.jobclient.JobSchedulerService
+	 * @generated
+	 */
+	public Adapter createJobSchedulerServiceAdapter() {
 		return null;
 	}
 

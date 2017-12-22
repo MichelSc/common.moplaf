@@ -14,7 +14,6 @@ package com.misc.common.moplaf.job.jobclient;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJobsScheduled <em>Jobs Scheduled</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getExecuteEnabledFeedback <em>Execute Enabled Feedback</em>}</li>
  * </ul>
  *
@@ -35,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface JobEngine extends EObject {
+public interface JobEngine extends JobSchedulerService {
 	/**
 	 * Returns the value of the '<em><b>Jobs Scheduled</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.jobclient.JobScheduled}.
@@ -53,60 +50,6 @@ public interface JobEngine extends EObject {
 	 * @generated
 	 */
 	EList<JobScheduled> getJobsScheduled();
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngine_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Scheduler</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getEngines <em>Engines</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Scheduler</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scheduler</em>' container reference.
-	 * @see #setScheduler(JobScheduler)
-	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobEngine_Scheduler()
-	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getEngines
-	 * @model opposite="Engines" required="true" transient="false"
-	 * @generated
-	 */
-	JobScheduler getScheduler();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getScheduler <em>Scheduler</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scheduler</em>' container reference.
-	 * @see #getScheduler()
-	 * @generated
-	 */
-	void setScheduler(JobScheduler value);
 
 	/**
 	 * Returns the value of the '<em><b>Execute Enabled Feedback</b></em>' attribute.

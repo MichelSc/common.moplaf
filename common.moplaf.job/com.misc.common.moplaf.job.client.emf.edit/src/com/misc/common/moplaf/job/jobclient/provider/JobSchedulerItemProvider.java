@@ -86,6 +86,7 @@ public class JobSchedulerItemProvider
 			addLastRefreshPropertyDescriptor(object);
 			addLastFeedbackPropertyDescriptor(object);
 			addCurrentScheduleNrPropertyDescriptor(object);
+			addServicesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -307,6 +308,28 @@ public class JobSchedulerItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__30SchedulerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Services feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addServicesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobScheduler_Services_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Services_feature", "_UI_JobScheduler_type"),
+				 JobClientPackage.Literals.JOB_SCHEDULER__SERVICES,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
 				 null));
 	}
 

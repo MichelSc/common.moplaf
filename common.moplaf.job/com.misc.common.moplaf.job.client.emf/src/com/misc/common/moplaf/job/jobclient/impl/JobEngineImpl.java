@@ -17,20 +17,15 @@ import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
-import com.misc.common.moplaf.job.jobclient.JobScheduler;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -42,14 +37,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getJobsScheduled <em>Jobs Scheduled</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getExecuteEnabledFeedback <em>Execute Enabled Feedback</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class JobEngineImpl extends MinimalEObjectImpl.Container implements JobEngine {
+public abstract class JobEngineImpl extends JobSchedulerServiceImpl implements JobEngine {
 	/**
 	 * The cached value of the '{@link #getJobsScheduled() <em>Jobs Scheduled</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -59,26 +52,6 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected EList<JobScheduled> jobsScheduled;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getExecuteEnabledFeedback() <em>Execute Enabled Feedback</em>}' attribute.
@@ -124,75 +97,15 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_ENGINE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JobScheduler getScheduler() {
-		if (eContainerFeatureID() != JobClientPackage.JOB_ENGINE__SCHEDULER) return null;
-		return (JobScheduler)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetScheduler(JobScheduler newScheduler, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newScheduler, JobClientPackage.JOB_ENGINE__SCHEDULER, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setScheduler(JobScheduler newScheduler) {
-		if (newScheduler != eInternalContainer() || (eContainerFeatureID() != JobClientPackage.JOB_ENGINE__SCHEDULER && newScheduler != null)) {
-			if (EcoreUtil.isAncestor(this, newScheduler))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newScheduler != null)
-				msgs = ((InternalEObject)newScheduler).eInverseAdd(this, JobClientPackage.JOB_SCHEDULER__ENGINES, JobScheduler.class, msgs);
-			msgs = basicSetScheduler(newScheduler, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_ENGINE__SCHEDULER, newScheduler, newScheduler));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public EnabledFeedback getExecuteEnabledFeedback() {
-		// TODO: implement this method to return the 'Execute Enabled Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( !this.isRunning()) {
+			return new EnabledFeedback(false, "Engine not running");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,6 +118,20 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		job.setExecuteNr(executeNr);
 	}
 	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("Engine %s (%s)", this.getName(), this.getStatus());
+
+		int submitted = this.getJobsScheduled().size();
+		if ( submitted>0 )   { description += String.format(", scheduled=%d", submitted); }
+
+		return description;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,17 +155,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJobsScheduled()).basicAdd(otherEnd, msgs);
-			case JobClientPackage.JOB_ENGINE__SCHEDULER:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetScheduler((JobScheduler)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	protected void stopImpl(){
-		// to be overloaded by concrete engine
-		// default does nothing
 	}
 
 	/**
@@ -251,24 +169,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED:
 				return ((InternalEList<?>)getJobsScheduled()).basicRemove(otherEnd, msgs);
-			case JobClientPackage.JOB_ENGINE__SCHEDULER:
-				return basicSetScheduler(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case JobClientPackage.JOB_ENGINE__SCHEDULER:
-				return eInternalContainer().eInverseRemove(this, JobClientPackage.JOB_SCHEDULER__ENGINES, JobScheduler.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -281,10 +183,6 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED:
 				return getJobsScheduled();
-			case JobClientPackage.JOB_ENGINE__NAME:
-				return getName();
-			case JobClientPackage.JOB_ENGINE__SCHEDULER:
-				return getScheduler();
 			case JobClientPackage.JOB_ENGINE__EXECUTE_ENABLED_FEEDBACK:
 				return getExecuteEnabledFeedback();
 		}
@@ -304,12 +202,6 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 				getJobsScheduled().clear();
 				getJobsScheduled().addAll((Collection<? extends JobScheduled>)newValue);
 				return;
-			case JobClientPackage.JOB_ENGINE__NAME:
-				setName((String)newValue);
-				return;
-			case JobClientPackage.JOB_ENGINE__SCHEDULER:
-				setScheduler((JobScheduler)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -325,12 +217,6 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 			case JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED:
 				getJobsScheduled().clear();
 				return;
-			case JobClientPackage.JOB_ENGINE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case JobClientPackage.JOB_ENGINE__SCHEDULER:
-				setScheduler((JobScheduler)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -345,10 +231,6 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED:
 				return jobsScheduled != null && !jobsScheduled.isEmpty();
-			case JobClientPackage.JOB_ENGINE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case JobClientPackage.JOB_ENGINE__SCHEDULER:
-				return getScheduler() != null;
 			case JobClientPackage.JOB_ENGINE__EXECUTE_ENABLED_FEEDBACK:
 				return EXECUTE_ENABLED_FEEDBACK_EDEFAULT == null ? getExecuteEnabledFeedback() != null : !EXECUTE_ENABLED_FEEDBACK_EDEFAULT.equals(getExecuteEnabledFeedback());
 		}
@@ -371,22 +253,6 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //JobEngineImpl

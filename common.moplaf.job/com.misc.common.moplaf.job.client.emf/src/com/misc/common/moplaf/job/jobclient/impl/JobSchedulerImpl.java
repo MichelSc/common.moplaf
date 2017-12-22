@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
@@ -10,6 +11,7 @@ import com.misc.common.moplaf.job.jobclient.JobClientPackage;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
+import com.misc.common.moplaf.job.jobclient.JobSchedulerService;
 import com.misc.common.moplaf.job.jobclient.JobSource;
 import java.lang.reflect.InvocationTargetException;
 
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -59,6 +62,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastRefresh <em>Last Refresh</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getLastFeedback <em>Last Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getCurrentScheduleNr <em>Current Schedule Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getServices <em>Services</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getSources <em>Sources</em>}</li>
  * </ul>
  *
@@ -342,9 +346,18 @@ public class JobSchedulerImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public EList<JobEngine> getEngines() {
 		if (engines == null) {
-			engines = new EObjectContainmentWithInverseEList<JobEngine>(JobEngine.class, this, JobClientPackage.JOB_SCHEDULER__ENGINES, JobClientPackage.JOB_ENGINE__SCHEDULER);
+			engines = new EObjectContainmentEList.Unsettable<JobEngine>(JobEngine.class, this, JobClientPackage.JOB_SCHEDULER__ENGINES);
 		}
 		return engines;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetEngines() {
+		return engines != null && ((InternalEList.Unsettable<?>)engines).isSet();
 	}
 
 	/**
@@ -517,11 +530,49 @@ return description;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<JobSchedulerService> getServices() {
+		EList<JobSchedulerService> list = new EObjectListDerived<JobSchedulerService>
+			(	JobSchedulerService.class, 
+				this, 
+				JobClientPackage.JOB_SCHEDULER__SERVICES, 
+				true);
+		for ( JobSource source : this.getSources()) {
+			list.add(source);
+		}
+		for ( JobEngine engine : this.getEngines()) {
+			list.add(engine);
+		}
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<JobSource> getSources() {
 		if (sources == null) {
-			sources = new EObjectContainmentWithInverseEList<JobSource>(JobSource.class, this, JobClientPackage.JOB_SCHEDULER__SOURCES, JobClientPackage.JOB_SOURCE__SCHEDULER);
+			sources = new EObjectContainmentEList.Unsettable<JobSource>(JobSource.class, this, JobClientPackage.JOB_SCHEDULER__SOURCES);
 		}
 		return sources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetSources() {
+		if (sources != null) ((InternalEList.Unsettable<?>)sources).unset();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetSources() {
+		return sources != null && ((InternalEList.Unsettable<?>)sources).isSet();
 	}
 
 	/**
@@ -644,9 +695,9 @@ return description;
 		Job job = new BackgroundRefreshJob();
 	    Plugin.INSTANCE.logInfo("JobScheduler started");
 	    job.schedule(); // start as soon as possible
-	    for ( JobSource source : this.getSources()) {
-	    	if ( source.isAutoStartStop()) {
-	    		source.start();
+	    for ( JobSchedulerService service: this.getServices()) {
+	    	if ( service.isAutoStartStop()) {
+	    		service.start();
 	    	}
 	    }
 	}
@@ -658,9 +709,9 @@ return description;
 	public void stop() {
 		this.setRunning(false);
 		Plugin.INSTANCE.logInfo("JobScheduler stopped");
-	    for ( JobSource source : this.getSources()) {
-	    	if ( source.isAutoStartStop()) {
-	    		source.stop();
+	    for ( JobSchedulerService service: this.getServices()) {
+	    	if ( service.isAutoStartStop()) {
+	    		service.stop();
 	    	}
 	    	
 	    }
@@ -781,10 +832,6 @@ return description;
 		switch (featureID) {
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJobs()).basicAdd(otherEnd, msgs);
-			case JobClientPackage.JOB_SCHEDULER__ENGINES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEngines()).basicAdd(otherEnd, msgs);
-			case JobClientPackage.JOB_SCHEDULER__SOURCES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSources()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -849,6 +896,8 @@ return description;
 				return getLastFeedback();
 			case JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR:
 				return getCurrentScheduleNr();
+			case JobClientPackage.JOB_SCHEDULER__SERVICES:
+				return getServices();
 			case JobClientPackage.JOB_SCHEDULER__SOURCES:
 				return getSources();
 		}
@@ -867,10 +916,6 @@ return description;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
 				getJobs().clear();
 				getJobs().addAll((Collection<? extends JobScheduled>)newValue);
-				return;
-			case JobClientPackage.JOB_SCHEDULER__ENGINES:
-				getEngines().clear();
-				getEngines().addAll((Collection<? extends JobEngine>)newValue);
 				return;
 			case JobClientPackage.JOB_SCHEDULER__NAME:
 				setName((String)newValue);
@@ -909,9 +954,6 @@ return description;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
 				getJobs().clear();
 				return;
-			case JobClientPackage.JOB_SCHEDULER__ENGINES:
-				getEngines().clear();
-				return;
 			case JobClientPackage.JOB_SCHEDULER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -931,7 +973,7 @@ return description;
 				setCurrentScheduleNr(CURRENT_SCHEDULE_NR_EDEFAULT);
 				return;
 			case JobClientPackage.JOB_SCHEDULER__SOURCES:
-				getSources().clear();
+				unsetSources();
 				return;
 		}
 		super.eUnset(featureID);
@@ -948,7 +990,7 @@ return description;
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
 				return jobs != null && !jobs.isEmpty();
 			case JobClientPackage.JOB_SCHEDULER__ENGINES:
-				return engines != null && !engines.isEmpty();
+				return isSetEngines();
 			case JobClientPackage.JOB_SCHEDULER__START_FEEDBACK:
 				return START_FEEDBACK_EDEFAULT == null ? getStartFeedback() != null : !START_FEEDBACK_EDEFAULT.equals(getStartFeedback());
 			case JobClientPackage.JOB_SCHEDULER__STOP_FEEDBACK:
@@ -979,8 +1021,10 @@ return description;
 				return LAST_FEEDBACK_EDEFAULT == null ? lastFeedback != null : !LAST_FEEDBACK_EDEFAULT.equals(lastFeedback);
 			case JobClientPackage.JOB_SCHEDULER__CURRENT_SCHEDULE_NR:
 				return currentScheduleNr != CURRENT_SCHEDULE_NR_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULER__SERVICES:
+				return !getServices().isEmpty();
 			case JobClientPackage.JOB_SCHEDULER__SOURCES:
-				return sources != null && !sources.isEmpty();
+				return isSetSources();
 		}
 		return super.eIsSet(featureID);
 	}
