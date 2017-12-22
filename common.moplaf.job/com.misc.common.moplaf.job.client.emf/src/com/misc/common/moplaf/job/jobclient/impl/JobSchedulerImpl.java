@@ -721,13 +721,12 @@ return description;
 	 * 
 	 * @return
 	 */
-	private JobScheduled getJobToProcess() {
-		JobScheduled job = this.getJobs()
+	private JobScheduled[] getJobsToProcess() {
+		JobScheduled[] jobs = this.getJobs()
 				.stream()
 				.filter(j->j.isReadyToRun())
-				.findAny()
-				.orElse(null);
-		return job;
+				.toArray(JobScheduled[]::new);
+		return jobs;
 	}
 	
 	/**
@@ -774,18 +773,11 @@ return description;
 	 * <!-- end-user-doc -->
 	 */
 	private void refreshExecuteJobs() {
-		boolean finished = false;
-		while ( !finished) {
-			JobScheduled job = this.getJobToProcess();
-			if ( job == null ) {
-				finished = true;
-			} else {
-				JobEngine engine = this.getJobEngineToProcess();
-				if ( engine == null) {
-					finished = true;
-				} else {
-					engine.executeJob(job);
-				}
+		JobScheduled[] jobs = this.getJobsToProcess();
+		for ( JobScheduled job : jobs) {
+			JobEngine engine = this.getJobEngineToProcess();
+			if ( engine != null) {
+				engine.executeJob(job);
 			}
 		} 
 	}

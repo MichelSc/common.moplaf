@@ -113,9 +113,13 @@ public abstract class JobEngineImpl extends JobSchedulerServiceImpl implements J
 	 */
 	public void executeJob(JobScheduled job) {
 		Plugin.INSTANCE.logInfo("JobEngine.executeJob");
-		this.getJobsScheduled().add(job);
 		int executeNr = this.executeJobImpl(job);
-		job.setExecuteNr(executeNr);
+		if ( executeNr>0 ) {
+			this.getJobsScheduled().add(job);
+			job.setExecuteNr(executeNr);
+		} else {
+			Plugin.INSTANCE.logError("JobEngine.executeJob failed");
+		}
 	}
 	
 

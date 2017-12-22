@@ -293,6 +293,13 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	
 	@Override
 	public EnabledFeedback getExecuteEnabledFeedback() {
+		EnabledFeedback feedback = super.getExecuteEnabledFeedback();
+		if ( !feedback.isEnabled()) {
+			return feedback;
+		}
+		if ( this.xmlRpcClient==null ) {
+			return new EnabledFeedback(false, "No connection with server");
+		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
 
@@ -333,7 +340,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	    	// parameter 1: the method being performed
 	    	result = this.xmlRpcClient.execute(method, params);
 		} catch (XmlRpcException e) {
-			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, client.execute"+ e.getMessage());
+			Plugin.INSTANCE.logError(String.format("JobEngineClient.call %s failed, reason: %s", method, e.getMessage()));
 			result = null;
 		}
 	    return result;
@@ -397,20 +404,22 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	@Override
 	protected void startImpl() {
 		
+	    XmlRpcClient client = null;
 		// the server connection
 		String host        = this.getHost();
 		int    port        = this.getPort();
 		String path        = this.getPath();
 		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
-		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 		Plugin.INSTANCE.logInfo("JobEngineClient, url="+urlAsString);
 	    try {
+		    client = new XmlRpcClient();
+			XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 			config.setServerURL(new URL(urlAsString));
+		    client.setConfig(config);
 		} catch (MalformedURLException e) {
 			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, connect exception "+ e.getMessage());
+			client = null;
 		}
-	    XmlRpcClient client = new XmlRpcClient();
-	    client.setConfig(config);
 	    
 	    this.xmlRpcClient = client;
 
