@@ -138,7 +138,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JobEngineClient)object).getName();
+		String label = ((JobEngineClient)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JobEngineClient_type") :
 			getString("_UI_JobEngineClient_type") + " " + label;

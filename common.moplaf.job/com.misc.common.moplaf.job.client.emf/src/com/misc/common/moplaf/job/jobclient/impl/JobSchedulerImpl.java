@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
-import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
@@ -531,18 +530,11 @@ return description;
 	 * @generated
 	 */
 	public EList<JobSchedulerService> getServices() {
-		EList<JobSchedulerService> list = new EObjectListDerived<JobSchedulerService>
-			(	JobSchedulerService.class, 
-				this, 
-				JobClientPackage.JOB_SCHEDULER__SERVICES, 
-				true);
-		for ( JobSource source : this.getSources()) {
-			list.add(source);
-		}
-		for ( JobEngine engine : this.getEngines()) {
-			list.add(engine);
-		}
-		return list;
+		// TODO: implement this method to return the 'Services' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**

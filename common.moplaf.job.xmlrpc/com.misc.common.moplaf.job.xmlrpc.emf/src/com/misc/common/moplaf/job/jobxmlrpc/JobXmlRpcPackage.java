@@ -68,13 +68,31 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_CLIENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Jobs Scheduled</b></em>' reference list.
+	 * The feature id for the '<em><b>Start Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT__JOBS_SCHEDULED = JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED;
+	int JOB_ENGINE_CLIENT__START_FEEDBACK = JobClientPackage.JOB_ENGINE__START_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Stop Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__STOP_FEEDBACK = JobClientPackage.JOB_ENGINE__STOP_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__AUTO_START_STOP = JobClientPackage.JOB_ENGINE__AUTO_START_STOP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -86,13 +104,49 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_CLIENT__NAME = JobClientPackage.JOB_ENGINE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Scheduler</b></em>' container reference.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__DESCRIPTION = JobClientPackage.JOB_ENGINE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__STATUS = JobClientPackage.JOB_ENGINE__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__RUNNING = JobClientPackage.JOB_ENGINE__RUNNING;
+
+	/**
+	 * The feature id for the '<em><b>Scheduler</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int JOB_ENGINE_CLIENT__SCHEDULER = JobClientPackage.JOB_ENGINE__SCHEDULER;
+
+	/**
+	 * The feature id for the '<em><b>Jobs Scheduled</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__JOBS_SCHEDULED = JobClientPackage.JOB_ENGINE__JOBS_SCHEDULED;
 
 	/**
 	 * The feature id for the '<em><b>Execute Enabled Feedback</b></em>' attribute.
@@ -140,6 +194,24 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_CLIENT_FEATURE_COUNT = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Start</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT___START = JobClientPackage.JOB_ENGINE___START;
+
+	/**
+	 * The operation id for the '<em>Stop</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT___STOP = JobClientPackage.JOB_ENGINE___STOP;
+
+	/**
 	 * The operation id for the '<em>Execute Job</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,6 +219,15 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_CLIENT___EXECUTE_JOB__JOBSCHEDULED = JobClientPackage.JOB_ENGINE___EXECUTE_JOB__JOBSCHEDULED;
+
+	/**
+	 * The operation id for the '<em>Refresh Job Status</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT___REFRESH_JOB_STATUS__JOBSCHEDULED = JobClientPackage.JOB_ENGINE___REFRESH_JOB_STATUS__JOBSCHEDULED;
 
 	/**
 	 * The number of operations of the '<em>Job Engine Client</em>' class.
@@ -168,24 +249,6 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Jobs Scheduled</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_SERVER__JOBS_SCHEDULED = JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED;
-
-	/**
-	 * The feature id for the '<em><b>Scheduler</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_SERVER__SCHEDULER = JobClientPackage.JOB_SOURCE__SCHEDULER;
-
-	/**
 	 * The feature id for the '<em><b>Start Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,6 +265,15 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_SERVER__STOP_FEEDBACK = JobClientPackage.JOB_SOURCE__STOP_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__AUTO_START_STOP = JobClientPackage.JOB_SOURCE__AUTO_START_STOP;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -231,15 +303,6 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER__STATUS = JobClientPackage.JOB_SOURCE__STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_SERVER__AUTO_START_STOP = JobClientPackage.JOB_SOURCE__AUTO_START_STOP;
-
-	/**
 	 * The feature id for the '<em><b>Running</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,6 +310,24 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_SERVER__RUNNING = JobClientPackage.JOB_SOURCE__RUNNING;
+
+	/**
+	 * The feature id for the '<em><b>Scheduler</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__SCHEDULER = JobClientPackage.JOB_SOURCE__SCHEDULER;
+
+	/**
+	 * The feature id for the '<em><b>Jobs Scheduled</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__JOBS_SCHEDULED = JobClientPackage.JOB_SOURCE__JOBS_SCHEDULED;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.

@@ -48,7 +48,7 @@
       <genFeatures createChild="false" propertyCategory="50 Times" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/LastFeedback"/>
       <genFeatures createChild="false" propertyCategory="30 Scheduler" propertyDescription=""
           ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduler/CurrentScheduleNr"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduler/Services"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduler/Services"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduler/Sources"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/start"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduler/stop"/>

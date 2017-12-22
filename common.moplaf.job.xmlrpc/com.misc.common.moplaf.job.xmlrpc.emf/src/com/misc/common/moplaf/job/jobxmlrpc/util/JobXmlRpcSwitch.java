@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.job.jobxmlrpc.util;
 
 import com.misc.common.moplaf.job.jobclient.JobEngine;
+import com.misc.common.moplaf.job.jobclient.JobSchedulerService;
 import com.misc.common.moplaf.job.jobclient.JobSource;
 import com.misc.common.moplaf.job.jobxmlrpc.*;
 
@@ -72,6 +73,7 @@ public class JobXmlRpcSwitch<T> extends Switch<T> {
 				JobEngineClient jobEngineClient = (JobEngineClient)theEObject;
 				T result = caseJobEngineClient(jobEngineClient);
 				if (result == null) result = caseJobEngine(jobEngineClient);
+				if (result == null) result = caseJobSchedulerService(jobEngineClient);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -79,6 +81,7 @@ public class JobXmlRpcSwitch<T> extends Switch<T> {
 				JobEngineServer jobEngineServer = (JobEngineServer)theEObject;
 				T result = caseJobEngineServer(jobEngineServer);
 				if (result == null) result = caseJobSource(jobEngineServer);
+				if (result == null) result = caseJobSchedulerService(jobEngineServer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,6 +116,21 @@ public class JobXmlRpcSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobEngineServer(JobEngineServer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Job Scheduler Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Job Scheduler Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJobSchedulerService(JobSchedulerService object) {
 		return null;
 	}
 
