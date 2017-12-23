@@ -437,7 +437,7 @@ public class JobSchedulerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/alarm-clock.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/scheduler.png"));
 	}
 
 	/**

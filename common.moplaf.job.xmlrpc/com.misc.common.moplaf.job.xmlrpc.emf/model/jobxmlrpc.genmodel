@@ -8,7 +8,7 @@
   <foreignModel>jobxmlrpc.ecore</foreignModel>
   <genPackages prefix="JobXmlRpc" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
       ecorePackage="jobxmlrpc.ecore#/">
-    <genClasses image="false" ecoreClass="jobxmlrpc.ecore#//JobEngineClient" labelFeature="../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient/JobSchedulerService/Description">
+    <genClasses ecoreClass="jobxmlrpc.ecore#//JobEngineClient" labelFeature="../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient/JobSchedulerService/Description">
       <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Host"/>
       <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Port"/>
       <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Path"/>
