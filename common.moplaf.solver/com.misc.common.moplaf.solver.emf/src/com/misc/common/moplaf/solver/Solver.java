@@ -760,7 +760,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @model
 	 * @generated
 	 */
-	void constructVarBinder(GeneratorVarBinder binder);
+	SolverVarBinder constructVarBinder(GeneratorVarBinder binder);
 
 	/**
 	 * <!-- begin-user-doc -->

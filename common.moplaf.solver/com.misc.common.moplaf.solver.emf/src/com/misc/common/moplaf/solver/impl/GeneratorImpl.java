@@ -567,7 +567,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void acceptSolution(Solution solutionprovider) {
+	public EObject acceptSolution(Solution solutionprovider) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -792,8 +792,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 					throw new InvocationTargetException(throwable);
 				}
 			case SolverPackage.GENERATOR___ACCEPT_SOLUTION__SOLUTION:
-				acceptSolution((Solution)arguments.get(0));
-				return null;
+				return acceptSolution((Solution)arguments.get(0));
 			case SolverPackage.GENERATOR___VISIT_TUPLES__ITUPLEVISITOR:
 				try {
 					visitTuples((ITupleVisitor)arguments.get(0));

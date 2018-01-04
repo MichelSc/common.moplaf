@@ -259,11 +259,10 @@ public class RunItemProvider
 	 * This returns Run.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Run"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/cogs.png"));
 	}
 
 	/**

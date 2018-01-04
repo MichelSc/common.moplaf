@@ -41,7 +41,7 @@
     <eOperations name="generateVars" eExceptions="#//Exception"/>
     <eOperations name="generateCons" eExceptions="#//Exception"/>
     <eOperations name="generateGoals" eExceptions="#//Exception"/>
-    <eOperations name="acceptSolution">
+    <eOperations name="acceptSolution" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="To be implemented by the specialisation for eploiting the solver solution and making a &#xA;domain specific solution&#xA;"/>
       </eAnnotations>
@@ -240,7 +240,7 @@
       <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="type" eType="#//EnumLpConsType"/>
     </eOperations>
-    <eOperations name="constructVarBinder">
+    <eOperations name="constructVarBinder" eType="#//SolverVarBinder">
       <eParameters name="binder" eType="#//GeneratorVarBinder"/>
     </eOperations>
     <eOperations name="buildGoals" eExceptions="#//Exception"/>

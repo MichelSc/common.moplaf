@@ -3371,7 +3371,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		op = initEOperation(getGenerator__GenerateGoals(), null, "generateGoals", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getGenerator__AcceptSolution__Solution(), null, "acceptSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGenerator__AcceptSolution__Solution(), ecorePackage.getEObject(), "acceptSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolution(), "solutionprovider", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getGenerator__VisitTuples__ITupleVisitor(), null, "visitTuples", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3560,7 +3560,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, this.getEnumLpConsType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getSolver__ConstructVarBinder__GeneratorVarBinder(), null, "constructVarBinder", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSolver__ConstructVarBinder__GeneratorVarBinder(), this.getSolverVarBinder(), "constructVarBinder", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGeneratorVarBinder(), "binder", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getSolver__BuildGoals(), null, "buildGoals", 0, 1, IS_UNIQUE, IS_ORDERED);

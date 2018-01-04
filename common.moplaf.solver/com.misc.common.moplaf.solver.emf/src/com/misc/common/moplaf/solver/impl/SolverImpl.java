@@ -1251,7 +1251,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void constructVarBinder(GeneratorVarBinder binder) {
+	public SolverVarBinder constructVarBinder(GeneratorVarBinder binder) {
 		SolverVarBinder solver_binder = null;
 		if ( binder instanceof GeneratorVarBinderToSolution){
 			solver_binder = SolverFactory.eINSTANCE.createSolverVarBinderToSolution();
@@ -1262,6 +1262,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		}
 		solver_binder.setVarBinder(binder);
 		this.getVarBinders().add(solver_binder);
+		return solver_binder;
 	}
 
 	/**
@@ -2114,8 +2115,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 					throw new InvocationTargetException(throwable);
 				}
 			case SolverPackage.SOLVER___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER:
-				constructVarBinder((GeneratorVarBinder)arguments.get(0));
-				return null;
+				return constructVarBinder((GeneratorVarBinder)arguments.get(0));
 			case SolverPackage.SOLVER___BUILD_GOALS:
 				try {
 					buildGoals();

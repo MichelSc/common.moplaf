@@ -56,16 +56,20 @@
       <genOperations ecoreOperation="job.ecore#//Run/runAsynch">
         <genParameters ecoreParameter="job.ecore#//Run/runAsynch/runContext"/>
       </genOperations>
+      <genOperations ecoreOperation="job.ecore#//Run/runAsynch.1">
+        <genParameters ecoreParameter="job.ecore#//Run/runAsynch.1/runContext"/>
+        <genParameters ecoreParameter="job.ecore#//Run/runAsynch.1/background"/>
+      </genOperations>
       <genOperations ecoreOperation="job.ecore#//Run/cancel"/>
       <genOperations ecoreOperation="job.ecore#//Run/setProgress">
         <genParameters ecoreParameter="job.ecore#//Run/setProgress/task"/>
         <genParameters ecoreParameter="job.ecore#//Run/setProgress/work"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//Run/setReturn">
-        <genParameters ecoreParameter="job.ecore#//Run/setReturn/feedback"/>
-      </genOperations>
       <genOperations ecoreOperation="job.ecore#//Run/setProgress.1">
         <genParameters ecoreParameter="job.ecore#//Run/setProgress.1/progress"/>
+      </genOperations>
+      <genOperations ecoreOperation="job.ecore#//Run/setReturn">
+        <genParameters ecoreParameter="job.ecore#//Run/setReturn/feedback"/>
       </genOperations>
       <genOperations ecoreOperation="job.ecore#//Run/getReturn"/>
       <genOperations ecoreOperation="job.ecore#//Run/constructParams"/>

@@ -15,6 +15,7 @@ package com.misc.common.moplaf.solver;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Run;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -397,7 +398,7 @@ public interface Generator extends Run {
 	 * @model
 	 * @generated
 	 */
-	void acceptSolution(Solution solutionprovider);
+	EObject acceptSolution(Solution solutionprovider);
 
 	/**
 	 * <!-- begin-user-doc -->

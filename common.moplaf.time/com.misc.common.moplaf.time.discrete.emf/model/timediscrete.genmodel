@@ -78,18 +78,30 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLine/FirstBucket"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLine/LastBucket"/>
       <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/refreshHorizon"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/createBucket"/>
       <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/iterator">
         <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/from"/>
         <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/to"/>
         <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/naked"/>
       </genOperations>
-      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketFloor">
-        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketFloor/sometime"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketAsStartCeil">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketAsStartCeil/sometime"/>
       </genOperations>
-      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketCeil">
-        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketCeil/sometime"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketAsStartRound">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketAsStartRound/sometime"/>
       </genOperations>
-      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/createBucket"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketAsStartFloor">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketAsStartFloor/sometime"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketAsEndCeil">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketAsEndCeil/sometime"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketAsEndRound">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketAsEndRound/sometime"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketAsEndFloor">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketAsEndFloor/sometime"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="timediscrete.ecore#//TimeLineMerge">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLineMerge/Elements"/>

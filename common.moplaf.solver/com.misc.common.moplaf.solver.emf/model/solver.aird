@@ -16736,7 +16736,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_6KIbalkWEeel390Ryg1fkA" name="SolValue : EFloat = 0.0" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_6KIbalkWEeel390Ryg1fkA" name="SolValue : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="solver.ecore#//Solver/SolValue"/>
         <semanticElements xmi:type="ecore:EAttribute" href="solver.ecore#//Solver/SolValue"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_6KJCcFkWEeel390Ryg1fkA" labelAlignment="LEFT">
@@ -16859,7 +16859,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_v3r5kFl2Eeel390Ryg1fkA" name="constructVarBinder(binder GeneratorVarBinder)" tooltipText="constructVarBinder(binder)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_v3r5kFl2Eeel390Ryg1fkA" name="constructVarBinder(binder GeneratorVarBinder) : SolverVarBinder" tooltipText="constructVarBinder(binder) : SolverVarBinder">
         <target xmi:type="ecore:EOperation" href="solver.ecore#//Solver/constructVarBinder"/>
         <semanticElements xmi:type="ecore:EOperation" href="solver.ecore#//Solver/constructVarBinder"/>
         <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//Solver/constructVarBinder/binder"/>
