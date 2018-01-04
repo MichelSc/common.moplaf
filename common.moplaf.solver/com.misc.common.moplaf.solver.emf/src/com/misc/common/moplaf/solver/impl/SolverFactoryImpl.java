@@ -94,13 +94,11 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.SOLVER_PARAMS: return createSolverParams();
 			case SolverPackage.SOLUTION_PROVIDER_PARAMS: return createSolutionProviderParams();
 			case SolverPackage.GENERATOR_VAR_BINDER: return createGeneratorVarBinder();
-			case SolverPackage.GENERATOR_LP_VAR_BINDER: return createGeneratorLpVarBinder();
-			case SolverPackage.GENERATOR_LP_VAR_BINDER_TO_SOLUTION: return createGeneratorLpVarBinderToSolution();
-			case SolverPackage.GENERATOR_LP_VAR_BINDER_TO_VALUE: return createGeneratorLpVarBinderToValue();
+			case SolverPackage.GENERATOR_VAR_BINDER_TO_VALUE: return createGeneratorVarBinderToValue();
+			case SolverPackage.GENERATOR_VAR_BINDER_TO_SOLUTION: return createGeneratorVarBinderToSolution();
 			case SolverPackage.SOLVER_VAR_BINDER: return createSolverVarBinder();
-			case SolverPackage.SOLVER_LP_VAR_BINDER: return createSolverLpVarBinder();
-			case SolverPackage.SOLVER_LP_VAR_BINDER_TO_SOLUTION: return createSolverLpVarBinderToSolution();
-			case SolverPackage.SOLVER_LP_VAR_BINDER_TO_VALUE: return createSolverLpVarBinderToValue();
+			case SolverPackage.SOLVER_VAR_BINDER_TO_SOLUTION: return createSolverVarBinderToSolution();
+			case SolverPackage.SOLVER_VAR_BINDER_TO_VALUE: return createSolverVarBinderToValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -243,9 +241,9 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GeneratorLpVarBinder createGeneratorLpVarBinder() {
-		GeneratorLpVarBinderImpl generatorLpVarBinder = new GeneratorLpVarBinderImpl();
-		return generatorLpVarBinder;
+	public GeneratorVarBinderToSolution createGeneratorVarBinderToSolution() {
+		GeneratorVarBinderToSolutionImpl generatorVarBinderToSolution = new GeneratorVarBinderToSolutionImpl();
+		return generatorVarBinderToSolution;
 	}
 
 	/**
@@ -253,19 +251,9 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GeneratorLpVarBinderToSolution createGeneratorLpVarBinderToSolution() {
-		GeneratorLpVarBinderToSolutionImpl generatorLpVarBinderToSolution = new GeneratorLpVarBinderToSolutionImpl();
-		return generatorLpVarBinderToSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorLpVarBinderToValue createGeneratorLpVarBinderToValue() {
-		GeneratorLpVarBinderToValueImpl generatorLpVarBinderToValue = new GeneratorLpVarBinderToValueImpl();
-		return generatorLpVarBinderToValue;
+	public GeneratorVarBinderToValue createGeneratorVarBinderToValue() {
+		GeneratorVarBinderToValueImpl generatorVarBinderToValue = new GeneratorVarBinderToValueImpl();
+		return generatorVarBinderToValue;
 	}
 
 	/**
@@ -283,9 +271,9 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolverLpVarBinder createSolverLpVarBinder() {
-		SolverLpVarBinderImpl solverLpVarBinder = new SolverLpVarBinderImpl();
-		return solverLpVarBinder;
+	public SolverVarBinderToSolution createSolverVarBinderToSolution() {
+		SolverVarBinderToSolutionImpl solverVarBinderToSolution = new SolverVarBinderToSolutionImpl();
+		return solverVarBinderToSolution;
 	}
 
 	/**
@@ -293,19 +281,9 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolverLpVarBinderToSolution createSolverLpVarBinderToSolution() {
-		SolverLpVarBinderToSolutionImpl solverLpVarBinderToSolution = new SolverLpVarBinderToSolutionImpl();
-		return solverLpVarBinderToSolution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SolverLpVarBinderToValue createSolverLpVarBinderToValue() {
-		SolverLpVarBinderToValueImpl solverLpVarBinderToValue = new SolverLpVarBinderToValueImpl();
-		return solverLpVarBinderToValue;
+	public SolverVarBinderToValue createSolverVarBinderToValue() {
+		SolverVarBinderToValueImpl solverVarBinderToValue = new SolverVarBinderToValueImpl();
+		return solverVarBinderToValue;
 	}
 
 	/**

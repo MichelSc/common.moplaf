@@ -95,31 +95,22 @@ public interface SolverFactory extends EFactory {
 	GeneratorVarBinder createGeneratorVarBinder();
 
 	/**
-	 * Returns a new object of class '<em>Generator Lp Var Binder</em>'.
+	 * Returns a new object of class '<em>Generator Var Binder To Solution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Lp Var Binder</em>'.
+	 * @return a new object of class '<em>Generator Var Binder To Solution</em>'.
 	 * @generated
 	 */
-	GeneratorLpVarBinder createGeneratorLpVarBinder();
+	GeneratorVarBinderToSolution createGeneratorVarBinderToSolution();
 
 	/**
-	 * Returns a new object of class '<em>Generator Lp Var Binder To Solution</em>'.
+	 * Returns a new object of class '<em>Generator Var Binder To Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Lp Var Binder To Solution</em>'.
+	 * @return a new object of class '<em>Generator Var Binder To Value</em>'.
 	 * @generated
 	 */
-	GeneratorLpVarBinderToSolution createGeneratorLpVarBinderToSolution();
-
-	/**
-	 * Returns a new object of class '<em>Generator Lp Var Binder To Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Lp Var Binder To Value</em>'.
-	 * @generated
-	 */
-	GeneratorLpVarBinderToValue createGeneratorLpVarBinderToValue();
+	GeneratorVarBinderToValue createGeneratorVarBinderToValue();
 
 	/**
 	 * Returns a new object of class '<em>Var Binder</em>'.
@@ -131,31 +122,22 @@ public interface SolverFactory extends EFactory {
 	SolverVarBinder createSolverVarBinder();
 
 	/**
-	 * Returns a new object of class '<em>Lp Var Binder</em>'.
+	 * Returns a new object of class '<em>Var Binder To Solution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lp Var Binder</em>'.
+	 * @return a new object of class '<em>Var Binder To Solution</em>'.
 	 * @generated
 	 */
-	SolverLpVarBinder createSolverLpVarBinder();
+	SolverVarBinderToSolution createSolverVarBinderToSolution();
 
 	/**
-	 * Returns a new object of class '<em>Lp Var Binder To Solution</em>'.
+	 * Returns a new object of class '<em>Var Binder To Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lp Var Binder To Solution</em>'.
+	 * @return a new object of class '<em>Var Binder To Value</em>'.
 	 * @generated
 	 */
-	SolverLpVarBinderToSolution createSolverLpVarBinderToSolution();
-
-	/**
-	 * Returns a new object of class '<em>Lp Var Binder To Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lp Var Binder To Value</em>'.
-	 * @generated
-	 */
-	SolverLpVarBinderToValue createSolverLpVarBinderToValue();
+	SolverVarBinderToValue createSolverVarBinderToValue();
 
 	/**
 	 * Returns a new object of class '<em>Generator Goal</em>'.

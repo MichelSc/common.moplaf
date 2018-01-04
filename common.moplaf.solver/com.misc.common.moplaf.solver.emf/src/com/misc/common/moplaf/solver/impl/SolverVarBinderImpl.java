@@ -154,12 +154,10 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getLabel() {
-		// TODO: implement this method to return the 'Label' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		GeneratorVarBinder generator_binder = this.getVarBinder();
+		return generator_binder.getLabel();
 	}
 
 	/**

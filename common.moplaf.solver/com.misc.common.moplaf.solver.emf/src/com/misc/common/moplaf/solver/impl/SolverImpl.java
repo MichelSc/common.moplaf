@@ -28,11 +28,11 @@ import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
-import com.misc.common.moplaf.solver.GeneratorLpVarBinder;
-import com.misc.common.moplaf.solver.GeneratorLpVarBinderToSolution;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.GeneratorVarBinder;
+import com.misc.common.moplaf.solver.GeneratorVarBinderToSolution;
+import com.misc.common.moplaf.solver.GeneratorVarBinderToValue;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
@@ -1253,12 +1253,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	public void constructVarBinder(GeneratorVarBinder binder) {
 		SolverVarBinder solver_binder = null;
-		if ( binder instanceof GeneratorLpVarBinderToSolution){
-			solver_binder = SolverFactory.eINSTANCE.createSolverLpVarBinderToSolution();
-		} else if ( binder instanceof GeneratorLpVarBinder){
-			solver_binder = SolverFactory.eINSTANCE.createSolverLpVarBinderToValue();
+		if ( binder instanceof GeneratorVarBinderToSolution){
+			solver_binder = SolverFactory.eINSTANCE.createSolverVarBinderToSolution();
+		} else if ( binder instanceof GeneratorVarBinderToValue){
+			solver_binder = SolverFactory.eINSTANCE.createSolverVarBinderToValue();
 		} else {
-			throw new UnsupportedOperationException();
+			solver_binder = SolverFactory.eINSTANCE.createSolverVarBinder();
 		}
 		solver_binder.setVarBinder(binder);
 		this.getVarBinders().add(solver_binder);

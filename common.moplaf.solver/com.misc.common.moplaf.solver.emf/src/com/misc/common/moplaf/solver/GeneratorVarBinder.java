@@ -82,4 +82,12 @@ public interface GeneratorVarBinder extends EObject {
 	 */
 	String getLabel();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	double getBoundValue(GeneratorVar var, SolverVarBinder binder);
+
 } // GeneratorVarBinder

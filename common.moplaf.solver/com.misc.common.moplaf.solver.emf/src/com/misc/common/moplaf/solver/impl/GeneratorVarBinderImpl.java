@@ -6,6 +6,8 @@ import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.GeneratorVarBinder;
 import com.misc.common.moplaf.solver.SolverPackage;
 
+import com.misc.common.moplaf.solver.SolverVarBinder;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -137,6 +139,17 @@ public class GeneratorVarBinderImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getBoundValue(GeneratorVar var, SolverVarBinder binder) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -204,6 +217,20 @@ public class GeneratorVarBinderImpl extends MinimalEObjectImpl.Container impleme
 				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case SolverPackage.GENERATOR_VAR_BINDER___GET_BOUND_VALUE__GENERATORVAR_SOLVERVARBINDER:
+				return getBoundValue((GeneratorVar)arguments.get(0), (SolverVarBinder)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

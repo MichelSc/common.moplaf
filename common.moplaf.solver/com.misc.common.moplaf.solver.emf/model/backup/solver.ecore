@@ -34,6 +34,9 @@
     <eLiterals name="EnumLiteralCpLogicalAnd" value="1" literal="And"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run">
+    <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
+      <details key="archetype" value="Thing"/>
+    </eAnnotations>
     <eOperations name="generate" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
     <eOperations name="generateRootTuples" eExceptions="#//Exception"/>
     <eOperations name="generateTuples" eExceptions="#//Exception"/>
@@ -51,9 +54,6 @@
       <eParameters name="visitor" eType="#//ITupleVisitor"/>
     </eOperations>
     <eOperations name="refreshSelectedSolution"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TupleRoot" upperBound="-1"
-        eType="#//GeneratorTuple" changeable="false" volatile="true" transient="true"
-        derived="true" eOpposite="#//GeneratorTuple/GeneratorAsRoot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
         eType="#//GeneratorGoal" changeable="false" volatile="true" transient="true"
         derived="true" eOpposite="#//GeneratorGoal/Generator"/>
@@ -76,35 +76,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorTuple" abstract="true" eSuperTypes="#//GeneratorElement">
-    <eOperations name="generateVars"/>
-    <eOperations name="generateCons"/>
-    <eOperations name="generateTuples"/>
-    <eOperations name="visitTuples" eExceptions="#//Exception">
-      <eParameters name="visitor" eType="#//ITupleVisitor"/>
-    </eOperations>
-    <eOperations name="generateXReferences"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
-        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/TupleRoot"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TupleElement" upperBound="-1"
-        eType="#//GeneratorTuple" changeable="false" volatile="true" transient="true"
-        derived="true" eOpposite="#//GeneratorTuple/TupleContainer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TupleContainer" eType="#//GeneratorTuple"
-        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//GeneratorTuple/TupleElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Var" upperBound="-1" eType="#//GeneratorVar"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Cons" upperBound="-1" eType="#//GeneratorCons"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Members" upperBound="-1"
-        eType="#//GeneratorTupleMember" changeable="false" volatile="true" transient="true"
-        derived="true" eOpposite="#//GeneratorTupleMember/Tuple"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorTupleMember" abstract="true"
       eSuperTypes="#//GeneratorElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Tuple" eType="#//GeneratorTuple"
-        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//GeneratorTuple/Members"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -513,17 +487,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVarBinderToValue" eSuperTypes="#//GeneratorVarBinder"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorVarBinderToSolution" eSuperTypes="#//GeneratorVarBinder">
     <eOperations name="getBoundValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eParameters name="var" eType="#//GeneratorVar"/>
       <eParameters name="solution" eType="#//Solution"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVarBinderToValue" eSuperTypes="#//GeneratorVarBinder"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolverVarBinder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solver" lowerBound="1"
         eType="#//Solver" eOpposite="#//Solver/VarBinders"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinder" eType="#//GeneratorVarBinder"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinder" lowerBound="1"
+        eType="#//GeneratorVarBinder"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>

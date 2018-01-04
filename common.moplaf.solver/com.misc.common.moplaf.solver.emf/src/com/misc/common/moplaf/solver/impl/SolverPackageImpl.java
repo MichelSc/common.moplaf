@@ -36,13 +36,12 @@ import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
-import com.misc.common.moplaf.solver.GeneratorLpVarBinder;
-import com.misc.common.moplaf.solver.GeneratorLpVarBinderToSolution;
-import com.misc.common.moplaf.solver.GeneratorLpVarBinderToValue;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorTupleMember;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.GeneratorVarBinder;
+import com.misc.common.moplaf.solver.GeneratorVarBinderToSolution;
+import com.misc.common.moplaf.solver.GeneratorVarBinderToValue;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
@@ -67,12 +66,11 @@ import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverGoal;
 import com.misc.common.moplaf.solver.SolverLp;
 import com.misc.common.moplaf.solver.SolverLpParams;
-import com.misc.common.moplaf.solver.SolverLpVarBinder;
-import com.misc.common.moplaf.solver.SolverLpVarBinderToSolution;
-import com.misc.common.moplaf.solver.SolverLpVarBinderToValue;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.SolverParams;
 import com.misc.common.moplaf.solver.SolverVarBinder;
+import com.misc.common.moplaf.solver.SolverVarBinderToSolution;
+import com.misc.common.moplaf.solver.SolverVarBinderToValue;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -102,13 +100,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass generatorTupleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass generatorTupleMemberEClass = null;
 
 	/**
@@ -117,6 +108,13 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	private EClass generatorElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generatorTupleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,21 +170,14 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass generatorLpVarBinderEClass = null;
+	private EClass generatorVarBinderToSolutionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass generatorLpVarBinderToSolutionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass generatorLpVarBinderToValueEClass = null;
+	private EClass generatorVarBinderToValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -200,21 +191,14 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass solverLpVarBinderEClass = null;
+	private EClass solverVarBinderToSolutionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass solverLpVarBinderToSolutionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass solverLpVarBinderToValueEClass = null;
+	private EClass solverVarBinderToValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -762,6 +746,87 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGeneratorTupleMember() {
+		return generatorTupleMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratorTupleMember_Name() {
+		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGeneratorTupleMember_Tuple() {
+		return (EReference)generatorTupleMemberEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratorTupleMember_SelectedSolutionDisplay() {
+		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratorTupleMember_Label() {
+		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGeneratorElement() {
+		return generatorElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratorElement_Code() {
+		return (EAttribute)generatorElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneratorElement__GetGenerator() {
+		return generatorElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneratorElement__RefreshSelectedSolution() {
+		return generatorElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGeneratorTuple() {
 		return generatorTupleEClass;
 	}
@@ -872,87 +937,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EOperation getGeneratorTuple__GenerateXReferences() {
 		return generatorTupleEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGeneratorTupleMember() {
-		return generatorTupleMemberEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorTupleMember_Name() {
-		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorTupleMember_Tuple() {
-		return (EReference)generatorTupleMemberEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorTupleMember_SelectedSolutionDisplay() {
-		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorTupleMember_Label() {
-		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGeneratorElement() {
-		return generatorElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorElement_Code() {
-		return (EAttribute)generatorElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGeneratorElement__GetGenerator() {
-		return generatorElementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGeneratorElement__RefreshSelectedSolution() {
-		return generatorElementEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1239,8 +1223,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGeneratorLpVarBinder() {
-		return generatorLpVarBinderEClass;
+	public EOperation getGeneratorVarBinder__GetBoundValue__GeneratorVar_SolverVarBinder() {
+		return generatorVarBinderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1248,8 +1232,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGeneratorLpVarBinderToSolution() {
-		return generatorLpVarBinderToSolutionEClass;
+	public EClass getGeneratorVarBinderToSolution() {
+		return generatorVarBinderToSolutionEClass;
 	}
 
 	/**
@@ -1257,8 +1241,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGeneratorLpVarBinderToValue() {
-		return generatorLpVarBinderToValueEClass;
+	public EOperation getGeneratorVarBinderToSolution__GetBoundValue__GeneratorVar_Solution() {
+		return generatorVarBinderToSolutionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1266,8 +1250,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGeneratorLpVarBinderToValue_BoundValue() {
-		return (EAttribute)generatorLpVarBinderToValueEClass.getEStructuralFeatures().get(0);
+	public EClass getGeneratorVarBinderToValue() {
+		return generatorVarBinderToValueEClass;
 	}
 
 	/**
@@ -1311,8 +1295,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSolverLpVarBinder() {
-		return solverLpVarBinderEClass;
+	public EClass getSolverVarBinderToSolution() {
+		return solverVarBinderToSolutionEClass;
 	}
 
 	/**
@@ -1320,8 +1304,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolverLpVarBinder__GetLowerBound__GeneratorLpVar() {
-		return solverLpVarBinderEClass.getEOperations().get(0);
+	public EReference getSolverVarBinderToSolution_SelectedSolution() {
+		return (EReference)solverVarBinderToSolutionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1329,8 +1313,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolverLpVarBinder__GetUpperBound__GeneratorLpVar() {
-		return solverLpVarBinderEClass.getEOperations().get(1);
+	public EClass getSolverVarBinderToValue() {
+		return solverVarBinderToValueEClass;
 	}
 
 	/**
@@ -1338,26 +1322,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSolverLpVarBinderToSolution() {
-		return solverLpVarBinderToSolutionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSolverLpVarBinderToSolution_SelectedSolution() {
-		return (EReference)solverLpVarBinderToSolutionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSolverLpVarBinderToValue() {
-		return solverLpVarBinderToValueEClass;
+	public EAttribute getSolverVarBinderToValue_BoundValue() {
+		return (EAttribute)solverVarBinderToValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3265,27 +3231,23 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEReference(generatorVarBinderEClass, GENERATOR_VAR_BINDER__BOUND_VARS);
 		createEAttribute(generatorVarBinderEClass, GENERATOR_VAR_BINDER__NAME);
 		createEAttribute(generatorVarBinderEClass, GENERATOR_VAR_BINDER__LABEL);
+		createEOperation(generatorVarBinderEClass, GENERATOR_VAR_BINDER___GET_BOUND_VALUE__GENERATORVAR_SOLVERVARBINDER);
 
-		generatorLpVarBinderEClass = createEClass(GENERATOR_LP_VAR_BINDER);
+		generatorVarBinderToValueEClass = createEClass(GENERATOR_VAR_BINDER_TO_VALUE);
 
-		generatorLpVarBinderToSolutionEClass = createEClass(GENERATOR_LP_VAR_BINDER_TO_SOLUTION);
-
-		generatorLpVarBinderToValueEClass = createEClass(GENERATOR_LP_VAR_BINDER_TO_VALUE);
-		createEAttribute(generatorLpVarBinderToValueEClass, GENERATOR_LP_VAR_BINDER_TO_VALUE__BOUND_VALUE);
+		generatorVarBinderToSolutionEClass = createEClass(GENERATOR_VAR_BINDER_TO_SOLUTION);
+		createEOperation(generatorVarBinderToSolutionEClass, GENERATOR_VAR_BINDER_TO_SOLUTION___GET_BOUND_VALUE__GENERATORVAR_SOLUTION);
 
 		solverVarBinderEClass = createEClass(SOLVER_VAR_BINDER);
 		createEReference(solverVarBinderEClass, SOLVER_VAR_BINDER__SOLVER);
 		createEReference(solverVarBinderEClass, SOLVER_VAR_BINDER__VAR_BINDER);
 		createEAttribute(solverVarBinderEClass, SOLVER_VAR_BINDER__LABEL);
 
-		solverLpVarBinderEClass = createEClass(SOLVER_LP_VAR_BINDER);
-		createEOperation(solverLpVarBinderEClass, SOLVER_LP_VAR_BINDER___GET_LOWER_BOUND__GENERATORLPVAR);
-		createEOperation(solverLpVarBinderEClass, SOLVER_LP_VAR_BINDER___GET_UPPER_BOUND__GENERATORLPVAR);
+		solverVarBinderToSolutionEClass = createEClass(SOLVER_VAR_BINDER_TO_SOLUTION);
+		createEReference(solverVarBinderToSolutionEClass, SOLVER_VAR_BINDER_TO_SOLUTION__SELECTED_SOLUTION);
 
-		solverLpVarBinderToSolutionEClass = createEClass(SOLVER_LP_VAR_BINDER_TO_SOLUTION);
-		createEReference(solverLpVarBinderToSolutionEClass, SOLVER_LP_VAR_BINDER_TO_SOLUTION__SELECTED_SOLUTION);
-
-		solverLpVarBinderToValueEClass = createEClass(SOLVER_LP_VAR_BINDER_TO_VALUE);
+		solverVarBinderToValueEClass = createEClass(SOLVER_VAR_BINDER_TO_VALUE);
+		createEAttribute(solverVarBinderToValueEClass, SOLVER_VAR_BINDER_TO_VALUE__BOUND_VALUE);
 
 		// Create enums
 		enumLpVarTypeEEnum = createEEnum(ENUM_LP_VAR_TYPE);
@@ -3371,12 +3333,10 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		solverLpParamsEClass.getESuperTypes().add(this.getSolverParams());
 		solverParamsEClass.getESuperTypes().add(this.getSolutionProviderParams());
 		solutionProviderParamsEClass.getESuperTypes().add(theJobPackage.getRunParams());
-		generatorLpVarBinderEClass.getESuperTypes().add(this.getGeneratorVarBinder());
-		generatorLpVarBinderToSolutionEClass.getESuperTypes().add(this.getGeneratorLpVarBinder());
-		generatorLpVarBinderToValueEClass.getESuperTypes().add(this.getGeneratorLpVarBinder());
-		solverLpVarBinderEClass.getESuperTypes().add(this.getSolverVarBinder());
-		solverLpVarBinderToSolutionEClass.getESuperTypes().add(this.getSolverLpVarBinder());
-		solverLpVarBinderToValueEClass.getESuperTypes().add(this.getSolverLpVarBinder());
+		generatorVarBinderToValueEClass.getESuperTypes().add(this.getGeneratorVarBinder());
+		generatorVarBinderToSolutionEClass.getESuperTypes().add(this.getGeneratorVarBinder());
+		solverVarBinderToSolutionEClass.getESuperTypes().add(this.getSolverVarBinder());
+		solverVarBinderToValueEClass.getESuperTypes().add(this.getSolverVarBinder());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3796,30 +3756,28 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getGeneratorVarBinder_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GeneratorVarBinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorVarBinder_Label(), ecorePackage.getEString(), "Label", null, 0, 1, GeneratorVarBinder.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(generatorLpVarBinderEClass, GeneratorLpVarBinder.class, "GeneratorLpVarBinder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = initEOperation(getGeneratorVarBinder__GetBoundValue__GeneratorVar_SolverVarBinder(), ecorePackage.getEDouble(), "getBoundValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGeneratorVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSolverVarBinder(), "binder", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(generatorLpVarBinderToSolutionEClass, GeneratorLpVarBinderToSolution.class, "GeneratorLpVarBinderToSolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(generatorVarBinderToValueEClass, GeneratorVarBinderToValue.class, "GeneratorVarBinderToValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(generatorLpVarBinderToValueEClass, GeneratorLpVarBinderToValue.class, "GeneratorLpVarBinderToValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGeneratorLpVarBinderToValue_BoundValue(), ecorePackage.getEDouble(), "BoundValue", null, 0, 1, GeneratorLpVarBinderToValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(generatorVarBinderToSolutionEClass, GeneratorVarBinderToSolution.class, "GeneratorVarBinderToSolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getGeneratorVarBinderToSolution__GetBoundValue__GeneratorVar_Solution(), ecorePackage.getEDouble(), "getBoundValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGeneratorVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSolution(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(solverVarBinderEClass, SolverVarBinder.class, "SolverVarBinder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolverVarBinder_Solver(), this.getSolver(), this.getSolver_VarBinders(), "Solver", null, 1, 1, SolverVarBinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolverVarBinder_VarBinder(), this.getGeneratorVarBinder(), null, "VarBinder", null, 0, 1, SolverVarBinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverVarBinder_Label(), ecorePackage.getEString(), "Label", null, 0, 1, SolverVarBinder.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(solverLpVarBinderEClass, SolverLpVarBinder.class, "SolverLpVarBinder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(solverVarBinderToSolutionEClass, SolverVarBinderToSolution.class, "SolverVarBinderToSolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSolverVarBinderToSolution_SelectedSolution(), this.getSolution(), null, "SelectedSolution", null, 1, 1, SolverVarBinderToSolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSolverLpVarBinder__GetLowerBound__GeneratorLpVar(), ecorePackage.getEDouble(), "getLowerBound", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSolverLpVarBinder__GetUpperBound__GeneratorLpVar(), ecorePackage.getEDouble(), "getUpperBound", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(solverLpVarBinderToSolutionEClass, SolverLpVarBinderToSolution.class, "SolverLpVarBinderToSolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSolverLpVarBinderToSolution_SelectedSolution(), this.getSolutionLp(), null, "SelectedSolution", null, 1, 1, SolverLpVarBinderToSolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(solverLpVarBinderToValueEClass, SolverLpVarBinderToValue.class, "SolverLpVarBinderToValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(solverVarBinderToValueEClass, SolverVarBinderToValue.class, "SolverVarBinderToValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSolverVarBinderToValue_BoundValue(), ecorePackage.getEDouble(), "BoundValue", null, 0, 1, SolverVarBinderToValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumLpVarTypeEEnum, EnumLpVarType.class, "EnumLpVarType");
