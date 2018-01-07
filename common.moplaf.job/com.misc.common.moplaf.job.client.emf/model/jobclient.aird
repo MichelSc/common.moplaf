@@ -182,6 +182,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_OhuC0ddLEeeO9d4T99PeXw" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_OhuC0tdLEeeO9d4T99PeXw"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_DuQRMPOPEeeO5veh4PzzhQ" type="3010" element="_DtrCYPOPEeeO5veh4PzzhQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_DuQRMfOPEeeO5veh4PzzhQ" fontName="Oxygen-Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_DuQRMvOPEeeO5veh4PzzhQ"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_GnZFlc4AEeeaJMFZbqIQDQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_GnZFls4AEeeaJMFZbqIQDQ"/>
           </children>
@@ -266,6 +270,10 @@
             <children xmi:type="notation:Node" xmi:id="_uBNF8OWYEeeMH_mxkTEXHQ" type="3010" element="_uAy2QOWYEeeMH_mxkTEXHQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_uBNF8eWYEeeMH_mxkTEXHQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_uBNF8uWYEeeMH_mxkTEXHQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_DuT7kPOPEeeO5veh4PzzhQ" type="3010" element="_Dt0MUPOPEeeO5veh4PzzhQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_DuT7kfOPEeeO5veh4PzzhQ" fontName="Oxygen-Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_DuT7kvOPEeeO5veh4PzzhQ"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_LmCw4s4AEeeaJMFZbqIQDQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_LmCw484AEeeaJMFZbqIQDQ"/>
@@ -781,6 +789,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_DtrCYPOPEeeO5veh4PzzhQ" name=" Sources : JobSource" tooltipText="">
+        <target xmi:type="ecore:EReference" href="jobclient.ecore#//JobScheduler/Sources"/>
+        <semanticElements xmi:type="ecore:EReference" href="jobclient.ecore#//JobScheduler/Sources"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_DtteoPOPEeeO5veh4PzzhQ" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_Ll18kM4AEeeaJMFZbqIQDQ" name="JobScheduled" tooltipText="" outgoingEdges="_MrGUcM4AEeeaJMFZbqIQDQ" incomingEdges="_LmAUoM4AEeeaJMFZbqIQDQ _2F7TkNXwEeedm6MzIqnXuw" width="12" height="10">
       <target xmi:type="ecore:EClass" href="jobclient.ecore#//JobScheduled"/>
@@ -934,6 +950,14 @@
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Dt0MUPOPEeeO5veh4PzzhQ" name=" Source : JobSource" tooltipText="">
+        <target xmi:type="ecore:EReference" href="jobclient.ecore#//JobScheduled/Source"/>
+        <semanticElements xmi:type="ecore:EReference" href="jobclient.ecore#//JobScheduled/Source"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Dt0zYPOPEeeO5veh4PzzhQ" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_LmAUoM4AEeeaJMFZbqIQDQ" sourceNode="_Gm4vQM4AEeeaJMFZbqIQDQ" targetNode="_Ll18kM4AEeeaJMFZbqIQDQ" beginLabel="[0..1] ScheduledOn" endLabel="[0..*] JobsScheduled">
