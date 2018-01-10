@@ -221,48 +221,4 @@ public class SpreadsheetItemProvider
 		return SpreadsheetEditPlugin.INSTANCE;
 	}
 
-
-	public class SpreadsheetWriteCommand extends WriteCommand{
-		private Spreadsheet spreadsheet;
-		
-		// constructor
-		public SpreadsheetWriteCommand(Spreadsheet aSpreadsheet)	{
-			super();
-			this.spreadsheet = aSpreadsheet;
-		}
-
-		@Override
-		public void execute() {
-			this.spreadsheet.writeFile();
-		}
-	} // class WriteCommand
-
-	public class SpreadsheetReadCommand extends ReadCommand{
-		private Spreadsheet spreadsheet;
-		
-		// constructor
-		public SpreadsheetReadCommand(Spreadsheet aSpreadsheet)	{
-			super();
-			this.spreadsheet = aSpreadsheet;
-		}
-
-		@Override
-		public void execute() {
-			this.spreadsheet.readFile();
-		}
-	} // class ReadCommand
-
-	@Override
-	public Command createCommand(Object object, EditingDomain domain,
-			Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-		if ( commandClass == WriteCommand.class){
-			return new SpreadsheetWriteCommand((Spreadsheet) object); 
-		}
-		else if ( commandClass == ReadCommand.class){
-			return new SpreadsheetReadCommand((Spreadsheet) object); 
-		}
-		return super.createCommand(object, domain, commandClass, commandParameter);
-	} //method createCommand
-
 }
