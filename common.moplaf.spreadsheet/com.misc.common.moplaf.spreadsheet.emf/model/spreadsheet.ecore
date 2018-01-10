@@ -2,20 +2,19 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spreadsheet" nsURI="http://www.misc.com/common/moplaf/spreadsheet/model/0.1"
     nsPrefix="spsh">
-  <eClassifiers xsi:type="ecore:EClass" name="Spreadsheet" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Spreadsheet" abstract="true" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReader ../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileWriter">
     <eOperations name="getSheet" eType="#//Sheet">
       <eParameters name="sheetname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="getSheet" eType="#//Sheet">
       <eParameters name="sheetindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations name="readFile"/>
-    <eOperations name="writeFile"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" upperBound="-1"
         eType="#//Sheet" containment="true" eOpposite="#//Sheet/Spreadsheet"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FilePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sheet">
     <eOperations name="getColumn" eType="#//Column">

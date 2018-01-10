@@ -12,9 +12,10 @@
  */
 package com.misc.common.moplaf.spreadsheet;
 
+import com.misc.common.moplaf.file.File;
+import com.misc.common.moplaf.file.FileReader;
+import com.misc.common.moplaf.file.FileWriter;
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,15 +27,15 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheets <em>Sheets</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getFiles <em>Files</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSpreadsheet()
  * @model abstract="true"
  * @generated
  */
-public interface Spreadsheet extends EObject {
+public interface Spreadsheet extends FileReader, FileWriter {
 	/**
 	 * Returns the value of the '<em><b>Sheets</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.spreadsheet.Sheet}.
@@ -52,33 +53,6 @@ public interface Spreadsheet extends EObject {
 	 * @generated
 	 */
 	EList<Sheet> getSheets();
-
-	/**
-	 * Returns the value of the '<em><b>File Path</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>File Path</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>File Path</em>' attribute.
-	 * @see #setFilePath(String)
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSpreadsheet_FilePath()
-	 * @model default=""
-	 * @generated
-	 */
-	String getFilePath();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getFilePath <em>File Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>File Path</em>' attribute.
-	 * @see #getFilePath()
-	 * @generated
-	 */
-	void setFilePath(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -107,6 +81,22 @@ public interface Spreadsheet extends EObject {
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Files</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.file.File}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Files</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Files</em>' containment reference list.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSpreadsheet_Files()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<File> getFiles();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -121,21 +111,5 @@ public interface Spreadsheet extends EObject {
 	 * @generated
 	 */
 	Sheet getSheet(int sheetindex);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void readFile();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void writeFile();
 
 } // Spreadsheet

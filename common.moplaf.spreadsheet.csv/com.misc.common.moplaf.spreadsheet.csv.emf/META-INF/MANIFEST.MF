@@ -14,5 +14,6 @@ Export-Package: com.misc.common.moplaf.spreadsheet.spreadsheetcsv,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.spreadsheet.emf;visibility:=reexport,
+ com.misc.common.moplaf.file.emf;visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy

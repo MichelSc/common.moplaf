@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.impl;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.spreadsheet.Cell;
 import com.misc.common.moplaf.spreadsheet.CellType;
 import com.misc.common.moplaf.spreadsheet.Column;
@@ -125,6 +126,9 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		FilePackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theSpreadsheetPackage.createPackageContents();
 
@@ -163,7 +167,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSpreadsheet_FilePath() {
+	public EAttribute getSpreadsheet_Name() {
 		return (EAttribute)spreadsheetEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -172,8 +176,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSpreadsheet_Name() {
-		return (EAttribute)spreadsheetEClass.getEStructuralFeatures().get(2);
+	public EReference getSpreadsheet_Files() {
+		return (EReference)spreadsheetEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -192,24 +196,6 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	public EOperation getSpreadsheet__GetSheet__int() {
 		return spreadsheetEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpreadsheet__ReadFile() {
-		return spreadsheetEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpreadsheet__WriteFile() {
-		return spreadsheetEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -584,12 +570,10 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		// Create classes and their features
 		spreadsheetEClass = createEClass(SPREADSHEET);
 		createEReference(spreadsheetEClass, SPREADSHEET__SHEETS);
-		createEAttribute(spreadsheetEClass, SPREADSHEET__FILE_PATH);
 		createEAttribute(spreadsheetEClass, SPREADSHEET__NAME);
+		createEReference(spreadsheetEClass, SPREADSHEET__FILES);
 		createEOperation(spreadsheetEClass, SPREADSHEET___GET_SHEET__STRING);
 		createEOperation(spreadsheetEClass, SPREADSHEET___GET_SHEET__INT);
-		createEOperation(spreadsheetEClass, SPREADSHEET___READ_FILE);
-		createEOperation(spreadsheetEClass, SPREADSHEET___WRITE_FILE);
 
 		sheetEClass = createEClass(SHEET);
 		createEReference(sheetEClass, SHEET__ROWS);
@@ -659,27 +643,28 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		FilePackage theFilePackage = (FilePackage)EPackage.Registry.INSTANCE.getEPackage(FilePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		spreadsheetEClass.getESuperTypes().add(theFilePackage.getFileReader());
+		spreadsheetEClass.getESuperTypes().add(theFilePackage.getFileWriter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(spreadsheetEClass, Spreadsheet.class, "Spreadsheet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpreadsheet_Sheets(), this.getSheet(), this.getSheet_Spreadsheet(), "Sheets", null, 0, -1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpreadsheet_FilePath(), ecorePackage.getEString(), "FilePath", "", 0, 1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpreadsheet_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpreadsheet_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getSpreadsheet__GetSheet__String(), this.getSheet(), "getSheet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "sheetname", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getSpreadsheet__GetSheet__int(), this.getSheet(), "getSheet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "sheetindex", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getSpreadsheet__ReadFile(), null, "readFile", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getSpreadsheet__WriteFile(), null, "writeFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sheetEClass, Sheet.class, "Sheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSheet_Rows(), this.getRow(), this.getRow_Sheet(), "Rows", null, 0, -1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

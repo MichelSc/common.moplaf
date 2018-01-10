@@ -12,6 +12,8 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.util;
 
+import com.misc.common.moplaf.file.FileReader;
+import com.misc.common.moplaf.file.FileWriter;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.*;
@@ -82,6 +84,8 @@ public class SpreadsheetCSVSwitch<T> extends Switch<T> {
 				SpreadsheetCSV spreadsheetCSV = (SpreadsheetCSV)theEObject;
 				T result = caseSpreadsheetCSV(spreadsheetCSV);
 				if (result == null) result = caseSpreadsheet(spreadsheetCSV);
+				if (result == null) result = caseFileReader(spreadsheetCSV);
+				if (result == null) result = caseFileWriter(spreadsheetCSV);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -101,6 +105,36 @@ public class SpreadsheetCSVSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSpreadsheetCSV(SpreadsheetCSV object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileReader(FileReader object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Writer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Writer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileWriter(FileWriter object) {
 		return null;
 	}
 

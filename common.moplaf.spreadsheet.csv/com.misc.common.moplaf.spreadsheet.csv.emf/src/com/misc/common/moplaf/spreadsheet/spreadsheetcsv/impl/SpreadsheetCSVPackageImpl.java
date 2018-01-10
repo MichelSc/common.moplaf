@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV;
@@ -94,6 +95,7 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 
 		// Initialize simple dependencies
 		SpreadsheetPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSpreadsheetCSVPackage.createPackageContents();

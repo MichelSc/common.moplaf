@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet;
 
+import com.misc.common.moplaf.file.FilePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -85,16 +86,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET__SHEETS = 0;
-
-	/**
-	 * The feature id for the '<em><b>File Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET__FILE_PATH = 1;
+	int SPREADSHEET__SHEETS = FilePackage.FILE_READER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -103,7 +95,16 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET__NAME = 2;
+	int SPREADSHEET__NAME = FilePackage.FILE_READER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET__FILES = FilePackage.FILE_READER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Spreadsheet</em>' class.
@@ -112,25 +113,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_FEATURE_COUNT = 3;
-
-	/**
-	 * The operation id for the '<em>Get Sheet</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET___GET_SHEET__STRING = 0;
-
-	/**
-	 * The operation id for the '<em>Get Sheet</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET___GET_SHEET__INT = 1;
+	int SPREADSHEET_FEATURE_COUNT = FilePackage.FILE_READER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -139,7 +122,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET___READ_FILE = 2;
+	int SPREADSHEET___READ_FILE__FILE = FilePackage.FILE_READER___READ_FILE__FILE;
 
 	/**
 	 * The operation id for the '<em>Write File</em>' operation.
@@ -148,7 +131,25 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET___WRITE_FILE = 3;
+	int SPREADSHEET___WRITE_FILE__FILE = FilePackage.FILE_READER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Sheet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___GET_SHEET__STRING = FilePackage.FILE_READER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Sheet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___GET_SHEET__INT = FilePackage.FILE_READER_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Spreadsheet</em>' class.
@@ -157,7 +158,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_OPERATION_COUNT = 4;
+	int SPREADSHEET_OPERATION_COUNT = FilePackage.FILE_READER_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
@@ -601,17 +602,6 @@ public interface SpreadsheetPackage extends EPackage {
 	EReference getSpreadsheet_Sheets();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getFilePath <em>File Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>File Path</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getFilePath()
-	 * @see #getSpreadsheet()
-	 * @generated
-	 */
-	EAttribute getSpreadsheet_FilePath();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,6 +611,17 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSpreadsheet_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getFiles <em>Files</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Files</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getFiles()
+	 * @see #getSpreadsheet()
+	 * @generated
+	 */
+	EReference getSpreadsheet_Files();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheet(java.lang.String) <em>Get Sheet</em>}' operation.
@@ -641,26 +642,6 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSpreadsheet__GetSheet__int();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#readFile() <em>Read File</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Read File</em>' operation.
-	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#readFile()
-	 * @generated
-	 */
-	EOperation getSpreadsheet__ReadFile();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#writeFile() <em>Write File</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Write File</em>' operation.
-	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#writeFile()
-	 * @generated
-	 */
-	EOperation getSpreadsheet__WriteFile();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Sheet <em>Sheet</em>}'.
@@ -1110,20 +1091,20 @@ public interface SpreadsheetPackage extends EPackage {
 		EReference SPREADSHEET__SHEETS = eINSTANCE.getSpreadsheet_Sheets();
 
 		/**
-		 * The meta object literal for the '<em><b>File Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SPREADSHEET__FILE_PATH = eINSTANCE.getSpreadsheet_FilePath();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute SPREADSHEET__NAME = eINSTANCE.getSpreadsheet_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPREADSHEET__FILES = eINSTANCE.getSpreadsheet_Files();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Sheet</b></em>' operation.
@@ -1140,22 +1121,6 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SPREADSHEET___GET_SHEET__INT = eINSTANCE.getSpreadsheet__GetSheet__int();
-
-		/**
-		 * The meta object literal for the '<em><b>Read File</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPREADSHEET___READ_FILE = eINSTANCE.getSpreadsheet__ReadFile();
-
-		/**
-		 * The meta object literal for the '<em><b>Write File</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SPREADSHEET___WRITE_FILE = eINSTANCE.getSpreadsheet__WriteFile();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.

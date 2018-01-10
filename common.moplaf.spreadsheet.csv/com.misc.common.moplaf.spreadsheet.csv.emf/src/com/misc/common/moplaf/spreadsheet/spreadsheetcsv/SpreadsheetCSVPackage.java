@@ -88,15 +88,6 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	int SPREADSHEET_CSV__SHEETS = SpreadsheetPackage.SPREADSHEET__SHEETS;
 
 	/**
-	 * The feature id for the '<em><b>File Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET_CSV__FILE_PATH = SpreadsheetPackage.SPREADSHEET__FILE_PATH;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,6 +95,15 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPREADSHEET_CSV__NAME = SpreadsheetPackage.SPREADSHEET__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV__FILES = SpreadsheetPackage.SPREADSHEET__FILES;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -142,6 +142,24 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	int SPREADSHEET_CSV_FEATURE_COUNT = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV___READ_FILE__FILE = SpreadsheetPackage.SPREADSHEET___READ_FILE__FILE;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV___WRITE_FILE__FILE = SpreadsheetPackage.SPREADSHEET___WRITE_FILE__FILE;
+
+	/**
 	 * The operation id for the '<em>Get Sheet</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,24 +176,6 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPREADSHEET_CSV___GET_SHEET__INT = SpreadsheetPackage.SPREADSHEET___GET_SHEET__INT;
-
-	/**
-	 * The operation id for the '<em>Read File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET_CSV___READ_FILE = SpreadsheetPackage.SPREADSHEET___READ_FILE;
-
-	/**
-	 * The operation id for the '<em>Write File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET_CSV___WRITE_FILE = SpreadsheetPackage.SPREADSHEET___WRITE_FILE;
 
 	/**
 	 * The number of operations of the '<em>Spreadsheet CSV</em>' class.

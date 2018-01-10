@@ -16,6 +16,7 @@ package com.misc.common.moplaf.spreadsheet.provider;
 
 import com.misc.common.moplaf.emf.edit.command.ReadCommand;
 import com.misc.common.moplaf.emf.edit.command.WriteCommand;
+import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
@@ -72,32 +73,9 @@ public class SpreadsheetItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFilePathPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the File Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFilePathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Spreadsheet_FilePath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Spreadsheet_FilePath_feature", "_UI_Spreadsheet_type"),
-				 SpreadsheetPackage.Literals.SPREADSHEET__FILE_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -135,6 +113,7 @@ public class SpreadsheetItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SpreadsheetPackage.Literals.SPREADSHEET__SHEETS);
+			childrenFeatures.add(SpreadsheetPackage.Literals.SPREADSHEET__FILES);
 		}
 		return childrenFeatures;
 	}
@@ -188,11 +167,11 @@ public class SpreadsheetItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Spreadsheet.class)) {
-			case SpreadsheetPackage.SPREADSHEET__FILE_PATH:
 			case SpreadsheetPackage.SPREADSHEET__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SpreadsheetPackage.SPREADSHEET__SHEETS:
+			case SpreadsheetPackage.SPREADSHEET__FILES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -214,6 +193,21 @@ public class SpreadsheetItemProvider
 			(createChildParameter
 				(SpreadsheetPackage.Literals.SPREADSHEET__SHEETS,
 				 SpreadsheetFactory.eINSTANCE.createSheet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpreadsheetPackage.Literals.SPREADSHEET__FILES,
+				 FileFactory.eINSTANCE.createFileLocal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpreadsheetPackage.Literals.SPREADSHEET__FILES,
+				 FileFactory.eINSTANCE.createFileRemote()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpreadsheetPackage.Literals.SPREADSHEET__FILES,
+				 FileFactory.eINSTANCE.createFileInMemory()));
 	}
 
 	/**

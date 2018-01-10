@@ -3,6 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.spreadsheet.emf/src" modelPluginID="com.misc.common.moplaf.spreadsheet.emf"
     modelName="Spreadsheet" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
     operationReflection="true" importOrganizing="true">
   <foreignModel>spreadsheet.ecore</foreignModel>
   <genPackages prefix="Spreadsheet" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
@@ -16,16 +17,14 @@
     </genEnums>
     <genClasses ecoreClass="spreadsheet.ecore#//Spreadsheet" labelFeature="#//spreadsheet/Spreadsheet/Name">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Spreadsheet/Sheets"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Spreadsheet/FilePath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Spreadsheet/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Spreadsheet/Files"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getSheet">
         <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getSheet/sheetname"/>
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getSheet.1">
         <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getSheet.1/sheetindex"/>
       </genOperations>
-      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/readFile"/>
-      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/writeFile"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Sheet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Rows"/>

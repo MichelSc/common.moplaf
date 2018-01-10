@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -48,6 +49,7 @@ public final class SpreadsheetEditPlugin extends EMFPlugin {
 	public SpreadsheetEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import com.misc.common.moplaf.spreadsheet.provider.SpreadsheetEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
@@ -51,6 +52,7 @@ public final class SpreadsheetpoiEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     SpreadsheetEditPlugin.INSTANCE,
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

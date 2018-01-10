@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI;
@@ -75,6 +76,7 @@ public class SpreadsheetPOIPackageImpl extends EPackageImpl implements Spreadshe
 
 		// Initialize simple dependencies
 		SpreadsheetPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSpreadsheetPOIPackage.createPackageContents();
