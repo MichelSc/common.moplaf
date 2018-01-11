@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis xmi:id="_wCC-8E3PEeexsos4UuDRjA" selectedViews="_wEHbgE3PEeexsos4UuDRjA _wESaoE3PEeexsos4UuDRjA _wEYhQE3PEeexsos4UuDRjA _wEhEIE3PEeexsos4UuDRjA" version="11.1.0.201608251200">
+  <viewpoint:DAnalysis xmi:id="_wCC-8E3PEeexsos4UuDRjA" selectedViews="_wEHbgE3PEeexsos4UuDRjA _wESaoE3PEeexsos4UuDRjA _wEYhQE3PEeexsos4UuDRjA _wEhEIE3PEeexsos4UuDRjA" version="12.0.0.201704271200">
     <semanticResources>spreadsheetcsv.ecore</semanticResources>
     <semanticResources>platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>spreadsheetcsv.genmodel</semanticResources>
     <semanticResources>platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.genmodel</semanticResources>
+    <semanticResources>platform:/resource/com.misc.common.moplaf.file.emf/model/file.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_wEHbgE3PEeexsos4UuDRjA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_xKmicE3PEeexsos4UuDRjA" name="spreadsheetcsv class diagram" representation="_xKnJgE3PEeexsos4UuDRjA">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_xKmicE3PEeexsos4UuDRjA" name="spreadsheetcsv class diagram" repPath="#_xKnJgE3PEeexsos4UuDRjA">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="spreadsheetcsv.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -82,10 +83,6 @@
         <children xmi:type="notation:Node" xmi:id="_wa6gAE3REeexsos4UuDRjA" type="2003" element="_wauSwE3REeexsos4UuDRjA">
           <children xmi:type="notation:Node" xmi:id="_wa7HEE3REeexsos4UuDRjA" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_wa7HEU3REeexsos4UuDRjA" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_wa7uIE3REeexsos4UuDRjA" type="3010" element="_waykME3REeexsos4UuDRjA">
-              <styles xmi:type="notation:FontStyle" xmi:id="_wa7uIU3REeexsos4UuDRjA" fontName="Oxygen-Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_wa7uIk3REeexsos4UuDRjA"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_wa7uI03REeexsos4UuDRjA" type="3010" element="_waykMk3REeexsos4UuDRjA">
               <styles xmi:type="notation:FontStyle" xmi:id="_wa7uJE3REeexsos4UuDRjA" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_wa7uJU3REeexsos4UuDRjA"/>
@@ -98,17 +95,13 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_wa8VNE3REeexsos4UuDRjA" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_wa8VNU3REeexsos4UuDRjA"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_wa88QE3REeexsos4UuDRjA" type="3010" element="_wazyUk3REeexsos4UuDRjA">
-              <styles xmi:type="notation:FontStyle" xmi:id="_wa88QU3REeexsos4UuDRjA" fontName="Oxygen-Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_wa88Qk3REeexsos4UuDRjA"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_wa9jUE3REeexsos4UuDRjA" type="3010" element="_wazyVE3REeexsos4UuDRjA">
-              <styles xmi:type="notation:FontStyle" xmi:id="_wa9jUU3REeexsos4UuDRjA" fontName="Oxygen-Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_wa9jUk3REeexsos4UuDRjA"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_wa9jU03REeexsos4UuDRjA" type="3010" element="_wa0ZYU3REeexsos4UuDRjA">
               <styles xmi:type="notation:FontStyle" xmi:id="_wa9jVE3REeexsos4UuDRjA" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_wa9jVU3REeexsos4UuDRjA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_WUgAEPavEee9Wbg7e4HCdg" type="3010" element="_WUaggPavEee9Wbg7e4HCdg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_WUgAEfavEee9Wbg7e4HCdg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_WUgAEvavEee9Wbg7e4HCdg"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_wa7HEk3REeexsos4UuDRjA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_wa7HE03REeexsos4UuDRjA"/>
@@ -235,14 +228,6 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_waykME3REeexsos4UuDRjA" name="FilePath : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/FilePath"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/FilePath"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_waykMU3REeexsos4UuDRjA" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_waykMk3REeexsos4UuDRjA" name="Name : EString" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/Name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/Name"/>
@@ -269,22 +254,6 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wazyUk3REeexsos4UuDRjA" name="readFile()" tooltipText="readFile()">
-        <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/readFile"/>
-        <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/readFile"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wazyU03REeexsos4UuDRjA" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wazyVE3REeexsos4UuDRjA" name="writeFile()" tooltipText="writeFile()">
-        <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/writeFile"/>
-        <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/writeFile"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wa0ZYE3REeexsos4UuDRjA" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wa0ZYU3REeexsos4UuDRjA" name=" Sheets : Sheet" tooltipText="">
         <target xmi:type="ecore:EReference" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/Sheets"/>
         <semanticElements xmi:type="ecore:EReference" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/Sheets"/>
@@ -293,10 +262,18 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WUaggPavEee9Wbg7e4HCdg" name=" Files : File" tooltipText="">
+        <target xmi:type="ecore:EReference" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/Files"/>
+        <semanticElements xmi:type="ecore:EReference" href="platform:/resource/com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet/Files"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_WUbuoPavEee9Wbg7e4HCdg" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_wa2OkE3REeexsos4UuDRjA" sourceNode="_zvIUsE3PEeexsos4UuDRjA" targetNode="_wauSwE3REeexsos4UuDRjA">
       <target xmi:type="ecore:EClass" href="spreadsheetcsv.ecore#//SpreadsheetCSV"/>
-      <semanticElements xmi:type="ecore:EGenericType" href="spreadsheetcsv.ecore#//SpreadsheetCSV/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EClass" href="spreadsheetcsv.ecore#//SpreadsheetCSV"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_wa4q0E3REeexsos4UuDRjA" targetArrow="InputClosedArrow">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
