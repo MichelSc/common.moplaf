@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.file.emf/src" modelPluginID="com.misc.common.moplaf.file.emf"
+    modelName="File" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>file.ecore</foreignModel>
+  <genPackages prefix="File" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="file.ecore#/">
+    <genClasses image="false" ecoreClass="file.ecore#//File">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//File/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="file.ecore#//FileLocal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileLocal/FilePath"/>
+    </genClasses>
+    <genClasses ecoreClass="file.ecore#//FileRemote">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileRemote/URI"/>
+    </genClasses>
+    <genClasses ecoreClass="file.ecore#//FileInMemory">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute file.ecore#//FileInMemory/Content"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="file.ecore#//FileReader">
+      <genOperations ecoreOperation="file.ecore#//FileReader/readFile">
+        <genParameters ecoreParameter="file.ecore#//FileReader/readFile/file"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="file.ecore#//FileWriter">
+      <genOperations ecoreOperation="file.ecore#//FileWriter/writeFile">
+        <genParameters ecoreParameter="file.ecore#//FileWriter/writeFile/file"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
