@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.spreadsheet.Cell;
 import com.misc.common.moplaf.spreadsheet.CellType;
 import com.misc.common.moplaf.spreadsheet.Column;
@@ -62,8 +64,14 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
 	 */
 	@Override
-	public void readFileImpl(InputStream inputStream){
+	public void readFileImpl(File file){
 		CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: started");
+		
+		InputStream inputStream = file.getInputStream();
+		if ( inputStream==null) {
+			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: sheet NOT read");
+			return;
+		}
 		
 		// load the file
 		HSSFWorkbook wb = null;
@@ -74,6 +82,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 			return;
 		}
 		CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: sheet loaded");
+		
 
 		for (int k = 0; k < wb.getNumberOfSheets(); k++) {
 			Map<Integer, Column> pocolumns = new HashMap<Integer, Column>();
@@ -145,6 +154,12 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 				} // traverse the cells
 			}  // traverse the rows
 		}  // traverse the sheets 
+		try {
+			wb.close();
+		} catch (IOException e) {
+			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: file not closed, exeption "+e.getMessage());
+			return;
+		}
 	} // load readFile
 
 } //SpreadsheetPOIImpl

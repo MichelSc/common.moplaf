@@ -19,7 +19,6 @@ import com.misc.common.moplaf.spreadsheet.Sheet;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -204,9 +203,8 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	public void readFile(File file) {
 		CommonPlugin.INSTANCE.log("Spreadsheet.load: started");
 		
-		InputStream inputstream = file.getInputStream();
-		if ( inputstream != null ) {
-			this.readFileImpl(inputstream);
+		if ( file != null ) {
+			this.readFileImpl(file);
 		}
 
 		CommonPlugin.INSTANCE.log("Spreadsheet.load: file found");
@@ -215,7 +213,7 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	/*
 	 * 
 	 */
-	protected void readFileImpl(InputStream inputStream){
+	protected void readFileImpl(File file){
 		throw new UnsupportedOperationException();
 	}
 

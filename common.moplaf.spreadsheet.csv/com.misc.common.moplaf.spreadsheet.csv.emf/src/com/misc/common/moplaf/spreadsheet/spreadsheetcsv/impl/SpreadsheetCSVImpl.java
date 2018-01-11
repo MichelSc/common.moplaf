@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl;
 
 
+import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.spreadsheet.Cell;
 import com.misc.common.moplaf.spreadsheet.CellType;
 import com.misc.common.moplaf.spreadsheet.Column;
@@ -26,8 +27,6 @@ import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Reader;
 
 import org.apache.commons.csv.CSVFormat;
@@ -361,7 +360,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
 	 */
 	@Override
-	public void readFileImpl(InputStream inputStream){
+	public void readFileImpl(File file){
 		CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: started");
 		
 		CSVFormat format = CSVFormat.DEFAULT;
@@ -408,12 +407,17 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 			}
 		}
 			
-		Reader reader = new InputStreamReader(inputStream);
+		Reader reader = file.getReader();
+		if ( reader == null ) {
+			CommonPlugin.INSTANCE.log("SpreadsheetCSV.readFile: file NOT found");
+			return;
+		}
 		CSVParser parser = null;
 		try {
 			parser = new CSVParser(reader, format);
 		} catch (IOException e) {
 			CommonPlugin.INSTANCE.log("SpreadsheetCSV.readFile: file NOT loaded, exeption "+e.getMessage());
+			return;
 		}
 		
 		this.getSheets().clear();
@@ -443,6 +447,13 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		    } // traverse the fields of one record
 		} // traverse the records of the csv
 		 
+		try {
+			parser.close();
+		} catch (IOException e) {
+			CommonPlugin.INSTANCE.log("SpreadsheetCSV.close: exeption "+e.getMessage());
+			e.printStackTrace();
+		}
+		
 		CommonPlugin.INSTANCE.log("SpreadsheetCSV.load: sheet loaded");
 	} // readFileImpl method
 
