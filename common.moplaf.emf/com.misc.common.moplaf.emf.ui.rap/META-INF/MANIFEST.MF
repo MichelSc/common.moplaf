@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.rap.ui;bundle-version="3.3.0";visibility:=reexport,
  org.eclipse.rap.ui.views;bundle-version="3.3.0";visibility:=reexport,
  org.eclipse.emf.rap.common.ui;bundle-version="2.9.0";visibility:=reexport,
- org.eclipse.emf.rap.edit.ui;bundle-version="2.9.0";visibility:=reexport
+ org.eclipse.emf.rap.edit.ui;bundle-version="2.9.0";visibility:=reexport,
+ com.misc.common.moplaf.emf;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.emf.ui
