@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -160,6 +161,20 @@ public class FileItemProvider
 		}
 
 		@Override
+		protected boolean prepare(){
+			EObject container = this.file.eContainer();
+			if ( container==null) {
+				this.setDescription("No container");
+				return false;
+			}
+			if ( ! (container instanceof FileWriter)) {
+				this.setDescription("The container of the File is not a Writer");
+				return false;
+			}
+			return true;
+		}
+
+		@Override
 		public void execute() {
 			FileWriter writer = (FileWriter)this.file.eContainer();
 			writer.writeFile(this.file);
@@ -176,12 +191,25 @@ public class FileItemProvider
 		}
 
 		@Override
+		protected boolean prepare(){
+			EObject container = this.file.eContainer();
+			if ( container==null) {
+				this.setDescription("No container");
+				return false;
+			}
+			if ( ! (container instanceof FileReader)) {
+				this.setDescription("The container of the File is not a Reader");
+				return false;
+			}
+			return true;
+		}
+
+		@Override
 		public void execute() {
 			FileReader reader = (FileReader)this.file.eContainer();
 			reader.readFile(this.file);
 		}
-	} // class FileWriteCommand
-
+	} // class FileReadCommand
 
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
