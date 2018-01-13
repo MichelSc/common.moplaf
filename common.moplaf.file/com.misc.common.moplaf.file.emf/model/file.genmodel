@@ -7,16 +7,16 @@
   <foreignModel>file.ecore</foreignModel>
   <genPackages prefix="File" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="file.ecore#/">
-    <genClasses image="false" ecoreClass="file.ecore#//File">
+    <genClasses ecoreClass="file.ecore#//File">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//File/Name"/>
     </genClasses>
-    <genClasses ecoreClass="file.ecore#//FileLocal">
+    <genClasses image="false" ecoreClass="file.ecore#//FileLocal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileLocal/FilePath"/>
     </genClasses>
-    <genClasses ecoreClass="file.ecore#//FileRemote">
+    <genClasses image="false" ecoreClass="file.ecore#//FileRemote">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileRemote/URI"/>
     </genClasses>
-    <genClasses ecoreClass="file.ecore#//FileInMemory">
+    <genClasses image="false" ecoreClass="file.ecore#//FileInMemory">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute file.ecore#//FileInMemory/Content"/>
     </genClasses>
     <genClasses image="false" ecoreClass="file.ecore#//FileReader">
