@@ -49,7 +49,7 @@ public interface Spreadsheet extends FileReader, FileWriter {
 	 * @return the value of the '<em>Sheets</em>' containment reference list.
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSpreadsheet_Sheets()
 	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getSpreadsheet
-	 * @model opposite="Spreadsheet" containment="true"
+	 * @model opposite="Spreadsheet" containment="true" required="true"
 	 * @generated
 	 */
 	EList<Sheet> getSheets();

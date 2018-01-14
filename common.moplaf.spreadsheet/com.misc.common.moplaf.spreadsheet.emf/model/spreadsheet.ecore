@@ -9,8 +9,8 @@
     <eOperations name="getSheet" eType="#//Sheet">
       <eParameters name="sheetindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" upperBound="-1"
-        eType="#//Sheet" containment="true" eOpposite="#//Sheet/Spreadsheet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" lowerBound="1"
+        upperBound="-1" eType="#//Sheet" containment="true" eOpposite="#//Sheet/Spreadsheet"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
         eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
@@ -32,8 +32,8 @@
         eType="#//Column" containment="true" eOpposite="#//Column/Sheet"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SheetName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SheetIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Spreadsheet" eType="#//Spreadsheet"
-        eOpposite="#//Spreadsheet/Sheets"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Spreadsheet" lowerBound="1"
+        eType="#//Spreadsheet" eOpposite="#//Spreadsheet/Sheets"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TopRowsFrozen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="BottomRowsFrozen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LeftColumnsFrozen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

@@ -142,7 +142,7 @@ public interface Sheet extends EObject {
 	 * @see #setSpreadsheet(Spreadsheet)
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_Spreadsheet()
 	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheets
-	 * @model opposite="Sheets" transient="false"
+	 * @model opposite="Sheets" required="true" transient="false"
 	 * @generated
 	 */
 	Spreadsheet getSpreadsheet();
