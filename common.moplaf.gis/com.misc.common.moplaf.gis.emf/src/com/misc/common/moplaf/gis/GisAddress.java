@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.gis;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -28,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocoder <em>Geocoder</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback <em>Geocoding Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress()
@@ -158,12 +160,27 @@ public interface GisAddress extends GisLocation {
 	void setGeocodingFeedback(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refresh Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refresh Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_RefreshFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getRefreshFeedback();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void geocode();
+	void refreshGeocoded();
 
 	/**
 	 * <!-- begin-user-doc -->

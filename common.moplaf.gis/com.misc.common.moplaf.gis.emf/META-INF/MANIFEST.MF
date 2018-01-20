@@ -13,5 +13,6 @@ Export-Package: com.misc.common.moplaf.gis,
  com.misc.common.moplaf.gis.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
  com.misc.common.moplaf.emf;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

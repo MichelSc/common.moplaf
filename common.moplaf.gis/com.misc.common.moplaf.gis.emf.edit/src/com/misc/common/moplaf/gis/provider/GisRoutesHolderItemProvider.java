@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.provider;
@@ -15,18 +5,20 @@ package com.misc.common.moplaf.gis.provider;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.gis.GisAddress;
-import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.GisRoutesHolder;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -36,19 +28,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisAddress} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolder} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisAddressItemProvider extends GisLocationItemProvider {
+public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisAddressItemProvider(AdapterFactory adapterFactory) {
+	public GisRoutesHolderItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,29 +55,27 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCountryCodePropertyDescriptor(object);
-			addSelectedGeocodedLocationPropertyDescriptor(object);
-			addGeocoderPropertyDescriptor(object);
-			addGeocodingFeedbackPropertyDescriptor(object);
+			addSymmetricalPropertyDescriptor(object);
+			addCalculatorPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Country Code feature.
+	 * This adds a property descriptor for the Symmetrical feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCountryCodePropertyDescriptor(Object object) {
+	protected void addSymmetricalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisAddress_CountryCode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_CountryCode_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__COUNTRY_CODE,
+				 getString("_UI_GisRoutesHolder_Symmetrical_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolder_Symmetrical_feature", "_UI_GisRoutesHolder_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER__SYMMETRICAL,
 				 true,
 				 false,
 				 false,
@@ -95,73 +85,23 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Selected Geocoded Location feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	protected void addSelectedGeocodedLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_selectedGeocodedLocation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_selectedGeocodedLocation_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__SELECTED_GEOCODED_LOCATION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null){
-					@Override
-					public Collection<?> getChoiceOfValues(Object object) {
-						GisAddress address = (GisAddress) object;
-						EList<GisAddressGeocoded> geocodingCandidates = address.getGeocodedAddresses();
-						return geocodingCandidates;
-					}
-		});
-	}
-
-	/**
-	 * This adds a property descriptor for the Geocoder feature.
+	 * This adds a property descriptor for the Calculator feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGeocoderPropertyDescriptor(Object object) {
+	protected void addCalculatorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisAddress_Geocoder_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_Geocoder_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__GEOCODER,
+				 getString("_UI_GisRoutesHolder_Calculator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolder_Calculator_feature", "_UI_GisRoutesHolder_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER__CALCULATOR,
 				 true,
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Geocoding Feedback feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeocodingFeedbackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_GeocodingFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_GeocodingFeedback_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__GEOCODING_FEEDBACK,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -177,9 +117,9 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisAddress_RefreshFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_RefreshFeedback_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__REFRESH_FEEDBACK,
+				 getString("_UI_GisRoutesHolder_RefreshFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolder_RefreshFeedback_feature", "_UI_GisRoutesHolder_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER__REFRESH_FEEDBACK,
 				 false,
 				 false,
 				 false,
@@ -200,7 +140,8 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GisPackage.Literals.GIS_ADDRESS__GEOCODED_ADDRESSES);
+			childrenFeatures.add(GisPackage.Literals.GIS_ROUTES_HOLDER__FROM_LOCATIONS);
+			childrenFeatures.add(GisPackage.Literals.GIS_ROUTES_HOLDER__TO_LOCATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -219,14 +160,14 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	}
 
 	/**
-	 * This returns GisAddress.gif.
+	 * This returns GisRoutesHolder.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisAddress"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisRoutesHolder"));
 	}
 
 	/**
@@ -237,10 +178,10 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisAddress)object).getName();
+		String label = ((GisRoutesHolder)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GisAddress_type") :
-			getString("_UI_GisAddress_type") + " " + label;
+			getString("_UI_GisRoutesHolder_type") :
+			getString("_UI_GisRoutesHolder_type") + " " + label;
 	}
 	
 
@@ -255,13 +196,13 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(GisAddress.class)) {
-			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
-			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
-			case GisPackage.GIS_ADDRESS__REFRESH_FEEDBACK:
+		switch (notification.getFeatureID(GisRoutesHolder.class)) {
+			case GisPackage.GIS_ROUTES_HOLDER__SYMMETRICAL:
+			case GisPackage.GIS_ROUTES_HOLDER__REFRESH_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
+			case GisPackage.GIS_ROUTES_HOLDER__FROM_LOCATIONS:
+			case GisPackage.GIS_ROUTES_HOLDER__TO_LOCATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -281,22 +222,66 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GisPackage.Literals.GIS_ADDRESS__GEOCODED_ADDRESSES,
-				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
+				(GisPackage.Literals.GIS_ROUTES_HOLDER__FROM_LOCATIONS,
+				 GisFactory.eINSTANCE.createGisRoutesHolderFromLocation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_ROUTES_HOLDER__TO_LOCATIONS,
+				 GisFactory.eINSTANCE.createGisRoutesHolderToLocation()));
 	}
 
-	public class GisAddressRefreshCommand extends RefreshCommand{
-		private GisAddress address;
+	/* (non-Javadoc)
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#createDragAndDropCommand(org.eclipse.emf.edit.domain.EditingDomain, java.lang.Object, float, int, int, java.util.Collection)
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain,
+												Object owner, 
+												float location, 
+												int operations, 
+												int operation,
+												Collection<?> collection) {
+		List<Object> otherDroppedThings = new LinkedList<Object>();
+		CompoundCommand command = new CompoundCommand();
+		GisRoutesHolder thisMatrix= (GisRoutesHolder) owner;
+		for (Object element : collection){
+			if ( element instanceof GisLocation){
+				command.append(new GisRoutesHolderAddGisLocationCommand(thisMatrix, (GisLocation)element, true, true));
+			}
+			else {
+			otherDroppedThings.add(element);
+			}
+		}
+		if ( otherDroppedThings.size()>0){
+			command.append(super.createDragAndDropCommand(domain, 
+					                                    owner, 
+					                                    location, 
+					                                    operations,
+				                                      	operation, 
+				                                      	otherDroppedThings));
+		}
+		return command;
+	} // method createDragAndDropCommand
+	
+	
+	/* (non-Javadoc)
+	 * GisRoutesHolderRefreshCommand
+	 */
+	public class GisRoutesHolderRefreshCommand extends RefreshCommand{
+		private GisRoutesHolder matrix;
 		
 		// constructor
-		public GisAddressRefreshCommand(GisAddress anAddress)	{
+		public GisRoutesHolderRefreshCommand(GisRoutesHolder aMatrix)	{
 			super();
+			this.matrix = aMatrix;
 		}
-
+		
+		
+		
 		@Override
 		protected boolean prepare() {
 			boolean isExecutable = true;
-			EnabledFeedback feedback = this.address.getRefreshFeedback();
+			EnabledFeedback feedback = this.matrix.getRefreshFeedback();
 			if ( !feedback.isEnabled() ) {
 				isExecutable = false;
 				this.setDescription(feedback.getFeedback());
@@ -304,9 +289,11 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 			return isExecutable;
 		}
 
+
+
 		@Override
 		public void execute() {
-			this.address.refreshGeocoded();
+			this.matrix.refresh();
 		}
 	} // class TableGroupRefreshCommand
 
@@ -315,7 +302,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 			Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if ( commandClass == RefreshCommand.class){
-			return new GisAddressRefreshCommand((GisAddress) object); 
+			return new GisRoutesHolderRefreshCommand((GisRoutesHolder) object); 
 		}
 
 		return super.createCommand(object, domain, commandClass, commandParameter);

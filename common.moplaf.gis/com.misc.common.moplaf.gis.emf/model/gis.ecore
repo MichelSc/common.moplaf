@@ -7,7 +7,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddress" abstract="true" eSuperTypes="#//GisLocation">
-    <eOperations name="geocode"/>
+    <eOperations name="refreshGeocoded"/>
     <eOperations name="flushGeocoded"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountryCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GeocodedAddresses" upperBound="-1"
@@ -16,6 +16,8 @@
         eType="#//GisAddressGeocoded"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Geocoder" eType="#//GisAddressGeocoder"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeocodingFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolder" eSuperTypes="#//GisRouter">
     <eOperations name="update">
@@ -38,11 +40,15 @@
     <eOperations name="getToLocation" eType="#//GisRoutesHolderToLocation">
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
+    <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocations" upperBound="-1"
-        eType="#//GisRoutesHolderFromLocation" containment="true"/>
+        eType="#//GisRoutesHolderFromLocation" containment="true" eOpposite="#//GisRoutesHolderFromLocation/RoutesHolder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocations" upperBound="-1"
-        eType="#//GisRoutesHolderToLocation" containment="true"/>
+        eType="#//GisRoutesHolderToLocation" containment="true" eOpposite="#//GisRoutesHolderToLocation/RoutesHolder"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Symmetrical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Calculator" eType="#//GisRouter"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolderFromLocation">
     <eOperations name="getElement" eType="#//GisRoutesHolderElement">
@@ -56,6 +62,8 @@
         eType="#//GisLocation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocations" upperBound="-1"
         eType="#//GisRoutesHolderElement" containment="true" eOpposite="#//GisRoutesHolderElement/FromLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RoutesHolder" lowerBound="1"
+        eType="#//GisRoutesHolder" eOpposite="#//GisRoutesHolder/FromLocations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolderToLocation">
     <eOperations name="getElement" eType="#//GisRoutesHolderElement">
@@ -69,6 +77,8 @@
         eType="#//GisLocation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocations" upperBound="-1"
         eType="#//GisRoutesHolderElement" eOpposite="#//GisRoutesHolderElement/ToLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RoutesHolder" lowerBound="1"
+        eType="#//GisRoutesHolder" eOpposite="#//GisRoutesHolder/ToLocations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolderElement">
     <eOperations name="remove"/>

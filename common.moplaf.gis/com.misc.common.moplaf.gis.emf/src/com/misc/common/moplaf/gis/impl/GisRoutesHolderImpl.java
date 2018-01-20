@@ -2,9 +2,12 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
+import com.misc.common.moplaf.gis.GisRouter;
 import com.misc.common.moplaf.gis.GisRoutesHolder;
 import com.misc.common.moplaf.gis.GisRoutesHolderFromLocation;
 import com.misc.common.moplaf.gis.GisRoutesHolderToLocation;
@@ -12,6 +15,7 @@ import com.misc.common.moplaf.gis.GisRoutesHolderToLocation;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,8 +26,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,11 +40,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl#getFromLocations <em>From Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl#getToLocations <em>To Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl#getSymmetrical <em>Symmetrical</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl#getCalculator <em>Calculator</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolder {
+	private HashMap<GisLocation, GisRoutesHolderFromLocation> fromLocationsIndex = null;
+	private HashMap<GisLocation, GisRoutesHolderToLocation>   toLocationsIndex = null;
 	/**
 	 * The cached value of the '{@link #getFromLocations() <em>From Locations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -83,6 +90,25 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	protected Boolean symmetrical = SYMMETRICAL_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getCalculator() <em>Calculator</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalculator()
+	 * @generated
+	 * @ordered
+	 */
+	protected GisRouter calculator;
+
+	/**
+	 * The default value of the '{@link #getRefreshFeedback() <em>Refresh Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback REFRESH_FEEDBACK_EDEFAULT = null;
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,7 +134,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 */
 	public EList<GisRoutesHolderFromLocation> getFromLocations() {
 		if (fromLocations == null) {
-			fromLocations = new EObjectContainmentEList<GisRoutesHolderFromLocation>(GisRoutesHolderFromLocation.class, this, GisPackage.GIS_ROUTES_HOLDER__FROM_LOCATIONS);
+			fromLocations = new EObjectContainmentWithInverseEList<GisRoutesHolderFromLocation>(GisRoutesHolderFromLocation.class, this, GisPackage.GIS_ROUTES_HOLDER__FROM_LOCATIONS, GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER);
 		}
 		return fromLocations;
 	}
@@ -120,7 +146,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 */
 	public EList<GisRoutesHolderToLocation> getToLocations() {
 		if (toLocations == null) {
-			toLocations = new EObjectContainmentEList<GisRoutesHolderToLocation>(GisRoutesHolderToLocation.class, this, GisPackage.GIS_ROUTES_HOLDER__TO_LOCATIONS);
+			toLocations = new EObjectContainmentWithInverseEList<GisRoutesHolderToLocation>(GisRoutesHolderToLocation.class, this, GisPackage.GIS_ROUTES_HOLDER__TO_LOCATIONS, GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER);
 		}
 		return toLocations;
 	}
@@ -151,6 +177,55 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GisRouter getCalculator() {
+		if (calculator != null && calculator.eIsProxy()) {
+			InternalEObject oldCalculator = (InternalEObject)calculator;
+			calculator = (GisRouter)eResolveProxy(oldCalculator);
+			if (calculator != oldCalculator) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GisPackage.GIS_ROUTES_HOLDER__CALCULATOR, oldCalculator, calculator));
+			}
+		}
+		return calculator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisRouter basicGetCalculator() {
+		return calculator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCalculator(GisRouter newCalculator) {
+		GisRouter oldCalculator = calculator;
+		calculator = newCalculator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ROUTES_HOLDER__CALCULATOR, oldCalculator, calculator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback getRefreshFeedback() {
+		// TODO: implement this method to return the 'Refresh Feedback' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void update(GisRouteCalculator calculator) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -171,31 +246,67 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public GisRoutesHolderFromLocation addFromLocation(GisLocation location) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		GisRoutesHolderFromLocation fromLocation = this.getFromLocation(location);
+		if ( fromLocation==null){
+			fromLocation = GisFactory.eINSTANCE.createGisRoutesHolderFromLocation();
+			fromLocation.setLocation(location);
+			this.getFromLocations().add(fromLocation);
+			this.fromLocationsIndex.put(location, fromLocation);
+		}
+		return fromLocation;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public GisRoutesHolderToLocation addToLocation(GisLocation location) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		GisRoutesHolderToLocation toLocation = this.getToLocation(location);
+		if ( toLocation==null){
+			toLocation = GisFactory.eINSTANCE.createGisRoutesHolderToLocation();
+			toLocation.setLocation(location);
+			this.getToLocations().add(toLocation);
+			this.toLocationsIndex.put(location, toLocation);
+		}
+		return toLocation;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public GisRoutesHolderFromLocation getFromLocation(GisLocation location) {
+		if ( this.fromLocationsIndex==null){
+			this.fromLocationsIndex = new HashMap<GisLocation, GisRoutesHolderFromLocation>();
+			for ( GisRoutesHolderFromLocation fromLocation : this.getFromLocations()){
+				this.fromLocationsIndex.put(fromLocation.getLocation(), fromLocation);
+			}
+		}
+		return this.fromLocationsIndex.get(location);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public GisRoutesHolderToLocation getToLocation(GisLocation location) {
+		if ( this.toLocationsIndex==null){
+			this.toLocationsIndex = new HashMap<GisLocation, GisRoutesHolderToLocation>();
+			for ( GisRoutesHolderToLocation toLocation : this.getToLocations()){
+				this.toLocationsIndex.put(toLocation.getLocation(), toLocation);
+			}
+		}
+		return this.toLocationsIndex.get(location);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refresh() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -206,10 +317,16 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisRoutesHolderToLocation getToLocation(GisLocation location) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GisPackage.GIS_ROUTES_HOLDER__FROM_LOCATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromLocations()).basicAdd(otherEnd, msgs);
+			case GisPackage.GIS_ROUTES_HOLDER__TO_LOCATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getToLocations()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -242,6 +359,11 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 				return getToLocations();
 			case GisPackage.GIS_ROUTES_HOLDER__SYMMETRICAL:
 				return getSymmetrical();
+			case GisPackage.GIS_ROUTES_HOLDER__CALCULATOR:
+				if (resolve) return getCalculator();
+				return basicGetCalculator();
+			case GisPackage.GIS_ROUTES_HOLDER__REFRESH_FEEDBACK:
+				return getRefreshFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,6 +388,9 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 			case GisPackage.GIS_ROUTES_HOLDER__SYMMETRICAL:
 				setSymmetrical((Boolean)newValue);
 				return;
+			case GisPackage.GIS_ROUTES_HOLDER__CALCULATOR:
+				setCalculator((GisRouter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -287,6 +412,9 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 			case GisPackage.GIS_ROUTES_HOLDER__SYMMETRICAL:
 				setSymmetrical(SYMMETRICAL_EDEFAULT);
 				return;
+			case GisPackage.GIS_ROUTES_HOLDER__CALCULATOR:
+				setCalculator((GisRouter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,6 +433,10 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 				return toLocations != null && !toLocations.isEmpty();
 			case GisPackage.GIS_ROUTES_HOLDER__SYMMETRICAL:
 				return SYMMETRICAL_EDEFAULT == null ? symmetrical != null : !SYMMETRICAL_EDEFAULT.equals(symmetrical);
+			case GisPackage.GIS_ROUTES_HOLDER__CALCULATOR:
+				return calculator != null;
+			case GisPackage.GIS_ROUTES_HOLDER__REFRESH_FEEDBACK:
+				return REFRESH_FEEDBACK_EDEFAULT == null ? getRefreshFeedback() != null : !REFRESH_FEEDBACK_EDEFAULT.equals(getRefreshFeedback());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -332,6 +464,9 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 				return getFromLocation((GisLocation)arguments.get(0));
 			case GisPackage.GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION:
 				return getToLocation((GisLocation)arguments.get(0));
+			case GisPackage.GIS_ROUTES_HOLDER___REFRESH:
+				refresh();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

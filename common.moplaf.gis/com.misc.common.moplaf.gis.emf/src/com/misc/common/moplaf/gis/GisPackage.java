@@ -242,13 +242,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS__GEOCODING_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS__REFRESH_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Address</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 5;
+	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -260,13 +269,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS___GET_COORDINATES = GIS_LOCATION___GET_COORDINATES;
 
 	/**
-	 * The operation id for the '<em>Geocode</em>' operation.
+	 * The operation id for the '<em>Refresh Geocoded</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS___GEOCODE = GIS_LOCATION_OPERATION_COUNT + 0;
+	int GIS_ADDRESS___REFRESH_GEOCODED = GIS_LOCATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Flush Geocoded</em>' operation.
@@ -406,13 +415,31 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER__SYMMETRICAL = GIS_ROUTER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Calculator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__CALCULATOR = GIS_ROUTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__REFRESH_FEEDBACK = GIS_ROUTER_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Routes Holder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 3;
+	int GIS_ROUTES_HOLDER_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Route</em>' operation.
@@ -487,13 +514,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___REFRESH = GIS_ROUTER_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Routes Holder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 6;
+	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
@@ -524,13 +560,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = 2;
+
+	/**
 	 * The number of structural features of the '<em>Routes Holder From Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = 2;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -597,13 +642,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = 2;
+
+	/**
 	 * The number of structural features of the '<em>Routes Holder To Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = 2;
+	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -1044,6 +1098,15 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED__GEOCODING_FEEDBACK = GIS_ADDRESS__GEOCODING_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__REFRESH_FEEDBACK = GIS_ADDRESS__REFRESH_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Country</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1116,13 +1179,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED___GET_COORDINATES = GIS_ADDRESS___GET_COORDINATES;
 
 	/**
-	 * The operation id for the '<em>Geocode</em>' operation.
+	 * The operation id for the '<em>Refresh Geocoded</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED___GEOCODE = GIS_ADDRESS___GEOCODE;
+	int GIS_ADDRESS_STRUCTURED___REFRESH_GEOCODED = GIS_ADDRESS___REFRESH_GEOCODED;
 
 	/**
 	 * The operation id for the '<em>Flush Geocoded</em>' operation.
@@ -1207,6 +1270,15 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_UNSTRUCTURED__GEOCODING_FEEDBACK = GIS_ADDRESS__GEOCODING_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__REFRESH_FEEDBACK = GIS_ADDRESS__REFRESH_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1234,13 +1306,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_UNSTRUCTURED___GET_COORDINATES = GIS_ADDRESS___GET_COORDINATES;
 
 	/**
-	 * The operation id for the '<em>Geocode</em>' operation.
+	 * The operation id for the '<em>Refresh Geocoded</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_UNSTRUCTURED___GEOCODE = GIS_ADDRESS___GEOCODE;
+	int GIS_ADDRESS_UNSTRUCTURED___REFRESH_GEOCODED = GIS_ADDRESS___REFRESH_GEOCODED;
 
 	/**
 	 * The operation id for the '<em>Flush Geocoded</em>' operation.
@@ -1716,14 +1788,25 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisAddress_GeocodingFeedback();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#geocode() <em>Geocode</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getRefreshFeedback <em>Refresh Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Geocode</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisAddress#geocode()
+	 * @return the meta object for the attribute '<em>Refresh Feedback</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddress#getRefreshFeedback()
+	 * @see #getGisAddress()
 	 * @generated
 	 */
-	EOperation getGisAddress__Geocode();
+	EAttribute getGisAddress_RefreshFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#refreshGeocoded() <em>Refresh Geocoded</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Geocoded</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisAddress#refreshGeocoded()
+	 * @generated
+	 */
+	EOperation getGisAddress__RefreshGeocoded();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#flushGeocoded() <em>Flush Geocoded</em>}' operation.
@@ -1777,6 +1860,28 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisRoutesHolder_Symmetrical();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getCalculator <em>Calculator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Calculator</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getCalculator()
+	 * @see #getGisRoutesHolder()
+	 * @generated
+	 */
+	EReference getGisRoutesHolder_Calculator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getRefreshFeedback <em>Refresh Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Refresh Feedback</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getRefreshFeedback()
+	 * @see #getGisRoutesHolder()
+	 * @generated
+	 */
+	EAttribute getGisRoutesHolder_RefreshFeedback();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#update(com.misc.common.moplaf.gis.GisRouteCalculator) <em>Update</em>}' operation.
@@ -1839,6 +1944,16 @@ public interface GisPackage extends EPackage {
 	EOperation getGisRoutesHolder__GetToLocation__GisLocation();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#refresh()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolder__Refresh();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation <em>Routes Holder From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1869,6 +1984,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGisRoutesHolderFromLocation_ToLocations();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getRoutesHolder <em>Routes Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Routes Holder</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getRoutesHolder()
+	 * @see #getGisRoutesHolderFromLocation()
+	 * @generated
+	 */
+	EReference getGisRoutesHolderFromLocation_RoutesHolder();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
@@ -1931,6 +2057,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGisRoutesHolderToLocation_FromLocations();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getRoutesHolder <em>Routes Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Routes Holder</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getRoutesHolder()
+	 * @see #getGisRoutesHolderToLocation()
+	 * @generated
+	 */
+	EReference getGisRoutesHolderToLocation_RoutesHolder();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
@@ -2538,12 +2675,20 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_ADDRESS__GEOCODING_FEEDBACK = eINSTANCE.getGisAddress_GeocodingFeedback();
 
 		/**
-		 * The meta object literal for the '<em><b>Geocode</b></em>' operation.
+		 * The meta object literal for the '<em><b>Refresh Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_ADDRESS___GEOCODE = eINSTANCE.getGisAddress__Geocode();
+		EAttribute GIS_ADDRESS__REFRESH_FEEDBACK = eINSTANCE.getGisAddress_RefreshFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Geocoded</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ADDRESS___REFRESH_GEOCODED = eINSTANCE.getGisAddress__RefreshGeocoded();
 
 		/**
 		 * The meta object literal for the '<em><b>Flush Geocoded</b></em>' operation.
@@ -2586,6 +2731,22 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_ROUTES_HOLDER__SYMMETRICAL = eINSTANCE.getGisRoutesHolder_Symmetrical();
+
+		/**
+		 * The meta object literal for the '<em><b>Calculator</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER__CALCULATOR = eINSTANCE.getGisRoutesHolder_Calculator();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTES_HOLDER__REFRESH_FEEDBACK = eINSTANCE.getGisRoutesHolder_RefreshFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Update</b></em>' operation.
@@ -2636,6 +2797,14 @@ public interface GisPackage extends EPackage {
 		EOperation GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION = eINSTANCE.getGisRoutesHolder__GetToLocation__GisLocation();
 
 		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER___REFRESH = eINSTANCE.getGisRoutesHolder__Refresh();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2660,6 +2829,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = eINSTANCE.getGisRoutesHolderFromLocation_ToLocations();
+
+		/**
+		 * The meta object literal for the '<em><b>Routes Holder</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = eINSTANCE.getGisRoutesHolderFromLocation_RoutesHolder();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
@@ -2710,6 +2887,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = eINSTANCE.getGisRoutesHolderToLocation_FromLocations();
+
+		/**
+		 * The meta object literal for the '<em><b>Routes Holder</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = eINSTANCE.getGisRoutesHolderToLocation_RoutesHolder();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.

@@ -105,95 +105,118 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrix} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GisDistanceMatrixItemProvider gisDistanceMatrixItemProvider;
+	protected GisRoutesHolderItemProvider gisRoutesHolderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrix}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolder}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGisDistanceMatrixAdapter() {
-		if (gisDistanceMatrixItemProvider == null) {
-			gisDistanceMatrixItemProvider = new GisDistanceMatrixItemProvider(this);
+	public Adapter createGisRoutesHolderAdapter() {
+		if (gisRoutesHolderItemProvider == null) {
+			gisRoutesHolderItemProvider = new GisRoutesHolderItemProvider(this);
 		}
 
-		return gisDistanceMatrixItemProvider;
+		return gisRoutesHolderItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrixElement} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GisDistanceMatrixElementItemProvider gisDistanceMatrixElementItemProvider;
+	protected GisRoutesHolderFromLocationItemProvider gisRoutesHolderFromLocationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixElement}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGisDistanceMatrixElementAdapter() {
-		if (gisDistanceMatrixElementItemProvider == null) {
-			gisDistanceMatrixElementItemProvider = new GisDistanceMatrixElementItemProvider(this);
+	public Adapter createGisRoutesHolderFromLocationAdapter() {
+		if (gisRoutesHolderFromLocationItemProvider == null) {
+			gisRoutesHolderFromLocationItemProvider = new GisRoutesHolderFromLocationItemProvider(this);
 		}
 
-		return gisDistanceMatrixElementItemProvider;
+		return gisRoutesHolderFromLocationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GisDistanceMatrixFromLocationItemProvider gisDistanceMatrixFromLocationItemProvider;
+	protected GisRoutesHolderToLocationItemProvider gisRoutesHolderToLocationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGisDistanceMatrixFromLocationAdapter() {
-		if (gisDistanceMatrixFromLocationItemProvider == null) {
-			gisDistanceMatrixFromLocationItemProvider = new GisDistanceMatrixFromLocationItemProvider(this);
+	public Adapter createGisRoutesHolderToLocationAdapter() {
+		if (gisRoutesHolderToLocationItemProvider == null) {
+			gisRoutesHolderToLocationItemProvider = new GisRoutesHolderToLocationItemProvider(this);
 		}
 
-		return gisDistanceMatrixFromLocationItemProvider;
+		return gisRoutesHolderToLocationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolderElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GisDistanceMatrixToLocationItemProvider gisDistanceMatrixToLocationItemProvider;
+	protected GisRoutesHolderElementItemProvider gisRoutesHolderElementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolderElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGisDistanceMatrixToLocationAdapter() {
-		if (gisDistanceMatrixToLocationItemProvider == null) {
-			gisDistanceMatrixToLocationItemProvider = new GisDistanceMatrixToLocationItemProvider(this);
+	public Adapter createGisRoutesHolderElementAdapter() {
+		if (gisRoutesHolderElementItemProvider == null) {
+			gisRoutesHolderElementItemProvider = new GisRoutesHolderElementItemProvider(this);
 		}
 
-		return gisDistanceMatrixToLocationItemProvider;
+		return gisRoutesHolderElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRouteInfo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisRouteInfoItemProvider gisRouteInfoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRouteInfo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisRouteInfoAdapter() {
+		if (gisRouteInfoItemProvider == null) {
+			gisRouteInfoItemProvider = new GisRouteInfoItemProvider(this);
+		}
+
+		return gisRouteInfoItemProvider;
 	}
 
 	/**
@@ -217,29 +240,6 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		}
 
 		return gisAddressGeocodedItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisAddressGeocoder} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GisAddressGeocoderItemProvider gisAddressGeocoderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisAddressGeocoder}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGisAddressGeocoderAdapter() {
-		if (gisAddressGeocoderItemProvider == null) {
-			gisAddressGeocoderItemProvider = new GisAddressGeocoderItemProvider(this);
-		}
-
-		return gisAddressGeocoderItemProvider;
 	}
 
 	/**
@@ -286,6 +286,52 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		}
 
 		return gisAddressUnstructuredItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRouterGeodesic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisRouterGeodesicItemProvider gisRouterGeodesicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRouterGeodesic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisRouterGeodesicAdapter() {
+		if (gisRouterGeodesicItemProvider == null) {
+			gisRouterGeodesicItemProvider = new GisRouterGeodesicItemProvider(this);
+		}
+
+		return gisRouterGeodesicItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRouterDefaulted} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisRouterDefaultedItemProvider gisRouterDefaultedItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRouterDefaulted}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisRouterDefaultedAdapter() {
+		if (gisRouterDefaultedItemProvider == null) {
+			gisRouterDefaultedItemProvider = new GisRouterDefaultedItemProvider(this);
+		}
+
+		return gisRouterDefaultedItemProvider;
 	}
 
 	/**
@@ -393,14 +439,16 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	 */
 	public void dispose() {
 		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
-		if (gisDistanceMatrixItemProvider != null) gisDistanceMatrixItemProvider.dispose();
-		if (gisDistanceMatrixElementItemProvider != null) gisDistanceMatrixElementItemProvider.dispose();
-		if (gisDistanceMatrixFromLocationItemProvider != null) gisDistanceMatrixFromLocationItemProvider.dispose();
-		if (gisDistanceMatrixToLocationItemProvider != null) gisDistanceMatrixToLocationItemProvider.dispose();
+		if (gisRoutesHolderItemProvider != null) gisRoutesHolderItemProvider.dispose();
+		if (gisRoutesHolderFromLocationItemProvider != null) gisRoutesHolderFromLocationItemProvider.dispose();
+		if (gisRoutesHolderToLocationItemProvider != null) gisRoutesHolderToLocationItemProvider.dispose();
+		if (gisRoutesHolderElementItemProvider != null) gisRoutesHolderElementItemProvider.dispose();
+		if (gisRouteInfoItemProvider != null) gisRouteInfoItemProvider.dispose();
 		if (gisAddressGeocodedItemProvider != null) gisAddressGeocodedItemProvider.dispose();
-		if (gisAddressGeocoderItemProvider != null) gisAddressGeocoderItemProvider.dispose();
 		if (gisAddressStructuredItemProvider != null) gisAddressStructuredItemProvider.dispose();
 		if (gisAddressUnstructuredItemProvider != null) gisAddressUnstructuredItemProvider.dispose();
+		if (gisRouterGeodesicItemProvider != null) gisRouterGeodesicItemProvider.dispose();
+		if (gisRouterDefaultedItemProvider != null) gisRouterDefaultedItemProvider.dispose();
 	}
 
 }

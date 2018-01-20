@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -16,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolder#getFromLocations <em>From Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolder#getToLocations <em>To Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolder#getSymmetrical <em>Symmetrical</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolder#getCalculator <em>Calculator</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolder#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolder()
@@ -26,6 +29,7 @@ public interface GisRoutesHolder extends GisRouter {
 	/**
 	 * Returns the value of the '<em><b>From Locations</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getRoutesHolder <em>Routes Holder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>From Locations</em>' containment reference list isn't clear,
@@ -34,7 +38,8 @@ public interface GisRoutesHolder extends GisRouter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From Locations</em>' containment reference list.
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolder_FromLocations()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getRoutesHolder
+	 * @model opposite="RoutesHolder" containment="true"
 	 * @generated
 	 */
 	EList<GisRoutesHolderFromLocation> getFromLocations();
@@ -42,6 +47,7 @@ public interface GisRoutesHolder extends GisRouter {
 	/**
 	 * Returns the value of the '<em><b>To Locations</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getRoutesHolder <em>Routes Holder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To Locations</em>' containment reference list isn't clear,
@@ -50,7 +56,8 @@ public interface GisRoutesHolder extends GisRouter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To Locations</em>' containment reference list.
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolder_ToLocations()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getRoutesHolder
+	 * @model opposite="RoutesHolder" containment="true"
 	 * @generated
 	 */
 	EList<GisRoutesHolderToLocation> getToLocations();
@@ -80,6 +87,47 @@ public interface GisRoutesHolder extends GisRouter {
 	 * @generated
 	 */
 	void setSymmetrical(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Calculator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Calculator</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Calculator</em>' reference.
+	 * @see #setCalculator(GisRouter)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolder_Calculator()
+	 * @model
+	 * @generated
+	 */
+	GisRouter getCalculator();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getCalculator <em>Calculator</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Calculator</em>' reference.
+	 * @see #getCalculator()
+	 * @generated
+	 */
+	void setCalculator(GisRouter value);
+
+	/**
+	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refresh Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refresh Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolder_RefreshFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getRefreshFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,5 +176,13 @@ public interface GisRoutesHolder extends GisRouter {
 	 * @generated
 	 */
 	GisRoutesHolderToLocation getToLocation(GisLocation location);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
 
 } // GisRoutesHolder

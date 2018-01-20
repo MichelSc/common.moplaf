@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
@@ -44,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocoder <em>Geocoder</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocodingFeedback <em>Geocoding Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -118,6 +120,16 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	 * @ordered
 	 */
 	protected String geocodingFeedback = GEOCODING_FEEDBACK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRefreshFeedback() <em>Refresh Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback REFRESH_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -271,10 +283,31 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback getRefreshFeedback() {
+		// TODO: implement this method to return the 'Refresh Feedback' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refreshGeocoded() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void geocode() {
 		if ( this.getGeocoder()==null){
-			this.setGeocodeFeedback("No geocoder");
 			return;
 		}
 		this.getGeocoder().geocode(this);
@@ -318,6 +351,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 				return basicGetGeocoder();
 			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
 				return getGeocodingFeedback();
+			case GisPackage.GIS_ADDRESS__REFRESH_FEEDBACK:
+				return getRefreshFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -396,6 +431,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 				return geocoder != null;
 			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
 				return GEOCODING_FEEDBACK_EDEFAULT == null ? geocodingFeedback != null : !GEOCODING_FEEDBACK_EDEFAULT.equals(geocodingFeedback);
+			case GisPackage.GIS_ADDRESS__REFRESH_FEEDBACK:
+				return REFRESH_FEEDBACK_EDEFAULT == null ? getRefreshFeedback() != null : !REFRESH_FEEDBACK_EDEFAULT.equals(getRefreshFeedback());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -408,8 +445,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GisPackage.GIS_ADDRESS___GEOCODE:
-				geocode();
+			case GisPackage.GIS_ADDRESS___REFRESH_GEOCODED:
+				refreshGeocoded();
 				return null;
 			case GisPackage.GIS_ADDRESS___FLUSH_GEOCODED:
 				flushGeocoded();

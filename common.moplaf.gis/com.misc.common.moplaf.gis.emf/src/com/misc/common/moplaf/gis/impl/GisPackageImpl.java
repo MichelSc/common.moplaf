@@ -33,6 +33,7 @@ import com.misc.common.moplaf.gis.GisRoutesHolder;
 import com.misc.common.moplaf.gis.GisRoutesHolderElement;
 import com.misc.common.moplaf.gis.GisRoutesHolderFromLocation;
 import com.misc.common.moplaf.gis.GisRoutesHolderToLocation;
+import com.misc.common.moplaf.job.JobPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -226,6 +227,9 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		JobPackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theGisPackage.createPackageContents();
 
@@ -327,7 +331,16 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisAddress__Geocode() {
+	public EAttribute getGisAddress_RefreshFeedback() {
+		return (EAttribute)gisAddressEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisAddress__RefreshGeocoded() {
 		return gisAddressEClass.getEOperations().get(0);
 	}
 
@@ -374,6 +387,24 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EAttribute getGisRoutesHolder_Symmetrical() {
 		return (EAttribute)gisRoutesHolderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGisRoutesHolder_Calculator() {
+		return (EReference)gisRoutesHolderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisRoutesHolder_RefreshFeedback() {
+		return (EAttribute)gisRoutesHolderEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -435,6 +466,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getGisRoutesHolder__Refresh() {
+		return gisRoutesHolderEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGisRoutesHolderFromLocation() {
 		return gisRoutesHolderFromLocationEClass;
 	}
@@ -455,6 +495,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EReference getGisRoutesHolderFromLocation_ToLocations() {
 		return (EReference)gisRoutesHolderFromLocationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGisRoutesHolderFromLocation_RoutesHolder() {
+		return (EReference)gisRoutesHolderFromLocationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -509,6 +558,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EReference getGisRoutesHolderToLocation_FromLocations() {
 		return (EReference)gisRoutesHolderToLocationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGisRoutesHolderToLocation_RoutesHolder() {
+		return (EReference)gisRoutesHolderToLocationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -981,23 +1039,28 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEReference(gisAddressEClass, GIS_ADDRESS__SELECTED_GEOCODED_LOCATION);
 		createEReference(gisAddressEClass, GIS_ADDRESS__GEOCODER);
 		createEAttribute(gisAddressEClass, GIS_ADDRESS__GEOCODING_FEEDBACK);
-		createEOperation(gisAddressEClass, GIS_ADDRESS___GEOCODE);
+		createEAttribute(gisAddressEClass, GIS_ADDRESS__REFRESH_FEEDBACK);
+		createEOperation(gisAddressEClass, GIS_ADDRESS___REFRESH_GEOCODED);
 		createEOperation(gisAddressEClass, GIS_ADDRESS___FLUSH_GEOCODED);
 
 		gisRoutesHolderEClass = createEClass(GIS_ROUTES_HOLDER);
 		createEReference(gisRoutesHolderEClass, GIS_ROUTES_HOLDER__FROM_LOCATIONS);
 		createEReference(gisRoutesHolderEClass, GIS_ROUTES_HOLDER__TO_LOCATIONS);
 		createEAttribute(gisRoutesHolderEClass, GIS_ROUTES_HOLDER__SYMMETRICAL);
+		createEReference(gisRoutesHolderEClass, GIS_ROUTES_HOLDER__CALCULATOR);
+		createEAttribute(gisRoutesHolderEClass, GIS_ROUTES_HOLDER__REFRESH_FEEDBACK);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR_ELIST_ELIST);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___ADD_FROM_LOCATION__GISLOCATION);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___ADD_TO_LOCATION__GISLOCATION);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___GET_FROM_LOCATION__GISLOCATION);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION);
+		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___REFRESH);
 
 		gisRoutesHolderFromLocationEClass = createEClass(GIS_ROUTES_HOLDER_FROM_LOCATION);
 		createEReference(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION);
 		createEReference(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS);
+		createEReference(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER);
 		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION);
 		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION);
 		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE);
@@ -1005,6 +1068,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		gisRoutesHolderToLocationEClass = createEClass(GIS_ROUTES_HOLDER_TO_LOCATION);
 		createEReference(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION);
 		createEReference(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS);
+		createEReference(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER);
 		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION);
 		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION);
 		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE);
@@ -1092,6 +1156,9 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -1121,15 +1188,18 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEReference(getGisAddress_SelectedGeocodedLocation(), this.getGisAddressGeocoded(), null, "SelectedGeocodedLocation", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisAddress_Geocoder(), this.getGisAddressGeocoder(), null, "Geocoder", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddress_GeocodingFeedback(), ecorePackage.getEString(), "GeocodingFeedback", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddress_RefreshFeedback(), theJobPackage.getEnabledFeedback(), "RefreshFeedback", null, 0, 1, GisAddress.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getGisAddress__Geocode(), null, "geocode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getGisAddress__RefreshGeocoded(), null, "refreshGeocoded", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGisAddress__FlushGeocoded(), null, "flushGeocoded", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisRoutesHolderEClass, GisRoutesHolder.class, "GisRoutesHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGisRoutesHolder_FromLocations(), this.getGisRoutesHolderFromLocation(), null, "FromLocations", null, 0, -1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGisRoutesHolder_ToLocations(), this.getGisRoutesHolderToLocation(), null, "ToLocations", null, 0, -1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisRoutesHolder_FromLocations(), this.getGisRoutesHolderFromLocation(), this.getGisRoutesHolderFromLocation_RoutesHolder(), "FromLocations", null, 0, -1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisRoutesHolder_ToLocations(), this.getGisRoutesHolderToLocation(), this.getGisRoutesHolderToLocation_RoutesHolder(), "ToLocations", null, 0, -1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisRoutesHolder_Symmetrical(), ecorePackage.getEBooleanObject(), "Symmetrical", null, 0, 1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisRoutesHolder_Calculator(), this.getGisRouter(), null, "Calculator", null, 0, 1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisRoutesHolder_RefreshFeedback(), theJobPackage.getEnabledFeedback(), "RefreshFeedback", null, 0, 1, GisRoutesHolder.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getGisRoutesHolder__Update__GisRouteCalculator(), null, "update", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisRouteCalculator(), "calculator", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1151,9 +1221,12 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		op = initEOperation(getGisRoutesHolder__GetToLocation__GisLocation(), this.getGisRoutesHolderToLocation(), "getToLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getGisRoutesHolder__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(gisRoutesHolderFromLocationEClass, GisRoutesHolderFromLocation.class, "GisRoutesHolderFromLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGisRoutesHolderFromLocation_Location(), this.getGisLocation(), null, "Location", null, 1, 1, GisRoutesHolderFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisRoutesHolderFromLocation_ToLocations(), this.getGisRoutesHolderElement(), this.getGisRoutesHolderElement_FromLocation(), "ToLocations", null, 0, -1, GisRoutesHolderFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisRoutesHolderFromLocation_RoutesHolder(), this.getGisRoutesHolder(), this.getGisRoutesHolder_FromLocations(), "RoutesHolder", null, 1, 1, GisRoutesHolderFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGisRoutesHolderFromLocation__GetElement__GisLocation(), this.getGisRoutesHolderElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisLocation(), "toLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1166,6 +1239,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEClass(gisRoutesHolderToLocationEClass, GisRoutesHolderToLocation.class, "GisRoutesHolderToLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGisRoutesHolderToLocation_Location(), this.getGisLocation(), null, "Location", null, 1, 1, GisRoutesHolderToLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisRoutesHolderToLocation_FromLocations(), this.getGisRoutesHolderElement(), this.getGisRoutesHolderElement_ToLocation(), "FromLocations", null, 0, -1, GisRoutesHolderToLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisRoutesHolderToLocation_RoutesHolder(), this.getGisRoutesHolder(), this.getGisRoutesHolder_ToLocations(), "RoutesHolder", null, 1, 1, GisRoutesHolderToLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGisRoutesHolderToLocation__GetElement__GisLocation(), this.getGisRoutesHolderElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisLocation(), "fromLocation", 0, 1, IS_UNIQUE, IS_ORDERED);

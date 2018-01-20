@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getToLocations <em>To Locations</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getRoutesHolder <em>Routes Holder</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolderFromLocation()
@@ -67,6 +68,34 @@ public interface GisRoutesHolderFromLocation extends EObject {
 	 * @generated
 	 */
 	EList<GisRoutesHolderElement> getToLocations();
+
+	/**
+	 * Returns the value of the '<em><b>Routes Holder</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getFromLocations <em>From Locations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Routes Holder</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Routes Holder</em>' container reference.
+	 * @see #setRoutesHolder(GisRoutesHolder)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolderFromLocation_RoutesHolder()
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getFromLocations
+	 * @model opposite="FromLocations" required="true" transient="false"
+	 * @generated
+	 */
+	GisRoutesHolder getRoutesHolder();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getRoutesHolder <em>Routes Holder</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Routes Holder</em>' container reference.
+	 * @see #getRoutesHolder()
+	 * @generated
+	 */
+	void setRoutesHolder(GisRoutesHolder value);
 
 	/**
 	 * <!-- begin-user-doc -->

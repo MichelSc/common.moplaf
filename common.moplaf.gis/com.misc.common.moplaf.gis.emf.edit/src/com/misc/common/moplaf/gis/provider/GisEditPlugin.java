@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.gis.provider;
 
+import com.misc.common.moplaf.job.provider.JobEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -48,6 +49,7 @@ public final class GisEditPlugin extends EMFPlugin {
 	public GisEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     JobEditPlugin.INSTANCE,
 		   });
 	}
 
