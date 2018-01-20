@@ -57,7 +57,7 @@ public class GisSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -90,27 +90,34 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_DISTANCE_MATRIX: {
-				GisDistanceMatrix gisDistanceMatrix = (GisDistanceMatrix)theEObject;
-				T result = caseGisDistanceMatrix(gisDistanceMatrix);
+			case GisPackage.GIS_ROUTES_HOLDER: {
+				GisRoutesHolder gisRoutesHolder = (GisRoutesHolder)theEObject;
+				T result = caseGisRoutesHolder(gisRoutesHolder);
+				if (result == null) result = caseGisRouter(gisRoutesHolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT: {
-				GisDistanceMatrixElement gisDistanceMatrixElement = (GisDistanceMatrixElement)theEObject;
-				T result = caseGisDistanceMatrixElement(gisDistanceMatrixElement);
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION: {
+				GisRoutesHolderFromLocation gisRoutesHolderFromLocation = (GisRoutesHolderFromLocation)theEObject;
+				T result = caseGisRoutesHolderFromLocation(gisRoutesHolderFromLocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION: {
-				GisDistanceMatrixFromLocation gisDistanceMatrixFromLocation = (GisDistanceMatrixFromLocation)theEObject;
-				T result = caseGisDistanceMatrixFromLocation(gisDistanceMatrixFromLocation);
+			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION: {
+				GisRoutesHolderToLocation gisRoutesHolderToLocation = (GisRoutesHolderToLocation)theEObject;
+				T result = caseGisRoutesHolderToLocation(gisRoutesHolderToLocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION: {
-				GisDistanceMatrixToLocation gisDistanceMatrixToLocation = (GisDistanceMatrixToLocation)theEObject;
-				T result = caseGisDistanceMatrixToLocation(gisDistanceMatrixToLocation);
+			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT: {
+				GisRoutesHolderElement gisRoutesHolderElement = (GisRoutesHolderElement)theEObject;
+				T result = caseGisRoutesHolderElement(gisRoutesHolderElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTE_INFO: {
+				GisRouteInfo gisRouteInfo = (GisRouteInfo)theEObject;
+				T result = caseGisRouteInfo(gisRouteInfo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -134,9 +141,10 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR: {
-				GisDistanceMatrixCalculator gisDistanceMatrixCalculator = (GisDistanceMatrixCalculator)theEObject;
-				T result = caseGisDistanceMatrixCalculator(gisDistanceMatrixCalculator);
+			case GisPackage.GIS_ROUTE_CALCULATOR: {
+				GisRouteCalculator gisRouteCalculator = (GisRouteCalculator)theEObject;
+				T result = caseGisRouteCalculator(gisRouteCalculator);
+				if (result == null) result = caseGisRouter(gisRouteCalculator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -153,6 +161,50 @@ public class GisSwitch<T> extends Switch<T> {
 				T result = caseGisAddressUnstructured(gisAddressUnstructured);
 				if (result == null) result = caseGisAddress(gisAddressUnstructured);
 				if (result == null) result = caseGisLocation(gisAddressUnstructured);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTER: {
+				GisRouter gisRouter = (GisRouter)theEObject;
+				T result = caseGisRouter(gisRouter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE: {
+				GisRouteCalculatorOneToOne gisRouteCalculatorOneToOne = (GisRouteCalculatorOneToOne)theEObject;
+				T result = caseGisRouteCalculatorOneToOne(gisRouteCalculatorOneToOne);
+				if (result == null) result = caseGisRouteCalculator(gisRouteCalculatorOneToOne);
+				if (result == null) result = caseGisRouter(gisRouteCalculatorOneToOne);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY: {
+				GisRouteCalculatorManyToMany gisRouteCalculatorManyToMany = (GisRouteCalculatorManyToMany)theEObject;
+				T result = caseGisRouteCalculatorManyToMany(gisRouteCalculatorManyToMany);
+				if (result == null) result = caseGisRouteCalculator(gisRouteCalculatorManyToMany);
+				if (result == null) result = caseGisRouter(gisRouteCalculatorManyToMany);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_MANY: {
+				GisRouteCalculatorOneToMany gisRouteCalculatorOneToMany = (GisRouteCalculatorOneToMany)theEObject;
+				T result = caseGisRouteCalculatorOneToMany(gisRouteCalculatorOneToMany);
+				if (result == null) result = caseGisRouteCalculator(gisRouteCalculatorOneToMany);
+				if (result == null) result = caseGisRouter(gisRouteCalculatorOneToMany);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTER_GEODESIC: {
+				GisRouterGeodesic gisRouterGeodesic = (GisRouterGeodesic)theEObject;
+				T result = caseGisRouterGeodesic(gisRouterGeodesic);
+				if (result == null) result = caseGisRouter(gisRouterGeodesic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTER_DEFAULTED: {
+				GisRouterDefaulted gisRouterDefaulted = (GisRouterDefaulted)theEObject;
+				T result = caseGisRouterDefaulted(gisRouterDefaulted);
+				if (result == null) result = caseGisRouter(gisRouterDefaulted);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -191,62 +243,77 @@ public class GisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Distance Matrix</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Routes Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Distance Matrix</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Routes Holder</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGisDistanceMatrix(GisDistanceMatrix object) {
+	public T caseGisRoutesHolder(GisRoutesHolder object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Distance Matrix Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Routes Holder From Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Distance Matrix Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Routes Holder From Location</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGisDistanceMatrixElement(GisDistanceMatrixElement object) {
+	public T caseGisRoutesHolderFromLocation(GisRoutesHolderFromLocation object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Distance Matrix From Location</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Routes Holder To Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Distance Matrix From Location</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Routes Holder To Location</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGisDistanceMatrixFromLocation(GisDistanceMatrixFromLocation object) {
+	public T caseGisRoutesHolderToLocation(GisRoutesHolderToLocation object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Distance Matrix To Location</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Routes Holder Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Distance Matrix To Location</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Routes Holder Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGisDistanceMatrixToLocation(GisDistanceMatrixToLocation object) {
+	public T caseGisRoutesHolderElement(GisRoutesHolderElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Route Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Route Info</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouteInfo(GisRouteInfo object) {
 		return null;
 	}
 
@@ -296,17 +363,17 @@ public class GisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Distance Matrix Calculator</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Route Calculator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Distance Matrix Calculator</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Route Calculator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGisDistanceMatrixCalculator(GisDistanceMatrixCalculator object) {
+	public T caseGisRouteCalculator(GisRouteCalculator object) {
 		return null;
 	}
 
@@ -337,6 +404,96 @@ public class GisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisAddressUnstructured(GisAddressUnstructured object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouter(GisRouter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Route Calculator One To One</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Route Calculator One To One</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouteCalculatorOneToOne(GisRouteCalculatorOneToOne object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Route Calculator Many To Many</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Route Calculator Many To Many</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Route Calculator One To Many</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Route Calculator One To Many</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouteCalculatorOneToMany(GisRouteCalculatorOneToMany object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router Geodesic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router Geodesic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouterGeodesic(GisRouterGeodesic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router Defaulted</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router Defaulted</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouterDefaulted(GisRouterDefaulted object) {
 		return null;
 	}
 

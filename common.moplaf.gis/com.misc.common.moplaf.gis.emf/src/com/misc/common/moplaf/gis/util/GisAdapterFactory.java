@@ -86,20 +86,24 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisAddressAdapter();
 			}
 			@Override
-			public Adapter caseGisDistanceMatrix(GisDistanceMatrix object) {
-				return createGisDistanceMatrixAdapter();
+			public Adapter caseGisRoutesHolder(GisRoutesHolder object) {
+				return createGisRoutesHolderAdapter();
 			}
 			@Override
-			public Adapter caseGisDistanceMatrixElement(GisDistanceMatrixElement object) {
-				return createGisDistanceMatrixElementAdapter();
+			public Adapter caseGisRoutesHolderFromLocation(GisRoutesHolderFromLocation object) {
+				return createGisRoutesHolderFromLocationAdapter();
 			}
 			@Override
-			public Adapter caseGisDistanceMatrixFromLocation(GisDistanceMatrixFromLocation object) {
-				return createGisDistanceMatrixFromLocationAdapter();
+			public Adapter caseGisRoutesHolderToLocation(GisRoutesHolderToLocation object) {
+				return createGisRoutesHolderToLocationAdapter();
 			}
 			@Override
-			public Adapter caseGisDistanceMatrixToLocation(GisDistanceMatrixToLocation object) {
-				return createGisDistanceMatrixToLocationAdapter();
+			public Adapter caseGisRoutesHolderElement(GisRoutesHolderElement object) {
+				return createGisRoutesHolderElementAdapter();
+			}
+			@Override
+			public Adapter caseGisRouteInfo(GisRouteInfo object) {
+				return createGisRouteInfoAdapter();
 			}
 			@Override
 			public Adapter caseGisAddressGeocoded(GisAddressGeocoded object) {
@@ -114,8 +118,8 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisAddressGeocoderAdapter();
 			}
 			@Override
-			public Adapter caseGisDistanceMatrixCalculator(GisDistanceMatrixCalculator object) {
-				return createGisDistanceMatrixCalculatorAdapter();
+			public Adapter caseGisRouteCalculator(GisRouteCalculator object) {
+				return createGisRouteCalculatorAdapter();
 			}
 			@Override
 			public Adapter caseGisAddressStructured(GisAddressStructured object) {
@@ -124,6 +128,30 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGisAddressUnstructured(GisAddressUnstructured object) {
 				return createGisAddressUnstructuredAdapter();
+			}
+			@Override
+			public Adapter caseGisRouter(GisRouter object) {
+				return createGisRouterAdapter();
+			}
+			@Override
+			public Adapter caseGisRouteCalculatorOneToOne(GisRouteCalculatorOneToOne object) {
+				return createGisRouteCalculatorOneToOneAdapter();
+			}
+			@Override
+			public Adapter caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
+				return createGisRouteCalculatorManyToManyAdapter();
+			}
+			@Override
+			public Adapter caseGisRouteCalculatorOneToMany(GisRouteCalculatorOneToMany object) {
+				return createGisRouteCalculatorOneToManyAdapter();
+			}
+			@Override
+			public Adapter caseGisRouterGeodesic(GisRouterGeodesic object) {
+				return createGisRouterGeodesicAdapter();
+			}
+			@Override
+			public Adapter caseGisRouterDefaulted(GisRouterDefaulted object) {
+				return createGisRouterDefaultedAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -174,58 +202,72 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceMatrix <em>Distance Matrix</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRoutesHolder <em>Routes Holder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder
 	 * @generated
 	 */
-	public Adapter createGisDistanceMatrixAdapter() {
+	public Adapter createGisRoutesHolderAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement <em>Distance Matrix Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation <em>Routes Holder From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation
 	 * @generated
 	 */
-	public Adapter createGisDistanceMatrixElementAdapter() {
+	public Adapter createGisRoutesHolderFromLocationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation <em>Distance Matrix From Location</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation <em>Routes Holder To Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation
 	 * @generated
 	 */
-	public Adapter createGisDistanceMatrixFromLocationAdapter() {
+	public Adapter createGisRoutesHolderToLocationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation <em>Distance Matrix To Location</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement <em>Routes Holder Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement
 	 * @generated
 	 */
-	public Adapter createGisDistanceMatrixToLocationAdapter() {
+	public Adapter createGisRoutesHolderElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouteInfo <em>Route Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo
+	 * @generated
+	 */
+	public Adapter createGisRouteInfoAdapter() {
 		return null;
 	}
 
@@ -272,16 +314,16 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator <em>Distance Matrix Calculator</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouteCalculator <em>Route Calculator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixCalculator
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculator
 	 * @generated
 	 */
-	public Adapter createGisDistanceMatrixCalculatorAdapter() {
+	public Adapter createGisRouteCalculatorAdapter() {
 		return null;
 	}
 
@@ -310,6 +352,90 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisAddressUnstructuredAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouter <em>Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouter
+	 * @generated
+	 */
+	public Adapter createGisRouterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne <em>Route Calculator One To One</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne
+	 * @generated
+	 */
+	public Adapter createGisRouteCalculatorOneToOneAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany <em>Route Calculator Many To Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany
+	 * @generated
+	 */
+	public Adapter createGisRouteCalculatorManyToManyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouteCalculatorOneToMany <em>Route Calculator One To Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculatorOneToMany
+	 * @generated
+	 */
+	public Adapter createGisRouteCalculatorOneToManyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouterGeodesic <em>Router Geodesic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouterGeodesic
+	 * @generated
+	 */
+	public Adapter createGisRouterGeodesicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouterDefaulted <em>Router Defaulted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouterDefaulted
+	 * @generated
+	 */
+	public Adapter createGisRouterDefaultedAdapter() {
 		return null;
 	}
 

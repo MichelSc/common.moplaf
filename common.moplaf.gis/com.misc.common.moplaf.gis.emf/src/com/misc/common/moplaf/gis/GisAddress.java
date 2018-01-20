@@ -21,14 +21,14 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getCountryCode <em>Country Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses <em>Geocoded Addresses</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocoder <em>Geocoder</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback <em>Geocode Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback <em>Geocoding Feedback</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress()
  * @model abstract="true"
@@ -64,6 +64,7 @@ public interface GisAddress extends GisLocation {
 	/**
 	 * Returns the value of the '<em><b>Geocoded Addresses</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisAddressGeocoded}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Geocoded Addresses</em>' containment reference list isn't clear,
@@ -72,7 +73,8 @@ public interface GisAddress extends GisLocation {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Geocoded Addresses</em>' containment reference list.
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_GeocodedAddresses()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress
+	 * @model opposite="Address" containment="true"
 	 * @generated
 	 */
 	EList<GisAddressGeocoded> getGeocodedAddresses();
@@ -130,30 +132,30 @@ public interface GisAddress extends GisLocation {
 	void setGeocoder(GisAddressGeocoder value);
 
 	/**
-	 * Returns the value of the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * Returns the value of the '<em><b>Geocoding Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Geocode Feedback</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Geocoding Feedback</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geocode Feedback</em>' attribute.
-	 * @see #setGeocodeFeedback(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_GeocodeFeedback()
+	 * @return the value of the '<em>Geocoding Feedback</em>' attribute.
+	 * @see #setGeocodingFeedback(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_GeocodingFeedback()
 	 * @model
 	 * @generated
 	 */
-	String getGeocodeFeedback();
+	String getGeocodingFeedback();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback <em>Geocode Feedback</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback <em>Geocoding Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Geocode Feedback</em>' attribute.
-	 * @see #getGeocodeFeedback()
+	 * @param value the new value of the '<em>Geocoding Feedback</em>' attribute.
+	 * @see #getGeocodingFeedback()
 	 * @generated
 	 */
-	void setGeocodeFeedback(String value);
+	void setGeocodingFeedback(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

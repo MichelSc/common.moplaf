@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoder#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressGeocoder()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface GisAddressGeocoder extends EObject {

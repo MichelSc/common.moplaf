@@ -32,14 +32,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class GisAddressGeocoderImpl extends MinimalEObjectImpl.Container implements GisAddressGeocoder {
+public abstract class GisAddressGeocoderImpl extends MinimalEObjectImpl.Container implements GisAddressGeocoder {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

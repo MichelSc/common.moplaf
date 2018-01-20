@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

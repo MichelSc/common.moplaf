@@ -41,40 +41,49 @@ public interface GisFactory extends EFactory {
 	GisCoordinates createGisCoordinates();
 
 	/**
-	 * Returns a new object of class '<em>Distance Matrix</em>'.
+	 * Returns a new object of class '<em>Routes Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Distance Matrix</em>'.
+	 * @return a new object of class '<em>Routes Holder</em>'.
 	 * @generated
 	 */
-	GisDistanceMatrix createGisDistanceMatrix();
+	GisRoutesHolder createGisRoutesHolder();
 
 	/**
-	 * Returns a new object of class '<em>Distance Matrix Element</em>'.
+	 * Returns a new object of class '<em>Routes Holder From Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Distance Matrix Element</em>'.
+	 * @return a new object of class '<em>Routes Holder From Location</em>'.
 	 * @generated
 	 */
-	GisDistanceMatrixElement createGisDistanceMatrixElement();
+	GisRoutesHolderFromLocation createGisRoutesHolderFromLocation();
 
 	/**
-	 * Returns a new object of class '<em>Distance Matrix From Location</em>'.
+	 * Returns a new object of class '<em>Routes Holder To Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Distance Matrix From Location</em>'.
+	 * @return a new object of class '<em>Routes Holder To Location</em>'.
 	 * @generated
 	 */
-	GisDistanceMatrixFromLocation createGisDistanceMatrixFromLocation();
+	GisRoutesHolderToLocation createGisRoutesHolderToLocation();
 
 	/**
-	 * Returns a new object of class '<em>Distance Matrix To Location</em>'.
+	 * Returns a new object of class '<em>Routes Holder Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Distance Matrix To Location</em>'.
+	 * @return a new object of class '<em>Routes Holder Element</em>'.
 	 * @generated
 	 */
-	GisDistanceMatrixToLocation createGisDistanceMatrixToLocation();
+	GisRoutesHolderElement createGisRoutesHolderElement();
+
+	/**
+	 * Returns a new object of class '<em>Route Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Route Info</em>'.
+	 * @generated
+	 */
+	GisRouteInfo createGisRouteInfo();
 
 	/**
 	 * Returns a new object of class '<em>Address Geocoded</em>'.
@@ -84,15 +93,6 @@ public interface GisFactory extends EFactory {
 	 * @generated
 	 */
 	GisAddressGeocoded createGisAddressGeocoded();
-
-	/**
-	 * Returns a new object of class '<em>Address Geocoder</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Address Geocoder</em>'.
-	 * @generated
-	 */
-	GisAddressGeocoder createGisAddressGeocoder();
 
 	/**
 	 * Returns a new object of class '<em>Address Structured</em>'.
@@ -111,6 +111,24 @@ public interface GisFactory extends EFactory {
 	 * @generated
 	 */
 	GisAddressUnstructured createGisAddressUnstructured();
+
+	/**
+	 * Returns a new object of class '<em>Router Geodesic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router Geodesic</em>'.
+	 * @generated
+	 */
+	GisRouterGeodesic createGisRouterGeodesic();
+
+	/**
+	 * Returns a new object of class '<em>Router Defaulted</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router Defaulted</em>'.
+	 * @generated
+	 */
+	GisRouterDefaulted createGisRouterDefaulted();
 
 	/**
 	 * Returns the package supported by this factory.

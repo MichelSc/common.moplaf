@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl#getCountry <em>Country</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl#getAdministrativeArea <em>Administrative Area</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl#getStreet <em>Street</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl#getBuildingNumber <em>Building Number</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

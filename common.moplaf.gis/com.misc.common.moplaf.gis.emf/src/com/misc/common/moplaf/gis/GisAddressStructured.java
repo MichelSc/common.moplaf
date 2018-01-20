@@ -20,6 +20,7 @@ package com.misc.common.moplaf.gis;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getCountry <em>Country</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getAdministrativeArea <em>Administrative Area</em>}</li>
@@ -28,7 +29,6 @@ package com.misc.common.moplaf.gis;
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getStreet <em>Street</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getBuildingNumber <em>Building Number</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressStructured()
  * @model

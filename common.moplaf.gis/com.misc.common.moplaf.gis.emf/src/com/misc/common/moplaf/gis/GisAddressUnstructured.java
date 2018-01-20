@@ -20,10 +20,10 @@ package com.misc.common.moplaf.gis;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressUnstructured#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressUnstructured()
  * @model

@@ -111,7 +111,7 @@ public interface IItemPathsProvider {
 	 * @param stop
 	 * @return
 	 */
-	default double getPathStopElevation(Object element, Object location) {
+	default double getPathStopElevation(Object element, Object path, Object stop) {
 		return 0.0;
 	}
 }

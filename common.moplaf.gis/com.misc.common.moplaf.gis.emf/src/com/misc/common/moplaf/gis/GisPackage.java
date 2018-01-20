@@ -49,7 +49,7 @@ public interface GisPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.misc.com/common.moplaf.gis.emf";
+	String eNS_URI = "http://www.misc.com/common/moplaf/gis/model/0.1";
 
 	/**
 	 * The package namespace name.
@@ -75,7 +75,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocation()
 	 * @generated
 	 */
-	int GIS_LOCATION = 7;
+	int GIS_LOCATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -233,13 +233,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS__GEOCODER = GIS_LOCATION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * The feature id for the '<em><b>Geocoding Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__GEOCODE_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 4;
+	int GIS_ADDRESS__GEOCODING_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Address</em>' class.
@@ -287,41 +287,14 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl <em>Distance Matrix</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterImpl <em>Router</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrix()
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouter()
 	 * @generated
 	 */
-	int GIS_DISTANCE_MATRIX = 2;
-
-	/**
-	 * The feature id for the '<em><b>From Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX__FROM_LOCATIONS = 0;
-
-	/**
-	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX__TO_LOCATIONS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Calculator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX__CALCULATOR = 2;
+	int GIS_ROUTER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -330,171 +303,89 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX__NAME = 3;
+	int GIS_ROUTER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Calculate Feedback</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK = 4;
+	int GIS_ROUTER__DESCRIPTION = 1;
 
 	/**
-	 * The number of structural features of the '<em>Distance Matrix</em>' class.
+	 * The number of structural features of the '<em>Router</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FEATURE_COUNT = 5;
+	int GIS_ROUTER_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Calculate</em>' operation.
+	 * The operation id for the '<em>Get Route</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___CALCULATE = 0;
+	int GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION = 0;
 
 	/**
-	 * The operation id for the '<em>Add From Location</em>' operation.
+	 * The operation id for the '<em>Get Routes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISLOCATION = 1;
+	int GIS_ROUTER___GET_ROUTES__ELIST_ELIST = 1;
 
 	/**
-	 * The operation id for the '<em>Add To Location</em>' operation.
+	 * The number of operations of the '<em>Router</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISLOCATION = 2;
+	int GIS_ROUTER_OPERATION_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Get From Location</em>' operation.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl <em>Routes Holder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolder()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___GET_FROM_LOCATION__GISLOCATION = 3;
+	int GIS_ROUTES_HOLDER__NAME = GIS_ROUTER__NAME;
 
 	/**
-	 * The operation id for the '<em>Get To Location</em>' operation.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___GET_TO_LOCATION__GISLOCATION = 4;
+	int GIS_ROUTES_HOLDER__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
 
 	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
+	 * The feature id for the '<em><b>From Locations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___GET_ELEMENT__GISLOCATION_GISLOCATION = 5;
-
-	/**
-	 * The number of operations of the '<em>Distance Matrix</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_OPERATION_COUNT = 6;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl <em>Distance Matrix Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixElement()
-	 * @generated
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT = 3;
-
-	/**
-	 * The feature id for the '<em><b>From Location</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>To Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Distance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Duration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT__DURATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Calculated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED = 4;
-
-	/**
-	 * The number of structural features of the '<em>Distance Matrix Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Distance Matrix Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl <em>Distance Matrix From Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixFromLocation()
-	 * @generated
-	 */
-	int GIS_DISTANCE_MATRIX_FROM_LOCATION = 4;
+	int GIS_ROUTES_HOLDER__FROM_LOCATIONS = GIS_ROUTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
@@ -503,7 +394,116 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS = 0;
+	int GIS_ROUTES_HOLDER__TO_LOCATIONS = GIS_ROUTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Symmetrical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__SYMMETRICAL = GIS_ROUTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR = GIS_ROUTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR_ELIST_ELIST = GIS_ROUTER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add From Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___ADD_FROM_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add To Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___ADD_TO_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get From Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_FROM_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get To Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderFromLocation()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -512,16 +512,25 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FROM_LOCATION__LOCATION = 1;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION = 0;
 
 	/**
-	 * The number of structural features of the '<em>Distance Matrix From Location</em>' class.
+	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FROM_LOCATION_FEATURE_COUNT = 2;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder From Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -530,7 +539,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FROM_LOCATION___GET_ELEMENT__GISLOCATION = 0;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION = 0;
 
 	/**
 	 * The operation id for the '<em>Add Element</em>' operation.
@@ -539,35 +548,35 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FROM_LOCATION___ADD_ELEMENT__GISDISTANCEMATRIXTOLOCATION = 1;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = 1;
 
 	/**
-	 * The number of operations of the '<em>Distance Matrix From Location</em>' class.
+	 * The operation id for the '<em>Remove</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FROM_LOCATION_OPERATION_COUNT = 2;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl <em>Distance Matrix To Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixToLocation()
-	 * @generated
-	 */
-	int GIS_DISTANCE_MATRIX_TO_LOCATION = 5;
-
-	/**
-	 * The feature id for the '<em><b>From Locations</b></em>' reference list.
+	 * The number of operations of the '<em>Routes Holder From Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS = 0;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl <em>Routes Holder To Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderToLocation()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -576,25 +585,198 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_TO_LOCATION__LOCATION = 1;
+	int GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION = 0;
 
 	/**
-	 * The number of structural features of the '<em>Distance Matrix To Location</em>' class.
+	 * The feature id for the '<em><b>From Locations</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_TO_LOCATION_FEATURE_COUNT = 2;
+	int GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = 1;
 
 	/**
-	 * The number of operations of the '<em>Distance Matrix To Location</em>' class.
+	 * The number of structural features of the '<em>Routes Holder To Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_TO_LOCATION_OPERATION_COUNT = 0;
+	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION = 0;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = 1;
+
+	/**
+	 * The operation id for the '<em>Remove</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = 2;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder To Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl <em>Routes Holder Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderElement()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>To Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>From Location</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Routes Info</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__ROUTES_INFO = 2;
+
+	/**
+	 * The feature id for the '<em><b>Calculated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__CALCULATED = 3;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Remove</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT___REMOVE = 0;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl <em>Route Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteInfoImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteInfo()
+	 * @generated
+	 */
+	int GIS_ROUTE_INFO = 6;
+
+	/**
+	 * The feature id for the '<em><b>From Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__FROM_LOCATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__DISTANCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__DURATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>To Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__TO_LOCATION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Route Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Route Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl <em>Address Geocoded</em>}' class.
@@ -604,7 +786,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoded()
 	 * @generated
 	 */
-	int GIS_ADDRESS_GEOCODED = 6;
+	int GIS_ADDRESS_GEOCODED = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -652,13 +834,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODED__DESCRIPTION = GIS_COORDINATES_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Address</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__ADDRESS = GIS_COORDINATES_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Address Geocoded</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_FEATURE_COUNT + 2;
+	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -686,7 +877,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoder()
 	 * @generated
 	 */
-	int GIS_ADDRESS_GEOCODER = 8;
+	int GIS_ADDRESS_GEOCODER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -725,14 +916,14 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixCalculatorImpl <em>Distance Matrix Calculator</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl <em>Route Calculator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixCalculatorImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixCalculator()
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculator()
 	 * @generated
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR = 9;
+	int GIS_ROUTE_CALCULATOR = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -741,35 +932,52 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR__NAME = 0;
+	int GIS_ROUTE_CALCULATOR__NAME = GIS_ROUTER__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Distance Matrix Calculator</em>' class.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT = 1;
+	int GIS_ROUTE_CALCULATOR__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
 
 	/**
-	 * The operation id for the '<em>Calculate</em>' operation.
+	 * The number of structural features of the '<em>Route Calculator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR___CALCULATE__GISDISTANCEMATRIX = 0;
+	int GIS_ROUTE_CALCULATOR_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Distance Matrix Calculator</em>' class.
+	 * The operation id for the '<em>Get Route</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_OPERATION_COUNT = 1;
+	int GIS_ROUTE_CALCULATOR___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
 
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Route Calculator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
@@ -779,7 +987,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
 	 * @generated
 	 */
-	int GIS_ADDRESS_STRUCTURED = 10;
+	int GIS_ADDRESS_STRUCTURED = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -827,13 +1035,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
 
 	/**
-	 * The feature id for the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * The feature id for the '<em><b>Geocoding Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED__GEOCODE_FEEDBACK = GIS_ADDRESS__GEOCODE_FEEDBACK;
+	int GIS_ADDRESS_STRUCTURED__GEOCODING_FEEDBACK = GIS_ADDRESS__GEOCODING_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Country</b></em>' attribute.
@@ -942,7 +1150,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
 	 * @generated
 	 */
-	int GIS_ADDRESS_UNSTRUCTURED = 11;
+	int GIS_ADDRESS_UNSTRUCTURED = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -990,13 +1198,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_UNSTRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
 
 	/**
-	 * The feature id for the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * The feature id for the '<em><b>Geocoding Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_UNSTRUCTURED__GEOCODE_FEEDBACK = GIS_ADDRESS__GEOCODE_FEEDBACK;
+	int GIS_ADDRESS_UNSTRUCTURED__GEOCODING_FEEDBACK = GIS_ADDRESS__GEOCODING_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
@@ -1051,6 +1259,363 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED_OPERATION_COUNT = GIS_ADDRESS_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl <em>Route Calculator One To One</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToOne()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE__NAME = GIS_ROUTE_CALCULATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE__DESCRIPTION = GIS_ROUTE_CALCULATOR__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Route Calculator One To One</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT = GIS_ROUTE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTE_CALCULATOR___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE___GET_ROUTES__ELIST_ELIST = GIS_ROUTE_CALCULATOR___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Route Calculator One To One</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl <em>Route Calculator Many To Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorManyToMany()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY__NAME = GIS_ROUTE_CALCULATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY__DESCRIPTION = GIS_ROUTE_CALCULATOR__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Route Calculator Many To Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY_FEATURE_COUNT = GIS_ROUTE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTE_CALCULATOR___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY___GET_ROUTES__ELIST_ELIST = GIS_ROUTE_CALCULATOR___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Route Calculator Many To Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl <em>Route Calculator One To Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToMany()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY__NAME = GIS_ROUTE_CALCULATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY__DESCRIPTION = GIS_ROUTE_CALCULATOR__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Route Calculator One To Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY_FEATURE_COUNT = GIS_ROUTE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTE_CALCULATOR___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY___GET_ROUTES__ELIST_ELIST = GIS_ROUTE_CALCULATOR___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Route Calculator One To Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl <em>Router Geodesic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterGeodesic()
+	 * @generated
+	 */
+	int GIS_ROUTER_GEODESIC = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC__NAME = GIS_ROUTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Speed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC__SPEED = GIS_ROUTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Correction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC__CORRECTION = GIS_ROUTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Router Geodesic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Router Geodesic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_GEODESIC_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl <em>Router Defaulted</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterDefaulted()
+	 * @generated
+	 */
+	int GIS_ROUTER_DEFAULTED = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED__NAME = GIS_ROUTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Primary Router</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED__PRIMARY_ROUTER = GIS_ROUTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Secondary Router</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED__SECONDARY_ROUTER = GIS_ROUTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Router Defaulted</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Router Defaulted</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_DEFAULTED_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1140,15 +1705,15 @@ public interface GisPackage extends EPackage {
 	EReference getGisAddress_Geocoder();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback <em>Geocode Feedback</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback <em>Geocoding Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Geocode Feedback</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback()
+	 * @return the meta object for the attribute '<em>Geocoding Feedback</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback()
 	 * @see #getGisAddress()
 	 * @generated
 	 */
-	EAttribute getGisAddress_GeocodeFeedback();
+	EAttribute getGisAddress_GeocodingFeedback();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#geocode() <em>Geocode</em>}' operation.
@@ -1171,278 +1736,349 @@ public interface GisPackage extends EPackage {
 	EOperation getGisAddress__FlushGeocoded();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrix <em>Distance Matrix</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolder <em>Routes Holder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distance Matrix</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix
+	 * @return the meta object for class '<em>Routes Holder</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder
 	 * @generated
 	 */
-	EClass getGisDistanceMatrix();
+	EClass getGisRoutesHolder();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getFromLocations <em>From Locations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getFromLocations <em>From Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>From Locations</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getFromLocations()
-	 * @see #getGisDistanceMatrix()
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getFromLocations()
+	 * @see #getGisRoutesHolder()
 	 * @generated
 	 */
-	EReference getGisDistanceMatrix_FromLocations();
+	EReference getGisRoutesHolder_FromLocations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocations <em>To Locations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getToLocations <em>To Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>To Locations</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocations()
-	 * @see #getGisDistanceMatrix()
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getToLocations()
+	 * @see #getGisRoutesHolder()
 	 * @generated
 	 */
-	EReference getGisDistanceMatrix_ToLocations();
+	EReference getGisRoutesHolder_ToLocations();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculator <em>Calculator</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getSymmetrical <em>Symmetrical</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Calculator</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculator()
-	 * @see #getGisDistanceMatrix()
+	 * @return the meta object for the attribute '<em>Symmetrical</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getSymmetrical()
+	 * @see #getGisRoutesHolder()
 	 * @generated
 	 */
-	EReference getGisDistanceMatrix_Calculator();
+	EAttribute getGisRoutesHolder_Symmetrical();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getName <em>Name</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#update(com.misc.common.moplaf.gis.GisRouteCalculator) <em>Update</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getName()
-	 * @see #getGisDistanceMatrix()
+	 * @return the meta object for the '<em>Update</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#update(com.misc.common.moplaf.gis.GisRouteCalculator)
 	 * @generated
 	 */
-	EAttribute getGisDistanceMatrix_Name();
+	EOperation getGisRoutesHolder__Update__GisRouteCalculator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculateFeedback <em>Calculate Feedback</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#update(com.misc.common.moplaf.gis.GisRouteCalculator, org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList) <em>Update</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Calculate Feedback</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculateFeedback()
-	 * @see #getGisDistanceMatrix()
+	 * @return the meta object for the '<em>Update</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#update(com.misc.common.moplaf.gis.GisRouteCalculator, org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EAttribute getGisDistanceMatrix_CalculateFeedback();
+	EOperation getGisRoutesHolder__Update__GisRouteCalculator_EList_EList();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#calculate() <em>Calculate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Calculate</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#calculate()
-	 * @generated
-	 */
-	EOperation getGisDistanceMatrix__Calculate();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#addFromLocation(com.misc.common.moplaf.gis.GisLocation) <em>Add From Location</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#addFromLocation(com.misc.common.moplaf.gis.GisLocation) <em>Add From Location</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add From Location</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#addFromLocation(com.misc.common.moplaf.gis.GisLocation)
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#addFromLocation(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrix__AddFromLocation__GisLocation();
+	EOperation getGisRoutesHolder__AddFromLocation__GisLocation();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#addToLocation(com.misc.common.moplaf.gis.GisLocation) <em>Add To Location</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#addToLocation(com.misc.common.moplaf.gis.GisLocation) <em>Add To Location</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add To Location</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#addToLocation(com.misc.common.moplaf.gis.GisLocation)
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#addToLocation(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrix__AddToLocation__GisLocation();
+	EOperation getGisRoutesHolder__AddToLocation__GisLocation();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getFromLocation(com.misc.common.moplaf.gis.GisLocation) <em>Get From Location</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getFromLocation(com.misc.common.moplaf.gis.GisLocation) <em>Get From Location</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get From Location</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getFromLocation(com.misc.common.moplaf.gis.GisLocation)
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getFromLocation(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrix__GetFromLocation__GisLocation();
+	EOperation getGisRoutesHolder__GetFromLocation__GisLocation();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocation(com.misc.common.moplaf.gis.GisLocation) <em>Get To Location</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getToLocation(com.misc.common.moplaf.gis.GisLocation) <em>Get To Location</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get To Location</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocation(com.misc.common.moplaf.gis.GisLocation)
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#getToLocation(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrix__GetToLocation__GisLocation();
+	EOperation getGisRoutesHolder__GetToLocation__GisLocation();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getElement(com.misc.common.moplaf.gis.GisLocation, com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation <em>Routes Holder From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getElement(com.misc.common.moplaf.gis.GisLocation, com.misc.common.moplaf.gis.GisLocation)
+	 * @return the meta object for class '<em>Routes Holder From Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrix__GetElement__GisLocation_GisLocation();
+	EClass getGisRoutesHolderFromLocation();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement <em>Distance Matrix Element</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distance Matrix Element</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement
+	 * @return the meta object for the reference '<em>Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getLocation()
+	 * @see #getGisRoutesHolderFromLocation()
 	 * @generated
 	 */
-	EClass getGisDistanceMatrixElement();
+	EReference getGisRoutesHolderFromLocation_Location();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getFromLocation <em>From Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>From Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement#getFromLocation()
-	 * @see #getGisDistanceMatrixElement()
-	 * @generated
-	 */
-	EReference getGisDistanceMatrixElement_FromLocation();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getToLocation <em>To Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement#getToLocation()
-	 * @see #getGisDistanceMatrixElement()
-	 * @generated
-	 */
-	EReference getGisDistanceMatrixElement_ToLocation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getDistance <em>Distance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Distance</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement#getDistance()
-	 * @see #getGisDistanceMatrixElement()
-	 * @generated
-	 */
-	EAttribute getGisDistanceMatrixElement_Distance();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getDuration <em>Duration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Duration</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement#getDuration()
-	 * @see #getGisDistanceMatrixElement()
-	 * @generated
-	 */
-	EAttribute getGisDistanceMatrixElement_Duration();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#isCalculated <em>Calculated</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Calculated</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement#isCalculated()
-	 * @see #getGisDistanceMatrixElement()
-	 * @generated
-	 */
-	EAttribute getGisDistanceMatrixElement_Calculated();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation <em>Distance Matrix From Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distance Matrix From Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation
-	 * @generated
-	 */
-	EClass getGisDistanceMatrixFromLocation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getToLocations <em>To Locations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getToLocations <em>To Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>To Locations</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getToLocations()
-	 * @see #getGisDistanceMatrixFromLocation()
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getToLocations()
+	 * @see #getGisRoutesHolderFromLocation()
 	 * @generated
 	 */
-	EReference getGisDistanceMatrixFromLocation_ToLocations();
+	EReference getGisRoutesHolderFromLocation_ToLocations();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getLocation()
-	 * @see #getGisDistanceMatrixFromLocation()
-	 * @generated
-	 */
-	EReference getGisDistanceMatrixFromLocation_Location();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation)
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrixFromLocation__GetElement__GisLocation();
+	EOperation getGisRoutesHolderFromLocation__GetElement__GisLocation();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#addElement(com.misc.common.moplaf.gis.GisDistanceMatrixToLocation) <em>Add Element</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#addElement(com.misc.common.moplaf.gis.GisRoutesHolderToLocation) <em>Add Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Element</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#addElement(com.misc.common.moplaf.gis.GisDistanceMatrixToLocation)
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#addElement(com.misc.common.moplaf.gis.GisRoutesHolderToLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrixFromLocation__AddElement__GisDistanceMatrixToLocation();
+	EOperation getGisRoutesHolderFromLocation__AddElement__GisRoutesHolderToLocation();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation <em>Distance Matrix To Location</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#remove() <em>Remove</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distance Matrix To Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation
+	 * @return the meta object for the '<em>Remove</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#remove()
 	 * @generated
 	 */
-	EClass getGisDistanceMatrixToLocation();
+	EOperation getGisRoutesHolderFromLocation__Remove();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getFromLocations <em>From Locations</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation <em>Routes Holder To Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>From Locations</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getFromLocations()
-	 * @see #getGisDistanceMatrixToLocation()
+	 * @return the meta object for class '<em>Routes Holder To Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation
 	 * @generated
 	 */
-	EReference getGisDistanceMatrixToLocation_FromLocations();
+	EClass getGisRoutesHolderToLocation();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getLocation()
-	 * @see #getGisDistanceMatrixToLocation()
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getLocation()
+	 * @see #getGisRoutesHolderToLocation()
 	 * @generated
 	 */
-	EReference getGisDistanceMatrixToLocation_Location();
+	EReference getGisRoutesHolderToLocation_Location();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getFromLocations <em>From Locations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>From Locations</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getFromLocations()
+	 * @see #getGisRoutesHolderToLocation()
+	 * @generated
+	 */
+	EReference getGisRoutesHolderToLocation_FromLocations();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getElement(com.misc.common.moplaf.gis.GisLocation)
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderToLocation__GetElement__GisLocation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#addElement(com.misc.common.moplaf.gis.GisRoutesHolderFromLocation) <em>Add Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Element</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#addElement(com.misc.common.moplaf.gis.GisRoutesHolderFromLocation)
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderToLocation__AddElement__GisRoutesHolderFromLocation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#remove() <em>Remove</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#remove()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderToLocation__Remove();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement <em>Routes Holder Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Routes Holder Element</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement
+	 * @generated
+	 */
+	EClass getGisRoutesHolderElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#getToLocation <em>To Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>To Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#getToLocation()
+	 * @see #getGisRoutesHolderElement()
+	 * @generated
+	 */
+	EReference getGisRoutesHolderElement_ToLocation();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#getFromLocation <em>From Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>From Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#getFromLocation()
+	 * @see #getGisRoutesHolderElement()
+	 * @generated
+	 */
+	EReference getGisRoutesHolderElement_FromLocation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#getRoutesInfo <em>Routes Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Routes Info</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#getRoutesInfo()
+	 * @see #getGisRoutesHolderElement()
+	 * @generated
+	 */
+	EReference getGisRoutesHolderElement_RoutesInfo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#isCalculated <em>Calculated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Calculated</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#isCalculated()
+	 * @see #getGisRoutesHolderElement()
+	 * @generated
+	 */
+	EAttribute getGisRoutesHolderElement_Calculated();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#remove() <em>Remove</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#remove()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderElement__Remove();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouteInfo <em>Route Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Route Info</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo
+	 * @generated
+	 */
+	EClass getGisRouteInfo();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRouteInfo#getFromLocation <em>From Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>From Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo#getFromLocation()
+	 * @see #getGisRouteInfo()
+	 * @generated
+	 */
+	EReference getGisRouteInfo_FromLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouteInfo#getDistance <em>Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Distance</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo#getDistance()
+	 * @see #getGisRouteInfo()
+	 * @generated
+	 */
+	EAttribute getGisRouteInfo_Distance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouteInfo#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo#getDuration()
+	 * @see #getGisRouteInfo()
+	 * @generated
+	 */
+	EAttribute getGisRouteInfo_Duration();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRouteInfo#getToLocation <em>To Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>To Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo#getToLocation()
+	 * @see #getGisRouteInfo()
+	 * @generated
+	 */
+	EReference getGisRouteInfo_ToLocation();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddressGeocoded <em>Address Geocoded</em>}'.
@@ -1475,6 +2111,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisAddressGeocoded_Description();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Address</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress()
+	 * @see #getGisAddressGeocoded()
+	 * @generated
+	 */
+	EReference getGisAddressGeocoded_Address();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisLocation <em>Location</em>}'.
@@ -1539,35 +2186,14 @@ public interface GisPackage extends EPackage {
 	EOperation getGisAddressGeocoder__Geocode__GisAddress();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator <em>Distance Matrix Calculator</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouteCalculator <em>Route Calculator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distance Matrix Calculator</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixCalculator
+	 * @return the meta object for class '<em>Route Calculator</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculator
 	 * @generated
 	 */
-	EClass getGisDistanceMatrixCalculator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixCalculator#getName()
-	 * @see #getGisDistanceMatrixCalculator()
-	 * @generated
-	 */
-	EAttribute getGisDistanceMatrixCalculator_Name();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator#calculate(com.misc.common.moplaf.gis.GisDistanceMatrix) <em>Calculate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Calculate</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixCalculator#calculate(com.misc.common.moplaf.gis.GisDistanceMatrix)
-	 * @generated
-	 */
-	EOperation getGisDistanceMatrixCalculator__Calculate__GisDistanceMatrix();
+	EClass getGisRouteCalculator();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddressStructured <em>Address Structured</em>}'.
@@ -1667,6 +2293,152 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisAddressUnstructured_Address();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouter <em>Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Router</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouter
+	 * @generated
+	 */
+	EClass getGisRouter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouter#getName()
+	 * @see #getGisRouter()
+	 * @generated
+	 */
+	EAttribute getGisRouter_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouter#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouter#getDescription()
+	 * @see #getGisRouter()
+	 * @generated
+	 */
+	EAttribute getGisRouter_Description();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRouter#getRoute(com.misc.common.moplaf.gis.GisLocation, com.misc.common.moplaf.gis.GisLocation) <em>Get Route</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Route</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRouter#getRoute(com.misc.common.moplaf.gis.GisLocation, com.misc.common.moplaf.gis.GisLocation)
+	 * @generated
+	 */
+	EOperation getGisRouter__GetRoute__GisLocation_GisLocation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRouter#getRoutes(org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList) <em>Get Routes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Routes</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRouter#getRoutes(org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getGisRouter__GetRoutes__EList_EList();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne <em>Route Calculator One To One</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Route Calculator One To One</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne
+	 * @generated
+	 */
+	EClass getGisRouteCalculatorOneToOne();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany <em>Route Calculator Many To Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Route Calculator Many To Many</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany
+	 * @generated
+	 */
+	EClass getGisRouteCalculatorManyToMany();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouteCalculatorOneToMany <em>Route Calculator One To Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Route Calculator One To Many</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculatorOneToMany
+	 * @generated
+	 */
+	EClass getGisRouteCalculatorOneToMany();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouterGeodesic <em>Router Geodesic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Router Geodesic</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouterGeodesic
+	 * @generated
+	 */
+	EClass getGisRouterGeodesic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouterGeodesic#getSpeed <em>Speed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Speed</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouterGeodesic#getSpeed()
+	 * @see #getGisRouterGeodesic()
+	 * @generated
+	 */
+	EAttribute getGisRouterGeodesic_Speed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouterGeodesic#getCorrection <em>Correction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Correction</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouterGeodesic#getCorrection()
+	 * @see #getGisRouterGeodesic()
+	 * @generated
+	 */
+	EAttribute getGisRouterGeodesic_Correction();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouterDefaulted <em>Router Defaulted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Router Defaulted</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouterDefaulted
+	 * @generated
+	 */
+	EClass getGisRouterDefaulted();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRouterDefaulted#getPrimaryRouter <em>Primary Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Primary Router</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouterDefaulted#getPrimaryRouter()
+	 * @see #getGisRouterDefaulted()
+	 * @generated
+	 */
+	EReference getGisRouterDefaulted_PrimaryRouter();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRouterDefaulted#getSecondaryRouter <em>Secondary Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Secondary Router</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouterDefaulted#getSecondaryRouter()
+	 * @see #getGisRouterDefaulted()
+	 * @generated
+	 */
+	EReference getGisRouterDefaulted_SecondaryRouter();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1758,12 +2530,12 @@ public interface GisPackage extends EPackage {
 		EReference GIS_ADDRESS__GEOCODER = eINSTANCE.getGisAddress_Geocoder();
 
 		/**
-		 * The meta object literal for the '<em><b>Geocode Feedback</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Geocoding Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_ADDRESS__GEOCODE_FEEDBACK = eINSTANCE.getGisAddress_GeocodeFeedback();
+		EAttribute GIS_ADDRESS__GEOCODING_FEEDBACK = eINSTANCE.getGisAddress_GeocodingFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Geocode</b></em>' operation.
@@ -1782,14 +2554,14 @@ public interface GisPackage extends EPackage {
 		EOperation GIS_ADDRESS___FLUSH_GEOCODED = eINSTANCE.getGisAddress__FlushGeocoded();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl <em>Distance Matrix</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl <em>Routes Holder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl
-		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrix()
+		 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolder()
 		 * @generated
 		 */
-		EClass GIS_DISTANCE_MATRIX = eINSTANCE.getGisDistanceMatrix();
+		EClass GIS_ROUTES_HOLDER = eINSTANCE.getGisRoutesHolder();
 
 		/**
 		 * The meta object literal for the '<em><b>From Locations</b></em>' containment reference list feature.
@@ -1797,7 +2569,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_MATRIX__FROM_LOCATIONS = eINSTANCE.getGisDistanceMatrix_FromLocations();
+		EReference GIS_ROUTES_HOLDER__FROM_LOCATIONS = eINSTANCE.getGisRoutesHolder_FromLocations();
 
 		/**
 		 * The meta object literal for the '<em><b>To Locations</b></em>' containment reference list feature.
@@ -1805,39 +2577,31 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_MATRIX__TO_LOCATIONS = eINSTANCE.getGisDistanceMatrix_ToLocations();
+		EReference GIS_ROUTES_HOLDER__TO_LOCATIONS = eINSTANCE.getGisRoutesHolder_ToLocations();
 
 		/**
-		 * The meta object literal for the '<em><b>Calculator</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Symmetrical</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_MATRIX__CALCULATOR = eINSTANCE.getGisDistanceMatrix_Calculator();
+		EAttribute GIS_ROUTES_HOLDER__SYMMETRICAL = eINSTANCE.getGisRoutesHolder_Symmetrical();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Update</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_DISTANCE_MATRIX__NAME = eINSTANCE.getGisDistanceMatrix_Name();
+		EOperation GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR = eINSTANCE.getGisRoutesHolder__Update__GisRouteCalculator();
 
 		/**
-		 * The meta object literal for the '<em><b>Calculate Feedback</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Update</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK = eINSTANCE.getGisDistanceMatrix_CalculateFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Calculate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GIS_DISTANCE_MATRIX___CALCULATE = eINSTANCE.getGisDistanceMatrix__Calculate();
+		EOperation GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR_ELIST_ELIST = eINSTANCE.getGisRoutesHolder__Update__GisRouteCalculator_EList_EList();
 
 		/**
 		 * The meta object literal for the '<em><b>Add From Location</b></em>' operation.
@@ -1845,7 +2609,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__AddFromLocation__GisLocation();
+		EOperation GIS_ROUTES_HOLDER___ADD_FROM_LOCATION__GISLOCATION = eINSTANCE.getGisRoutesHolder__AddFromLocation__GisLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Add To Location</b></em>' operation.
@@ -1853,7 +2617,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__AddToLocation__GisLocation();
+		EOperation GIS_ROUTES_HOLDER___ADD_TO_LOCATION__GISLOCATION = eINSTANCE.getGisRoutesHolder__AddToLocation__GisLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Get From Location</b></em>' operation.
@@ -1861,7 +2625,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX___GET_FROM_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__GetFromLocation__GisLocation();
+		EOperation GIS_ROUTES_HOLDER___GET_FROM_LOCATION__GISLOCATION = eINSTANCE.getGisRoutesHolder__GetFromLocation__GisLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Get To Location</b></em>' operation.
@@ -1869,75 +2633,25 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX___GET_TO_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__GetToLocation__GisLocation();
+		EOperation GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION = eINSTANCE.getGisRoutesHolder__GetToLocation__GisLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderFromLocation()
+		 * @generated
+		 */
+		EClass GIS_ROUTES_HOLDER_FROM_LOCATION = eINSTANCE.getGisRoutesHolderFromLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX___GET_ELEMENT__GISLOCATION_GISLOCATION = eINSTANCE.getGisDistanceMatrix__GetElement__GisLocation_GisLocation();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl <em>Distance Matrix Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl
-		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixElement()
-		 * @generated
-		 */
-		EClass GIS_DISTANCE_MATRIX_ELEMENT = eINSTANCE.getGisDistanceMatrixElement();
-
-		/**
-		 * The meta object literal for the '<em><b>From Location</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION = eINSTANCE.getGisDistanceMatrixElement_FromLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>To Location</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION = eINSTANCE.getGisDistanceMatrixElement_ToLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE = eINSTANCE.getGisDistanceMatrixElement_Distance();
-
-		/**
-		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_DISTANCE_MATRIX_ELEMENT__DURATION = eINSTANCE.getGisDistanceMatrixElement_Duration();
-
-		/**
-		 * The meta object literal for the '<em><b>Calculated</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED = eINSTANCE.getGisDistanceMatrixElement_Calculated();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl <em>Distance Matrix From Location</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl
-		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixFromLocation()
-		 * @generated
-		 */
-		EClass GIS_DISTANCE_MATRIX_FROM_LOCATION = eINSTANCE.getGisDistanceMatrixFromLocation();
+		EReference GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION = eINSTANCE.getGisRoutesHolderFromLocation_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>To Locations</b></em>' containment reference list feature.
@@ -1945,15 +2659,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS = eINSTANCE.getGisDistanceMatrixFromLocation_ToLocations();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_DISTANCE_MATRIX_FROM_LOCATION__LOCATION = eINSTANCE.getGisDistanceMatrixFromLocation_Location();
+		EReference GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = eINSTANCE.getGisRoutesHolderFromLocation_ToLocations();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
@@ -1961,7 +2667,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX_FROM_LOCATION___GET_ELEMENT__GISLOCATION = eINSTANCE.getGisDistanceMatrixFromLocation__GetElement__GisLocation();
+		EOperation GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION = eINSTANCE.getGisRoutesHolderFromLocation__GetElement__GisLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Element</b></em>' operation.
@@ -1969,25 +2675,25 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX_FROM_LOCATION___ADD_ELEMENT__GISDISTANCEMATRIXTOLOCATION = eINSTANCE.getGisDistanceMatrixFromLocation__AddElement__GisDistanceMatrixToLocation();
+		EOperation GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = eINSTANCE.getGisRoutesHolderFromLocation__AddElement__GisRoutesHolderToLocation();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl <em>Distance Matrix To Location</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl
-		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixToLocation()
-		 * @generated
-		 */
-		EClass GIS_DISTANCE_MATRIX_TO_LOCATION = eINSTANCE.getGisDistanceMatrixToLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>From Locations</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS = eINSTANCE.getGisDistanceMatrixToLocation_FromLocations();
+		EOperation GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = eINSTANCE.getGisRoutesHolderFromLocation__Remove();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl <em>Routes Holder To Location</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderToLocation()
+		 * @generated
+		 */
+		EClass GIS_ROUTES_HOLDER_TO_LOCATION = eINSTANCE.getGisRoutesHolderToLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
@@ -1995,7 +2701,131 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_MATRIX_TO_LOCATION__LOCATION = eINSTANCE.getGisDistanceMatrixToLocation_Location();
+		EReference GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION = eINSTANCE.getGisRoutesHolderToLocation_Location();
+
+		/**
+		 * The meta object literal for the '<em><b>From Locations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = eINSTANCE.getGisRoutesHolderToLocation_FromLocations();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION = eINSTANCE.getGisRoutesHolderToLocation__GetElement__GisLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = eINSTANCE.getGisRoutesHolderToLocation__AddElement__GisRoutesHolderFromLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = eINSTANCE.getGisRoutesHolderToLocation__Remove();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl <em>Routes Holder Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderElement()
+		 * @generated
+		 */
+		EClass GIS_ROUTES_HOLDER_ELEMENT = eINSTANCE.getGisRoutesHolderElement();
+
+		/**
+		 * The meta object literal for the '<em><b>To Location</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION = eINSTANCE.getGisRoutesHolderElement_ToLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>From Location</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION = eINSTANCE.getGisRoutesHolderElement_FromLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Routes Info</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER_ELEMENT__ROUTES_INFO = eINSTANCE.getGisRoutesHolderElement_RoutesInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Calculated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTES_HOLDER_ELEMENT__CALCULATED = eINSTANCE.getGisRoutesHolderElement_Calculated();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_ELEMENT___REMOVE = eINSTANCE.getGisRoutesHolderElement__Remove();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl <em>Route Info</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRouteInfoImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteInfo()
+		 * @generated
+		 */
+		EClass GIS_ROUTE_INFO = eINSTANCE.getGisRouteInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>From Location</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTE_INFO__FROM_LOCATION = eINSTANCE.getGisRouteInfo_FromLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTE_INFO__DISTANCE = eINSTANCE.getGisRouteInfo_Distance();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTE_INFO__DURATION = eINSTANCE.getGisRouteInfo_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>To Location</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTE_INFO__TO_LOCATION = eINSTANCE.getGisRouteInfo_ToLocation();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl <em>Address Geocoded</em>}' class.
@@ -2022,6 +2852,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_ADDRESS_GEOCODED__DESCRIPTION = eINSTANCE.getGisAddressGeocoded_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Address</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ADDRESS_GEOCODED__ADDRESS = eINSTANCE.getGisAddressGeocoded_Address();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisLocationImpl <em>Location</em>}' class.
@@ -2076,30 +2914,14 @@ public interface GisPackage extends EPackage {
 		EOperation GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS = eINSTANCE.getGisAddressGeocoder__Geocode__GisAddress();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixCalculatorImpl <em>Distance Matrix Calculator</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl <em>Route Calculator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixCalculatorImpl
-		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixCalculator()
+		 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculator()
 		 * @generated
 		 */
-		EClass GIS_DISTANCE_MATRIX_CALCULATOR = eINSTANCE.getGisDistanceMatrixCalculator();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR__NAME = eINSTANCE.getGisDistanceMatrixCalculator_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Calculate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GIS_DISTANCE_MATRIX_CALCULATOR___CALCULATE__GISDISTANCEMATRIX = eINSTANCE.getGisDistanceMatrixCalculator__Calculate__GisDistanceMatrix();
+		EClass GIS_ROUTE_CALCULATOR = eINSTANCE.getGisRouteCalculator();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
@@ -2176,6 +2998,130 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_ADDRESS_UNSTRUCTURED__ADDRESS = eINSTANCE.getGisAddressUnstructured_Address();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouterImpl <em>Router</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRouterImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouter()
+		 * @generated
+		 */
+		EClass GIS_ROUTER = eINSTANCE.getGisRouter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTER__NAME = eINSTANCE.getGisRouter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTER__DESCRIPTION = eINSTANCE.getGisRouter_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Route</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION = eINSTANCE.getGisRouter__GetRoute__GisLocation_GisLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Routes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTER___GET_ROUTES__ELIST_ELIST = eINSTANCE.getGisRouter__GetRoutes__EList_EList();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl <em>Route Calculator One To One</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToOne()
+		 * @generated
+		 */
+		EClass GIS_ROUTE_CALCULATOR_ONE_TO_ONE = eINSTANCE.getGisRouteCalculatorOneToOne();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl <em>Route Calculator Many To Many</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorManyToMany()
+		 * @generated
+		 */
+		EClass GIS_ROUTE_CALCULATOR_MANY_TO_MANY = eINSTANCE.getGisRouteCalculatorManyToMany();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl <em>Route Calculator One To Many</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToMany()
+		 * @generated
+		 */
+		EClass GIS_ROUTE_CALCULATOR_ONE_TO_MANY = eINSTANCE.getGisRouteCalculatorOneToMany();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl <em>Router Geodesic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterGeodesic()
+		 * @generated
+		 */
+		EClass GIS_ROUTER_GEODESIC = eINSTANCE.getGisRouterGeodesic();
+
+		/**
+		 * The meta object literal for the '<em><b>Speed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTER_GEODESIC__SPEED = eINSTANCE.getGisRouterGeodesic_Speed();
+
+		/**
+		 * The meta object literal for the '<em><b>Correction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTER_GEODESIC__CORRECTION = eINSTANCE.getGisRouterGeodesic_Correction();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl <em>Router Defaulted</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterDefaulted()
+		 * @generated
+		 */
+		EClass GIS_ROUTER_DEFAULTED = eINSTANCE.getGisRouterDefaulted();
+
+		/**
+		 * The meta object literal for the '<em><b>Primary Router</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTER_DEFAULTED__PRIMARY_ROUTER = eINSTANCE.getGisRouterDefaulted_PrimaryRouter();
+
+		/**
+		 * The meta object literal for the '<em><b>Secondary Router</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTER_DEFAULTED__SECONDARY_ROUTER = eINSTANCE.getGisRouterDefaulted_SecondaryRouter();
 
 	}
 

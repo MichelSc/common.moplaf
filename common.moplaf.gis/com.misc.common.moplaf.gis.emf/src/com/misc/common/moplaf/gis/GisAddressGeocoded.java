@@ -20,11 +20,12 @@ package com.misc.common.moplaf.gis;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getScore <em>Score</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressGeocoded()
  * @model
@@ -82,5 +83,33 @@ public interface GisAddressGeocoded extends GisCoordinates {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Address</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses <em>Geocoded Addresses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Address</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Address</em>' container reference.
+	 * @see #setAddress(GisAddress)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressGeocoded_Address()
+	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses
+	 * @model opposite="GeocodedAddresses" required="true" transient="false"
+	 * @generated
+	 */
+	GisAddress getAddress();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Address</em>' container reference.
+	 * @see #getAddress()
+	 * @generated
+	 */
+	void setAddress(GisAddress value);
 
 } // GisAddressGeocoded

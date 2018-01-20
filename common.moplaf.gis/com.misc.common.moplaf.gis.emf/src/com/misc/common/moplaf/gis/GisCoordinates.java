@@ -20,11 +20,11 @@ package com.misc.common.moplaf.gis;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisCoordinates#getLongitude <em>Longitude</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisCoordinates#getLatitude <em>Latitude</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisCoordinates()
  * @model

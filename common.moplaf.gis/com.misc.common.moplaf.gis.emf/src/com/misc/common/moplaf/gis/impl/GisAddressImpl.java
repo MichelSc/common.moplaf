@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getCountryCode <em>Country Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocodedAddresses <em>Geocoded Addresses</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocoder <em>Geocoder</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocodeFeedback <em>Geocode Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocodingFeedback <em>Geocoding Feedback</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -100,24 +100,24 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	protected GisAddressGeocoder geocoder;
 
 	/**
-	 * The default value of the '{@link #getGeocodeFeedback() <em>Geocode Feedback</em>}' attribute.
+	 * The default value of the '{@link #getGeocodingFeedback() <em>Geocoding Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGeocodeFeedback()
+	 * @see #getGeocodingFeedback()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String GEOCODE_FEEDBACK_EDEFAULT = null;
+	protected static final String GEOCODING_FEEDBACK_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getGeocodeFeedback() <em>Geocode Feedback</em>}' attribute.
+	 * The cached value of the '{@link #getGeocodingFeedback() <em>Geocoding Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGeocodeFeedback()
+	 * @see #getGeocodingFeedback()
 	 * @generated
 	 * @ordered
 	 */
-	protected String geocodeFeedback = GEOCODE_FEEDBACK_EDEFAULT;
+	protected String geocodingFeedback = GEOCODING_FEEDBACK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,7 +166,7 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	 */
 	public EList<GisAddressGeocoded> getGeocodedAddresses() {
 		if (geocodedAddresses == null) {
-			geocodedAddresses = new EObjectContainmentEList<GisAddressGeocoded>(GisAddressGeocoded.class, this, GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES);
+			geocodedAddresses = new EObjectContainmentWithInverseEList<GisAddressGeocoded>(GisAddressGeocoded.class, this, GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES, GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS);
 		}
 		return geocodedAddresses;
 	}
@@ -252,8 +252,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getGeocodeFeedback() {
-		return geocodeFeedback;
+	public String getGeocodingFeedback() {
+		return geocodingFeedback;
 	}
 
 	/**
@@ -261,11 +261,11 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGeocodeFeedback(String newGeocodeFeedback) {
-		String oldGeocodeFeedback = geocodeFeedback;
-		geocodeFeedback = newGeocodeFeedback;
+	public void setGeocodingFeedback(String newGeocodingFeedback) {
+		String oldGeocodingFeedback = geocodingFeedback;
+		geocodingFeedback = newGeocodingFeedback;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__GEOCODE_FEEDBACK, oldGeocodeFeedback, geocodeFeedback));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK, oldGeocodingFeedback, geocodingFeedback));
 	}
 
 	/**
@@ -316,8 +316,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 			case GisPackage.GIS_ADDRESS__GEOCODER:
 				if (resolve) return getGeocoder();
 				return basicGetGeocoder();
-			case GisPackage.GIS_ADDRESS__GEOCODE_FEEDBACK:
-				return getGeocodeFeedback();
+			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
+				return getGeocodingFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,8 +344,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 			case GisPackage.GIS_ADDRESS__GEOCODER:
 				setGeocoder((GisAddressGeocoder)newValue);
 				return;
-			case GisPackage.GIS_ADDRESS__GEOCODE_FEEDBACK:
-				setGeocodeFeedback((String)newValue);
+			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
+				setGeocodingFeedback((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -371,8 +371,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 			case GisPackage.GIS_ADDRESS__GEOCODER:
 				setGeocoder((GisAddressGeocoder)null);
 				return;
-			case GisPackage.GIS_ADDRESS__GEOCODE_FEEDBACK:
-				setGeocodeFeedback(GEOCODE_FEEDBACK_EDEFAULT);
+			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
+				setGeocodingFeedback(GEOCODING_FEEDBACK_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -394,8 +394,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 				return selectedGeocodedLocation != null;
 			case GisPackage.GIS_ADDRESS__GEOCODER:
 				return geocoder != null;
-			case GisPackage.GIS_ADDRESS__GEOCODE_FEEDBACK:
-				return GEOCODE_FEEDBACK_EDEFAULT == null ? geocodeFeedback != null : !GEOCODE_FEEDBACK_EDEFAULT.equals(geocodeFeedback);
+			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
+				return GEOCODING_FEEDBACK_EDEFAULT == null ? geocodingFeedback != null : !GEOCODING_FEEDBACK_EDEFAULT.equals(geocodingFeedback);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -430,8 +430,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (CountryCode: ");
 		result.append(countryCode);
-		result.append(", geocodeFeedback: ");
-		result.append(geocodeFeedback);
+		result.append(", GeocodingFeedback: ");
+		result.append(geocodingFeedback);
 		result.append(')');
 		return result.toString();
 	}
@@ -446,6 +446,21 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 			EcoreUtil.delete(this.getGeocodedAddresses().get(0));
 		}
 		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGeocodedAddresses()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 	
 	

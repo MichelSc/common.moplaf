@@ -12,14 +12,18 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,11 +31,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl#getScore <em>Score</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -142,6 +147,91 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GisAddress getAddress() {
+		if (eContainerFeatureID() != GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS) return null;
+		return (GisAddress)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAddress(GisAddress newAddress, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newAddress, GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAddress(GisAddress newAddress) {
+		if (newAddress != eInternalContainer() || (eContainerFeatureID() != GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS && newAddress != null)) {
+			if (EcoreUtil.isAncestor(this, newAddress))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newAddress != null)
+				msgs = ((InternalEObject)newAddress).eInverseAdd(this, GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES, GisAddress.class, msgs);
+			msgs = basicSetAddress(newAddress, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS, newAddress, newAddress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetAddress((GisAddress)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
+				return basicSetAddress(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
+				return eInternalContainer().eInverseRemove(this, GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES, GisAddress.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -149,6 +239,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 				return getScore();
 			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
 				return getDescription();
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
+				return getAddress();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,6 +258,9 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 				return;
 			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
+				setAddress((GisAddress)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,6 +280,9 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
+				setAddress((GisAddress)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -201,6 +299,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 				return score != SCORE_EDEFAULT;
 			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
+				return getAddress() != null;
 		}
 		return super.eIsSet(featureID);
 	}

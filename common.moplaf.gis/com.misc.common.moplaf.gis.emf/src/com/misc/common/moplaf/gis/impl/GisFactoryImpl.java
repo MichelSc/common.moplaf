@@ -64,14 +64,16 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GisPackage.GIS_COORDINATES: return createGisCoordinates();
-			case GisPackage.GIS_DISTANCE_MATRIX: return createGisDistanceMatrix();
-			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT: return createGisDistanceMatrixElement();
-			case GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION: return createGisDistanceMatrixFromLocation();
-			case GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION: return createGisDistanceMatrixToLocation();
+			case GisPackage.GIS_ROUTES_HOLDER: return createGisRoutesHolder();
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION: return createGisRoutesHolderFromLocation();
+			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION: return createGisRoutesHolderToLocation();
+			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT: return createGisRoutesHolderElement();
+			case GisPackage.GIS_ROUTE_INFO: return createGisRouteInfo();
 			case GisPackage.GIS_ADDRESS_GEOCODED: return createGisAddressGeocoded();
-			case GisPackage.GIS_ADDRESS_GEOCODER: return createGisAddressGeocoder();
 			case GisPackage.GIS_ADDRESS_STRUCTURED: return createGisAddressStructured();
 			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: return createGisAddressUnstructured();
+			case GisPackage.GIS_ROUTER_GEODESIC: return createGisRouterGeodesic();
+			case GisPackage.GIS_ROUTER_DEFAULTED: return createGisRouterDefaulted();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,9 +94,9 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceMatrix createGisDistanceMatrix() {
-		GisDistanceMatrixImpl gisDistanceMatrix = new GisDistanceMatrixImpl();
-		return gisDistanceMatrix;
+	public GisRoutesHolder createGisRoutesHolder() {
+		GisRoutesHolderImpl gisRoutesHolder = new GisRoutesHolderImpl();
+		return gisRoutesHolder;
 	}
 
 	/**
@@ -102,9 +104,9 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceMatrixElement createGisDistanceMatrixElement() {
-		GisDistanceMatrixElementImpl gisDistanceMatrixElement = new GisDistanceMatrixElementImpl();
-		return gisDistanceMatrixElement;
+	public GisRoutesHolderFromLocation createGisRoutesHolderFromLocation() {
+		GisRoutesHolderFromLocationImpl gisRoutesHolderFromLocation = new GisRoutesHolderFromLocationImpl();
+		return gisRoutesHolderFromLocation;
 	}
 
 	/**
@@ -112,9 +114,9 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceMatrixFromLocation createGisDistanceMatrixFromLocation() {
-		GisDistanceMatrixFromLocationImpl gisDistanceMatrixFromLocation = new GisDistanceMatrixFromLocationImpl();
-		return gisDistanceMatrixFromLocation;
+	public GisRoutesHolderToLocation createGisRoutesHolderToLocation() {
+		GisRoutesHolderToLocationImpl gisRoutesHolderToLocation = new GisRoutesHolderToLocationImpl();
+		return gisRoutesHolderToLocation;
 	}
 
 	/**
@@ -122,9 +124,19 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceMatrixToLocation createGisDistanceMatrixToLocation() {
-		GisDistanceMatrixToLocationImpl gisDistanceMatrixToLocation = new GisDistanceMatrixToLocationImpl();
-		return gisDistanceMatrixToLocation;
+	public GisRoutesHolderElement createGisRoutesHolderElement() {
+		GisRoutesHolderElementImpl gisRoutesHolderElement = new GisRoutesHolderElementImpl();
+		return gisRoutesHolderElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisRouteInfo createGisRouteInfo() {
+		GisRouteInfoImpl gisRouteInfo = new GisRouteInfoImpl();
+		return gisRouteInfo;
 	}
 
 	/**
@@ -135,16 +147,6 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisAddressGeocoded createGisAddressGeocoded() {
 		GisAddressGeocodedImpl gisAddressGeocoded = new GisAddressGeocodedImpl();
 		return gisAddressGeocoded;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisAddressGeocoder createGisAddressGeocoder() {
-		GisAddressGeocoderImpl gisAddressGeocoder = new GisAddressGeocoderImpl();
-		return gisAddressGeocoder;
 	}
 
 	/**
@@ -165,6 +167,26 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisAddressUnstructured createGisAddressUnstructured() {
 		GisAddressUnstructuredImpl gisAddressUnstructured = new GisAddressUnstructuredImpl();
 		return gisAddressUnstructured;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisRouterGeodesic createGisRouterGeodesic() {
+		GisRouterGeodesicImpl gisRouterGeodesic = new GisRouterGeodesicImpl();
+		return gisRouterGeodesic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisRouterDefaulted createGisRouterDefaulted() {
+		GisRouterDefaultedImpl gisRouterDefaulted = new GisRouterDefaultedImpl();
+		return gisRouterDefaulted;
 	}
 
 	/**
