@@ -9,8 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.misc.common.moplaf.flock,
  com.misc.common.moplaf.flock.impl,
- com.misc.common.moplaf.flock.util,
- com.misc.common.moplaf.flock.calc
+ com.misc.common.moplaf.flock.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore
 Bundle-ActivationPolicy: lazy
