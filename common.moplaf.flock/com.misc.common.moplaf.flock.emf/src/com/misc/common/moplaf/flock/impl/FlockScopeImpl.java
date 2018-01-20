@@ -16,10 +16,6 @@ import com.misc.common.moplaf.flock.Chain;
 import com.misc.common.moplaf.flock.Flock;
 import com.misc.common.moplaf.flock.FlockPackage;
 import com.misc.common.moplaf.flock.FlockScope;
-import com.misc.common.moplaf.flock.calc.PropagatorLayerChainFlockNextPrevious;
-import com.misc.common.moplaf.flock.calc.PropagatorLayerFlockScopeInitializer;
-import com.misc.common.moplaf.flock.calc.PropagatorScopeFlockScope;
-import com.misc.common.moplaf.propagator.Util;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -68,12 +64,10 @@ public class FlockScopeImpl extends MinimalEObjectImpl.Container implements Floc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected FlockScopeImpl() {
 		super();
-		Util.adapt(this, PropagatorLayerFlockScopeInitializer.class);
-		Util.adapt(this, PropagatorLayerChainFlockNextPrevious.class);
-		Util.adapt(this, PropagatorScopeFlockScope.class);
 	}
 
 	/**

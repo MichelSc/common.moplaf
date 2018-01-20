@@ -17,8 +17,6 @@ import com.misc.common.moplaf.flock.ChainFlock;
 import com.misc.common.moplaf.flock.FlockPackage;
 import com.misc.common.moplaf.flock.FlockScope;
 import com.misc.common.moplaf.flock.Location;
-import com.misc.common.moplaf.flock.calc.PropagatorCalcChainFlockNextPrevious;
-import com.misc.common.moplaf.propagator.Util;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -69,10 +67,10 @@ public class ChainImpl extends MinimalEObjectImpl.Container implements Chain {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected ChainImpl() {
 		super();
-		Util.adapt(this, PropagatorCalcChainFlockNextPrevious.class);
 	}
 
 	/**
