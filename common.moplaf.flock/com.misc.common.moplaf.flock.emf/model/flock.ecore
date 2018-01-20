@@ -32,7 +32,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlockEvent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Location" eType="#//Location"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FlockAsStart" upperBound="-1"
         eType="#//Flock" eOpposite="#//Flock/StartEvent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FlockAsEnd" upperBound="-1"
