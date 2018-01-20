@@ -10,69 +10,89 @@
     <eOperations name="geocode"/>
     <eOperations name="flushGeocoded"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountryCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geocodedAddresses" upperBound="-1"
-        eType="#//GisAddressGeocoded" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedGeocodedLocation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GeocodedAddresses" upperBound="-1"
+        eType="#//GisAddressGeocoded" containment="true" eOpposite="#//GisAddressGeocoded/Address"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedGeocodedLocation"
         eType="#//GisAddressGeocoded"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="geocoder" eType="#//GisAddressGeocoder"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="geocodeFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Geocoder" eType="#//GisAddressGeocoder"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeocodingFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrix">
-    <eOperations name="calculate"/>
-    <eOperations name="addFromLocation" eType="#//GisDistanceMatrixFromLocation">
+  <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolder" eSuperTypes="#//GisRouter">
+    <eOperations name="update">
+      <eParameters name="calculator" eType="#//GisRouteCalculator"/>
+    </eOperations>
+    <eOperations name="update">
+      <eParameters name="calculator" eType="#//GisRouteCalculator"/>
+      <eParameters name="froms" lowerBound="1" upperBound="-1" eType="#//GisLocation"/>
+      <eParameters name="tos" lowerBound="1" upperBound="-1" eType="#//GisLocation"/>
+    </eOperations>
+    <eOperations name="addFromLocation" eType="#//GisRoutesHolderFromLocation">
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
-    <eOperations name="addToLocation" eType="#//GisDistanceMatrixToLocation">
+    <eOperations name="addToLocation" eType="#//GisRoutesHolderToLocation">
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
-    <eOperations name="getFromLocation" eType="#//GisDistanceMatrixFromLocation">
+    <eOperations name="getFromLocation" eType="#//GisRoutesHolderFromLocation">
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
-    <eOperations name="getToLocation" eType="#//GisDistanceMatrixToLocation">
+    <eOperations name="getToLocation" eType="#//GisRoutesHolderToLocation">
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
-    <eOperations name="getElement" eType="#//GisDistanceMatrixElement">
-      <eParameters name="fromLocation" eType="#//GisLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocations" upperBound="-1"
+        eType="#//GisRoutesHolderFromLocation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocations" upperBound="-1"
+        eType="#//GisRoutesHolderToLocation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Symmetrical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolderFromLocation">
+    <eOperations name="getElement" eType="#//GisRoutesHolderElement">
       <eParameters name="toLocation" eType="#//GisLocation"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromLocations" upperBound="-1"
-        eType="#//GisDistanceMatrixFromLocation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toLocations" upperBound="-1"
-        eType="#//GisDistanceMatrixToLocation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="calculator" eType="#//GisDistanceMatrixCalculator"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="calculateFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="addElement" eType="#//GisRoutesHolderElement">
+      <eParameters name="toLocation" eType="#//GisRoutesHolderToLocation"/>
+    </eOperations>
+    <eOperations name="remove"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Location" lowerBound="1"
+        eType="#//GisLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocations" upperBound="-1"
+        eType="#//GisRoutesHolderElement" containment="true" eOpposite="#//GisRoutesHolderElement/FromLocation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromLocation" lowerBound="1"
-        eType="#//GisDistanceMatrixFromLocation" eOpposite="#//GisDistanceMatrixFromLocation/toLocations"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toLocation" lowerBound="1"
-        eType="#//GisDistanceMatrixToLocation" eOpposite="#//GisDistanceMatrixToLocation/fromLocations"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolderToLocation">
+    <eOperations name="getElement" eType="#//GisRoutesHolderElement">
+      <eParameters name="fromLocation" eType="#//GisLocation"/>
+    </eOperations>
+    <eOperations name="addElement" eType="#//GisRoutesHolderElement">
+      <eParameters name="fromLocation" eType="#//GisRoutesHolderFromLocation"/>
+    </eOperations>
+    <eOperations name="remove"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Location" lowerBound="1"
+        eType="#//GisLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocations" upperBound="-1"
+        eType="#//GisRoutesHolderElement" eOpposite="#//GisRoutesHolderElement/ToLocation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolderElement">
+    <eOperations name="remove"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocation" lowerBound="1"
+        eType="#//GisRoutesHolderToLocation" eOpposite="#//GisRoutesHolderToLocation/FromLocations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocation" lowerBound="1"
+        eType="#//GisRoutesHolderFromLocation" eOpposite="#//GisRoutesHolderFromLocation/ToLocations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RoutesInfo" upperBound="-1"
+        eType="#//GisRouteInfo" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Calculated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixFromLocation">
-    <eOperations name="getElement" eType="#//GisDistanceMatrixElement">
-      <eParameters name="toLocation" eType="#//GisLocation"/>
-    </eOperations>
-    <eOperations name="addElement" eType="#//GisDistanceMatrixElement">
-      <eParameters name="toLocation" eType="#//GisDistanceMatrixToLocation"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toLocations" upperBound="-1"
-        eType="#//GisDistanceMatrixElement" containment="true" eOpposite="#//GisDistanceMatrixElement/fromLocation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouteInfo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocation" lowerBound="1"
         eType="#//GisLocation"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixToLocation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromLocations" upperBound="-1"
-        eType="#//GisDistanceMatrixElement" eOpposite="#//GisDistanceMatrixElement/toLocation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocation" lowerBound="1"
         eType="#//GisLocation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoded" eSuperTypes="#//GisCoordinates">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Score" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Address" lowerBound="1"
+        eType="#//GisAddress" eOpposite="#//GisAddress/GeocodedAddresses"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocation" abstract="true">
     <eOperations name="getCoordinates" eType="#//GisCoordinates"/>
@@ -84,12 +104,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculator" abstract="true">
-    <eOperations name="calculate">
-      <eParameters name="matrix" eType="#//GisDistanceMatrix"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouteCalculator" abstract="true"
+      eSuperTypes="#//GisRouter"/>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressStructured" eSuperTypes="#//GisAddress">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Country" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AdministrativeArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -101,18 +117,35 @@
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressUnstructured" eSuperTypes="#//GisAddress">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RouteCalculator" abstract="true">
-    <eOperations name="calculateRoute">
-      <eParameters name="from" upperBound="-1" eType="#//GisLocation"/>
-      <eParameters name="to" upperBound="-1" eType="#//GisLocation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouter" abstract="true">
+    <eOperations name="getRoute" eType="#//GisRouteInfo">
+      <eParameters name="from" lowerBound="1" eType="#//GisLocation"/>
+      <eParameters name="to" lowerBound="1" eType="#//GisLocation"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="route" upperBound="-1"
-        eType="#//Route" containment="true"/>
+    <eOperations name="getRoutes" upperBound="-1" eType="#//GisRouteInfo">
+      <eParameters name="froms" lowerBound="1" upperBound="-1" eType="#//GisLocation"/>
+      <eParameters name="tos" lowerBound="1" upperBound="-1" eType="#//GisLocation"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Route">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StartLocation" eType="#//GisLocation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EndLocation" eType="#//GisLocation"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouteCalculatorOneToOne" abstract="true"
+      eSuperTypes="#//GisRouteCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouteCalculatorManyToMany" abstract="true"
+      eSuperTypes="#//GisRouteCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouteCalculatorOneToMany" abstract="true"
+      eSuperTypes="#//GisRouteCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouterGeodesic" eSuperTypes="#//GisRouter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="50.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Correction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1.3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisRouterDefaulted" eSuperTypes="#//GisRouter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryRouter" lowerBound="1"
+        eType="#//GisRouter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryRouter" lowerBound="1"
+        eType="#//GisRouter"/>
   </eClassifiers>
 </ecore:EPackage>
