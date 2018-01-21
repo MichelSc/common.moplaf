@@ -16,7 +16,7 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
-import com.misc.common.moplaf.gis.GisCoordinates;
+import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -533,7 +533,7 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	}
 
 	@Override
-	public GisCoordinates getCoordinates() {
+	public GisCoordinatesAbstract getCoordinates() {
 		return this.getSelectedGeocodedLocation();
 	}
 	

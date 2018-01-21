@@ -1808,6 +1808,7 @@
         <customFeatures>routingStyle</customFeatures>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ubyy9P6AEeee87kyZp0Gwg" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_ubyy9f6AEeee87kyZp0Gwg" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -1822,6 +1823,7 @@
         <customFeatures>routingStyle</customFeatures>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ubzaAv6AEeee87kyZp0Gwg" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_ubzaA_6AEeee87kyZp0Gwg" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
