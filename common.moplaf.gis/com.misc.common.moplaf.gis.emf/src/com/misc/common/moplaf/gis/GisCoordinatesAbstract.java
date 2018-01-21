@@ -30,12 +30,12 @@ public interface GisCoordinatesAbstract extends GisLocation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Longitude</em>' attribute.
-	 * @see #setLongitude(float)
+	 * @see #setLongitude(double)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisCoordinatesAbstract_Longitude()
 	 * @model
 	 * @generated
 	 */
-	float getLongitude();
+	double getLongitude();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLongitude <em>Longitude</em>}' attribute.
@@ -45,7 +45,7 @@ public interface GisCoordinatesAbstract extends GisLocation {
 	 * @see #getLongitude()
 	 * @generated
 	 */
-	void setLongitude(float value);
+	void setLongitude(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Latitude</b></em>' attribute.
@@ -56,12 +56,12 @@ public interface GisCoordinatesAbstract extends GisLocation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Latitude</em>' attribute.
-	 * @see #setLatitude(float)
+	 * @see #setLatitude(double)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisCoordinatesAbstract_Latitude()
 	 * @model
 	 * @generated
 	 */
-	float getLatitude();
+	double getLatitude();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLatitude <em>Latitude</em>}' attribute.
@@ -71,6 +71,6 @@ public interface GisCoordinatesAbstract extends GisLocation {
 	 * @see #getLatitude()
 	 * @generated
 	 */
-	void setLatitude(float value);
+	void setLatitude(double value);
 
 } // GisCoordinatesAbstract

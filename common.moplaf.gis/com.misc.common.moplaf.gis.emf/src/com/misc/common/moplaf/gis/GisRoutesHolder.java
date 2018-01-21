@@ -97,12 +97,12 @@ public interface GisRoutesHolder extends GisRouter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Calculator</em>' reference.
-	 * @see #setCalculator(GisRouter)
+	 * @see #setCalculator(GisRouteCalculator)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRoutesHolder_Calculator()
 	 * @model
 	 * @generated
 	 */
-	GisRouter getCalculator();
+	GisRouteCalculator getCalculator();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#getCalculator <em>Calculator</em>}' reference.
@@ -112,7 +112,7 @@ public interface GisRoutesHolder extends GisRouter {
 	 * @see #getCalculator()
 	 * @generated
 	 */
-	void setCalculator(GisRouter value);
+	void setCalculator(GisRouteCalculator value);
 
 	/**
 	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.

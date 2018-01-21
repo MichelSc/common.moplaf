@@ -155,14 +155,14 @@ public class GisCoordinatesItemProvider extends GisCoordinatesAbstractItemProvid
 	@Override
 	public float getLongitude(Object element) {
 		GisCoordinates coordinates = (GisCoordinates)element;
-		float longitude = coordinates.getLongitude();
+		float longitude = (float)coordinates.getLongitude();
 		return longitude;
 	}
 
 	@Override
 	public float getLatitude(Object element) {
 		GisCoordinates coordinates = (GisCoordinates)element;
-		float latitude = coordinates.getLatitude();
+		float latitude = (float)coordinates.getLatitude();
 		return latitude;
 	}
 

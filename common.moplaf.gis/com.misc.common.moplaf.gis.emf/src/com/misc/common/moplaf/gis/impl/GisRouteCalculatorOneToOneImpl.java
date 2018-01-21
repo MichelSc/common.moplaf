@@ -6,8 +6,6 @@ import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne;
 import com.misc.common.moplaf.gis.GisRouteInfo;
-import com.misc.common.moplaf.gis.GisRoutesHolderElement;
-import com.misc.common.moplaf.gis.GisRoutesHolderFromLocation;
 import com.misc.common.moplaf.gis.Plugin;
 
 import org.eclipse.emf.ecore.EClass;

@@ -34,7 +34,7 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float LONGITUDE_EDEFAULT = 0.0F;
+	protected static final double LONGITUDE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getLongitude() <em>Longitude</em>}' attribute.
@@ -44,7 +44,7 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected float longitude = LONGITUDE_EDEFAULT;
+	protected double longitude = LONGITUDE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLatitude() <em>Latitude</em>}' attribute.
@@ -54,7 +54,7 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float LATITUDE_EDEFAULT = 0.0F;
+	protected static final double LATITUDE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getLatitude() <em>Latitude</em>}' attribute.
@@ -64,7 +64,7 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected float latitude = LATITUDE_EDEFAULT;
+	protected double latitude = LATITUDE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,7 +90,7 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
@@ -99,8 +99,8 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLongitude(float newLongitude) {
-		float oldLongitude = longitude;
+	public void setLongitude(double newLongitude) {
+		double oldLongitude = longitude;
 		longitude = newLongitude;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_COORDINATES_ABSTRACT__LONGITUDE, oldLongitude, longitude));
@@ -111,7 +111,7 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
@@ -120,8 +120,8 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLatitude(float newLatitude) {
-		float oldLatitude = latitude;
+	public void setLatitude(double newLatitude) {
+		double oldLatitude = latitude;
 		latitude = newLatitude;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_COORDINATES_ABSTRACT__LATITUDE, oldLatitude, latitude));
@@ -152,10 +152,10 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GisPackage.GIS_COORDINATES_ABSTRACT__LONGITUDE:
-				setLongitude((Float)newValue);
+				setLongitude((Double)newValue);
 				return;
 			case GisPackage.GIS_COORDINATES_ABSTRACT__LATITUDE:
-				setLatitude((Float)newValue);
+				setLatitude((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

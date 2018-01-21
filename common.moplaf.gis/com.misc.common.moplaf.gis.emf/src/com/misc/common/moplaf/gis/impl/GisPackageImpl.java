@@ -1259,8 +1259,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisCoordinatesAbstractEClass, GisCoordinatesAbstract.class, "GisCoordinatesAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGisCoordinatesAbstract_Longitude(), ecorePackage.getEFloat(), "Longitude", null, 0, 1, GisCoordinatesAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisCoordinatesAbstract_Latitude(), ecorePackage.getEFloat(), "Latitude", null, 0, 1, GisCoordinatesAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisCoordinatesAbstract_Longitude(), ecorePackage.getEDouble(), "Longitude", null, 0, 1, GisCoordinatesAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisCoordinatesAbstract_Latitude(), ecorePackage.getEDouble(), "Latitude", null, 0, 1, GisCoordinatesAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisAddressEClass, GisAddress.class, "GisAddress", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisAddress_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1279,7 +1279,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEReference(getGisRoutesHolder_FromLocations(), this.getGisRoutesHolderFromLocation(), this.getGisRoutesHolderFromLocation_RoutesHolder(), "FromLocations", null, 0, -1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisRoutesHolder_ToLocations(), this.getGisRoutesHolderToLocation(), this.getGisRoutesHolderToLocation_RoutesHolder(), "ToLocations", null, 0, -1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisRoutesHolder_Symmetrical(), ecorePackage.getEBooleanObject(), "Symmetrical", null, 0, 1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGisRoutesHolder_Calculator(), this.getGisRouter(), null, "Calculator", null, 0, 1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisRoutesHolder_Calculator(), this.getGisRouteCalculator(), null, "Calculator", null, 0, 1, GisRoutesHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisRoutesHolder_RefreshFeedback(), theJobPackage.getEnabledFeedback(), "RefreshFeedback", null, 0, 1, GisRoutesHolder.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getGisRoutesHolder__Update__GisRouteCalculator(), null, "update", 0, 1, IS_UNIQUE, IS_ORDERED);

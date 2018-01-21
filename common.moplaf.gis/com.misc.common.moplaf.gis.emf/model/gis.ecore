@@ -48,7 +48,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocations" upperBound="-1"
         eType="#//GisRoutesHolderToLocation" containment="true" eOpposite="#//GisRoutesHolderToLocation/RoutesHolder"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Symmetrical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Calculator" eType="#//GisRouter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Calculator" eType="#//GisRouteCalculator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>

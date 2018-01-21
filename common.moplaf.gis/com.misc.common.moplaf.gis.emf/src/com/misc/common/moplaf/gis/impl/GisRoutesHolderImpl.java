@@ -8,7 +8,6 @@ import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.GisRouteInfo;
-import com.misc.common.moplaf.gis.GisRouter;
 import com.misc.common.moplaf.gis.GisRoutesHolder;
 import com.misc.common.moplaf.gis.GisRoutesHolderElement;
 import com.misc.common.moplaf.gis.GisRoutesHolderFromLocation;
@@ -21,7 +20,6 @@ import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -99,7 +97,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 * @generated
 	 * @ordered
 	 */
-	protected GisRouter calculator;
+	protected GisRouteCalculator calculator;
 
 	/**
 	 * The default value of the '{@link #getRefreshFeedback() <em>Refresh Feedback</em>}' attribute.
@@ -179,10 +177,10 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisRouter getCalculator() {
+	public GisRouteCalculator getCalculator() {
 		if (calculator != null && calculator.eIsProxy()) {
 			InternalEObject oldCalculator = (InternalEObject)calculator;
-			calculator = (GisRouter)eResolveProxy(oldCalculator);
+			calculator = (GisRouteCalculator)eResolveProxy(oldCalculator);
 			if (calculator != oldCalculator) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GisPackage.GIS_ROUTES_HOLDER__CALCULATOR, oldCalculator, calculator));
@@ -196,7 +194,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisRouter basicGetCalculator() {
+	public GisRouteCalculator basicGetCalculator() {
 		return calculator;
 	}
 
@@ -205,8 +203,8 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCalculator(GisRouter newCalculator) {
-		GisRouter oldCalculator = calculator;
+	public void setCalculator(GisRouteCalculator newCalculator) {
+		GisRouteCalculator oldCalculator = calculator;
 		calculator = newCalculator;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ROUTES_HOLDER__CALCULATOR, oldCalculator, calculator));
@@ -229,12 +227,12 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback getRefreshFeedback() {
-		// TODO: implement this method to return the 'Refresh Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( this.getCalculator()==null) {
+			return new EnabledFeedback(false, "No calculator");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	
@@ -428,7 +426,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 				setSymmetrical((Boolean)newValue);
 				return;
 			case GisPackage.GIS_ROUTES_HOLDER__CALCULATOR:
-				setCalculator((GisRouter)newValue);
+				setCalculator((GisRouteCalculator)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -452,7 +450,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 				setSymmetrical(SYMMETRICAL_EDEFAULT);
 				return;
 			case GisPackage.GIS_ROUTES_HOLDER__CALCULATOR:
-				setCalculator((GisRouter)null);
+				setCalculator((GisRouteCalculator)null);
 				return;
 		}
 		super.eUnset(featureID);
