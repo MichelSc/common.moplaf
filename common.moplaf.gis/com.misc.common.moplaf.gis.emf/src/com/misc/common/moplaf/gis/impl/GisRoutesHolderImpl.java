@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -241,23 +241,45 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void update(GisRouteCalculator calculator) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for ( GisRoutesHolderFromLocation from : this.getFromLocations()) {
+			for ( GisRoutesHolderToLocation to : this.getToLocations()) {
+				GisRouteInfo route_info = calculator.getRoute(from.getLocation(), to.getLocation());
+				if ( route_info!=null) {
+					this.update(from,  to,  route_info);
+				}
+			}
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void update(GisRouteCalculator calculator, EList<GisLocation> froms, EList<GisLocation> tos) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<GisRouteInfo> list = calculator.getRoutes(froms, tos);
+		for ( GisRouteInfo info : list) {
+			GisRoutesHolderFromLocation holder_from = this.getFromLocation(info.getFromLocation());
+			if ( holder_from == null) {
+				holder_from = this.addFromLocation(info.getFromLocation());
+			}
+			GisRoutesHolderToLocation holder_to = this.getToLocation(info.getToLocation());
+			if ( holder_to == null) {
+				holder_to = this.addToLocation(info.getFromLocation());
+			}
+			this.update(holder_from, holder_to, info);
+		}
+	}
+	
+	private void update(GisRoutesHolderFromLocation from, GisRoutesHolderToLocation to, GisRouteInfo info) {
+		GisRoutesHolderElement element = from.getElement(to.getLocation());
+		if ( element == null ) {
+			element = GisFactory.eINSTANCE.createGisRoutesHolderElement();
+			from.getToLocations().add(element);
+			to.getFromLocations().add(element);
+		}
+		element.getRoutesInfo().add(info);
 	}
 
 	/**

@@ -4,8 +4,8 @@
     nsPrefix="gis">
   <eClassifiers xsi:type="ecore:EClass" name="GisCoordinatesAbstract" abstract="true"
       eSuperTypes="#//GisLocation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddress" abstract="true" eSuperTypes="#//GisLocation">
     <eOperations name="refreshGeocoded"/>
