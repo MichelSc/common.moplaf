@@ -1,25 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.gisgisgraphy.impl;
 
-import com.misc.common.moplaf.gis.GisGoogle.GisGooglePackage;
-
 import com.misc.common.moplaf.gis.GisPackage;
 
 import com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy;
-import com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyFactory;
-import com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage;
+import com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyFactory;
+import com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage;
 import com.misc.common.moplaf.gis.gisgisgraphy.Protocol;
+
+import com.misc.common.moplaf.job.JobPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -34,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisgisgraphyPackageImpl extends EPackageImpl implements GisgisgraphyPackage {
+public class GisGisgraphyPackageImpl extends EPackageImpl implements GisGisgraphyPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,12 +50,12 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage#eNS_URI
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private GisgisgraphyPackageImpl() {
-		super(eNS_URI, GisgisgraphyFactory.eINSTANCE);
+	private GisGisgraphyPackageImpl() {
+		super(eNS_URI, GisGisgraphyFactory.eINSTANCE);
 	}
 
 	/**
@@ -78,7 +68,7 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link GisgisgraphyPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link GisGisgraphyPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,30 +77,31 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static GisgisgraphyPackage init() {
-		if (isInited) return (GisgisgraphyPackage)EPackage.Registry.INSTANCE.getEPackage(GisgisgraphyPackage.eNS_URI);
+	public static GisGisgraphyPackage init() {
+		if (isInited) return (GisGisgraphyPackage)EPackage.Registry.INSTANCE.getEPackage(GisGisgraphyPackage.eNS_URI);
 
 		// Obtain or create and register package
-		GisgisgraphyPackageImpl theGisgisgraphyPackage = (GisgisgraphyPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GisgisgraphyPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GisgisgraphyPackageImpl());
+		GisGisgraphyPackageImpl theGisGisgraphyPackage = (GisGisgraphyPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GisGisgraphyPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GisGisgraphyPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
-		GisGooglePackage.eINSTANCE.eClass();
+		GisPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theGisgisgraphyPackage.createPackageContents();
+		theGisGisgraphyPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theGisgisgraphyPackage.initializePackageContents();
+		theGisGisgraphyPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theGisgisgraphyPackage.freeze();
+		theGisGisgraphyPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(GisgisgraphyPackage.eNS_URI, theGisgisgraphyPackage);
-		return theGisgisgraphyPackage;
+		EPackage.Registry.INSTANCE.put(GisGisgraphyPackage.eNS_URI, theGisGisgraphyPackage);
+		return theGisGisgraphyPackage;
 	}
 
 	/**
@@ -136,8 +127,8 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisAddressGeocoderGisgraphy_Port() {
-		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(2);
+	public EAttribute getGisAddressGeocoderGisgraphy_Host() {
+		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -145,8 +136,8 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisAddressGeocoderGisgraphy_Host() {
-		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(1);
+	public EAttribute getGisAddressGeocoderGisgraphy_Port() {
+		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -172,8 +163,8 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisgisgraphyFactory getGisgisgraphyFactory() {
-		return (GisgisgraphyFactory)getEFactoryInstance();
+	public GisGisgraphyFactory getGisGisgraphyFactory() {
+		return (GisGisgraphyFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -230,7 +221,6 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 
 		// Obtain other dependent packages
 		GisPackage theGisPackage = (GisPackage)EPackage.Registry.INSTANCE.getEPackage(GisPackage.eNS_URI);
-		GisGooglePackage theGisGooglePackage = (GisGooglePackage)EPackage.Registry.INSTANCE.getEPackage(GisGooglePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -241,7 +231,7 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisAddressGeocoderGisgraphyEClass, GisAddressGeocoderGisgraphy.class, "GisAddressGeocoderGisgraphy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGisAddressGeocoderGisgraphy_Protocol(), theGisGooglePackage.getProtocol(), "Protocol", "http", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressGeocoderGisgraphy_Protocol(), this.getProtocol(), "Protocol", "http", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressGeocoderGisgraphy_Host(), ecorePackage.getEString(), "Host", "services.gisgraphy.com", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressGeocoderGisgraphy_Port(), ecorePackage.getEInt(), "Port", "80", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressGeocoderGisgraphy_Path(), ecorePackage.getEString(), "Path", "/geocoding/geocode", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -255,4 +245,4 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 		createResource(eNS_URI);
 	}
 
-} //GisgisgraphyPackageImpl
+} //GisGisgraphyPackageImpl

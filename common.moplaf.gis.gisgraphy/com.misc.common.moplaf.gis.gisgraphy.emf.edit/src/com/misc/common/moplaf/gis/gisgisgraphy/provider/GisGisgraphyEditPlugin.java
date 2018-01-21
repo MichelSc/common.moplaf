@@ -1,39 +1,29 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.gisgisgraphy.provider;
 
-import com.misc.common.moplaf.gis.GisGoogle.provider.GisgoogleEditPlugin;
-
 import com.misc.common.moplaf.gis.provider.GisEditPlugin;
+
+import com.misc.common.moplaf.job.provider.JobEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the Gisgisgraphy edit plugin.
+ * This is the central singleton for the GisGisgraphy edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class GisgisgraphyEditPlugin extends EMFPlugin {
+public final class GisGisgraphyEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final GisgisgraphyEditPlugin INSTANCE = new GisgisgraphyEditPlugin();
+	public static final GisGisgraphyEditPlugin INSTANCE = new GisGisgraphyEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -49,11 +39,11 @@ public final class GisgisgraphyEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisgisgraphyEditPlugin() {
+	public GisGisgraphyEditPlugin() {
 		super
 		  (new ResourceLocator [] {
 		     GisEditPlugin.INSTANCE,
-		     GisgoogleEditPlugin.INSTANCE,
+		     JobEditPlugin.INSTANCE,
 		   });
 	}
 

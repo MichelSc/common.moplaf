@@ -1,18 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.gisgisgraphy.provider;
 
-import com.misc.common.moplaf.gis.gisgisgraphy.util.GisgisgraphyAdapterFactory;
+import com.misc.common.moplaf.gis.gisgisgraphy.util.GisGisgraphyAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisgisgraphyItemProviderAdapterFactory extends GisgisgraphyAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class GisGisgraphyItemProviderAdapterFactory extends GisGisgraphyAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -73,7 +63,7 @@ public class GisgisgraphyItemProviderAdapterFactory extends GisgisgraphyAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisgisgraphyItemProviderAdapterFactory() {
+	public GisGisgraphyItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);

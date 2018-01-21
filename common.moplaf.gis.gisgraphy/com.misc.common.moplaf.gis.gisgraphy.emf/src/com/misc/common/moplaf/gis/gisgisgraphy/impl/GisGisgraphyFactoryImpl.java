@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.gisgisgraphy.impl;
@@ -29,24 +19,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisgisgraphyFactoryImpl extends EFactoryImpl implements GisgisgraphyFactory {
+public class GisGisgraphyFactoryImpl extends EFactoryImpl implements GisGisgraphyFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static GisgisgraphyFactory init() {
+	public static GisGisgraphyFactory init() {
 		try {
-			GisgisgraphyFactory theGisgisgraphyFactory = (GisgisgraphyFactory)EPackage.Registry.INSTANCE.getEFactory(GisgisgraphyPackage.eNS_URI);
-			if (theGisgisgraphyFactory != null) {
-				return theGisgisgraphyFactory;
+			GisGisgraphyFactory theGisGisgraphyFactory = (GisGisgraphyFactory)EPackage.Registry.INSTANCE.getEFactory(GisGisgraphyPackage.eNS_URI);
+			if (theGisGisgraphyFactory != null) {
+				return theGisGisgraphyFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new GisgisgraphyFactoryImpl();
+		return new GisGisgraphyFactoryImpl();
 	}
 
 	/**
@@ -55,7 +45,7 @@ public class GisgisgraphyFactoryImpl extends EFactoryImpl implements Gisgisgraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisgisgraphyFactoryImpl() {
+	public GisGisgraphyFactoryImpl() {
 		super();
 	}
 
@@ -67,7 +57,7 @@ public class GisgisgraphyFactoryImpl extends EFactoryImpl implements Gisgisgraph
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY: return createGisAddressGeocoderGisgraphy();
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY: return createGisAddressGeocoderGisgraphy();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,7 +71,7 @@ public class GisgisgraphyFactoryImpl extends EFactoryImpl implements Gisgisgraph
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case GisgisgraphyPackage.PROTOCOL:
+			case GisGisgraphyPackage.PROTOCOL:
 				return createProtocolFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -96,7 +86,7 @@ public class GisgisgraphyFactoryImpl extends EFactoryImpl implements Gisgisgraph
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case GisgisgraphyPackage.PROTOCOL:
+			case GisGisgraphyPackage.PROTOCOL:
 				return convertProtocolToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -138,8 +128,8 @@ public class GisgisgraphyFactoryImpl extends EFactoryImpl implements Gisgisgraph
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisgisgraphyPackage getGisgisgraphyPackage() {
-		return (GisgisgraphyPackage)getEPackage();
+	public GisGisgraphyPackage getGisGisgraphyPackage() {
+		return (GisGisgraphyPackage)getEPackage();
 	}
 
 	/**
@@ -149,8 +139,8 @@ public class GisgisgraphyFactoryImpl extends EFactoryImpl implements Gisgisgraph
 	 * @generated
 	 */
 	@Deprecated
-	public static GisgisgraphyPackage getPackage() {
-		return GisgisgraphyPackage.eINSTANCE;
+	public static GisGisgraphyPackage getPackage() {
+		return GisGisgraphyPackage.eINSTANCE;
 	}
 
-} //GisgisgraphyFactoryImpl
+} //GisGisgraphyFactoryImpl

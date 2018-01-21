@@ -14,8 +14,7 @@ package com.misc.common.moplaf.gis.gisgisgraphy.provider;
 
 
 import com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy;
-import com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage;
-
+import com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage;
 import com.misc.common.moplaf.gis.provider.GisAddressGeocoderItemProvider;
 
 import java.util.Collection;
@@ -80,7 +79,7 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 				 getResourceLocator(),
 				 getString("_UI_GisAddressGeocoderGisgraphy_Protocol_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoderGisgraphy_Protocol_feature", "_UI_GisAddressGeocoderGisgraphy_type"),
-				 GisgisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL,
+				 GisGisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL,
 				 true,
 				 false,
 				 false,
@@ -102,7 +101,7 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 				 getResourceLocator(),
 				 getString("_UI_GisAddressGeocoderGisgraphy_Port_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoderGisgraphy_Port_feature", "_UI_GisAddressGeocoderGisgraphy_type"),
-				 GisgisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT,
+				 GisGisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT,
 				 true,
 				 false,
 				 false,
@@ -124,7 +123,7 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 				 getResourceLocator(),
 				 getString("_UI_GisAddressGeocoderGisgraphy_Host_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoderGisgraphy_Host_feature", "_UI_GisAddressGeocoderGisgraphy_type"),
-				 GisgisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST,
+				 GisGisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST,
 				 true,
 				 false,
 				 false,
@@ -146,7 +145,7 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 				 getResourceLocator(),
 				 getString("_UI_GisAddressGeocoderGisgraphy_Path_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoderGisgraphy_Path_feature", "_UI_GisAddressGeocoderGisgraphy_type"),
-				 GisgisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH,
+				 GisGisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH,
 				 true,
 				 false,
 				 false,
@@ -193,10 +192,10 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisAddressGeocoderGisgraphy.class)) {
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -223,7 +222,7 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return GisgisgraphyEditPlugin.INSTANCE;
+		return GisGisgraphyEditPlugin.INSTANCE;
 	}
 
 }

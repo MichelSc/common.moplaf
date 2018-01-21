@@ -14,8 +14,6 @@ package com.misc.common.moplaf.gis.gisgisgraphy;
 
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
 
-import com.misc.common.moplaf.gis.GisGoogle.Protocol;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Gis Address Geocoder Gisgraphy</b></em>'.
@@ -23,15 +21,15 @@ import com.misc.common.moplaf.gis.GisGoogle.Protocol;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getHost <em>Host</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getPort <em>Port</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getPath <em>Path</em>}</li>
  * </ul>
- * </p>
  *
- * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage#getGisAddressGeocoderGisgraphy()
+ * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage#getGisAddressGeocoderGisgraphy()
  * @model
  * @generated
  */
@@ -39,7 +37,7 @@ public interface GisAddressGeocoderGisgraphy extends GisAddressGeocoder {
 	/**
 	 * Returns the value of the '<em><b>Protocol</b></em>' attribute.
 	 * The default value is <code>"http"</code>.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.gis.GisGoogle.Protocol}.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.gis.gisgisgraphy.Protocol}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Protocol</em>' attribute isn't clear,
@@ -47,24 +45,24 @@ public interface GisAddressGeocoderGisgraphy extends GisAddressGeocoder {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Protocol</em>' attribute.
-	 * @see com.misc.common.moplaf.gis.GisGoogle.Protocol
-	 * @see #setProtocol(Protocol)
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage#getGisAddressGeocoderGisgraphy_Protocol()
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.Protocol
+	 * @see #setProtocol(com.misc.common.moplaf.gis.gisgisgraphy.Protocol)
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage#getGisAddressGeocoderGisgraphy_Protocol()
 	 * @model default="http"
 	 * @generated
 	 */
-	Protocol getProtocol();
+	com.misc.common.moplaf.gis.gisgisgraphy.Protocol getProtocol();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getProtocol <em>Protocol</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Protocol</em>' attribute.
-	 * @see com.misc.common.moplaf.gis.GisGoogle.Protocol
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.Protocol
 	 * @see #getProtocol()
 	 * @generated
 	 */
-	void setProtocol(Protocol value);
+	void setProtocol(com.misc.common.moplaf.gis.gisgisgraphy.Protocol value);
 
 	/**
 	 * Returns the value of the '<em><b>Port</b></em>' attribute.
@@ -77,7 +75,7 @@ public interface GisAddressGeocoderGisgraphy extends GisAddressGeocoder {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(int)
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage#getGisAddressGeocoderGisgraphy_Port()
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage#getGisAddressGeocoderGisgraphy_Port()
 	 * @model default="80"
 	 * @generated
 	 */
@@ -104,7 +102,7 @@ public interface GisAddressGeocoderGisgraphy extends GisAddressGeocoder {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host</em>' attribute.
 	 * @see #setHost(String)
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage#getGisAddressGeocoderGisgraphy_Host()
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage#getGisAddressGeocoderGisgraphy_Host()
 	 * @model default="services.gisgraphy.com"
 	 * @generated
 	 */
@@ -131,7 +129,7 @@ public interface GisAddressGeocoderGisgraphy extends GisAddressGeocoder {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage#getGisAddressGeocoderGisgraphy_Path()
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage#getGisAddressGeocoderGisgraphy_Path()
 	 * @model default="/geocoding/geocode"
 	 * @generated
 	 */

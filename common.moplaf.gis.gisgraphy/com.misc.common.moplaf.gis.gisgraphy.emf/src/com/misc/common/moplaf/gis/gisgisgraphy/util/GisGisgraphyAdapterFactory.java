@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.gisgisgraphy.util;
@@ -28,17 +18,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage
+ * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage
  * @generated
  */
-public class GisgisgraphyAdapterFactory extends AdapterFactoryImpl {
+public class GisGisgraphyAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static GisgisgraphyPackage modelPackage;
+	protected static GisGisgraphyPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -46,9 +36,9 @@ public class GisgisgraphyAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisgisgraphyAdapterFactory() {
+	public GisGisgraphyAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = GisgisgraphyPackage.eINSTANCE;
+			modelPackage = GisGisgraphyPackage.eINSTANCE;
 		}
 	}
 
@@ -77,8 +67,8 @@ public class GisgisgraphyAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GisgisgraphySwitch<Adapter> modelSwitch =
-		new GisgisgraphySwitch<Adapter>() {
+	protected GisGisgraphySwitch<Adapter> modelSwitch =
+		new GisGisgraphySwitch<Adapter>() {
 			@Override
 			public Adapter caseGisAddressGeocoderGisgraphy(GisAddressGeocoderGisgraphy object) {
 				return createGisAddressGeocoderGisgraphyAdapter();
@@ -147,4 +137,4 @@ public class GisgisgraphyAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //GisgisgraphyAdapterFactory
+} //GisGisgraphyAdapterFactory

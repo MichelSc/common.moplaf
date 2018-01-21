@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.gisgisgraphy;
@@ -31,11 +21,11 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyFactory
+ * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyFactory
  * @model kind="package"
  * @generated
  */
-public interface GisgisgraphyPackage extends EPackage {
+public interface GisGisgraphyPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -66,14 +56,14 @@ public interface GisgisgraphyPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	GisgisgraphyPackage eINSTANCE = com.misc.common.moplaf.gis.gisgisgraphy.impl.GisgisgraphyPackageImpl.init();
+	GisGisgraphyPackage eINSTANCE = com.misc.common.moplaf.gis.gisgisgraphy.impl.GisGisgraphyPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.gisgisgraphy.impl.GisAddressGeocoderGisgraphyImpl <em>Gis Address Geocoder Gisgraphy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisAddressGeocoderGisgraphyImpl
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisgisgraphyPackageImpl#getGisAddressGeocoderGisgraphy()
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisGisgraphyPackageImpl#getGisAddressGeocoderGisgraphy()
 	 * @generated
 	 */
 	int GIS_ADDRESS_GEOCODER_GISGRAPHY = 0;
@@ -155,7 +145,7 @@ public interface GisgisgraphyPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.gis.gisgisgraphy.Protocol
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisgisgraphyPackageImpl#getProtocol()
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisGisgraphyPackageImpl#getProtocol()
 	 * @generated
 	 */
 	int PROTOCOL = 1;
@@ -183,17 +173,6 @@ public interface GisgisgraphyPackage extends EPackage {
 	EAttribute getGisAddressGeocoderGisgraphy_Protocol();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getPort <em>Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Port</em>'.
-	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getPort()
-	 * @see #getGisAddressGeocoderGisgraphy()
-	 * @generated
-	 */
-	EAttribute getGisAddressGeocoderGisgraphy_Port();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getHost <em>Host</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,6 +182,17 @@ public interface GisgisgraphyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisAddressGeocoderGisgraphy_Host();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getPort()
+	 * @see #getGisAddressGeocoderGisgraphy()
+	 * @generated
+	 */
+	EAttribute getGisAddressGeocoderGisgraphy_Port();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getPath <em>Path</em>}'.
@@ -232,7 +222,7 @@ public interface GisgisgraphyPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	GisgisgraphyFactory getGisgisgraphyFactory();
+	GisGisgraphyFactory getGisGisgraphyFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,7 +243,7 @@ public interface GisgisgraphyPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisAddressGeocoderGisgraphyImpl
-		 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisgisgraphyPackageImpl#getGisAddressGeocoderGisgraphy()
+		 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisGisgraphyPackageImpl#getGisAddressGeocoderGisgraphy()
 		 * @generated
 		 */
 		EClass GIS_ADDRESS_GEOCODER_GISGRAPHY = eINSTANCE.getGisAddressGeocoderGisgraphy();
@@ -267,20 +257,20 @@ public interface GisgisgraphyPackage extends EPackage {
 		EAttribute GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL = eINSTANCE.getGisAddressGeocoderGisgraphy_Protocol();
 
 		/**
-		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT = eINSTANCE.getGisAddressGeocoderGisgraphy_Port();
-
-		/**
 		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST = eINSTANCE.getGisAddressGeocoderGisgraphy_Host();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT = eINSTANCE.getGisAddressGeocoderGisgraphy_Port();
 
 		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
@@ -295,11 +285,11 @@ public interface GisgisgraphyPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.gis.gisgisgraphy.Protocol
-		 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisgisgraphyPackageImpl#getProtocol()
+		 * @see com.misc.common.moplaf.gis.gisgisgraphy.impl.GisGisgraphyPackageImpl#getProtocol()
 		 * @generated
 		 */
 		EEnum PROTOCOL = eINSTANCE.getProtocol();
 
 	}
 
-} //GisgisgraphyPackage
+} //GisGisgraphyPackage

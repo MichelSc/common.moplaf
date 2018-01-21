@@ -10,7 +10,7 @@
       <!-- @generated gisgisgraphy -->
       <factory
             uri="http://www.misc.com/common.moplaf.gisgisgraphy.emf"
-            class="com.misc.common.moplaf.gis.gisgisgraphy.provider.GisgisgraphyItemProviderAdapterFactory"
+            class="com.misc.common.moplaf.gis.gisgisgraphy.provider.GisGisgraphyItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

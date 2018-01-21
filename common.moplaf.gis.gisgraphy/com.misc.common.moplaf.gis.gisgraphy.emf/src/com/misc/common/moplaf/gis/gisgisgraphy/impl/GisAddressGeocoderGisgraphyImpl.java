@@ -25,9 +25,9 @@ import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressStructured;
 import com.misc.common.moplaf.gis.GisAddressUnstructured;
 import com.misc.common.moplaf.gis.GisFactory;
-import com.misc.common.moplaf.gis.GisGoogle.Protocol;
+import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy;
-import com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage;
+import com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage;
 import com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl;
 
 import org.apache.commons.lang.StringUtils;
@@ -45,13 +45,13 @@ import org.json.simple.JSONValue;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.impl.GisAddressGeocoderGisgraphyImpl#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.impl.GisAddressGeocoderGisgraphyImpl#getHost <em>Host</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.impl.GisAddressGeocoderGisgraphyImpl#getPort <em>Port</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.gisgisgraphy.impl.GisAddressGeocoderGisgraphyImpl#getPath <em>Path</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -64,7 +64,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
+	protected static final com.misc.common.moplaf.gis.gisgisgraphy.Protocol PROTOCOL_EDEFAULT = com.misc.common.moplaf.gis.gisgisgraphy.Protocol.HTTP;
 
 	/**
 	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
@@ -74,7 +74,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected Protocol protocol = PROTOCOL_EDEFAULT;
+	protected com.misc.common.moplaf.gis.gisgisgraphy.Protocol protocol = PROTOCOL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getHost() <em>Host</em>}' attribute.
@@ -152,7 +152,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return GisgisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY;
+		return GisGisgraphyPackage.Literals.GIS_ADDRESS_GEOCODER_GISGRAPHY;
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Protocol getProtocol() {
+	public com.misc.common.moplaf.gis.gisgisgraphy.Protocol getProtocol() {
 		return protocol;
 	}
 
@@ -169,11 +169,11 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtocol(Protocol newProtocol) {
-		Protocol oldProtocol = protocol;
+	public void setProtocol(com.misc.common.moplaf.gis.gisgisgraphy.Protocol newProtocol) {
+		com.misc.common.moplaf.gis.gisgisgraphy.Protocol oldProtocol = protocol;
 		protocol = newProtocol == null ? PROTOCOL_EDEFAULT : newProtocol;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL, oldProtocol, protocol));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL, oldProtocol, protocol));
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		int oldPort = port;
 		port = newPort;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT, oldPort, port));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT, oldPort, port));
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		String oldHost = host;
 		host = newHost;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST, oldHost, host));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST, oldHost, host));
 	}
 
 	/**
@@ -236,7 +236,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		String oldPath = path;
 		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH, oldPath, path));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH, oldPath, path));
 	}
 
 	/**
@@ -247,13 +247,13 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
 				return getProtocol();
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
 				return getHost();
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
 				return getPort();
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
 				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -267,16 +267,16 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
-				setProtocol((Protocol)newValue);
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
+				setProtocol((com.misc.common.moplaf.gis.gisgisgraphy.Protocol)newValue);
 				return;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
 				setHost((String)newValue);
 				return;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
 				setPort((Integer)newValue);
 				return;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
 				setPath((String)newValue);
 				return;
 		}
@@ -291,16 +291,16 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
 				setProtocol(PROTOCOL_EDEFAULT);
 				return;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
 				setHost(HOST_EDEFAULT);
 				return;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
 				setPort(PORT_EDEFAULT);
 				return;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
 		}
@@ -315,13 +315,13 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
 				return protocol != PROTOCOL_EDEFAULT;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
 				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
 				return port != PORT_EDEFAULT;
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 		}
 		return super.eIsSet(featureID);
@@ -439,7 +439,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		} catch (Exception e) {
 			CommonPlugin.INSTANCE.log("GisAddressGeocoderGisgraphy: connection failed "+e.getMessage());
 			feedback = "Connection failed: "+e.getMessage();
-			address.setGeocodeFeedback(feedback);
+			Plugin.INSTANCE.logError("GeocoderGisgraphy: "+feedback);
 			return;
 		} finally {
 			if(connection != null) {
@@ -465,12 +465,10 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	    	//long id = (long)resultObject.get("id");
 	    	String description = String.format("%s %s", street, city);
 	    	GisAddressGeocoded newGeocoded = GisFactory.eINSTANCE.createGisAddressGeocoded();
-	    	newGeocoded.setDescription(description);
-	    	newGeocoded.setLatitude((float)latitude);
-	    	newGeocoded.setLongitude((float)longitude);
-	    	newGeocoded.setName("geocoded: "+address.getName()+" -> "+description);
+	    	newGeocoded.setAddressGeocoded(description);
+	    	newGeocoded.setLatitude(latitude);
+	    	newGeocoded.setLongitude(longitude);
 	    	address.getGeocodedAddresses().add(newGeocoded);
 		}
-		address.setGeocodeFeedback(feedback);
 	}
 } //GisAddressGeocoderGisgraphyImpl

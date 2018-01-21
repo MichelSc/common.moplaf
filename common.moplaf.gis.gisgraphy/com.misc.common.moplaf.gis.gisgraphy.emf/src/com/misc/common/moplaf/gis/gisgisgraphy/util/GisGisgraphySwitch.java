@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.gisgisgraphy.util;
@@ -31,17 +21,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.gis.gisgisgraphy.GisgisgraphyPackage
+ * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage
  * @generated
  */
-public class GisgisgraphySwitch<T> extends Switch<T> {
+public class GisGisgraphySwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static GisgisgraphyPackage modelPackage;
+	protected static GisGisgraphyPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -49,9 +39,9 @@ public class GisgisgraphySwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisgisgraphySwitch() {
+	public GisGisgraphySwitch() {
 		if (modelPackage == null) {
-			modelPackage = GisgisgraphyPackage.eINSTANCE;
+			modelPackage = GisGisgraphyPackage.eINSTANCE;
 		}
 	}
 
@@ -59,7 +49,7 @@ public class GisgisgraphySwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -78,7 +68,7 @@ public class GisgisgraphySwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY: {
+			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY: {
 				GisAddressGeocoderGisgraphy gisAddressGeocoderGisgraphy = (GisAddressGeocoderGisgraphy)theEObject;
 				T result = caseGisAddressGeocoderGisgraphy(gisAddressGeocoderGisgraphy);
 				if (result == null) result = caseGisAddressGeocoder(gisAddressGeocoderGisgraphy);
@@ -135,4 +125,4 @@ public class GisgisgraphySwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //GisgisgraphySwitch
+} //GisGisgraphySwitch

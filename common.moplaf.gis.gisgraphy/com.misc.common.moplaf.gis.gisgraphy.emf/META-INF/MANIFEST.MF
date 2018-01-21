@@ -14,6 +14,6 @@ Export-Package: com.misc.common.moplaf.gis.gisgisgraphy,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.gis.emf;visibility:=reexport,
- com.misc.common.moplaf.gis.google.emf;visibility:=reexport,
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy
