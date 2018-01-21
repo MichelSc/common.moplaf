@@ -21,7 +21,6 @@ import org.eclipse.emf.edit.command.CommandParameter;
 
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
-import com.misc.common.moplaf.gis.GisRouter;
 import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.util.GeocoderFactory;
 import com.misc.common.moplaf.gis.util.RouterFactory;

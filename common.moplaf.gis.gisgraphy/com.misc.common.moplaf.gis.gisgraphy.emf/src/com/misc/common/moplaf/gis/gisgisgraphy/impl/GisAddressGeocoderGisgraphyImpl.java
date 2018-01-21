@@ -452,6 +452,10 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		// parse the response
 		CommonPlugin.INSTANCE.log("response ="+responseAsString);
 		JSONObject responseObject = (JSONObject) JSONValue.parse(responseAsString);
+		if ( responseObject == null ) {
+			Plugin.INSTANCE.logError("GeocoderGisgraphy: response not json, "+responseAsString);
+			return;
+		}
 		//String responsestatus = (String)responseObject.get("status");
 		// indicates the response contains a valid result.
     	address.flushGeocoded();
