@@ -101,7 +101,7 @@ public class GisAddressUnstructuredItemProvider extends GisAddressItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisAddressUnstructured)object).getName();
+		String label = ((GisAddressUnstructured)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisAddressUnstructured_type") :
 			getString("_UI_GisAddressUnstructured_type") + " " + label;

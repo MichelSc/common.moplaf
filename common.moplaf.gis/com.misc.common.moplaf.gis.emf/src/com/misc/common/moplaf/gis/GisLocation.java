@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.GisLocation#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocation#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisLocation()
@@ -32,30 +32,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface GisLocation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocation_Name()
-	 * @model
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocation_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisLocation#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+	String getDescription();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,6 +52,6 @@ public interface GisLocation extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	GisCoordinates getCoordinates();
+	GisCoordinatesAbstract getCoordinates();
 
 } // GisLocation

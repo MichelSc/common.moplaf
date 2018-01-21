@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getFromLocation <em>From Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getDuration <em>Duration</em>}</li>
@@ -31,6 +32,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements GisRouteInfo {
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getFromLocation() <em>From Location</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -108,6 +119,15 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	@Override
 	protected EClass eStaticClass() {
 		return GisPackage.Literals.GIS_ROUTE_INFO;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+        String description = String.format("(distance= %f, duration= %f)", this.getDistance(), this.getDuration());
+        return description;
 	}
 
 	/**
@@ -236,6 +256,8 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GisPackage.GIS_ROUTE_INFO__DESCRIPTION:
+				return getDescription();
 			case GisPackage.GIS_ROUTE_INFO__FROM_LOCATION:
 				if (resolve) return getFromLocation();
 				return basicGetFromLocation();
@@ -306,6 +328,8 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GisPackage.GIS_ROUTE_INFO__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case GisPackage.GIS_ROUTE_INFO__FROM_LOCATION:
 				return fromLocation != null;
 			case GisPackage.GIS_ROUTE_INFO__DISTANCE:

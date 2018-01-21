@@ -10,7 +10,7 @@ import com.misc.common.moplaf.gis.GisRouter;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -106,34 +106,35 @@ public abstract class GisRouterImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getDescription() {
-		// TODO: implement this method to return the 'Description' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String description = String.format("Router %s", this.getName());
+		return description;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public GisRouteInfo getRoute(GisLocation from, GisLocation to) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EList<GisRouteInfo> getRoutes(EList<GisLocation> froms, EList<GisLocation> tos) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		BasicEList<GisRouteInfo> list = new BasicEList<GisRouteInfo>();
+		for ( GisLocation from : froms) {
+			for ( GisLocation to : tos){
+				GisRouteInfo info = this.getRoute(from,  to);
+				if ( info!=null) {
+					list.add(info);
+				}
+			}
+		}
+		return list;
 	}
 
 	/**

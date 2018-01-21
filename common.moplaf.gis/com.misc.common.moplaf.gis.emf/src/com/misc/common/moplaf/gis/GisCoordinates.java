@@ -22,65 +22,38 @@ package com.misc.common.moplaf.gis;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.GisCoordinates#getLongitude <em>Longitude</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisCoordinates#getLatitude <em>Latitude</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisCoordinates#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisCoordinates()
  * @model
  * @generated
  */
-public interface GisCoordinates extends GisLocation {
+public interface GisCoordinates extends GisCoordinatesAbstract {
 	/**
-	 * Returns the value of the '<em><b>Longitude</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Longitude</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Longitude</em>' attribute.
-	 * @see #setLongitude(float)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisCoordinates_Longitude()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisCoordinates_Name()
 	 * @model
 	 * @generated
 	 */
-	float getLongitude();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisCoordinates#getLongitude <em>Longitude</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisCoordinates#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Longitude</em>' attribute.
-	 * @see #getLongitude()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setLongitude(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Latitude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Latitude</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Latitude</em>' attribute.
-	 * @see #setLatitude(float)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisCoordinates_Latitude()
-	 * @model
-	 * @generated
-	 */
-	float getLatitude();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisCoordinates#getLatitude <em>Latitude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Latitude</em>' attribute.
-	 * @see #getLatitude()
-	 * @generated
-	 */
-	void setLatitude(float value);
+	void setName(String value);
 
 } // GisCoordinates

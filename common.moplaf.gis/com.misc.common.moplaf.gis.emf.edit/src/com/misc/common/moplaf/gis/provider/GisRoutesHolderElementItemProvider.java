@@ -63,10 +63,33 @@ public class GisRoutesHolderElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDescriptionPropertyDescriptor(object);
 			addToLocationPropertyDescriptor(object);
 			addCalculatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisRoutesHolderElement_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolderElement_Description_feature", "_UI_GisRoutesHolderElement_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -162,8 +185,10 @@ public class GisRoutesHolderElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		GisRoutesHolderElement gisRoutesHolderElement = (GisRoutesHolderElement)object;
-		return getString("_UI_GisRoutesHolderElement_type") + " " + gisRoutesHolderElement.isCalculated();
+		String label = ((GisRoutesHolderElement)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GisRoutesHolderElement_type") :
+			getString("_UI_GisRoutesHolderElement_type") + " " + label;
 	}
 	
 
@@ -179,6 +204,7 @@ public class GisRoutesHolderElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisRoutesHolderElement.class)) {
+			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION:
 			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT__CALCULATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

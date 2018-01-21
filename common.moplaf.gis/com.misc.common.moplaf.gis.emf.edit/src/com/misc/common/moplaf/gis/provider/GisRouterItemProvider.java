@@ -118,7 +118,7 @@ public class GisRouterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisRouter)object).getName();
+		String label = ((GisRouter)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisRouter_type") :
 			getString("_UI_GisRouter_type") + " " + label;

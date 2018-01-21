@@ -29,52 +29,31 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl#getLongitude <em>Longitude</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl#getLatitude <em>Latitude</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinates {
+public class GisCoordinatesImpl extends GisCoordinatesAbstractImpl implements GisCoordinates {
 	/**
-	 * The default value of the '{@link #getLongitude() <em>Longitude</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLongitude()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float LONGITUDE_EDEFAULT = 0.0F;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLongitude() <em>Longitude</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLongitude()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected float longitude = LONGITUDE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLatitude() <em>Latitude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLatitude()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float LATITUDE_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getLatitude() <em>Latitude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLatitude()
-	 * @generated
-	 * @ordered
-	 */
-	protected float latitude = LATITUDE_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,8 +79,8 @@ public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getLongitude() {
-		return longitude;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -109,32 +88,16 @@ public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinate
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLongitude(float newLongitude) {
-		float oldLongitude = longitude;
-		longitude = newLongitude;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_COORDINATES__LONGITUDE, oldLongitude, longitude));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_COORDINATES__NAME, oldName, name));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public float getLatitude() {
-		return latitude;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLatitude(float newLatitude) {
-		float oldLatitude = latitude;
-		latitude = newLatitude;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_COORDINATES__LATITUDE, oldLatitude, latitude));
+	public String getDescription() {
+		String description = String.format("Address %s", this.getName());
+		return description;
 	}
 
 	/**
@@ -145,10 +108,8 @@ public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinate
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GisPackage.GIS_COORDINATES__LONGITUDE:
-				return getLongitude();
-			case GisPackage.GIS_COORDINATES__LATITUDE:
-				return getLatitude();
+			case GisPackage.GIS_COORDINATES__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,11 +122,8 @@ public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinate
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GisPackage.GIS_COORDINATES__LONGITUDE:
-				setLongitude((Float)newValue);
-				return;
-			case GisPackage.GIS_COORDINATES__LATITUDE:
-				setLatitude((Float)newValue);
+			case GisPackage.GIS_COORDINATES__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,11 +137,8 @@ public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinate
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GisPackage.GIS_COORDINATES__LONGITUDE:
-				setLongitude(LONGITUDE_EDEFAULT);
-				return;
-			case GisPackage.GIS_COORDINATES__LATITUDE:
-				setLatitude(LATITUDE_EDEFAULT);
+			case GisPackage.GIS_COORDINATES__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,10 +152,8 @@ public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinate
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GisPackage.GIS_COORDINATES__LONGITUDE:
-				return longitude != LONGITUDE_EDEFAULT;
-			case GisPackage.GIS_COORDINATES__LATITUDE:
-				return latitude != LATITUDE_EDEFAULT;
+			case GisPackage.GIS_COORDINATES__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,10 +168,8 @@ public class GisCoordinatesImpl extends GisLocationImpl implements GisCoordinate
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Longitude: ");
-		result.append(longitude);
-		result.append(", Latitude: ");
-		result.append(latitude);
+		result.append(" (Name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

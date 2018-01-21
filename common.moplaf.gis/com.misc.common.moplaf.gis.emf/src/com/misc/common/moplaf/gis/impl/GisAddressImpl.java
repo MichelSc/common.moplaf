@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getCountryCode <em>Country Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocodedAddresses <em>Geocoded Addresses</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
@@ -51,6 +52,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public abstract class GisAddressImpl extends GisLocationImpl implements GisAddress {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getCountryCode() <em>Country Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -296,6 +317,27 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void refreshGeocoded() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -315,6 +357,11 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 			GisAddressGeocoded selected = this.getGeocodedAddresses().get(0);
 			this.setSelectedGeocodedLocation(selected);
 		}
+	}
+
+	public String getDescription() {
+		String description = String.format("Address %s", this.getName());
+		return description;
 	}
 
 	/**
@@ -339,6 +386,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GisPackage.GIS_ADDRESS__NAME:
+				return getName();
 			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
 				return getCountryCode();
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
@@ -366,6 +415,9 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GisPackage.GIS_ADDRESS__NAME:
+				setName((String)newValue);
+				return;
 			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
 				setCountryCode((String)newValue);
 				return;
@@ -394,6 +446,9 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GisPackage.GIS_ADDRESS__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
 				setCountryCode(COUNTRY_CODE_EDEFAULT);
 				return;
@@ -421,6 +476,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GisPackage.GIS_ADDRESS__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
 				return COUNTRY_CODE_EDEFAULT == null ? countryCode != null : !COUNTRY_CODE_EDEFAULT.equals(countryCode);
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
@@ -465,7 +522,9 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (CountryCode: ");
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(", CountryCode: ");
 		result.append(countryCode);
 		result.append(", GeocodingFeedback: ");
 		result.append(geocodingFeedback);

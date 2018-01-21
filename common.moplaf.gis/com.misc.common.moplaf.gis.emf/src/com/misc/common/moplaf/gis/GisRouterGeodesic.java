@@ -20,7 +20,7 @@ package com.misc.common.moplaf.gis;
  * @model
  * @generated
  */
-public interface GisRouterGeodesic extends GisRouter {
+public interface GisRouterGeodesic extends GisRouteCalculatorOneToOne {
 	/**
 	 * Returns the value of the '<em><b>Speed</b></em>' attribute.
 	 * The default value is <code>"50.0"</code>.

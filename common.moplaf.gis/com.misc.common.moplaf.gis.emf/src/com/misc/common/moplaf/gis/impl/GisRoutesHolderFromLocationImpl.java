@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl#getToLocations <em>To Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl#getRoutesHolder <em>Routes Holder</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +68,16 @@ public class GisRoutesHolderFromLocationImpl extends MinimalEObjectImpl.Containe
 	 * @ordered
 	 */
 	protected EList<GisRoutesHolderElement> toLocations;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,6 +193,15 @@ public class GisRoutesHolderFromLocationImpl extends MinimalEObjectImpl.Containe
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public String getDescription() {
+		String description = String.format("From %s", this.getLocation().getDescription());
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public GisRoutesHolderElement getElement(GisLocation toLocation) {
 		if ( this.toLocationsIndex==null){
 			this.toLocationsIndex = new HashMap<GisLocation, GisRoutesHolderElement>();
@@ -282,6 +302,8 @@ public class GisRoutesHolderFromLocationImpl extends MinimalEObjectImpl.Containe
 				return getToLocations();
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER:
 				return getRoutesHolder();
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,6 +366,8 @@ public class GisRoutesHolderFromLocationImpl extends MinimalEObjectImpl.Containe
 				return toLocations != null && !toLocations.isEmpty();
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER:
 				return getRoutesHolder() != null;
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}

@@ -23,7 +23,7 @@ package com.misc.common.moplaf.gis;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getScore <em>Score</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddressGeocoded <em>Address Geocoded</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}</li>
  * </ul>
  *
@@ -31,7 +31,7 @@ package com.misc.common.moplaf.gis;
  * @model
  * @generated
  */
-public interface GisAddressGeocoded extends GisCoordinates {
+public interface GisAddressGeocoded extends GisCoordinatesAbstract {
 	/**
 	 * Returns the value of the '<em><b>Score</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,30 +59,30 @@ public interface GisAddressGeocoded extends GisCoordinates {
 	void setScore(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * Returns the value of the '<em><b>Address Geocoded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Address Geocoded</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressGeocoded_Description()
+	 * @return the value of the '<em>Address Geocoded</em>' attribute.
+	 * @see #setAddressGeocoded(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressGeocoded_AddressGeocoded()
 	 * @model
 	 * @generated
 	 */
-	String getDescription();
+	String getAddressGeocoded();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddressGeocoded <em>Address Geocoded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
+	 * @param value the new value of the '<em>Address Geocoded</em>' attribute.
+	 * @see #getAddressGeocoded()
 	 * @generated
 	 */
-	void setDescription(String value);
+	void setAddressGeocoded(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Address</b></em>' container reference.

@@ -34,13 +34,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl#getScore <em>Score</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl#getAddressGeocoded <em>Address Geocoded</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl#getAddress <em>Address</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAddressGeocoded {
+public class GisAddressGeocodedImpl extends GisCoordinatesAbstractImpl implements GisAddressGeocoded {
 	/**
 	 * The default value of the '{@link #getScore() <em>Score</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,24 +62,24 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 	protected float score = SCORE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The default value of the '{@link #getAddressGeocoded() <em>Address Geocoded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getAddressGeocoded()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String ADDRESS_GEOCODED_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The cached value of the '{@link #getAddressGeocoded() <em>Address Geocoded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getAddressGeocoded()
 	 * @generated
 	 * @ordered
 	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	protected String addressGeocoded = ADDRESS_GEOCODED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,8 +126,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDescription() {
-		return description;
+	public String getAddressGeocoded() {
+		return addressGeocoded;
 	}
 
 	/**
@@ -135,11 +135,11 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
+	public void setAddressGeocoded(String newAddressGeocoded) {
+		String oldAddressGeocoded = addressGeocoded;
+		addressGeocoded = newAddressGeocoded;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED, oldAddressGeocoded, addressGeocoded));
 	}
 
 	/**
@@ -181,6 +181,11 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS, newAddress, newAddress));
+	}
+
+	public String getDescription() {
+		String description = String.format("Geocoded %s", this.getAddressGeocoded());
+		return description;
 	}
 
 	/**
@@ -237,8 +242,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 		switch (featureID) {
 			case GisPackage.GIS_ADDRESS_GEOCODED__SCORE:
 				return getScore();
-			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
-				return getDescription();
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED:
+				return getAddressGeocoded();
 			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
 				return getAddress();
 		}
@@ -256,8 +261,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 			case GisPackage.GIS_ADDRESS_GEOCODED__SCORE:
 				setScore((Float)newValue);
 				return;
-			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
-				setDescription((String)newValue);
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED:
+				setAddressGeocoded((String)newValue);
 				return;
 			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
 				setAddress((GisAddress)newValue);
@@ -277,8 +282,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 			case GisPackage.GIS_ADDRESS_GEOCODED__SCORE:
 				setScore(SCORE_EDEFAULT);
 				return;
-			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED:
+				setAddressGeocoded(ADDRESS_GEOCODED_EDEFAULT);
 				return;
 			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
 				setAddress((GisAddress)null);
@@ -297,8 +302,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 		switch (featureID) {
 			case GisPackage.GIS_ADDRESS_GEOCODED__SCORE:
 				return score != SCORE_EDEFAULT;
-			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED:
+				return ADDRESS_GEOCODED_EDEFAULT == null ? addressGeocoded != null : !ADDRESS_GEOCODED_EDEFAULT.equals(addressGeocoded);
 			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS:
 				return getAddress() != null;
 		}
@@ -317,8 +322,8 @@ public class GisAddressGeocodedImpl extends GisCoordinatesImpl implements GisAdd
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Score: ");
 		result.append(score);
-		result.append(", Description: ");
-		result.append(description);
+		result.append(", AddressGeocoded: ");
+		result.append(addressGeocoded);
 		result.append(')');
 		return result.toString();
 	}

@@ -178,7 +178,7 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisRoutesHolder)object).getName();
+		String label = ((GisRoutesHolder)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisRoutesHolder_type") :
 			getString("_UI_GisRoutesHolder_type") + " " + label;

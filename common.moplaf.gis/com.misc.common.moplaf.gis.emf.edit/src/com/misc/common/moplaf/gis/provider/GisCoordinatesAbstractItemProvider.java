@@ -1,60 +1,36 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.provider;
 
 
-import com.misc.common.moplaf.gis.GisLocation;
+import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisLocation} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisCoordinatesAbstract} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisLocationItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class GisCoordinatesAbstractItemProvider extends GisLocationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisLocationItemProvider(AdapterFactory adapterFactory) {
+	public GisCoordinatesAbstractItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,42 +45,54 @@ public class GisLocationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptionPropertyDescriptor(object);
+			addLongitudePropertyDescriptor(object);
+			addLatitudePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Longitude feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addLongitudePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisLocation_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisLocation_Description_feature", "_UI_GisLocation_type"),
-				 GisPackage.Literals.GIS_LOCATION__DESCRIPTION,
+				 getString("_UI_GisCoordinatesAbstract_Longitude_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisCoordinatesAbstract_Longitude_feature", "_UI_GisCoordinatesAbstract_type"),
+				 GisPackage.Literals.GIS_COORDINATES_ABSTRACT__LONGITUDE,
+				 true,
 				 false,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns GisLocation.gif.
+	 * This adds a property descriptor for the Latitude feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisLocation"));
+	protected void addLatitudePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisCoordinatesAbstract_Latitude_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisCoordinatesAbstract_Latitude_feature", "_UI_GisCoordinatesAbstract_type"),
+				 GisPackage.Literals.GIS_COORDINATES_ABSTRACT__LATITUDE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -115,10 +103,10 @@ public class GisLocationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisLocation)object).getDescription();
+		String label = ((GisCoordinatesAbstract)object).getDescription();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GisLocation_type") :
-			getString("_UI_GisLocation_type") + " " + label;
+			getString("_UI_GisCoordinatesAbstract_type") :
+			getString("_UI_GisCoordinatesAbstract_type") + " " + label;
 	}
 	
 
@@ -133,8 +121,9 @@ public class GisLocationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(GisLocation.class)) {
-			case GisPackage.GIS_LOCATION__DESCRIPTION:
+		switch (notification.getFeatureID(GisCoordinatesAbstract.class)) {
+			case GisPackage.GIS_COORDINATES_ABSTRACT__LONGITUDE:
+			case GisPackage.GIS_COORDINATES_ABSTRACT__LATITUDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -151,17 +140,6 @@ public class GisLocationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return GisEditPlugin.INSTANCE;
 	}
 
 }

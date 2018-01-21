@@ -112,7 +112,7 @@ public class GisRouterDefaultedItemProvider extends GisRouterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisRouterDefaulted)object).getName();
+		String label = ((GisRouterDefaulted)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisRouterDefaulted_type") :
 			getString("_UI_GisRouterDefaulted_type") + " " + label;

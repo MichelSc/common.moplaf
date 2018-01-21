@@ -2,7 +2,7 @@ package com.misc.common.moplaf.common.util;
 
 public class GisUtil {
 	/**
-	 * Return the geodesic distance (on our globe)
+	 * Return the geodesic distance (on our earth)
 	 * coordinates are expressed in degrees, so in x the range [-180 +180] and y in the range [-90, 90]
 	 * result is expressed in kms
 	 * @param x1

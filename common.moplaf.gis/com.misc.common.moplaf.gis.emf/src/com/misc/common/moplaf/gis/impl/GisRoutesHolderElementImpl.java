@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl#getToLocation <em>To Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl#getFromLocation <em>From Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl#getRoutesInfo <em>Routes Info</em>}</li>
@@ -44,6 +45,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class GisRoutesHolderElementImpl extends MinimalEObjectImpl.Container implements GisRoutesHolderElement {
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getToLocation() <em>To Location</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -101,6 +112,17 @@ public class GisRoutesHolderElementImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	protected EClass eStaticClass() {
 		return GisPackage.Literals.GIS_ROUTES_HOLDER_ELEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("From %s to %s", 
+                this.getFromLocation().getLocation().getDescription(),
+                this.getToLocation().getLocation().getDescription());
+		return description;
 	}
 
 	/**
@@ -308,6 +330,8 @@ public class GisRoutesHolderElementImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION:
+				return getDescription();
 			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION:
 				if (resolve) return getToLocation();
 				return basicGetToLocation();
@@ -379,6 +403,8 @@ public class GisRoutesHolderElementImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION:
 				return toLocation != null;
 			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION:

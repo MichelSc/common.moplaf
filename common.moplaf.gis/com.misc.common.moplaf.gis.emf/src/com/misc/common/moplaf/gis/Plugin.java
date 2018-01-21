@@ -7,6 +7,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import com.misc.common.moplaf.common.Logger;
+import com.misc.common.moplaf.common.Logger.Level;
 
 /**
  * This is the central singleton for the Gis model plugin.
@@ -28,6 +29,19 @@ public final class Plugin extends EMFPlugin {
 	public Logger getLogger(){
 		return this.logger;
 	}
+	
+	public void logInfo(String message){
+		this.logger.log(Level.INFO, message);
+	}
+	
+	public void logWarning(String message){
+		this.logger.log(Level.WARNING, message);
+	}
+	
+	public void logError(String message){
+		this.logger.log(Level.ERROR, message);
+	}
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->

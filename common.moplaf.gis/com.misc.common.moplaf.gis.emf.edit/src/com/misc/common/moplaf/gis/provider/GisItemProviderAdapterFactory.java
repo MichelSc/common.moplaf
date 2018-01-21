@@ -438,7 +438,6 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	 * @generated
 	 */
 	public void dispose() {
-		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
 		if (gisRoutesHolderItemProvider != null) gisRoutesHolderItemProvider.dispose();
 		if (gisRoutesHolderFromLocationItemProvider != null) gisRoutesHolderFromLocationItemProvider.dispose();
 		if (gisRoutesHolderToLocationItemProvider != null) gisRoutesHolderToLocationItemProvider.dispose();
@@ -449,6 +448,7 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		if (gisAddressUnstructuredItemProvider != null) gisAddressUnstructuredItemProvider.dispose();
 		if (gisRouterGeodesicItemProvider != null) gisRouterGeodesicItemProvider.dispose();
 		if (gisRouterDefaultedItemProvider != null) gisRouterDefaultedItemProvider.dispose();
+		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
 	}
 
 }

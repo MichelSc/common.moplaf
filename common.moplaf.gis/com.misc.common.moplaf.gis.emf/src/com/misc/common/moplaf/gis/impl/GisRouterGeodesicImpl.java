@@ -2,7 +2,12 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.common.util.GisUtil;
+import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
+import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.GisRouteInfo;
 import com.misc.common.moplaf.gis.GisRouterGeodesic;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class GisRouterGeodesicImpl extends GisRouterImpl implements GisRouterGeodesic {
+public class GisRouterGeodesicImpl extends GisRouteCalculatorOneToOneImpl implements GisRouterGeodesic {
 	/**
 	 * The default value of the '{@link #getSpeed() <em>Speed</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -125,6 +130,26 @@ public class GisRouterGeodesicImpl extends GisRouterImpl implements GisRouterGeo
 		correction = newCorrection;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ROUTER_GEODESIC__CORRECTION, oldCorrection, correction));
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	protected GisRouteInfo getRouteImpl(GisLocation from, GisLocation to) {
+		GisCoordinatesAbstract from_coordinates = from.getCoordinates();
+		GisCoordinatesAbstract to_coordinates = to.getCoordinates();
+		double distance = GisUtil.getDistance(
+				from_coordinates.getLongitude(),
+				from_coordinates.getLatitude(),
+				to_coordinates.getLongitude(),
+				to_coordinates.getLatitude());
+		double distance_corrected = distance*this.getCorrection();
+		double duration = distance_corrected/this.getSpeed();
+		GisRouteInfo route_info = GisFactory.eINSTANCE.createGisRouteInfo();
+		route_info.setDistance(distance_corrected);
+		route_info.setDuration(duration);
+		return route_info;
 	}
 
 	/**

@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -62,6 +63,7 @@ public class GisRoutesHolderFromLocationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addLocationPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,6 +86,28 @@ public class GisRoutesHolderFromLocationItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisRoutesHolderFromLocation_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolderFromLocation_Description_feature", "_UI_GisRoutesHolderFromLocation_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -137,7 +161,10 @@ public class GisRoutesHolderFromLocationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GisRoutesHolderFromLocation_type");
+		String label = ((GisRoutesHolderFromLocation)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GisRoutesHolderFromLocation_type") :
+			getString("_UI_GisRoutesHolderFromLocation_type") + " " + label;
 	}
 	
 
@@ -153,6 +180,9 @@ public class GisRoutesHolderFromLocationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisRoutesHolderFromLocation.class)) {
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

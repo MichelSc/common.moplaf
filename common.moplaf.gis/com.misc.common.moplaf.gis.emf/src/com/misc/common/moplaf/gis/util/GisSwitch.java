@@ -76,10 +76,10 @@ public class GisSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case GisPackage.GIS_COORDINATES: {
-				GisCoordinates gisCoordinates = (GisCoordinates)theEObject;
-				T result = caseGisCoordinates(gisCoordinates);
-				if (result == null) result = caseGisLocation(gisCoordinates);
+			case GisPackage.GIS_COORDINATES_ABSTRACT: {
+				GisCoordinatesAbstract gisCoordinatesAbstract = (GisCoordinatesAbstract)theEObject;
+				T result = caseGisCoordinatesAbstract(gisCoordinatesAbstract);
+				if (result == null) result = caseGisLocation(gisCoordinatesAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,7 +124,7 @@ public class GisSwitch<T> extends Switch<T> {
 			case GisPackage.GIS_ADDRESS_GEOCODED: {
 				GisAddressGeocoded gisAddressGeocoded = (GisAddressGeocoded)theEObject;
 				T result = caseGisAddressGeocoded(gisAddressGeocoded);
-				if (result == null) result = caseGisCoordinates(gisAddressGeocoded);
+				if (result == null) result = caseGisCoordinatesAbstract(gisAddressGeocoded);
 				if (result == null) result = caseGisLocation(gisAddressGeocoded);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -197,6 +197,8 @@ public class GisSwitch<T> extends Switch<T> {
 			case GisPackage.GIS_ROUTER_GEODESIC: {
 				GisRouterGeodesic gisRouterGeodesic = (GisRouterGeodesic)theEObject;
 				T result = caseGisRouterGeodesic(gisRouterGeodesic);
+				if (result == null) result = caseGisRouteCalculatorOneToOne(gisRouterGeodesic);
+				if (result == null) result = caseGisRouteCalculator(gisRouterGeodesic);
 				if (result == null) result = caseGisRouter(gisRouterGeodesic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -208,8 +210,31 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisPackage.GIS_COORDINATES: {
+				GisCoordinates gisCoordinates = (GisCoordinates)theEObject;
+				T result = caseGisCoordinates(gisCoordinates);
+				if (result == null) result = caseGisCoordinatesAbstract(gisCoordinates);
+				if (result == null) result = caseGisLocation(gisCoordinates);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Coordinates Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Coordinates Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisCoordinatesAbstract(GisCoordinatesAbstract object) {
+		return null;
 	}
 
 	/**

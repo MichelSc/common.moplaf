@@ -78,13 +78,13 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION = 8;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION__NAME = 0;
+	int GIS_LOCATION__DESCRIPTION = 0;
 
 	/**
 	 * The number of structural features of the '<em>Location</em>' class.
@@ -114,23 +114,23 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl <em>Coordinates</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisCoordinatesAbstractImpl <em>Coordinates Abstract</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisCoordinatesImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinates()
+	 * @see com.misc.common.moplaf.gis.impl.GisCoordinatesAbstractImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinatesAbstract()
 	 * @generated
 	 */
-	int GIS_COORDINATES = 0;
+	int GIS_COORDINATES_ABSTRACT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES__NAME = GIS_LOCATION__NAME;
+	int GIS_COORDINATES_ABSTRACT__DESCRIPTION = GIS_LOCATION__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
@@ -139,7 +139,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES__LONGITUDE = GIS_LOCATION_FEATURE_COUNT + 0;
+	int GIS_COORDINATES_ABSTRACT__LONGITUDE = GIS_LOCATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
@@ -148,16 +148,16 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES__LATITUDE = GIS_LOCATION_FEATURE_COUNT + 1;
+	int GIS_COORDINATES_ABSTRACT__LATITUDE = GIS_LOCATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Coordinates</em>' class.
+	 * The number of structural features of the '<em>Coordinates Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 2;
+	int GIS_COORDINATES_ABSTRACT_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -166,16 +166,58 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES___GET_COORDINATES = GIS_LOCATION___GET_COORDINATES;
+	int GIS_COORDINATES_ABSTRACT___GET_COORDINATES = GIS_LOCATION___GET_COORDINATES;
 
 	/**
-	 * The number of operations of the '<em>Coordinates</em>' class.
+	 * The number of operations of the '<em>Coordinates Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 0;
+	int GIS_COORDINATES_ABSTRACT_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl <em>Coordinates</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisCoordinatesImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinates()
+	 * @generated
+	 */
+	int GIS_COORDINATES = 19;
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract <em>Coordinates Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Coordinates Abstract</em>'.
+	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract
+	 * @generated
+	 */
+	EClass getGisCoordinatesAbstract();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLongitude <em>Longitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Longitude</em>'.
+	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLongitude()
+	 * @see #getGisCoordinatesAbstract()
+	 * @generated
+	 */
+	EAttribute getGisCoordinatesAbstract_Longitude();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLatitude <em>Latitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Latitude</em>'.
+	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLatitude()
+	 * @see #getGisCoordinatesAbstract()
+	 * @generated
+	 */
+	EAttribute getGisCoordinatesAbstract_Latitude();
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.
@@ -188,13 +230,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS__DESCRIPTION = GIS_LOCATION__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__NAME = GIS_LOCATION__NAME;
+	int GIS_ADDRESS__NAME = GIS_LOCATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Country Code</b></em>' attribute.
@@ -203,7 +254,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__COUNTRY_CODE = GIS_LOCATION_FEATURE_COUNT + 0;
+	int GIS_ADDRESS__COUNTRY_CODE = GIS_LOCATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Geocoded Addresses</b></em>' containment reference list.
@@ -212,7 +263,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__GEOCODED_ADDRESSES = GIS_LOCATION_FEATURE_COUNT + 1;
+	int GIS_ADDRESS__GEOCODED_ADDRESSES = GIS_LOCATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Selected Geocoded Location</b></em>' reference.
@@ -221,7 +272,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__SELECTED_GEOCODED_LOCATION = GIS_LOCATION_FEATURE_COUNT + 2;
+	int GIS_ADDRESS__SELECTED_GEOCODED_LOCATION = GIS_LOCATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Geocoder</b></em>' reference.
@@ -230,7 +281,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__GEOCODER = GIS_LOCATION_FEATURE_COUNT + 3;
+	int GIS_ADDRESS__GEOCODER = GIS_LOCATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Geocoding Feedback</b></em>' attribute.
@@ -239,7 +290,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__GEOCODING_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 4;
+	int GIS_ADDRESS__GEOCODING_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
@@ -248,7 +299,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__REFRESH_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 5;
+	int GIS_ADDRESS__REFRESH_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Address</em>' class.
@@ -257,7 +308,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 6;
+	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -569,13 +620,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Routes Holder From Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = 3;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -651,13 +711,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Routes Holder To Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = 3;
+	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -706,13 +775,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_ELEMENT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION = 0;
+
+	/**
 	 * The feature id for the '<em><b>To Location</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION = 0;
+	int GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>From Location</b></em>' container reference.
@@ -721,7 +799,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION = 1;
+	int GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Routes Info</b></em>' containment reference list.
@@ -730,7 +808,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__ROUTES_INFO = 2;
+	int GIS_ROUTES_HOLDER_ELEMENT__ROUTES_INFO = 3;
 
 	/**
 	 * The feature id for the '<em><b>Calculated</b></em>' attribute.
@@ -739,7 +817,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__CALCULATED = 3;
+	int GIS_ROUTES_HOLDER_ELEMENT__CALCULATED = 4;
 
 	/**
 	 * The number of structural features of the '<em>Routes Holder Element</em>' class.
@@ -748,7 +826,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT_FEATURE_COUNT = 4;
+	int GIS_ROUTES_HOLDER_ELEMENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Remove</em>' operation.
@@ -779,13 +857,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTE_INFO = 6;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__DESCRIPTION = 0;
+
+	/**
 	 * The feature id for the '<em><b>From Location</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO__FROM_LOCATION = 0;
+	int GIS_ROUTE_INFO__FROM_LOCATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Distance</b></em>' attribute.
@@ -794,7 +881,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO__DISTANCE = 1;
+	int GIS_ROUTE_INFO__DISTANCE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -803,7 +890,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO__DURATION = 2;
+	int GIS_ROUTE_INFO__DURATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>To Location</b></em>' reference.
@@ -812,7 +899,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO__TO_LOCATION = 3;
+	int GIS_ROUTE_INFO__TO_LOCATION = 4;
 
 	/**
 	 * The number of structural features of the '<em>Route Info</em>' class.
@@ -821,7 +908,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO_FEATURE_COUNT = 4;
+	int GIS_ROUTE_INFO_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Route Info</em>' class.
@@ -843,13 +930,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODED = 7;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED__NAME = GIS_COORDINATES__NAME;
+	int GIS_ADDRESS_GEOCODED__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
@@ -858,7 +945,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED__LONGITUDE = GIS_COORDINATES__LONGITUDE;
+	int GIS_ADDRESS_GEOCODED__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
 
 	/**
 	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
@@ -867,7 +954,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED__LATITUDE = GIS_COORDINATES__LATITUDE;
+	int GIS_ADDRESS_GEOCODED__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' attribute.
@@ -876,16 +963,16 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED__SCORE = GIS_COORDINATES_FEATURE_COUNT + 0;
+	int GIS_ADDRESS_GEOCODED__SCORE = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Address Geocoded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED__DESCRIPTION = GIS_COORDINATES_FEATURE_COUNT + 1;
+	int GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' container reference.
@@ -894,7 +981,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED__ADDRESS = GIS_COORDINATES_FEATURE_COUNT + 2;
+	int GIS_ADDRESS_GEOCODED__ADDRESS = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Address Geocoded</em>' class.
@@ -903,7 +990,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_FEATURE_COUNT + 3;
+	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -912,7 +999,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED___GET_COORDINATES = GIS_COORDINATES___GET_COORDINATES;
+	int GIS_ADDRESS_GEOCODED___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
 
 	/**
 	 * The number of operations of the '<em>Address Geocoded</em>' class.
@@ -921,7 +1008,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED_OPERATION_COUNT = GIS_COORDINATES_OPERATION_COUNT + 0;
+	int GIS_ADDRESS_GEOCODED_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl <em>Address Geocoder</em>}' class.
@@ -1042,6 +1129,15 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	int GIS_ADDRESS_STRUCTURED = 11;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__DESCRIPTION = GIS_ADDRESS__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1214,6 +1310,15 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED = 12;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__DESCRIPTION = GIS_ADDRESS__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1542,7 +1647,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC__NAME = GIS_ROUTER__NAME;
+	int GIS_ROUTER_GEODESIC__NAME = GIS_ROUTE_CALCULATOR_ONE_TO_ONE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1551,7 +1656,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
+	int GIS_ROUTER_GEODESIC__DESCRIPTION = GIS_ROUTE_CALCULATOR_ONE_TO_ONE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Speed</b></em>' attribute.
@@ -1560,7 +1665,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC__SPEED = GIS_ROUTER_FEATURE_COUNT + 0;
+	int GIS_ROUTER_GEODESIC__SPEED = GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Correction</b></em>' attribute.
@@ -1569,7 +1674,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC__CORRECTION = GIS_ROUTER_FEATURE_COUNT + 1;
+	int GIS_ROUTER_GEODESIC__CORRECTION = GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Router Geodesic</em>' class.
@@ -1578,7 +1683,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 2;
+	int GIS_ROUTER_GEODESIC_FEATURE_COUNT = GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Route</em>' operation.
@@ -1587,7 +1692,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
+	int GIS_ROUTER_GEODESIC___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTE_CALCULATOR_ONE_TO_ONE___GET_ROUTE__GISLOCATION_GISLOCATION;
 
 	/**
 	 * The operation id for the '<em>Get Routes</em>' operation.
@@ -1596,7 +1701,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
+	int GIS_ROUTER_GEODESIC___GET_ROUTES__ELIST_ELIST = GIS_ROUTE_CALCULATOR_ONE_TO_ONE___GET_ROUTES__ELIST_ELIST;
 
 	/**
 	 * The number of operations of the '<em>Router Geodesic</em>' class.
@@ -1605,7 +1710,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTER_GEODESIC_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
+	int GIS_ROUTER_GEODESIC_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_ONE_TO_ONE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl <em>Router Defaulted</em>}' class.
@@ -1689,6 +1794,69 @@ public interface GisPackage extends EPackage {
 	 */
 	int GIS_ROUTER_DEFAULTED_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
 
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__NAME = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Coordinates</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Coordinates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
+
+	/**
+	 * The number of operations of the '<em>Coordinates</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinates <em>Coordinates</em>}'.
@@ -1701,26 +1869,15 @@ public interface GisPackage extends EPackage {
 	EClass getGisCoordinates();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinates#getLongitude <em>Longitude</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinates#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Longitude</em>'.
-	 * @see com.misc.common.moplaf.gis.GisCoordinates#getLongitude()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisCoordinates#getName()
 	 * @see #getGisCoordinates()
 	 * @generated
 	 */
-	EAttribute getGisCoordinates_Longitude();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinates#getLatitude <em>Latitude</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Latitude</em>'.
-	 * @see com.misc.common.moplaf.gis.GisCoordinates#getLatitude()
-	 * @see #getGisCoordinates()
-	 * @generated
-	 */
-	EAttribute getGisCoordinates_Latitude();
+	EAttribute getGisCoordinates_Name();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddress <em>Address</em>}'.
@@ -1797,6 +1954,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisAddress_RefreshFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddress#getName()
+	 * @see #getGisAddress()
+	 * @generated
+	 */
+	EAttribute getGisAddress_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#refreshGeocoded() <em>Refresh Geocoded</em>}' operation.
@@ -1997,6 +2165,17 @@ public interface GisPackage extends EPackage {
 	EReference getGisRoutesHolderFromLocation_RoutesHolder();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getDescription()
+	 * @see #getGisRoutesHolderFromLocation()
+	 * @generated
+	 */
+	EAttribute getGisRoutesHolderFromLocation_Description();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2070,6 +2249,17 @@ public interface GisPackage extends EPackage {
 	EReference getGisRoutesHolderToLocation_RoutesHolder();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getDescription()
+	 * @see #getGisRoutesHolderToLocation()
+	 * @generated
+	 */
+	EAttribute getGisRoutesHolderToLocation_Description();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2108,6 +2298,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisRoutesHolderElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#getDescription()
+	 * @see #getGisRoutesHolderElement()
+	 * @generated
+	 */
+	EAttribute getGisRoutesHolderElement_Description();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#getToLocation <em>To Location</em>}'.
@@ -2172,6 +2373,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisRouteInfo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouteInfo#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo#getDescription()
+	 * @see #getGisRouteInfo()
+	 * @generated
+	 */
+	EAttribute getGisRouteInfo_Description();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRouteInfo#getFromLocation <em>From Location</em>}'.
@@ -2239,15 +2451,15 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisAddressGeocoded_Score();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddressGeocoded <em>Address Geocoded</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddressGeocoded#getDescription()
+	 * @return the meta object for the attribute '<em>Address Geocoded</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressGeocoded#getAddressGeocoded()
 	 * @see #getGisAddressGeocoded()
 	 * @generated
 	 */
-	EAttribute getGisAddressGeocoded_Description();
+	EAttribute getGisAddressGeocoded_AddressGeocoded();
 
 	/**
 	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}'.
@@ -2271,15 +2483,15 @@ public interface GisPackage extends EPackage {
 	EClass getGisLocation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocation#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocation#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.gis.GisLocation#getName()
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocation#getDescription()
 	 * @see #getGisLocation()
 	 * @generated
 	 */
-	EAttribute getGisLocation_Name();
+	EAttribute getGisLocation_Description();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocation#getCoordinates() <em>Get Coordinates</em>}' operation.
@@ -2599,6 +2811,32 @@ public interface GisPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisCoordinatesAbstractImpl <em>Coordinates Abstract</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisCoordinatesAbstractImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinatesAbstract()
+		 * @generated
+		 */
+		EClass GIS_COORDINATES_ABSTRACT = eINSTANCE.getGisCoordinatesAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Longitude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_COORDINATES_ABSTRACT__LONGITUDE = eINSTANCE.getGisCoordinatesAbstract_Longitude();
+
+		/**
+		 * The meta object literal for the '<em><b>Latitude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_COORDINATES_ABSTRACT__LATITUDE = eINSTANCE.getGisCoordinatesAbstract_Latitude();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl <em>Coordinates</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2609,20 +2847,12 @@ public interface GisPackage extends EPackage {
 		EClass GIS_COORDINATES = eINSTANCE.getGisCoordinates();
 
 		/**
-		 * The meta object literal for the '<em><b>Longitude</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_COORDINATES__LONGITUDE = eINSTANCE.getGisCoordinates_Longitude();
-
-		/**
-		 * The meta object literal for the '<em><b>Latitude</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_COORDINATES__LATITUDE = eINSTANCE.getGisCoordinates_Latitude();
+		EAttribute GIS_COORDINATES__NAME = eINSTANCE.getGisCoordinates_Name();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.
@@ -2681,6 +2911,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_ADDRESS__REFRESH_FEEDBACK = eINSTANCE.getGisAddress_RefreshFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS__NAME = eINSTANCE.getGisAddress_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Geocoded</b></em>' operation.
@@ -2839,6 +3077,14 @@ public interface GisPackage extends EPackage {
 		EReference GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = eINSTANCE.getGisRoutesHolderFromLocation_RoutesHolder();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION = eINSTANCE.getGisRoutesHolderFromLocation_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2897,6 +3143,14 @@ public interface GisPackage extends EPackage {
 		EReference GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = eINSTANCE.getGisRoutesHolderToLocation_RoutesHolder();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION = eINSTANCE.getGisRoutesHolderToLocation_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2929,6 +3183,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_ROUTES_HOLDER_ELEMENT = eINSTANCE.getGisRoutesHolderElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION = eINSTANCE.getGisRoutesHolderElement_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>To Location</b></em>' reference feature.
@@ -2981,6 +3243,14 @@ public interface GisPackage extends EPackage {
 		EClass GIS_ROUTE_INFO = eINSTANCE.getGisRouteInfo();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTE_INFO__DESCRIPTION = eINSTANCE.getGisRouteInfo_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>From Location</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3031,12 +3301,12 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_ADDRESS_GEOCODED__SCORE = eINSTANCE.getGisAddressGeocoded_Score();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Address Geocoded</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_ADDRESS_GEOCODED__DESCRIPTION = eINSTANCE.getGisAddressGeocoded_Description();
+		EAttribute GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED = eINSTANCE.getGisAddressGeocoded_AddressGeocoded();
 
 		/**
 		 * The meta object literal for the '<em><b>Address</b></em>' container reference feature.
@@ -3057,12 +3327,12 @@ public interface GisPackage extends EPackage {
 		EClass GIS_LOCATION = eINSTANCE.getGisLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_LOCATION__NAME = eINSTANCE.getGisLocation_Name();
+		EAttribute GIS_LOCATION__DESCRIPTION = eINSTANCE.getGisLocation_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Coordinates</b></em>' operation.

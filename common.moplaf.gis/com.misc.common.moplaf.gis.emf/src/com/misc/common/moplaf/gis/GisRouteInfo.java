@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getFromLocation <em>From Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getDuration <em>Duration</em>}</li>
@@ -24,6 +25,21 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface GisRouteInfo extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRouteInfo_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
+
 	/**
 	 * Returns the value of the '<em><b>From Location</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -53,7 +53,7 @@ public class GisRouteCalculatorOneToOneItemProvider extends GisRouteCalculatorIt
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisRouteCalculatorOneToOne)object).getName();
+		String label = ((GisRouteCalculatorOneToOne)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisRouteCalculatorOneToOne_type") :
 			getString("_UI_GisRouteCalculatorOneToOne_type") + " " + label;

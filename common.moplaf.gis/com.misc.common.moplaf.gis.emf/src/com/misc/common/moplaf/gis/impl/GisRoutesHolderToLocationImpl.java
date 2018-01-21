@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getFromLocations <em>From Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getRoutesHolder <em>Routes Holder</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +64,16 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	 * @ordered
 	 */
 	protected EList<GisRoutesHolderElement> fromLocations;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,6 +188,15 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("To %s", this.getLocation().getDescription());
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public GisRoutesHolderElement getElement(GisLocation fromLocation) {
@@ -271,6 +291,8 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 				return getFromLocations();
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER:
 				return getRoutesHolder();
+			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -333,6 +355,8 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 				return fromLocations != null && !fromLocations.isEmpty();
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER:
 				return getRoutesHolder() != null;
+			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}

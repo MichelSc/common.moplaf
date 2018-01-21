@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisRouterGeodesicItemProvider extends GisRouterItemProvider {
+public class GisRouterGeodesicItemProvider extends GisRouteCalculatorOneToOneItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public class GisRouterGeodesicItemProvider extends GisRouterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisRouterGeodesic)object).getName();
+		String label = ((GisRouterGeodesic)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisRouterGeodesic_type") :
 			getString("_UI_GisRouterGeodesic_type") + " " + label;

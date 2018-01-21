@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisCoordinatesItemProvider extends GisLocationItemProvider implements IItemLocationProvider {
+public class GisCoordinatesItemProvider extends GisCoordinatesAbstractItemProvider implements IItemLocationProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -68,52 +68,29 @@ public class GisCoordinatesItemProvider extends GisLocationItemProvider implemen
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLongitudePropertyDescriptor(object);
-			addLatitudePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Longitude feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLongitudePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisCoordinates_Longitude_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisCoordinates_Longitude_feature", "_UI_GisCoordinates_type"),
-				 GisPackage.Literals.GIS_COORDINATES__LONGITUDE,
+				 getString("_UI_GisCoordinates_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisCoordinates_Name_feature", "_UI_GisCoordinates_type"),
+				 GisPackage.Literals.GIS_COORDINATES__NAME,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Latitude feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLatitudePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisCoordinates_Latitude_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisCoordinates_Latitude_feature", "_UI_GisCoordinates_type"),
-				 GisPackage.Literals.GIS_COORDINATES__LATITUDE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -137,7 +114,7 @@ public class GisCoordinatesItemProvider extends GisLocationItemProvider implemen
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisCoordinates)object).getName();
+		String label = ((GisCoordinates)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisCoordinates_type") :
 			getString("_UI_GisCoordinates_type") + " " + label;
@@ -156,8 +133,7 @@ public class GisCoordinatesItemProvider extends GisLocationItemProvider implemen
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisCoordinates.class)) {
-			case GisPackage.GIS_COORDINATES__LONGITUDE:
-			case GisPackage.GIS_COORDINATES__LATITUDE:
+			case GisPackage.GIS_COORDINATES__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

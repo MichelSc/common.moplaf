@@ -53,7 +53,7 @@ public class GisRouteCalculatorItemProvider extends GisRouterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisRouteCalculator)object).getName();
+		String label = ((GisRouteCalculator)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisRouteCalculator_type") :
 			getString("_UI_GisRouteCalculator_type") + " " + label;

@@ -216,7 +216,7 @@ public class GisAddressStructuredItemProvider extends GisAddressItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisAddressStructured)object).getName();
+		String label = ((GisAddressStructured)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisAddressStructured_type") :
 			getString("_UI_GisAddressStructured_type") + " " + label;

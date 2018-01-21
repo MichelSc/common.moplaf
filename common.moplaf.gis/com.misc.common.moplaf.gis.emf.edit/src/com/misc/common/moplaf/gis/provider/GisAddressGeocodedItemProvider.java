@@ -33,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisAddressGeocodedItemProvider extends GisCoordinatesItemProvider {
+public class GisAddressGeocodedItemProvider extends GisCoordinatesAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -56,7 +56,7 @@ public class GisAddressGeocodedItemProvider extends GisCoordinatesItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addScorePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
+			addAddressGeocodedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,19 +84,19 @@ public class GisAddressGeocodedItemProvider extends GisCoordinatesItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Address Geocoded feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addAddressGeocodedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisAddressGeocoded_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoded_Description_feature", "_UI_GisAddressGeocoded_type"),
-				 GisPackage.Literals.GIS_ADDRESS_GEOCODED__DESCRIPTION,
+				 getString("_UI_GisAddressGeocoded_AddressGeocoded_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoded_AddressGeocoded_feature", "_UI_GisAddressGeocoded_type"),
+				 GisPackage.Literals.GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED,
 				 true,
 				 false,
 				 false,
@@ -124,7 +124,7 @@ public class GisAddressGeocodedItemProvider extends GisCoordinatesItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisAddressGeocoded)object).getName();
+		String label = ((GisAddressGeocoded)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisAddressGeocoded_type") :
 			getString("_UI_GisAddressGeocoded_type") + " " + label;
@@ -144,7 +144,7 @@ public class GisAddressGeocodedItemProvider extends GisCoordinatesItemProvider {
 
 		switch (notification.getFeatureID(GisAddressGeocoded.class)) {
 			case GisPackage.GIS_ADDRESS_GEOCODED__SCORE:
-			case GisPackage.GIS_ADDRESS_GEOCODED__DESCRIPTION:
+			case GisPackage.GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -78,8 +78,8 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	protected GisSwitch<Adapter> modelSwitch =
 		new GisSwitch<Adapter>() {
 			@Override
-			public Adapter caseGisCoordinates(GisCoordinates object) {
-				return createGisCoordinatesAdapter();
+			public Adapter caseGisCoordinatesAbstract(GisCoordinatesAbstract object) {
+				return createGisCoordinatesAbstractAdapter();
 			}
 			@Override
 			public Adapter caseGisAddress(GisAddress object) {
@@ -154,6 +154,10 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisRouterDefaultedAdapter();
 			}
 			@Override
+			public Adapter caseGisCoordinates(GisCoordinates object) {
+				return createGisCoordinatesAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -172,6 +176,20 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract <em>Coordinates Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract
+	 * @generated
+	 */
+	public Adapter createGisCoordinatesAbstractAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisCoordinates <em>Coordinates</em>}'.

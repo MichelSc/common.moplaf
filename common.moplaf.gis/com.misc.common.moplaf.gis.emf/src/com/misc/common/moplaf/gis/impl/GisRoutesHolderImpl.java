@@ -7,8 +7,10 @@ import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
+import com.misc.common.moplaf.gis.GisRouteInfo;
 import com.misc.common.moplaf.gis.GisRouter;
 import com.misc.common.moplaf.gis.GisRoutesHolder;
+import com.misc.common.moplaf.gis.GisRoutesHolderElement;
 import com.misc.common.moplaf.gis.GisRoutesHolderFromLocation;
 import com.misc.common.moplaf.gis.GisRoutesHolderToLocation;
 
@@ -213,6 +215,20 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public GisRouteInfo getRoute(GisLocation from, GisLocation to) {
+		GisRoutesHolderFromLocation holder_from = this.getFromLocation(from);
+		if ( holder_from==null ) { return null; }
+		GisRoutesHolderElement holder_element = holder_from.getElement(to);
+		if ( holder_element==null) { return null; }
+		if ( holder_element.getRoutesInfo().size()==0 ) { return null; }
+		GisRouteInfo info = holder_element.getRoutesInfo().get(0);
+		return info;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EnabledFeedback getRefreshFeedback() {
@@ -221,6 +237,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 		throw new UnsupportedOperationException();
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

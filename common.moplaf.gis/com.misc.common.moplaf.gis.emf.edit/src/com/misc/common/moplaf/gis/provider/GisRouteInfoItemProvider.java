@@ -60,12 +60,35 @@ public class GisRouteInfoItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDescriptionPropertyDescriptor(object);
 			addFromLocationPropertyDescriptor(object);
 			addDistancePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
 			addToLocationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisRouteInfo_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRouteInfo_Description_feature", "_UI_GisRouteInfo_type"),
+				 GisPackage.Literals.GIS_ROUTE_INFO__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -175,8 +198,10 @@ public class GisRouteInfoItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		GisRouteInfo gisRouteInfo = (GisRouteInfo)object;
-		return getString("_UI_GisRouteInfo_type") + " " + gisRouteInfo.getDistance();
+		String label = ((GisRouteInfo)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GisRouteInfo_type") :
+			getString("_UI_GisRouteInfo_type") + " " + label;
 	}
 	
 
@@ -192,6 +217,7 @@ public class GisRouteInfoItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisRouteInfo.class)) {
+			case GisPackage.GIS_ROUTE_INFO__DESCRIPTION:
 			case GisPackage.GIS_ROUTE_INFO__DISTANCE:
 			case GisPackage.GIS_ROUTE_INFO__DURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
