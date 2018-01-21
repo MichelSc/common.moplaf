@@ -7,12 +7,13 @@ Bundle-ClassPath: .,
  lib/json-simple-1.1.1.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: com.misc.common.moplaf.gis.GisGoogle,
- com.misc.common.moplaf.gis.GisGoogle.impl,
- com.misc.common.moplaf.gis.GisGoogle.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.misc.common.moplaf.gis.google,
+ com.misc.common.moplaf.gis.google.impl,
+ com.misc.common.moplaf.gis.google.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.gis.emf;visibility:=reexport,
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy

@@ -304,12 +304,12 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback getRefreshFeedback() {
-		// TODO: implement this method to return the 'Refresh Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( this.getGeocoder()==null ) {
+			return new EnabledFeedback(false, "No Geocoder");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**

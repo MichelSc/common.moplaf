@@ -315,6 +315,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 		// constructor
 		public GisAddressRefreshCommand(GisAddress anAddress)	{
 			super();
+			this.address = anAddress;
 		}
 
 		@Override

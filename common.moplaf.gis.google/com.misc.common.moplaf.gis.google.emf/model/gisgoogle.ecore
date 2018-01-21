@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="GisGoogle" nsURI="http://www.misc.com/common.moplaf.gisgoogle.emf"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="google" nsURI="http://www.misc.com/common.moplaf.gisgoogle.emf"
     nsPrefix="gisg">
   <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculatorGoogleWS"
-      eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisDistanceMatrixCalculator">
+      eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisRouteCalculatorManyToMany">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="80"/>

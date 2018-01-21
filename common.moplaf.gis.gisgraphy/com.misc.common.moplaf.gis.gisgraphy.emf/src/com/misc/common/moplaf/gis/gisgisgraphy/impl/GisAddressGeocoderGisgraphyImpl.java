@@ -353,7 +353,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	public void geocode(GisAddress address) {
 		if ( address == null )  return;
 		String feedback = "Ok";
-	    CommonPlugin.INSTANCE.log("GisAddressGeocoderGisgraphy: called");
+		Plugin.INSTANCE.logInfo("GisAddressGeocoderGisgraphy: called");
 	
 		// make the URL
 		HttpURLConnection connection = null;  
@@ -417,7 +417,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 			URI requesturi = new URI(scheme, userInfo, host, port, path, query, fragment);
 			URL url2 = requesturi.toURL();
 
-			CommonPlugin.INSTANCE.log("url2: "+url2.toString());
+			Plugin.INSTANCE.logInfo("url2: "+url2.toString());
 			connection = (HttpURLConnection)url2.openConnection();
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connection.setRequestProperty("Content-Language", "en-US");  
@@ -437,7 +437,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 			rd.close();
 			responseAsString = response.toString();
 		} catch (Exception e) {
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGisgraphy: connection failed "+e.getMessage());
+			Plugin.INSTANCE.logInfo("GisAddressGeocoderGisgraphy: connection failed "+e.getMessage());
 			feedback = "Connection failed: "+e.getMessage();
 			Plugin.INSTANCE.logError("GeocoderGisgraphy: "+feedback);
 			return;

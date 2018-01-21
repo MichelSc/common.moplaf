@@ -117,7 +117,15 @@ public abstract class GisRouterImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public GisRouteInfo getRoute(GisLocation from, GisLocation to) {
-		return null;
+		BasicEList<GisLocation> froms = new BasicEList<>();
+		BasicEList<GisLocation> tos = new BasicEList<>();
+		froms.add(from);
+		tos.add(to);
+		EList<GisRouteInfo> infos = this.getRoutes(froms, tos);
+		if ( infos == null ) { return null; }
+		if ( infos.size() == 0 ) { return null; }
+		GisRouteInfo info = infos.get(0);
+		return info;
 	}
 
 	/**

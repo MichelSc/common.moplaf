@@ -4,14 +4,16 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.gis.google.emf.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: com.misc.common.moplaf.gis.GisGoogle.provider.GisgoogleEditPlugin$Implementation
+Bundle-Activator: com.misc.common.moplaf.gis.google.provider.GisgoogleEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: com.misc.common.moplaf.gis.GisGoogle.provider
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.misc.common.moplaf.gis.google.provider
 Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.gis.google.emf;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  com.misc.common.moplaf.gis.emf;visibility:=reexport,
- com.misc.common.moplaf.gis.emf.edit;visibility:=reexport
+ com.misc.common.moplaf.gis.emf.edit;visibility:=reexport,
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
+ com.misc.common.moplaf.job.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
