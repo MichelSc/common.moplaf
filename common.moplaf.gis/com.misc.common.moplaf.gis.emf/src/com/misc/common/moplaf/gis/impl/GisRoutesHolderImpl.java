@@ -341,12 +341,9 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void refresh() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.update(this.getCalculator());
 	}
 
 	/**
