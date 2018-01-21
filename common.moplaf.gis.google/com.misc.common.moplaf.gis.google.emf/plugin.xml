@@ -13,5 +13,17 @@
             class="com.misc.common.moplaf.gis.google.GisGooglePackage"
             genModel="model/gisgoogle.genmodel"/>
    </extension>
+   <extension
+         point="com.misc.common.moplaf.gis.emf.geocoder_factory">
+      <factory
+            class="com.misc.common.moplaf.gis.google.util.GoogleGeocoderFactory">
+      </factory>
+   </extension>
+   <extension
+         point="com.misc.common.moplaf.gis.emf.router_factory">
+      <factory
+            class="com.misc.common.moplaf.gis.google.util.GoogleRouterFactory">
+      </factory>
+   </extension>
 
 </plugin>

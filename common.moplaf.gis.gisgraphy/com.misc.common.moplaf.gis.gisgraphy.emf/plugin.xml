@@ -13,5 +13,11 @@
             class="com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage"
             genModel="model/gisgisgraphy.genmodel"/>
    </extension>
+   <extension
+         point="com.misc.common.moplaf.gis.emf.geocoder_factory">
+      <factory
+            class="com.misc.common.moplaf.gis.gisgisgraphy.util.GisgraphyGeocoderFactory">
+      </factory>
+   </extension>
 
 </plugin>
