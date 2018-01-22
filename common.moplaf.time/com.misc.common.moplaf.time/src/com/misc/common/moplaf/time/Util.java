@@ -42,7 +42,7 @@ public class Util {
 	 * <!-- end-user-doc -->
 	 */
 	static public Date addSeconds(Date date, double seconds) {
-		if ( seconds == 0.0f) { return date; }
+		if ( seconds == 0.0d) { return date; }
 		else {
 			long millisAsFromEpoch = date.getTime()+(long)(seconds*1000.0d);
 			return new Date(millisAsFromEpoch);
