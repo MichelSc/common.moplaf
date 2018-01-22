@@ -133,8 +133,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	}
 	
 	/**
-	 * Return a collection of object extending the private class  {@link TimePlotProvider}, and implementing 
-	 * the interfaces {@link IItemLabelProvider}, and {@link IItemColorProvider}
+	 * Return a collection of object extending the private class  {@link TableProvider}, and implementing 
+	 * the interfaces  {@link IStructuredContentProvider}, {@link ITableColorProvider}, {@link ITableLabelProvider}, 
 	 * <p>
 	 */
 	private ArrayList<TableProvider> getTableProviders(Object element){
@@ -171,7 +171,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	 * @author michel
 	 *
 	 */
-	public class TableProvider implements IStructuredContentProvider , ITableLabelProvider, ITableColorProvider {
+	public class TableProvider implements IStructuredContentProvider, ITableLabelProvider, ITableColorProvider {
 		/**
 		 * 
 		 * @author michel
