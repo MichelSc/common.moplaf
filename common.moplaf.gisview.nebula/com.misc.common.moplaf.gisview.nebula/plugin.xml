@@ -11,7 +11,7 @@
       <view
             name="Map View"
             icon="icons/sample.gif"
-            category="com.misc.common.moplaf.gisview.nebula"
+            category="com.misc.common.moplaf.view.category.moplaf"
             class="com.misc.common.moplaf.gisview.nebula.views.MapView"
             id="com.misc.common.moplaf.gisview.nebula.views.MapView">
       </view>
