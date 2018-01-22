@@ -20,8 +20,10 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.nebula.widgets.geomap.GeoMap;
+import org.eclipse.nebula.widgets.geomap.GeoMapUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.graphics.GC;
@@ -55,22 +57,19 @@ public class MapViewer extends MapViewerAbstract {
 	// constructor
 	public MapViewer(Composite parent){
 		// make the control
-		this.geoMap = new GeoMap(parent, SWT.H_SCROLL | SWT.V_SCROLL){
-		   // paint control
-		    protected void paintControl(PaintEvent e) {
-				// first the map
-			    super.paintControl(e);
-			    // second the points
+		this.geoMap = new GeoMap(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+		this.geoMap.addPaintListener(new PaintListener() {
+			public void paintControl(PaintEvent e) {
 			    GC gc = e.gc;
 			    for ( MapMarker marker : MapViewer.this.markers.values()){
-			    	Point mapposition = this.getMapPosition();
-			        int x = lon2position(marker.longitude, getZoom());
-			        int y = lat2position(marker.latitude, getZoom());
+			    	Point mapposition = MapViewer.this.geoMap.getMapPosition();
+			        int x = GeoMapUtil.lon2position(marker.longitude, MapViewer.this.geoMap.getZoom());
+			        int y = GeoMapUtil.lat2position(marker.latitude, MapViewer.this.geoMap.getZoom());
 			        Image icon = marker.image;
 			        gc.drawImage(icon, x-mapposition.x, y-mapposition.y);
 			    } // traverse the points to draw        
-		    } // method paintControl
-		};
+			}
+		});
 
 		super.hookControl(this.geoMap);
         
