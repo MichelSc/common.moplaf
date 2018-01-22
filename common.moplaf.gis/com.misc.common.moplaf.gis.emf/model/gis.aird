@@ -387,7 +387,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_cIzb0AbNEeWLeP6vjt5Cqw" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_zX1pkP9ZEee0O4DQLSAQkg" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
         <labelFormat>italic</labelFormat>
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
@@ -419,7 +419,7 @@
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_diO3cP4VEee2Du4OeMxpLg" name="/RefreshFeedback : EnabledFeedback" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="gis.ecore#//GisAddress/RefreshFeedback"/>
         <semanticElements xmi:type="ecore:EAttribute" href="gis.ecore#//GisAddress/RefreshFeedback"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_diQFkP4VEee2Du4OeMxpLg" labelColor="39,76,114" labelAlignment="LEFT" description="_diPegP4VEee2Du4OeMxpLg"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zX4F0P9ZEee0O4DQLSAQkg" labelColor="39,76,114" labelAlignment="LEFT" description="_diPegP4VEee2Du4OeMxpLg"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wuq_EMoxEeSpJrxjx9dQ1w" name="refreshGeocoded()" tooltipText="refreshGeocoded()">
@@ -521,13 +521,13 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_S1kd0MowEeSpJrxjx9dQ1w" sourceNode="_pmwfAMoiEeSpJrxjx9dQ1w" targetNode="_Pho50MouEeSpJrxjx9dQ1w">
       <target xmi:type="ecore:EClass" href="gis.ecore#//GisAddress"/>
       <semanticElements xmi:type="ecore:EClass" href="gis.ecore#//GisAddress"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_o5eYoM-8EeSIAOYsbAIYOQ" targetArrow="InputClosedArrow">
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zX-zgP9ZEee0O4DQLSAQkg" targetArrow="InputClosedArrow">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_o5eYos-8EeSIAOYsbAIYOQ" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_zX-zgf9ZEee0O4DQLSAQkg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_o5eYpM-8EeSIAOYsbAIYOQ" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_zX-zgv9ZEee0O4DQLSAQkg" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
@@ -1276,7 +1276,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_4mp6UP4FEeeN0Jf4KrMK7g" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_rGtg4P9ZEee0O4DQLSAQkg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -1355,7 +1355,7 @@
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_UFit0P4FEeeN0Jf4KrMK7g" name="/RefreshFeedback : EnabledFeedback" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="gis.ecore#//GisRoutesHolder/RefreshFeedback"/>
         <semanticElements xmi:type="ecore:EAttribute" href="gis.ecore#//GisRoutesHolder/RefreshFeedback"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_4msWkP4FEeeN0Jf4KrMK7g" labelColor="39,76,114" labelAlignment="LEFT" description="_Buz30P3pEeeN0Jf4KrMK7g"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_rGxyUP9ZEee0O4DQLSAQkg" labelColor="39,76,114" labelAlignment="LEFT" description="_Buz30P3pEeeN0Jf4KrMK7g"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
@@ -1834,13 +1834,13 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ub0oIP6AEeee87kyZp0Gwg" sourceNode="_26YRD22QEeWI35Dc0pBkjg" targetNode="_ubf4AP6AEeee87kyZp0Gwg">
       <target xmi:type="ecore:EClass" href="gis.ecore#//GisRoutesHolder"/>
       <semanticElements xmi:type="ecore:EClass" href="gis.ecore#//GisRoutesHolder"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_ub1PMP6AEeee87kyZp0Gwg" targetArrow="InputClosedArrow">
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_rHBC4P9ZEee0O4DQLSAQkg" targetArrow="InputClosedArrow">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_ub1PMf6AEeee87kyZp0Gwg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_rHBC4f9ZEee0O4DQLSAQkg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_ub1PMv6AEeee87kyZp0Gwg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_rHBC4v9ZEee0O4DQLSAQkg" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
