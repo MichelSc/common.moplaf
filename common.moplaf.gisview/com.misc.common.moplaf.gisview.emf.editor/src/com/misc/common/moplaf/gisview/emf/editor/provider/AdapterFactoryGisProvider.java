@@ -24,11 +24,9 @@ import com.misc.common.moplaf.gisview.Wrapper;
 import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
 
 /**
- * An {@link AdapterFactoryGisProvider} implements the interface {@link IIntervalEventProvider} for different kind of providers:
+ * An {@link AdapterFactoryGisProvider} implements the interface {@link ILocationProvider} for different kind of providers:
  * <ul>
- * <li> {@link IItemTimeLinesEventsProvider}</li>
- * <li> {@link IItemTimeLinesIntervalsProvider}</li>
- * <li> {@link IItemTimeLinesEventsIntervalsProvider}</li>
+ * <li> {@link IItemLocationsProvider}</li>
  * </ul>
  * <p>
  * @author MiSc
