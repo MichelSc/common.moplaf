@@ -2,34 +2,28 @@ package com.misc.common.moplaf.gisview.emf.edit;
 
 import java.util.Collection;
 
+/**
+ * <p>
+ * This interface declares the method(s) to be supported by an object that provides one or 
+ * locations, for instance to be displayed on a map.
+ * <p>
+ * The consumer (i.e. the component using the locations data, typically a map component)
+ * will provide, when relevant
+ * <ul>
+ * <li> an element:Object: the object owning the locations(s) </li>
+ * <li> a location:Object: an object identifying a location. </li>
+ * </ul>
+ * in order to get
+ * <ul>
+ * <li> the location(s) supported by the element </li>
+ * <li> properties to be displayed for a given location </li>
+ * </ul>
+ * <p>
+ * <p>
+ * @author michel
+ */
+
 public interface IItemLocationsProvider {
-
-
-	/**
-	 * <p>
-	 * This interface declares the method(s) to be supported by an object that provides one or 
-	 * locations, for instance to be displayed on a map.
-	 * <p>
-	 * The consumer (i.e. the component using the locations data, typically a map component)
-	 * will provide, when relevant
-	 * <ul>
-	 * <li> an element:Object: the object owning the locations(s) </li>
-	 * <li> 
-	 * a location:Object: an object identifying a location. 
-	 * The object can be an actual Object, or an Integer, if no collection of Location Objects is provided (see further).
-	 * In this latter case, the index is zero-based.
-	 * </li>
-	 * </ul>
-	 * in order to get
-	 * <ul>
-	 * <li> the location(s) supported by the element </li>
-	 * <li> properties to be displayed for a given location </li>
-	 * </ul>
-	 * <p>
-	 * <p>
-	 * @author michel
-	 */
-
 	/**
 	 * Returns the locations published by the element. 
 	 * <p>

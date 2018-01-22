@@ -3,33 +3,31 @@ package com.misc.common.moplaf.gisview.emf.edit;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * <p>
+ * This interface declares the method(s) to be supported by an object that provides one or 
+ * paths, for instance to be displayed on a map.
+ * <p>
+ * The consumer (i.e. the component using the locations data, typically a map component)
+ * will provide, when relevant
+ * <ul>
+ * <li> an element:Object: the object owning the locations(s) </li>
+ * <li> an path:Object: the object identifying a path </li>
+ * <li> a stop:Object: the object identifying a stop of a path </li>
+ * </ul>
+ * in order to get
+ * <ul>
+ * <li> the paths(s) supported by the element </li>
+ * <li> properties to be displayed for a given path </li>
+ * <li> the stops of a path </li>
+ * <li> properties to be displayed for a given stop of a given path </li>
+ * </ul>
+ * <p>
+ * <p>
+ * @author michel
+ */
+
 public interface IItemPathsProvider {
-
-
-	/**
-	 * <p>
-	 * This interface declares the method(s) to be supported by an object that provides one or 
-	 * paths, for instance to be displayed on a map.
-	 * <p>
-	 * The consumer (i.e. the component using the locations data, typically a map component)
-	 * will provide, when relevant
-	 * <ul>
-	 * <li> an element:Object: the object owning the locations(s) </li>
-	 * <li> an path:Object: the object identifying a path </li>
-	 * <li> an stop:Object: the object identifying a stop of a path </li>
-	 * </ul>
-	 * in order to get
-	 * <ul>
-	 * <li> the paths(s) supported by the element </li>
-	 * <li> properties to be displayed for a given path </li>
-	 * <li> the stops of a path </li>
-	 * <li> properties to be displayed for a given stop of a given path </li>
-	 * </ul>
-	 * <p>
-	 * <p>
-	 * @author michel
-	 */
-
 	/**
 	 * Returns the paths published by the element. 
 	 * <p>
