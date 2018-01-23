@@ -10,6 +10,8 @@
  *******************************************************************************/
 package com.misc.common.moplaf.gisview;
 
+import java.util.ArrayList;
+
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -19,7 +21,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-
 
 public abstract class MapViewerAbstract extends ContentViewer {
 
@@ -91,5 +92,24 @@ public abstract class MapViewerAbstract extends ContentViewer {
 			this.fireSelectionChanged(new SelectionChangedEvent(this, this.getSelection()));
 		}
 	}
+	
+	protected void collectTableProviders(ArrayList<Object> locations, Object element, int depth) {
+		// the element
+		if ( this.locationProvider.isLocation(element)) {
+			locations.add((ILocationProvider)element);
+		}
+		// the children
+		if ( depth<3) {
+			Object[] children_element= this.getTreeContentProvider().getChildren(element);
+			for (Object child_element : children_element) {
+				// the parent of child is modelElement, this is an actual child
+				// this restriction avoids recursion
+				if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
+					this.collectTableProviders(locations,  child_element, depth+1);
+				}
+			}
+		}
+	}
+
 
 }

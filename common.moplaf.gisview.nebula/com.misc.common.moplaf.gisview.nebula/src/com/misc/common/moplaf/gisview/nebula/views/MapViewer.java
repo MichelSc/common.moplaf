@@ -11,6 +11,7 @@
 package com.misc.common.moplaf.gisview.nebula.views;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -37,8 +38,8 @@ public class MapViewer extends MapViewerAbstract {
 
 	public class MapMarker  {
 		private Object modelObject;
-		private float longitude;
-		private float latitude;
+		private double longitude;
+		private double latitude;
 		private Image image;
 		
 		public MapMarker (Object modelObject){
@@ -134,20 +135,23 @@ public class MapViewer extends MapViewerAbstract {
 
 	@Override
 	public void refresh() {
-		// sych the things to show with the state of the widget
+		// synch the things to show with the state of the widget
 		HashSet<Object> objectsToRemove = new HashSet<Object>(this.markers.keySet());
-		Object objectToShow = this.getInput();
-		if ( this.getILocationProvider().isLocation(objectToShow)){
-			MapMarker marker = this.markers.get(objectToShow);
+		ArrayList<Object> locations = new ArrayList<Object>();
+		this.collectTableProviders(locations, this.getInput() , 3); // depth 3
+		for ( Object location : locations) {
+			MapMarker marker = this.markers.get(location);
 			if ( marker==null ){
 				// create
-				marker = new MapMarker(objectToShow);
-				this.markers.put(objectToShow, marker);
+				marker = new MapMarker(location);
+				this.markers.put(location, marker);
+			} else {
+				objectsToRemove.remove(location);
 			}
 			// update
-			marker.longitude = this.getILocationProvider().getLongitude(objectToShow);
-			marker.latitude  = this.getILocationProvider().getLatitude(objectToShow);
-			marker.image     = this.getILabelProvider().getImage(objectToShow);
+			marker.longitude = this.getILocationProvider().getLongitude(location);
+			marker.latitude  = this.getILocationProvider().getLatitude(location);
+			marker.image     = this.getILabelProvider()   .getImage(location);
 		}
 		// delete
 		for ( Object objectToRemove : objectsToRemove){
