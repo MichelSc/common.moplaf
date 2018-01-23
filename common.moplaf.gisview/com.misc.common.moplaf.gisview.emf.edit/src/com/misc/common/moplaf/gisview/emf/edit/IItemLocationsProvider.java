@@ -1,7 +1,5 @@
 package com.misc.common.moplaf.gisview.emf.edit;
 
-import java.util.Collection;
-
 /**
  * <p>
  * This interface declares the method(s) to be supported by an object that provides one or 

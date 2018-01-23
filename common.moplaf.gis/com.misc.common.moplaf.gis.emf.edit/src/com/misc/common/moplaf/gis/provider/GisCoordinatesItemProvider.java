@@ -15,7 +15,6 @@ package com.misc.common.moplaf.gis.provider;
 
 import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisPackage;
-import com.misc.common.moplaf.gisview.impl.IItemLocationProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -30,11 +29,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisCoordinates} object.
  * <!-- begin-user-doc -->
- * @implements IItemLocationProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisCoordinatesItemProvider extends GisCoordinatesAbstractItemProvider implements IItemLocationProvider {
+public class GisCoordinatesItemProvider extends GisCoordinatesAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -44,18 +42,6 @@ public class GisCoordinatesItemProvider extends GisCoordinatesAbstractItemProvid
 	public GisCoordinatesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
-	 */
-	@Override
-	public boolean isAdapterForType(Object type) {
-		if ( super.isAdapterForType(type) ){ return true; }
-		if ( type == IItemLocationProvider.class) { return true; }
-		return false;
-	}
-
-
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -150,26 +136,6 @@ public class GisCoordinatesItemProvider extends GisCoordinatesAbstractItemProvid
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	@Override
-	public float getLongitude(Object element) {
-		GisCoordinates coordinates = (GisCoordinates)element;
-		float longitude = (float)coordinates.getLongitude();
-		return longitude;
-	}
-
-	@Override
-	public float getLatitude(Object element) {
-		GisCoordinates coordinates = (GisCoordinates)element;
-		float latitude = (float)coordinates.getLatitude();
-		return latitude;
-	}
-
-	@Override
-	public float getElevation(Object element) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

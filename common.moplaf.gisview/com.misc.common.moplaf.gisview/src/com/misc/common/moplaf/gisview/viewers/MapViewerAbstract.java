@@ -8,7 +8,7 @@
  * Contributors:
  *     Michel Schaffers - initial API and implementation
  *******************************************************************************/
-package com.misc.common.moplaf.gisview;
+package com.misc.common.moplaf.gisview.viewers;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,8 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+
+import com.misc.common.moplaf.gisview.ILocationProvider;
 
 public abstract class MapViewerAbstract extends ContentViewer {
 
@@ -96,7 +98,7 @@ public abstract class MapViewerAbstract extends ContentViewer {
 	protected void collectTableProviders(ArrayList<Object> locations, Object element, int depth) {
 		// the element
 		if ( this.locationProvider.isLocation(element)) {
-			locations.add((ILocationProvider)element);
+			locations.add(element);
 		}
 		// the children
 		if ( depth<3) {

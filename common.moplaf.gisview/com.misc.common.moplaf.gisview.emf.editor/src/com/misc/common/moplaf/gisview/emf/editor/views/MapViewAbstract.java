@@ -8,7 +8,7 @@
  * Contributors:
  *     Michel Schaffers - initial API and implementation
  *******************************************************************************/
-package com.misc.common.moplaf.gisview.impl;
+package com.misc.common.moplaf.gisview.emf.editor.views;
 
 
 
@@ -24,8 +24,8 @@ import org.eclipse.jface.action.*;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
-import com.misc.common.moplaf.gisview.MapViewerAbstract;
-import com.misc.common.moplaf.gisview.impl.AdapterFactoryLocationProvider;
+import com.misc.common.moplaf.gisview.emf.editor.provider.AdapterFactoryGisProvider;
+import com.misc.common.moplaf.gisview.viewers.MapViewerAbstract;
 
 
 
@@ -83,8 +83,8 @@ public abstract class MapViewAbstract extends ViewPart {
 	public void createPartControl(Composite parent) {
         //GridData gd = new GridData(GridData.FILL_BOTH);
         this.viewer = this.createViewer(parent);
-		this.viewer.setLocationProvider(new AdapterFactoryLocationProvider(this.adapterFactory));
-        this.viewer.setContentProvider (new AdapterFactoryContentProvider(this.adapterFactory));
+		this.viewer.setLocationProvider(new AdapterFactoryGisProvider(this.adapterFactory));
+        this.viewer.setContentProvider (new AdapterFactoryGisProvider(this.adapterFactory));
 		this.viewer.setLabelProvider   (new AdapterFactoryLabelProvider(this.adapterFactory));
 
         //viewer.setLayoutData(gd);

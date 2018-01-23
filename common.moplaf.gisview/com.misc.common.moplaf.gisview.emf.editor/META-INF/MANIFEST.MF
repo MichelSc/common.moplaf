@@ -8,7 +8,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: com.misc.common.moplaf.emf.edit;bundle-version="1.0.0",
  com.misc.common.moplaf.emf.editor;bundle-version="1.0.0",
  com.misc.common.moplaf.gisview;bundle-version="1.0.0",
- com.misc.common.moplaf.gisview.nebula;bundle-version="1.0.0",
  com.misc.common.moplaf.gis.emf.edit;bundle-version="1.0.0",
  com.misc.common.moplaf.emf.ui;bundle-version="1.0.0",
  com.misc.common.moplaf.gisview.emf.edit;bundle-version="1.0.0"
+Export-Package: com.misc.common.moplaf.gisview.emf.editor.provider,
+ com.misc.common.moplaf.gisview.emf.editor.views

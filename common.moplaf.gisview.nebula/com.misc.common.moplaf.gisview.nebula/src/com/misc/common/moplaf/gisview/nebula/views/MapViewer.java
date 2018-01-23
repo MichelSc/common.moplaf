@@ -27,11 +27,12 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+
+import com.misc.common.moplaf.gisview.viewers.MapViewerAbstract;
+
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Image;
-
-import com.misc.common.moplaf.gisview.MapViewerAbstract;
 
 
 public class MapViewer extends MapViewerAbstract {
@@ -138,20 +139,28 @@ public class MapViewer extends MapViewerAbstract {
 		// synch the things to show with the state of the widget
 		HashSet<Object> objectsToRemove = new HashSet<Object>(this.markers.keySet());
 		ArrayList<Object> locations = new ArrayList<Object>();
-		this.collectTableProviders(locations, this.getInput() , 3); // depth 3
+		this.collectTableProviders(locations, this.getInput() , 0); // 0 is the depth as start
 		for ( Object location : locations) {
+			double longitude = this.getILocationProvider().getLongitude(location);
+			double latitude  = this.getILocationProvider().getLatitude(location);
+			Image image      = this.getILabelProvider()   .getImage(location);
 			MapMarker marker = this.markers.get(location);
-			if ( marker==null ){
-				// create
-				marker = new MapMarker(location);
-				this.markers.put(location, marker);
-			} else {
-				objectsToRemove.remove(location);
+			if ( image!=null ) {
+				// only mark location with image
+				// this should be extended to object without images!
+				if ( marker==null ) {
+					// create
+					marker = new MapMarker(location);
+					this.markers.put(location, marker);
+				} else {
+					// keep
+					objectsToRemove.remove(location);
+				}
+				// update
+				marker.longitude = longitude; 
+				marker.latitude  = latitude;  
+				marker.image     = image;     
 			}
-			// update
-			marker.longitude = this.getILocationProvider().getLongitude(location);
-			marker.latitude  = this.getILocationProvider().getLatitude(location);
-			marker.image     = this.getILabelProvider()   .getImage(location);
 		}
 		// delete
 		for ( Object objectToRemove : objectsToRemove){
