@@ -73,8 +73,8 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	}
 
 	/**
-	 * Return a collection of object extending the private class  {@link TimeLineProvider}, and implementing 
-	 * the interfaces {@link IItemLabelProvider} and specific methods for supporting {@link IIntervalEventProvider}
+	 * Return a collection of object extending the private class  {@link LocationProvider}, and implementing 
+	 * the interfaces {@link IItemLabelProvider} and specific methods for supporting {@link ILocationProvider}
 	 * <p>
 	 */
 	private ArrayList<Object> getLocationProviders(Object element){
@@ -84,17 +84,20 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 		if ( locationsProvider==null ) { return null; }
 		
 		ArrayList<Object> providers = new ArrayList<Object>();
-		Collection<?> locations = locationsProvider.getLocations(element);
+		Object locations = locationsProvider.getLocations(element);
 		if ( locations == null ) {
+			// no location for the element
+		} else if ( locations instanceof Collection<?>) {
+			Collection<?> collection = (Collection<?>)locations;
+			// the element HAS locations
+			for ( Object location : collection){
+				LocationProvider provider = this.createLocationProvider(element, location, locationsProvider);
+				providers.add(provider);
+			}
+		} else {
 			// the element IS a location
 			LocationProvider provider = this.createLocationProvider(element, null, locationsProvider);
 			providers.add(provider);
-		} else {
-			// the element HAS time lines
-			for ( Object timeLine : locations){
-				LocationProvider provider = this.createLocationProvider(element, timeLine, locationsProvider);
-				providers.add(provider);
-			}
 		}
 		return providers;
 	}

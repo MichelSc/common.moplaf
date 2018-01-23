@@ -31,7 +31,12 @@ public interface IItemPathsProvider {
 	/**
 	 * Returns the paths published by the element. 
 	 * <p>
-	 * If null is returned, one path is supported by the element, identified by a null key.
+	 * The method may return
+	 * <ul>
+	 * <li> null: no path for the element </li>
+	 * <li> Collection<?>: a collection of paths for the element</li>
+	 * <li> otherwise an Object: a single path for the element </li>
+	 * </ul>
 	 * @param element
 	 * @return
 	 */

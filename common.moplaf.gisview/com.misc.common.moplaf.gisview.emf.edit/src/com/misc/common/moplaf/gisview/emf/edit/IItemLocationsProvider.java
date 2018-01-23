@@ -27,11 +27,16 @@ public interface IItemLocationsProvider {
 	/**
 	 * Returns the locations published by the element. 
 	 * <p>
-	 * If null is returned, one location is supported by the element, identified by a null key.
+	 * The method may return
+	 * <ul>
+	 * <li> null: no location for the element </li>
+	 * <li> Collection<?>: a collection of locations for the element</li>
+	 * <li> otherwise an Object: a single location for the element </li>
+	 * </ul>
 	 * @param element
 	 * @return
 	 */
-	default Collection<?> getLocations(Object element){
+	default Object getLocations(Object element){
 		return null;
 	}
 
