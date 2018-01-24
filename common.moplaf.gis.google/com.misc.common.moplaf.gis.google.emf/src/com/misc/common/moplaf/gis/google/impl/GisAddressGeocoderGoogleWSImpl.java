@@ -401,7 +401,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	public void geocode(GisAddress address) {
 		if ( address == null) return;
 		String feedback = "Ok";
-	    CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: called");
+	    Plugin.INSTANCE.logInfo("GisAddressGeocoderGoogleWS: called");
 	
 		// make the URL
 		HttpURLConnection connection = null;  
@@ -466,7 +466,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 			URI requesturi = new URI(scheme, userInfo, host, port, path, query, fragment);
 			URL url2 = requesturi.toURL();
 
-			CommonPlugin.INSTANCE.log("url2: "+url2.toString());
+			Plugin.INSTANCE.logInfo("GisAddressGeocoderGoogleWS: url: "+url2.toString());
 			connection = (HttpURLConnection)url2.openConnection();
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connection.setRequestProperty("Content-Language", "en-US");  
@@ -488,7 +488,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		} catch (Exception e) {
 			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: connection failed "+e.getMessage());
 			feedback = "Connection failed: "+e.getMessage();
-			Plugin.INSTANCE.logError("GeocoderGisgraphy: "+feedback);
+			Plugin.INSTANCE.logError("GeocoderGoogleWS: "+feedback);
 			return;
 		} finally {
 			if(connection != null) {
@@ -523,27 +523,27 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	    	break;
 		case "ZERO_RESULTS":
 			feedback = "Zero results: indicates that the geocode was successful but returned no results. This may occur if the geocoder was passed a non-existent address";
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
+			Plugin.INSTANCE.logError("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		case "OVER_QUERY_LIMIT" :
 			feedback = "Over Query Limit: indicates the service has received too many requests from your application within the allowed time period";
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
+			Plugin.INSTANCE.logError("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		case "REQUEST_DENIED": 
 			feedback = "Request Denied: indicates that your request was denied";
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
+			Plugin.INSTANCE.logError("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		case "INVALID_REQUEST" :
 			feedback = "Invalid Request: generally indicates that the query (address, components or latlng) is missing";
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
+			Plugin.INSTANCE.logError("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		case "UNKNOWN_ERROR":  
 			feedback = "Unknown Error: indicates that the request could not be processed due to a server error. The request may succeed if you try again";
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
+			Plugin.INSTANCE.logError("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		default :
 			feedback = "Unknown Response Status "+responsestatus;
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
+			Plugin.INSTANCE.logError("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		}  // switch on response status
 	}

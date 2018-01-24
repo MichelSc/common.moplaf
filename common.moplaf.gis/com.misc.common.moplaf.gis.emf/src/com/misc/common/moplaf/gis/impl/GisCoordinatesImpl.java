@@ -174,11 +174,4 @@ public class GisCoordinatesImpl extends GisCoordinatesAbstractImpl implements Gi
 		return result.toString();
 	}
 
-	@Override
-	public GisCoordinates getCoordinates() {
-		return this;
-	}
-	
-	
-
 } //GisCoordinatesImpl

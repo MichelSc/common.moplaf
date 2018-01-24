@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisPackage;
 
@@ -84,7 +85,12 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 	protected EClass eStaticClass() {
 		return GisPackage.Literals.GIS_COORDINATES_ABSTRACT;
 	}
-
+	
+	@Override
+	public GisCoordinatesAbstract getCoordinates() {
+		return this;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -421,6 +421,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 			connection = (HttpURLConnection)url2.openConnection();
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connection.setRequestProperty("Content-Language", "en-US");  
+			connection.setInstanceFollowRedirects(true); // this is the default
 			connection.setUseCaches (false);
 			connection.setDoInput(true);
 			connection.setDoOutput(true);
