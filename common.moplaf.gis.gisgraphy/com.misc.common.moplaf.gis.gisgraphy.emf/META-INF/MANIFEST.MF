@@ -3,8 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.gis.gisgraphy.emf;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-ClassPath: .,
- lib/json-simple-1.1.1.jar
+Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
