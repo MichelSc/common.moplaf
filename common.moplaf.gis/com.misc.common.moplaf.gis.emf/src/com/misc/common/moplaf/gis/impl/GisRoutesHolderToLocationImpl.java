@@ -197,23 +197,19 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public GisRoutesHolderElement getElement(GisLocation fromLocation) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		GisRoutesHolder holder = this.getRoutesHolder();
+		GisRoutesHolderFromLocation from_holder = holder.getFromLocation(fromLocation);
+		return from_holder.getElement(this.getLocation());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public GisRoutesHolderElement addElement(GisRoutesHolderFromLocation fromLocation) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return fromLocation.addElement(this);
 	}
 
 	/**
