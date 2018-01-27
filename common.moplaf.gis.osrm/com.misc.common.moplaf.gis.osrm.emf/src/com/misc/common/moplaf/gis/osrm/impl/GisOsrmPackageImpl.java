@@ -8,9 +8,12 @@ import com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne;
 import com.misc.common.moplaf.gis.osrm.GisOsrmFactory;
 import com.misc.common.moplaf.gis.osrm.GisOsrmPackage;
 
+import com.misc.common.moplaf.gis.osrm.Protocol;
 import com.misc.common.moplaf.job.JobPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -28,6 +31,13 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * @generated
 	 */
 	private EClass gisDistanceMatrixCalculatorOsrmOneToOneEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum protocolEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -108,6 +118,78 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Protocol() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmOneToOneEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Host() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmOneToOneEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Port() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmOneToOneEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Path() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmOneToOneEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Profile() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmOneToOneEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_WithAlternatives() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmOneToOneEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmOneToOneEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProtocol() {
+		return protocolEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GisOsrmFactory getGisOsrmFactory() {
 		return (GisOsrmFactory)getEFactoryInstance();
 	}
@@ -132,6 +214,16 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 
 		// Create classes and their features
 		gisDistanceMatrixCalculatorOsrmOneToOneEClass = createEClass(GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PROTOCOL);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__HOST);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PORT);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PATH);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PROFILE);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_ALTERNATIVES);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY);
+
+		// Create enums
+		protocolEEnum = createEEnum(PROTOCOL);
 	}
 
 	/**
@@ -169,6 +261,18 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GisDistanceMatrixCalculatorOsrmOneToOne.class, "GisDistanceMatrixCalculatorOsrmOneToOne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Protocol(), this.getProtocol(), "Protocol", "https", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Host(), ecorePackage.getEString(), "Host", "router.project-osrm.org", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Port(), ecorePackage.getEInt(), "Port", "443", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Path(), ecorePackage.getEString(), "Path", "route/v1/driving", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Profile(), ecorePackage.getEString(), "Profile", "driving", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_WithAlternatives(), ecorePackage.getEBoolean(), "WithAlternatives", null, 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry(), ecorePackage.getEBoolean(), "WithGeometry", null, 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(protocolEEnum, Protocol.class, "Protocol");
+		addEEnumLiteral(protocolEEnum, Protocol.HTTP);
+		addEEnumLiteral(protocolEEnum, Protocol.HTTPS);
 
 		// Create resource
 		createResource(eNS_URI);
