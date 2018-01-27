@@ -4,6 +4,8 @@ package com.misc.common.moplaf.gis.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.ClearCommand;
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
@@ -265,6 +267,42 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 	
 	
 	/* (non-Javadoc)
+	 * GisRoutesHolderFlushCommand
+	 */
+	public class GisRoutesHolderFlushCommand extends FlushCommand{
+		private GisRoutesHolder matrix;
+		
+		// constructor
+		public GisRoutesHolderFlushCommand(GisRoutesHolder aMatrix)	{
+			super();
+			this.matrix = aMatrix;
+		}
+		
+		@Override
+		public void execute() {
+			this.matrix.flush();
+		}
+	} // class TableGroupFlushCommand
+
+	/* (non-Javadoc)
+	 * GisRoutesHolderClearCommand
+	 */
+	public class GisRoutesHolderClearCommand extends ClearCommand{
+		private GisRoutesHolder matrix;
+		
+		// constructor
+		public GisRoutesHolderClearCommand(GisRoutesHolder aMatrix)	{
+			super();
+			this.matrix = aMatrix;
+		}
+		
+		@Override
+		public void execute() {
+			this.matrix.clear();
+		}
+	} // class TableGroupClearCommand
+
+	/* (non-Javadoc)
 	 * GisRoutesHolderRefreshCommand
 	 */
 	public class GisRoutesHolderRefreshCommand extends RefreshCommand{
@@ -276,8 +314,6 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 			this.matrix = aMatrix;
 		}
 		
-		
-		
 		@Override
 		protected boolean prepare() {
 			boolean isExecutable = true;
@@ -288,8 +324,6 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 			}
 			return isExecutable;
 		}
-
-
 
 		@Override
 		public void execute() {
@@ -303,6 +337,10 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 			CommandParameter commandParameter) {
 		if ( commandClass == RefreshCommand.class){
 			return new GisRoutesHolderRefreshCommand((GisRoutesHolder) object); 
+		} else if ( commandClass == ClearCommand.class){
+			return new GisRoutesHolderClearCommand((GisRoutesHolder) object); 
+		} else if ( commandClass == FlushCommand.class){
+			return new GisRoutesHolderFlushCommand((GisRoutesHolder) object); 
 		}
 
 		return super.createCommand(object, domain, commandClass, commandParameter);

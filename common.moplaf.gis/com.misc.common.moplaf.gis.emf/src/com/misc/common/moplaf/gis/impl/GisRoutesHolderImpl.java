@@ -271,12 +271,7 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	}
 	
 	private void update(GisRoutesHolderFromLocation from, GisRoutesHolderToLocation to, GisRouteInfo info) {
-		GisRoutesHolderElement element = from.getElement(to.getLocation());
-		if ( element == null ) {
-			element = GisFactory.eINSTANCE.createGisRoutesHolderElement();
-			from.getToLocations().add(element);
-			to.getFromLocations().add(element);
-		}
+		GisRoutesHolderElement element = from.addElement(to);
 		element.getRoutesInfo().add(info);
 	}
 
@@ -344,6 +339,31 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 */
 	public void refresh() {
 		this.update(this.getCalculator());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void flush() {
+		for ( GisRoutesHolderFromLocation from : this.getFromLocations()) {
+			for ( GisRoutesHolderElement element : from.getToLocations()) {
+				element.getRoutesInfo().clear();
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void clear() {
+		while ( this.getFromLocations().size()>0) {
+			this.getFromLocations().get(0).remove();
+		}
+		while (this.getToLocations().size()>0) {
+			this.getToLocations().get(0).remove();
+		}
 	}
 
 	/**
@@ -500,6 +520,12 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 				return getToLocation((GisLocation)arguments.get(0));
 			case GisPackage.GIS_ROUTES_HOLDER___REFRESH:
 				refresh();
+				return null;
+			case GisPackage.GIS_ROUTES_HOLDER___FLUSH:
+				flush();
+				return null;
+			case GisPackage.GIS_ROUTES_HOLDER___CLEAR:
+				clear();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

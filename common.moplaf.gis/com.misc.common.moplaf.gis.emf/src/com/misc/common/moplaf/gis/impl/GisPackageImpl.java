@@ -510,6 +510,24 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getGisRoutesHolder__Flush() {
+		return gisRoutesHolderEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisRoutesHolder__Clear() {
+		return gisRoutesHolderEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGisRoutesHolderFromLocation() {
 		return gisRoutesHolderFromLocationEClass;
 	}
@@ -1128,6 +1146,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___GET_FROM_LOCATION__GISLOCATION);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION);
 		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___REFRESH);
+		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___FLUSH);
+		createEOperation(gisRoutesHolderEClass, GIS_ROUTES_HOLDER___CLEAR);
 
 		gisRoutesHolderFromLocationEClass = createEClass(GIS_ROUTES_HOLDER_FROM_LOCATION);
 		createEReference(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION);
@@ -1303,6 +1323,10 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGisRoutesHolder__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGisRoutesHolder__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGisRoutesHolder__Clear(), null, "clear", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisRoutesHolderFromLocationEClass, GisRoutesHolderFromLocation.class, "GisRoutesHolderFromLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGisRoutesHolderFromLocation_Location(), this.getGisLocation(), null, "Location", null, 1, 1, GisRoutesHolderFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

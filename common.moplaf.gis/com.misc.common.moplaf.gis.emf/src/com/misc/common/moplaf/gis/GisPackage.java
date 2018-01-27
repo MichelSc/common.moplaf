@@ -574,13 +574,31 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER___REFRESH = GIS_ROUTER_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___FLUSH = GIS_ROUTER_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___CLEAR = GIS_ROUTER_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Routes Holder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 7;
+	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
@@ -2122,6 +2140,26 @@ public interface GisPackage extends EPackage {
 	EOperation getGisRoutesHolder__Refresh();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#flush() <em>Flush</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#flush()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolder__Flush();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolder#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolder#clear()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolder__Clear();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation <em>Routes Holder From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3041,6 +3079,22 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GIS_ROUTES_HOLDER___REFRESH = eINSTANCE.getGisRoutesHolder__Refresh();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER___FLUSH = eINSTANCE.getGisRoutesHolder__Flush();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER___CLEAR = eINSTANCE.getGisRoutesHolder__Clear();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.

@@ -262,12 +262,10 @@ public class GisRoutesHolderElementImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void remove() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.setFromLocation(null);
+		this.setToLocation(null);
 	}
 
 	/**

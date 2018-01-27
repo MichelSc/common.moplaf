@@ -180,6 +180,7 @@ public class GisRoutesHolderFromLocationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisRoutesHolderFromLocation.class)) {
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION:
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.osrm.impl;
 
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
+import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 
 import com.misc.common.moplaf.gis.GisRouteInfo;
@@ -26,6 +27,7 @@ import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -501,7 +503,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 		if ( this.isWithAlternatives()){
 			parameters.add("alternatives=true");
 		}
-		parameters.add("steps=true");
+		//parameters.add("steps=true");
 		String parametersAsString = StringUtils.join(parameters, "&");
 		// locations
 		GisCoordinatesAbstract from_coordinate = from.getCoordinates();
@@ -566,81 +568,32 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 		// parse the response
 		Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: response ="+responseAsString);
 		JSONObject responseObject = (JSONObject) JSONValue.parse(responseAsString);
-		String responsestatus = (String)responseObject.get("status");
-		Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: status ="+responsestatus);
-//		switch ( responsestatus){
-//		case "OK" : 
-//			// indicates the response contains a valid result.
-//			JSONArray rows = (JSONArray)responseObject.get("rows");
-//			int rowIndex = 0;
-//			for ( GisLocation fromLocation :fromLocationsInRequest){
-//				JSONObject rowObject = (JSONObject)rows.get(rowIndex);
-//				JSONArray elements = (JSONArray)rowObject.get("elements");
-//				int columnIndex = 0;
-//				for ( GisLocation toLocation :toLocationsInRequest){
-//					JSONObject elementObject = (JSONObject)elements.get(columnIndex);
-//					String elementstatus = (String)elementObject.get("status");
-//					boolean calculated = false;
-//					Long distance = 0l;
-//					Long duration = 0l;
-//					switch ( elementstatus){
-//					case "OK" : 
-//						// indicates the response contains a valid result.
-//						calculated = true;
-//						JSONObject distanceObject = (JSONObject)elementObject.get("distance");
-//						distance = (Long) distanceObject.get("value"); 
-//						JSONObject durationObject = (JSONObject)elementObject.get("duration");
-//						duration = (Long) durationObject.get("value"); 
-//						break;
-//					case "NOT_FOUND":
-//						calculated = false;
-//						// indicates that the origin and/or destination of this pairing could not be geocoded";
-//						break;
-//					case "ZERO_RESULTS":
-//						calculated = false;
-//						// indicates no route could be found between the origin and destination";
-//						break;
-//					default:
-//						Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorGoogleWS: "+"Unknown response status: "+responsestatus);
-//						calculated = false;
-//					} // switch on the element status
-//					//    			      CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: value "+distanceValue);
-//					GisRouteInfo newElement = GisFactory.eINSTANCE.createGisRouteInfo();
-//					newElement.setFromLocation(fromLocation);
-//					newElement.setToLocation(toLocation);
-//					newElement.setDistance(distance);
-//					newElement.setDuration(duration);
-//					infos.add(newElement);
-//					columnIndex++;
-//				} // traverse the to locations
-//				rowIndex++;
-//			}  // traverse the fromlocations
-//			break;
-//		case "INVALID_REQUEST" :
-//			feedback = "Invalid Request: indicates that the provided request was invalid"; 
-//			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorGoogleWS: "+feedback);
-//			break;
-//		case "MAX_ELEMENTS_EXCEEDED": 
-//			feedback = "Max Elements Exceeded: indicates that the product of origins and destinations exceeds the per-query limit";
-//			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorGoogleWS: "+feedback);
-//			break;
-//		case "OVER_QUERY_LIMIT" : 
-//			feedback = "Over Query Limit: indicates the service has received too many requests from your application within the allowed time period";
-//			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorGoogleWS: "+feedback);
-//			break;
-//		case "REQUEST_DENIED": 
-//			feedback = "Request denied: indicates that the service denied use of the Distance Matrix service by your application";
-//			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorGoogleWS: "+feedback);
-//			break;
-//		case "UNKNOWN_ERROR":  
-//			feedback = "Unknown Error: indicates a Distance Matrix request could not be processed due to a server error. The request may succeed if you try again";
-//			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorGoogleWS: "+feedback);
-//			break;
-//		default :
-//			feedback = "Unknown response status "+responsestatus;
-//			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorGoogleWS: "+feedback);
-//			break;
-//		}  // swich on response status
-		return null;
+		String response_code= (String)responseObject.get("code");
+		Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: code ="+response_code);
+		GisRouteInfo info = null;
+		switch ( response_code ){
+		case "NoRoute" : 
+			Plugin.INSTANCE.logWarning("GisDistanceMatrixCalculatorOsrmOneToOne: no route");
+			break;
+		case "Ok" : 
+			// indicates the response contains a valid result.
+			JSONArray routes = (JSONArray)responseObject.get("routes");
+			for (int route_index = 0; route_index<routes.size(); route_index++) {
+				JSONObject route = (JSONObject)routes.get(route_index);
+				Number distance = (Number)route.get("distance");  //meters 
+				Number duration = (Number)route.get("duration");  //seconds 
+				info = GisFactory.eINSTANCE.createGisRouteInfo();
+				info.setFromLocation(from);
+				info.setToLocation(to);
+				info.setDistance(distance.doubleValue()/1000.0d);  // conversion in km's
+				info.setDuration(duration.doubleValue()/3600.0d);  // conversion in hours
+			}  // traverse the routes
+			break;
+		default :
+			feedback = "Unknown response code "+response_code;
+			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorOsrmOneToOne: "+feedback);
+			break;
+		}  // swich on response status
+		return info;
 	}
 } //GisDistanceMatrixCalculatorOsrmOneToOneImpl

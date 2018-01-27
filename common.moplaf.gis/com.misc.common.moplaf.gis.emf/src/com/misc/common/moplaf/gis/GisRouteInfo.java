@@ -74,6 +74,9 @@ public interface GisRouteInfo extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Distance from fromLocation to toLocation, expressed in KM's
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Distance</em>' attribute.
 	 * @see #setDistance(double)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRouteInfo_Distance()
@@ -100,6 +103,10 @@ public interface GisRouteInfo extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Duration of driving from fromLocation to toLocation, expressed in hours
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Duration</em>' attribute.
 	 * @see #setDuration(double)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRouteInfo_Duration()

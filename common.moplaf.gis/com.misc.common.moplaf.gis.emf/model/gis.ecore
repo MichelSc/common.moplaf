@@ -43,6 +43,16 @@
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
     <eOperations name="refresh"/>
+    <eOperations name="flush">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="flush remove all the RouteInfos from the RoutesHolder"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="clear">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="clear removes all the locations from the RoutesHolder"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocations" upperBound="-1"
         eType="#//GisRoutesHolderFromLocation" containment="true" eOpposite="#//GisRoutesHolderFromLocation/RoutesHolder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocations" upperBound="-1"
@@ -103,8 +113,16 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FromLocation" lowerBound="1"
         eType="#//GisLocation"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Distance from fromLocation to toLocation, expressed in KM's"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Duration of driving from fromLocation to toLocation, expressed in hours&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ToLocation" lowerBound="1"
         eType="#//GisLocation"/>
   </eClassifiers>

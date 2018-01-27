@@ -147,6 +147,8 @@ public class GisRouterGeodesicImpl extends GisRouteCalculatorOneToOneImpl implem
 		double distance_corrected = distance*this.getCorrection();
 		double duration = distance_corrected/this.getSpeed();
 		GisRouteInfo route_info = GisFactory.eINSTANCE.createGisRouteInfo();
+		route_info.setFromLocation(from);
+		route_info.setToLocation(to);
 		route_info.setDistance(distance_corrected);
 		route_info.setDuration(duration);
 		return route_info;

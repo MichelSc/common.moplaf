@@ -65,6 +65,7 @@ public class GisRoutesHolderElementItemProvider
 
 			addDescriptionPropertyDescriptor(object);
 			addToLocationPropertyDescriptor(object);
+			addFromLocationPropertyDescriptor(object);
 			addCalculatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -106,9 +107,31 @@ public class GisRoutesHolderElementItemProvider
 				 getString("_UI_GisRoutesHolderElement_ToLocation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolderElement_ToLocation_feature", "_UI_GisRoutesHolderElement_type"),
 				 GisPackage.Literals.GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION,
-				 true,
+				 false,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the From Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFromLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisRoutesHolderElement_FromLocation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolderElement_FromLocation_feature", "_UI_GisRoutesHolderElement_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION,
+				 false,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

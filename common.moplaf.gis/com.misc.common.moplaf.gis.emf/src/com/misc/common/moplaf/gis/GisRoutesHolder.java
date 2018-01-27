@@ -185,4 +185,26 @@ public interface GisRoutesHolder extends GisRouter {
 	 */
 	void refresh();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * flush remove all the RouteInfos from the RoutesHolder
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * clear removes all the locations from the RoutesHolder
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clear();
+
 } // GisRoutesHolder
