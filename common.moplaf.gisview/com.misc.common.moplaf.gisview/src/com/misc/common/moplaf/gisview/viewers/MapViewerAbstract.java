@@ -142,7 +142,7 @@ public abstract class MapViewerAbstract extends ContentViewer {
 				// the parent of child is modelElement, this is an actual child
 				// this restriction avoids recursion
 				if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
-					this.collectLocationProviders(paths,  child_element, depth+1);
+					this.collectPathProviders(paths,  child_element, depth+1);
 				}
 			}
 		}

@@ -22,6 +22,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.nebula.widgets.geomap.GeoMap;
 import org.eclipse.nebula.widgets.geomap.GeoMapUtil;
+import org.eclipse.nebula.widgets.geomap.PointD;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -63,6 +64,8 @@ public class MapViewer extends MapViewerAbstract {
 		public Object getModelObject(){
 			return this.modelObject;
 		}
+		
+		PointD[] points; // map coordinates
 	}
 
 	// fields 
@@ -76,13 +79,24 @@ public class MapViewer extends MapViewerAbstract {
 		this.geoMap = new GeoMap(parent, SWT.H_SCROLL | SWT.V_SCROLL);
 		this.geoMap.addPaintListener(new PaintListener() {
 			public void paintControl(PaintEvent e) {
+				GeoMap map = MapViewer.this.geoMap;
+				int zoom = map.getZoom();
+		    	Point mapposition = map.getMapPosition();
 			    GC gc = e.gc;
 			    for ( MapMarker marker : MapViewer.this.markers.values()){
-			    	Point mapposition = MapViewer.this.geoMap.getMapPosition();
-			        int x = GeoMapUtil.lon2position(marker.longitude, MapViewer.this.geoMap.getZoom());
-			        int y = GeoMapUtil.lat2position(marker.latitude, MapViewer.this.geoMap.getZoom());
+			        int x = GeoMapUtil.lon2position(marker.longitude, zoom);
+			        int y = GeoMapUtil.lat2position(marker.latitude, zoom);
 			        Image icon = marker.image;
 			        gc.drawImage(icon, x-mapposition.x, y-mapposition.y);
+			    } // traverse the points to draw        
+			    for ( MapPath path : MapViewer.this.paths.values()){
+			    	for ( int i=0; i<path.points.length-1; i++) {
+				        int x1 = GeoMapUtil.lon2position(path.points[i].x, zoom);
+				        int y1 = GeoMapUtil.lat2position(path.points[i].y, zoom);
+				        int x2 = GeoMapUtil.lon2position(path.points[i+1].x, zoom);
+				        int y2 = GeoMapUtil.lat2position(path.points[i+1].y, zoom);
+				        gc.drawLine(x1-mapposition.x, y1-mapposition.y, x2-mapposition.x, y2-mapposition.y);
+			    	}
 			    } // traverse the points to draw        
 			}
 		});
@@ -203,6 +217,13 @@ public class MapViewer extends MapViewerAbstract {
 			} else {
 				// keep
 				objectsToRemove.remove(path);
+			}
+			// update
+			ILocation[] locations = this.getIPathProvider().getPathStops(path);
+			map_path.points = new PointD[locations.length];
+			for ( int i = 0; i< locations.length; i++) {
+				ILocation location = locations[i];
+				map_path.points[i] = new PointD(location.getLongitude(), location.getLatitude());
 			}
 		}
 		// delete

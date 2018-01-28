@@ -80,7 +80,10 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 			LocationProvider provider = (LocationProvider) object;
 			return provider.element;
 		}
-			
+		if ( object instanceof PathProvider){
+			PathProvider provider = (PathProvider) object;
+			return provider.element;
+		}
 		return super.getParent(object);
 	}
 
@@ -305,6 +308,7 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 				int i = 0;
 				for (Object stop : stops) {
 					locations[i] = new PathStop(stop);
+					i++;
 				}
 			} else {
 				int nr_stops = this.pathsProvider.getNrPathStops(this.element,  this.path);
