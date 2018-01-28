@@ -18,8 +18,6 @@ import com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne;
  *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getPort <em>Port</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getProfile <em>Profile</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithAlternatives <em>With Alternatives</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithGeometry <em>With Geometry</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getOverview <em>Overview</em>}</li>
  * </ul>
  *
@@ -166,58 +164,6 @@ public interface GisDistanceMatrixCalculatorOsrmOneToOne extends GisRouteCalcula
 	 * @generated
 	 */
 	void setProfile(String value);
-
-	/**
-	 * Returns the value of the '<em><b>With Alternatives</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>With Alternatives</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>With Alternatives</em>' attribute.
-	 * @see #setWithAlternatives(boolean)
-	 * @see com.misc.common.moplaf.gis.osrm.GisOsrmPackage#getGisDistanceMatrixCalculatorOsrmOneToOne_WithAlternatives()
-	 * @model
-	 * @generated
-	 */
-	boolean isWithAlternatives();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithAlternatives <em>With Alternatives</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>With Alternatives</em>' attribute.
-	 * @see #isWithAlternatives()
-	 * @generated
-	 */
-	void setWithAlternatives(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>With Geometry</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>With Geometry</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>With Geometry</em>' attribute.
-	 * @see #setWithGeometry(boolean)
-	 * @see com.misc.common.moplaf.gis.osrm.GisOsrmPackage#getGisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry()
-	 * @model
-	 * @generated
-	 */
-	boolean isWithGeometry();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithGeometry <em>With Geometry</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>With Geometry</em>' attribute.
-	 * @see #isWithGeometry()
-	 * @generated
-	 */
-	void setWithGeometry(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Overview</b></em>' attribute.

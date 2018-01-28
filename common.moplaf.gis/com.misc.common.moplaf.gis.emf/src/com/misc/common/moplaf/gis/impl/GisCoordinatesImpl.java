@@ -96,7 +96,8 @@ public class GisCoordinatesImpl extends GisCoordinatesAbstractImpl implements Gi
 	}
 
 	public String getDescription() {
-		String description = String.format("Coordinates %s", this.getName());
+		String label = this.getName()==null ? "" : this.getName()+" ";
+		String description = String.format("%s (%.3f , %.3f)", label, this.getLongitude(), this.getLatitude());
 		return description;
 	}
 

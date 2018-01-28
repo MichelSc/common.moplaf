@@ -132,31 +132,13 @@ public interface GisOsrmPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PROFILE = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>With Alternatives</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_ALTERNATIVES = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>With Geometry</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 6;
-
-	/**
 	 * The feature id for the '<em><b>Overview</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 7;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Gis Distance Matrix Calculator Osrm One To One</em>' class.
@@ -165,7 +147,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE_FEATURE_COUNT = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 8;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE_FEATURE_COUNT = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Route</em>' operation.
@@ -283,28 +265,6 @@ public interface GisOsrmPackage extends EPackage {
 	EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Profile();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithAlternatives <em>With Alternatives</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>With Alternatives</em>'.
-	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithAlternatives()
-	 * @see #getGisDistanceMatrixCalculatorOsrmOneToOne()
-	 * @generated
-	 */
-	EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_WithAlternatives();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithGeometry <em>With Geometry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>With Geometry</em>'.
-	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithGeometry()
-	 * @see #getGisDistanceMatrixCalculatorOsrmOneToOne()
-	 * @generated
-	 */
-	EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getOverview <em>Overview</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,20 +362,6 @@ public interface GisOsrmPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PROFILE = eINSTANCE.getGisDistanceMatrixCalculatorOsrmOneToOne_Profile();
-		/**
-		 * The meta object literal for the '<em><b>With Alternatives</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_ALTERNATIVES = eINSTANCE.getGisDistanceMatrixCalculatorOsrmOneToOne_WithAlternatives();
-		/**
-		 * The meta object literal for the '<em><b>With Geometry</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY = eINSTANCE.getGisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry();
 		/**
 		 * The meta object literal for the '<em><b>Overview</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->

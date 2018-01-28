@@ -154,7 +154,7 @@ public interface GisRouteInfo extends EObject {
 	void setToLocation(GisLocation value);
 
 	/**
-	 * Returns the value of the '<em><b>Geometry</b></em>' reference list.
+	 * Returns the value of the '<em><b>Geometry</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisLocation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -162,9 +162,9 @@ public interface GisRouteInfo extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geometry</em>' reference list.
+	 * @return the value of the '<em>Geometry</em>' containment reference list.
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRouteInfo_Geometry()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<GisLocation> getGeometry();

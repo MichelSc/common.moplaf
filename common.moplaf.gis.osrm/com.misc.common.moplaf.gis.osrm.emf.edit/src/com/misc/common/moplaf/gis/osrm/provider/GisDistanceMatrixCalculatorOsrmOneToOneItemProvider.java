@@ -54,8 +54,6 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneItemProvider extends GisRout
 			addPortPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
 			addProfilePropertyDescriptor(object);
-			addWithAlternativesPropertyDescriptor(object);
-			addWithGeometryPropertyDescriptor(object);
 			addOverviewPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -172,50 +170,6 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneItemProvider extends GisRout
 	}
 
 	/**
-	 * This adds a property descriptor for the With Alternatives feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addWithAlternativesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisDistanceMatrixCalculatorOsrmOneToOne_WithAlternatives_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixCalculatorOsrmOneToOne_WithAlternatives_feature", "_UI_GisDistanceMatrixCalculatorOsrmOneToOne_type"),
-				 GisOsrmPackage.Literals.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_ALTERNATIVES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the With Geometry feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addWithGeometryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry_feature", "_UI_GisDistanceMatrixCalculatorOsrmOneToOne_type"),
-				 GisOsrmPackage.Literals.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Overview feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,8 +234,6 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneItemProvider extends GisRout
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PORT:
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PATH:
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PROFILE:
-			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_ALTERNATIVES:
-			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY:
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

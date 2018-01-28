@@ -6,10 +6,7 @@ package com.misc.common.moplaf.gis.provider;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.gis.GisPackage;
-import com.misc.common.moplaf.gis.GisRoutesHolderFromLocation;
 import com.misc.common.moplaf.gis.GisRoutesHolderToLocation;
-import com.misc.common.moplaf.gis.provider.GisRoutesHolderFromLocationItemProvider.GisRoutesHolderRefreshCommand;
-
 import java.util.Collection;
 import java.util.List;
 

@@ -974,7 +974,7 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTE_INFO__TO_LOCATION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Geometry</b></em>' reference list.
+	 * The feature id for the '<em><b>Geometry</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2591,10 +2591,10 @@ public interface GisPackage extends EPackage {
 	EReference getGisRouteInfo_ToLocation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.gis.GisRouteInfo#getGeometry <em>Geometry</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisRouteInfo#getGeometry <em>Geometry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Geometry</em>'.
+	 * @return the meta object for the containment reference list '<em>Geometry</em>'.
 	 * @see com.misc.common.moplaf.gis.GisRouteInfo#getGeometry()
 	 * @see #getGisRouteInfo()
 	 * @generated
@@ -3519,7 +3519,7 @@ public interface GisPackage extends EPackage {
 		EReference GIS_ROUTE_INFO__TO_LOCATION = eINSTANCE.getGisRouteInfo_ToLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Geometry</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Geometry</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -9,13 +9,15 @@ import com.misc.common.moplaf.gis.GisRouteInfo;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,7 +109,7 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	protected GisLocation toLocation;
 
 	/**
-	 * The cached value of the '{@link #getGeometry() <em>Geometry</em>}' reference list.
+	 * The cached value of the '{@link #getGeometry() <em>Geometry</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGeometry()
@@ -269,9 +271,23 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	 */
 	public EList<GisLocation> getGeometry() {
 		if (geometry == null) {
-			geometry = new EObjectResolvingEList<GisLocation>(GisLocation.class, this, GisPackage.GIS_ROUTE_INFO__GEOMETRY);
+			geometry = new EObjectContainmentEList<GisLocation>(GisLocation.class, this, GisPackage.GIS_ROUTE_INFO__GEOMETRY);
 		}
 		return geometry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
+				return ((InternalEList<?>)getGeometry()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

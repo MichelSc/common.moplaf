@@ -14,8 +14,6 @@
         defaultValueLiteral="/route/v1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Profile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="driving"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WithAlternatives" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WithGeometry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Overview" eType="#//Overview"
         defaultValueLiteral="false"/>
   </eClassifiers>

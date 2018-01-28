@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.provider;
 
 
+import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteInfo;
 
@@ -14,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -65,7 +67,6 @@ public class GisRouteInfoItemProvider
 			addDistancePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
 			addToLocationPropertyDescriptor(object);
-			addGeometryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -181,25 +182,33 @@ public class GisRouteInfoItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Geometry feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGeometryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisRouteInfo_Geometry_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisRouteInfo_Geometry_feature", "_UI_GisRouteInfo_type"),
-				 GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -245,6 +254,9 @@ public class GisRouteInfoItemProvider
 			case GisPackage.GIS_ROUTE_INFO__DURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -259,6 +271,26 @@ public class GisRouteInfoItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
+				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
+				 GisFactory.eINSTANCE.createGisAddressStructured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
+				 GisFactory.eINSTANCE.createGisAddressUnstructured()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
+				 GisFactory.eINSTANCE.createGisCoordinates()));
 	}
 
 	/**
