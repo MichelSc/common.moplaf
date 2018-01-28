@@ -14,6 +14,7 @@ package com.misc.common.moplaf.gis.provider;
 
 import com.misc.common.moplaf.gis.util.GisAdapterFactory;
 import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
+import com.misc.common.moplaf.gisview.emf.edit.IItemPathsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -79,6 +80,7 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
 		supportedTypes.add(IItemLocationsProvider.class); // non emf interface
+		supportedTypes.add(IItemPathsProvider.class); // non emf interface
 	}
 
 	/**

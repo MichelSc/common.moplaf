@@ -1,6 +1,5 @@
 package com.misc.common.moplaf.gisview.emf.edit;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -40,7 +39,7 @@ public interface IItemPathsProvider {
 	 * @param element
 	 * @return
 	 */
-	default Collection<?> getPaths(Object element){
+	default Object getPaths(Object element){
 		return null;
 	}
 
@@ -96,7 +95,9 @@ public interface IItemPathsProvider {
 	 * @param stop
 	 * @return
 	 */
-	double getPathStopLongitude(Object element, Object path, Object stop);
+	default double getPathStopLongitude(Object element, Object path, Object stop) {
+		return 0.0d;
+	}
 	
 	/**
 	 * Return the longitude associated to a stop of a path published by the element.
@@ -105,7 +106,9 @@ public interface IItemPathsProvider {
 	 * @param stop
 	 * @return
 	 */
-	double getPathStopLatitude(Object element, Object path, Object stop);
+	default double getPathStopLatitude(Object element, Object path, Object stop) {
+		return 0.0d;
+	}
 
 	/**
 	 * Return the elevation associated to a stop of path published by the element.
@@ -115,7 +118,7 @@ public interface IItemPathsProvider {
 	 * @return
 	 */
 	default double getPathStopElevation(Object element, Object path, Object stop) {
-		return 0.0;
+		return 0.0d;
 	}
 }
 

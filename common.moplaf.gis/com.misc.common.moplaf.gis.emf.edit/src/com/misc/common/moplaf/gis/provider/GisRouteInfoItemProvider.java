@@ -4,8 +4,10 @@ package com.misc.common.moplaf.gis.provider;
 
 
 import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteInfo;
+import com.misc.common.moplaf.gisview.emf.edit.IItemPathsProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -30,17 +32,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisRouteInfo} object.
  * <!-- begin-user-doc -->
+ * @implements IItemPathsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class GisRouteInfoItemProvider 
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemPathsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -302,6 +301,35 @@ public class GisRouteInfoItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return GisEditPlugin.INSTANCE;
+	}
+	
+	
+
+	@Override
+	public Object getPaths(Object element) {
+		GisRouteInfo info = (GisRouteInfo)element;
+		if ( info.getGeometry()==null) {
+			return null;
+		}
+		return info;
+	}
+
+	@Override
+	public List<?> getPathStops(Object element, Object path) {
+		GisRouteInfo info = (GisRouteInfo)element;
+		return info.getGeometry();
+	}
+
+	@Override
+	public double getPathStopLongitude(Object element, Object path, Object stop) {
+		GisLocation point = (GisLocation)stop;
+		return point.getCoordinates().getLongitude();
+	}
+
+	@Override
+	public double getPathStopLatitude(Object element, Object path, Object stop) {
+		GisLocation point = (GisLocation)stop;
+		return point.getCoordinates().getLatitude();
 	}
 
 }
