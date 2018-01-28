@@ -21,8 +21,10 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.gisview.ILocation;
 import com.misc.common.moplaf.gisview.ILocationProvider;
+import com.misc.common.moplaf.gisview.IPathProvider;
 import com.misc.common.moplaf.gisview.Wrapper;
 import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
+import com.misc.common.moplaf.gisview.emf.edit.IItemPathsProvider;
 
 /**
  * An {@link AdapterFactoryGisProvider} implements the interface {@link ILocationProvider} for different kind of providers:
@@ -33,7 +35,7 @@ import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
  * @author MiSc
  *
  */
-public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvider implements ILocationProvider {
+public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvider implements ILocationProvider, IPathProvider {
 
 	/**
 	 * 
@@ -52,13 +54,21 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	
 	@Override
 	public Object[] getChildren(Object object) {
-		ArrayList<Object> providers = this.getLocationProviders(object);
-		if ( providers==null){
-			return super.getChildren(object);
-		}
+		IItemLocationsProvider locs_provider = this.getLocationsProvider(object);
+		IItemPathsProvider paths_provider = this.getPathsProvider(object);
 		Object[] children = super.getChildren(object);
+		if ( locs_provider==null && paths_provider==null) {
+			return children;
+		}
+		ArrayList<Object> providers = new ArrayList<Object>();
 		for ( int i=0; i<children.length; i++){
 			providers.add(children[i]);
+		}
+		if ( locs_provider!=null) {
+			this.collectLocationProviders(object, locs_provider, providers);
+		}
+		if ( paths_provider!=null) {
+			this.collectPathProviders(object, paths_provider, providers);
 		}
 		return providers.toArray();
 	}
@@ -73,18 +83,24 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 		return super.getParent(object);
 	}
 
+	private IItemLocationsProvider getLocationsProvider(Object element){
+		AdapterFactory adapterFactory = this.getAdapterFactory();
+		IItemLocationsProvider locationsProvider = (IItemLocationsProvider) adapterFactory.adapt(element, IItemLocationsProvider.class);
+		return locationsProvider;
+	}
+		
+	private IItemPathsProvider getPathsProvider(Object element){
+	AdapterFactory adapterFactory = this.getAdapterFactory();
+	IItemPathsProvider pathsProvider = (IItemPathsProvider) adapterFactory.adapt(element, IItemPathsProvider.class);
+	return pathsProvider;
+	}
+	
 	/**
 	 * Return a collection of object extending the private class  {@link LocationProvider}, and implementing 
 	 * the interfaces {@link IItemLabelProvider} and specific methods for supporting {@link ILocationProvider}
 	 * <p>
 	 */
-	private ArrayList<Object> getLocationProviders(Object element){
-		AdapterFactory adapterFactory = this.getAdapterFactory();
-		IItemLocationsProvider locationsProvider = (IItemLocationsProvider) adapterFactory.adapt(element, IItemLocationsProvider.class);
-		
-		if ( locationsProvider==null ) { return null; }
-		
-		ArrayList<Object> providers = new ArrayList<Object>();
+	private void collectLocationProviders(Object element, IItemLocationsProvider locationsProvider, ArrayList<Object> providers){
 		Object locations = locationsProvider.getLocations(element);
 		if ( locations == null ) {
 			// no location for the element
@@ -100,9 +116,30 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 			LocationProvider provider = this.createLocationProvider(element, null, locationsProvider);
 			providers.add(provider);
 		}
-		return providers;
 	}
 	
+	/**
+	 * Return a collection of object extending the private class  {@link PathProvider}, and implementing 
+	 * the interfaces {@link IItemLabelProvider} and specific methods for supporting {@link IPathProvider}
+	 * <p>
+	 */
+	private void collectPathProviders(Object element, IItemPathsProvider pathsProvider, ArrayList<Object> providers){
+		Object paths = pathsProvider.getPaths(element);
+		if ( paths == null ) {
+			// no path for the element
+		} else if ( paths instanceof Collection<?>) {
+			Collection<?> collection = (Collection<?>)paths;
+			// the element HAS paths
+			for ( Object path : collection){
+				PathProvider provider = this.createPathProvider(element, path, pathsProvider);
+				providers.add(provider);
+			}
+		} else {
+			// the element IS a path
+			PathProvider provider = this.createPathProvider(element, null, pathsProvider);
+			providers.add(provider);
+		}
+	}
 
 	/**
 	 * 
@@ -116,6 +153,17 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	}
 
 	
+	/**
+	 * 
+	 * @param element
+	 * @param path
+	 * @param provider
+	 * @return
+	 */
+	private PathProvider createPathProvider(Object element, Object path, IItemPathsProvider provider){
+		return new PathProvider(element, path, provider);
+	}
+
 	/**
 	 * Helper class for the conversion of an IItemLocationsProvider (abstract), represent a Location 
 	 */
@@ -178,6 +226,58 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	};
 	
 	/**
+	 * Helper class for the conversion of an IItemLocationsProvider (abstract), represent a Location 
+	 */
+	private class PathProvider implements IItemLabelProvider, IItemColorProvider, Wrapper {
+		protected IItemPathsProvider pathsProvider;
+		protected Object element;
+		protected Object path;
+		
+		/**
+		 * 
+		 * @param nativeObject
+		 * @param locationKey
+		 * @param locationsProvider
+		 */
+		public PathProvider(Object element, Object path, IItemPathsProvider pathsProvider) {
+			super();
+			this.element = element;
+			this.path = path;
+			this.pathsProvider = pathsProvider;
+		}
+	
+		public Object unwrap(){
+			return element;
+		}
+	
+		@Override
+		public String getText(Object object) {
+			return this.pathsProvider.getPathText(this.element, this.path);
+		}
+	
+		@Override
+		public Object getForeground(Object object) {
+			return this.pathsProvider.getPathForeground(this.element, this.path);
+		}
+	
+		public ILocation[] getPathStops() {
+			return null;
+		}
+
+		@Override
+		public Object getBackground(Object object) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Object getImage(Object object) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	}
+
+	/**
 	 * Specified by {@link ILocationProvider}
 	 * 
 	 */
@@ -197,6 +297,28 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	public ILocation getLocation(Object element) {
 		LocationProvider provider = (LocationProvider) element;
 		return provider;
+	}
+
+	/**
+	 * Specified by {@link IPathProvider}
+	 * 
+	 */
+	@Override
+	public boolean isPath(Object element) {
+		if ( element instanceof PathProvider){
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Specified by {@link IPathProvider}
+	 * 
+	 */
+	@Override
+	public ILocation[] getPathStops(Object element) {
+		PathProvider provider = (PathProvider) element;
+		return provider.getPathStops();
 	}
 
 }
