@@ -329,7 +329,7 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 		public void execute() {
 			this.matrix.refresh();
 		}
-	} // class TableGroupRefreshCommand
+	} // class GisRoutesHolderRefreshCommand
 
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,

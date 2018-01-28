@@ -65,6 +65,7 @@ public class GisRouteInfoItemProvider
 			addDistancePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
 			addToLocationPropertyDescriptor(object);
+			addGeometryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -171,6 +172,28 @@ public class GisRouteInfoItemProvider
 				 getString("_UI_GisRouteInfo_ToLocation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisRouteInfo_ToLocation_feature", "_UI_GisRouteInfo_type"),
 				 GisPackage.Literals.GIS_ROUTE_INFO__TO_LOCATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Geometry feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGeometryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisRouteInfo_Geometry_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRouteInfo_Geometry_feature", "_UI_GisRouteInfo_type"),
+				 GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
 				 true,
 				 false,
 				 true,

@@ -73,6 +73,8 @@ public class GisOsrmFactoryImpl extends EFactoryImpl implements GisOsrmFactory {
 		switch (eDataType.getClassifierID()) {
 			case GisOsrmPackage.PROTOCOL:
 				return createProtocolFromString(eDataType, initialValue);
+			case GisOsrmPackage.OVERVIEW:
+				return createOverviewFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -88,6 +90,8 @@ public class GisOsrmFactoryImpl extends EFactoryImpl implements GisOsrmFactory {
 		switch (eDataType.getClassifierID()) {
 			case GisOsrmPackage.PROTOCOL:
 				return convertProtocolToString(eDataType, instanceValue);
+			case GisOsrmPackage.OVERVIEW:
+				return convertOverviewToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -120,6 +124,26 @@ public class GisOsrmFactoryImpl extends EFactoryImpl implements GisOsrmFactory {
 	 * @generated
 	 */
 	public String convertProtocolToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Overview createOverviewFromString(EDataType eDataType, String initialValue) {
+		Overview result = Overview.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOverviewToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

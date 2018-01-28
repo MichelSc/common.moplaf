@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getDuration <em>Duration</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getToLocation <em>To Location</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getGeometry <em>Geometry</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisRouteInfo()
@@ -150,5 +152,21 @@ public interface GisRouteInfo extends EObject {
 	 * @generated
 	 */
 	void setToLocation(GisLocation value);
+
+	/**
+	 * Returns the value of the '<em><b>Geometry</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisLocation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Geometry</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Geometry</em>' reference list.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRouteInfo_Geometry()
+	 * @model
+	 * @generated
+	 */
+	EList<GisLocation> getGeometry();
 
 } // GisRouteInfo

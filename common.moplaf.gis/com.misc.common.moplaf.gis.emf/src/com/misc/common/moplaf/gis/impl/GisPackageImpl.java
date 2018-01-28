@@ -591,8 +591,26 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisRoutesHolderFromLocation__Remove() {
+	public EOperation getGisRoutesHolderFromLocation__Update__GisRouteCalculator() {
 		return gisRoutesHolderFromLocationEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisRoutesHolderFromLocation__Refresh() {
+		return gisRoutesHolderFromLocationEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisRoutesHolderFromLocation__Remove() {
+		return gisRoutesHolderFromLocationEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -663,8 +681,26 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisRoutesHolderToLocation__Remove() {
+	public EOperation getGisRoutesHolderToLocation__Update__GisRouteCalculator() {
 		return gisRoutesHolderToLocationEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisRoutesHolderToLocation__Refresh() {
+		return gisRoutesHolderToLocationEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisRoutesHolderToLocation__Remove() {
+		return gisRoutesHolderToLocationEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -726,8 +762,26 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisRoutesHolderElement__Remove() {
+	public EOperation getGisRoutesHolderElement__Update__GisRouteCalculator() {
 		return gisRoutesHolderElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisRoutesHolderElement__Refresh() {
+		return gisRoutesHolderElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisRoutesHolderElement__Remove() {
+		return gisRoutesHolderElementEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -782,6 +836,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EReference getGisRouteInfo_ToLocation() {
 		return (EReference)gisRouteInfoEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGisRouteInfo_Geometry() {
+		return (EReference)gisRouteInfoEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1156,6 +1219,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION);
 		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION);
 		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION);
+		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR);
+		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH);
 		createEOperation(gisRoutesHolderFromLocationEClass, GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE);
 
 		gisRoutesHolderToLocationEClass = createEClass(GIS_ROUTES_HOLDER_TO_LOCATION);
@@ -1165,6 +1230,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION);
 		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION);
 		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION);
+		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___UPDATE__GISROUTECALCULATOR);
+		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___REFRESH);
 		createEOperation(gisRoutesHolderToLocationEClass, GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE);
 
 		gisRoutesHolderElementEClass = createEClass(GIS_ROUTES_HOLDER_ELEMENT);
@@ -1173,6 +1240,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEReference(gisRoutesHolderElementEClass, GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION);
 		createEReference(gisRoutesHolderElementEClass, GIS_ROUTES_HOLDER_ELEMENT__ROUTES_INFO);
 		createEAttribute(gisRoutesHolderElementEClass, GIS_ROUTES_HOLDER_ELEMENT__CALCULATED);
+		createEOperation(gisRoutesHolderElementEClass, GIS_ROUTES_HOLDER_ELEMENT___UPDATE__GISROUTECALCULATOR);
+		createEOperation(gisRoutesHolderElementEClass, GIS_ROUTES_HOLDER_ELEMENT___REFRESH);
 		createEOperation(gisRoutesHolderElementEClass, GIS_ROUTES_HOLDER_ELEMENT___REMOVE);
 
 		gisRouteInfoEClass = createEClass(GIS_ROUTE_INFO);
@@ -1181,6 +1250,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisRouteInfoEClass, GIS_ROUTE_INFO__DISTANCE);
 		createEAttribute(gisRouteInfoEClass, GIS_ROUTE_INFO__DURATION);
 		createEReference(gisRouteInfoEClass, GIS_ROUTE_INFO__TO_LOCATION);
+		createEReference(gisRouteInfoEClass, GIS_ROUTE_INFO__GEOMETRY);
 
 		gisAddressGeocodedEClass = createEClass(GIS_ADDRESS_GEOCODED);
 		createEAttribute(gisAddressGeocodedEClass, GIS_ADDRESS_GEOCODED__SCORE);
@@ -1340,6 +1410,11 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		op = initEOperation(getGisRoutesHolderFromLocation__AddElement__GisRoutesHolderToLocation(), this.getGisRoutesHolderElement(), "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisRoutesHolderToLocation(), "toLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getGisRoutesHolderFromLocation__Update__GisRouteCalculator(), null, "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisRouteCalculator(), "calculator", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGisRoutesHolderFromLocation__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getGisRoutesHolderFromLocation__Remove(), null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisRoutesHolderToLocationEClass, GisRoutesHolderToLocation.class, "GisRoutesHolderToLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1354,6 +1429,11 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		op = initEOperation(getGisRoutesHolderToLocation__AddElement__GisRoutesHolderFromLocation(), this.getGisRoutesHolderElement(), "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisRoutesHolderFromLocation(), "fromLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getGisRoutesHolderToLocation__Update__GisRouteCalculator(), null, "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisRouteCalculator(), "calculator", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGisRoutesHolderToLocation__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getGisRoutesHolderToLocation__Remove(), null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisRoutesHolderElementEClass, GisRoutesHolderElement.class, "GisRoutesHolderElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1363,6 +1443,11 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEReference(getGisRoutesHolderElement_RoutesInfo(), this.getGisRouteInfo(), null, "RoutesInfo", null, 0, -1, GisRoutesHolderElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisRoutesHolderElement_Calculated(), ecorePackage.getEBoolean(), "Calculated", null, 0, 1, GisRoutesHolderElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getGisRoutesHolderElement__Update__GisRouteCalculator(), null, "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisRouteCalculator(), "calculator", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGisRoutesHolderElement__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getGisRoutesHolderElement__Remove(), null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisRouteInfoEClass, GisRouteInfo.class, "GisRouteInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1371,6 +1456,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEAttribute(getGisRouteInfo_Distance(), ecorePackage.getEDouble(), "Distance", null, 0, 1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisRouteInfo_Duration(), ecorePackage.getEDouble(), "Duration", null, 0, 1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisRouteInfo_ToLocation(), this.getGisLocation(), null, "ToLocation", null, 1, 1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisRouteInfo_Geometry(), this.getGisLocation(), null, "Geometry", null, 0, -1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisAddressGeocodedEClass, GisAddressGeocoded.class, "GisAddressGeocoded", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisAddressGeocoded_Score(), ecorePackage.getEFloat(), "Score", null, 0, 1, GisAddressGeocoded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -6,13 +6,16 @@ import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteInfo;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getToLocation <em>To Location</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getGeometry <em>Geometry</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +105,16 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	 * @ordered
 	 */
 	protected GisLocation toLocation;
+
+	/**
+	 * The cached value of the '{@link #getGeometry() <em>Geometry</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeometry()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GisLocation> geometry;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +267,18 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GisLocation> getGeometry() {
+		if (geometry == null) {
+			geometry = new EObjectResolvingEList<GisLocation>(GisLocation.class, this, GisPackage.GIS_ROUTE_INFO__GEOMETRY);
+		}
+		return geometry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -268,6 +294,8 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 			case GisPackage.GIS_ROUTE_INFO__TO_LOCATION:
 				if (resolve) return getToLocation();
 				return basicGetToLocation();
+			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
+				return getGeometry();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,6 +305,7 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -291,6 +320,10 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 				return;
 			case GisPackage.GIS_ROUTE_INFO__TO_LOCATION:
 				setToLocation((GisLocation)newValue);
+				return;
+			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
+				getGeometry().clear();
+				getGeometry().addAll((Collection<? extends GisLocation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -316,6 +349,9 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 			case GisPackage.GIS_ROUTE_INFO__TO_LOCATION:
 				setToLocation((GisLocation)null);
 				return;
+			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
+				getGeometry().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,6 +374,8 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 				return duration != DURATION_EDEFAULT;
 			case GisPackage.GIS_ROUTE_INFO__TO_LOCATION:
 				return toLocation != null;
+			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
+				return geometry != null && !geometry.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

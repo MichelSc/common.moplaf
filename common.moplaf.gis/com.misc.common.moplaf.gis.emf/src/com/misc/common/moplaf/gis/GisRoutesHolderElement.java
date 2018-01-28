@@ -146,6 +146,22 @@ public interface GisRoutesHolderElement extends EObject {
 	 * @model
 	 * @generated
 	 */
+	void update(GisRouteCalculator calculator);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void remove();
 
 } // GisRoutesHolderElement

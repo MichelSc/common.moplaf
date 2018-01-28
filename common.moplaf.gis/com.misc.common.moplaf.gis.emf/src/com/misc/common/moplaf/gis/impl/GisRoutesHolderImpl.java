@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -241,14 +242,15 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 	 * <!-- end-user-doc -->
 	 */
 	public void update(GisRouteCalculator calculator) {
+		BasicEList<GisLocation> froms = new BasicEList<>();
 		for ( GisRoutesHolderFromLocation from : this.getFromLocations()) {
-			for ( GisRoutesHolderToLocation to : this.getToLocations()) {
-				GisRouteInfo route_info = calculator.getRoute(from.getLocation(), to.getLocation());
-				if ( route_info!=null) {
-					this.update(from,  to,  route_info);
-				}
-			}
+			froms.add(from.getLocation());
 		}
+		BasicEList<GisLocation> tos = new BasicEList<>();
+		for ( GisRoutesHolderToLocation to : this.getToLocations()) {
+			tos.add(to.getLocation());
+		}
+		this.update(calculator, froms, tos);
 	}
 
 	/**

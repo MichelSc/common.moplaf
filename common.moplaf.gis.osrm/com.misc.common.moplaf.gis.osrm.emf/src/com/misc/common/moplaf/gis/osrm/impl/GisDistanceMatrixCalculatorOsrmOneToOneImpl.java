@@ -13,6 +13,7 @@ import com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl;
 import com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne;
 import com.misc.common.moplaf.gis.osrm.GisOsrmPackage;
 
+import com.misc.common.moplaf.gis.osrm.Overview;
 import com.misc.common.moplaf.gis.osrm.Protocol;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -46,6 +47,7 @@ import org.json.simple.JSONValue;
  *   <li>{@link com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmOneToOneImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmOneToOneImpl#isWithAlternatives <em>With Alternatives</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmOneToOneImpl#isWithGeometry <em>With Geometry</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmOneToOneImpl#getOverview <em>Overview</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,7 +115,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PATH_EDEFAULT = "route/v1/driving";
+	protected static final String PATH_EDEFAULT = "/route/v1";
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -177,6 +179,25 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 	 * @ordered
 	 */
 	protected boolean withGeometry = WITH_GEOMETRY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOverview() <em>Overview</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOverview()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Overview OVERVIEW_EDEFAULT = Overview.NONE;
+	/**
+	 * The cached value of the '{@link #getOverview() <em>Overview</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOverview()
+	 * @generated
+	 * @ordered
+	 */
+	protected Overview overview = OVERVIEW_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -349,6 +370,27 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Overview getOverview() {
+		return overview;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOverview(Overview newOverview) {
+		Overview oldOverview = overview;
+		overview = newOverview == null ? OVERVIEW_EDEFAULT : newOverview;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW, oldOverview, overview));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -366,6 +408,8 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 				return isWithAlternatives();
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY:
 				return isWithGeometry();
+			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW:
+				return getOverview();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -398,6 +442,9 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 				return;
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY:
 				setWithGeometry((Boolean)newValue);
+				return;
+			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW:
+				setOverview((Overview)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -432,6 +479,9 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY:
 				setWithGeometry(WITH_GEOMETRY_EDEFAULT);
 				return;
+			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW:
+				setOverview(OVERVIEW_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -458,6 +508,8 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 				return withAlternatives != WITH_ALTERNATIVES_EDEFAULT;
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY:
 				return withGeometry != WITH_GEOMETRY_EDEFAULT;
+			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW:
+				return overview != OVERVIEW_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -486,6 +538,8 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 		result.append(withAlternatives);
 		result.append(", WithGeometry: ");
 		result.append(withGeometry);
+		result.append(", Overview: ");
+		result.append(overview);
 		result.append(')');
 		return result.toString();
 	}
@@ -503,6 +557,11 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 		if ( this.isWithAlternatives()){
 			parameters.add("alternatives=true");
 		}
+		if ( this.getOverview()!=null) {
+			parameters.add("overview="+this.getOverview().getLiteral());
+			
+		}
+		parameters.add("generate_hints=false");
 		//parameters.add("steps=true");
 		String parametersAsString = StringUtils.join(parameters, "&");
 		// locations

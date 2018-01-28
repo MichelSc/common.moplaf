@@ -3,6 +3,8 @@
 package com.misc.common.moplaf.gis.provider;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRoutesHolderElement;
@@ -10,13 +12,15 @@ import com.misc.common.moplaf.gis.GisRoutesHolderElement;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -266,4 +270,42 @@ public class GisRoutesHolderElementItemProvider
 		return GisEditPlugin.INSTANCE;
 	}
 
+	/* (non-Javadoc)
+	 * GisRoutesHolderRefreshCommand
+	 */
+	public class GisRoutesHolderRefreshCommand extends RefreshCommand{
+		private GisRoutesHolderElement element;
+		
+		// constructor
+		public GisRoutesHolderRefreshCommand(GisRoutesHolderElement anElement)	{
+			super();
+			this.element = anElement;
+		}
+		
+		@Override
+		protected boolean prepare() {
+			boolean isExecutable = true;
+			EnabledFeedback feedback = this.element.getFromLocation().getRoutesHolder().getRefreshFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.element.refresh();
+		}
+	} // class GisRoutesHolderRefreshCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == RefreshCommand.class){
+			return new GisRoutesHolderRefreshCommand((GisRoutesHolderElement) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

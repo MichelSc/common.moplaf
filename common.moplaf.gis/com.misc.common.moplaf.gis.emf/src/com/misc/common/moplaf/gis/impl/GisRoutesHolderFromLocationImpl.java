@@ -5,6 +5,7 @@ package com.misc.common.moplaf.gis.impl;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.GisRoutesHolder;
 import com.misc.common.moplaf.gis.GisRoutesHolderElement;
 import com.misc.common.moplaf.gis.GisRoutesHolderFromLocation;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -231,6 +232,31 @@ public class GisRoutesHolderFromLocationImpl extends MinimalEObjectImpl.Containe
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void update(GisRouteCalculator calculator) {
+		GisRoutesHolder holder = this.getRoutesHolder();
+		BasicEList<GisLocation> froms = new BasicEList<>();
+		froms.add(this.getLocation());
+		BasicEList<GisLocation> tos = new BasicEList<>();
+		for ( GisRoutesHolderToLocation to : holder.getToLocations()) {
+			tos.add(to.getLocation());
+		}
+		holder.update(calculator, froms, tos);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refresh() {
+		GisRoutesHolder holder = this.getRoutesHolder();
+		GisRouteCalculator calculator = holder.getCalculator();
+		this.update(calculator);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void remove() {
 		for ( GisRoutesHolderElement element : this.getToLocations()) {
 			element.remove();
@@ -384,6 +410,12 @@ public class GisRoutesHolderFromLocationImpl extends MinimalEObjectImpl.Containe
 				return getElement((GisLocation)arguments.get(0));
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION:
 				return addElement((GisRoutesHolderToLocation)arguments.get(0));
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR:
+				update((GisRouteCalculator)arguments.get(0));
+				return null;
+			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH:
+				refresh();
+				return null;
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE:
 				remove();
 				return null;

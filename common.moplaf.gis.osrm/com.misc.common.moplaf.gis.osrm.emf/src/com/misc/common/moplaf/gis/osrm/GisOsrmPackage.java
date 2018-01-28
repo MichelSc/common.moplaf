@@ -150,13 +150,22 @@ public interface GisOsrmPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Overview</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Gis Distance Matrix Calculator Osrm One To One</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE_FEATURE_COUNT = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 7;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE_FEATURE_COUNT = GisPackage.GIS_ROUTE_CALCULATOR_ONE_TO_ONE_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Route</em>' operation.
@@ -195,6 +204,17 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 */
 	int PROTOCOL = 1;
+
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.osrm.Overview <em>Overview</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.osrm.Overview
+	 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getOverview()
+	 * @generated
+	 */
+	int OVERVIEW = 2;
 
 
 	/**
@@ -285,6 +305,17 @@ public interface GisOsrmPackage extends EPackage {
 	EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getOverview <em>Overview</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Overview</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getOverview()
+	 * @see #getGisDistanceMatrixCalculatorOsrmOneToOne()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Overview();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,6 +324,16 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getProtocol();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.gis.osrm.Overview <em>Overview</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Overview</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.Overview
+	 * @generated
+	 */
+	EEnum getOverview();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -376,6 +417,13 @@ public interface GisOsrmPackage extends EPackage {
 		 */
 		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY = eINSTANCE.getGisDistanceMatrixCalculatorOsrmOneToOne_WithGeometry();
 		/**
+		 * The meta object literal for the '<em><b>Overview</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW = eINSTANCE.getGisDistanceMatrixCalculatorOsrmOneToOne_Overview();
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -384,6 +432,15 @@ public interface GisOsrmPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PROTOCOL = eINSTANCE.getProtocol();
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.osrm.Overview <em>Overview</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.osrm.Overview
+		 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getOverview()
+		 * @generated
+		 */
+		EEnum OVERVIEW = eINSTANCE.getOverview();
 
 	}
 

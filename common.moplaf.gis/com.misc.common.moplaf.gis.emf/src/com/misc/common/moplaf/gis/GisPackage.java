@@ -674,13 +674,31 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = 1;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR = 2;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH = 3;
+
+	/**
 	 * The operation id for the '<em>Remove</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = 2;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = 4;
 
 	/**
 	 * The number of operations of the '<em>Routes Holder From Location</em>' class.
@@ -689,7 +707,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION_OPERATION_COUNT = 3;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl <em>Routes Holder To Location</em>}' class.
@@ -765,13 +783,31 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = 1;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___UPDATE__GISROUTECALCULATOR = 2;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___REFRESH = 3;
+
+	/**
 	 * The operation id for the '<em>Remove</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = 2;
+	int GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = 4;
 
 	/**
 	 * The number of operations of the '<em>Routes Holder To Location</em>' class.
@@ -780,7 +816,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION_OPERATION_COUNT = 3;
+	int GIS_ROUTES_HOLDER_TO_LOCATION_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl <em>Routes Holder Element</em>}' class.
@@ -847,13 +883,31 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_ELEMENT_FEATURE_COUNT = 5;
 
 	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT___UPDATE__GISROUTECALCULATOR = 0;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT___REFRESH = 1;
+
+	/**
 	 * The operation id for the '<em>Remove</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT___REMOVE = 0;
+	int GIS_ROUTES_HOLDER_ELEMENT___REMOVE = 2;
 
 	/**
 	 * The number of operations of the '<em>Routes Holder Element</em>' class.
@@ -862,7 +916,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT_OPERATION_COUNT = 1;
+	int GIS_ROUTES_HOLDER_ELEMENT_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl <em>Route Info</em>}' class.
@@ -920,13 +974,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTE_INFO__TO_LOCATION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Geometry</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__GEOMETRY = 5;
+
+	/**
 	 * The number of structural features of the '<em>Route Info</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO_FEATURE_COUNT = 5;
+	int GIS_ROUTE_INFO_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Route Info</em>' class.
@@ -2234,6 +2297,26 @@ public interface GisPackage extends EPackage {
 	EOperation getGisRoutesHolderFromLocation__AddElement__GisRoutesHolderToLocation();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#update(com.misc.common.moplaf.gis.GisRouteCalculator) <em>Update</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#update(com.misc.common.moplaf.gis.GisRouteCalculator)
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderFromLocation__Update__GisRouteCalculator();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#refresh()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderFromLocation__Refresh();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#remove() <em>Remove</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2318,6 +2401,26 @@ public interface GisPackage extends EPackage {
 	EOperation getGisRoutesHolderToLocation__AddElement__GisRoutesHolderFromLocation();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#update(com.misc.common.moplaf.gis.GisRouteCalculator) <em>Update</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#update(com.misc.common.moplaf.gis.GisRouteCalculator)
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderToLocation__Update__GisRouteCalculator();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#refresh()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderToLocation__Refresh();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#remove() <em>Remove</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2393,6 +2496,26 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisRoutesHolderElement_Calculated();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#update(com.misc.common.moplaf.gis.GisRouteCalculator) <em>Update</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#update(com.misc.common.moplaf.gis.GisRouteCalculator)
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderElement__Update__GisRouteCalculator();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderElement#refresh()
+	 * @generated
+	 */
+	EOperation getGisRoutesHolderElement__Refresh();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderElement#remove() <em>Remove</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2466,6 +2589,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGisRouteInfo_ToLocation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.gis.GisRouteInfo#getGeometry <em>Geometry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Geometry</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo#getGeometry()
+	 * @see #getGisRouteInfo()
+	 * @generated
+	 */
+	EReference getGisRouteInfo_Geometry();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddressGeocoded <em>Address Geocoded</em>}'.
@@ -3155,6 +3289,22 @@ public interface GisPackage extends EPackage {
 		EOperation GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = eINSTANCE.getGisRoutesHolderFromLocation__AddElement__GisRoutesHolderToLocation();
 
 		/**
+		 * The meta object literal for the '<em><b>Update</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR = eINSTANCE.getGisRoutesHolderFromLocation__Update__GisRouteCalculator();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH = eINSTANCE.getGisRoutesHolderFromLocation__Refresh();
+
+		/**
 		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3221,6 +3371,22 @@ public interface GisPackage extends EPackage {
 		EOperation GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = eINSTANCE.getGisRoutesHolderToLocation__AddElement__GisRoutesHolderFromLocation();
 
 		/**
+		 * The meta object literal for the '<em><b>Update</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_TO_LOCATION___UPDATE__GISROUTECALCULATOR = eINSTANCE.getGisRoutesHolderToLocation__Update__GisRouteCalculator();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_TO_LOCATION___REFRESH = eINSTANCE.getGisRoutesHolderToLocation__Refresh();
+
+		/**
 		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3279,6 +3445,22 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_ROUTES_HOLDER_ELEMENT__CALCULATED = eINSTANCE.getGisRoutesHolderElement_Calculated();
 
 		/**
+		 * The meta object literal for the '<em><b>Update</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_ELEMENT___UPDATE__GISROUTECALCULATOR = eINSTANCE.getGisRoutesHolderElement__Update__GisRouteCalculator();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ROUTES_HOLDER_ELEMENT___REFRESH = eINSTANCE.getGisRoutesHolderElement__Refresh();
+
+		/**
 		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3335,6 +3517,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GIS_ROUTE_INFO__TO_LOCATION = eINSTANCE.getGisRouteInfo_ToLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Geometry</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTE_INFO__GEOMETRY = eINSTANCE.getGisRouteInfo_Geometry();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl <em>Address Geocoded</em>}' class.

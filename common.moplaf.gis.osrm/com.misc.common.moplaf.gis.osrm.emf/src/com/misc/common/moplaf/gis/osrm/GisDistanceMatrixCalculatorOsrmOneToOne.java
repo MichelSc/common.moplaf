@@ -20,6 +20,7 @@ import com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne;
  *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getProfile <em>Profile</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithAlternatives <em>With Alternatives</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#isWithGeometry <em>With Geometry</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getOverview <em>Overview</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.osrm.GisOsrmPackage#getGisDistanceMatrixCalculatorOsrmOneToOne()
@@ -114,7 +115,7 @@ public interface GisDistanceMatrixCalculatorOsrmOneToOne extends GisRouteCalcula
 
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
-	 * The default value is <code>"route/v1/driving"</code>.
+	 * The default value is <code>"/route/v1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Path</em>' attribute isn't clear,
@@ -124,7 +125,7 @@ public interface GisDistanceMatrixCalculatorOsrmOneToOne extends GisRouteCalcula
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
 	 * @see com.misc.common.moplaf.gis.osrm.GisOsrmPackage#getGisDistanceMatrixCalculatorOsrmOneToOne_Path()
-	 * @model default="route/v1/driving"
+	 * @model default="/route/v1"
 	 * @generated
 	 */
 	String getPath();
@@ -217,4 +218,34 @@ public interface GisDistanceMatrixCalculatorOsrmOneToOne extends GisRouteCalcula
 	 * @generated
 	 */
 	void setWithGeometry(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Overview</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.gis.osrm.Overview}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Overview</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Overview</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.osrm.Overview
+	 * @see #setOverview(Overview)
+	 * @see com.misc.common.moplaf.gis.osrm.GisOsrmPackage#getGisDistanceMatrixCalculatorOsrmOneToOne_Overview()
+	 * @model default="false"
+	 * @generated
+	 */
+	Overview getOverview();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne#getOverview <em>Overview</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Overview</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.osrm.Overview
+	 * @see #getOverview()
+	 * @generated
+	 */
+	void setOverview(Overview value);
 } // GisDistanceMatrixCalculatorOsrmOneToOne

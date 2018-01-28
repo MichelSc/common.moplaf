@@ -56,6 +56,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneItemProvider extends GisRout
 			addProfilePropertyDescriptor(object);
 			addWithAlternativesPropertyDescriptor(object);
 			addWithGeometryPropertyDescriptor(object);
+			addOverviewPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -215,6 +216,28 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneItemProvider extends GisRout
 	}
 
 	/**
+	 * This adds a property descriptor for the Overview feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOverviewPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisDistanceMatrixCalculatorOsrmOneToOne_Overview_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixCalculatorOsrmOneToOne_Overview_feature", "_UI_GisDistanceMatrixCalculatorOsrmOneToOne_type"),
+				 GisOsrmPackage.Literals.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns GisDistanceMatrixCalculatorOsrmOneToOne.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +282,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneItemProvider extends GisRout
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PROFILE:
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_ALTERNATIVES:
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__WITH_GEOMETRY:
+			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

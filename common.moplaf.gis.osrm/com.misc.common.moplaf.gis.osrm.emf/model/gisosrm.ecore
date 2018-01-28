@@ -16,9 +16,16 @@
         defaultValueLiteral="driving"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="WithAlternatives" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="WithGeometry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Overview" eType="#//Overview"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
     <eLiterals name="Http" literal="http"/>
     <eLiterals name="Https" value="1" literal="https"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Overview">
+    <eLiterals name="Simplified" literal="simplified"/>
+    <eLiterals name="Full" value="1" literal="full"/>
+    <eLiterals name="None" value="2" literal="false"/>
   </eClassifiers>
 </ecore:EPackage>
