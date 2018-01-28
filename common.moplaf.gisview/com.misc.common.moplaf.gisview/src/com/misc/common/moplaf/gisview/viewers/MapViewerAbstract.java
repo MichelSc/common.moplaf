@@ -23,12 +23,14 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 
 import com.misc.common.moplaf.gisview.ILocationProvider;
+import com.misc.common.moplaf.gisview.IPathProvider;
 
 public abstract class MapViewerAbstract extends ContentViewer {
 
 	private Object selectedElement = null;
 	private ISelection currentSelection = null;
 	private ILocationProvider locationProvider = null;
+	private IPathProvider pathProvider = null;
 
 	// providers management
 	@Override
@@ -45,6 +47,10 @@ public abstract class MapViewerAbstract extends ContentViewer {
 	
 	public void setLocationProvider(ILocationProvider locationProvider){
 		this.locationProvider = locationProvider;
+	}
+	
+	public void setPathProvider(IPathProvider pathProvider){
+		this.pathProvider = pathProvider;
 	}
 	
 	/**
@@ -75,6 +81,10 @@ public abstract class MapViewerAbstract extends ContentViewer {
 	
 	protected ILocationProvider getILocationProvider(){
 		return this.locationProvider;
+	}
+	
+	protected IPathProvider getIPathProvider(){
+		return this.pathProvider;
 	}
 	
 	// selection management

@@ -84,6 +84,7 @@ public abstract class MapViewAbstract extends ViewPart {
         //GridData gd = new GridData(GridData.FILL_BOTH);
         this.viewer = this.createViewer(parent);
 		this.viewer.setLocationProvider(new AdapterFactoryGisProvider(this.adapterFactory));
+		this.viewer.setPathProvider    (new AdapterFactoryGisProvider(this.adapterFactory));
         this.viewer.setContentProvider (new AdapterFactoryGisProvider(this.adapterFactory));
 		this.viewer.setLabelProvider   (new AdapterFactoryLabelProvider(this.adapterFactory));
 
