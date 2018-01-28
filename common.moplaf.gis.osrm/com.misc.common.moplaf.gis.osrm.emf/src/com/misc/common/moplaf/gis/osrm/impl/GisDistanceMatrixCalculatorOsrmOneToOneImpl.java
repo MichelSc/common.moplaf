@@ -547,11 +547,11 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 				JSONArray points = (JSONArray)geometry.get("coordinates");
 				for ( int point_index = 0; point_index<points.size(); point_index++) {
 					JSONArray coordinates = (JSONArray)points.get(point_index);
-					Number latitude = (Number)coordinates.get(0);
+					Number latitude  = (Number)coordinates.get(0);
 					Number longitude = (Number)coordinates.get(1);
 					GisCoordinates gis_point = GisFactory.eINSTANCE.createGisCoordinates();
 					gis_point.setLongitude(longitude.doubleValue());
-					gis_point.setLatitude(latitude.doubleValue());
+					gis_point.setLatitude (latitude.doubleValue());
 					info.getGeometry().add(gis_point);
 				} // the points of the geometry
 			}  // traverse the routes
