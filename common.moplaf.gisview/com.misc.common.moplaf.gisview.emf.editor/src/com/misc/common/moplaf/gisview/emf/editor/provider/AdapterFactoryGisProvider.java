@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.gisview.ILocation;
 import com.misc.common.moplaf.gisview.ILocationProvider;
 import com.misc.common.moplaf.gisview.Wrapper;
 import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
@@ -118,7 +119,7 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	/**
 	 * Helper class for the conversion of an IItemLocationsProvider (abstract), represent a Location 
 	 */
-	private class LocationProvider implements IItemLabelProvider, IItemColorProvider, Wrapper {
+	private class LocationProvider implements IItemLabelProvider, IItemColorProvider, ILocation, Wrapper {
 		protected IItemLocationsProvider locationsProvider;
 		protected Object element;
 		protected Object location;
@@ -160,14 +161,17 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 			return this.locationsProvider.getLocationImage(this.element, this.location);
 		}
 
+		@Override
 		public double getLongitude() {
 			return this.locationsProvider.getLocationLongitude(this.element, this.location);
 		}
 
+		@Override
 		public double getLatitude() {
 			return this.locationsProvider.getLocationLatitude(this.element, this.location);
 		}
 
+		@Override
 		public double getElevation() {
 			return this.locationsProvider.getLocationElevation(this.element, this.location);
 		}
@@ -190,29 +194,9 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	 * 
 	 */
 	@Override
-	public double getLongitude(Object element) {
+	public ILocation getLocation(Object element) {
 		LocationProvider provider = (LocationProvider) element;
-		return provider.getLongitude();
-	}
-
-	/**
-	 * Specified by {@link ILocationProvider}
-	 * 
-	 */
-	@Override
-	public double getLatitude(Object element) {
-		LocationProvider provider = (LocationProvider) element;
-		return provider.getLatitude();
-	}
-
-	/**
-	 * Specified by {@link ILocationProvider}
-	 * 
-	 */
-	@Override
-	public double getElevation(Object element) {
-		LocationProvider provider = (LocationProvider) element;
-		return provider.getElevation();
+		return provider;
 	}
 
 }

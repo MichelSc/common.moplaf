@@ -28,6 +28,7 @@ import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
+import com.misc.common.moplaf.gisview.ILocation;
 import com.misc.common.moplaf.gisview.viewers.MapViewerAbstract;
 
 import org.eclipse.swt.graphics.GC;
@@ -141,8 +142,9 @@ public class MapViewer extends MapViewerAbstract {
 		ArrayList<Object> locations = new ArrayList<Object>();
 		this.collectTableProviders(locations, this.getInput() , 0); // 0 is the depth as start
 		for ( Object location : locations) {
-			double longitude = this.getILocationProvider().getLongitude(location);
-			double latitude  = this.getILocationProvider().getLatitude(location);
+			ILocation location_object = this.getILocationProvider().getLocation(location); 
+			double longitude = location_object.getLongitude();
+			double latitude  = location_object.getLatitude();
 			Image image      = this.getILabelProvider()   .getImage(location);
 			MapMarker marker = this.markers.get(location);
 			if ( image!=null ) {

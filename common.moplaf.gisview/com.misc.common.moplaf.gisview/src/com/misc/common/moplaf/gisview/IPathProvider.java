@@ -11,7 +11,7 @@
 package com.misc.common.moplaf.gisview;
 
 
-public interface ILocationProvider {
-	ILocation getLocation (Object element);
-	boolean isLocation(Object element);
+public interface IPathProvider {
+	ILocation[] getStops(Object element);
+	boolean isPath(Object element);
 }
