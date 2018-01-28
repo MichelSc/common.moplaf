@@ -105,7 +105,11 @@ public abstract class MapViewerAbstract extends ContentViewer {
 		}
 	}
 	
-	protected void collectTableProviders(ArrayList<Object> locations, Object element, int depth) {
+	protected void collectLocationProviders(ArrayList<Object> locations, Object element, int depth) {
+		
+		if ( this.locationProvider==null ) {
+			return;
+		}
 		// the element
 		if ( this.locationProvider.isLocation(element)) {
 			locations.add(element);
@@ -117,7 +121,28 @@ public abstract class MapViewerAbstract extends ContentViewer {
 				// the parent of child is modelElement, this is an actual child
 				// this restriction avoids recursion
 				if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
-					this.collectTableProviders(locations,  child_element, depth+1);
+					this.collectLocationProviders(locations,  child_element, depth+1);
+				}
+			}
+		}
+	}
+	protected void collectPathProviders(ArrayList<Object> paths, Object element, int depth) {
+		
+		if ( this.pathProvider==null ) {
+			return;
+		}
+		// the element
+		if ( this.pathProvider.isPath(element)) {
+			paths.add(element);
+		}
+		// the children
+		if ( depth<3) {
+			Object[] children_element= this.getTreeContentProvider().getChildren(element);
+			for (Object child_element : children_element) {
+				// the parent of child is modelElement, this is an actual child
+				// this restriction avoids recursion
+				if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
+					this.collectLocationProviders(paths,  child_element, depth+1);
 				}
 			}
 		}

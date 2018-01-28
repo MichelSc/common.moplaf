@@ -53,9 +53,22 @@ public class MapViewer extends MapViewerAbstract {
 		}
 	}
 
+	public class MapPath  {
+		private Object modelObject;
+		
+		public MapPath(Object modelObject){
+			this.modelObject = modelObject;
+		}
+
+		public Object getModelObject(){
+			return this.modelObject;
+		}
+	}
+
 	// fields 
 	private GeoMap geoMap;
 	private HashMap<Object, MapMarker> markers= new HashMap<Object, MapMarker>();
+	private HashMap<Object, MapPath> paths= new HashMap<Object, MapPath>();
 
 	// constructor
 	public MapViewer(Composite parent){
@@ -137,12 +150,18 @@ public class MapViewer extends MapViewerAbstract {
 
 	@Override
 	public void refresh() {
-		// synch the things to show with the state of the widget
+		this.refreshMarkers();
+		this.refreshPaths();
+		this.geoMap.redraw();
+	}
+	
+	private void refreshMarkers() {
+		// synch the location things to show with the state of the widget
 		HashSet<Object> objectsToRemove = new HashSet<Object>(this.markers.keySet());
 		ArrayList<Object> locations = new ArrayList<Object>();
-		this.collectTableProviders(locations, this.getInput() , 0); // 0 is the depth as start
+		this.collectLocationProviders(locations, this.getInput() , 0); // 0 is the depth as start
 		for ( Object location : locations) {
-			ILocation location_object = this.getILocationProvider().getLocation(location); 
+			ILocation location_object = this.getILocationProvider().getLocation(location);
 			double longitude = location_object.getLongitude();
 			double latitude  = location_object.getLatitude();
 			Image image      = this.getILabelProvider()   .getImage(location);
@@ -168,9 +187,27 @@ public class MapViewer extends MapViewerAbstract {
 		for ( Object objectToRemove : objectsToRemove){
 			this.markers.remove(objectToRemove);
 		}
-		
-		this.geoMap.redraw();
 	}
 	
-		
+	private void refreshPaths() {
+		// synch the path things to show with the state of the widget
+		HashSet<Object> objectsToRemove = new HashSet<Object>(this.paths.keySet());
+		ArrayList<Object> paths = new ArrayList<Object>();
+		this.collectPathProviders(paths, this.getInput() , 0); // 0 is the depth as start
+		for ( Object path : paths) {
+			MapPath map_path = this.paths.get(path);
+			if ( map_path==null ) {
+				// create
+				map_path = new MapPath(path);
+				this.paths.put(path, map_path);
+			} else {
+				// keep
+				objectsToRemove.remove(path);
+			}
+		}
+		// delete
+		for ( Object objectToRemove : objectsToRemove){
+			this.paths.remove(objectToRemove);
+		}
+	}
 }
