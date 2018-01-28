@@ -13,6 +13,7 @@ package com.misc.common.moplaf.gisview.emf.editor.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -233,6 +234,41 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 		protected Object element;
 		protected Object path;
 		
+		private class PathStop implements ILocation {
+			private Object stop;
+
+			public PathStop(Object stop) {
+				super();
+				this.stop = stop;
+			}
+
+			@Override
+			public double getLongitude() {
+				IItemPathsProvider pathsProvider = PathProvider.this.pathsProvider;
+				Object             element       = PathProvider.this.element;
+				Object 			   path          = PathProvider.this.path;
+				return pathsProvider.getPathStopLongitude(element, path, this.stop);
+			}
+
+			@Override
+			public double getLatitude() {
+				IItemPathsProvider pathsProvider = PathProvider.this.pathsProvider;
+				Object             element       = PathProvider.this.element;
+				Object 			   path          = PathProvider.this.path;
+				return pathsProvider.getPathStopLatitude(element, path, this.stop);
+			}
+
+			@Override
+			public double getElevation() {
+				IItemPathsProvider pathsProvider = PathProvider.this.pathsProvider;
+				Object             element       = PathProvider.this.element;
+				Object 			   path          = PathProvider.this.path;
+				return pathsProvider.getPathStopElevation(element, path, this.stop);
+			}
+			
+		};
+		
+		
 		/**
 		 * 
 		 * @param nativeObject
@@ -245,6 +281,7 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 			this.path = path;
 			this.pathsProvider = pathsProvider;
 		}
+		
 	
 		public Object unwrap(){
 			return element;
@@ -261,7 +298,22 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 		}
 	
 		public ILocation[] getPathStops() {
-			return null;
+			ILocation[] locations ;
+			List<?> stops = this.pathsProvider.getPathStops(this.element, this.path);
+			if ( stops !=null) {
+				locations = new PathStop[stops.size()];
+				int i = 0;
+				for (Object stop : stops) {
+					locations[i] = new PathStop(stop);
+				}
+			} else {
+				int nr_stops = this.pathsProvider.getNrPathStops(this.element,  this.path);
+				locations = new PathStop[nr_stops];
+				for (int i= 0; i<nr_stops; i++) {
+					locations[i] = new PathStop(i);
+				}
+			}
+			return locations;
 		}
 
 		@Override
