@@ -15,6 +15,7 @@ package com.misc.common.moplaf.gis.impl;
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.Plugin;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -102,12 +103,20 @@ public abstract class GisAddressGeocoderImpl extends MinimalEObjectImpl.Containe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void geocode(GisAddress address) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( address == null )  return;
+		address.setSelectedGeocodedLocation(null);
+		Plugin.INSTANCE.logInfo("GisGeocoder.geocode: called");
+		this.geocodeImpl(address);
+		if ( address.getGeocodedAddresses().size()>0 ) {
+			address.setSelectedGeocodedLocation(address.getGeocodedAddresses().get(0));
+		}
+		Plugin.INSTANCE.logInfo("GisGeocoder.geocode: done");
+	}
+	
+	protected void geocodeImpl(GisAddress address) {
+		
 	}
 
 	/**

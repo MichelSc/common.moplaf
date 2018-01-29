@@ -233,6 +233,16 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 		if ( this.getCalculator()==null) {
 			return new EnabledFeedback(false, "No calculator");
 		}
+		for ( GisRoutesHolderFromLocation from : this.getFromLocations()) {
+			if ( from.getLocation().getCoordinates()==null) {
+				return new EnabledFeedback(false, "From location without coordinates");
+			}
+		}
+		for ( GisRoutesHolderToLocation to : this.getToLocations()) {
+			if ( to.getLocation().getCoordinates()==null) {
+				return new EnabledFeedback(false, "To location without coordinates");
+			}
+		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
 

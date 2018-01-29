@@ -398,10 +398,8 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	}
 
 	@Override
-	public void geocode(GisAddress address) {
-		if ( address == null) return;
+	protected void geocodeImpl(GisAddress address) {
 		String feedback = "Ok";
-	    Plugin.INSTANCE.logInfo("GisAddressGeocoderGoogleWS: called");
 	
 		// make the URL
 		HttpURLConnection connection = null;  

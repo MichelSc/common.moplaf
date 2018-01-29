@@ -1,6 +1,3 @@
-routing: protect route calculation against location without coordinates
-geocoding: select the best geocoded location
 routesholder: manage froms and tos
-no geometry: draw straight line
 parameter for the width of the path line
 make icons

@@ -351,10 +351,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 
 	@Override
 	public void geocode(GisAddress address) {
-		if ( address == null )  return;
 		String feedback = "Ok";
-		Plugin.INSTANCE.logInfo("GisAddressGeocoderGisgraphy: called");
-	
 		// make the URL
 		HttpURLConnection connection = null;  
 		String responseAsString = "";
