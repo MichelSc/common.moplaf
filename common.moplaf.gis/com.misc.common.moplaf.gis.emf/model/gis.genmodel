@@ -12,7 +12,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisCoordinatesAbstract/Longitude"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisCoordinatesAbstract/Latitude"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisAddress" labelFeature="#//gis/GisLocation/Description">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisAddress" labelFeature="#//gis/GisLocation/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddress/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddress/CountryCode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisAddress/GeocodedAddresses"/>
@@ -23,7 +23,7 @@
       <genOperations ecoreOperation="gis.ecore#//GisAddress/refreshGeocoded"/>
       <genOperations ecoreOperation="gis.ecore#//GisAddress/flushGeocoded"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisRoutesHolder" labelFeature="#//gis/GisRouter/Description">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisRoutesHolder" labelFeature="#//gis/GisRouter/Description">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisRoutesHolder/FromLocations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisRoutesHolder/ToLocations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRoutesHolder/Symmetrical"/>
@@ -64,6 +64,10 @@
       <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderFromLocation/addElement">
         <genParameters ecoreParameter="gis.ecore#//GisRoutesHolderFromLocation/addElement/toLocation"/>
       </genOperations>
+      <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderFromLocation/update">
+        <genParameters ecoreParameter="gis.ecore#//GisRoutesHolderFromLocation/update/calculator"/>
+      </genOperations>
+      <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderFromLocation/refresh"/>
       <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderFromLocation/remove"/>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisRoutesHolderToLocation">
@@ -78,6 +82,10 @@
       <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderToLocation/addElement">
         <genParameters ecoreParameter="gis.ecore#//GisRoutesHolderToLocation/addElement/fromLocation"/>
       </genOperations>
+      <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderToLocation/update">
+        <genParameters ecoreParameter="gis.ecore#//GisRoutesHolderToLocation/update/calculator"/>
+      </genOperations>
+      <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderToLocation/refresh"/>
       <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderToLocation/remove"/>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisRoutesHolderElement">
@@ -87,16 +95,22 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference gis.ecore#//GisRoutesHolderElement/FromLocation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisRoutesHolderElement/RoutesInfo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRoutesHolderElement/Calculated"/>
+      <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderElement/update">
+        <genParameters ecoreParameter="gis.ecore#//GisRoutesHolderElement/update/calculator"/>
+      </genOperations>
+      <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderElement/refresh"/>
       <genOperations ecoreOperation="gis.ecore#//GisRoutesHolderElement/remove"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisRouteInfo">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisRouteInfo">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouteInfo/Description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisRouteInfo/FromLocation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouteInfo/Distance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouteInfo/Duration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisRouteInfo/ToLocation"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouteInfo/WithGeometry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisRouteInfo/Geometry"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisAddressGeocoded">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisAddressGeocoded">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressGeocoded/Score"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressGeocoded/AddressGeocoded"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gis.ecore#//GisAddressGeocoded/Address"/>
@@ -112,7 +126,7 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="gis.ecore#//GisRouteCalculator" labelFeature="#//gis/GisRouter/Description"/>
-    <genClasses ecoreClass="gis.ecore#//GisAddressStructured" labelFeature="#//gis/GisLocation/Description">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisAddressStructured" labelFeature="#//gis/GisLocation/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressStructured/Country"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressStructured/AdministrativeArea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressStructured/Locality"/>
@@ -120,10 +134,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressStructured/Street"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressStructured/BuildingNumber"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisAddressUnstructured" labelFeature="#//gis/GisLocation/Description">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisAddressUnstructured" labelFeature="#//gis/GisLocation/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressUnstructured/Address"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="gis.ecore#//GisRouter" labelFeature="#//gis/GisRouter/Description">
+    <genClasses ecoreClass="gis.ecore#//GisRouter" labelFeature="#//gis/GisRouter/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouter/Name"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouter/Description"/>
       <genOperations ecoreOperation="gis.ecore#//GisRouter/getRoute">
@@ -141,16 +155,17 @@
         labelFeature="#//gis/GisRouter/Description"/>
     <genClasses image="false" ecoreClass="gis.ecore#//GisRouteCalculatorOneToMany"
         labelFeature="#//gis/GisRouter/Description"/>
-    <genClasses ecoreClass="gis.ecore#//GisRouterGeodesic" labelFeature="#//gis/GisRouter/Description">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisRouterGeodesic" labelFeature="#//gis/GisRouter/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouterGeodesic/Speed"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisRouterGeodesic/Correction"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisRouterDefaulted" labelFeature="#//gis/GisRouter/Description">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisRouterDefaulted" labelFeature="#//gis/GisRouter/Description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisRouterDefaulted/PrimaryRouter"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisRouterDefaulted/SecondaryRouter"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisCoordinates" labelFeature="#//gis/GisLocation/Description">
+    <genClasses image="false" ecoreClass="gis.ecore#//GisCoordinates" labelFeature="#//gis/GisLocation/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisCoordinates/Name"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="gis.ecore#//GisGeometry"/>
   </genPackages>
 </genmodel:GenModel>

@@ -172,11 +172,10 @@ public class GisRoutesHolderToLocationItemProvider
 	 * This returns GisRoutesHolderToLocation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisRoutesHolderToLocation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/route.png"));
 	}
 
 	/**
