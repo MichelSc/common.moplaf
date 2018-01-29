@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
@@ -29,6 +30,7 @@ public abstract class MapViewerAbstract extends ContentViewer {
 
 	private Object selectedElement = null;
 	private ISelection currentSelection = null;
+	private IColorProvider colorProvider = null;
 	private ILocationProvider locationProvider = null;
 	private IPathProvider pathProvider = null;
 
@@ -37,6 +39,10 @@ public abstract class MapViewerAbstract extends ContentViewer {
 	public void setContentProvider(IContentProvider provider) {
 		assertContentProviderType(provider);
 		super.setContentProvider(provider);
+	}
+	
+	public void setColorProvider(IColorProvider provider) {
+		this.colorProvider = provider;
 	}
 	
 	@Override
@@ -77,6 +83,10 @@ public abstract class MapViewerAbstract extends ContentViewer {
 	
 	protected ILabelProvider getILabelProvider(){
 		return (ILabelProvider)this.getLabelProvider();
+	}
+	
+	protected IColorProvider getIColorProvider(){
+		return this.colorProvider;
 	}
 	
 	protected ILocationProvider getILocationProvider(){

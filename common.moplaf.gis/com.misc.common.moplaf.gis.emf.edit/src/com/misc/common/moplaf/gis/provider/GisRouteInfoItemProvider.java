@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.provider;
 
 
+import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
@@ -290,6 +291,11 @@ public class GisRouteInfoItemProvider
 			(createChildParameter
 				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
 				 GisFactory.eINSTANCE.createGisCoordinates()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
+				 GisFactory.eINSTANCE.createGisGeometry()));
 	}
 
 	/**
@@ -332,4 +338,8 @@ public class GisRouteInfoItemProvider
 		return point.getCoordinates().getLatitude();
 	}
 
+	@Override
+	public Object getPathForeground(Object element, Object path) {
+		return Color.COLOR_RED.toURI();
+	}
 }

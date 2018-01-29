@@ -164,7 +164,6 @@ public class GisLocationItemProvider
 		return GisEditPlugin.INSTANCE;
 	}
 
-	
 	@Override
 	public Object getLocations(Object element) {
 		GisLocation location = (GisLocation)element;

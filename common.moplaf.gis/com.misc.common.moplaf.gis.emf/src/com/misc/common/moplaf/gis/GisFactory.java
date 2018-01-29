@@ -41,6 +41,15 @@ public interface GisFactory extends EFactory {
 	GisCoordinates createGisCoordinates();
 
 	/**
+	 * Returns a new object of class '<em>Geometry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Geometry</em>'.
+	 * @generated
+	 */
+	GisGeometry createGisGeometry();
+
+	/**
 	 * Returns a new object of class '<em>Routes Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

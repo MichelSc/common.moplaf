@@ -107,6 +107,29 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisGeometry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisGeometryItemProvider gisGeometryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisGeometry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisGeometryAdapter() {
+		if (gisGeometryItemProvider == null) {
+			gisGeometryItemProvider = new GisGeometryItemProvider(this);
+		}
+
+		return gisGeometryItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -451,6 +474,7 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		if (gisRouterGeodesicItemProvider != null) gisRouterGeodesicItemProvider.dispose();
 		if (gisRouterDefaultedItemProvider != null) gisRouterDefaultedItemProvider.dispose();
 		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
+		if (gisGeometryItemProvider != null) gisGeometryItemProvider.dispose();
 	}
 
 }

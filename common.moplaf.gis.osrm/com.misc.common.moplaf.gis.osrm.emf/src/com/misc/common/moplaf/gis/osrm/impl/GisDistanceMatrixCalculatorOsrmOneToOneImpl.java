@@ -5,6 +5,7 @@ package com.misc.common.moplaf.gis.osrm.impl;
 import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisGeometry;
 import com.misc.common.moplaf.gis.GisLocation;
 
 import com.misc.common.moplaf.gis.GisRouteInfo;
@@ -549,7 +550,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 					JSONArray coordinates = (JSONArray)points.get(point_index);
 					Number longitude = (Number)coordinates.get(0);
 					Number latitude  = (Number)coordinates.get(1);
-					GisCoordinates gis_point = GisFactory.eINSTANCE.createGisCoordinates();
+					GisGeometry gis_point = GisFactory.eINSTANCE.createGisGeometry();
 					gis_point.setLongitude(longitude.doubleValue());
 					gis_point.setLatitude (latitude.doubleValue());
 					info.getGeometry().add(gis_point);

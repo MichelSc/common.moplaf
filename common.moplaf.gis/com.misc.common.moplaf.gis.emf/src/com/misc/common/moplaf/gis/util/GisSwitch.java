@@ -218,6 +218,14 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisPackage.GIS_GEOMETRY: {
+				GisGeometry gisGeometry = (GisGeometry)theEObject;
+				T result = caseGisGeometry(gisGeometry);
+				if (result == null) result = caseGisCoordinatesAbstract(gisGeometry);
+				if (result == null) result = caseGisLocation(gisGeometry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -249,6 +257,21 @@ public class GisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisCoordinates(GisCoordinates object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Geometry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Geometry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisGeometry(GisGeometry object) {
 		return null;
 	}
 

@@ -20,6 +20,7 @@ import com.misc.common.moplaf.gis.GisAddressUnstructured;
 import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisGeometry;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
@@ -62,6 +63,13 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * @generated
 	 */
 	private EClass gisCoordinatesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gisGeometryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -296,6 +304,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EAttribute getGisCoordinates_Name() {
 		return (EAttribute)gisCoordinatesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGisGeometry() {
+		return gisGeometryEClass;
 	}
 
 	/**
@@ -1300,6 +1317,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		gisCoordinatesEClass = createEClass(GIS_COORDINATES);
 		createEAttribute(gisCoordinatesEClass, GIS_COORDINATES__NAME);
+
+		gisGeometryEClass = createEClass(GIS_GEOMETRY);
 	}
 
 	/**
@@ -1346,6 +1365,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		gisRouterGeodesicEClass.getESuperTypes().add(this.getGisRouteCalculatorOneToOne());
 		gisRouterDefaultedEClass.getESuperTypes().add(this.getGisRouter());
 		gisCoordinatesEClass.getESuperTypes().add(this.getGisCoordinatesAbstract());
+		gisGeometryEClass.getESuperTypes().add(this.getGisCoordinatesAbstract());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisCoordinatesAbstractEClass, GisCoordinatesAbstract.class, "GisCoordinatesAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1515,6 +1535,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		initEClass(gisCoordinatesEClass, GisCoordinates.class, "GisCoordinates", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisCoordinates_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisCoordinates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gisGeometryEClass, GisGeometry.class, "GisGeometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

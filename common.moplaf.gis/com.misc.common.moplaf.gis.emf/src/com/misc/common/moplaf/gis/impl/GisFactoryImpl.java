@@ -74,6 +74,7 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 			case GisPackage.GIS_ROUTER_GEODESIC: return createGisRouterGeodesic();
 			case GisPackage.GIS_ROUTER_DEFAULTED: return createGisRouterDefaulted();
 			case GisPackage.GIS_COORDINATES: return createGisCoordinates();
+			case GisPackage.GIS_GEOMETRY: return createGisGeometry();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,6 +88,16 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisCoordinates createGisCoordinates() {
 		GisCoordinatesImpl gisCoordinates = new GisCoordinatesImpl();
 		return gisCoordinates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisGeometry createGisGeometry() {
+		GisGeometryImpl gisGeometry = new GisGeometryImpl();
+		return gisGeometry;
 	}
 
 	/**

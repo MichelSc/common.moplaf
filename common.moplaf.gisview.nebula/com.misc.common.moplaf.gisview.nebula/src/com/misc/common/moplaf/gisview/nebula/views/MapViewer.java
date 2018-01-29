@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.Control;
 import com.misc.common.moplaf.gisview.ILocation;
 import com.misc.common.moplaf.gisview.viewers.MapViewerAbstract;
 
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Image;
@@ -56,6 +57,7 @@ public class MapViewer extends MapViewerAbstract {
 
 	public class MapPath  {
 		private Object modelObject;
+		private Color color = null;
 		
 		public MapPath(Object modelObject){
 			this.modelObject = modelObject;
@@ -90,6 +92,8 @@ public class MapViewer extends MapViewerAbstract {
 			        gc.drawImage(icon, x-mapposition.x, y-mapposition.y);
 			    } // traverse the points to draw        
 			    for ( MapPath path : MapViewer.this.paths.values()){
+				    gc.setForeground(path.color);
+				    gc.setLineWidth(6);
 			    	for ( int i=0; i<path.points.length-1; i++) {
 				        int x1 = GeoMapUtil.lon2position(path.points[i].x, zoom);
 				        int y1 = GeoMapUtil.lat2position(path.points[i].y, zoom);
@@ -219,8 +223,10 @@ public class MapViewer extends MapViewerAbstract {
 				objectsToRemove.remove(path);
 			}
 			// update
+			Color  color = this.getIColorProvider().getForeground(path);
 			ILocation[] locations = this.getIPathProvider().getPathStops(path);
 			map_path.points = new PointD[locations.length];
+			map_path.color = color;
 			for ( int i = 0; i< locations.length; i++) {
 				ILocation location = locations[i];
 				map_path.points[i] = new PointD(location.getLongitude(), location.getLatitude());

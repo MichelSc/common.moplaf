@@ -1940,6 +1940,70 @@ public interface GisPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisGeometryImpl <em>Geometry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisGeometryImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisGeometry()
+	 * @generated
+	 */
+	int GIS_GEOMETRY = 20;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
+
+	/**
+	 * The number of structural features of the '<em>Geometry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Coordinates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
+
+	/**
+	 * The number of operations of the '<em>Geometry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinates <em>Coordinates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1959,6 +2023,16 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisCoordinates_Name();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisGeometry <em>Geometry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Geometry</em>'.
+	 * @see com.misc.common.moplaf.gis.GisGeometry
+	 * @generated
+	 */
+	EClass getGisGeometry();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddress <em>Address</em>}'.
@@ -3025,6 +3099,16 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_COORDINATES__NAME = eINSTANCE.getGisCoordinates_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisGeometryImpl <em>Geometry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisGeometryImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisGeometry()
+		 * @generated
+		 */
+		EClass GIS_GEOMETRY = eINSTANCE.getGisGeometry();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.

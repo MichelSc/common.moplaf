@@ -24,6 +24,7 @@ import org.eclipse.jface.action.*;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
+import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.gisview.emf.editor.provider.AdapterFactoryGisProvider;
 import com.misc.common.moplaf.gisview.viewers.MapViewerAbstract;
 
@@ -87,6 +88,7 @@ public abstract class MapViewAbstract extends ViewPart {
 		this.viewer.setPathProvider    (new AdapterFactoryGisProvider(this.adapterFactory));
         this.viewer.setContentProvider (new AdapterFactoryGisProvider(this.adapterFactory));
 		this.viewer.setLabelProvider   (new AdapterFactoryLabelProvider(this.adapterFactory));
+		this.viewer.setColorProvider   (new AdapterFactoryArrayLabelProvider(this.adapterFactory));
 
         //viewer.setLayoutData(gd);
 		//PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "com.misc.common.moplaf.timeview.jaret.viewer");
