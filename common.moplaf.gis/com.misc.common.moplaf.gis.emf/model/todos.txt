@@ -1,0 +1,6 @@
+routing: protect route calculation against location without coordinates
+geocoding: select the best geocoded location
+do not retrieve geomtry if no geometry required
+routesholder: manage froms and tos
+waypoints: not draw images
+no geometry: draw straight line

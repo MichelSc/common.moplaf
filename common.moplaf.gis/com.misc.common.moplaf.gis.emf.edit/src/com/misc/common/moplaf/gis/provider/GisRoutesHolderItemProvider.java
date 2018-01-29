@@ -13,7 +13,6 @@ import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRoutesHolder;
 
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
@@ -23,6 +22,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -233,38 +233,46 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 				 GisFactory.eINSTANCE.createGisRoutesHolderToLocation()));
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#createDragAndDropCommand(org.eclipse.emf.edit.domain.EditingDomain, java.lang.Object, float, int, int, java.util.Collection)
+	/**
+	 * Create a drag and drop command for this Run
+	 */
+	private class RunDragAndDropCommand extends DragAndDropCommand {
+
+		public RunDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			GisRoutesHolder thisMatrix= (GisRoutesHolder) owner;
+			for (Object element : collection){
+				if ( element instanceof GisLocation){
+					compound.append(new GisRoutesHolderAddGisLocationCommand(thisMatrix, (GisLocation)element, true, true));
+				}
+				else {
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
 	 */
 	@Override
-	protected Command createDragAndDropCommand(EditingDomain domain,
-												Object owner, 
-												float location, 
-												int operations, 
-												int operation,
-												Collection<?> collection) {
-		List<Object> otherDroppedThings = new LinkedList<Object>();
-		CompoundCommand command = new CompoundCommand();
-		GisRoutesHolder thisMatrix= (GisRoutesHolder) owner;
-		for (Object element : collection){
-			if ( element instanceof GisLocation){
-				command.append(new GisRoutesHolderAddGisLocationCommand(thisMatrix, (GisLocation)element, true, true));
-			}
-			else {
-			otherDroppedThings.add(element);
-			}
-		}
-		if ( otherDroppedThings.size()>0){
-			command.append(super.createDragAndDropCommand(domain, 
-					                                    owner, 
-					                                    location, 
-					                                    operations,
-				                                      	operation, 
-				                                      	otherDroppedThings));
-		}
-		return command;
-	} // method createDragAndDropCommand
-	
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new RunDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
+
 	
 	/* (non-Javadoc)
 	 * GisRoutesHolderFlushCommand

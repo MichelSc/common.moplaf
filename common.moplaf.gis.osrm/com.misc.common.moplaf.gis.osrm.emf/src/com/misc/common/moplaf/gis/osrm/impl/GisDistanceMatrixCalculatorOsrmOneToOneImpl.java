@@ -465,10 +465,10 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 		GisCoordinatesAbstract from_coordinate = from.getCoordinates();
 		GisCoordinatesAbstract to_coordinate = to.getCoordinates();
 		String from_to_asstring = String.format(Locale.US, "%f,%f;%f,%f", 
-				from_coordinate.getLatitude(),
 				from_coordinate.getLongitude(),
-				to_coordinate.getLatitude(),
-				to_coordinate.getLongitude());
+				from_coordinate.getLatitude(),
+				to_coordinate.getLongitude(),
+				to_coordinate.getLatitude());
 		// send the request
 		String responseAsString = "";
 		HttpURLConnection connection = null;  
@@ -547,8 +547,8 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 				JSONArray points = (JSONArray)geometry.get("coordinates");
 				for ( int point_index = 0; point_index<points.size(); point_index++) {
 					JSONArray coordinates = (JSONArray)points.get(point_index);
-					Number latitude  = (Number)coordinates.get(0);
-					Number longitude = (Number)coordinates.get(1);
+					Number longitude = (Number)coordinates.get(0);
+					Number latitude  = (Number)coordinates.get(1);
 					GisCoordinates gis_point = GisFactory.eINSTANCE.createGisCoordinates();
 					gis_point.setLongitude(longitude.doubleValue());
 					gis_point.setLatitude (latitude.doubleValue());
