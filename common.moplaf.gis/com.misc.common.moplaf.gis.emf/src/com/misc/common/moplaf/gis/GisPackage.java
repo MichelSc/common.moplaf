@@ -974,13 +974,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTE_INFO__TO_LOCATION = 4;
 
 	/**
+	 * The feature id for the '<em><b>With Geometry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__WITH_GEOMETRY = 5;
+
+	/**
 	 * The feature id for the '<em><b>Geometry</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO__GEOMETRY = 5;
+	int GIS_ROUTE_INFO__GEOMETRY = 6;
 
 	/**
 	 * The number of structural features of the '<em>Route Info</em>' class.
@@ -989,7 +998,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTE_INFO_FEATURE_COUNT = 6;
+	int GIS_ROUTE_INFO_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Route Info</em>' class.
@@ -2665,6 +2674,17 @@ public interface GisPackage extends EPackage {
 	EReference getGisRouteInfo_ToLocation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRouteInfo#isWithGeometry <em>With Geometry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>With Geometry</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRouteInfo#isWithGeometry()
+	 * @see #getGisRouteInfo()
+	 * @generated
+	 */
+	EAttribute getGisRouteInfo_WithGeometry();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisRouteInfo#getGeometry <em>Geometry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3601,6 +3621,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GIS_ROUTE_INFO__TO_LOCATION = eINSTANCE.getGisRouteInfo_ToLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>With Geometry</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTE_INFO__WITH_GEOMETRY = eINSTANCE.getGisRouteInfo_WithGeometry();
 
 		/**
 		 * The meta object literal for the '<em><b>Geometry</b></em>' containment reference list feature.

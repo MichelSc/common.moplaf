@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getDuration <em>Duration</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getToLocation <em>To Location</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#isWithGeometry <em>With Geometry</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisRouteInfo#getGeometry <em>Geometry</em>}</li>
  * </ul>
  *
@@ -152,6 +153,21 @@ public interface GisRouteInfo extends EObject {
 	 * @generated
 	 */
 	void setToLocation(GisLocation value);
+
+	/**
+	 * Returns the value of the '<em><b>With Geometry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>With Geometry</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>With Geometry</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisRouteInfo_WithGeometry()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isWithGeometry();
 
 	/**
 	 * Returns the value of the '<em><b>Geometry</b></em>' containment reference list.

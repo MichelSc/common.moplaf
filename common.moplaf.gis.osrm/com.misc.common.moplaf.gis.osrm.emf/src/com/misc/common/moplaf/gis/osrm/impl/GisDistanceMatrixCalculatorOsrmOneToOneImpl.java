@@ -452,6 +452,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 		//parameters.add("steps=true");
 		parameters.add("generate_hints=false");
 		Overview overview = this.getOverview();
+		boolean has_geometry = false;
 		if ( this.getOverview()==null) {
 			overview = Overview.NONE;
 		}
@@ -459,6 +460,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 //			parameters.add("geometries=polyline");
 //			parameters.add("geometries=polyline6");
 			parameters.add("geometries=geojson");
+			has_geometry = true;
 		}
 		parameters.add("overview="+overview.getLiteral());
 		String parametersAsString = StringUtils.join(parameters, "&");
@@ -544,17 +546,19 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 				info.setToLocation(to);
 				info.setDistance(distance.doubleValue()/1000.0d);  // conversion in km's
 				info.setDuration(duration.doubleValue()/3600.0d);  // conversion in hours
-				JSONObject geometry = (JSONObject)route.get("geometry");
-				JSONArray points = (JSONArray)geometry.get("coordinates");
-				for ( int point_index = 0; point_index<points.size(); point_index++) {
-					JSONArray coordinates = (JSONArray)points.get(point_index);
-					Number longitude = (Number)coordinates.get(0);
-					Number latitude  = (Number)coordinates.get(1);
-					GisGeometry gis_point = GisFactory.eINSTANCE.createGisGeometry();
-					gis_point.setLongitude(longitude.doubleValue());
-					gis_point.setLatitude (latitude.doubleValue());
-					info.getGeometry().add(gis_point);
-				} // the points of the geometry
+				if ( has_geometry) {
+					JSONObject geometry = (JSONObject)route.get("geometry");
+					JSONArray points = (JSONArray)geometry.get("coordinates");
+					for ( int point_index = 0; point_index<points.size(); point_index++) {
+						JSONArray coordinates = (JSONArray)points.get(point_index);
+						Number longitude = (Number)coordinates.get(0);
+						Number latitude  = (Number)coordinates.get(1);
+						GisGeometry gis_point = GisFactory.eINSTANCE.createGisGeometry();
+						gis_point.setLongitude(longitude.doubleValue());
+						gis_point.setLatitude (latitude.doubleValue());
+						info.getGeometry().add(gis_point);
+					} // the points of the geometry
+				}
 			}  // traverse the routes
 			break;
 		default :

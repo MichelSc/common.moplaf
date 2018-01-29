@@ -10,6 +10,7 @@ import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteInfo;
 import com.misc.common.moplaf.gisview.emf.edit.IItemPathsProvider;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -67,6 +68,7 @@ public class GisRouteInfoItemProvider
 			addDistancePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
 			addToLocationPropertyDescriptor(object);
+			addWithGeometryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -182,6 +184,28 @@ public class GisRouteInfoItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the With Geometry feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWithGeometryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisRouteInfo_WithGeometry_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRouteInfo_WithGeometry_feature", "_UI_GisRouteInfo_type"),
+				 GisPackage.Literals.GIS_ROUTE_INFO__WITH_GEOMETRY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -252,6 +276,7 @@ public class GisRouteInfoItemProvider
 			case GisPackage.GIS_ROUTE_INFO__DESCRIPTION:
 			case GisPackage.GIS_ROUTE_INFO__DISTANCE:
 			case GisPackage.GIS_ROUTE_INFO__DURATION:
+			case GisPackage.GIS_ROUTE_INFO__WITH_GEOMETRY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
@@ -309,33 +334,73 @@ public class GisRouteInfoItemProvider
 		return GisEditPlugin.INSTANCE;
 	}
 	
-	
+	interface Stop {
+		public double getPathStopLongitude(GisRouteInfo info);
+		public double getPathStopLatitude(GisRouteInfo info); 
+	}
+	static Stop FromStop = new Stop() {
+		@Override
+		public double getPathStopLongitude(GisRouteInfo info) {
+			return info.getFromLocation().getCoordinates().getLongitude();
+		}
+		@Override
+		public double getPathStopLatitude(GisRouteInfo info) {
+			return info.getFromLocation().getCoordinates().getLatitude();
+		}
+	};
+	static Stop ToStop = new Stop() {
+		@Override
+		public double getPathStopLongitude(GisRouteInfo info) {
+			return info.getToLocation().getCoordinates().getLongitude();
+		}
+		@Override
+		public double getPathStopLatitude(GisRouteInfo info) {
+			return info.getToLocation().getCoordinates().getLatitude();
+		}
+	};
+	static Stop[] stops = {
+			FromStop, ToStop
+	};
+	static List<Stop> stopsL = Arrays.asList(stops);
 
 	@Override
 	public Object getPaths(Object element) {
 		GisRouteInfo info = (GisRouteInfo)element;
-		if ( info.getGeometry()==null) {
-			return null;
-		}
 		return info;
 	}
 
 	@Override
 	public List<?> getPathStops(Object element, Object path) {
 		GisRouteInfo info = (GisRouteInfo)element;
-		return info.getGeometry();
+		if ( info.isWithGeometry() ) {
+			return info.getGeometry();
+		} else {
+			return stopsL;
+		}
 	}
-
+	
 	@Override
 	public double getPathStopLongitude(Object element, Object path, Object stop) {
-		GisLocation point = (GisLocation)stop;
-		return point.getCoordinates().getLongitude();
+		GisRouteInfo info = (GisRouteInfo)element;
+		if ( info.isWithGeometry() ) {
+			GisLocation point = (GisLocation)stop;
+			return point.getCoordinates().getLongitude();
+		} else {
+			Stop s = (Stop)stop;
+			return s.getPathStopLongitude(info);
+		}
 	}
 
 	@Override
 	public double getPathStopLatitude(Object element, Object path, Object stop) {
-		GisLocation point = (GisLocation)stop;
-		return point.getCoordinates().getLatitude();
+		GisRouteInfo info = (GisRouteInfo)element;
+		if ( info.isWithGeometry() ) {
+			GisLocation point = (GisLocation)stop;
+			return point.getCoordinates().getLatitude();
+		} else {
+			Stop s = (Stop)stop;
+			return s.getPathStopLatitude(info);
+		}
 	}
 
 	@Override

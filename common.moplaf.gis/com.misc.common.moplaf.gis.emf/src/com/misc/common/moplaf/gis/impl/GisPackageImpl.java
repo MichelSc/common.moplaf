@@ -860,8 +860,17 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGisRouteInfo_WithGeometry() {
+		return (EAttribute)gisRouteInfoEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getGisRouteInfo_Geometry() {
-		return (EReference)gisRouteInfoEClass.getEStructuralFeatures().get(5);
+		return (EReference)gisRouteInfoEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1267,6 +1276,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisRouteInfoEClass, GIS_ROUTE_INFO__DISTANCE);
 		createEAttribute(gisRouteInfoEClass, GIS_ROUTE_INFO__DURATION);
 		createEReference(gisRouteInfoEClass, GIS_ROUTE_INFO__TO_LOCATION);
+		createEAttribute(gisRouteInfoEClass, GIS_ROUTE_INFO__WITH_GEOMETRY);
 		createEReference(gisRouteInfoEClass, GIS_ROUTE_INFO__GEOMETRY);
 
 		gisAddressGeocodedEClass = createEClass(GIS_ADDRESS_GEOCODED);
@@ -1476,6 +1486,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEAttribute(getGisRouteInfo_Distance(), ecorePackage.getEDouble(), "Distance", null, 0, 1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisRouteInfo_Duration(), ecorePackage.getEDouble(), "Duration", null, 0, 1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisRouteInfo_ToLocation(), this.getGisLocation(), null, "ToLocation", null, 1, 1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisRouteInfo_WithGeometry(), ecorePackage.getEBoolean(), "WithGeometry", null, 0, 1, GisRouteInfo.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGisRouteInfo_Geometry(), this.getGisLocation(), null, "Geometry", null, 0, -1, GisRouteInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisAddressGeocodedEClass, GisAddressGeocoded.class, "GisAddressGeocoded", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

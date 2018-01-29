@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getToLocation <em>To Location</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#isWithGeometry <em>With Geometry</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl#getGeometry <em>Geometry</em>}</li>
  * </ul>
  *
@@ -107,6 +108,16 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	 * @ordered
 	 */
 	protected GisLocation toLocation;
+
+	/**
+	 * The default value of the '{@link #isWithGeometry() <em>With Geometry</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWithGeometry()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean WITH_GEOMETRY_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #getGeometry() <em>Geometry</em>}' containment reference list.
@@ -267,6 +278,20 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isWithGeometry() {
+		if ( this.getGeometry()==null) {
+			return false;
+		}
+		if ( this.getGeometry().size()==0 ) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<GisLocation> getGeometry() {
@@ -310,6 +335,8 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 			case GisPackage.GIS_ROUTE_INFO__TO_LOCATION:
 				if (resolve) return getToLocation();
 				return basicGetToLocation();
+			case GisPackage.GIS_ROUTE_INFO__WITH_GEOMETRY:
+				return isWithGeometry();
 			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
 				return getGeometry();
 		}
@@ -390,6 +417,8 @@ public class GisRouteInfoImpl extends MinimalEObjectImpl.Container implements Gi
 				return duration != DURATION_EDEFAULT;
 			case GisPackage.GIS_ROUTE_INFO__TO_LOCATION:
 				return toLocation != null;
+			case GisPackage.GIS_ROUTE_INFO__WITH_GEOMETRY:
+				return isWithGeometry() != WITH_GEOMETRY_EDEFAULT;
 			case GisPackage.GIS_ROUTE_INFO__GEOMETRY:
 				return geometry != null && !geometry.isEmpty();
 		}
