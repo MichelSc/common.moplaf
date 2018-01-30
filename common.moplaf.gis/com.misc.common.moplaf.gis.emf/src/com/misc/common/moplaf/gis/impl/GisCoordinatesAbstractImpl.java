@@ -90,6 +90,12 @@ public abstract class GisCoordinatesAbstractImpl extends GisLocationImpl impleme
 		return this;
 	}
 	
+	public String getDescription() {
+		String description = String.format("(%.3f , %.3f)", this.getLongitude(), this.getLatitude());
+		return description;
+	}
+
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

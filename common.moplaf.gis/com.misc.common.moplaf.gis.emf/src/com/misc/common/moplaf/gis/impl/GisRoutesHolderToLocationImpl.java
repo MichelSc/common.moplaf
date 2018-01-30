@@ -246,6 +246,8 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 		for ( GisRoutesHolderElement element : this.getFromLocations()) {
 			element.remove();
 		}
+		GisRoutesHolderImpl routeHolder = (GisRoutesHolderImpl)this.getRoutesHolder();
+		routeHolder.onToLocationRemoved(this);
 		this.setRoutesHolder(null); // owning
 	}
 
@@ -408,4 +410,8 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 		return super.eInvoke(operationID, arguments);
 	}
 
+	// this method is not part of the api but of the implementation
+	public void onElementRemoved(GisRoutesHolderElement element) {
+	}
+	
 } //GisRoutesHolderToLocationImpl

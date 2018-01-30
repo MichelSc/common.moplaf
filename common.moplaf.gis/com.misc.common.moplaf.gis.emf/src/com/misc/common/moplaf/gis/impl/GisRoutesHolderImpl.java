@@ -558,5 +558,18 @@ public class GisRoutesHolderImpl extends GisRouterImpl implements GisRoutesHolde
 		result.append(')');
 		return result.toString();
 	}
+	
+	// this method is not part of the api but of the implementation
+	public void onFromLocationRemoved(GisRoutesHolderFromLocation from) {
+		if ( this.fromLocationsIndex!=null ) {
+			this.fromLocationsIndex.remove(from.getLocation());
+		}
+	}
+	// this method is not part of the api but of the implementation
+	public void onToLocationRemoved(GisRoutesHolderToLocation to) {
+		if ( this.toLocationsIndex!=null ) {
+			this.toLocationsIndex.remove(to.getLocation());
+		}
+	}
 
 } //GisRoutesHolderImpl
