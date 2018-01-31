@@ -1,2 +1,0 @@
-parameter for the width of the path line
-make icons

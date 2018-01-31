@@ -243,11 +243,13 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 */
 	public void remove() {
-		for ( GisRoutesHolderElement element : this.getFromLocations()) {
-			element.remove();
+		while( this.getFromLocations().size()>0 ) {
+			this.getFromLocations().get(0).remove();
 		}
+
 		GisRoutesHolderImpl routeHolder = (GisRoutesHolderImpl)this.getRoutesHolder();
 		routeHolder.onToLocationRemoved(this);
+
 		this.setRoutesHolder(null); // owning
 	}
 
