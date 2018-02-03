@@ -18,8 +18,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.ui.provider.ExtendedColorRegistry;
-import org.eclipse.swt.graphics.Color;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.gisview.ILocation;
@@ -118,8 +116,8 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 				providers.add(provider);
 			}
 		} else {
-			// the element IS a location
-			LocationProvider provider = this.createLocationProvider(element, null, locationsProvider);
+			// the element HAS one location
+			LocationProvider provider = this.createLocationProvider(element, locations, locationsProvider);
 			providers.add(provider);
 		}
 	}
@@ -141,8 +139,8 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 				providers.add(provider);
 			}
 		} else {
-			// the element IS a path
-			PathProvider provider = this.createPathProvider(element, null, pathsProvider);
+			// the element HAS one path
+			PathProvider provider = this.createPathProvider(element, paths, pathsProvider);
 			providers.add(provider);
 		}
 	}

@@ -3,8 +3,11 @@
 package com.misc.common.moplaf.gis.provider;
 
 
+import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
+import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRoutesHolderWaypoint;
+import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,17 +31,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint} object.
  * <!-- begin-user-doc -->
+ * @implements IItemLocationsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class GisRoutesHolderWaypointItemProvider 
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemLocationsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -177,4 +177,43 @@ public class GisRoutesHolderWaypointItemProvider
 		return GisEditPlugin.INSTANCE;
 	}
 
+	@Override
+	public Object getLocations(Object element) {
+		GisRoutesHolderWaypoint wp = (GisRoutesHolderWaypoint)element;
+		GisLocation location = wp.getLocation();
+		if ( location == null) {
+			return null;
+		}
+		GisCoordinatesAbstract coordinates = location.getCoordinates();
+		if ( coordinates==null) {
+			return null;
+		}
+		return location;
+	}
+
+	@Override
+	public double getLocationLongitude(Object element, Object location) {
+		GisLocation element_as_location = (GisLocation)location;
+		GisCoordinatesAbstract coordinates = element_as_location.getCoordinates();
+		return coordinates.getLongitude();
+	}
+
+	@Override
+	public double getLocationLatitude(Object element, Object location) {
+		GisLocation element_as_location = (GisLocation)location;
+		GisCoordinatesAbstract coordinates = element_as_location.getCoordinates();
+		return coordinates.getLatitude();
+	}
+
+	@Override
+	public String getLocationText(Object element, Object location) {
+		GisRoutesHolderWaypoint wp = (GisRoutesHolderWaypoint)element;
+		return this.getText(wp);
+	}
+
+	@Override
+	public Object getLocationImage(Object element, Object location) {
+		GisRoutesHolderWaypoint wp = (GisRoutesHolderWaypoint)element;
+		return this.getImage(wp);
+	}
 }

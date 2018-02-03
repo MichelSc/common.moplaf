@@ -198,7 +198,5 @@ public class GisLocationItemProvider
 		GisLocation element_as_location = (GisLocation)element;
 		return this.getImage(element_as_location);
 	}
-	
-	
 
 }
