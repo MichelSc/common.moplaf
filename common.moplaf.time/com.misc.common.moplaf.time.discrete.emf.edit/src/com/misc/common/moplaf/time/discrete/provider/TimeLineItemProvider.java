@@ -456,8 +456,8 @@ public class TimeLineItemProvider
 	 */
 
 	@Override
-	public Collection<?> getTimeLines(Object element) {
-		return null;
+	public Object getTimeLines(Object element) {
+		return element;
 	}
 
 	@Override
