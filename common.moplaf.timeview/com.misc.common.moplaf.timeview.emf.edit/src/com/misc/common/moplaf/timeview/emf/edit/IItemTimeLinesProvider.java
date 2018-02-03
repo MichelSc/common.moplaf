@@ -65,11 +65,16 @@ public interface IItemTimeLinesProvider {
 	/**
 	 * Return the timelines provides by the element. 
 	 * <p>
-	 * The method may return no collection. In that case, one timeline with timeline object null will be expecteed.
+	 * The method may return 
+	 * <ul>
+	 * <li> null: no timeline for the element </li>
+	 * <li> Collection<?>: a collection of timelines for the element</li>
+	 * <li> otherwise an Object: a single timeline for the element </li>
+	 * </ul>
 	 * @param element
 	 * @return
 	 */
-	default Collection<?> getTimeLines(Object element){
+	default Object getTimeLines(Object element){
 		return null;
 	}
 	

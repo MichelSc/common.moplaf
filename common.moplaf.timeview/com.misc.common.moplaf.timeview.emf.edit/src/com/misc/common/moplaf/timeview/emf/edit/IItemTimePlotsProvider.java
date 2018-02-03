@@ -46,12 +46,16 @@ import java.util.Date;
 public interface IItemTimePlotsProvider {
 	/**
 	 * Return the collection of TimePlots provided by an element. 
-	 * <p>
+	 * <ul>
+	 * <li> null: no timeplot for the element </li>
+	 * <li> Collection<?>: a collection of timeplots for the element</li>
+	 * <li> otherwise an Object: a single timeplots for the element </li>
+	 * </ul>
 	 * No collection may be returned. In that case, the consumer will expect one timeplot identified by the null object.
 	 * @param element
 	 * @return
 	 */
-	default Collection<?> getTimePlots(Object element){
+	default Object getTimePlots(Object element){
 		return null;
 	}
 

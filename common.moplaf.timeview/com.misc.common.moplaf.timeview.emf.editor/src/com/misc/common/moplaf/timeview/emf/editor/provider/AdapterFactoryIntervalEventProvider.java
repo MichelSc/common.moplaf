@@ -90,17 +90,22 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 		if ( timeLinesProvider==null ) { return null; }
 		
 		ArrayList<Object> providers = new ArrayList<Object>();
-		Collection<?> timeLines= timeLinesProvider.getTimeLines(element);
-		if ( timeLines == null ) {
-			// the element IS a time line
-			TimeLineProvider provider = this.createTimeLineProvider(element, null, timeLinesProvider);
-			providers.add(provider);
-		} else {
-			// the element HAS time lines
-			for ( Object timeLine : timeLines){
+		Object timeLine_asobject = timeLinesProvider.getTimeLines(element);
+		if ( timeLine_asobject == null ) {
+			// no time line for the element
+		} 
+		else if ( timeLine_asobject instanceof Collection<?> ) {
+			// the element HAS timelines
+			Collection<?> timelines = (Collection<?>)timeLine_asobject;
+			for ( Object timeLine : timelines){
 				TimeLineProvider provider = this.createTimeLineProvider(element, timeLine, timeLinesProvider);
 				providers.add(provider);
 			}
+		} 
+		else {
+			// the element HAS one time line
+			TimeLineProvider provider = this.createTimeLineProvider(element, timeLine_asobject, timeLinesProvider);
+			providers.add(provider);
 		}
 		return providers;
 	}

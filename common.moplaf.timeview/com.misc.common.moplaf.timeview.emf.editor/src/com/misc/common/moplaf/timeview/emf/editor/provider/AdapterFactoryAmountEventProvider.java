@@ -82,17 +82,23 @@ public class AdapterFactoryAmountEventProvider extends AdapterFactoryArrayConten
 		if ( timePlotsProvider == null ){ return null; }
 		
 		ArrayList<Object> providers = new ArrayList<Object>();
-		
-		Collection<?> timePlots = timePlotsProvider.getTimePlots(element);
-		if ( timePlots==null ){
-				TimePlotProvider provider = this.createTimePlotProvider(element, null, timePlotsProvider);
-				providers.add(provider);
-		} else {
-			for ( Object timePlot : timePlots){
-				TimePlotProvider provider = this.createTimePlotProvider(element, timePlot, timePlotsProvider);
+		Object timeplot_asobject = timePlotsProvider.getTimePlots(element);
+		if ( timeplot_asobject == null ) {
+			// no time plot for the element
+		} 
+		else if ( timeplot_asobject instanceof Collection<?> ) {
+			// the element HAS several timeplots
+			Collection<?> timeplots = (Collection<?>)timeplot_asobject;
+			for ( Object timeplot : timeplots){
+				TimePlotProvider provider = this.createTimePlotProvider(element, timeplot, timePlotsProvider);
 				providers.add(provider);
 			}
 		} 
+		else {
+			// the element HAS one timeplot
+			TimePlotProvider provider = this.createTimePlotProvider(element, timeplot_asobject, timePlotsProvider);
+			providers.add(provider);
+		}
 		
 		return providers;
 	}
