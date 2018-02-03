@@ -35,6 +35,7 @@ import com.misc.common.moplaf.gisview.viewers.MapViewerAbstract;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.graphics.Image;
 
 
@@ -89,7 +90,10 @@ public class MapViewer extends MapViewerAbstract {
 			        int x = GeoMapUtil.lon2position(marker.longitude, zoom);
 			        int y = GeoMapUtil.lat2position(marker.latitude, zoom);
 			        Image icon = marker.image;
-			        gc.drawImage(icon, x-mapposition.x, y-mapposition.y);
+			        Rectangle bounds = icon.getBounds();
+			        gc.drawImage(icon, 
+			        		     x-mapposition.x-bounds.width/2, 
+			        		     y-mapposition.y-bounds.height/2);
 			    } // traverse the points to draw        
 			    for ( MapPath path : MapViewer.this.paths.values()){
 				    gc.setForeground(path.color);
