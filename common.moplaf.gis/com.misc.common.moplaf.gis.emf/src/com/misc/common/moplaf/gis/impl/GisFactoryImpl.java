@@ -64,6 +64,7 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GisPackage.GIS_ROUTES_HOLDER: return createGisRoutesHolder();
+			case GisPackage.GIS_ROUTES_HOLDER_WAYPOINT: return createGisRoutesHolderWaypoint();
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION: return createGisRoutesHolderFromLocation();
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION: return createGisRoutesHolderToLocation();
 			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT: return createGisRoutesHolderElement();
@@ -108,6 +109,16 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisRoutesHolder createGisRoutesHolder() {
 		GisRoutesHolderImpl gisRoutesHolder = new GisRoutesHolderImpl();
 		return gisRoutesHolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisRoutesHolderWaypoint createGisRoutesHolderWaypoint() {
+		GisRoutesHolderWaypointImpl gisRoutesHolderWaypoint = new GisRoutesHolderWaypointImpl();
+		return gisRoutesHolderWaypoint;
 	}
 
 	/**

@@ -23,8 +23,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,25 +35,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getFromLocations <em>From Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getRoutesHolder <em>Routes Holder</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container implements GisRoutesHolderToLocation {
-	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected GisLocation location;
-
+public class GisRoutesHolderToLocationImpl extends GisRoutesHolderWaypointImpl implements GisRoutesHolderToLocation {
 	/**
 	 * The cached value of the '{@link #getFromLocations() <em>From Locations</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -65,16 +51,6 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	 * @ordered
 	 */
 	protected EList<GisRoutesHolderElement> fromLocations;
-
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,44 +69,6 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	protected EClass eStaticClass() {
 		return GisPackage.Literals.GIS_ROUTES_HOLDER_TO_LOCATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisLocation getLocation() {
-		if (location != null && location.eIsProxy()) {
-			InternalEObject oldLocation = (InternalEObject)location;
-			location = (GisLocation)eResolveProxy(oldLocation);
-			if (location != oldLocation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION, oldLocation, location));
-			}
-		}
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisLocation basicGetLocation() {
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLocation(GisLocation newLocation) {
-		GisLocation oldLocation = location;
-		location = newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -310,15 +248,10 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION:
-				if (resolve) return getLocation();
-				return basicGetLocation();
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS:
 				return getFromLocations();
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER:
 				return getRoutesHolder();
-			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION:
-				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -332,9 +265,6 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION:
-				setLocation((GisLocation)newValue);
-				return;
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS:
 				getFromLocations().clear();
 				getFromLocations().addAll((Collection<? extends GisRoutesHolderElement>)newValue);
@@ -354,9 +284,6 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION:
-				setLocation((GisLocation)null);
-				return;
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS:
 				getFromLocations().clear();
 				return;
@@ -375,14 +302,10 @@ public class GisRoutesHolderToLocationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION:
-				return location != null;
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS:
 				return fromLocations != null && !fromLocations.isEmpty();
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER:
 				return getRoutesHolder() != null;
-			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}

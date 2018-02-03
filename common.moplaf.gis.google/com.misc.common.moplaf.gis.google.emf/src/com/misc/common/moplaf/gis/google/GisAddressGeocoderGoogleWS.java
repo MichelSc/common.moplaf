@@ -27,6 +27,7 @@ import com.misc.common.moplaf.gis.GisAddressGeocoder;
 public interface GisAddressGeocoderGoogleWS extends GisAddressGeocoder {
 	/**
 	 * Returns the value of the '<em><b>Protocol</b></em>' attribute.
+	 * The default value is <code>"https"</code>.
 	 * The literals are from the enumeration {@link com.misc.common.moplaf.gis.google.Protocol}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -38,7 +39,7 @@ public interface GisAddressGeocoderGoogleWS extends GisAddressGeocoder {
 	 * @see com.misc.common.moplaf.gis.google.Protocol
 	 * @see #setProtocol(Protocol)
 	 * @see com.misc.common.moplaf.gis.google.GisGooglePackage#getGisAddressGeocoderGoogleWS_Protocol()
-	 * @model
+	 * @model default="https"
 	 * @generated
 	 */
 	Protocol getProtocol();
@@ -56,7 +57,7 @@ public interface GisAddressGeocoderGoogleWS extends GisAddressGeocoder {
 
 	/**
 	 * Returns the value of the '<em><b>Port</b></em>' attribute.
-	 * The default value is <code>"80"</code>.
+	 * The default value is <code>"443"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Port</em>' attribute isn't clear,
@@ -66,7 +67,7 @@ public interface GisAddressGeocoderGoogleWS extends GisAddressGeocoder {
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(int)
 	 * @see com.misc.common.moplaf.gis.google.GisGooglePackage#getGisAddressGeocoderGoogleWS_Port()
-	 * @model default="80"
+	 * @model default="443"
 	 * @generated
 	 */
 	int getPort();

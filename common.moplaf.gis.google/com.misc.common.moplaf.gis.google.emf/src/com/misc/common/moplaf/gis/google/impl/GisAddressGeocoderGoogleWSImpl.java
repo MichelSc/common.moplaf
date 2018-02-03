@@ -59,7 +59,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
+	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTPS;
 
 	/**
 	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
@@ -79,7 +79,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PORT_EDEFAULT = 80;
+	protected static final int PORT_EDEFAULT = 443;
 
 	/**
 	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.

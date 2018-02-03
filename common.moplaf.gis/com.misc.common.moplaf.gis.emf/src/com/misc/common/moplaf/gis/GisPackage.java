@@ -75,7 +75,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocation()
 	 * @generated
 	 */
-	int GIS_LOCATION = 8;
+	int GIS_LOCATION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -185,7 +185,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinates()
 	 * @generated
 	 */
-	int GIS_COORDINATES = 19;
+	int GIS_COORDINATES = 20;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract <em>Coordinates Abstract</em>}'.
@@ -354,7 +354,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouter()
 	 * @generated
 	 */
-	int GIS_ROUTER = 13;
+	int GIS_ROUTER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -601,14 +601,14 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 9;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl <em>Routes Holder Waypoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderFromLocation()
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderWaypoint()
 	 * @generated
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION = 3;
+	int GIS_ROUTES_HOLDER_WAYPOINT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -617,25 +617,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = 2;
+	int GIS_ROUTES_HOLDER_WAYPOINT__LOCATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -644,7 +626,71 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION = 3;
+	int GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder Waypoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder Waypoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderFromLocation()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION = GIS_ROUTES_HOLDER_WAYPOINT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION = GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Routes Holder From Location</em>' class.
@@ -653,7 +699,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = 4;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -662,7 +708,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION = 0;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Add Element</em>' operation.
@@ -671,7 +717,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = 1;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -680,7 +726,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR = 2;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -689,7 +735,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH = 3;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Remove</em>' operation.
@@ -698,7 +744,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = 4;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Routes Holder From Location</em>' class.
@@ -707,7 +753,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION_OPERATION_COUNT = 5;
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_OPERATION_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl <em>Routes Holder To Location</em>}' class.
@@ -717,7 +763,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderToLocation()
 	 * @generated
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION = 4;
+	int GIS_ROUTES_HOLDER_TO_LOCATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -726,25 +772,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>From Locations</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = 2;
+	int GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION = GIS_ROUTES_HOLDER_WAYPOINT__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -753,7 +781,25 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION = 3;
+	int GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION = GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>From Locations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Routes Holder To Location</em>' class.
@@ -762,7 +808,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = 4;
+	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -771,7 +817,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION = 0;
+	int GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Add Element</em>' operation.
@@ -780,7 +826,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = 1;
+	int GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Update</em>' operation.
@@ -789,7 +835,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___UPDATE__GISROUTECALCULATOR = 2;
+	int GIS_ROUTES_HOLDER_TO_LOCATION___UPDATE__GISROUTECALCULATOR = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -798,7 +844,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___REFRESH = 3;
+	int GIS_ROUTES_HOLDER_TO_LOCATION___REFRESH = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Remove</em>' operation.
@@ -807,7 +853,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = 4;
+	int GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Routes Holder To Location</em>' class.
@@ -816,7 +862,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION_OPERATION_COUNT = 5;
+	int GIS_ROUTES_HOLDER_TO_LOCATION_OPERATION_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl <em>Routes Holder Element</em>}' class.
@@ -826,7 +872,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderElement()
 	 * @generated
 	 */
-	int GIS_ROUTES_HOLDER_ELEMENT = 5;
+	int GIS_ROUTES_HOLDER_ELEMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -926,7 +972,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteInfo()
 	 * @generated
 	 */
-	int GIS_ROUTE_INFO = 6;
+	int GIS_ROUTE_INFO = 7;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1017,7 +1063,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoded()
 	 * @generated
 	 */
-	int GIS_ADDRESS_GEOCODED = 7;
+	int GIS_ADDRESS_GEOCODED = 8;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1108,7 +1154,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoder()
 	 * @generated
 	 */
-	int GIS_ADDRESS_GEOCODER = 9;
+	int GIS_ADDRESS_GEOCODER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1154,7 +1200,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculator()
 	 * @generated
 	 */
-	int GIS_ROUTE_CALCULATOR = 10;
+	int GIS_ROUTE_CALCULATOR = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1218,7 +1264,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
 	 * @generated
 	 */
-	int GIS_ADDRESS_STRUCTURED = 11;
+	int GIS_ADDRESS_STRUCTURED = 12;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1399,7 +1445,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
 	 * @generated
 	 */
-	int GIS_ADDRESS_UNSTRUCTURED = 12;
+	int GIS_ADDRESS_UNSTRUCTURED = 13;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1536,7 +1582,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToOne()
 	 * @generated
 	 */
-	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE = 14;
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1600,7 +1646,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorManyToMany()
 	 * @generated
 	 */
-	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY = 15;
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1664,7 +1710,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToMany()
 	 * @generated
 	 */
-	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY = 16;
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1728,7 +1774,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterGeodesic()
 	 * @generated
 	 */
-	int GIS_ROUTER_GEODESIC = 17;
+	int GIS_ROUTER_GEODESIC = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1810,7 +1856,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterDefaulted()
 	 * @generated
 	 */
-	int GIS_ROUTER_DEFAULTED = 18;
+	int GIS_ROUTER_DEFAULTED = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1956,7 +2002,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisGeometry()
 	 * @generated
 	 */
-	int GIS_GEOMETRY = 20;
+	int GIS_GEOMETRY = 21;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2306,6 +2352,38 @@ public interface GisPackage extends EPackage {
 	EOperation getGisRoutesHolder__Clear();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint <em>Routes Holder Waypoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Routes Holder Waypoint</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderWaypoint
+	 * @generated
+	 */
+	EClass getGisRoutesHolderWaypoint();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderWaypoint#getLocation()
+	 * @see #getGisRoutesHolderWaypoint()
+	 * @generated
+	 */
+	EReference getGisRoutesHolderWaypoint_Location();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderWaypoint#getDescription()
+	 * @see #getGisRoutesHolderWaypoint()
+	 * @generated
+	 */
+	EAttribute getGisRoutesHolderWaypoint_Description();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation <em>Routes Holder From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2314,17 +2392,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisRoutesHolderFromLocation();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getLocation()
-	 * @see #getGisRoutesHolderFromLocation()
-	 * @generated
-	 */
-	EReference getGisRoutesHolderFromLocation_Location();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getToLocations <em>To Locations</em>}'.
@@ -2347,17 +2414,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGisRoutesHolderFromLocation_RoutesHolder();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getDescription()
-	 * @see #getGisRoutesHolderFromLocation()
-	 * @generated
-	 */
-	EAttribute getGisRoutesHolderFromLocation_Description();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
@@ -2420,17 +2476,6 @@ public interface GisPackage extends EPackage {
 	EClass getGisRoutesHolderToLocation();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getLocation()
-	 * @see #getGisRoutesHolderToLocation()
-	 * @generated
-	 */
-	EReference getGisRoutesHolderToLocation_Location();
-
-	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getFromLocations <em>From Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2451,17 +2496,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGisRoutesHolderToLocation_RoutesHolder();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getDescription()
-	 * @see #getGisRoutesHolderToLocation()
-	 * @generated
-	 */
-	EAttribute getGisRoutesHolderToLocation_Description();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisRoutesHolderToLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
@@ -3335,6 +3369,32 @@ public interface GisPackage extends EPackage {
 		EOperation GIS_ROUTES_HOLDER___CLEAR = eINSTANCE.getGisRoutesHolder__Clear();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl <em>Routes Holder Waypoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderWaypoint()
+		 * @generated
+		 */
+		EClass GIS_ROUTES_HOLDER_WAYPOINT = eINSTANCE.getGisRoutesHolderWaypoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_ROUTES_HOLDER_WAYPOINT__LOCATION = eINSTANCE.getGisRoutesHolderWaypoint_Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION = eINSTANCE.getGisRoutesHolderWaypoint_Description();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3343,14 +3403,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_ROUTES_HOLDER_FROM_LOCATION = eINSTANCE.getGisRoutesHolderFromLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION = eINSTANCE.getGisRoutesHolderFromLocation_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>To Locations</b></em>' containment reference list feature.
@@ -3367,14 +3419,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = eINSTANCE.getGisRoutesHolderFromLocation_RoutesHolder();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION = eINSTANCE.getGisRoutesHolderFromLocation_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
@@ -3427,14 +3471,6 @@ public interface GisPackage extends EPackage {
 		EClass GIS_ROUTES_HOLDER_TO_LOCATION = eINSTANCE.getGisRoutesHolderToLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION = eINSTANCE.getGisRoutesHolderToLocation_Location();
-
-		/**
 		 * The meta object literal for the '<em><b>From Locations</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3449,14 +3485,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = eINSTANCE.getGisRoutesHolderToLocation_RoutesHolder();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION = eINSTANCE.getGisRoutesHolderToLocation_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.

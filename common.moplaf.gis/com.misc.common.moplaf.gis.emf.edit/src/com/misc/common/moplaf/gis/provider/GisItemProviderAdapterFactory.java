@@ -153,6 +153,29 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisRoutesHolderWaypointItemProvider gisRoutesHolderWaypointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisRoutesHolderWaypointAdapter() {
+		if (gisRoutesHolderWaypointItemProvider == null) {
+			gisRoutesHolderWaypointItemProvider = new GisRoutesHolderWaypointItemProvider(this);
+		}
+
+		return gisRoutesHolderWaypointItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolderFromLocation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -464,6 +487,7 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	 */
 	public void dispose() {
 		if (gisRoutesHolderItemProvider != null) gisRoutesHolderItemProvider.dispose();
+		if (gisRoutesHolderWaypointItemProvider != null) gisRoutesHolderWaypointItemProvider.dispose();
 		if (gisRoutesHolderFromLocationItemProvider != null) gisRoutesHolderFromLocationItemProvider.dispose();
 		if (gisRoutesHolderToLocationItemProvider != null) gisRoutesHolderToLocationItemProvider.dispose();
 		if (gisRoutesHolderElementItemProvider != null) gisRoutesHolderElementItemProvider.dispose();

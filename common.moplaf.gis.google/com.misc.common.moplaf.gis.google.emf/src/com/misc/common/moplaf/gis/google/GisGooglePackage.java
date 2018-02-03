@@ -40,7 +40,7 @@ public interface GisGooglePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.misc.com/common.moplaf.gisgoogle.emf";
+	String eNS_URI = "http://www.misc.com/common/moplaf/gis/google/model/0.1";
 
 	/**
 	 * The package namespace name.

@@ -90,6 +90,10 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisRoutesHolderAdapter();
 			}
 			@Override
+			public Adapter caseGisRoutesHolderWaypoint(GisRoutesHolderWaypoint object) {
+				return createGisRoutesHolderWaypointAdapter();
+			}
+			@Override
 			public Adapter caseGisRoutesHolderFromLocation(GisRoutesHolderFromLocation object) {
 				return createGisRoutesHolderFromLocationAdapter();
 			}
@@ -248,6 +252,20 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisRoutesHolderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint <em>Routes Holder Waypoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRoutesHolderWaypoint
+	 * @generated
+	 */
+	public Adapter createGisRoutesHolderWaypointAdapter() {
 		return null;
 	}
 

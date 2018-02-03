@@ -1,20 +1,11 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.gis.provider;
 
 
-import com.misc.common.moplaf.gis.GisAddressGeocoder;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.GisRoutesHolderWaypoint;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -35,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisAddressGeocoder} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisRoutesHolderWaypoint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisAddressGeocoderItemProvider 
+public class GisRoutesHolderWaypointItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -54,7 +45,7 @@ public class GisAddressGeocoderItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisAddressGeocoderItemProvider(AdapterFactory adapterFactory) {
+	public GisRoutesHolderWaypointItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,41 +60,64 @@ public class GisAddressGeocoderItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addLocationPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisAddressGeocoder_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoder_Name_feature", "_UI_GisAddressGeocoder_type"),
-				 GisPackage.Literals.GIS_ADDRESS_GEOCODER__NAME,
+				 getString("_UI_GisRoutesHolderWaypoint_Location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolderWaypoint_Location_feature", "_UI_GisRoutesHolderWaypoint_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER_WAYPOINT__LOCATION,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__1GeocoderPropertyCategory"),
+				 true,
+				 null,
+				 null,
 				 null));
 	}
 
 	/**
-	 * This returns GisAddressGeocoder.gif.
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisRoutesHolderWaypoint_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisRoutesHolderWaypoint_Description_feature", "_UI_GisRoutesHolderWaypoint_type"),
+				 GisPackage.Literals.GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns GisRoutesHolderWaypoint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/settings48.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/location.png"));
 	}
 
 	/**
@@ -114,10 +128,10 @@ public class GisAddressGeocoderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisAddressGeocoder)object).getName();
+		String label = ((GisRoutesHolderWaypoint)object).getDescription();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GisAddressGeocoder_type") :
-			getString("_UI_GisAddressGeocoder_type") + " " + label;
+			getString("_UI_GisRoutesHolderWaypoint_type") :
+			getString("_UI_GisRoutesHolderWaypoint_type") + " " + label;
 	}
 	
 
@@ -132,8 +146,8 @@ public class GisAddressGeocoderItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(GisAddressGeocoder.class)) {
-			case GisPackage.GIS_ADDRESS_GEOCODER__NAME:
+		switch (notification.getFeatureID(GisRoutesHolderWaypoint.class)) {
+			case GisPackage.GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

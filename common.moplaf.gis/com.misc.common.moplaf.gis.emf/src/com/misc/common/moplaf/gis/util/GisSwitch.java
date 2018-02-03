@@ -97,15 +97,23 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisPackage.GIS_ROUTES_HOLDER_WAYPOINT: {
+				GisRoutesHolderWaypoint gisRoutesHolderWaypoint = (GisRoutesHolderWaypoint)theEObject;
+				T result = caseGisRoutesHolderWaypoint(gisRoutesHolderWaypoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION: {
 				GisRoutesHolderFromLocation gisRoutesHolderFromLocation = (GisRoutesHolderFromLocation)theEObject;
 				T result = caseGisRoutesHolderFromLocation(gisRoutesHolderFromLocation);
+				if (result == null) result = caseGisRoutesHolderWaypoint(gisRoutesHolderFromLocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION: {
 				GisRoutesHolderToLocation gisRoutesHolderToLocation = (GisRoutesHolderToLocation)theEObject;
 				T result = caseGisRoutesHolderToLocation(gisRoutesHolderToLocation);
+				if (result == null) result = caseGisRoutesHolderWaypoint(gisRoutesHolderToLocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -302,6 +310,21 @@ public class GisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisRoutesHolder(GisRoutesHolder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Routes Holder Waypoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Routes Holder Waypoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRoutesHolderWaypoint(GisRoutesHolderWaypoint object) {
 		return null;
 	}
 

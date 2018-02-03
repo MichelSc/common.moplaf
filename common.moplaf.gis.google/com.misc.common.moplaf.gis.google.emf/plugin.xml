@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated gisgoogle -->
       <package
-            uri="http://www.misc.com/common.moplaf.gisgoogle.emf"
+            uri="http://www.misc.com/common/moplaf/gis/google/model/0.1"
             class="com.misc.common.moplaf.gis.google.GisGooglePackage"
             genModel="model/gisgoogle.genmodel"/>
    </extension>

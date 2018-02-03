@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.gis.google.emf/src" modelPluginID="com.misc.common.moplaf.gis.google.emf"
     modelName="Gisgoogle" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.gis.emf/model/gis.genmodel#//gis"
+    usedGenPackages="../../com.misc.common.moplaf.gis.emf/model/gis.genmodel#//gis ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
     operationReflection="true" importOrganizing="true">
   <foreignModel>gisgoogle.ecore</foreignModel>
   <genPackages prefix="GisGoogle" basePackage="com.misc.common.moplaf.gis" disposableProviderFactory="true"
@@ -17,7 +17,7 @@
       <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//TravelMode/Walking"/>
       <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//TravelMode/Bicycling"/>
     </genEnums>
-    <genClasses ecoreClass="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS">
+    <genClasses image="false" ecoreClass="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS">
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Protocol"/>
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Port"/>
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Host"/>
@@ -29,7 +29,7 @@
       <genFeatures createChild="false" propertyCategory="3 Distance Matrix" propertyDescription=""
           ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/TravelModel"/>
     </genClasses>
-    <genClasses ecoreClass="gisgoogle.ecore#//GisAddressGeocoderGoogleWS">
+    <genClasses image="false" ecoreClass="gisgoogle.ecore#//GisAddressGeocoderGoogleWS">
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Protocol"/>
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Port"/>
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Host"/>

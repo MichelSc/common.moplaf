@@ -12,7 +12,7 @@
       <genEnumLiterals ecoreEnumLiteral="gisgisgraphy.ecore#//Protocol/Http"/>
       <genEnumLiterals ecoreEnumLiteral="gisgisgraphy.ecore#//Protocol/Https"/>
     </genEnums>
-    <genClasses ecoreClass="gisgisgraphy.ecore#//GisAddressGeocoderGisgraphy">
+    <genClasses image="false" ecoreClass="gisgisgraphy.ecore#//GisAddressGeocoderGisgraphy">
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgisgraphy.ecore#//GisAddressGeocoderGisgraphy/Protocol"/>
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgisgraphy.ecore#//GisAddressGeocoderGisgraphy/Host"/>
       <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgisgraphy.ecore#//GisAddressGeocoderGisgraphy/Port"/>

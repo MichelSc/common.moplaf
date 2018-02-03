@@ -169,17 +169,6 @@ public class GisAddressGeocoderGoogleWSItemProvider extends GisAddressGeocoderIt
 	}
 
 	/**
-	 * This returns GisAddressGeocoderGoogleWS.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisAddressGeocoderGoogleWS"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

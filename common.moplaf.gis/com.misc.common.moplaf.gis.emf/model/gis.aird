@@ -816,13 +816,9 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_8n-oQf3lEeeN0Jf4KrMK7g" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_8n-oQv3lEeeN0Jf4KrMK7g"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_-AHGkP3qEeeN0Jf4KrMK7g" type="3010" element="_9_olcv3qEeeN0Jf4KrMK7g">
-              <styles xmi:type="notation:FontStyle" xmi:id="_-AHGkf3qEeeN0Jf4KrMK7g" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_-AHGkv3qEeeN0Jf4KrMK7g"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_3Lz-cP59Eeee87kyZp0Gwg" type="3010" element="_3Li4sP59Eeee87kyZp0Gwg">
-              <styles xmi:type="notation:FontStyle" xmi:id="_3Lz-cf59Eeee87kyZp0Gwg" fontColor="7490599" fontName="Oxygen-Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_3Lz-cv59Eeee87kyZp0Gwg"/>
+            <children xmi:type="notation:Node" xmi:id="_86Yd0AjQEeiu2NNKsH6KNQ" type="3010" element="_86JNQAjQEeiu2NNKsH6KNQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_86Yd0QjQEeiu2NNKsH6KNQ" fontColor="8224125" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_86Yd0gjQEeiu2NNKsH6KNQ"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_26XDC22QEeWI35Dc0pBkjg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_26XDDG2QEeWI35Dc0pBkjg"/>
@@ -943,13 +939,9 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_5OqjEf3lEeeN0Jf4KrMK7g" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_5OqjEv3lEeeN0Jf4KrMK7g"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_-AHtpv3qEeeN0Jf4KrMK7g" type="3010" element="_9_olcP3qEeeN0Jf4KrMK7g">
-              <styles xmi:type="notation:FontStyle" xmi:id="_-AHtp_3qEeeN0Jf4KrMK7g" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_-AHtqP3qEeeN0Jf4KrMK7g"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_1UvIEP59Eeee87kyZp0Gwg" type="3010" element="_1UNjoP59Eeee87kyZp0Gwg">
-              <styles xmi:type="notation:FontStyle" xmi:id="_1UvIEf59Eeee87kyZp0Gwg" fontColor="7490599" fontName="Oxygen-Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_1UvIEv59Eeee87kyZp0Gwg"/>
+            <children xmi:type="notation:Node" xmi:id="_86ZE4AjQEeiu2NNKsH6KNQ" type="3010" element="_86E70AjQEeiu2NNKsH6KNQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_86Zr8AjQEeiu2NNKsH6KNQ" fontColor="8224125" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_86Zr8QjQEeiu2NNKsH6KNQ"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_26XDBG2QEeWI35Dc0pBkjg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_26XDBW2QEeWI35Dc0pBkjg"/>
@@ -1357,6 +1349,12 @@
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
           </endLabelStyleDescription>
         </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_86E70QjQEeiu2NNKsH6KNQ" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='Inherited']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </computedStyleDescriptions>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_26YRD22QEeWI35Dc0pBkjg" name="GisRoutesHolder" tooltipText="" outgoingEdges="_fQ7_gP4WEee2Du4OeMxpLg _mhrCMP4WEee2Du4OeMxpLg _ubyL4P6AEeee87kyZp0Gwg _ub0oIP6AEeee87kyZp0Gwg" width="12" height="10">
@@ -1580,19 +1578,13 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_9_olcP3qEeeN0Jf4KrMK7g" name=" Location : GisLocation" tooltipText="">
-        <target xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderFromLocation/Location"/>
-        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderFromLocation/Location"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_9_olcf3qEeeN0Jf4KrMK7g" labelAlignment="LEFT" description="_9_nXUf3qEeeN0Jf4KrMK7g" color="114,159,207">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_86E70AjQEeiu2NNKsH6KNQ" name=" Location : GisLocation" tooltipText="">
+        <target xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderWaypoint/Location"/>
+        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderWaypoint/Location"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_86E70gjQEeiu2NNKsH6KNQ" labelColor="125,125,125" labelAlignment="LEFT" description="_86E70QjQEeiu2NNKsH6KNQ">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_1UNjoP59Eeee87kyZp0Gwg" name="/Description : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="gis.ecore#//GisRoutesHolderFromLocation/Description"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="gis.ecore#//GisRoutesHolderFromLocation/Description"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_1UOxwP59Eeee87kyZp0Gwg" labelColor="39,76,114" labelAlignment="LEFT" description="_Buz30P3pEeeN0Jf4KrMK7g"/>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_26YRL22QEeWI35Dc0pBkjg" name="GisRoutesHolderToLocation" tooltipText="" outgoingEdges="_ANc9UP3qEeeN0Jf4KrMK7g" incomingEdges="_mhrCMP4WEee2Du4OeMxpLg" width="12" height="10">
@@ -1648,19 +1640,13 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_9_olcv3qEeeN0Jf4KrMK7g" name=" Location : GisLocation" tooltipText="">
-        <target xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderToLocation/Location"/>
-        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderToLocation/Location"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_9_pMgP3qEeeN0Jf4KrMK7g" labelAlignment="LEFT" description="_9_nXUf3qEeeN0Jf4KrMK7g" color="114,159,207">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_86JNQAjQEeiu2NNKsH6KNQ" name=" Location : GisLocation" tooltipText="">
+        <target xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderWaypoint/Location"/>
+        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisRoutesHolderWaypoint/Location"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_86JNQQjQEeiu2NNKsH6KNQ" labelColor="125,125,125" labelAlignment="LEFT" description="_86E70QjQEeiu2NNKsH6KNQ">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3Li4sP59Eeee87kyZp0Gwg" name="/Description : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="gis.ecore#//GisRoutesHolderToLocation/Description"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="gis.ecore#//GisRoutesHolderToLocation/Description"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_3LjfwP59Eeee87kyZp0Gwg" labelColor="39,76,114" labelAlignment="LEFT" description="_Buz30P3pEeeN0Jf4KrMK7g"/>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_26YRb22QEeWI35Dc0pBkjg" name="GisRouteCalculator" tooltipText="" outgoingEdges="_ub1PM_6AEeee87kyZp0Gwg" incomingEdges="_hj0T0P3kEeeN0Jf4KrMK7g _45jEIP3kEeeN0Jf4KrMK7g _v2_zoP3mEeeN0Jf4KrMK7g _ubyL4P6AEeee87kyZp0Gwg" width="12" height="10">

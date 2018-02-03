@@ -59,6 +59,15 @@ public interface GisFactory extends EFactory {
 	GisRoutesHolder createGisRoutesHolder();
 
 	/**
+	 * Returns a new object of class '<em>Routes Holder Waypoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Routes Holder Waypoint</em>'.
+	 * @generated
+	 */
+	GisRoutesHolderWaypoint createGisRoutesHolderWaypoint();
+
+	/**
 	 * Returns a new object of class '<em>Routes Holder From Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
