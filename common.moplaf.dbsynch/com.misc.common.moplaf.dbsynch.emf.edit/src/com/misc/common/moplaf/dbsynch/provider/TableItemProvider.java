@@ -609,6 +609,12 @@ public class TableItemProvider
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
+	
+	@Override
+	public Object getGrids(Object element) {
+		return element;
+	}
+
 	@Override
 	public String getGridText(Object element, Object grid) {
 		Table table = (Table)element;

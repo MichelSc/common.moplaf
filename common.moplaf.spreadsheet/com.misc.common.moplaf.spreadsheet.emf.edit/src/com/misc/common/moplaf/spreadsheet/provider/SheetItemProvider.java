@@ -357,6 +357,11 @@ public class SheetItemProvider
 	}
 
 	@Override
+	public Object getGrids(Object element) {
+		return element;
+	}
+
+	@Override
 	public String getGridText(Object element, Object grid) {
 		Sheet sheet = (Sheet)element;
 		return sheet.getSheetName();

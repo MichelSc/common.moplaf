@@ -89,11 +89,16 @@ public interface IItemGridsProvider {
 	/**
 	 * Returns the grids published by the element. 
 	 * <p>
-	 * If null is returned, one grid is supported by the element, identified by a null grid key.
+	 * The method may return 
+	 * <ul>
+	 * <li> null: no grid for the element </li>
+	 * <li> Collection<?>: a collection of grids for the element</li>
+	 * <li> otherwise an Object: a single grid for the element </li>
+	 * </ul>
 	 * @param element
 	 * @return
 	 */
-	default Collection<?> getGrids(Object element){
+	default Object getGrids(Object element){
 		return null;
 	}
 	

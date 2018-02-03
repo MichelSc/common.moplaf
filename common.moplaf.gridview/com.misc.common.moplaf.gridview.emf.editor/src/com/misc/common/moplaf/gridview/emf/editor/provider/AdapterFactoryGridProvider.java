@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.edit.provider.IItemColorProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.ui.provider.ExtendedColorRegistry;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -145,15 +143,20 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		
 		ArrayList<TableProvider> providers = new ArrayList<TableProvider>();
 		
-		Collection<?> grids = gridsProvider.getGrids(element);
-		if ( grids==null ){
-				TableProvider provider = this.createTableProvider(element, null, gridsProvider);
-				providers.add(provider);
-		} else {
+		Object grid_asobject = gridsProvider.getGrids(element);
+		if ( grid_asobject==null ){
+			// no grids for the element
+		} else if ( grid_asobject instanceof Collection<?> ) {
+			// a collections of grids for the element
+			Collection<?> grids = (Collection<?>)grid_asobject;
 			for ( Object grid : grids){
 				TableProvider provider = this.createTableProvider(element, grid, gridsProvider);
 				providers.add(provider);
 			}
+		} else {
+			// a single grid for the element
+			TableProvider provider = this.createTableProvider(element, null, gridsProvider);
+			providers.add(provider);
 		} 
 		
 		return providers;
