@@ -121,7 +121,7 @@ public class MapViewer extends MapViewerAbstract {
 	// ******************************
 	// selection management
 	// ******************************
-	private class GanttViewerISeletionListener implements ISelectionChangedListener{
+	private class MapViewerISeletionListener implements ISelectionChangedListener{
 		private IStructuredSelection oldSelection = null;
 
 		@Override

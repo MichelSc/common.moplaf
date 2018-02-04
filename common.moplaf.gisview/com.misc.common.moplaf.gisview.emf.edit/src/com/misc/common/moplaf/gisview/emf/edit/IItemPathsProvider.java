@@ -33,8 +33,8 @@ public interface IItemPathsProvider {
 	 * The method may return
 	 * <ul>
 	 * <li> null: no path for the element </li>
-	 * <li> Collection<?>: a collection of paths for the element</li>
-	 * <li> otherwise an Object: a single path for the element </li>
+	 * <li> a <code> Collection </code>: a collection of paths for the element</li>
+	 * <li> otherwise an <code> Object </code>: a single path for the element </li>
 	 * </ul>
 	 * @param element
 	 * @return
