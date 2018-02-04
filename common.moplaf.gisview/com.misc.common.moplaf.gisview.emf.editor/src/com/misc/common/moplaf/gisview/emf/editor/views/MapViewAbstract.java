@@ -56,11 +56,8 @@ public abstract class MapViewAbstract extends ViewPart {
 			if (  MapViewAbstract.this.viewer != null && part!= MapViewAbstract.this) {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
-					Object selectedElement = ((IStructuredSelection)selection).getFirstElement();
-					// set the input of the widget
-					if (MapViewAbstract.this.viewer.getInput() != selectedElement) {
-						MapViewAbstract.this.viewer.setInput(selectedElement);
-					}
+					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+					MapViewAbstract.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
 			} // there is a viewer
 		}
