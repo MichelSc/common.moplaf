@@ -2,7 +2,9 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.GisRouteInfo;
 import com.misc.common.moplaf.gis.GisRouter;
 import com.misc.common.moplaf.gis.GisRouterDefaulted;
 
@@ -141,6 +143,26 @@ public class GisRouterDefaultedImpl extends GisRouterImpl implements GisRouterDe
 		secondaryRouter = newSecondaryRouter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ROUTER_DEFAULTED__SECONDARY_ROUTER, oldSecondaryRouter, secondaryRouter));
+	}
+	
+	
+
+	@Override
+	public GisRouteInfo getRoute(GisLocation from, GisLocation to) {
+		GisRouteInfo info = null;
+		if ( this.getPrimaryRouter()!=null) {
+			info = this.getPrimaryRouter().getRoute(from,  to);
+		}
+		if ( info!=null) {
+			return info;
+		}
+		if ( this.getSecondaryRouter()!=null) {
+			info = this.getSecondaryRouter().getRoute(from, to);
+		}
+		if ( info!=null) {
+			return info;
+		}
+		return null;
 	}
 
 	/**
