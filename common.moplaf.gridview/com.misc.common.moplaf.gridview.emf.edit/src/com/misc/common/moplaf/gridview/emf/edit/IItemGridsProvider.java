@@ -22,8 +22,7 @@ import java.util.Date;
  * will provide, when relevant
  * <ul>
  * <li> an element:Object: the object owning the grid(s) </li>
- * <li> a grid:Object: an object identifying a grid for the owner element; 
- * the grid Object may be null if the object supports only one grid </li>
+ * <li> a grid:Object: an object identifying a grid for the owner element</li>
  * <li> 
  * a column:Object: an object identifying a column. 
  * The object can be an actual Object, or an Integer, if no collection of Column Objects is provided (see further).
