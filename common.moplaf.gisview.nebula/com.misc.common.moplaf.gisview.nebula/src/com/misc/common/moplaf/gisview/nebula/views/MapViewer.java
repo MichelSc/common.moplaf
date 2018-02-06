@@ -23,6 +23,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.nebula.widgets.geomap.GeoMap;
 import org.eclipse.nebula.widgets.geomap.GeoMapUtil;
 import org.eclipse.nebula.widgets.geomap.PointD;
+import org.eclipse.nebula.widgets.geomap.TileServer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -110,7 +111,10 @@ public class MapViewer extends MapViewerAbstract {
 		});
 
 		super.hookControl(this.geoMap);
-        
+		
+		TileServer server = this.geoMap.getTileServer();
+		String serverAsString = server.toString();
+		System.out.println("MapViewer, goeMap created, server "+serverAsString);        
 	}
 	
 	@Override

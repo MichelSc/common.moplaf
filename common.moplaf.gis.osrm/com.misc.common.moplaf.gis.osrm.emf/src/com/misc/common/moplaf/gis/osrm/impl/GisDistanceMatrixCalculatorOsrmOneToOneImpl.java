@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.gis.osrm.impl;
 
-import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisGeometry;
