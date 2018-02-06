@@ -115,6 +115,11 @@ public class MapViewer extends MapViewerAbstract {
 		TileServer server = this.geoMap.getTileServer();
 		String serverAsString = server.toString();
 		System.out.println("MapViewer, goeMap created, server "+serverAsString);        
+		
+		int zoom = this.geoMap.getZoom();
+		int x = GeoMapUtil.lon2position(4.414d, zoom);
+		int y = GeoMapUtil.lat2position(50.820d, zoom);
+		this.geoMap.setCenterPosition(new Point(x,y));
 	}
 	
 	@Override
