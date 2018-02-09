@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.osrm.util;
 
 import com.misc.common.moplaf.gis.GisRouteCalculator;
+import com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany;
 import com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne;
 import com.misc.common.moplaf.gis.GisRouter;
 
@@ -76,6 +77,10 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 				return createGisDistanceMatrixCalculatorOsrmOneToOneAdapter();
 			}
 			@Override
+			public Adapter caseGisDistanceMatrixCalculatorOsrmManyToMany(GisDistanceMatrixCalculatorOsrmManyToMany object) {
+				return createGisDistanceMatrixCalculatorOsrmManyToManyAdapter();
+			}
+			@Override
 			public Adapter caseGisRouter(GisRouter object) {
 				return createGisRouterAdapter();
 			}
@@ -86,6 +91,10 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGisRouteCalculatorOneToOne(GisRouteCalculatorOneToOne object) {
 				return createGisRouteCalculatorOneToOneAdapter();
+			}
+			@Override
+			public Adapter caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
+				return createGisRouteCalculatorManyToManyAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -118,6 +127,20 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisDistanceMatrixCalculatorOsrmOneToOneAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany <em>Gis Distance Matrix Calculator Osrm Many To Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany
+	 * @generated
+	 */
+	public Adapter createGisDistanceMatrixCalculatorOsrmManyToManyAdapter() {
 		return null;
 	}
 
@@ -160,6 +183,20 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisRouteCalculatorOneToOneAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany <em>Route Calculator Many To Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany
+	 * @generated
+	 */
+	public Adapter createGisRouteCalculatorManyToManyAdapter() {
 		return null;
 	}
 

@@ -4,6 +4,7 @@ package com.misc.common.moplaf.gis.osrm.impl;
 
 import com.misc.common.moplaf.gis.GisPackage;
 
+import com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany;
 import com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmOneToOne;
 import com.misc.common.moplaf.gis.osrm.GisOsrmFactory;
 import com.misc.common.moplaf.gis.osrm.GisOsrmPackage;
@@ -32,6 +33,13 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * @generated
 	 */
 	private EClass gisDistanceMatrixCalculatorOsrmOneToOneEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gisDistanceMatrixCalculatorOsrmManyToManyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +188,60 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGisDistanceMatrixCalculatorOsrmManyToMany() {
+		return gisDistanceMatrixCalculatorOsrmManyToManyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Protocol() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmManyToManyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Host() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmManyToManyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Port() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmManyToManyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Path() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmManyToManyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Profile() {
+		return (EAttribute)gisDistanceMatrixCalculatorOsrmManyToManyEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getProtocol() {
 		return protocolEEnum;
 	}
@@ -229,6 +291,13 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__PROFILE);
 		createEAttribute(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW);
 
+		gisDistanceMatrixCalculatorOsrmManyToManyEClass = createEClass(GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmManyToManyEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROTOCOL);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmManyToManyEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__HOST);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmManyToManyEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PORT);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmManyToManyEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PATH);
+		createEAttribute(gisDistanceMatrixCalculatorOsrmManyToManyEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROFILE);
+
 		// Create enums
 		protocolEEnum = createEEnum(PROTOCOL);
 		overviewEEnum = createEEnum(OVERVIEW);
@@ -266,6 +335,7 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 
 		// Add supertypes to classes
 		gisDistanceMatrixCalculatorOsrmOneToOneEClass.getESuperTypes().add(theGisPackage.getGisRouteCalculatorOneToOne());
+		gisDistanceMatrixCalculatorOsrmManyToManyEClass.getESuperTypes().add(theGisPackage.getGisRouteCalculatorManyToMany());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisDistanceMatrixCalculatorOsrmOneToOneEClass, GisDistanceMatrixCalculatorOsrmOneToOne.class, "GisDistanceMatrixCalculatorOsrmOneToOne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -275,6 +345,13 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Path(), ecorePackage.getEString(), "Path", "/route/v1", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Profile(), ecorePackage.getEString(), "Profile", "driving", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixCalculatorOsrmOneToOne_Overview(), this.getOverview(), "Overview", "false", 0, 1, GisDistanceMatrixCalculatorOsrmOneToOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gisDistanceMatrixCalculatorOsrmManyToManyEClass, GisDistanceMatrixCalculatorOsrmManyToMany.class, "GisDistanceMatrixCalculatorOsrmManyToMany", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmManyToMany_Protocol(), this.getProtocol(), "Protocol", "https", 0, 1, GisDistanceMatrixCalculatorOsrmManyToMany.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmManyToMany_Host(), ecorePackage.getEString(), "Host", "router.project-osrm.org", 0, 1, GisDistanceMatrixCalculatorOsrmManyToMany.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmManyToMany_Port(), ecorePackage.getEInt(), "Port", "443", 0, 1, GisDistanceMatrixCalculatorOsrmManyToMany.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmManyToMany_Path(), ecorePackage.getEString(), "Path", "/route/v1", 0, 1, GisDistanceMatrixCalculatorOsrmManyToMany.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorOsrmManyToMany_Profile(), ecorePackage.getEString(), "Profile", "driving", 0, 1, GisDistanceMatrixCalculatorOsrmManyToMany.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(protocolEEnum, Protocol.class, "Protocol");

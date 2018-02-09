@@ -87,13 +87,22 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION__DESCRIPTION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION__GEOCODED = 1;
+
+	/**
 	 * The number of structural features of the '<em>Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_FEATURE_COUNT = 1;
+	int GIS_LOCATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -131,6 +140,15 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_COORDINATES_ABSTRACT__DESCRIPTION = GIS_LOCATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES_ABSTRACT__GEOCODED = GIS_LOCATION__GEOCODED;
 
 	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
@@ -237,6 +255,15 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS__DESCRIPTION = GIS_LOCATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS__GEOCODED = GIS_LOCATION__GEOCODED;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1075,6 +1102,15 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODED__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
+
+	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1276,6 +1312,15 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED__DESCRIPTION = GIS_ADDRESS__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__GEOCODED = GIS_ADDRESS__GEOCODED;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1455,6 +1500,15 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED__DESCRIPTION = GIS_ADDRESS__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__GEOCODED = GIS_ADDRESS__GEOCODED;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1940,6 +1994,15 @@ public interface GisPackage extends EPackage {
 	int GIS_COORDINATES__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
+
+	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2012,6 +2075,15 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_GEOMETRY__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
 
 	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
@@ -2792,6 +2864,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisLocation_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocation#isGeocoded <em>Geocoded</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Geocoded</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocation#isGeocoded()
+	 * @see #getGisLocation()
+	 * @generated
+	 */
+	EAttribute getGisLocation_Geocoded();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocation#getCoordinates() <em>Get Coordinates</em>}' operation.
@@ -3717,6 +3800,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_LOCATION__DESCRIPTION = eINSTANCE.getGisLocation_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Geocoded</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_LOCATION__GEOCODED = eINSTANCE.getGisLocation_Geocoded();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Coordinates</b></em>' operation.

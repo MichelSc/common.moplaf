@@ -70,6 +70,7 @@ public class GisLocationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
+			addGeocodedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,6 +93,28 @@ public class GisLocationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Geocoded feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGeocodedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisLocation_Geocoded_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisLocation_Geocoded_feature", "_UI_GisLocation_type"),
+				 GisPackage.Literals.GIS_LOCATION__GEOCODED,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -134,6 +157,7 @@ public class GisLocationItemProvider
 
 		switch (notification.getFeatureID(GisLocation.class)) {
 			case GisPackage.GIS_LOCATION__DESCRIPTION:
+			case GisPackage.GIS_LOCATION__GEOCODED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

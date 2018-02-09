@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#isGeocoded <em>Geocoded</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +46,15 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #isGeocoded() <em>Geocoded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGeocoded()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GEOCODED_EDEFAULT = false;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,6 +88,19 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isGeocoded() {
+		GisCoordinatesAbstract coordinates = this.getCoordinates();
+		if ( coordinates == null) {
+			return false;
+		}
+		// some more validation could take place here
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public GisCoordinatesAbstract getCoordinates() {
@@ -96,6 +119,8 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID) {
 			case GisPackage.GIS_LOCATION__DESCRIPTION:
 				return getDescription();
+			case GisPackage.GIS_LOCATION__GEOCODED:
+				return isGeocoded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +135,8 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID) {
 			case GisPackage.GIS_LOCATION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case GisPackage.GIS_LOCATION__GEOCODED:
+				return isGeocoded() != GEOCODED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

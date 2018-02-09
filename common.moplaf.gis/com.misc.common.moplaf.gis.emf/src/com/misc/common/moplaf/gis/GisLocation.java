@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocation#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocation#isGeocoded <em>Geocoded</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisLocation()
@@ -45,6 +46,21 @@ public interface GisLocation extends EObject {
 	 * @generated
 	 */
 	String getDescription();
+
+	/**
+	 * Returns the value of the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Geocoded</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Geocoded</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocation_Geocoded()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isGeocoded();
 
 	/**
 	 * <!-- begin-user-doc -->

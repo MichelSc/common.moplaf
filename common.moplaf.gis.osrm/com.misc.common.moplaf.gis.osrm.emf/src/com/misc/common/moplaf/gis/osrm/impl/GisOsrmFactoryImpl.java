@@ -58,6 +58,7 @@ public class GisOsrmFactoryImpl extends EFactoryImpl implements GisOsrmFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE: return createGisDistanceMatrixCalculatorOsrmOneToOne();
+			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY: return createGisDistanceMatrixCalculatorOsrmManyToMany();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +106,16 @@ public class GisOsrmFactoryImpl extends EFactoryImpl implements GisOsrmFactory {
 	public GisDistanceMatrixCalculatorOsrmOneToOne createGisDistanceMatrixCalculatorOsrmOneToOne() {
 		GisDistanceMatrixCalculatorOsrmOneToOneImpl gisDistanceMatrixCalculatorOsrmOneToOne = new GisDistanceMatrixCalculatorOsrmOneToOneImpl();
 		return gisDistanceMatrixCalculatorOsrmOneToOne;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisDistanceMatrixCalculatorOsrmManyToMany createGisDistanceMatrixCalculatorOsrmManyToMany() {
+		GisDistanceMatrixCalculatorOsrmManyToManyImpl gisDistanceMatrixCalculatorOsrmManyToMany = new GisDistanceMatrixCalculatorOsrmManyToManyImpl();
+		return gisDistanceMatrixCalculatorOsrmManyToMany;
 	}
 
 	/**

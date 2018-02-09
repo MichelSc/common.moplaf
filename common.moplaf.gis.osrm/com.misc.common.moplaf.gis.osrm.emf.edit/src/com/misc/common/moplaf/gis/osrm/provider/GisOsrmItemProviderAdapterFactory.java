@@ -95,6 +95,29 @@ public class GisOsrmItemProviderAdapterFactory extends GisOsrmAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisDistanceMatrixCalculatorOsrmManyToManyItemProvider gisDistanceMatrixCalculatorOsrmManyToManyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisDistanceMatrixCalculatorOsrmManyToManyAdapter() {
+		if (gisDistanceMatrixCalculatorOsrmManyToManyItemProvider == null) {
+			gisDistanceMatrixCalculatorOsrmManyToManyItemProvider = new GisDistanceMatrixCalculatorOsrmManyToManyItemProvider(this);
+		}
+
+		return gisDistanceMatrixCalculatorOsrmManyToManyItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +217,7 @@ public class GisOsrmItemProviderAdapterFactory extends GisOsrmAdapterFactory imp
 	 */
 	public void dispose() {
 		if (gisDistanceMatrixCalculatorOsrmOneToOneItemProvider != null) gisDistanceMatrixCalculatorOsrmOneToOneItemProvider.dispose();
+		if (gisDistanceMatrixCalculatorOsrmManyToManyItemProvider != null) gisDistanceMatrixCalculatorOsrmManyToManyItemProvider.dispose();
 	}
 
 }

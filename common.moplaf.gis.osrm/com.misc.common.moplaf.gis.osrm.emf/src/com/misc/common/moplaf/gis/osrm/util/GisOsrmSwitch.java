@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.osrm.util;
 
 import com.misc.common.moplaf.gis.GisRouteCalculator;
+import com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany;
 import com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne;
 import com.misc.common.moplaf.gis.GisRouter;
 
@@ -79,6 +80,15 @@ public class GisOsrmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY: {
+				GisDistanceMatrixCalculatorOsrmManyToMany gisDistanceMatrixCalculatorOsrmManyToMany = (GisDistanceMatrixCalculatorOsrmManyToMany)theEObject;
+				T result = caseGisDistanceMatrixCalculatorOsrmManyToMany(gisDistanceMatrixCalculatorOsrmManyToMany);
+				if (result == null) result = caseGisRouteCalculatorManyToMany(gisDistanceMatrixCalculatorOsrmManyToMany);
+				if (result == null) result = caseGisRouteCalculator(gisDistanceMatrixCalculatorOsrmManyToMany);
+				if (result == null) result = caseGisRouter(gisDistanceMatrixCalculatorOsrmManyToMany);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -95,6 +105,21 @@ public class GisOsrmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisDistanceMatrixCalculatorOsrmOneToOne(GisDistanceMatrixCalculatorOsrmOneToOne object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gis Distance Matrix Calculator Osrm Many To Many</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gis Distance Matrix Calculator Osrm Many To Many</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisDistanceMatrixCalculatorOsrmManyToMany(GisDistanceMatrixCalculatorOsrmManyToMany object) {
 		return null;
 	}
 
@@ -140,6 +165,21 @@ public class GisOsrmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisRouteCalculatorOneToOne(GisRouteCalculatorOneToOne object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Route Calculator Many To Many</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Route Calculator Many To Many</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
 		return null;
 	}
 

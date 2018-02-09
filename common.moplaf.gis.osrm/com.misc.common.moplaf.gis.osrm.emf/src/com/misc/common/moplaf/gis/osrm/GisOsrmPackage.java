@@ -178,6 +178,115 @@ public interface GisOsrmPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmManyToManyImpl <em>Gis Distance Matrix Calculator Osrm Many To Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmManyToManyImpl
+	 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getGisDistanceMatrixCalculatorOsrmManyToMany()
+	 * @generated
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__NAME = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__DESCRIPTION = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROTOCOL = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__HOST = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PORT = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PATH = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Profile</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROFILE = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Gis Distance Matrix Calculator Osrm Many To Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY_FEATURE_COUNT = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY___GET_ROUTE__GISLOCATION_GISLOCATION = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY___GET_ROUTES__ELIST_ELIST = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Gis Distance Matrix Calculator Osrm Many To Many</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY_OPERATION_COUNT = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,7 +294,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 1;
+	int PROTOCOL = 2;
 
 
 	/**
@@ -196,7 +305,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getOverview()
 	 * @generated
 	 */
-	int OVERVIEW = 2;
+	int OVERVIEW = 3;
 
 
 	/**
@@ -274,6 +383,71 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisDistanceMatrixCalculatorOsrmOneToOne_Overview();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany <em>Gis Distance Matrix Calculator Osrm Many To Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gis Distance Matrix Calculator Osrm Many To Many</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany
+	 * @generated
+	 */
+	EClass getGisDistanceMatrixCalculatorOsrmManyToMany();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getProtocol <em>Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Protocol</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getProtocol()
+	 * @see #getGisDistanceMatrixCalculatorOsrmManyToMany()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Protocol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Host</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getHost()
+	 * @see #getGisDistanceMatrixCalculatorOsrmManyToMany()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Host();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getPort()
+	 * @see #getGisDistanceMatrixCalculatorOsrmManyToMany()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Port();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getPath()
+	 * @see #getGisDistanceMatrixCalculatorOsrmManyToMany()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getProfile <em>Profile</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Profile</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisDistanceMatrixCalculatorOsrmManyToMany#getProfile()
+	 * @see #getGisDistanceMatrixCalculatorOsrmManyToMany()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Profile();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}'.
@@ -369,6 +543,50 @@ public interface GisOsrmPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE__OVERVIEW = eINSTANCE.getGisDistanceMatrixCalculatorOsrmOneToOne_Overview();
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmManyToManyImpl <em>Gis Distance Matrix Calculator Osrm Many To Many</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.osrm.impl.GisDistanceMatrixCalculatorOsrmManyToManyImpl
+		 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getGisDistanceMatrixCalculatorOsrmManyToMany()
+		 * @generated
+		 */
+		EClass GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY = eINSTANCE.getGisDistanceMatrixCalculatorOsrmManyToMany();
+		/**
+		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROTOCOL = eINSTANCE.getGisDistanceMatrixCalculatorOsrmManyToMany_Protocol();
+		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__HOST = eINSTANCE.getGisDistanceMatrixCalculatorOsrmManyToMany_Host();
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PORT = eINSTANCE.getGisDistanceMatrixCalculatorOsrmManyToMany_Port();
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PATH = eINSTANCE.getGisDistanceMatrixCalculatorOsrmManyToMany_Path();
+		/**
+		 * The meta object literal for the '<em><b>Profile</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROFILE = eINSTANCE.getGisDistanceMatrixCalculatorOsrmManyToMany_Profile();
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}' enum.
 		 * <!-- begin-user-doc -->

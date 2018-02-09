@@ -18,6 +18,9 @@
       <factory
             class="com.misc.common.moplaf.gis.osrm.util.OsrmRouterFactory">
       </factory>
+      <factory
+            class="com.misc.common.moplaf.gis.osrm.util.OsrmRouterNNFactory">
+      </factory>
    </extension>
 
 </plugin>

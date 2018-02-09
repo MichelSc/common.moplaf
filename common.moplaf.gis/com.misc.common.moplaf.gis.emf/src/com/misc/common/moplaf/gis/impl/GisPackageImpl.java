@@ -931,6 +931,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGisLocation_Geocoded() {
+		return (EAttribute)gisLocationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGisLocation__GetCoordinates() {
 		return gisLocationEClass.getEOperations().get(0);
 	}
@@ -1285,6 +1294,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		gisLocationEClass = createEClass(GIS_LOCATION);
 		createEAttribute(gisLocationEClass, GIS_LOCATION__DESCRIPTION);
+		createEAttribute(gisLocationEClass, GIS_LOCATION__GEOCODED);
 		createEOperation(gisLocationEClass, GIS_LOCATION___GET_COORDINATES);
 
 		gisAddressGeocoderEClass = createEClass(GIS_ADDRESS_GEOCODER);
@@ -1497,6 +1507,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		initEClass(gisLocationEClass, GisLocation.class, "GisLocation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisLocation_Description(), ecorePackage.getEString(), "Description", null, 0, 1, GisLocation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisLocation_Geocoded(), ecorePackage.getEBoolean(), "Geocoded", null, 0, 1, GisLocation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGisLocation__GetCoordinates(), this.getGisCoordinatesAbstract(), "getCoordinates", 0, 1, IS_UNIQUE, IS_ORDERED);
 
