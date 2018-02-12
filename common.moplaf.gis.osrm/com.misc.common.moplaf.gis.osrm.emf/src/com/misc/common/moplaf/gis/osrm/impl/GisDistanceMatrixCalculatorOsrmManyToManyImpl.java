@@ -434,6 +434,7 @@ public class GisDistanceMatrixCalculatorOsrmManyToManyImpl extends GisRouteCalcu
 		// make the URL
 		// parameters
 		LinkedList<String> parameters = new LinkedList<String>();
+		parameters.add("generate_hints=false");
 		if ( locations.size()==sources.size()) {
 			parameters.add("sources=all");
 		} else {
