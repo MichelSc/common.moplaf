@@ -121,7 +121,7 @@ public class GisDistanceMatrixCalculatorOsrmManyToManyImpl extends GisRouteCalcu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PATH_EDEFAULT = "/route/v1";
+	protected static final String PATH_EDEFAULT = "/table/v1";
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -444,7 +444,7 @@ public class GisDistanceMatrixCalculatorOsrmManyToManyImpl extends GisRouteCalcu
 			parameters.add("destinations=all");
 		} else {
 			String destinationsAsString = StringUtils.join(destinations, ";");
-			parameters.add("sources="+destinationsAsString);
+			parameters.add("destinations="+destinationsAsString);
 		}
 		String parametersAsString = StringUtils.join(parameters, "&");
 		// locations
@@ -454,7 +454,7 @@ public class GisDistanceMatrixCalculatorOsrmManyToManyImpl extends GisRouteCalcu
 			String loc_asstring = String.format(Locale.US, "%f,%f", loc_coordinate.getLongitude(), loc_coordinate.getLatitude());
 			locations_as_strings.add(loc_asstring);
 		}
-		String locations_as_string = StringUtils.join(parameters, ";");
+		String locations_as_string = StringUtils.join(locations_as_strings, ";");
 		// send the request
 		String responseAsString = "";
 		HttpURLConnection connection = null;  
@@ -514,41 +514,33 @@ public class GisDistanceMatrixCalculatorOsrmManyToManyImpl extends GisRouteCalcu
 		Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmManyToMany: code ="+response_code);
 		GisRouteInfo info = null;
 		switch ( response_code ){
-		case "NoRoute" : 
+		case "NoTable" : 
 			Plugin.INSTANCE.logWarning("GisDistanceMatrixCalculatorOsrmManyToMany: no route");
 			break;
 		case "Ok" : 
-//			// indicates the response contains a valid result.
-//			JSONArray routes = (JSONArray)responseObject.get("routes");
-//			for (int route_index = 0; route_index<routes.size(); route_index++) {
-//				JSONObject route = (JSONObject)routes.get(route_index);
-//				Number distance = (Number)route.get("distance");  //meters 
-//				Number duration = (Number)route.get("duration");  //seconds 
-//				info = GisFactory.eINSTANCE.createGisRouteInfo();
-//				info.setFromLocation(from);
-//				info.setToLocation(to);
-//				info.setDistance(distance.doubleValue()/1000.0d);  // conversion in km's
-//				info.setDuration(duration.doubleValue()/3600.0d);  // conversion in hours
-//				if ( has_geometry) {
-//					JSONObject geometry = (JSONObject)route.get("geometry");
-//					JSONArray points = (JSONArray)geometry.get("coordinates");
-//					for ( int point_index = 0; point_index<points.size(); point_index++) {
-//						JSONArray coordinates = (JSONArray)points.get(point_index);
-//						Number longitude = (Number)coordinates.get(0);
-//						Number latitude  = (Number)coordinates.get(1);
-//						GisGeometry gis_point = GisFactory.eINSTANCE.createGisGeometry();
-//						gis_point.setLongitude(longitude.doubleValue());
-//						gis_point.setLatitude (latitude.doubleValue());
-//						info.getGeometry().add(gis_point);
-//					} // the points of the geometry
-//				}
-//			}  // traverse the routes
+			// indicates the response contains a valid result.
+			JSONArray routes = (JSONArray)responseObject.get("durations");
+			for (int source_index = 0; source_index<sources.size(); source_index++) {
+				JSONArray row = (JSONArray)routes.get(source_index);
+				for (int destination_index = 0; destination_index<destinations.size(); destination_index++) {
+					Number duration = (Number)row.get(destination_index);  //seconds
+					int source_location_index = sources.get(source_index);
+					GisLocation source_location = locations.get(source_location_index);
+					int destination_location_index = destinations.get(destination_index);
+					GisLocation destination_location = locations.get(destination_location_index);
+					info = GisFactory.eINSTANCE.createGisRouteInfo();
+					info.setFromLocation(source_location);
+					info.setToLocation(destination_location);
+					info.setDuration(duration.doubleValue()/3600.0d);  // conversion in hours
+					infos.add(info);
+					} // traverse the destination
+				} // traverse the sources
 			break;
 		default :
 			feedback = "Unknown response code "+response_code;
 			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorOsrmManyToMany: "+feedback);
 			break;
-		}  // swich on response status
+		}  // switch on response status
 		return infos;
 	} // method getRoutes
 

@@ -35,7 +35,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="443"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="/route/v1"/>
+        defaultValueLiteral="/table/v1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Profile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="driving"/>
   </eClassifiers>

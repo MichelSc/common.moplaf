@@ -111,7 +111,7 @@ public interface GisDistanceMatrixCalculatorOsrmManyToMany extends GisRouteCalcu
 
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
-	 * The default value is <code>"/route/v1"</code>.
+	 * The default value is <code>"/table/v1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Path</em>' attribute isn't clear,
@@ -121,7 +121,7 @@ public interface GisDistanceMatrixCalculatorOsrmManyToMany extends GisRouteCalcu
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
 	 * @see com.misc.common.moplaf.gis.osrm.GisOsrmPackage#getGisDistanceMatrixCalculatorOsrmManyToMany_Path()
-	 * @model default="/route/v1"
+	 * @model default="/table/v1"
 	 * @generated
 	 */
 	String getPath();
