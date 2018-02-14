@@ -7,6 +7,7 @@
 <plugin>
    <extension-point id="geocoder_factory" name="Address Geocoder for MOPLAF" schema="schema/geocoder_factory.exsd"/>
    <extension-point id="router_factory" name="Route Provider for MOPLAF" schema="schema/router_factory.exsd"/>
+   <extension-point id="pinpointer_factory" name="Pinpointer for MOPLAF" schema="schema/pinpointer_factory.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated gis -->

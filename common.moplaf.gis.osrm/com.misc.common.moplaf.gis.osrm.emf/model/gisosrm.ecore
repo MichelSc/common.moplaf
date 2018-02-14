@@ -17,15 +17,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Overview" eType="#//Overview"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
-    <eLiterals name="Http" literal="http"/>
-    <eLiterals name="Https" value="1" literal="https"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Overview">
-    <eLiterals name="Simplified" literal="simplified"/>
-    <eLiterals name="Full" value="1" literal="full"/>
-    <eLiterals name="None" value="2" literal="false"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculatorOsrmManyToMany"
       eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisRouteCalculatorManyToMany">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"
@@ -38,5 +29,24 @@
         defaultValueLiteral="/table/v1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Profile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="driving"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisPinpointerOsrmNearest" eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisLocationPinpointer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="router.project-osrm.org"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="443"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="/table/v1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Profile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="driving"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
+    <eLiterals name="Http" literal="http"/>
+    <eLiterals name="Https" value="1" literal="https"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Overview">
+    <eLiterals name="Simplified" literal="simplified"/>
+    <eLiterals name="Full" value="1" literal="full"/>
+    <eLiterals name="None" value="2" literal="false"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -118,6 +118,29 @@ public class GisOsrmItemProviderAdapterFactory extends GisOsrmAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisPinpointerOsrmNearestItemProvider gisPinpointerOsrmNearestItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisPinpointerOsrmNearestAdapter() {
+		if (gisPinpointerOsrmNearestItemProvider == null) {
+			gisPinpointerOsrmNearestItemProvider = new GisPinpointerOsrmNearestItemProvider(this);
+		}
+
+		return gisPinpointerOsrmNearestItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +241,7 @@ public class GisOsrmItemProviderAdapterFactory extends GisOsrmAdapterFactory imp
 	public void dispose() {
 		if (gisDistanceMatrixCalculatorOsrmOneToOneItemProvider != null) gisDistanceMatrixCalculatorOsrmOneToOneItemProvider.dispose();
 		if (gisDistanceMatrixCalculatorOsrmManyToManyItemProvider != null) gisDistanceMatrixCalculatorOsrmManyToManyItemProvider.dispose();
+		if (gisPinpointerOsrmNearestItemProvider != null) gisPinpointerOsrmNearestItemProvider.dispose();
 	}
 
 }

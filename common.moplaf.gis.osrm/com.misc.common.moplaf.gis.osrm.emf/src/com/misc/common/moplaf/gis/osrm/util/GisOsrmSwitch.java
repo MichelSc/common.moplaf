@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.osrm.util;
 
+import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany;
 import com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne;
@@ -89,6 +90,13 @@ public class GisOsrmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST: {
+				GisPinpointerOsrmNearest gisPinpointerOsrmNearest = (GisPinpointerOsrmNearest)theEObject;
+				T result = caseGisPinpointerOsrmNearest(gisPinpointerOsrmNearest);
+				if (result == null) result = caseGisLocationPinpointer(gisPinpointerOsrmNearest);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -120,6 +128,21 @@ public class GisOsrmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisDistanceMatrixCalculatorOsrmManyToMany(GisDistanceMatrixCalculatorOsrmManyToMany object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gis Pinpointer Osrm Nearest</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gis Pinpointer Osrm Nearest</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisPinpointerOsrmNearest(GisPinpointerOsrmNearest object) {
 		return null;
 	}
 
@@ -180,6 +203,21 @@ public class GisOsrmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Location Pinpointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Location Pinpointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisLocationPinpointer(GisLocationPinpointer object) {
 		return null;
 	}
 

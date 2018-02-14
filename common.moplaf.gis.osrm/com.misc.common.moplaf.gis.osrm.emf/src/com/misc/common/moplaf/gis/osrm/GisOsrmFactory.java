@@ -40,6 +40,15 @@ public interface GisOsrmFactory extends EFactory {
 	GisDistanceMatrixCalculatorOsrmManyToMany createGisDistanceMatrixCalculatorOsrmManyToMany();
 
 	/**
+	 * Returns a new object of class '<em>Gis Pinpointer Osrm Nearest</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gis Pinpointer Osrm Nearest</em>'.
+	 * @generated
+	 */
+	GisPinpointerOsrmNearest createGisPinpointerOsrmNearest();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

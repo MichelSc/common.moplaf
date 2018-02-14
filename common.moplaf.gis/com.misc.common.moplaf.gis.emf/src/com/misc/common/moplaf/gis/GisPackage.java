@@ -96,13 +96,31 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION__GEOCODED = 1;
 
 	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION__PINPOINTED_LOCATIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION__PINPOINTER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_FEATURE_COUNT = 2;
+	int GIS_LOCATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -149,6 +167,24 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_COORDINATES_ABSTRACT__GEOCODED = GIS_LOCATION__GEOCODED;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS = GIS_LOCATION__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES_ABSTRACT__PINPOINTER = GIS_LOCATION__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
@@ -264,6 +300,24 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS__GEOCODED = GIS_LOCATION__GEOCODED;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS__PINPOINTED_LOCATIONS = GIS_LOCATION__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS__PINPOINTER = GIS_LOCATION__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1111,6 +1165,24 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODED__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
 
 	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
+
+	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1321,6 +1393,24 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED__GEOCODED = GIS_ADDRESS__GEOCODED;
 
 	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__PINPOINTED_LOCATIONS = GIS_ADDRESS__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__PINPOINTER = GIS_ADDRESS__PINPOINTER;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1509,6 +1599,24 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED__GEOCODED = GIS_ADDRESS__GEOCODED;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__PINPOINTED_LOCATIONS = GIS_ADDRESS__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__PINPOINTER = GIS_ADDRESS__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2003,6 +2111,24 @@ public interface GisPackage extends EPackage {
 	int GIS_COORDINATES__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
 
 	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
+
+	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2086,6 +2212,24 @@ public interface GisPackage extends EPackage {
 	int GIS_GEOMETRY__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
 
 	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_GEOMETRY__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
+
+	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2131,6 +2275,170 @@ public interface GisPackage extends EPackage {
 	int GIS_GEOMETRY_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl <em>Location Pinpointed</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointed()
+	 * @generated
+	 */
+	int GIS_LOCATION_PINPOINTED = 22;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
+
+	/**
+	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__DISTANCE = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Location Pinpointed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED__LOCATION_PINPOINTED = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Location Pinpointed</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Coordinates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
+
+	/**
+	 * The number of operations of the '<em>Location Pinpointed</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTED_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl <em>Location Pinpointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointer()
+	 * @generated
+	 */
+	int GIS_LOCATION_PINPOINTER = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Max Pinpoints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER__MAX_PINPOINTS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Location Pinpointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Snap</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION = 0;
+
+	/**
+	 * The number of operations of the '<em>Location Pinpointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER_OPERATION_COUNT = 1;
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinates <em>Coordinates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2160,6 +2468,80 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisGeometry();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisLocationPinpointed <em>Location Pinpointed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Location Pinpointed</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointed
+	 * @generated
+	 */
+	EClass getGisLocationPinpointed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationPinpointed#getDistance <em>Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Distance</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointed#getDistance()
+	 * @see #getGisLocationPinpointed()
+	 * @generated
+	 */
+	EAttribute getGisLocationPinpointed_Distance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationPinpointed#getLocationPinpointed <em>Location Pinpointed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location Pinpointed</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointed#getLocationPinpointed()
+	 * @see #getGisLocationPinpointed()
+	 * @generated
+	 */
+	EAttribute getGisLocationPinpointed_LocationPinpointed();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisLocationPinpointer <em>Location Pinpointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Location Pinpointer</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer
+	 * @generated
+	 */
+	EClass getGisLocationPinpointer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#getName()
+	 * @see #getGisLocationPinpointer()
+	 * @generated
+	 */
+	EAttribute getGisLocationPinpointer_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#getMaxPinpoints <em>Max Pinpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Pinpoints</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#getMaxPinpoints()
+	 * @see #getGisLocationPinpointer()
+	 * @generated
+	 */
+	EAttribute getGisLocationPinpointer_MaxPinpoints();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#snap(com.misc.common.moplaf.gis.GisLocation) <em>Snap</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Snap</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#snap(com.misc.common.moplaf.gis.GisLocation)
+	 * @generated
+	 */
+	EOperation getGisLocationPinpointer__Snap__GisLocation();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddress <em>Address</em>}'.
@@ -2877,6 +3259,28 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisLocation_Geocoded();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisLocation#getPinpointedLocations <em>Pinpointed Locations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Pinpointed Locations</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocation#getPinpointedLocations()
+	 * @see #getGisLocation()
+	 * @generated
+	 */
+	EReference getGisLocation_PinpointedLocations();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisLocation#getPinpointer <em>Pinpointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Pinpointer</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocation#getPinpointer()
+	 * @see #getGisLocation()
+	 * @generated
+	 */
+	EReference getGisLocation_Pinpointer();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocation#getCoordinates() <em>Get Coordinates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3246,6 +3650,66 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_GEOMETRY = eINSTANCE.getGisGeometry();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl <em>Location Pinpointed</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointed()
+		 * @generated
+		 */
+		EClass GIS_LOCATION_PINPOINTED = eINSTANCE.getGisLocationPinpointed();
+
+		/**
+		 * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_LOCATION_PINPOINTED__DISTANCE = eINSTANCE.getGisLocationPinpointed_Distance();
+
+		/**
+		 * The meta object literal for the '<em><b>Location Pinpointed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_LOCATION_PINPOINTED__LOCATION_PINPOINTED = eINSTANCE.getGisLocationPinpointed_LocationPinpointed();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl <em>Location Pinpointer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointer()
+		 * @generated
+		 */
+		EClass GIS_LOCATION_PINPOINTER = eINSTANCE.getGisLocationPinpointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_LOCATION_PINPOINTER__NAME = eINSTANCE.getGisLocationPinpointer_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Pinpoints</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_LOCATION_PINPOINTER__MAX_PINPOINTS = eINSTANCE.getGisLocationPinpointer_MaxPinpoints();
+
+		/**
+		 * The meta object literal for the '<em><b>Snap</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION = eINSTANCE.getGisLocationPinpointer__Snap__GisLocation();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.
@@ -3808,6 +4272,22 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_LOCATION__GEOCODED = eINSTANCE.getGisLocation_Geocoded();
+
+		/**
+		 * The meta object literal for the '<em><b>Pinpointed Locations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_LOCATION__PINPOINTED_LOCATIONS = eINSTANCE.getGisLocation_PinpointedLocations();
+
+		/**
+		 * The meta object literal for the '<em><b>Pinpointer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GIS_LOCATION__PINPOINTER = eINSTANCE.getGisLocation_Pinpointer();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Coordinates</b></em>' operation.

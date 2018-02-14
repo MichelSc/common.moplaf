@@ -539,16 +539,16 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_p44dIBFzEei8tMjeP9qZpQ" name=" SnappedLocations : GisLocationPinpointed" tooltipText="">
-        <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/SnappedLocations"/>
-        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/SnappedLocations"/>
+        <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/PinpointedLocations"/>
+        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/PinpointedLocations"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_p45rQBFzEei8tMjeP9qZpQ" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BHKhoBF0Eei8tMjeP9qZpQ" name=" Snapper : GisLocationPinpointer" tooltipText="">
-        <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Snapper"/>
-        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Snapper"/>
+        <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Pinpointer"/>
+        <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Pinpointer"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BHKhoRF0Eei8tMjeP9qZpQ" labelAlignment="LEFT" color="114,159,207">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
@@ -2292,9 +2292,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_p4olgBFzEei8tMjeP9qZpQ" name="[0..*] SnappedLocations" sourceNode="_d6yTcBFzEei8tMjeP9qZpQ" targetNode="_hoD2cBFzEei8tMjeP9qZpQ">
-      <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/SnappedLocations"/>
-      <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/SnappedLocations"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_p4olgBFzEei8tMjeP9qZpQ" name="[0..*] PinpointedLocations" sourceNode="_d6yTcBFzEei8tMjeP9qZpQ" targetNode="_hoD2cBFzEei8tMjeP9qZpQ">
+      <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/PinpointedLocations"/>
+      <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/PinpointedLocations"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_p4pzoBFzEei8tMjeP9qZpQ" description="_p4pMkBFzEei8tMjeP9qZpQ" sourceArrow="FillDiamond" strokeColor="0,0,0">
         <customFeatures>routingStyle</customFeatures>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_p4pzoRFzEei8tMjeP9qZpQ" showIcon="false">
@@ -2394,9 +2394,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_BHBXsBF0Eei8tMjeP9qZpQ" name="[0..1] Snapper" sourceNode="_d6yTcBFzEei8tMjeP9qZpQ" targetNode="_6vyI0BFzEei8tMjeP9qZpQ">
-      <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Snapper"/>
-      <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Snapper"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_BHBXsBF0Eei8tMjeP9qZpQ" name="[0..1] Pinpointer" sourceNode="_d6yTcBFzEei8tMjeP9qZpQ" targetNode="_6vyI0BFzEei8tMjeP9qZpQ">
+      <target xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Pinpointer"/>
+      <semanticElements xmi:type="ecore:EReference" href="gis.ecore#//GisLocation/Pinpointer"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_BHB-wBF0Eei8tMjeP9qZpQ" strokeColor="0,0,0">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>

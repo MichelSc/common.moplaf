@@ -59,6 +59,7 @@ public class GisOsrmFactoryImpl extends EFactoryImpl implements GisOsrmFactory {
 		switch (eClass.getClassifierID()) {
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_ONE_TO_ONE: return createGisDistanceMatrixCalculatorOsrmOneToOne();
 			case GisOsrmPackage.GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY: return createGisDistanceMatrixCalculatorOsrmManyToMany();
+			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST: return createGisPinpointerOsrmNearest();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -116,6 +117,16 @@ public class GisOsrmFactoryImpl extends EFactoryImpl implements GisOsrmFactory {
 	public GisDistanceMatrixCalculatorOsrmManyToMany createGisDistanceMatrixCalculatorOsrmManyToMany() {
 		GisDistanceMatrixCalculatorOsrmManyToManyImpl gisDistanceMatrixCalculatorOsrmManyToMany = new GisDistanceMatrixCalculatorOsrmManyToManyImpl();
 		return gisDistanceMatrixCalculatorOsrmManyToMany;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisPinpointerOsrmNearest createGisPinpointerOsrmNearest() {
+		GisPinpointerOsrmNearestImpl gisPinpointerOsrmNearest = new GisPinpointerOsrmNearestImpl();
+		return gisPinpointerOsrmNearest;
 	}
 
 	/**

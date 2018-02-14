@@ -152,9 +152,9 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Geocoded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SnappedLocations" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PinpointedLocations" upperBound="-1"
         eType="#//GisLocationPinpointed" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Snapper" eType="#//GisLocationPinpointer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Pinpointer" eType="#//GisLocationPinpointer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder" abstract="true">
     <eOperations name="geocode">

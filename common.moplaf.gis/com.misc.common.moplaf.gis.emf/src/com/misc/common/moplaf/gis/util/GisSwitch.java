@@ -234,6 +234,20 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisPackage.GIS_LOCATION_PINPOINTED: {
+				GisLocationPinpointed gisLocationPinpointed = (GisLocationPinpointed)theEObject;
+				T result = caseGisLocationPinpointed(gisLocationPinpointed);
+				if (result == null) result = caseGisCoordinatesAbstract(gisLocationPinpointed);
+				if (result == null) result = caseGisLocation(gisLocationPinpointed);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_LOCATION_PINPOINTER: {
+				GisLocationPinpointer gisLocationPinpointer = (GisLocationPinpointer)theEObject;
+				T result = caseGisLocationPinpointer(gisLocationPinpointer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -280,6 +294,36 @@ public class GisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisGeometry(GisGeometry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Location Pinpointed</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Location Pinpointed</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisLocationPinpointed(GisLocationPinpointed object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Location Pinpointer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Location Pinpointer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisLocationPinpointer(GisLocationPinpointer object) {
 		return null;
 	}
 

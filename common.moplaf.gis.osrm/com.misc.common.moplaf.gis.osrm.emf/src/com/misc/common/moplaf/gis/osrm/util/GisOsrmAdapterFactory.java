@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.osrm.util;
 
+import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany;
 import com.misc.common.moplaf.gis.GisRouteCalculatorOneToOne;
@@ -81,6 +82,10 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 				return createGisDistanceMatrixCalculatorOsrmManyToManyAdapter();
 			}
 			@Override
+			public Adapter caseGisPinpointerOsrmNearest(GisPinpointerOsrmNearest object) {
+				return createGisPinpointerOsrmNearestAdapter();
+			}
+			@Override
 			public Adapter caseGisRouter(GisRouter object) {
 				return createGisRouterAdapter();
 			}
@@ -95,6 +100,10 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
 				return createGisRouteCalculatorManyToManyAdapter();
+			}
+			@Override
+			public Adapter caseGisLocationPinpointer(GisLocationPinpointer object) {
+				return createGisLocationPinpointerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -141,6 +150,20 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisDistanceMatrixCalculatorOsrmManyToManyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest <em>Gis Pinpointer Osrm Nearest</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest
+	 * @generated
+	 */
+	public Adapter createGisPinpointerOsrmNearestAdapter() {
 		return null;
 	}
 
@@ -197,6 +220,20 @@ public class GisOsrmAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisRouteCalculatorManyToManyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisLocationPinpointer <em>Location Pinpointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer
+	 * @generated
+	 */
+	public Adapter createGisLocationPinpointerAdapter() {
 		return null;
 	}
 

@@ -50,6 +50,15 @@ public interface GisFactory extends EFactory {
 	GisGeometry createGisGeometry();
 
 	/**
+	 * Returns a new object of class '<em>Location Pinpointed</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Location Pinpointed</em>'.
+	 * @generated
+	 */
+	GisLocationPinpointed createGisLocationPinpointed();
+
+	/**
 	 * Returns a new object of class '<em>Routes Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -320,6 +320,11 @@ public class GisRouteInfoItemProvider
 			(createChildParameter
 				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
 				 GisFactory.eINSTANCE.createGisGeometry()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
+				 GisFactory.eINSTANCE.createGisLocationPinpointed()));
 	}
 
 	/**

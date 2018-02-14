@@ -130,6 +130,29 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisLocationPinpointed} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisLocationPinpointedItemProvider gisLocationPinpointedItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisLocationPinpointed}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisLocationPinpointedAdapter() {
+		if (gisLocationPinpointedItemProvider == null) {
+			gisLocationPinpointedItemProvider = new GisLocationPinpointedItemProvider(this);
+		}
+
+		return gisLocationPinpointedItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisRoutesHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -499,6 +522,7 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		if (gisRouterDefaultedItemProvider != null) gisRouterDefaultedItemProvider.dispose();
 		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
 		if (gisGeometryItemProvider != null) gisGeometryItemProvider.dispose();
+		if (gisLocationPinpointedItemProvider != null) gisLocationPinpointedItemProvider.dispose();
 	}
 
 }

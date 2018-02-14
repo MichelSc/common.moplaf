@@ -22,6 +22,8 @@ import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisGeometry;
 import com.misc.common.moplaf.gis.GisLocation;
+import com.misc.common.moplaf.gis.GisLocationPinpointed;
+import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany;
@@ -71,6 +73,20 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * @generated
 	 */
 	private EClass gisGeometryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gisLocationPinpointedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gisLocationPinpointerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -321,6 +337,69 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EClass getGisGeometry() {
 		return gisGeometryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGisLocationPinpointed() {
+		return gisLocationPinpointedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisLocationPinpointed_Distance() {
+		return (EAttribute)gisLocationPinpointedEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisLocationPinpointed_LocationPinpointed() {
+		return (EAttribute)gisLocationPinpointedEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGisLocationPinpointer() {
+		return gisLocationPinpointerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisLocationPinpointer_Name() {
+		return (EAttribute)gisLocationPinpointerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisLocationPinpointer_MaxPinpoints() {
+		return (EAttribute)gisLocationPinpointerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisLocationPinpointer__Snap__GisLocation() {
+		return gisLocationPinpointerEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -940,6 +1019,24 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGisLocation_PinpointedLocations() {
+		return (EReference)gisLocationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGisLocation_Pinpointer() {
+		return (EReference)gisLocationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGisLocation__GetCoordinates() {
 		return gisLocationEClass.getEOperations().get(0);
 	}
@@ -1295,6 +1392,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		gisLocationEClass = createEClass(GIS_LOCATION);
 		createEAttribute(gisLocationEClass, GIS_LOCATION__DESCRIPTION);
 		createEAttribute(gisLocationEClass, GIS_LOCATION__GEOCODED);
+		createEReference(gisLocationEClass, GIS_LOCATION__PINPOINTED_LOCATIONS);
+		createEReference(gisLocationEClass, GIS_LOCATION__PINPOINTER);
 		createEOperation(gisLocationEClass, GIS_LOCATION___GET_COORDINATES);
 
 		gisAddressGeocoderEClass = createEClass(GIS_ADDRESS_GEOCODER);
@@ -1338,6 +1437,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisCoordinatesEClass, GIS_COORDINATES__NAME);
 
 		gisGeometryEClass = createEClass(GIS_GEOMETRY);
+
+		gisLocationPinpointedEClass = createEClass(GIS_LOCATION_PINPOINTED);
+		createEAttribute(gisLocationPinpointedEClass, GIS_LOCATION_PINPOINTED__DISTANCE);
+		createEAttribute(gisLocationPinpointedEClass, GIS_LOCATION_PINPOINTED__LOCATION_PINPOINTED);
+
+		gisLocationPinpointerEClass = createEClass(GIS_LOCATION_PINPOINTER);
+		createEAttribute(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER__NAME);
+		createEAttribute(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER__MAX_PINPOINTS);
+		createEOperation(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION);
 	}
 
 	/**
@@ -1387,6 +1495,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		gisRouterDefaultedEClass.getESuperTypes().add(this.getGisRouter());
 		gisCoordinatesEClass.getESuperTypes().add(this.getGisCoordinatesAbstract());
 		gisGeometryEClass.getESuperTypes().add(this.getGisCoordinatesAbstract());
+		gisLocationPinpointedEClass.getESuperTypes().add(this.getGisCoordinatesAbstract());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisCoordinatesAbstractEClass, GisCoordinatesAbstract.class, "GisCoordinatesAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1508,6 +1617,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEClass(gisLocationEClass, GisLocation.class, "GisLocation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisLocation_Description(), ecorePackage.getEString(), "Description", null, 0, 1, GisLocation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisLocation_Geocoded(), ecorePackage.getEBoolean(), "Geocoded", null, 0, 1, GisLocation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getGisLocation_PinpointedLocations(), this.getGisLocationPinpointed(), null, "PinpointedLocations", null, 0, -1, GisLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisLocation_Pinpointer(), this.getGisLocationPinpointer(), null, "Pinpointer", null, 0, 1, GisLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGisLocation__GetCoordinates(), this.getGisCoordinatesAbstract(), "getCoordinates", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1560,6 +1671,17 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEAttribute(getGisCoordinates_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisCoordinates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisGeometryEClass, GisGeometry.class, "GisGeometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(gisLocationPinpointedEClass, GisLocationPinpointed.class, "GisLocationPinpointed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisLocationPinpointed_Distance(), ecorePackage.getEFloat(), "Distance", null, 0, 1, GisLocationPinpointed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisLocationPinpointed_LocationPinpointed(), ecorePackage.getEString(), "LocationPinpointed", null, 0, 1, GisLocationPinpointed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gisLocationPinpointerEClass, GisLocationPinpointer.class, "GisLocationPinpointer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisLocationPinpointer_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisLocationPinpointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisLocationPinpointer_MaxPinpoints(), ecorePackage.getEInt(), "MaxPinpoints", null, 0, 1, GisLocationPinpointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getGisLocationPinpointer__Snap__GisLocation(), null, "snap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

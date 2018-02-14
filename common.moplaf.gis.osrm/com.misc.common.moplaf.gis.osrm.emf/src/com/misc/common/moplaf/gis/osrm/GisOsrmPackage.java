@@ -287,6 +287,97 @@ public interface GisOsrmPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY_OPERATION_COUNT = GisPackage.GIS_ROUTE_CALCULATOR_MANY_TO_MANY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.osrm.impl.GisPinpointerOsrmNearestImpl <em>Gis Pinpointer Osrm Nearest</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.osrm.impl.GisPinpointerOsrmNearestImpl
+	 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getGisPinpointerOsrmNearest()
+	 * @generated
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST__NAME = GisPackage.GIS_LOCATION_PINPOINTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Max Pinpoints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST__MAX_PINPOINTS = GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST__HOST = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST__PORT = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST__PATH = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Profile</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST__PROFILE = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Gis Pinpointer Osrm Nearest</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST_FEATURE_COUNT = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Snap</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST___SNAP__GISLOCATION = GisPackage.GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION;
+
+	/**
+	 * The number of operations of the '<em>Gis Pinpointer Osrm Nearest</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST_OPERATION_COUNT = GisPackage.GIS_LOCATION_PINPOINTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,7 +385,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 2;
+	int PROTOCOL = 3;
 
 
 	/**
@@ -305,7 +396,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getOverview()
 	 * @generated
 	 */
-	int OVERVIEW = 3;
+	int OVERVIEW = 4;
 
 
 	/**
@@ -450,6 +541,60 @@ public interface GisOsrmPackage extends EPackage {
 	EAttribute getGisDistanceMatrixCalculatorOsrmManyToMany_Profile();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest <em>Gis Pinpointer Osrm Nearest</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gis Pinpointer Osrm Nearest</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest
+	 * @generated
+	 */
+	EClass getGisPinpointerOsrmNearest();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Host</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getHost()
+	 * @see #getGisPinpointerOsrmNearest()
+	 * @generated
+	 */
+	EAttribute getGisPinpointerOsrmNearest_Host();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getPort()
+	 * @see #getGisPinpointerOsrmNearest()
+	 * @generated
+	 */
+	EAttribute getGisPinpointerOsrmNearest_Port();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getPath()
+	 * @see #getGisPinpointerOsrmNearest()
+	 * @generated
+	 */
+	EAttribute getGisPinpointerOsrmNearest_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getProfile <em>Profile</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Profile</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getProfile()
+	 * @see #getGisPinpointerOsrmNearest()
+	 * @generated
+	 */
+	EAttribute getGisPinpointerOsrmNearest_Profile();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -587,6 +732,43 @@ public interface GisOsrmPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROFILE = eINSTANCE.getGisDistanceMatrixCalculatorOsrmManyToMany_Profile();
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.osrm.impl.GisPinpointerOsrmNearestImpl <em>Gis Pinpointer Osrm Nearest</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.osrm.impl.GisPinpointerOsrmNearestImpl
+		 * @see com.misc.common.moplaf.gis.osrm.impl.GisOsrmPackageImpl#getGisPinpointerOsrmNearest()
+		 * @generated
+		 */
+		EClass GIS_PINPOINTER_OSRM_NEAREST = eINSTANCE.getGisPinpointerOsrmNearest();
+		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_PINPOINTER_OSRM_NEAREST__HOST = eINSTANCE.getGisPinpointerOsrmNearest_Host();
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_PINPOINTER_OSRM_NEAREST__PORT = eINSTANCE.getGisPinpointerOsrmNearest_Port();
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_PINPOINTER_OSRM_NEAREST__PATH = eINSTANCE.getGisPinpointerOsrmNearest_Path();
+		/**
+		 * The meta object literal for the '<em><b>Profile</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_PINPOINTER_OSRM_NEAREST__PROFILE = eINSTANCE.getGisPinpointerOsrmNearest_Profile();
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}' enum.
 		 * <!-- begin-user-doc -->
