@@ -215,10 +215,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LocationPinpointed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocationPinpointer" abstract="true">
-    <eOperations name="snap">
+    <eOperations name="pinpoint">
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxPinpoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
 </ecore:EPackage>

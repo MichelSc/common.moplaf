@@ -2403,31 +2403,22 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION_PINPOINTER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Max Pinpoints</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER__MAX_PINPOINTS = 1;
-
-	/**
 	 * The number of structural features of the '<em>Location Pinpointer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_PINPOINTER_FEATURE_COUNT = 2;
+	int GIS_LOCATION_PINPOINTER_FEATURE_COUNT = 1;
 
 	/**
-	 * The operation id for the '<em>Snap</em>' operation.
+	 * The operation id for the '<em>Pinpoint</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION = 0;
+	int GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION = 0;
 
 	/**
 	 * The number of operations of the '<em>Location Pinpointer</em>' class.
@@ -2523,25 +2514,14 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisLocationPinpointer_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#getMaxPinpoints <em>Max Pinpoints</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#pinpoint(com.misc.common.moplaf.gis.GisLocation) <em>Pinpoint</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Pinpoints</em>'.
-	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#getMaxPinpoints()
-	 * @see #getGisLocationPinpointer()
+	 * @return the meta object for the '<em>Pinpoint</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#pinpoint(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EAttribute getGisLocationPinpointer_MaxPinpoints();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#snap(com.misc.common.moplaf.gis.GisLocation) <em>Snap</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Snap</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#snap(com.misc.common.moplaf.gis.GisLocation)
-	 * @generated
-	 */
-	EOperation getGisLocationPinpointer__Snap__GisLocation();
+	EOperation getGisLocationPinpointer__Pinpoint__GisLocation();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddress <em>Address</em>}'.
@@ -3696,20 +3676,12 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_LOCATION_PINPOINTER__NAME = eINSTANCE.getGisLocationPinpointer_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Max Pinpoints</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Pinpoint</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_LOCATION_PINPOINTER__MAX_PINPOINTS = eINSTANCE.getGisLocationPinpointer_MaxPinpoints();
-
-		/**
-		 * The meta object literal for the '<em><b>Snap</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION = eINSTANCE.getGisLocationPinpointer__Snap__GisLocation();
+		EOperation GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION = eINSTANCE.getGisLocationPinpointer__Pinpoint__GisLocation();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.

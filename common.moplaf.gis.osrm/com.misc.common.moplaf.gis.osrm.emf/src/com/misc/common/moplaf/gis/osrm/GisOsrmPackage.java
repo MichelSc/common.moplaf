@@ -306,13 +306,13 @@ public interface GisOsrmPackage extends EPackage {
 	int GIS_PINPOINTER_OSRM_NEAREST__NAME = GisPackage.GIS_LOCATION_PINPOINTER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Max Pinpoints</b></em>' attribute.
+	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST__MAX_PINPOINTS = GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS;
+	int GIS_PINPOINTER_OSRM_NEAREST__PROTOCOL = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Host</b></em>' attribute.
@@ -321,7 +321,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST__HOST = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 0;
+	int GIS_PINPOINTER_OSRM_NEAREST__HOST = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.
@@ -330,7 +330,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST__PORT = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 1;
+	int GIS_PINPOINTER_OSRM_NEAREST__PORT = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -339,7 +339,7 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST__PATH = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 2;
+	int GIS_PINPOINTER_OSRM_NEAREST__PATH = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Profile</b></em>' attribute.
@@ -348,7 +348,16 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST__PROFILE = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 3;
+	int GIS_PINPOINTER_OSRM_NEAREST__PROFILE = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Max Pinpoints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_PINPOINTER_OSRM_NEAREST__MAX_PINPOINTS = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Gis Pinpointer Osrm Nearest</em>' class.
@@ -357,16 +366,16 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST_FEATURE_COUNT = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 4;
+	int GIS_PINPOINTER_OSRM_NEAREST_FEATURE_COUNT = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Snap</em>' operation.
+	 * The operation id for the '<em>Pinpoint</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST___SNAP__GISLOCATION = GisPackage.GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION;
+	int GIS_PINPOINTER_OSRM_NEAREST___PINPOINT__GISLOCATION = GisPackage.GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Gis Pinpointer Osrm Nearest</em>' class.
@@ -551,6 +560,17 @@ public interface GisOsrmPackage extends EPackage {
 	EClass getGisPinpointerOsrmNearest();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getProtocol <em>Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Protocol</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getProtocol()
+	 * @see #getGisPinpointerOsrmNearest()
+	 * @generated
+	 */
+	EAttribute getGisPinpointerOsrmNearest_Protocol();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getHost <em>Host</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -593,6 +613,17 @@ public interface GisOsrmPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisPinpointerOsrmNearest_Profile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getMaxPinpoints <em>Max Pinpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Pinpoints</em>'.
+	 * @see com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest#getMaxPinpoints()
+	 * @see #getGisPinpointerOsrmNearest()
+	 * @generated
+	 */
+	EAttribute getGisPinpointerOsrmNearest_MaxPinpoints();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}'.
@@ -742,6 +773,13 @@ public interface GisOsrmPackage extends EPackage {
 		 */
 		EClass GIS_PINPOINTER_OSRM_NEAREST = eINSTANCE.getGisPinpointerOsrmNearest();
 		/**
+		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_PINPOINTER_OSRM_NEAREST__PROTOCOL = eINSTANCE.getGisPinpointerOsrmNearest_Protocol();
+		/**
 		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -769,6 +807,13 @@ public interface GisOsrmPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_PINPOINTER_OSRM_NEAREST__PROFILE = eINSTANCE.getGisPinpointerOsrmNearest_Profile();
+		/**
+		 * The meta object literal for the '<em><b>Max Pinpoints</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_PINPOINTER_OSRM_NEAREST__MAX_PINPOINTS = eINSTANCE.getGisPinpointerOsrmNearest_MaxPinpoints();
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.osrm.Protocol <em>Protocol</em>}' enum.
 		 * <!-- begin-user-doc -->

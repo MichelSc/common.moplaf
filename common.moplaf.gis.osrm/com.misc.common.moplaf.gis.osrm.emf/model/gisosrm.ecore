@@ -31,14 +31,17 @@
         defaultValueLiteral="driving"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisPinpointerOsrmNearest" eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisLocationPinpointer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"
+        defaultValueLiteral="https"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="router.project-osrm.org"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="443"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="/table/v1"/>
+        defaultValueLiteral="/nearest/v1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Profile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="driving"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxPinpoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
     <eLiterals name="Http" literal="http"/>

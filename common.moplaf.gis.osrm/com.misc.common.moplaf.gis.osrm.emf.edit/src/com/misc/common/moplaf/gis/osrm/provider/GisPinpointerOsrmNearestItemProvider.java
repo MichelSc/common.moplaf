@@ -49,12 +49,36 @@ public class GisPinpointerOsrmNearestItemProvider extends GisLocationPinpointerI
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addProtocolPropertyDescriptor(object);
 			addHostPropertyDescriptor(object);
 			addPortPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
 			addProfilePropertyDescriptor(object);
+			addMaxPinpointsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Protocol feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProtocolPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisPinpointerOsrmNearest_Protocol_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisPinpointerOsrmNearest_Protocol_feature", "_UI_GisPinpointerOsrmNearest_type"),
+				 GisOsrmPackage.Literals.GIS_PINPOINTER_OSRM_NEAREST__PROTOCOL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -146,6 +170,28 @@ public class GisPinpointerOsrmNearestItemProvider extends GisLocationPinpointerI
 	}
 
 	/**
+	 * This adds a property descriptor for the Max Pinpoints feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxPinpointsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisPinpointerOsrmNearest_MaxPinpoints_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisPinpointerOsrmNearest_MaxPinpoints_feature", "_UI_GisPinpointerOsrmNearest_type"),
+				 GisOsrmPackage.Literals.GIS_PINPOINTER_OSRM_NEAREST__MAX_PINPOINTS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns GisPinpointerOsrmNearest.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,10 +229,12 @@ public class GisPinpointerOsrmNearestItemProvider extends GisLocationPinpointerI
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisPinpointerOsrmNearest.class)) {
+			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST__PROTOCOL:
 			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST__HOST:
 			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST__PORT:
 			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST__PATH:
 			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST__PROFILE:
+			case GisOsrmPackage.GIS_PINPOINTER_OSRM_NEAREST__MAX_PINPOINTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

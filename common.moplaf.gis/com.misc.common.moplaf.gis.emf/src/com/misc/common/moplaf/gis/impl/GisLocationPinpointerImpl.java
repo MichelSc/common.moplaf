@@ -2,9 +2,11 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.Plugin;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -26,7 +28,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl#getMaxPinpoints <em>Max Pinpoints</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,26 +52,6 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMaxPinpoints() <em>Max Pinpoints</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxPinpoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MAX_PINPOINTS_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMaxPinpoints() <em>Max Pinpoints</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxPinpoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected int maxPinpoints = MAX_PINPOINTS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,32 +96,17 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public int getMaxPinpoints() {
-		return maxPinpoints;
+	public void pinpoint(GisLocation location) {
+		Plugin.INSTANCE.logInfo("GisLocationPinpointer.pinpoint called");
+		GisCoordinatesAbstract coordinates = location.getCoordinates();
+		if ( coordinates == null )  return;
+		location.getPinpointedLocations().clear();
+		this.pinpointImpl(coordinates);
+		Plugin.INSTANCE.logInfo("GisLocationPinpointer.pinpoint done");
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxPinpoints(int newMaxPinpoints) {
-		int oldMaxPinpoints = maxPinpoints;
-		maxPinpoints = newMaxPinpoints;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS, oldMaxPinpoints, maxPinpoints));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void snap(GisLocation location) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+	
+	protected void pinpointImpl(GisCoordinatesAbstract coodinates) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -154,8 +120,6 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 		switch (featureID) {
 			case GisPackage.GIS_LOCATION_PINPOINTER__NAME:
 				return getName();
-			case GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS:
-				return getMaxPinpoints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,9 +134,6 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 		switch (featureID) {
 			case GisPackage.GIS_LOCATION_PINPOINTER__NAME:
 				setName((String)newValue);
-				return;
-			case GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS:
-				setMaxPinpoints((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,9 +150,6 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 			case GisPackage.GIS_LOCATION_PINPOINTER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS:
-				setMaxPinpoints(MAX_PINPOINTS_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,8 +164,6 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 		switch (featureID) {
 			case GisPackage.GIS_LOCATION_PINPOINTER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS:
-				return maxPinpoints != MAX_PINPOINTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -220,8 +176,8 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GisPackage.GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION:
-				snap((GisLocation)arguments.get(0));
+			case GisPackage.GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION:
+				pinpoint((GisLocation)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -239,8 +195,6 @@ public abstract class GisLocationPinpointerImpl extends MinimalEObjectImpl.Conta
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
-		result.append(", MaxPinpoints: ");
-		result.append(maxPinpoints);
 		result.append(')');
 		return result.toString();
 	}

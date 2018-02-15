@@ -259,7 +259,7 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisPinpointerOsrmNearest_Host() {
+	public EAttribute getGisPinpointerOsrmNearest_Protocol() {
 		return (EAttribute)gisPinpointerOsrmNearestEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -268,7 +268,7 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisPinpointerOsrmNearest_Port() {
+	public EAttribute getGisPinpointerOsrmNearest_Host() {
 		return (EAttribute)gisPinpointerOsrmNearestEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -277,7 +277,7 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisPinpointerOsrmNearest_Path() {
+	public EAttribute getGisPinpointerOsrmNearest_Port() {
 		return (EAttribute)gisPinpointerOsrmNearestEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -286,8 +286,26 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisPinpointerOsrmNearest_Profile() {
+	public EAttribute getGisPinpointerOsrmNearest_Path() {
 		return (EAttribute)gisPinpointerOsrmNearestEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisPinpointerOsrmNearest_Profile() {
+		return (EAttribute)gisPinpointerOsrmNearestEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisPinpointerOsrmNearest_MaxPinpoints() {
+		return (EAttribute)gisPinpointerOsrmNearestEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -352,10 +370,12 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 		createEAttribute(gisDistanceMatrixCalculatorOsrmManyToManyEClass, GIS_DISTANCE_MATRIX_CALCULATOR_OSRM_MANY_TO_MANY__PROFILE);
 
 		gisPinpointerOsrmNearestEClass = createEClass(GIS_PINPOINTER_OSRM_NEAREST);
+		createEAttribute(gisPinpointerOsrmNearestEClass, GIS_PINPOINTER_OSRM_NEAREST__PROTOCOL);
 		createEAttribute(gisPinpointerOsrmNearestEClass, GIS_PINPOINTER_OSRM_NEAREST__HOST);
 		createEAttribute(gisPinpointerOsrmNearestEClass, GIS_PINPOINTER_OSRM_NEAREST__PORT);
 		createEAttribute(gisPinpointerOsrmNearestEClass, GIS_PINPOINTER_OSRM_NEAREST__PATH);
 		createEAttribute(gisPinpointerOsrmNearestEClass, GIS_PINPOINTER_OSRM_NEAREST__PROFILE);
+		createEAttribute(gisPinpointerOsrmNearestEClass, GIS_PINPOINTER_OSRM_NEAREST__MAX_PINPOINTS);
 
 		// Create enums
 		protocolEEnum = createEEnum(PROTOCOL);
@@ -414,10 +434,12 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 		initEAttribute(getGisDistanceMatrixCalculatorOsrmManyToMany_Profile(), ecorePackage.getEString(), "Profile", "driving", 0, 1, GisDistanceMatrixCalculatorOsrmManyToMany.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisPinpointerOsrmNearestEClass, GisPinpointerOsrmNearest.class, "GisPinpointerOsrmNearest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisPinpointerOsrmNearest_Protocol(), this.getProtocol(), "Protocol", "https", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisPinpointerOsrmNearest_Host(), ecorePackage.getEString(), "Host", "router.project-osrm.org", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisPinpointerOsrmNearest_Port(), ecorePackage.getEInt(), "Port", "443", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisPinpointerOsrmNearest_Path(), ecorePackage.getEString(), "Path", "/table/v1", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisPinpointerOsrmNearest_Path(), ecorePackage.getEString(), "Path", "/nearest/v1", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisPinpointerOsrmNearest_Profile(), ecorePackage.getEString(), "Profile", "driving", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisPinpointerOsrmNearest_MaxPinpoints(), ecorePackage.getEInt(), "MaxPinpoints", null, 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(protocolEEnum, Protocol.class, "Protocol");

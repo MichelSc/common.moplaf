@@ -61,7 +61,6 @@ public class GisLocationPinpointerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addMaxPinpointsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,28 +83,6 @@ public class GisLocationPinpointerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Max Pinpoints feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMaxPinpointsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisLocationPinpointer_MaxPinpoints_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisLocationPinpointer_MaxPinpoints_feature", "_UI_GisLocationPinpointer_type"),
-				 GisPackage.Literals.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -138,7 +115,6 @@ public class GisLocationPinpointerItemProvider
 
 		switch (notification.getFeatureID(GisLocationPinpointer.class)) {
 			case GisPackage.GIS_LOCATION_PINPOINTER__NAME:
-			case GisPackage.GIS_LOCATION_PINPOINTER__MAX_PINPOINTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

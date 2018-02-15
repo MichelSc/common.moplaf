@@ -389,16 +389,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisLocationPinpointer_MaxPinpoints() {
-		return (EAttribute)gisLocationPinpointerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGisLocationPinpointer__Snap__GisLocation() {
+	public EOperation getGisLocationPinpointer__Pinpoint__GisLocation() {
 		return gisLocationPinpointerEClass.getEOperations().get(0);
 	}
 
@@ -1444,8 +1435,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		gisLocationPinpointerEClass = createEClass(GIS_LOCATION_PINPOINTER);
 		createEAttribute(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER__NAME);
-		createEAttribute(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER__MAX_PINPOINTS);
-		createEOperation(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER___SNAP__GISLOCATION);
+		createEOperation(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION);
 	}
 
 	/**
@@ -1678,9 +1668,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		initEClass(gisLocationPinpointerEClass, GisLocationPinpointer.class, "GisLocationPinpointer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisLocationPinpointer_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisLocationPinpointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisLocationPinpointer_MaxPinpoints(), ecorePackage.getEInt(), "MaxPinpoints", null, 0, 1, GisLocationPinpointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getGisLocationPinpointer__Snap__GisLocation(), null, "snap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGisLocationPinpointer__Pinpoint__GisLocation(), null, "pinpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
