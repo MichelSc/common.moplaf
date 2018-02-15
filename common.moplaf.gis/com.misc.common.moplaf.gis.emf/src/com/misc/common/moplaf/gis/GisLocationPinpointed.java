@@ -30,12 +30,12 @@ public interface GisLocationPinpointed extends GisCoordinatesAbstract {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distance</em>' attribute.
-	 * @see #setDistance(float)
+	 * @see #setDistance(double)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocationPinpointed_Distance()
 	 * @model
 	 * @generated
 	 */
-	float getDistance();
+	double getDistance();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisLocationPinpointed#getDistance <em>Distance</em>}' attribute.
@@ -45,7 +45,7 @@ public interface GisLocationPinpointed extends GisCoordinatesAbstract {
 	 * @see #getDistance()
 	 * @generated
 	 */
-	void setDistance(float value);
+	void setDistance(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Location Pinpointed</b></em>' attribute.

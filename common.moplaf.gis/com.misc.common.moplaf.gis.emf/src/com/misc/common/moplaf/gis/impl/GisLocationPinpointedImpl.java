@@ -34,7 +34,7 @@ public class GisLocationPinpointedImpl extends GisCoordinatesAbstractImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float DISTANCE_EDEFAULT = 0.0F;
+	protected static final double DISTANCE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getDistance() <em>Distance</em>}' attribute.
@@ -44,7 +44,7 @@ public class GisLocationPinpointedImpl extends GisCoordinatesAbstractImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected float distance = DISTANCE_EDEFAULT;
+	protected double distance = DISTANCE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLocationPinpointed() <em>Location Pinpointed</em>}' attribute.
@@ -90,7 +90,7 @@ public class GisLocationPinpointedImpl extends GisCoordinatesAbstractImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getDistance() {
+	public double getDistance() {
 		return distance;
 	}
 
@@ -99,8 +99,8 @@ public class GisLocationPinpointedImpl extends GisCoordinatesAbstractImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDistance(float newDistance) {
-		float oldDistance = distance;
+	public void setDistance(double newDistance) {
+		double oldDistance = distance;
 		distance = newDistance;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_LOCATION_PINPOINTED__DISTANCE, oldDistance, distance));
@@ -152,7 +152,7 @@ public class GisLocationPinpointedImpl extends GisCoordinatesAbstractImpl implem
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GisPackage.GIS_LOCATION_PINPOINTED__DISTANCE:
-				setDistance((Float)newValue);
+				setDistance((Double)newValue);
 				return;
 			case GisPackage.GIS_LOCATION_PINPOINTED__LOCATION_PINPOINTED:
 				setLocationPinpointed((String)newValue);

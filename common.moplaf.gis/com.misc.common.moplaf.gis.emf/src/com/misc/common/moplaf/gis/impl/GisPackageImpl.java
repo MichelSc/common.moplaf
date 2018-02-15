@@ -1663,7 +1663,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEClass(gisGeometryEClass, GisGeometry.class, "GisGeometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(gisLocationPinpointedEClass, GisLocationPinpointed.class, "GisLocationPinpointed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGisLocationPinpointed_Distance(), ecorePackage.getEFloat(), "Distance", null, 0, 1, GisLocationPinpointed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisLocationPinpointed_Distance(), ecorePackage.getEDouble(), "Distance", null, 0, 1, GisLocationPinpointed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisLocationPinpointed_LocationPinpointed(), ecorePackage.getEString(), "LocationPinpointed", null, 0, 1, GisLocationPinpointed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisLocationPinpointerEClass, GisLocationPinpointer.class, "GisLocationPinpointer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

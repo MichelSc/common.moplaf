@@ -4,14 +4,12 @@ package com.misc.common.moplaf.gis.osrm.impl;
 
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisFactory;
-import com.misc.common.moplaf.gis.GisGeometry;
-import com.misc.common.moplaf.gis.GisRouteInfo;
+import com.misc.common.moplaf.gis.GisLocationPinpointed;
 import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl;
 
 import com.misc.common.moplaf.gis.osrm.GisOsrmPackage;
 import com.misc.common.moplaf.gis.osrm.GisPinpointerOsrmNearest;
-import com.misc.common.moplaf.gis.osrm.Overview;
 
 import com.misc.common.moplaf.gis.osrm.Protocol;
 import java.io.BufferedReader;
@@ -349,7 +347,7 @@ public class GisPinpointerOsrmNearestImpl extends GisLocationPinpointerImpl impl
 			URI requesturi = new URI(scheme, userInfo, host, port, path, query, fragment);
 			URL url2 = requesturi.toURL();
 
-			Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: url2: "+url2.toString());
+			Plugin.INSTANCE.logInfo("GisPinpointerOsrmNearest: url2: "+url2.toString());
 			connection = (HttpURLConnection)url2.openConnection();
 			//connection.setRequestMethod("POST"); //default is GET
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -379,56 +377,40 @@ public class GisPinpointerOsrmNearestImpl extends GisLocationPinpointerImpl impl
 			responseAsString = response.toString();
 		} catch (Exception e) {
 			feedback = "Connection failed: "+e.getMessage();
-			Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: "+feedback);
-			return null;
+			Plugin.INSTANCE.logError("GisPinpointerOsrmNearest: "+feedback);
 		} finally {
 			if(connection != null) {
 				connection.disconnect(); 
 			}
 		}  // try		
 		// parse the response
-		Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: response ="+responseAsString);
+		Plugin.INSTANCE.logInfo("GisPinpointerOsrmNearest: response ="+responseAsString);
 		JSONObject responseObject = (JSONObject) JSONValue.parse(responseAsString);
 		String response_code= (String)responseObject.get("code");
-		Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: code ="+response_code);
-		GisRouteInfo info = null;
+		Plugin.INSTANCE.logInfo("GisPinpointerOsrmNearest: code ="+response_code);
 		switch ( response_code ){
-		case "NoRoute" : 
-			Plugin.INSTANCE.logWarning("GisDistanceMatrixCalculatorOsrmOneToOne: no route");
-			break;
 		case "Ok" : 
 			// indicates the response contains a valid result.
-			JSONArray routes = (JSONArray)responseObject.get("routes");
-			for (int route_index = 0; route_index<routes.size(); route_index++) {
-				JSONObject route = (JSONObject)routes.get(route_index);
-				Number distance = (Number)route.get("distance");  //meters 
-				Number duration = (Number)route.get("duration");  //seconds 
-				info = GisFactory.eINSTANCE.createGisRouteInfo();
-				info.setFromLocation(from);
-				info.setToLocation(to);
-				info.setDistance(distance.doubleValue()/1000.0d);  // conversion in km's
-				info.setDuration(duration.doubleValue()/3600.0d);  // conversion in hours
-				if ( has_geometry) {
-					JSONObject geometry = (JSONObject)route.get("geometry");
-					JSONArray points = (JSONArray)geometry.get("coordinates");
-					for ( int point_index = 0; point_index<points.size(); point_index++) {
-						JSONArray coordinates = (JSONArray)points.get(point_index);
-						Number longitude = (Number)coordinates.get(0);
-						Number latitude  = (Number)coordinates.get(1);
-						GisGeometry gis_point = GisFactory.eINSTANCE.createGisGeometry();
-						gis_point.setLongitude(longitude.doubleValue());
-						gis_point.setLatitude (latitude.doubleValue());
-						info.getGeometry().add(gis_point);
-					} // the points of the geometry
-				}
+			JSONArray points = (JSONArray)responseObject.get("waypoints");
+			for (int point_index = 0; point_index<points.size(); point_index++) {
+				JSONObject point = (JSONObject)points.get(point_index);
+				String name= (String)point.get("name");   
+				JSONArray coordinates = (JSONArray)point.get("location");
+				Number longitude = (Number)coordinates.get(0);
+				Number latitude  = (Number)coordinates.get(1);
+				Number distance  = (Number)point.get("distance");
+				GisLocationPinpointed pinpointed = GisFactory.eINSTANCE.createGisLocationPinpointed();
+				pinpointed.setLongitude(longitude.doubleValue());
+				pinpointed.setLatitude (latitude .doubleValue());
+				pinpointed.setLocationPinpointed(name);
+				pinpointed.setDistance(distance.doubleValue()/1000.0d); // convert m's to km's
 			}  // traverse the routes
 			break;
 		default :
 			feedback = "Unknown response code "+response_code;
-			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorOsrmOneToOne: "+feedback);
+			Plugin.INSTANCE.logError("GisPinpointerOsrmNearest: "+feedback);
 			break;
 		}  // swich on response status
-		return info;
 	} // pinpoint
 
 	/**

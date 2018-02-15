@@ -211,7 +211,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisGeometry" eSuperTypes="#//GisCoordinatesAbstract"/>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocationPinpointed" eSuperTypes="#//GisCoordinatesAbstract">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LocationPinpointed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocationPinpointer" abstract="true">
