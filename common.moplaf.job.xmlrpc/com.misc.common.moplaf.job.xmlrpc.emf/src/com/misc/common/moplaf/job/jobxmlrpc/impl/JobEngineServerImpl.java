@@ -281,6 +281,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	public interface ServerCallInterface {
 		public int runJob(String jobAsString);
 		public int getJobStatus(int jobExecuteNr);
+		public String getJobResult(int jobExecuteNr);
 	}
 	
 	/**
@@ -368,6 +369,11 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			int status = job.getStatus().getValue();
 			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatuts: status= %d", status));
 			return status;
+		}
+
+		@Override
+		public String getJobResult(int jobExecuteNr) {
+			throw new UnsupportedOperationException();
 		}
 	};
 
