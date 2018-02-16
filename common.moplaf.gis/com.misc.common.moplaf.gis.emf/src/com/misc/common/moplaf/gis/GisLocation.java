@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.gis;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.gis.GisLocation#isGeocoded <em>Geocoded</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocation#getPinpointedLocations <em>Pinpointed Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocation#getPinpointer <em>Pinpointer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocation#getTools <em>Tools</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisLocation()
@@ -108,11 +110,45 @@ public interface GisLocation extends EObject {
 	void setPinpointer(GisLocationPinpointer value);
 
 	/**
+	 * Returns the value of the '<em><b>Tools</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisLocationTool}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisLocationTool#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tools</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tools</em>' containment reference list.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocation_Tools()
+	 * @see com.misc.common.moplaf.gis.GisLocationTool#getLocation
+	 * @model opposite="Location" containment="true"
+	 * @generated
+	 */
+	EList<GisLocationTool> getTools();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	GisCoordinatesAbstract getCoordinates();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addTool(GisToolLocation tool);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback addToolEnabled(GisToolLocation tool);
 
 } // GisLocation

@@ -248,6 +248,18 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisPackage.GIS_TOOL_LOCATION: {
+				GisToolLocation gisToolLocation = (GisToolLocation)theEObject;
+				T result = caseGisToolLocation(gisToolLocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_LOCATION_TOOL: {
+				GisLocationTool gisLocationTool = (GisLocationTool)theEObject;
+				T result = caseGisLocationTool(gisLocationTool);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -324,6 +336,36 @@ public class GisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisLocationPinpointer(GisLocationPinpointer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tool Location</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tool Location</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisToolLocation(GisToolLocation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Location Tool</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Location Tool</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisLocationTool(GisLocationTool object) {
 		return null;
 	}
 

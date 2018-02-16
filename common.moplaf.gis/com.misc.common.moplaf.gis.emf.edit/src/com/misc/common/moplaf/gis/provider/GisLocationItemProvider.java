@@ -157,6 +157,7 @@ public class GisLocationItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(GisPackage.Literals.GIS_LOCATION__PINPOINTED_LOCATIONS);
+			childrenFeatures.add(GisPackage.Literals.GIS_LOCATION__TOOLS);
 		}
 		return childrenFeatures;
 	}
@@ -216,6 +217,7 @@ public class GisLocationItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS:
+			case GisPackage.GIS_LOCATION__TOOLS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -237,6 +239,11 @@ public class GisLocationItemProvider
 			(createChildParameter
 				(GisPackage.Literals.GIS_LOCATION__PINPOINTED_LOCATIONS,
 				 GisFactory.eINSTANCE.createGisLocationPinpointed()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GisPackage.Literals.GIS_LOCATION__TOOLS,
+				 GisFactory.eINSTANCE.createGisLocationTool()));
 	}
 
 	/**

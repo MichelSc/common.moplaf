@@ -148,6 +148,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocation" abstract="true">
     <eOperations name="getCoordinates" eType="#//GisCoordinatesAbstract"/>
+    <eOperations name="addTool">
+      <eParameters name="tool" eType="#//GisToolLocation"/>
+    </eOperations>
+    <eOperations name="addToolEnabled" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
+      <eParameters name="tool" eType="#//GisToolLocation"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Geocoded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -155,6 +161,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="PinpointedLocations" upperBound="-1"
         eType="#//GisLocationPinpointed" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Pinpointer" eType="#//GisLocationPinpointer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tools" upperBound="-1"
+        eType="#//GisLocationTool" containment="true" eOpposite="#//GisLocationTool/Location"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder" abstract="true">
     <eOperations name="geocode">
@@ -219,5 +227,19 @@
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisToolLocation">
+    <eOperations name="handle">
+      <eParameters name="location" eType="#//GisLocationTool"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisLocationTool">
+    <eOperations name="refresh"/>
+    <eOperations name="refreshEnabled" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tool" lowerBound="1" eType="#//GisToolLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Location" lowerBound="1"
+        eType="#//GisLocation" eOpposite="#//GisLocation/Tools"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Results" upperBound="-1"
+        eType="#//GisLocation" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -12,12 +12,15 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisLocationPinpointed;
 import com.misc.common.moplaf.gis.GisLocationPinpointer;
+import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
 
+import com.misc.common.moplaf.gis.GisToolLocation;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -29,6 +32,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -43,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#isGeocoded <em>Geocoded</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getPinpointedLocations <em>Pinpointed Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getPinpointer <em>Pinpointer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getTools <em>Tools</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +89,15 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected GisLocationPinpointer pinpointer;
+	/**
+	 * The cached value of the '{@link #getTools() <em>Tools</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTools()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GisLocationTool> tools;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,10 +196,59 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GisLocationTool> getTools() {
+		if (tools == null) {
+			tools = new EObjectContainmentWithInverseEList<GisLocationTool>(GisLocationTool.class, this, GisPackage.GIS_LOCATION__TOOLS, GisPackage.GIS_LOCATION_TOOL__LOCATION);
+		}
+		return tools;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GisCoordinatesAbstract getCoordinates() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addTool(GisToolLocation tool) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback addToolEnabled(GisToolLocation tool) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GisPackage.GIS_LOCATION__TOOLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTools()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -198,6 +261,8 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID) {
 			case GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS:
 				return ((InternalEList<?>)getPinpointedLocations()).basicRemove(otherEnd, msgs);
+			case GisPackage.GIS_LOCATION__TOOLS:
+				return ((InternalEList<?>)getTools()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -219,6 +284,8 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 			case GisPackage.GIS_LOCATION__PINPOINTER:
 				if (resolve) return getPinpointer();
 				return basicGetPinpointer();
+			case GisPackage.GIS_LOCATION__TOOLS:
+				return getTools();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -239,6 +306,10 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 			case GisPackage.GIS_LOCATION__PINPOINTER:
 				setPinpointer((GisLocationPinpointer)newValue);
 				return;
+			case GisPackage.GIS_LOCATION__TOOLS:
+				getTools().clear();
+				getTools().addAll((Collection<? extends GisLocationTool>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -256,6 +327,9 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 				return;
 			case GisPackage.GIS_LOCATION__PINPOINTER:
 				setPinpointer((GisLocationPinpointer)null);
+				return;
+			case GisPackage.GIS_LOCATION__TOOLS:
+				getTools().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -277,6 +351,8 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 				return pinpointedLocations != null && !pinpointedLocations.isEmpty();
 			case GisPackage.GIS_LOCATION__PINPOINTER:
 				return pinpointer != null;
+			case GisPackage.GIS_LOCATION__TOOLS:
+				return tools != null && !tools.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -291,6 +367,11 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 		switch (operationID) {
 			case GisPackage.GIS_LOCATION___GET_COORDINATES:
 				return getCoordinates();
+			case GisPackage.GIS_LOCATION___ADD_TOOL__GISTOOLLOCATION:
+				addTool((GisToolLocation)arguments.get(0));
+				return null;
+			case GisPackage.GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION:
+				return addToolEnabled((GisToolLocation)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

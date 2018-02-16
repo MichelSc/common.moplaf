@@ -174,6 +174,14 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisLocationPinpointerAdapter();
 			}
 			@Override
+			public Adapter caseGisToolLocation(GisToolLocation object) {
+				return createGisToolLocationAdapter();
+			}
+			@Override
+			public Adapter caseGisLocationTool(GisLocationTool object) {
+				return createGisLocationToolAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -260,6 +268,34 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisLocationPinpointerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisToolLocation <em>Tool Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisToolLocation
+	 * @generated
+	 */
+	public Adapter createGisToolLocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisLocationTool <em>Location Tool</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisLocationTool
+	 * @generated
+	 */
+	public Adapter createGisLocationToolAdapter() {
 		return null;
 	}
 
