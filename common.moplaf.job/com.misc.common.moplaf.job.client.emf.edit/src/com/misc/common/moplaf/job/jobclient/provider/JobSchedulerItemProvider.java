@@ -696,6 +696,12 @@ public class JobSchedulerItemProvider
 		return new RunDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
 	
+	
+	@Override
+	public Object getGrids(Object element) {
+		return element;
+	}
+
 	@Override
 	public String getGridText(Object element, Object grid) {
 		JobScheduler scheduler = (JobScheduler)element;
