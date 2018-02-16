@@ -8,18 +8,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddress" abstract="true" eSuperTypes="#//GisLocation">
-    <eOperations name="refreshGeocoded"/>
-    <eOperations name="flushGeocoded"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountryCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GeocodedAddresses" upperBound="-1"
-        eType="#//GisAddressGeocoded" containment="true" eOpposite="#//GisAddressGeocoded/Address"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedGeocodedLocation"
-        eType="#//GisAddressGeocoded"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Geocoder" eType="#//GisAddressGeocoder"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeocodingFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GeocodedSelected" eType="#//GisAddressGeocoded"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisRoutesHolder" eSuperTypes="#//GisRouter">
     <eOperations name="update">
@@ -143,8 +134,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoded" eSuperTypes="#//GisCoordinatesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Score" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressGeocoded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Address" lowerBound="1"
-        eType="#//GisAddress" eOpposite="#//GisAddress/GeocodedAddresses"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocation" abstract="true">
     <eOperations name="getCoordinates" eType="#//GisCoordinatesAbstract"/>
@@ -158,17 +147,14 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Geocoded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PinpointedLocations" upperBound="-1"
-        eType="#//GisLocationPinpointed" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Pinpointer" eType="#//GisLocationPinpointer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tools" upperBound="-1"
         eType="#//GisLocationTool" containment="true" eOpposite="#//GisLocationTool/Location"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder" abstract="true"
+      eSuperTypes="#//GisToolLocation">
     <eOperations name="geocode">
       <eParameters name="address" eType="#//GisAddress"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisRouteCalculator" abstract="true"
       eSuperTypes="#//GisRouter"/>
@@ -222,24 +208,28 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LocationPinpointed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisLocationPinpointer" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="GisLocationPinpointer" abstract="true"
+      eSuperTypes="#//GisToolLocation">
     <eOperations name="pinpoint">
       <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisToolLocation">
+  <eClassifiers xsi:type="ecore:EClass" name="GisToolLocation" abstract="true">
     <eOperations name="handle">
       <eParameters name="location" eType="#//GisLocationTool"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocationTool">
-    <eOperations name="refresh"/>
-    <eOperations name="refreshEnabled" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"/>
+    <eOperations name="doTool"/>
+    <eOperations name="flushResults"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tool" lowerBound="1" eType="#//GisToolLocation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Location" lowerBound="1"
         eType="#//GisLocation" eOpposite="#//GisLocation/Tools"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Results" upperBound="-1"
         eType="#//GisLocation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastHandlingFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DoToolFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

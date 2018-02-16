@@ -15,23 +15,18 @@ package com.misc.common.moplaf.gis.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisLocation;
-import com.misc.common.moplaf.gis.GisLocationPinpointed;
-import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
 
 import com.misc.common.moplaf.gis.GisToolLocation;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -45,8 +40,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#isGeocoded <em>Geocoded</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getPinpointedLocations <em>Pinpointed Locations</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getPinpointer <em>Pinpointer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationImpl#getTools <em>Tools</em>}</li>
  * </ul>
  *
@@ -71,24 +64,6 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected static final boolean GEOCODED_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #getPinpointedLocations() <em>Pinpointed Locations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPinpointedLocations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GisLocationPinpointed> pinpointedLocations;
-	/**
-	 * The cached value of the '{@link #getPinpointer() <em>Pinpointer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPinpointer()
-	 * @generated
-	 * @ordered
-	 */
-	protected GisLocationPinpointer pinpointer;
 	/**
 	 * The cached value of the '{@link #getTools() <em>Tools</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -139,56 +114,6 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 		}
 		// some more validation could take place here
 		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<GisLocationPinpointed> getPinpointedLocations() {
-		if (pinpointedLocations == null) {
-			pinpointedLocations = new EObjectContainmentEList<GisLocationPinpointed>(GisLocationPinpointed.class, this, GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS);
-		}
-		return pinpointedLocations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisLocationPinpointer getPinpointer() {
-		if (pinpointer != null && pinpointer.eIsProxy()) {
-			InternalEObject oldPinpointer = (InternalEObject)pinpointer;
-			pinpointer = (GisLocationPinpointer)eResolveProxy(oldPinpointer);
-			if (pinpointer != oldPinpointer) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GisPackage.GIS_LOCATION__PINPOINTER, oldPinpointer, pinpointer));
-			}
-		}
-		return pinpointer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisLocationPinpointer basicGetPinpointer() {
-		return pinpointer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPinpointer(GisLocationPinpointer newPinpointer) {
-		GisLocationPinpointer oldPinpointer = pinpointer;
-		pinpointer = newPinpointer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_LOCATION__PINPOINTER, oldPinpointer, pinpointer));
 	}
 
 	/**
@@ -259,8 +184,6 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS:
-				return ((InternalEList<?>)getPinpointedLocations()).basicRemove(otherEnd, msgs);
 			case GisPackage.GIS_LOCATION__TOOLS:
 				return ((InternalEList<?>)getTools()).basicRemove(otherEnd, msgs);
 		}
@@ -279,11 +202,6 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 				return getDescription();
 			case GisPackage.GIS_LOCATION__GEOCODED:
 				return isGeocoded();
-			case GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS:
-				return getPinpointedLocations();
-			case GisPackage.GIS_LOCATION__PINPOINTER:
-				if (resolve) return getPinpointer();
-				return basicGetPinpointer();
 			case GisPackage.GIS_LOCATION__TOOLS:
 				return getTools();
 		}
@@ -299,13 +217,6 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS:
-				getPinpointedLocations().clear();
-				getPinpointedLocations().addAll((Collection<? extends GisLocationPinpointed>)newValue);
-				return;
-			case GisPackage.GIS_LOCATION__PINPOINTER:
-				setPinpointer((GisLocationPinpointer)newValue);
-				return;
 			case GisPackage.GIS_LOCATION__TOOLS:
 				getTools().clear();
 				getTools().addAll((Collection<? extends GisLocationTool>)newValue);
@@ -322,12 +233,6 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS:
-				getPinpointedLocations().clear();
-				return;
-			case GisPackage.GIS_LOCATION__PINPOINTER:
-				setPinpointer((GisLocationPinpointer)null);
-				return;
 			case GisPackage.GIS_LOCATION__TOOLS:
 				getTools().clear();
 				return;
@@ -347,10 +252,6 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case GisPackage.GIS_LOCATION__GEOCODED:
 				return isGeocoded() != GEOCODED_EDEFAULT;
-			case GisPackage.GIS_LOCATION__PINPOINTED_LOCATIONS:
-				return pinpointedLocations != null && !pinpointedLocations.isEmpty();
-			case GisPackage.GIS_LOCATION__PINPOINTER:
-				return pinpointer != null;
 			case GisPackage.GIS_LOCATION__TOOLS:
 				return tools != null && !tools.isEmpty();
 		}

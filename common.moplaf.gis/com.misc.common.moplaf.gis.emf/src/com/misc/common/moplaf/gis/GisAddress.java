@@ -12,9 +12,6 @@
  */
 package com.misc.common.moplaf.gis;
 
-import com.misc.common.moplaf.common.EnabledFeedback;
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Address</b></em>'.
@@ -26,11 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getCountryCode <em>Country Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses <em>Geocoded Addresses</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocoder <em>Geocoder</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback <em>Geocoding Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedSelected <em>Geocoded Selected</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress()
@@ -65,115 +58,30 @@ public interface GisAddress extends GisLocation {
 	void setCountryCode(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Geocoded Addresses</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisAddressGeocoded}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}'.
+	 * Returns the value of the '<em><b>Geocoded Selected</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Geocoded Addresses</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Geocoded Selected</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geocoded Addresses</em>' containment reference list.
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_GeocodedAddresses()
-	 * @see com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress
-	 * @model opposite="Address" containment="true"
-	 * @generated
-	 */
-	EList<GisAddressGeocoded> getGeocodedAddresses();
-
-	/**
-	 * Returns the value of the '<em><b>Selected Geocoded Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Selected Geocoded Location</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Geocoded Location</em>' reference.
-	 * @see #setSelectedGeocodedLocation(GisAddressGeocoded)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_SelectedGeocodedLocation()
+	 * @return the value of the '<em>Geocoded Selected</em>' reference.
+	 * @see #setGeocodedSelected(GisAddressGeocoded)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_GeocodedSelected()
 	 * @model
 	 * @generated
 	 */
-	GisAddressGeocoded getSelectedGeocodedLocation();
+	GisAddressGeocoded getGeocodedSelected();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedSelected <em>Geocoded Selected</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selected Geocoded Location</em>' reference.
-	 * @see #getSelectedGeocodedLocation()
+	 * @param value the new value of the '<em>Geocoded Selected</em>' reference.
+	 * @see #getGeocodedSelected()
 	 * @generated
 	 */
-	void setSelectedGeocodedLocation(GisAddressGeocoded value);
-
-	/**
-	 * Returns the value of the '<em><b>Geocoder</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Geocoder</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geocoder</em>' reference.
-	 * @see #setGeocoder(GisAddressGeocoder)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_Geocoder()
-	 * @model
-	 * @generated
-	 */
-	GisAddressGeocoder getGeocoder();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getGeocoder <em>Geocoder</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Geocoder</em>' reference.
-	 * @see #getGeocoder()
-	 * @generated
-	 */
-	void setGeocoder(GisAddressGeocoder value);
-
-	/**
-	 * Returns the value of the '<em><b>Geocoding Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Geocoding Feedback</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geocoding Feedback</em>' attribute.
-	 * @see #setGeocodingFeedback(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_GeocodingFeedback()
-	 * @model
-	 * @generated
-	 */
-	String getGeocodingFeedback();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback <em>Geocoding Feedback</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Geocoding Feedback</em>' attribute.
-	 * @see #getGeocodingFeedback()
-	 * @generated
-	 */
-	void setGeocodingFeedback(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Refresh Feedback</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Refresh Feedback</em>' attribute.
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_RefreshFeedback()
-	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	EnabledFeedback getRefreshFeedback();
+	void setGeocodedSelected(GisAddressGeocoded value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -200,21 +108,5 @@ public interface GisAddress extends GisLocation {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refreshGeocoded();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void flushGeocoded();
 
 } // GisAddress

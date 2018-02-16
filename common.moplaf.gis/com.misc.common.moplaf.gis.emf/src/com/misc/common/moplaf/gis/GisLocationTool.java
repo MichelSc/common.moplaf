@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getTool <em>Tool</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getResults <em>Results</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getLastHandlingFeedback <em>Last Handling Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getDoToolFeedback <em>Do Tool Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisLocationTool()
@@ -98,19 +100,60 @@ public interface GisLocationTool extends EObject {
 	EList<GisLocation> getResults();
 
 	/**
+	 * Returns the value of the '<em><b>Last Handling Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Handling Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Handling Feedback</em>' attribute.
+	 * @see #setLastHandlingFeedback(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocationTool_LastHandlingFeedback()
+	 * @model
+	 * @generated
+	 */
+	String getLastHandlingFeedback();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisLocationTool#getLastHandlingFeedback <em>Last Handling Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Handling Feedback</em>' attribute.
+	 * @see #getLastHandlingFeedback()
+	 * @generated
+	 */
+	void setLastHandlingFeedback(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Do Tool Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Do Tool Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Do Tool Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocationTool_DoToolFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getDoToolFeedback();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void refresh();
+	void doTool();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @model
 	 * @generated
 	 */
-	EnabledFeedback refreshEnabled();
+	void flushResults();
 
 } // GisLocationTool

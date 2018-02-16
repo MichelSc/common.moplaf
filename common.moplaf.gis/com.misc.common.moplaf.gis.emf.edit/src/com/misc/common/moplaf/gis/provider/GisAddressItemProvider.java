@@ -17,7 +17,6 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
-import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisPackage;
 
 import java.util.Collection;
@@ -27,7 +26,6 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -65,10 +63,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 
 			addNamePropertyDescriptor(object);
 			addCountryCodePropertyDescriptor(object);
-			addSelectedGeocodedLocationPropertyDescriptor(object);
-			addGeocoderPropertyDescriptor(object);
-			addGeocodingFeedbackPropertyDescriptor(object);
-			addRefreshFeedbackPropertyDescriptor(object);
+			addGeocodedSelectedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,6 +86,28 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Geocoded Selected feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGeocodedSelectedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisAddress_GeocodedSelected_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_GeocodedSelected_feature", "_UI_GisAddress_type"),
+				 GisPackage.Literals.GIS_ADDRESS__GEOCODED_SELECTED,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -124,72 +141,6 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Geocoder feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeocoderPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_Geocoder_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_Geocoder_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__GEOCODER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Geocoding Feedback feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeocodingFeedbackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_GeocodingFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_GeocodingFeedback_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__GEOCODING_FEEDBACK,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Refresh Feedback feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRefreshFeedbackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_RefreshFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_RefreshFeedback_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__REFRESH_FEEDBACK,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,36 +160,6 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(GisPackage.Literals.GIS_ADDRESS__GEOCODED_ADDRESSES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -270,12 +191,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 		switch (notification.getFeatureID(GisAddress.class)) {
 			case GisPackage.GIS_ADDRESS__NAME:
 			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
-			case GisPackage.GIS_ADDRESS__GEOCODING_FEEDBACK:
-			case GisPackage.GIS_ADDRESS__REFRESH_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -291,11 +207,6 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GisPackage.Literals.GIS_ADDRESS__GEOCODED_ADDRESSES,
-				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
 	}
 
 	public class GisAddressRefreshCommand extends RefreshCommand{

@@ -77,7 +77,6 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 			case GisPackage.GIS_COORDINATES: return createGisCoordinates();
 			case GisPackage.GIS_GEOMETRY: return createGisGeometry();
 			case GisPackage.GIS_LOCATION_PINPOINTED: return createGisLocationPinpointed();
-			case GisPackage.GIS_TOOL_LOCATION: return createGisToolLocation();
 			case GisPackage.GIS_LOCATION_TOOL: return createGisLocationTool();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -112,16 +111,6 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisLocationPinpointed createGisLocationPinpointed() {
 		GisLocationPinpointedImpl gisLocationPinpointed = new GisLocationPinpointedImpl();
 		return gisLocationPinpointed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisToolLocation createGisToolLocation() {
-		GisToolLocationImpl gisToolLocation = new GisToolLocationImpl();
-		return gisToolLocation;
 	}
 
 	/**

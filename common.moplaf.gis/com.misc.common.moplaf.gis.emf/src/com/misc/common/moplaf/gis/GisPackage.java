@@ -96,31 +96,13 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION__GEOCODED = 1;
 
 	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION__PINPOINTED_LOCATIONS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION__PINPOINTER = 3;
-
-	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION__TOOLS = 4;
+	int GIS_LOCATION__TOOLS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Location</em>' class.
@@ -129,7 +111,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_FEATURE_COUNT = 5;
+	int GIS_LOCATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -194,24 +176,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_COORDINATES_ABSTRACT__GEOCODED = GIS_LOCATION__GEOCODED;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS = GIS_LOCATION__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES_ABSTRACT__PINPOINTER = GIS_LOCATION__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
@@ -356,24 +320,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS__GEOCODED = GIS_LOCATION__GEOCODED;
 
 	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__PINPOINTED_LOCATIONS = GIS_LOCATION__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__PINPOINTER = GIS_LOCATION__PINPOINTER;
-
-	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -401,49 +347,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS__COUNTRY_CODE = GIS_LOCATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Geocoded Addresses</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Geocoded Selected</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__GEOCODED_ADDRESSES = GIS_LOCATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Selected Geocoded Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__SELECTED_GEOCODED_LOCATION = GIS_LOCATION_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Geocoder</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__GEOCODER = GIS_LOCATION_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Geocoding Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__GEOCODING_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__REFRESH_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 6;
+	int GIS_ADDRESS__GEOCODED_SELECTED = GIS_LOCATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Address</em>' class.
@@ -452,7 +362,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 7;
+	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -482,31 +392,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Refresh Geocoded</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS___REFRESH_GEOCODED = GIS_LOCATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Flush Geocoded</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS___FLUSH_GEOCODED = GIS_LOCATION_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Address</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 2;
+	int GIS_ADDRESS_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterImpl <em>Router</em>}' class.
@@ -1246,24 +1138,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODED__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
 
 	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
-
-	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1309,22 +1183,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Address</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__ADDRESS = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Address Geocoded</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 3;
+	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -1373,42 +1238,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER = 10;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Address Geocoder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>Geocode</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS = 0;
-
-	/**
-	 * The number of operations of the '<em>Address Geocoder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER_OPERATION_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl <em>Route Calculator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1417,6 +1246,197 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	int GIS_ROUTE_CALCULATOR = 11;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
+	 * @generated
+	 */
+	int GIS_ADDRESS_STRUCTURED = 12;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl <em>Address Unstructured</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
+	 * @generated
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED = 13;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl <em>Route Calculator One To One</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToOne()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE = 15;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl <em>Route Calculator Many To Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorManyToMany()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY = 16;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl <em>Route Calculator One To Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToMany()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY = 17;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl <em>Router Geodesic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterGeodesic()
+	 * @generated
+	 */
+	int GIS_ROUTER_GEODESIC = 18;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl <em>Router Defaulted</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterDefaulted()
+	 * @generated
+	 */
+	int GIS_ROUTER_DEFAULTED = 19;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisGeometryImpl <em>Geometry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisGeometryImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisGeometry()
+	 * @generated
+	 */
+	int GIS_GEOMETRY = 21;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl <em>Location Pinpointed</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointed()
+	 * @generated
+	 */
+	int GIS_LOCATION_PINPOINTED = 22;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl <em>Location Pinpointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointer()
+	 * @generated
+	 */
+	int GIS_LOCATION_PINPOINTER = 23;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisToolLocationImpl <em>Tool Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisToolLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisToolLocation()
+	 * @generated
+	 */
+	int GIS_TOOL_LOCATION = 24;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Tool Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Handle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL = 0;
+
+	/**
+	 * The number of operations of the '<em>Tool Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION_OPERATION_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER__NAME = GIS_TOOL_LOCATION__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Address Geocoder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_FEATURE_COUNT = GIS_TOOL_LOCATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Handle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
+
+	/**
+	 * The operation id for the '<em>Geocode</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Address Geocoder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1473,16 +1493,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTE_CALCULATOR_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
-	 * @generated
-	 */
-	int GIS_ADDRESS_STRUCTURED = 12;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1499,24 +1509,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_STRUCTURED__GEOCODED = GIS_ADDRESS__GEOCODED;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED__PINPOINTED_LOCATIONS = GIS_ADDRESS__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED__PINPOINTER = GIS_ADDRESS__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
@@ -1546,49 +1538,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED__COUNTRY_CODE = GIS_ADDRESS__COUNTRY_CODE;
 
 	/**
-	 * The feature id for the '<em><b>Geocoded Addresses</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Geocoded Selected</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED__GEOCODED_ADDRESSES = GIS_ADDRESS__GEOCODED_ADDRESSES;
-
-	/**
-	 * The feature id for the '<em><b>Selected Geocoded Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED__SELECTED_GEOCODED_LOCATION = GIS_ADDRESS__SELECTED_GEOCODED_LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Geocoder</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
-
-	/**
-	 * The feature id for the '<em><b>Geocoding Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED__GEOCODING_FEEDBACK = GIS_ADDRESS__GEOCODING_FEEDBACK;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED__REFRESH_FEEDBACK = GIS_ADDRESS__REFRESH_FEEDBACK;
+	int GIS_ADDRESS_STRUCTURED__GEOCODED_SELECTED = GIS_ADDRESS__GEOCODED_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Country</b></em>' attribute.
@@ -1681,24 +1637,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_ADDRESS___ADD_TOOL_ENABLED__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Refresh Geocoded</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED___REFRESH_GEOCODED = GIS_ADDRESS___REFRESH_GEOCODED;
-
-	/**
-	 * The operation id for the '<em>Flush Geocoded</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED___FLUSH_GEOCODED = GIS_ADDRESS___FLUSH_GEOCODED;
-
-	/**
 	 * The number of operations of the '<em>Address Structured</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1706,16 +1644,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_STRUCTURED_OPERATION_COUNT = GIS_ADDRESS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl <em>Address Unstructured</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
-	 * @generated
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED = 13;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1734,24 +1662,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED__GEOCODED = GIS_ADDRESS__GEOCODED;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED__PINPOINTED_LOCATIONS = GIS_ADDRESS__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED__PINPOINTER = GIS_ADDRESS__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
@@ -1781,49 +1691,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_UNSTRUCTURED__COUNTRY_CODE = GIS_ADDRESS__COUNTRY_CODE;
 
 	/**
-	 * The feature id for the '<em><b>Geocoded Addresses</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Geocoded Selected</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_UNSTRUCTURED__GEOCODED_ADDRESSES = GIS_ADDRESS__GEOCODED_ADDRESSES;
-
-	/**
-	 * The feature id for the '<em><b>Selected Geocoded Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED__SELECTED_GEOCODED_LOCATION = GIS_ADDRESS__SELECTED_GEOCODED_LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Geocoder</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
-
-	/**
-	 * The feature id for the '<em><b>Geocoding Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED__GEOCODING_FEEDBACK = GIS_ADDRESS__GEOCODING_FEEDBACK;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED__REFRESH_FEEDBACK = GIS_ADDRESS__REFRESH_FEEDBACK;
+	int GIS_ADDRESS_UNSTRUCTURED__GEOCODED_SELECTED = GIS_ADDRESS__GEOCODED_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
@@ -1871,24 +1745,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_UNSTRUCTURED___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_ADDRESS___ADD_TOOL_ENABLED__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Refresh Geocoded</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED___REFRESH_GEOCODED = GIS_ADDRESS___REFRESH_GEOCODED;
-
-	/**
-	 * The operation id for the '<em>Flush Geocoded</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED___FLUSH_GEOCODED = GIS_ADDRESS___FLUSH_GEOCODED;
-
-	/**
 	 * The number of operations of the '<em>Address Unstructured</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1896,17 +1752,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED_OPERATION_COUNT = GIS_ADDRESS_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl <em>Route Calculator One To One</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToOne()
-	 * @generated
-	 */
-	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1963,16 +1808,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl <em>Route Calculator Many To Many</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorManyToMany()
-	 * @generated
-	 */
-	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY = 16;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2027,16 +1862,6 @@ public interface GisPackage extends EPackage {
 	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl <em>Route Calculator One To Many</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToMany()
-	 * @generated
-	 */
-	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY = 17;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2089,16 +1914,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl <em>Router Geodesic</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterGeodesic()
-	 * @generated
-	 */
-	int GIS_ROUTER_GEODESIC = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2171,16 +1986,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ROUTER_GEODESIC_OPERATION_COUNT = GIS_ROUTE_CALCULATOR_ONE_TO_ONE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl <em>Router Defaulted</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterDefaulted()
-	 * @generated
-	 */
-	int GIS_ROUTER_DEFAULTED = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2273,24 +2078,6 @@ public interface GisPackage extends EPackage {
 	int GIS_COORDINATES__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
 
 	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
-
-	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2371,17 +2158,6 @@ public interface GisPackage extends EPackage {
 	 */
 	int GIS_COORDINATES_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
 
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisGeometryImpl <em>Geometry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisGeometryImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisGeometry()
-	 * @generated
-	 */
-	int GIS_GEOMETRY = 21;
-
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -2399,24 +2175,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_GEOMETRY__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_GEOMETRY__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_GEOMETRY__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
@@ -2491,16 +2249,6 @@ public interface GisPackage extends EPackage {
 	int GIS_GEOMETRY_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl <em>Location Pinpointed</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointed()
-	 * @generated
-	 */
-	int GIS_LOCATION_PINPOINTED = 22;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2517,24 +2265,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_LOCATION_PINPOINTED__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointed Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTED__PINPOINTED_LOCATIONS = GIS_COORDINATES_ABSTRACT__PINPOINTED_LOCATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Pinpointer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTED__PINPOINTER = GIS_COORDINATES_ABSTRACT__PINPOINTER;
 
 	/**
 	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
@@ -2627,23 +2357,13 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION_PINPOINTED_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl <em>Location Pinpointer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointer()
-	 * @generated
-	 */
-	int GIS_LOCATION_PINPOINTER = 23;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_PINPOINTER__NAME = 0;
+	int GIS_LOCATION_PINPOINTER__NAME = GIS_TOOL_LOCATION__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Location Pinpointer</em>' class.
@@ -2652,44 +2372,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_PINPOINTER_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>Pinpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION = 0;
-
-	/**
-	 * The number of operations of the '<em>Location Pinpointer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER_OPERATION_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisToolLocationImpl <em>Tool Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisToolLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisToolLocation()
-	 * @generated
-	 */
-	int GIS_TOOL_LOCATION = 24;
-
-	/**
-	 * The number of structural features of the '<em>Tool Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_TOOL_LOCATION_FEATURE_COUNT = 0;
+	int GIS_LOCATION_PINPOINTER_FEATURE_COUNT = GIS_TOOL_LOCATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Handle</em>' operation.
@@ -2698,16 +2381,25 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL = 0;
+	int GIS_LOCATION_PINPOINTER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
 
 	/**
-	 * The number of operations of the '<em>Tool Location</em>' class.
+	 * The operation id for the '<em>Pinpoint</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_TOOL_LOCATION_OPERATION_COUNT = 1;
+	int GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Location Pinpointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl <em>Location Tool</em>}' class.
@@ -2747,31 +2439,49 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION_TOOL__RESULTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Last Handling Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK = 3;
+
+	/**
+	 * The feature id for the '<em><b>Do Tool Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK = 4;
+
+	/**
 	 * The number of structural features of the '<em>Location Tool</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_TOOL_FEATURE_COUNT = 3;
+	int GIS_LOCATION_TOOL_FEATURE_COUNT = 5;
 
 	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
+	 * The operation id for the '<em>Do Tool</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_TOOL___REFRESH = 0;
+	int GIS_LOCATION_TOOL___DO_TOOL = 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Enabled</em>' operation.
+	 * The operation id for the '<em>Flush Results</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_TOOL___REFRESH_ENABLED = 1;
+	int GIS_LOCATION_TOOL___FLUSH_RESULTS = 1;
 
 	/**
 	 * The number of operations of the '<em>Location Tool</em>' class.
@@ -2856,17 +2566,6 @@ public interface GisPackage extends EPackage {
 	EClass getGisLocationPinpointer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#getName()
-	 * @see #getGisLocationPinpointer()
-	 * @generated
-	 */
-	EAttribute getGisLocationPinpointer_Name();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#pinpoint(com.misc.common.moplaf.gis.GisLocation) <em>Pinpoint</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2885,6 +2584,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisToolLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisToolLocation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisToolLocation#getName()
+	 * @see #getGisToolLocation()
+	 * @generated
+	 */
+	EAttribute getGisToolLocation_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisToolLocation#handle(com.misc.common.moplaf.gis.GisLocationTool) <em>Handle</em>}' operation.
@@ -2940,24 +2650,46 @@ public interface GisPackage extends EPackage {
 	EReference getGisLocationTool_Results();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationTool#refresh() <em>Refresh</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationTool#getLastHandlingFeedback <em>Last Handling Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisLocationTool#refresh()
+	 * @return the meta object for the attribute '<em>Last Handling Feedback</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationTool#getLastHandlingFeedback()
+	 * @see #getGisLocationTool()
 	 * @generated
 	 */
-	EOperation getGisLocationTool__Refresh();
+	EAttribute getGisLocationTool_LastHandlingFeedback();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationTool#refreshEnabled() <em>Refresh Enabled</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationTool#getDoToolFeedback <em>Do Tool Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Enabled</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisLocationTool#refreshEnabled()
+	 * @return the meta object for the attribute '<em>Do Tool Feedback</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationTool#getDoToolFeedback()
+	 * @see #getGisLocationTool()
 	 * @generated
 	 */
-	EOperation getGisLocationTool__RefreshEnabled();
+	EAttribute getGisLocationTool_DoToolFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationTool#doTool() <em>Do Tool</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Tool</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisLocationTool#doTool()
+	 * @generated
+	 */
+	EOperation getGisLocationTool__DoTool();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationTool#flushResults() <em>Flush Results</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush Results</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisLocationTool#flushResults()
+	 * @generated
+	 */
+	EOperation getGisLocationTool__FlushResults();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddress <em>Address</em>}'.
@@ -2981,59 +2713,15 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisAddress_CountryCode();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses <em>Geocoded Addresses</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedSelected <em>Geocoded Selected</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Geocoded Addresses</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses()
+	 * @return the meta object for the reference '<em>Geocoded Selected</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocodedSelected()
 	 * @see #getGisAddress()
 	 * @generated
 	 */
-	EReference getGisAddress_GeocodedAddresses();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Selected Geocoded Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EReference getGisAddress_SelectedGeocodedLocation();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisAddress#getGeocoder <em>Geocoder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Geocoder</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocoder()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EReference getGisAddress_Geocoder();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback <em>Geocoding Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Geocoding Feedback</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocodingFeedback()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EAttribute getGisAddress_GeocodingFeedback();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getRefreshFeedback <em>Refresh Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Refresh Feedback</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getRefreshFeedback()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EAttribute getGisAddress_RefreshFeedback();
+	EReference getGisAddress_GeocodedSelected();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getName <em>Name</em>}'.
@@ -3045,26 +2733,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisAddress_Name();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#refreshGeocoded() <em>Refresh Geocoded</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Geocoded</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisAddress#refreshGeocoded()
-	 * @generated
-	 */
-	EOperation getGisAddress__RefreshGeocoded();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#flushGeocoded() <em>Flush Geocoded</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Flush Geocoded</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisAddress#flushGeocoded()
-	 * @generated
-	 */
-	EOperation getGisAddress__FlushGeocoded();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRoutesHolder <em>Routes Holder</em>}'.
@@ -3632,17 +3300,6 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisAddressGeocoded_AddressGeocoded();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress <em>Address</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Address</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddressGeocoded#getAddress()
-	 * @see #getGisAddressGeocoded()
-	 * @generated
-	 */
-	EReference getGisAddressGeocoded_Address();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3673,28 +3330,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisLocation_Geocoded();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisLocation#getPinpointedLocations <em>Pinpointed Locations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Pinpointed Locations</em>'.
-	 * @see com.misc.common.moplaf.gis.GisLocation#getPinpointedLocations()
-	 * @see #getGisLocation()
-	 * @generated
-	 */
-	EReference getGisLocation_PinpointedLocations();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisLocation#getPinpointer <em>Pinpointer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pinpointer</em>'.
-	 * @see com.misc.common.moplaf.gis.GisLocation#getPinpointer()
-	 * @see #getGisLocation()
-	 * @generated
-	 */
-	EReference getGisLocation_Pinpointer();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisLocation#getTools <em>Tools</em>}'.
@@ -3746,17 +3381,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisAddressGeocoder();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressGeocoder#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddressGeocoder#getName()
-	 * @see #getGisAddressGeocoder()
-	 * @generated
-	 */
-	EAttribute getGisAddressGeocoder_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddressGeocoder#geocode(com.misc.common.moplaf.gis.GisAddress) <em>Geocode</em>}' operation.
@@ -4135,14 +3759,6 @@ public interface GisPackage extends EPackage {
 		EClass GIS_LOCATION_PINPOINTER = eINSTANCE.getGisLocationPinpointer();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_LOCATION_PINPOINTER__NAME = eINSTANCE.getGisLocationPinpointer_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Pinpoint</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4159,6 +3775,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_TOOL_LOCATION = eINSTANCE.getGisToolLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_TOOL_LOCATION__NAME = eINSTANCE.getGisToolLocation_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Handle</b></em>' operation.
@@ -4203,20 +3827,36 @@ public interface GisPackage extends EPackage {
 		EReference GIS_LOCATION_TOOL__RESULTS = eINSTANCE.getGisLocationTool_Results();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * The meta object literal for the '<em><b>Last Handling Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_LOCATION_TOOL___REFRESH = eINSTANCE.getGisLocationTool__Refresh();
+		EAttribute GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK = eINSTANCE.getGisLocationTool_LastHandlingFeedback();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh Enabled</b></em>' operation.
+		 * The meta object literal for the '<em><b>Do Tool Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_LOCATION_TOOL___REFRESH_ENABLED = eINSTANCE.getGisLocationTool__RefreshEnabled();
+		EAttribute GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK = eINSTANCE.getGisLocationTool_DoToolFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Do Tool</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_LOCATION_TOOL___DO_TOOL = eINSTANCE.getGisLocationTool__DoTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush Results</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_LOCATION_TOOL___FLUSH_RESULTS = eINSTANCE.getGisLocationTool__FlushResults();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.
@@ -4237,44 +3877,12 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_ADDRESS__COUNTRY_CODE = eINSTANCE.getGisAddress_CountryCode();
 
 		/**
-		 * The meta object literal for the '<em><b>Geocoded Addresses</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Geocoded Selected</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_ADDRESS__GEOCODED_ADDRESSES = eINSTANCE.getGisAddress_GeocodedAddresses();
-
-		/**
-		 * The meta object literal for the '<em><b>Selected Geocoded Location</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_ADDRESS__SELECTED_GEOCODED_LOCATION = eINSTANCE.getGisAddress_SelectedGeocodedLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Geocoder</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_ADDRESS__GEOCODER = eINSTANCE.getGisAddress_Geocoder();
-
-		/**
-		 * The meta object literal for the '<em><b>Geocoding Feedback</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS__GEOCODING_FEEDBACK = eINSTANCE.getGisAddress_GeocodingFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Refresh Feedback</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS__REFRESH_FEEDBACK = eINSTANCE.getGisAddress_RefreshFeedback();
+		EReference GIS_ADDRESS__GEOCODED_SELECTED = eINSTANCE.getGisAddress_GeocodedSelected();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -4283,22 +3891,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_ADDRESS__NAME = eINSTANCE.getGisAddress_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Refresh Geocoded</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GIS_ADDRESS___REFRESH_GEOCODED = eINSTANCE.getGisAddress__RefreshGeocoded();
-
-		/**
-		 * The meta object literal for the '<em><b>Flush Geocoded</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GIS_ADDRESS___FLUSH_GEOCODED = eINSTANCE.getGisAddress__FlushGeocoded();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl <em>Routes Holder</em>}' class.
@@ -4747,14 +4339,6 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED = eINSTANCE.getGisAddressGeocoded_AddressGeocoded();
 
 		/**
-		 * The meta object literal for the '<em><b>Address</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_ADDRESS_GEOCODED__ADDRESS = eINSTANCE.getGisAddressGeocoded_Address();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisLocationImpl <em>Location</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4779,22 +4363,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_LOCATION__GEOCODED = eINSTANCE.getGisLocation_Geocoded();
-
-		/**
-		 * The meta object literal for the '<em><b>Pinpointed Locations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_LOCATION__PINPOINTED_LOCATIONS = eINSTANCE.getGisLocation_PinpointedLocations();
-
-		/**
-		 * The meta object literal for the '<em><b>Pinpointer</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIS_LOCATION__PINPOINTER = eINSTANCE.getGisLocation_Pinpointer();
 
 		/**
 		 * The meta object literal for the '<em><b>Tools</b></em>' containment reference list feature.
@@ -4837,14 +4405,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_ADDRESS_GEOCODER = eINSTANCE.getGisAddressGeocoder();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS_GEOCODER__NAME = eINSTANCE.getGisAddressGeocoder_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Geocode</b></em>' operation.

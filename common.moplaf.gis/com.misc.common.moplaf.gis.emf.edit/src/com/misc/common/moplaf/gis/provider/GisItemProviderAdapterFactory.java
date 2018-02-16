@@ -153,29 +153,6 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisToolLocation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GisToolLocationItemProvider gisToolLocationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisToolLocation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGisToolLocationAdapter() {
-		if (gisToolLocationItemProvider == null) {
-			gisToolLocationItemProvider = new GisToolLocationItemProvider(this);
-		}
-
-		return gisToolLocationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisLocationTool} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -569,7 +546,6 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
 		if (gisGeometryItemProvider != null) gisGeometryItemProvider.dispose();
 		if (gisLocationPinpointedItemProvider != null) gisLocationPinpointedItemProvider.dispose();
-		if (gisToolLocationItemProvider != null) gisToolLocationItemProvider.dispose();
 		if (gisLocationToolItemProvider != null) gisLocationToolItemProvider.dispose();
 	}
 

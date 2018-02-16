@@ -39,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getTool <em>Tool</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getResults <em>Results</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getLastHandlingFeedback <em>Last Handling Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getDoToolFeedback <em>Do Tool Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +65,36 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EList<GisLocation> results;
+
+	/**
+	 * The default value of the '{@link #getLastHandlingFeedback() <em>Last Handling Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastHandlingFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LAST_HANDLING_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastHandlingFeedback() <em>Last Handling Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastHandlingFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected String lastHandlingFeedback = LAST_HANDLING_FEEDBACK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDoToolFeedback() <em>Do Tool Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDoToolFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback DO_TOOL_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,7 +211,39 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void refresh() {
+	public String getLastHandlingFeedback() {
+		return lastHandlingFeedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastHandlingFeedback(String newLastHandlingFeedback) {
+		String oldLastHandlingFeedback = lastHandlingFeedback;
+		lastHandlingFeedback = newLastHandlingFeedback;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK, oldLastHandlingFeedback, lastHandlingFeedback));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback getDoToolFeedback() {
+		// TODO: implement this method to return the 'Do Tool Feedback' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void doTool() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -190,7 +254,7 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnabledFeedback refreshEnabled() {
+	public void flushResults() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -257,6 +321,10 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 				return getLocation();
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
 				return getResults();
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				return getLastHandlingFeedback();
+			case GisPackage.GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK:
+				return getDoToolFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -280,6 +348,9 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 				getResults().clear();
 				getResults().addAll((Collection<? extends GisLocation>)newValue);
 				return;
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				setLastHandlingFeedback((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -301,6 +372,9 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
 				getResults().clear();
 				return;
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				setLastHandlingFeedback(LAST_HANDLING_FEEDBACK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -319,6 +393,10 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 				return getLocation() != null;
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
 				return results != null && !results.isEmpty();
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				return LAST_HANDLING_FEEDBACK_EDEFAULT == null ? lastHandlingFeedback != null : !LAST_HANDLING_FEEDBACK_EDEFAULT.equals(lastHandlingFeedback);
+			case GisPackage.GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK:
+				return DO_TOOL_FEEDBACK_EDEFAULT == null ? getDoToolFeedback() != null : !DO_TOOL_FEEDBACK_EDEFAULT.equals(getDoToolFeedback());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,13 +409,30 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GisPackage.GIS_LOCATION_TOOL___REFRESH:
-				refresh();
+			case GisPackage.GIS_LOCATION_TOOL___DO_TOOL:
+				doTool();
 				return null;
-			case GisPackage.GIS_LOCATION_TOOL___REFRESH_ENABLED:
-				return refreshEnabled();
+			case GisPackage.GIS_LOCATION_TOOL___FLUSH_RESULTS:
+				flushResults();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (LastHandlingFeedback: ");
+		result.append(lastHandlingFeedback);
+		result.append(')');
+		return result.toString();
 	}
 
 } //GisLocationToolImpl

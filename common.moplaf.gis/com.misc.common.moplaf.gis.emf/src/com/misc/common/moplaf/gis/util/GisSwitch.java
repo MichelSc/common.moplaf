@@ -146,6 +146,7 @@ public class GisSwitch<T> extends Switch<T> {
 			case GisPackage.GIS_ADDRESS_GEOCODER: {
 				GisAddressGeocoder gisAddressGeocoder = (GisAddressGeocoder)theEObject;
 				T result = caseGisAddressGeocoder(gisAddressGeocoder);
+				if (result == null) result = caseGisToolLocation(gisAddressGeocoder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -245,6 +246,7 @@ public class GisSwitch<T> extends Switch<T> {
 			case GisPackage.GIS_LOCATION_PINPOINTER: {
 				GisLocationPinpointer gisLocationPinpointer = (GisLocationPinpointer)theEObject;
 				T result = caseGisLocationPinpointer(gisLocationPinpointer);
+				if (result == null) result = caseGisToolLocation(gisLocationPinpointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
