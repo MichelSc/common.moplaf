@@ -152,23 +152,11 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 		return location_tool;
 	}
 	
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback getAddToolFeedback(GisToolLocation tool) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EnabledFeedback addToolEnabled(GisToolLocation tool) {
 		if ( tool instanceof GisLocationPinpointer ) {
 			return EnabledFeedback.NOFEEDBACK;
 		}

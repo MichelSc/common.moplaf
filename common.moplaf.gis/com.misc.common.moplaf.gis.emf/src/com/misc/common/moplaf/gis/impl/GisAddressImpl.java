@@ -170,11 +170,11 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	}
 
 	@Override
-	public EnabledFeedback addToolEnabled(GisToolLocation tool) {
+	public EnabledFeedback getAddToolFeedback(GisToolLocation tool) {
 		if ( tool instanceof GisAddressGeocoder ) {
 			return EnabledFeedback.NOFEEDBACK;
 		}
-		EnabledFeedback enabled = super.addToolEnabled(tool);
+		EnabledFeedback enabled = super.getAddToolFeedback(tool);
 		return enabled;
 	}
 

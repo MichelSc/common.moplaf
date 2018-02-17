@@ -15,13 +15,7 @@
     <genClasses image="false" ecoreClass="gis.ecore#//GisAddress" labelFeature="#//gis/GisLocation/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddress/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddress/CountryCode"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisAddress/GeocodedAddresses"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisAddress/SelectedGeocodedLocation"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisAddress/Geocoder"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddress/GeocodingFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddress/RefreshFeedback"/>
-      <genOperations ecoreOperation="gis.ecore#//GisAddress/refreshGeocoded"/>
-      <genOperations ecoreOperation="gis.ecore#//GisAddress/flushGeocoded"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisAddress/GeocodedSelected"/>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisRoutesHolder" labelFeature="#//gis/GisRouter/Description">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisRoutesHolder/FromLocations"/>
@@ -113,18 +107,20 @@
     <genClasses image="false" ecoreClass="gis.ecore#//GisAddressGeocoded">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressGeocoded/Score"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressGeocoded/AddressGeocoded"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gis.ecore#//GisAddressGeocoded/Address"/>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisLocation">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisLocation/Description"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisLocation/Geocoded"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisLocation/Tools"/>
       <genOperations ecoreOperation="gis.ecore#//GisLocation/getCoordinates"/>
-    </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisAddressGeocoder">
-      <genFeatures createChild="false" propertyCategory="1 Geocoder" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressGeocoder/Name"/>
-      <genOperations ecoreOperation="gis.ecore#//GisAddressGeocoder/geocode">
-        <genParameters ecoreParameter="gis.ecore#//GisAddressGeocoder/geocode/address"/>
+      <genOperations ecoreOperation="gis.ecore#//GisLocation/addTool">
+        <genParameters ecoreParameter="gis.ecore#//GisLocation/addTool/tool"/>
+      </genOperations>
+      <genOperations ecoreOperation="gis.ecore#//GisLocation/getAddToolFeedback">
+        <genParameters ecoreParameter="gis.ecore#//GisLocation/getAddToolFeedback/tool"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="gis.ecore#//GisAddressGeocoder"/>
     <genClasses ecoreClass="gis.ecore#//GisRouteCalculator" labelFeature="#//gis/GisRouter/Description"/>
     <genClasses image="false" ecoreClass="gis.ecore#//GisAddressStructured" labelFeature="#//gis/GisLocation/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressStructured/Country"/>
@@ -167,5 +163,25 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisCoordinates/Name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="gis.ecore#//GisGeometry"/>
+    <genClasses ecoreClass="gis.ecore#//GisLocationPinpointed">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisLocationPinpointed/Distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisLocationPinpointed/LocationPinpointed"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gis.ecore#//GisLocationPinpointer"/>
+    <genClasses ecoreClass="gis.ecore#//GisToolLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisToolLocation/Name"/>
+      <genOperations ecoreOperation="gis.ecore#//GisToolLocation/handle">
+        <genParameters ecoreParameter="gis.ecore#//GisToolLocation/handle/location"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="gis.ecore#//GisLocationTool">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisLocationTool/Tool"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gis.ecore#//GisLocationTool/Location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisLocationTool/Results"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisLocationTool/LastHandlingFeedback"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisLocationTool/DoToolFeedback"/>
+      <genOperations ecoreOperation="gis.ecore#//GisLocationTool/doTool"/>
+      <genOperations ecoreOperation="gis.ecore#//GisLocationTool/flushResults"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
