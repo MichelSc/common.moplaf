@@ -78,20 +78,52 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	protected GisSwitch<Adapter> modelSwitch =
 		new GisSwitch<Adapter>() {
 			@Override
+			public Adapter caseGisLocation(GisLocation object) {
+				return createGisLocationAdapter();
+			}
+			@Override
+			public Adapter caseGisLocationTool(GisLocationTool object) {
+				return createGisLocationToolAdapter();
+			}
+			@Override
+			public Adapter caseGisToolLocation(GisToolLocation object) {
+				return createGisToolLocationAdapter();
+			}
+			@Override
 			public Adapter caseGisCoordinatesAbstract(GisCoordinatesAbstract object) {
 				return createGisCoordinatesAbstractAdapter();
+			}
+			@Override
+			public Adapter caseGisCoordinates(GisCoordinates object) {
+				return createGisCoordinatesAdapter();
 			}
 			@Override
 			public Adapter caseGisAddress(GisAddress object) {
 				return createGisAddressAdapter();
 			}
 			@Override
-			public Adapter caseGisRoutesHolder(GisRoutesHolder object) {
-				return createGisRoutesHolderAdapter();
+			public Adapter caseGisAddressStructured(GisAddressStructured object) {
+				return createGisAddressStructuredAdapter();
+			}
+			@Override
+			public Adapter caseGisAddressUnstructured(GisAddressUnstructured object) {
+				return createGisAddressUnstructuredAdapter();
+			}
+			@Override
+			public Adapter caseGisAddressGeocoded(GisAddressGeocoded object) {
+				return createGisAddressGeocodedAdapter();
+			}
+			@Override
+			public Adapter caseGisAddressGeocoder(GisAddressGeocoder object) {
+				return createGisAddressGeocoderAdapter();
 			}
 			@Override
 			public Adapter caseGisRoutesHolderWaypoint(GisRoutesHolderWaypoint object) {
 				return createGisRoutesHolderWaypointAdapter();
+			}
+			@Override
+			public Adapter caseGisRoutesHolder(GisRoutesHolder object) {
+				return createGisRoutesHolderAdapter();
 			}
 			@Override
 			public Adapter caseGisRoutesHolderFromLocation(GisRoutesHolderFromLocation object) {
@@ -110,28 +142,8 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisRouteInfoAdapter();
 			}
 			@Override
-			public Adapter caseGisAddressGeocoded(GisAddressGeocoded object) {
-				return createGisAddressGeocodedAdapter();
-			}
-			@Override
-			public Adapter caseGisLocation(GisLocation object) {
-				return createGisLocationAdapter();
-			}
-			@Override
-			public Adapter caseGisAddressGeocoder(GisAddressGeocoder object) {
-				return createGisAddressGeocoderAdapter();
-			}
-			@Override
 			public Adapter caseGisRouteCalculator(GisRouteCalculator object) {
 				return createGisRouteCalculatorAdapter();
-			}
-			@Override
-			public Adapter caseGisAddressStructured(GisAddressStructured object) {
-				return createGisAddressStructuredAdapter();
-			}
-			@Override
-			public Adapter caseGisAddressUnstructured(GisAddressUnstructured object) {
-				return createGisAddressUnstructuredAdapter();
 			}
 			@Override
 			public Adapter caseGisRouter(GisRouter object) {
@@ -158,28 +170,16 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisRouterDefaultedAdapter();
 			}
 			@Override
-			public Adapter caseGisCoordinates(GisCoordinates object) {
-				return createGisCoordinatesAdapter();
-			}
-			@Override
 			public Adapter caseGisGeometry(GisGeometry object) {
 				return createGisGeometryAdapter();
-			}
-			@Override
-			public Adapter caseGisLocationPinpointed(GisLocationPinpointed object) {
-				return createGisLocationPinpointedAdapter();
 			}
 			@Override
 			public Adapter caseGisLocationPinpointer(GisLocationPinpointer object) {
 				return createGisLocationPinpointerAdapter();
 			}
 			@Override
-			public Adapter caseGisToolLocation(GisToolLocation object) {
-				return createGisToolLocationAdapter();
-			}
-			@Override
-			public Adapter caseGisLocationTool(GisLocationTool object) {
-				return createGisLocationToolAdapter();
+			public Adapter caseGisLocationPinpointed(GisLocationPinpointed object) {
+				return createGisLocationPinpointedAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

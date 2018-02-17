@@ -36,35 +36,36 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getDoToolFeedback <em>Do Tool Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getLastHandlingFeedback <em>Last Handling Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getTool <em>Tool</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getResults <em>Results</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getLastHandlingFeedback <em>Last Handling Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl#getDoToolFeedback <em>Do Tool Feedback</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements GisLocationTool {
 	/**
-	 * The cached value of the '{@link #getTool() <em>Tool</em>}' reference.
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTool()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected GisToolLocation tool;
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
+	 * The default value of the '{@link #getDoToolFeedback() <em>Do Tool Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResults()
+	 * @see #getDoToolFeedback()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GisLocation> results;
+	protected static final EnabledFeedback DO_TOOL_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getLastHandlingFeedback() <em>Last Handling Feedback</em>}' attribute.
@@ -87,14 +88,24 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	protected String lastHandlingFeedback = LAST_HANDLING_FEEDBACK_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDoToolFeedback() <em>Do Tool Feedback</em>}' attribute.
+	 * The cached value of the '{@link #getTool() <em>Tool</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDoToolFeedback()
+	 * @see #getTool()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EnabledFeedback DO_TOOL_FEEDBACK_EDEFAULT = null;
+	protected GisToolLocation tool;
+
+	/**
+	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResults()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GisLocation> results;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,6 +124,15 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	protected EClass eStaticClass() {
 		return GisPackage.Literals.GIS_LOCATION_TOOL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("%s for %s", this.getTool().getName(), this.getLocation().getDescription());
+		return description;
 	}
 
 	/**
@@ -308,6 +328,12 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GisPackage.GIS_LOCATION_TOOL__DESCRIPTION:
+				return getDescription();
+			case GisPackage.GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK:
+				return getDoToolFeedback();
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				return getLastHandlingFeedback();
 			case GisPackage.GIS_LOCATION_TOOL__TOOL:
 				if (resolve) return getTool();
 				return basicGetTool();
@@ -315,10 +341,6 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 				return getLocation();
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
 				return getResults();
-			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
-				return getLastHandlingFeedback();
-			case GisPackage.GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK:
-				return getDoToolFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -332,6 +354,9 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				setLastHandlingFeedback((String)newValue);
+				return;
 			case GisPackage.GIS_LOCATION_TOOL__TOOL:
 				setTool((GisToolLocation)newValue);
 				return;
@@ -341,9 +366,6 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
 				getResults().clear();
 				getResults().addAll((Collection<? extends GisLocation>)newValue);
-				return;
-			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
-				setLastHandlingFeedback((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -357,6 +379,9 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				setLastHandlingFeedback(LAST_HANDLING_FEEDBACK_EDEFAULT);
+				return;
 			case GisPackage.GIS_LOCATION_TOOL__TOOL:
 				setTool((GisToolLocation)null);
 				return;
@@ -365,9 +390,6 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
 				getResults().clear();
-				return;
-			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
-				setLastHandlingFeedback(LAST_HANDLING_FEEDBACK_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -381,16 +403,18 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GisPackage.GIS_LOCATION_TOOL__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case GisPackage.GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK:
+				return DO_TOOL_FEEDBACK_EDEFAULT == null ? getDoToolFeedback() != null : !DO_TOOL_FEEDBACK_EDEFAULT.equals(getDoToolFeedback());
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+				return LAST_HANDLING_FEEDBACK_EDEFAULT == null ? lastHandlingFeedback != null : !LAST_HANDLING_FEEDBACK_EDEFAULT.equals(lastHandlingFeedback);
 			case GisPackage.GIS_LOCATION_TOOL__TOOL:
 				return tool != null;
 			case GisPackage.GIS_LOCATION_TOOL__LOCATION:
 				return getLocation() != null;
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
 				return results != null && !results.isEmpty();
-			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
-				return LAST_HANDLING_FEEDBACK_EDEFAULT == null ? lastHandlingFeedback != null : !LAST_HANDLING_FEEDBACK_EDEFAULT.equals(lastHandlingFeedback);
-			case GisPackage.GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK:
-				return DO_TOOL_FEEDBACK_EDEFAULT == null ? getDoToolFeedback() != null : !DO_TOOL_FEEDBACK_EDEFAULT.equals(getDoToolFeedback());
 		}
 		return super.eIsSet(featureID);
 	}

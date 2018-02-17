@@ -299,7 +299,7 @@ public class GisRouteInfoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
-				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
+				 GisFactory.eINSTANCE.createGisCoordinates()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -314,7 +314,7 @@ public class GisRouteInfoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GisPackage.Literals.GIS_ROUTE_INFO__GEOMETRY,
-				 GisFactory.eINSTANCE.createGisCoordinates()));
+				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
 
 		newChildDescriptors.add
 			(createChildParameter

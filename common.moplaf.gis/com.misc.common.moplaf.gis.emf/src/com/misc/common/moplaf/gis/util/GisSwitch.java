@@ -76,10 +76,36 @@ public class GisSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case GisPackage.GIS_LOCATION: {
+				GisLocation gisLocation = (GisLocation)theEObject;
+				T result = caseGisLocation(gisLocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_LOCATION_TOOL: {
+				GisLocationTool gisLocationTool = (GisLocationTool)theEObject;
+				T result = caseGisLocationTool(gisLocationTool);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_TOOL_LOCATION: {
+				GisToolLocation gisToolLocation = (GisToolLocation)theEObject;
+				T result = caseGisToolLocation(gisToolLocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GisPackage.GIS_COORDINATES_ABSTRACT: {
 				GisCoordinatesAbstract gisCoordinatesAbstract = (GisCoordinatesAbstract)theEObject;
 				T result = caseGisCoordinatesAbstract(gisCoordinatesAbstract);
 				if (result == null) result = caseGisLocation(gisCoordinatesAbstract);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_COORDINATES: {
+				GisCoordinates gisCoordinates = (GisCoordinates)theEObject;
+				T result = caseGisCoordinates(gisCoordinates);
+				if (result == null) result = caseGisCoordinatesAbstract(gisCoordinates);
+				if (result == null) result = caseGisLocation(gisCoordinates);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,16 +116,47 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_ROUTES_HOLDER: {
-				GisRoutesHolder gisRoutesHolder = (GisRoutesHolder)theEObject;
-				T result = caseGisRoutesHolder(gisRoutesHolder);
-				if (result == null) result = caseGisRouter(gisRoutesHolder);
+			case GisPackage.GIS_ADDRESS_STRUCTURED: {
+				GisAddressStructured gisAddressStructured = (GisAddressStructured)theEObject;
+				T result = caseGisAddressStructured(gisAddressStructured);
+				if (result == null) result = caseGisAddress(gisAddressStructured);
+				if (result == null) result = caseGisLocation(gisAddressStructured);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: {
+				GisAddressUnstructured gisAddressUnstructured = (GisAddressUnstructured)theEObject;
+				T result = caseGisAddressUnstructured(gisAddressUnstructured);
+				if (result == null) result = caseGisAddress(gisAddressUnstructured);
+				if (result == null) result = caseGisLocation(gisAddressUnstructured);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ADDRESS_GEOCODED: {
+				GisAddressGeocoded gisAddressGeocoded = (GisAddressGeocoded)theEObject;
+				T result = caseGisAddressGeocoded(gisAddressGeocoded);
+				if (result == null) result = caseGisCoordinatesAbstract(gisAddressGeocoded);
+				if (result == null) result = caseGisLocation(gisAddressGeocoded);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ADDRESS_GEOCODER: {
+				GisAddressGeocoder gisAddressGeocoder = (GisAddressGeocoder)theEObject;
+				T result = caseGisAddressGeocoder(gisAddressGeocoder);
+				if (result == null) result = caseGisToolLocation(gisAddressGeocoder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GisPackage.GIS_ROUTES_HOLDER_WAYPOINT: {
 				GisRoutesHolderWaypoint gisRoutesHolderWaypoint = (GisRoutesHolderWaypoint)theEObject;
 				T result = caseGisRoutesHolderWaypoint(gisRoutesHolderWaypoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ROUTES_HOLDER: {
+				GisRoutesHolder gisRoutesHolder = (GisRoutesHolder)theEObject;
+				T result = caseGisRoutesHolder(gisRoutesHolder);
+				if (result == null) result = caseGisRouter(gisRoutesHolder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,47 +186,10 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_ADDRESS_GEOCODED: {
-				GisAddressGeocoded gisAddressGeocoded = (GisAddressGeocoded)theEObject;
-				T result = caseGisAddressGeocoded(gisAddressGeocoded);
-				if (result == null) result = caseGisCoordinatesAbstract(gisAddressGeocoded);
-				if (result == null) result = caseGisLocation(gisAddressGeocoded);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GisPackage.GIS_LOCATION: {
-				GisLocation gisLocation = (GisLocation)theEObject;
-				T result = caseGisLocation(gisLocation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GisPackage.GIS_ADDRESS_GEOCODER: {
-				GisAddressGeocoder gisAddressGeocoder = (GisAddressGeocoder)theEObject;
-				T result = caseGisAddressGeocoder(gisAddressGeocoder);
-				if (result == null) result = caseGisToolLocation(gisAddressGeocoder);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case GisPackage.GIS_ROUTE_CALCULATOR: {
 				GisRouteCalculator gisRouteCalculator = (GisRouteCalculator)theEObject;
 				T result = caseGisRouteCalculator(gisRouteCalculator);
 				if (result == null) result = caseGisRouter(gisRouteCalculator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GisPackage.GIS_ADDRESS_STRUCTURED: {
-				GisAddressStructured gisAddressStructured = (GisAddressStructured)theEObject;
-				T result = caseGisAddressStructured(gisAddressStructured);
-				if (result == null) result = caseGisAddress(gisAddressStructured);
-				if (result == null) result = caseGisLocation(gisAddressStructured);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: {
-				GisAddressUnstructured gisAddressUnstructured = (GisAddressUnstructured)theEObject;
-				T result = caseGisAddressUnstructured(gisAddressUnstructured);
-				if (result == null) result = caseGisAddress(gisAddressUnstructured);
-				if (result == null) result = caseGisLocation(gisAddressUnstructured);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,27 +239,11 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_COORDINATES: {
-				GisCoordinates gisCoordinates = (GisCoordinates)theEObject;
-				T result = caseGisCoordinates(gisCoordinates);
-				if (result == null) result = caseGisCoordinatesAbstract(gisCoordinates);
-				if (result == null) result = caseGisLocation(gisCoordinates);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case GisPackage.GIS_GEOMETRY: {
 				GisGeometry gisGeometry = (GisGeometry)theEObject;
 				T result = caseGisGeometry(gisGeometry);
 				if (result == null) result = caseGisCoordinatesAbstract(gisGeometry);
 				if (result == null) result = caseGisLocation(gisGeometry);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GisPackage.GIS_LOCATION_PINPOINTED: {
-				GisLocationPinpointed gisLocationPinpointed = (GisLocationPinpointed)theEObject;
-				T result = caseGisLocationPinpointed(gisLocationPinpointed);
-				if (result == null) result = caseGisCoordinatesAbstract(gisLocationPinpointed);
-				if (result == null) result = caseGisLocation(gisLocationPinpointed);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -250,15 +254,11 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_TOOL_LOCATION: {
-				GisToolLocation gisToolLocation = (GisToolLocation)theEObject;
-				T result = caseGisToolLocation(gisToolLocation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GisPackage.GIS_LOCATION_TOOL: {
-				GisLocationTool gisLocationTool = (GisLocationTool)theEObject;
-				T result = caseGisLocationTool(gisLocationTool);
+			case GisPackage.GIS_LOCATION_PINPOINTED: {
+				GisLocationPinpointed gisLocationPinpointed = (GisLocationPinpointed)theEObject;
+				T result = caseGisLocationPinpointed(gisLocationPinpointed);
+				if (result == null) result = caseGisCoordinatesAbstract(gisLocationPinpointed);
+				if (result == null) result = caseGisLocation(gisLocationPinpointed);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

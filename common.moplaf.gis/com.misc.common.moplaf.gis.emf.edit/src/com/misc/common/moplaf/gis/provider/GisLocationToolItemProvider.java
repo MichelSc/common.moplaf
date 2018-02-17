@@ -68,11 +68,34 @@ public class GisLocationToolItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addToolPropertyDescriptor(object);
-			addLastHandlingFeedbackPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addDoToolFeedbackPropertyDescriptor(object);
+			addLastHandlingFeedbackPropertyDescriptor(object);
+			addToolPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisLocationTool_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisLocationTool_Description_feature", "_UI_GisLocationTool_type"),
+				 GisPackage.Literals.GIS_LOCATION_TOOL__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -189,7 +212,7 @@ public class GisLocationToolItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisLocationTool)object).getLastHandlingFeedback();
+		String label = ((GisLocationTool)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisLocationTool_type") :
 			getString("_UI_GisLocationTool_type") + " " + label;
@@ -208,8 +231,9 @@ public class GisLocationToolItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisLocationTool.class)) {
-			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
+			case GisPackage.GIS_LOCATION_TOOL__DESCRIPTION:
 			case GisPackage.GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK:
+			case GisPackage.GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GisPackage.GIS_LOCATION_TOOL__RESULTS:
@@ -233,7 +257,7 @@ public class GisLocationToolItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GisPackage.Literals.GIS_LOCATION_TOOL__RESULTS,
-				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
+				 GisFactory.eINSTANCE.createGisCoordinates()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -248,7 +272,7 @@ public class GisLocationToolItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GisPackage.Literals.GIS_LOCATION_TOOL__RESULTS,
-				 GisFactory.eINSTANCE.createGisCoordinates()));
+				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
 
 		newChildDescriptors.add
 			(createChildParameter

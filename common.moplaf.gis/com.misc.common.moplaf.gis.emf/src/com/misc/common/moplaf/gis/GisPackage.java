@@ -75,7 +75,7 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocation()
 	 * @generated
 	 */
-	int GIS_LOCATION = 9;
+	int GIS_LOCATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -157,7 +157,405 @@ public interface GisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinatesAbstract()
 	 * @generated
 	 */
-	int GIS_COORDINATES_ABSTRACT = 0;
+	int GIS_COORDINATES_ABSTRACT = 3;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl <em>Coordinates</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisCoordinatesImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinates()
+	 * @generated
+	 */
+	int GIS_COORDINATES = 4;
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract <em>Coordinates Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Coordinates Abstract</em>'.
+	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract
+	 * @generated
+	 */
+	EClass getGisCoordinatesAbstract();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLongitude <em>Longitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Longitude</em>'.
+	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLongitude()
+	 * @see #getGisCoordinatesAbstract()
+	 * @generated
+	 */
+	EAttribute getGisCoordinatesAbstract_Longitude();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLatitude <em>Latitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Latitude</em>'.
+	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLatitude()
+	 * @see #getGisCoordinatesAbstract()
+	 * @generated
+	 */
+	EAttribute getGisCoordinatesAbstract_Latitude();
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddress()
+	 * @generated
+	 */
+	int GIS_ADDRESS = 5;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterImpl <em>Router</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouter()
+	 * @generated
+	 */
+	int GIS_ROUTER = 17;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl <em>Routes Holder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolder()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER = 11;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl <em>Routes Holder Waypoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderWaypoint()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_WAYPOINT = 10;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderFromLocation()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION = 12;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl <em>Routes Holder To Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderToLocation()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION = 13;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl <em>Routes Holder Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderElement()
+	 * @generated
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT = 14;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl <em>Route Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteInfoImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteInfo()
+	 * @generated
+	 */
+	int GIS_ROUTE_INFO = 15;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl <em>Address Geocoded</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoded()
+	 * @generated
+	 */
+	int GIS_ADDRESS_GEOCODED = 8;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl <em>Address Geocoder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoder()
+	 * @generated
+	 */
+	int GIS_ADDRESS_GEOCODER = 9;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl <em>Route Calculator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculator()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR = 16;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
+	 * @generated
+	 */
+	int GIS_ADDRESS_STRUCTURED = 6;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl <em>Address Unstructured</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
+	 * @generated
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED = 7;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl <em>Route Calculator One To One</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToOne()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE = 18;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl <em>Route Calculator Many To Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorManyToMany()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY = 19;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl <em>Route Calculator One To Many</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToMany()
+	 * @generated
+	 */
+	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY = 20;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl <em>Router Geodesic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterGeodesic()
+	 * @generated
+	 */
+	int GIS_ROUTER_GEODESIC = 21;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl <em>Router Defaulted</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterDefaulted()
+	 * @generated
+	 */
+	int GIS_ROUTER_DEFAULTED = 22;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisGeometryImpl <em>Geometry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisGeometryImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisGeometry()
+	 * @generated
+	 */
+	int GIS_GEOMETRY = 23;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl <em>Location Pinpointed</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointed()
+	 * @generated
+	 */
+	int GIS_LOCATION_PINPOINTED = 25;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl <em>Location Pinpointer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointer()
+	 * @generated
+	 */
+	int GIS_LOCATION_PINPOINTER = 24;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisToolLocationImpl <em>Tool Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisToolLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisToolLocation()
+	 * @generated
+	 */
+	int GIS_TOOL_LOCATION = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl <em>Location Tool</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisLocationToolImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationTool()
+	 * @generated
+	 */
+	int GIS_LOCATION_TOOL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Do Tool Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Last Handling Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Tool</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__TOOL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__LOCATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL__RESULTS = 5;
+
+	/**
+	 * The number of structural features of the '<em>Location Tool</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL_FEATURE_COUNT = 6;
+
+	/**
+	 * The operation id for the '<em>Do Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL___DO_TOOL = 0;
+
+	/**
+	 * The operation id for the '<em>Flush Results</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL___FLUSH_RESULTS = 1;
+
+	/**
+	 * The number of operations of the '<em>Location Tool</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_TOOL_OPERATION_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Tool Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Handle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL = 0;
+
+	/**
+	 * The number of operations of the '<em>Tool Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION_OPERATION_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -250,56 +648,103 @@ public interface GisPackage extends EPackage {
 	int GIS_COORDINATES_ABSTRACT_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisCoordinatesImpl <em>Coordinates</em>}' class.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisCoordinatesImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisCoordinates()
 	 * @generated
+	 * @ordered
 	 */
-	int GIS_COORDINATES = 20;
+	int GIS_COORDINATES__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract <em>Coordinates Abstract</em>}'.
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Coordinates Abstract</em>'.
-	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract
 	 * @generated
+	 * @ordered
 	 */
-	EClass getGisCoordinatesAbstract();
+	int GIS_COORDINATES__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLongitude <em>Longitude</em>}'.
+	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Longitude</em>'.
-	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLongitude()
-	 * @see #getGisCoordinatesAbstract()
 	 * @generated
+	 * @ordered
 	 */
-	EAttribute getGisCoordinatesAbstract_Longitude();
+	int GIS_COORDINATES__TOOLS = GIS_COORDINATES_ABSTRACT__TOOLS;
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLatitude <em>Latitude</em>}'.
+	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Latitude</em>'.
-	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract#getLatitude()
-	 * @see #getGisCoordinatesAbstract()
 	 * @generated
+	 * @ordered
 	 */
-	EAttribute getGisCoordinatesAbstract_Latitude();
+	int GIS_COORDINATES__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressImpl <em>Address</em>}' class.
+	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisAddressImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddress()
 	 * @generated
+	 * @ordered
 	 */
-	int GIS_ADDRESS = 1;
+	int GIS_COORDINATES__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__NAME = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Coordinates</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Coordinates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
+
+	/**
+	 * The operation id for the '<em>Add Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
+
+	/**
+	 * The number of operations of the '<em>Coordinates</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -399,1089 +844,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterImpl <em>Router</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouterImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouter()
-	 * @generated
-	 */
-	int GIS_ROUTER = 14;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTER__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTER__DESCRIPTION = 1;
-
-	/**
-	 * The number of structural features of the '<em>Router</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTER_FEATURE_COUNT = 2;
-
-	/**
-	 * The operation id for the '<em>Get Route</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION = 0;
-
-	/**
-	 * The operation id for the '<em>Get Routes</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTER___GET_ROUTES__ELIST_ELIST = 1;
-
-	/**
-	 * The number of operations of the '<em>Router</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTER_OPERATION_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl <em>Routes Holder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolder()
-	 * @generated
-	 */
-	int GIS_ROUTES_HOLDER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER__NAME = GIS_ROUTER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>From Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER__FROM_LOCATIONS = GIS_ROUTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER__TO_LOCATIONS = GIS_ROUTER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Symmetrical</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER__SYMMETRICAL = GIS_ROUTER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Calculator</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER__CALCULATOR = GIS_ROUTER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER__REFRESH_FEEDBACK = GIS_ROUTER_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Routes Holder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Get Route</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
-
-	/**
-	 * The operation id for the '<em>Get Routes</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
-
-	/**
-	 * The operation id for the '<em>Update</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR = GIS_ROUTER_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Update</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR_ELIST_ELIST = GIS_ROUTER_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add From Location</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___ADD_FROM_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add To Location</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___ADD_TO_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get From Location</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___GET_FROM_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Get To Location</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___REFRESH = GIS_ROUTER_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Flush</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___FLUSH = GIS_ROUTER_OPERATION_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>Clear</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER___CLEAR = GIS_ROUTER_OPERATION_COUNT + 8;
-
-	/**
-	 * The number of operations of the '<em>Routes Holder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 9;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl <em>Routes Holder Waypoint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderWaypointImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderWaypoint()
-	 * @generated
-	 */
-	int GIS_ROUTES_HOLDER_WAYPOINT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_WAYPOINT__LOCATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION = 1;
-
-	/**
-	 * The number of structural features of the '<em>Routes Holder Waypoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Routes Holder Waypoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl <em>Routes Holder From Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderFromLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderFromLocation()
-	 * @generated
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION = GIS_ROUTES_HOLDER_WAYPOINT__LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION = GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Routes Holder From Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Add Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Update</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Remove</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Routes Holder From Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_FROM_LOCATION_OPERATION_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl <em>Routes Holder To Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderToLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderToLocation()
-	 * @generated
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION = GIS_ROUTES_HOLDER_WAYPOINT__LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION = GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>From Locations</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Routes Holder To Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Add Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Update</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___UPDATE__GISROUTECALCULATOR = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___REFRESH = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Remove</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Routes Holder To Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_TO_LOCATION_OPERATION_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl <em>Routes Holder Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRoutesHolderElementImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRoutesHolderElement()
-	 * @generated
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>To Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>From Location</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Routes Info</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__ROUTES_INFO = 3;
-
-	/**
-	 * The feature id for the '<em><b>Calculated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT__CALCULATED = 4;
-
-	/**
-	 * The number of structural features of the '<em>Routes Holder Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT_FEATURE_COUNT = 5;
-
-	/**
-	 * The operation id for the '<em>Update</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT___UPDATE__GISROUTECALCULATOR = 0;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT___REFRESH = 1;
-
-	/**
-	 * The operation id for the '<em>Remove</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT___REMOVE = 2;
-
-	/**
-	 * The number of operations of the '<em>Routes Holder Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTES_HOLDER_ELEMENT_OPERATION_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteInfoImpl <em>Route Info</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteInfoImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteInfo()
-	 * @generated
-	 */
-	int GIS_ROUTE_INFO = 7;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO__DESCRIPTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>From Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO__FROM_LOCATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Distance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO__DISTANCE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Duration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO__DURATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>To Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO__TO_LOCATION = 4;
-
-	/**
-	 * The feature id for the '<em><b>With Geometry</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO__WITH_GEOMETRY = 5;
-
-	/**
-	 * The feature id for the '<em><b>Geometry</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO__GEOMETRY = 6;
-
-	/**
-	 * The number of structural features of the '<em>Route Info</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO_FEATURE_COUNT = 7;
-
-	/**
-	 * The number of operations of the '<em>Route Info</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_INFO_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl <em>Address Geocoded</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoded()
-	 * @generated
-	 */
-	int GIS_ADDRESS_GEOCODED = 8;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
-
-	/**
-	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__TOOLS = GIS_COORDINATES_ABSTRACT__TOOLS;
-
-	/**
-	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
-
-	/**
-	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
-
-	/**
-	 * The feature id for the '<em><b>Score</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__SCORE = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Address Geocoded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Address Geocoded</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Coordinates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
-
-	/**
-	 * The operation id for the '<em>Add Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
-
-	/**
-	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
-
-	/**
-	 * The number of operations of the '<em>Address Geocoded</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODED_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl <em>Address Geocoder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressGeocoder()
-	 * @generated
-	 */
-	int GIS_ADDRESS_GEOCODER = 10;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl <em>Route Calculator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculator()
-	 * @generated
-	 */
-	int GIS_ROUTE_CALCULATOR = 11;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
-	 * @generated
-	 */
-	int GIS_ADDRESS_STRUCTURED = 12;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl <em>Address Unstructured</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
-	 * @generated
-	 */
-	int GIS_ADDRESS_UNSTRUCTURED = 13;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl <em>Route Calculator One To One</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToOneImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToOne()
-	 * @generated
-	 */
-	int GIS_ROUTE_CALCULATOR_ONE_TO_ONE = 15;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl <em>Route Calculator Many To Many</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorManyToManyImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorManyToMany()
-	 * @generated
-	 */
-	int GIS_ROUTE_CALCULATOR_MANY_TO_MANY = 16;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl <em>Route Calculator One To Many</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouteCalculatorOneToManyImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouteCalculatorOneToMany()
-	 * @generated
-	 */
-	int GIS_ROUTE_CALCULATOR_ONE_TO_MANY = 17;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl <em>Router Geodesic</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouterGeodesicImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterGeodesic()
-	 * @generated
-	 */
-	int GIS_ROUTER_GEODESIC = 18;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl <em>Router Defaulted</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisRouterDefaultedImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisRouterDefaulted()
-	 * @generated
-	 */
-	int GIS_ROUTER_DEFAULTED = 19;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisGeometryImpl <em>Geometry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisGeometryImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisGeometry()
-	 * @generated
-	 */
-	int GIS_GEOMETRY = 21;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl <em>Location Pinpointed</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointedImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointed()
-	 * @generated
-	 */
-	int GIS_LOCATION_PINPOINTED = 22;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl <em>Location Pinpointer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationPinpointer()
-	 * @generated
-	 */
-	int GIS_LOCATION_PINPOINTER = 23;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisToolLocationImpl <em>Tool Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisToolLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisToolLocation()
-	 * @generated
-	 */
-	int GIS_TOOL_LOCATION = 24;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_TOOL_LOCATION__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Tool Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_TOOL_LOCATION_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>Handle</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL = 0;
-
-	/**
-	 * The number of operations of the '<em>Tool Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_TOOL_LOCATION_OPERATION_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER__NAME = GIS_TOOL_LOCATION__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Address Geocoder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER_FEATURE_COUNT = GIS_TOOL_LOCATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Handle</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
-
-	/**
-	 * The number of operations of the '<em>Address Geocoder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_CALCULATOR__NAME = GIS_ROUTER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_CALCULATOR__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
-
-	/**
-	 * The number of structural features of the '<em>Route Calculator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_CALCULATOR_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Route</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_CALCULATOR___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
-
-	/**
-	 * The operation id for the '<em>Get Routes</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_CALCULATOR___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
-
-	/**
-	 * The number of operations of the '<em>Route Calculator</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ROUTE_CALCULATOR_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1743,6 +1105,843 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED_OPERATION_COUNT = GIS_ADDRESS_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
+
+	/**
+	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__TOOLS = GIS_COORDINATES_ABSTRACT__TOOLS;
+
+	/**
+	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
+
+	/**
+	 * The feature id for the '<em><b>Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__SCORE = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Address Geocoded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__ADDRESS_GEOCODED = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Address Geocoded</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Coordinates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
+
+	/**
+	 * The operation id for the '<em>Add Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
+
+	/**
+	 * The number of operations of the '<em>Address Geocoded</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER__NAME = GIS_TOOL_LOCATION__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Address Geocoder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_FEATURE_COUNT = GIS_TOOL_LOCATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Handle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
+
+	/**
+	 * The number of operations of the '<em>Address Geocoder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_WAYPOINT__LOCATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder Waypoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder Waypoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Router</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION = 0;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER___GET_ROUTES__ELIST_ELIST = 1;
+
+	/**
+	 * The number of operations of the '<em>Router</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTER_OPERATION_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__NAME = GIS_ROUTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>From Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__FROM_LOCATIONS = GIS_ROUTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__TO_LOCATIONS = GIS_ROUTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Symmetrical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__SYMMETRICAL = GIS_ROUTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Calculator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__CALCULATOR = GIS_ROUTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER__REFRESH_FEEDBACK = GIS_ROUTER_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR = GIS_ROUTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___UPDATE__GISROUTECALCULATOR_ELIST_ELIST = GIS_ROUTER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add From Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___ADD_FROM_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add To Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___ADD_TO_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get From Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_FROM_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get To Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___GET_TO_LOCATION__GISLOCATION = GIS_ROUTER_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___REFRESH = GIS_ROUTER_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___FLUSH = GIS_ROUTER_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER___CLEAR = GIS_ROUTER_OPERATION_COUNT + 8;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__LOCATION = GIS_ROUTES_HOLDER_WAYPOINT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__DESCRIPTION = GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__TO_LOCATIONS = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION__ROUTES_HOLDER = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder From Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_FEATURE_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___GET_ELEMENT__GISLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___ADD_ELEMENT__GISROUTESHOLDERTOLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___UPDATE__GISROUTECALCULATOR = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___REFRESH = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Remove</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION___REMOVE = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder From Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_FROM_LOCATION_OPERATION_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__LOCATION = GIS_ROUTES_HOLDER_WAYPOINT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__DESCRIPTION = GIS_ROUTES_HOLDER_WAYPOINT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>From Locations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__FROM_LOCATIONS = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Routes Holder</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION__ROUTES_HOLDER = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder To Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION_FEATURE_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___GET_ELEMENT__GISLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___ADD_ELEMENT__GISROUTESHOLDERFROMLOCATION = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___UPDATE__GISROUTECALCULATOR = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___REFRESH = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Remove</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION___REMOVE = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder To Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_TO_LOCATION_OPERATION_COUNT = GIS_ROUTES_HOLDER_WAYPOINT_OPERATION_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>To Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__TO_LOCATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>From Location</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__FROM_LOCATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Routes Info</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__ROUTES_INFO = 3;
+
+	/**
+	 * The feature id for the '<em><b>Calculated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT__CALCULATED = 4;
+
+	/**
+	 * The number of structural features of the '<em>Routes Holder Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT_FEATURE_COUNT = 5;
+
+	/**
+	 * The operation id for the '<em>Update</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT___UPDATE__GISROUTECALCULATOR = 0;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT___REFRESH = 1;
+
+	/**
+	 * The operation id for the '<em>Remove</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT___REMOVE = 2;
+
+	/**
+	 * The number of operations of the '<em>Routes Holder Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTES_HOLDER_ELEMENT_OPERATION_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>From Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__FROM_LOCATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__DISTANCE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__DURATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>To Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__TO_LOCATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>With Geometry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__WITH_GEOMETRY = 5;
+
+	/**
+	 * The feature id for the '<em><b>Geometry</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO__GEOMETRY = 6;
+
+	/**
+	 * The number of structural features of the '<em>Route Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO_FEATURE_COUNT = 7;
+
+	/**
+	 * The number of operations of the '<em>Route Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_INFO_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR__NAME = GIS_ROUTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR__DESCRIPTION = GIS_ROUTER__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Route Calculator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_FEATURE_COUNT = GIS_ROUTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Route</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR___GET_ROUTE__GISLOCATION_GISLOCATION = GIS_ROUTER___GET_ROUTE__GISLOCATION_GISLOCATION;
+
+	/**
+	 * The operation id for the '<em>Get Routes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR___GET_ROUTES__ELIST_ELIST = GIS_ROUTER___GET_ROUTES__ELIST_ELIST;
+
+	/**
+	 * The number of operations of the '<em>Route Calculator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ROUTE_CALCULATOR_OPERATION_COUNT = GIS_ROUTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2057,105 +2256,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES__GEOCODED = GIS_COORDINATES_ABSTRACT__GEOCODED;
-
-	/**
-	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES__TOOLS = GIS_COORDINATES_ABSTRACT__TOOLS;
-
-	/**
-	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES__LONGITUDE = GIS_COORDINATES_ABSTRACT__LONGITUDE;
-
-	/**
-	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES__LATITUDE = GIS_COORDINATES_ABSTRACT__LATITUDE;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES__NAME = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Coordinates</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES_FEATURE_COUNT = GIS_COORDINATES_ABSTRACT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Coordinates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES___GET_COORDINATES = GIS_COORDINATES_ABSTRACT___GET_COORDINATES;
-
-	/**
-	 * The operation id for the '<em>Add Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
-
-	/**
-	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
-
-	/**
-	 * The number of operations of the '<em>Coordinates</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_COORDINATES_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int GIS_GEOMETRY__DESCRIPTION = GIS_COORDINATES_ABSTRACT__DESCRIPTION;
 
 	/**
@@ -2238,6 +2338,42 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_GEOMETRY_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER__NAME = GIS_TOOL_LOCATION__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Location Pinpointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER_FEATURE_COUNT = GIS_TOOL_LOCATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Handle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
+
+	/**
+	 * The number of operations of the '<em>Location Pinpointer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2346,133 +2482,6 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_LOCATION_PINPOINTED_OPERATION_COUNT = GIS_COORDINATES_ABSTRACT_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER__NAME = GIS_TOOL_LOCATION__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Location Pinpointer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER_FEATURE_COUNT = GIS_TOOL_LOCATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Handle</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
-
-	/**
-	 * The number of operations of the '<em>Location Pinpointer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl <em>Location Tool</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisLocationToolImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisLocationTool()
-	 * @generated
-	 */
-	int GIS_LOCATION_TOOL = 25;
-
-	/**
-	 * The feature id for the '<em><b>Tool</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL__TOOL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL__LOCATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL__RESULTS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Last Handling Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL__LAST_HANDLING_FEEDBACK = 3;
-
-	/**
-	 * The feature id for the '<em><b>Do Tool Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL__DO_TOOL_FEEDBACK = 4;
-
-	/**
-	 * The number of structural features of the '<em>Location Tool</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL_FEATURE_COUNT = 5;
-
-	/**
-	 * The operation id for the '<em>Do Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL___DO_TOOL = 0;
-
-	/**
-	 * The operation id for the '<em>Flush Results</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL___FLUSH_RESULTS = 1;
-
-	/**
-	 * The number of operations of the '<em>Location Tool</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_TOOL_OPERATION_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinates <em>Coordinates</em>}'.
@@ -2587,6 +2596,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisLocationTool();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocationTool#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocationTool#getDescription()
+	 * @see #getGisLocationTool()
+	 * @generated
+	 */
+	EAttribute getGisLocationTool_Description();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisLocationTool#getTool <em>Tool</em>}'.
@@ -3755,6 +3775,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_LOCATION_TOOL = eINSTANCE.getGisLocationTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_LOCATION_TOOL__DESCRIPTION = eINSTANCE.getGisLocationTool_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Tool</b></em>' reference feature.

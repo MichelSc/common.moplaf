@@ -17,11 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getDoToolFeedback <em>Do Tool Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getLastHandlingFeedback <em>Last Handling Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getTool <em>Tool</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getLocation <em>Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getResults <em>Results</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getLastHandlingFeedback <em>Last Handling Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisLocationTool#getDoToolFeedback <em>Do Tool Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisLocationTool()
@@ -29,6 +30,21 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface GisLocationTool extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisLocationTool_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
+
 	/**
 	 * Returns the value of the '<em><b>Tool</b></em>' reference.
 	 * <!-- begin-user-doc -->

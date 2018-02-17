@@ -200,7 +200,7 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 	}
 
 	public String getDescription() {
-		String description = String.format("Address %s", this.getName());
+		String description = String.format("%s", this.getName());
 		return description;
 	}
 

@@ -532,21 +532,21 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	 * @generated
 	 */
 	public void dispose() {
-		if (gisRoutesHolderItemProvider != null) gisRoutesHolderItemProvider.dispose();
+		if (gisLocationToolItemProvider != null) gisLocationToolItemProvider.dispose();
+		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
+		if (gisAddressStructuredItemProvider != null) gisAddressStructuredItemProvider.dispose();
+		if (gisAddressUnstructuredItemProvider != null) gisAddressUnstructuredItemProvider.dispose();
+		if (gisAddressGeocodedItemProvider != null) gisAddressGeocodedItemProvider.dispose();
 		if (gisRoutesHolderWaypointItemProvider != null) gisRoutesHolderWaypointItemProvider.dispose();
+		if (gisRoutesHolderItemProvider != null) gisRoutesHolderItemProvider.dispose();
 		if (gisRoutesHolderFromLocationItemProvider != null) gisRoutesHolderFromLocationItemProvider.dispose();
 		if (gisRoutesHolderToLocationItemProvider != null) gisRoutesHolderToLocationItemProvider.dispose();
 		if (gisRoutesHolderElementItemProvider != null) gisRoutesHolderElementItemProvider.dispose();
 		if (gisRouteInfoItemProvider != null) gisRouteInfoItemProvider.dispose();
-		if (gisAddressGeocodedItemProvider != null) gisAddressGeocodedItemProvider.dispose();
-		if (gisAddressStructuredItemProvider != null) gisAddressStructuredItemProvider.dispose();
-		if (gisAddressUnstructuredItemProvider != null) gisAddressUnstructuredItemProvider.dispose();
 		if (gisRouterGeodesicItemProvider != null) gisRouterGeodesicItemProvider.dispose();
 		if (gisRouterDefaultedItemProvider != null) gisRouterDefaultedItemProvider.dispose();
-		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
 		if (gisGeometryItemProvider != null) gisGeometryItemProvider.dispose();
 		if (gisLocationPinpointedItemProvider != null) gisLocationPinpointedItemProvider.dispose();
-		if (gisLocationToolItemProvider != null) gisLocationToolItemProvider.dispose();
 	}
 
 }

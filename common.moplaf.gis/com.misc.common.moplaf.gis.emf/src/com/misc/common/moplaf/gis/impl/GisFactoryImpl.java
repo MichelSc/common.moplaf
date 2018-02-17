@@ -63,21 +63,21 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GisPackage.GIS_ROUTES_HOLDER: return createGisRoutesHolder();
+			case GisPackage.GIS_LOCATION_TOOL: return createGisLocationTool();
+			case GisPackage.GIS_COORDINATES: return createGisCoordinates();
+			case GisPackage.GIS_ADDRESS_STRUCTURED: return createGisAddressStructured();
+			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: return createGisAddressUnstructured();
+			case GisPackage.GIS_ADDRESS_GEOCODED: return createGisAddressGeocoded();
 			case GisPackage.GIS_ROUTES_HOLDER_WAYPOINT: return createGisRoutesHolderWaypoint();
+			case GisPackage.GIS_ROUTES_HOLDER: return createGisRoutesHolder();
 			case GisPackage.GIS_ROUTES_HOLDER_FROM_LOCATION: return createGisRoutesHolderFromLocation();
 			case GisPackage.GIS_ROUTES_HOLDER_TO_LOCATION: return createGisRoutesHolderToLocation();
 			case GisPackage.GIS_ROUTES_HOLDER_ELEMENT: return createGisRoutesHolderElement();
 			case GisPackage.GIS_ROUTE_INFO: return createGisRouteInfo();
-			case GisPackage.GIS_ADDRESS_GEOCODED: return createGisAddressGeocoded();
-			case GisPackage.GIS_ADDRESS_STRUCTURED: return createGisAddressStructured();
-			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: return createGisAddressUnstructured();
 			case GisPackage.GIS_ROUTER_GEODESIC: return createGisRouterGeodesic();
 			case GisPackage.GIS_ROUTER_DEFAULTED: return createGisRouterDefaulted();
-			case GisPackage.GIS_COORDINATES: return createGisCoordinates();
 			case GisPackage.GIS_GEOMETRY: return createGisGeometry();
 			case GisPackage.GIS_LOCATION_PINPOINTED: return createGisLocationPinpointed();
-			case GisPackage.GIS_LOCATION_TOOL: return createGisLocationTool();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
