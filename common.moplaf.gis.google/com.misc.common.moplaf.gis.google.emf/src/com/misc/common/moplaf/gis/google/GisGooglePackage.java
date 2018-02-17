@@ -277,13 +277,13 @@ public interface GisGooglePackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER_GOOGLE_WS_FEATURE_COUNT = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Geocode</em>' operation.
+	 * The operation id for the '<em>Handle</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_GOOGLE_WS___GEOCODE__GISADDRESS = GisPackage.GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS;
+	int GIS_ADDRESS_GEOCODER_GOOGLE_WS___HANDLE__GISLOCATIONTOOL = GisPackage.GIS_ADDRESS_GEOCODER___HANDLE__GISLOCATIONTOOL;
 
 	/**
 	 * The number of operations of the '<em>Gis Address Geocoder Google WS</em>' class.

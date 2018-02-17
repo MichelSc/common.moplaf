@@ -2,15 +2,10 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
-import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
-import com.misc.common.moplaf.gis.GisLocation;
+import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisLocationPinpointer;
+import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
-import com.misc.common.moplaf.gis.Plugin;
-
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -40,36 +35,14 @@ public abstract class GisLocationPinpointerImpl extends GisToolLocationImpl impl
 		return GisPackage.Literals.GIS_LOCATION_PINPOINTER;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void pinpoint(GisLocation location) {
-		Plugin.INSTANCE.logInfo("GisLocationPinpointer.pinpoint called");
-		GisCoordinatesAbstract coordinates = location.getCoordinates();
-		if ( coordinates == null )  return;
-		location.getPinpointedLocations().clear();
-		this.pinpointImpl(coordinates);
-		Plugin.INSTANCE.logInfo("GisLocationPinpointer.pinpoint done");
+	@Override
+	protected void handleImpl(GisLocationTool location) {
+		assert location.getLocation() instanceof GisAddress;
+		this.pinpointImpl(location);
 	}
 	
-	protected void pinpointImpl(GisCoordinatesAbstract coodinates) {
+	protected void pinpointImpl(GisLocationTool location) {
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case GisPackage.GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION:
-				pinpoint((GisLocation)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //GisLocationPinpointerImpl

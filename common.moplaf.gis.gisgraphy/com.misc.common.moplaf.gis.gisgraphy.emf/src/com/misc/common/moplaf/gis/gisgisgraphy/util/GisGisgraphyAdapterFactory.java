@@ -4,6 +4,7 @@ package com.misc.common.moplaf.gis.gisgisgraphy.util;
 
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
 
+import com.misc.common.moplaf.gis.GisToolLocation;
 import com.misc.common.moplaf.gis.gisgisgraphy.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -74,6 +75,10 @@ public class GisGisgraphyAdapterFactory extends AdapterFactoryImpl {
 				return createGisAddressGeocoderGisgraphyAdapter();
 			}
 			@Override
+			public Adapter caseGisToolLocation(GisToolLocation object) {
+				return createGisToolLocationAdapter();
+			}
+			@Override
 			public Adapter caseGisAddressGeocoder(GisAddressGeocoder object) {
 				return createGisAddressGeocoderAdapter();
 			}
@@ -108,6 +113,20 @@ public class GisGisgraphyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisAddressGeocoderGisgraphyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisToolLocation <em>Tool Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisToolLocation
+	 * @generated
+	 */
+	public Adapter createGisToolLocationAdapter() {
 		return null;
 	}
 

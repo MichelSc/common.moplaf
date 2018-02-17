@@ -25,9 +25,11 @@ import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressStructured;
 import com.misc.common.moplaf.gis.GisAddressUnstructured;
 import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy;
 import com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage;
+import com.misc.common.moplaf.gis.gisgisgraphy.Protocol;
 import com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl;
 
 import org.apache.commons.lang.StringUtils;
@@ -64,7 +66,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final com.misc.common.moplaf.gis.gisgisgraphy.Protocol PROTOCOL_EDEFAULT = com.misc.common.moplaf.gis.gisgisgraphy.Protocol.HTTP;
+	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
 
 	/**
 	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
@@ -74,7 +76,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected com.misc.common.moplaf.gis.gisgisgraphy.Protocol protocol = PROTOCOL_EDEFAULT;
+	protected Protocol protocol = PROTOCOL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getHost() <em>Host</em>}' attribute.
@@ -160,7 +162,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public com.misc.common.moplaf.gis.gisgisgraphy.Protocol getProtocol() {
+	public Protocol getProtocol() {
 		return protocol;
 	}
 
@@ -169,8 +171,8 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtocol(com.misc.common.moplaf.gis.gisgisgraphy.Protocol newProtocol) {
-		com.misc.common.moplaf.gis.gisgisgraphy.Protocol oldProtocol = protocol;
+	public void setProtocol(Protocol newProtocol) {
+		Protocol oldProtocol = protocol;
 		protocol = newProtocol == null ? PROTOCOL_EDEFAULT : newProtocol;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL, oldProtocol, protocol));
@@ -268,7 +270,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
-				setProtocol((com.misc.common.moplaf.gis.gisgisgraphy.Protocol)newValue);
+				setProtocol((Protocol)newValue);
 				return;
 			case GisGisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
 				setHost((String)newValue);
@@ -350,7 +352,8 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	}
 
 	@Override
-	public void geocode(GisAddress address) {
+	public void geocodeImpl(GisLocationTool location) {
+		GisAddress address = (GisAddress) location.getLocation();
 		String feedback = "Ok";
 		// make the URL
 		HttpURLConnection connection = null;  
@@ -456,7 +459,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		}
 		//String responsestatus = (String)responseObject.get("status");
 		// indicates the response contains a valid result.
-    	address.flushGeocoded();
+    	location.flushResults();
 		JSONArray resultObjects = (JSONArray)responseObject.get("result");
 		for (int resultIndex = 0; resultIndex<resultObjects.size(); resultIndex++){
 	    	JSONObject resultObject = (JSONObject)resultObjects.get(resultIndex);
@@ -470,7 +473,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	    	newGeocoded.setAddressGeocoded(description);
 	    	newGeocoded.setLatitude(latitude);
 	    	newGeocoded.setLongitude(longitude);
-	    	address.getGeocodedAddresses().add(newGeocoded);
+	    	location.getResults().add(newGeocoded);
 		}
 	}
 } //GisAddressGeocoderGisgraphyImpl

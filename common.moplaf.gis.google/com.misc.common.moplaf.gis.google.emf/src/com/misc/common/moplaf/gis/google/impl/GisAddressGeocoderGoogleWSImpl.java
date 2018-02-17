@@ -7,6 +7,7 @@ import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressStructured;
 import com.misc.common.moplaf.gis.GisAddressUnstructured;
 import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.google.GisAddressGeocoderGoogleWS;
 import com.misc.common.moplaf.gis.google.GisGooglePackage;
@@ -398,7 +399,8 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	}
 
 	@Override
-	protected void geocodeImpl(GisAddress address) {
+	public void geocodeImpl(GisLocationTool location) {
+		GisAddress address = (GisAddress) location.getLocation();
 		String feedback = "Ok";
 	
 		// make the URL
@@ -503,7 +505,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		switch ( responsestatus){
 		case "OK" : 
 			// indicates the response contains a valid result.
-	    	address.flushGeocoded();
+	    	location.flushResults();
 			JSONArray resultObjects = (JSONArray)responseObject.get("results");
 			for (int resultIndex = 0; resultIndex<resultObjects.size(); resultIndex++){
 		    	JSONObject resultObject = (JSONObject)resultObjects.get(resultIndex);
@@ -516,7 +518,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		    	newGeocoded.setAddressGeocoded(formattedAddress);
 		    	newGeocoded.setLatitude((float)latitude);
 		    	newGeocoded.setLongitude((float)longitude);
-		    	address.getGeocodedAddresses().add(newGeocoded);
+		    	location.getResults().add(newGeocoded);
 			}
 	    	break;
 		case "ZERO_RESULTS":

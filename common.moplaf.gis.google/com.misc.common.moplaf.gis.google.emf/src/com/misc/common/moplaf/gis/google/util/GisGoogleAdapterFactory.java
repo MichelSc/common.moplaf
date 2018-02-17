@@ -7,6 +7,7 @@ import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany;
 import com.misc.common.moplaf.gis.GisRouter;
 
+import com.misc.common.moplaf.gis.GisToolLocation;
 import com.misc.common.moplaf.gis.google.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -91,6 +92,10 @@ public class GisGoogleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
 				return createGisRouteCalculatorManyToManyAdapter();
+			}
+			@Override
+			public Adapter caseGisToolLocation(GisToolLocation object) {
+				return createGisToolLocationAdapter();
 			}
 			@Override
 			public Adapter caseGisAddressGeocoder(GisAddressGeocoder object) {
@@ -183,6 +188,20 @@ public class GisGoogleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisRouteCalculatorManyToManyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisToolLocation <em>Tool Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisToolLocation
+	 * @generated
+	 */
+	public Adapter createGisToolLocationAdapter() {
 		return null;
 	}
 

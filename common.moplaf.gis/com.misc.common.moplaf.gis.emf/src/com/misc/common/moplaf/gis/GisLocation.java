@@ -97,7 +97,7 @@ public interface GisLocation extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void addTool(GisToolLocation tool);
+	GisLocationTool addTool(GisToolLocation tool);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +105,6 @@ public interface GisLocation extends EObject {
 	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
 	 * @generated
 	 */
-	EnabledFeedback addToolEnabled(GisToolLocation tool);
+	EnabledFeedback getAddToolFeedback(GisToolLocation tool);
 
 } // GisLocation

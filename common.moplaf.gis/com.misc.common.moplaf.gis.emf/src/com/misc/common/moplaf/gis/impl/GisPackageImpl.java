@@ -396,15 +396,6 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisLocationPinpointer__Pinpoint__GisLocation() {
-		return gisLocationPinpointerEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGisToolLocation() {
 		return gisToolLocationEClass;
 	}
@@ -1080,7 +1071,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisLocation__AddToolEnabled__GisToolLocation() {
+	public EOperation getGisLocation__GetAddToolFeedback__GisToolLocation() {
 		return gisLocationEClass.getEOperations().get(2);
 	}
 
@@ -1091,15 +1082,6 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EClass getGisAddressGeocoder() {
 		return gisAddressGeocoderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGisAddressGeocoder__Geocode__GisAddress() {
-		return gisAddressGeocoderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1422,10 +1404,9 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEReference(gisLocationEClass, GIS_LOCATION__TOOLS);
 		createEOperation(gisLocationEClass, GIS_LOCATION___GET_COORDINATES);
 		createEOperation(gisLocationEClass, GIS_LOCATION___ADD_TOOL__GISTOOLLOCATION);
-		createEOperation(gisLocationEClass, GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION);
+		createEOperation(gisLocationEClass, GIS_LOCATION___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION);
 
 		gisAddressGeocoderEClass = createEClass(GIS_ADDRESS_GEOCODER);
-		createEOperation(gisAddressGeocoderEClass, GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS);
 
 		gisRouteCalculatorEClass = createEClass(GIS_ROUTE_CALCULATOR);
 
@@ -1470,7 +1451,6 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisLocationPinpointedEClass, GIS_LOCATION_PINPOINTED__LOCATION_PINPOINTED);
 
 		gisLocationPinpointerEClass = createEClass(GIS_LOCATION_PINPOINTER);
-		createEOperation(gisLocationPinpointerEClass, GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION);
 
 		gisToolLocationEClass = createEClass(GIS_TOOL_LOCATION);
 		createEAttribute(gisToolLocationEClass, GIS_TOOL_LOCATION__NAME);
@@ -1652,16 +1632,13 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		initEOperation(getGisLocation__GetCoordinates(), this.getGisCoordinatesAbstract(), "getCoordinates", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getGisLocation__AddTool__GisToolLocation(), null, "addTool", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGisLocation__AddTool__GisToolLocation(), this.getGisLocationTool(), "addTool", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisToolLocation(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getGisLocation__AddToolEnabled__GisToolLocation(), theJobPackage.getEnabledFeedback(), "addToolEnabled", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGisLocation__GetAddToolFeedback__GisToolLocation(), theJobPackage.getEnabledFeedback(), "getAddToolFeedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisToolLocation(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisAddressGeocoderEClass, GisAddressGeocoder.class, "GisAddressGeocoder", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getGisAddressGeocoder__Geocode__GisAddress(), null, "geocode", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGisAddress(), "address", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisRouteCalculatorEClass, GisRouteCalculator.class, "GisRouteCalculator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1712,9 +1689,6 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEAttribute(getGisLocationPinpointed_LocationPinpointed(), ecorePackage.getEString(), "LocationPinpointed", null, 0, 1, GisLocationPinpointed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisLocationPinpointerEClass, GisLocationPinpointer.class, "GisLocationPinpointer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getGisLocationPinpointer__Pinpoint__GisLocation(), null, "pinpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisToolLocationEClass, GisToolLocation.class, "GisToolLocation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisToolLocation_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisToolLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

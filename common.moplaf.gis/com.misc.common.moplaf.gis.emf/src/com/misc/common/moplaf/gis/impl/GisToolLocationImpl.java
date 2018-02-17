@@ -5,6 +5,7 @@ package com.misc.common.moplaf.gis.impl;
 import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisToolLocation;
+import com.misc.common.moplaf.gis.Plugin;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -92,13 +93,19 @@ public abstract class GisToolLocationImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void handle(GisLocationTool location) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		if ( location == null )  return;
+		String handling = String.format("GisToolLocation %s handling %s", this.getName(), location.getLocation().getDescription());
+		Plugin.INSTANCE.logInfo(handling+": called");
+		this.handleImpl(location);
+		Plugin.INSTANCE.logInfo(handling+": done");
+	}
+
+	protected void handleImpl(GisLocationTool location) {
 		throw new UnsupportedOperationException();
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

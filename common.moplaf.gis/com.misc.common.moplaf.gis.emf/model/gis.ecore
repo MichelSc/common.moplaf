@@ -137,10 +137,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocation" abstract="true">
     <eOperations name="getCoordinates" eType="#//GisCoordinatesAbstract"/>
-    <eOperations name="addTool">
+    <eOperations name="addTool" eType="#//GisLocationTool">
       <eParameters name="tool" eType="#//GisToolLocation"/>
     </eOperations>
-    <eOperations name="addToolEnabled" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
+    <eOperations name="getAddToolFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
       <eParameters name="tool" eType="#//GisToolLocation"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -151,11 +151,7 @@
         eType="#//GisLocationTool" containment="true" eOpposite="#//GisLocationTool/Location"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder" abstract="true"
-      eSuperTypes="#//GisToolLocation">
-    <eOperations name="geocode">
-      <eParameters name="address" eType="#//GisAddress"/>
-    </eOperations>
-  </eClassifiers>
+      eSuperTypes="#//GisToolLocation"/>
   <eClassifiers xsi:type="ecore:EClass" name="GisRouteCalculator" abstract="true"
       eSuperTypes="#//GisRouter"/>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressStructured" eSuperTypes="#//GisAddress">
@@ -209,11 +205,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LocationPinpointed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocationPinpointer" abstract="true"
-      eSuperTypes="#//GisToolLocation">
-    <eOperations name="pinpoint">
-      <eParameters name="location" eType="#//GisLocation"/>
-    </eOperations>
-  </eClassifiers>
+      eSuperTypes="#//GisToolLocation"/>
   <eClassifiers xsi:type="ecore:EClass" name="GisToolLocation" abstract="true">
     <eOperations name="handle">
       <eParameters name="location" eType="#//GisLocationTool"/>

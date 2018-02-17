@@ -46,12 +46,12 @@ public interface GisAddressGeocoderGisgraphy extends GisAddressGeocoder {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Protocol</em>' attribute.
 	 * @see com.misc.common.moplaf.gis.gisgisgraphy.Protocol
-	 * @see #setProtocol(com.misc.common.moplaf.gis.gisgisgraphy.Protocol)
+	 * @see #setProtocol(Protocol)
 	 * @see com.misc.common.moplaf.gis.gisgisgraphy.GisGisgraphyPackage#getGisAddressGeocoderGisgraphy_Protocol()
 	 * @model default="http"
 	 * @generated
 	 */
-	com.misc.common.moplaf.gis.gisgisgraphy.Protocol getProtocol();
+	Protocol getProtocol();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.gisgisgraphy.GisAddressGeocoderGisgraphy#getProtocol <em>Protocol</em>}' attribute.
@@ -62,7 +62,7 @@ public interface GisAddressGeocoderGisgraphy extends GisAddressGeocoder {
 	 * @see #getProtocol()
 	 * @generated
 	 */
-	void setProtocol(com.misc.common.moplaf.gis.gisgisgraphy.Protocol value);
+	void setProtocol(Protocol value);
 
 	/**
 	 * Returns the value of the '<em><b>Port</b></em>' attribute.

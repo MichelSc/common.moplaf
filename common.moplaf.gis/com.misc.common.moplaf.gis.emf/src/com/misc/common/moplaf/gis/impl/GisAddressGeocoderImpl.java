@@ -14,12 +14,8 @@ package com.misc.common.moplaf.gis.impl;
 
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
+import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
-import com.misc.common.moplaf.gis.Plugin;
-
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -49,38 +45,16 @@ public abstract class GisAddressGeocoderImpl extends GisToolLocationImpl impleme
 		return GisPackage.Literals.GIS_ADDRESS_GEOCODER;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void geocode(GisAddress address) {
-		if ( address == null )  return;
-		address.setSelectedGeocodedLocation(null);
-		Plugin.INSTANCE.logInfo("GisGeocoder.geocode: called");
-		this.geocodeImpl(address);
-		if ( address.getGeocodedAddresses().size()>0 ) {
-			address.setSelectedGeocodedLocation(address.getGeocodedAddresses().get(0));
-		}
-		Plugin.INSTANCE.logInfo("GisGeocoder.geocode: done");
+	@Override
+	protected void handleImpl(GisLocationTool location) {
+		assert location.getLocation() instanceof GisAddress;
+		this.geocodeImpl(location);
 	}
 	
-	protected void geocodeImpl(GisAddress address) {
+	protected void geocodeImpl(GisLocationTool address) {
 		
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case GisPackage.GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS:
-				geocode((GisAddress)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
-	}
+	
+	
 
 } //GisAddressGeocoderImpl

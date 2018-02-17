@@ -7,6 +7,7 @@ import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.GisRouteCalculatorManyToMany;
 import com.misc.common.moplaf.gis.GisRouter;
 
+import com.misc.common.moplaf.gis.GisToolLocation;
 import com.misc.common.moplaf.gis.google.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -84,6 +85,7 @@ public class GisGoogleSwitch<T> extends Switch<T> {
 				GisAddressGeocoderGoogleWS gisAddressGeocoderGoogleWS = (GisAddressGeocoderGoogleWS)theEObject;
 				T result = caseGisAddressGeocoderGoogleWS(gisAddressGeocoderGoogleWS);
 				if (result == null) result = caseGisAddressGeocoder(gisAddressGeocoderGoogleWS);
+				if (result == null) result = caseGisToolLocation(gisAddressGeocoderGoogleWS);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,6 +165,21 @@ public class GisGoogleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisRouteCalculatorManyToMany(GisRouteCalculatorManyToMany object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tool Location</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tool Location</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisToolLocation(GisToolLocation object) {
 		return null;
 	}
 

@@ -4,6 +4,7 @@ package com.misc.common.moplaf.gis.gisgisgraphy.util;
 
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
 
+import com.misc.common.moplaf.gis.GisToolLocation;
 import com.misc.common.moplaf.gis.gisgisgraphy.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -72,6 +73,7 @@ public class GisGisgraphySwitch<T> extends Switch<T> {
 				GisAddressGeocoderGisgraphy gisAddressGeocoderGisgraphy = (GisAddressGeocoderGisgraphy)theEObject;
 				T result = caseGisAddressGeocoderGisgraphy(gisAddressGeocoderGisgraphy);
 				if (result == null) result = caseGisAddressGeocoder(gisAddressGeocoderGisgraphy);
+				if (result == null) result = caseGisToolLocation(gisAddressGeocoderGisgraphy);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -91,6 +93,21 @@ public class GisGisgraphySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisAddressGeocoderGisgraphy(GisAddressGeocoderGisgraphy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tool Location</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tool Location</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisToolLocation(GisToolLocation object) {
 		return null;
 	}
 

@@ -14,7 +14,9 @@ package com.misc.common.moplaf.gis.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
+import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
+import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
 
@@ -142,9 +144,21 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public GisLocationTool addTool(GisToolLocation tool) {
+		GisLocationTool location_tool = GisFactory.eINSTANCE.createGisLocationTool();
+		location_tool.setTool(tool);
+		this.getTools().add(location_tool);
+		return location_tool;
+	}
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void addTool(GisToolLocation tool) {
+	public EnabledFeedback getAddToolFeedback(GisToolLocation tool) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -153,12 +167,12 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback addToolEnabled(GisToolLocation tool) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( tool instanceof GisLocationPinpointer ) {
+			return EnabledFeedback.NOFEEDBACK;
+		}
+		return new EnabledFeedback(false, "Tool not supported "+tool.eClass().getName());
 	}
 
 	/**
@@ -269,10 +283,9 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 			case GisPackage.GIS_LOCATION___GET_COORDINATES:
 				return getCoordinates();
 			case GisPackage.GIS_LOCATION___ADD_TOOL__GISTOOLLOCATION:
-				addTool((GisToolLocation)arguments.get(0));
-				return null;
-			case GisPackage.GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION:
-				return addToolEnabled((GisToolLocation)arguments.get(0));
+				return addTool((GisToolLocation)arguments.get(0));
+			case GisPackage.GIS_LOCATION___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION:
+				return getAddToolFeedback((GisToolLocation)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

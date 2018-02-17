@@ -13,8 +13,6 @@
 package com.misc.common.moplaf.gis.provider;
 
 
-import com.misc.common.moplaf.common.EnabledFeedback;
-import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisPackage;
@@ -22,12 +20,9 @@ import com.misc.common.moplaf.gis.GisPackage;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -124,7 +119,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_GisAddress_selectedGeocodedLocation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_selectedGeocodedLocation_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__SELECTED_GEOCODED_LOCATION,
+				 GisPackage.Literals.GIS_ADDRESS__GEOCODED_SELECTED,
 				 true,
 				 false,
 				 true,
@@ -133,8 +128,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 null){
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
-						GisAddress address = (GisAddress) object;
-						EList<GisAddressGeocoded> geocodingCandidates = address.getGeocodedAddresses();
+						EList<GisAddressGeocoded> geocodingCandidates = null;
 						return geocodingCandidates;
 					}
 		});
@@ -209,40 +203,4 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
-	public class GisAddressRefreshCommand extends RefreshCommand{
-		private GisAddress address;
-		
-		// constructor
-		public GisAddressRefreshCommand(GisAddress anAddress)	{
-			super();
-			this.address = anAddress;
-		}
-
-		@Override
-		protected boolean prepare() {
-			boolean isExecutable = true;
-			EnabledFeedback feedback = this.address.getRefreshFeedback();
-			if ( !feedback.isEnabled() ) {
-				isExecutable = false;
-				this.setDescription(feedback.getFeedback());
-			}
-			return isExecutable;
-		}
-
-		@Override
-		public void execute() {
-			this.address.refreshGeocoded();
-		}
-	} // class TableGroupRefreshCommand
-
-	@Override
-	public Command createCommand(Object object, EditingDomain domain,
-			Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-		if ( commandClass == RefreshCommand.class){
-			return new GisAddressRefreshCommand((GisAddress) object); 
-		}
-
-		return super.createCommand(object, domain, commandClass, commandParameter);
-	} //method createCommand
 }

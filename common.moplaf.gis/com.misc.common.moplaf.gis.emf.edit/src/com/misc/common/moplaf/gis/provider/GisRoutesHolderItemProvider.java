@@ -233,11 +233,11 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 	}
 
 	/**
-	 * Create a drag and drop command for this Run
+	 * Create a drag and drop command for this GisRoutesHolder
 	 */
-	private class RunDragAndDropCommand extends DragAndDropCommand {
+	private class GisRoutesHolderDragAndDropCommand extends DragAndDropCommand {
 
-		public RunDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+		public GisRoutesHolderDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 				int operation, Collection<?> collection) {
 			super(domain, owner, location, operations, operation, collection);
 		}
@@ -269,7 +269,7 @@ public class GisRoutesHolderItemProvider extends GisRouterItemProvider {
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
-		return new RunDragAndDropCommand(domain, owner, location, operations, operation, collection);
+		return new GisRoutesHolderDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
 
 	

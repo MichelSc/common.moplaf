@@ -123,13 +123,13 @@ public interface GisGisgraphyPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER_GISGRAPHY_FEATURE_COUNT = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Geocode</em>' operation.
+	 * The operation id for the '<em>Handle</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_GISGRAPHY___GEOCODE__GISADDRESS = GisPackage.GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS;
+	int GIS_ADDRESS_GEOCODER_GISGRAPHY___HANDLE__GISLOCATIONTOOL = GisPackage.GIS_ADDRESS_GEOCODER___HANDLE__GISLOCATIONTOOL;
 
 	/**
 	 * The number of operations of the '<em>Gis Address Geocoder Gisgraphy</em>' class.

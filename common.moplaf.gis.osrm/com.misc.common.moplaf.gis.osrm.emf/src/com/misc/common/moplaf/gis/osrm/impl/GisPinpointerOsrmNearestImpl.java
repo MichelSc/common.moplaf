@@ -5,6 +5,7 @@ package com.misc.common.moplaf.gis.osrm.impl;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocationPinpointed;
+import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.impl.GisLocationPinpointerImpl;
 
@@ -318,7 +319,8 @@ public class GisPinpointerOsrmNearestImpl extends GisLocationPinpointerImpl impl
 	
 
 	@Override
-	protected void pinpointImpl(GisCoordinatesAbstract coordinate) {
+	protected void pinpointImpl(GisLocationTool location) {
+		GisCoordinatesAbstract coordinate = location.getLocation().getCoordinates();
 		String feedback = "ok";
 		Plugin.INSTANCE.logInfo("GisPinpointerOsrmNearest: called");
 		// make the URL
@@ -390,6 +392,7 @@ public class GisPinpointerOsrmNearestImpl extends GisLocationPinpointerImpl impl
 		Plugin.INSTANCE.logInfo("GisPinpointerOsrmNearest: code ="+response_code);
 		switch ( response_code ){
 		case "Ok" : 
+			location.flushResults();
 			// indicates the response contains a valid result.
 			JSONArray points = (JSONArray)responseObject.get("waypoints");
 			for (int point_index = 0; point_index<points.size(); point_index++) {
@@ -404,6 +407,7 @@ public class GisPinpointerOsrmNearestImpl extends GisLocationPinpointerImpl impl
 				pinpointed.setLatitude (latitude .doubleValue());
 				pinpointed.setLocationPinpointed(name);
 				pinpointed.setDistance(distance.doubleValue()/1000.0d); // convert m's to km's
+				location.getResults().add(pinpointed);
 			}  // traverse the routes
 			break;
 		default :

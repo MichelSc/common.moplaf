@@ -369,13 +369,13 @@ public interface GisOsrmPackage extends EPackage {
 	int GIS_PINPOINTER_OSRM_NEAREST_FEATURE_COUNT = GisPackage.GIS_LOCATION_PINPOINTER_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Pinpoint</em>' operation.
+	 * The operation id for the '<em>Handle</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_PINPOINTER_OSRM_NEAREST___PINPOINT__GISLOCATION = GisPackage.GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION;
+	int GIS_PINPOINTER_OSRM_NEAREST___HANDLE__GISLOCATIONTOOL = GisPackage.GIS_LOCATION_PINPOINTER___HANDLE__GISLOCATIONTOOL;
 
 	/**
 	 * The number of operations of the '<em>Gis Pinpointer Osrm Nearest</em>' class.

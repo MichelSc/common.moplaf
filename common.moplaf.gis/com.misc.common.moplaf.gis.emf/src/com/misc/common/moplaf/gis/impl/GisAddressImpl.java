@@ -15,13 +15,15 @@ package com.misc.common.moplaf.gis.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
+import com.misc.common.moplaf.gis.GisAddressGeocoder;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.GisToolLocation;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -167,15 +169,13 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__GEOCODED_SELECTED, oldGeocodedSelected, geocodedSelected));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EnabledFeedback getRefreshFeedback() {
-		if ( this.getGeocoder()==null ) {
-			return new EnabledFeedback(false, "No Geocoder");
+	@Override
+	public EnabledFeedback addToolEnabled(GisToolLocation tool) {
+		if ( tool instanceof GisAddressGeocoder ) {
+			return EnabledFeedback.NOFEEDBACK;
 		}
-		return EnabledFeedback.NOFEEDBACK;
+		EnabledFeedback enabled = super.addToolEnabled(tool);
+		return enabled;
 	}
 
 	/**
@@ -197,29 +197,6 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void refreshGeocoded() {
-		this.getGeocoder().geocode(this);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void geocode() {
-		if ( this.getGeocoder()==null){
-			return;
-		}
-		this.getGeocoder().geocode(this);
-		if ( this.getGeocodedAddresses().size()>0 ){
-			GisAddressGeocoded selected = this.getGeocodedAddresses().get(0);
-			this.setSelectedGeocodedLocation(selected);
-		}
 	}
 
 	public String getDescription() {
@@ -327,16 +304,8 @@ public abstract class GisAddressImpl extends GisLocationImpl implements GisAddre
 
 	@Override
 	public GisCoordinatesAbstract getCoordinates() {
-		return this.getSelectedGeocodedLocation();
+		return this.getGeocodedSelected();
 	}
-	
-	public void flushGeocoded(){
-		while (!this.getGeocodedAddresses().isEmpty() ){
-			EcoreUtil.delete(this.getGeocodedAddresses().get(0));
-		}
-		
-	}
-	
 	
 
 } //GisAddressImpl

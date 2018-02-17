@@ -3,6 +3,9 @@
 package com.misc.common.moplaf.gis.provider;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.DoCommand;
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
@@ -10,13 +13,15 @@ import com.misc.common.moplaf.gis.GisPackage;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -268,4 +273,57 @@ public class GisLocationToolItemProvider
 		return GisEditPlugin.INSTANCE;
 	}
 
+	public class GisLocationToolDoCommand extends DoCommand{
+		private GisLocationTool location;
+		
+		// constructor
+		public GisLocationToolDoCommand(GisLocationTool aLocation)	{
+			super();
+			this.location = aLocation;
+		}
+
+		@Override
+		protected boolean prepare() {
+			boolean isExecutable = true;
+			EnabledFeedback feedback = this.location.getDoToolFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.location.doTool();
+		}
+	} 
+
+	public class GisLocationToolFlushCommand extends FlushCommand{
+		private GisLocationTool location;
+		
+		// constructor
+		public GisLocationToolFlushCommand(GisLocationTool aLocation)	{
+			super();
+			this.location = aLocation;
+		}
+
+		@Override
+		public void execute() {
+			this.location.flushResults();
+		}
+	} 
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == DoCommand.class){
+			return new GisLocationToolDoCommand((GisLocationTool) object); 
+		} else 	if ( commandClass == FlushCommand.class){
+			return new GisLocationToolFlushCommand((GisLocationTool) object); 
+		}
+
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

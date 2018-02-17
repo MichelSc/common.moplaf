@@ -23,12 +23,5 @@ package com.misc.common.moplaf.gis;
  * @generated
  */
 public interface GisAddressGeocoder extends GisToolLocation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void geocode(GisAddress address);
 
 } // GisAddressGeocoder

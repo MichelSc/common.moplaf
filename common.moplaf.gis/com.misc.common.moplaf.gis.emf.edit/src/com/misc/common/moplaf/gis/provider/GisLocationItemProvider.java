@@ -17,17 +17,22 @@ import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gis.GisToolLocation;
 import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -263,4 +268,43 @@ public class GisLocationItemProvider
 		return this.getImage(element_as_location);
 	}
 
+	/**
+	 * Create a drag and drop command for this GisLocation
+	 */
+	private class GisLocationDragAndDropCommand extends DragAndDropCommand {
+
+		public GisLocationDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			GisLocation this_location = (GisLocation) owner;
+			for (Object element : collection){
+				if ( element instanceof GisToolLocation){
+					compound.append(new GisLocationAddToolCommand(this_location, (GisToolLocation)element));
+				}
+				else {
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new GisLocationDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
 }

@@ -13,12 +13,5 @@ package com.misc.common.moplaf.gis;
  * @generated
  */
 public interface GisLocationPinpointer extends GisToolLocation {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void pinpoint(GisLocation location);
 
 } // GisLocationPinpointer

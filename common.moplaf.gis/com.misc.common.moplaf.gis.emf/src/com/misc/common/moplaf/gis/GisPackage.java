@@ -132,13 +132,13 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION___ADD_TOOL__GISTOOLLOCATION = 1;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION = 2;
+	int GIS_LOCATION___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = 2;
 
 	/**
 	 * The number of operations of the '<em>Location</em>' class.
@@ -232,13 +232,13 @@ public interface GisPackage extends EPackage {
 	int GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION = GIS_LOCATION___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES_ABSTRACT___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_LOCATION___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Coordinates Abstract</em>' class.
@@ -383,13 +383,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS___ADD_TOOL__GISTOOLLOCATION = GIS_LOCATION___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_ADDRESS___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_LOCATION___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Address</em>' class.
@@ -1210,13 +1210,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODED___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODED___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_ADDRESS_GEOCODED___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Address Geocoded</em>' class.
@@ -1421,22 +1421,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
 
 	/**
-	 * The operation id for the '<em>Geocode</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Address Geocoder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 1;
+	int GIS_ADDRESS_GEOCODER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1628,13 +1619,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED___ADD_TOOL__GISTOOLLOCATION = GIS_ADDRESS___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_ADDRESS___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_ADDRESS_STRUCTURED___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_ADDRESS___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Address Structured</em>' class.
@@ -1736,13 +1727,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_UNSTRUCTURED___ADD_TOOL__GISTOOLLOCATION = GIS_ADDRESS___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_UNSTRUCTURED___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_ADDRESS___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_ADDRESS_UNSTRUCTURED___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_ADDRESS___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Address Unstructured</em>' class.
@@ -2141,13 +2132,13 @@ public interface GisPackage extends EPackage {
 	int GIS_COORDINATES___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_COORDINATES___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_COORDINATES___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Coordinates</em>' class.
@@ -2231,13 +2222,13 @@ public interface GisPackage extends EPackage {
 	int GIS_GEOMETRY___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_GEOMETRY___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_GEOMETRY___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Geometry</em>' class.
@@ -2339,13 +2330,13 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION_PINPOINTED___ADD_TOOL__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL__GISTOOLLOCATION;
 
 	/**
-	 * The operation id for the '<em>Add Tool Enabled</em>' operation.
+	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_PINPOINTED___ADD_TOOL_ENABLED__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___ADD_TOOL_ENABLED__GISTOOLLOCATION;
+	int GIS_LOCATION_PINPOINTED___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GIS_COORDINATES_ABSTRACT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION;
 
 	/**
 	 * The number of operations of the '<em>Location Pinpointed</em>' class.
@@ -2384,22 +2375,13 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION_PINPOINTER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
 
 	/**
-	 * The operation id for the '<em>Pinpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Location Pinpointer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_PINPOINTER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 1;
+	int GIS_LOCATION_PINPOINTER_OPERATION_COUNT = GIS_TOOL_LOCATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl <em>Location Tool</em>}' class.
@@ -2564,16 +2546,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisLocationPinpointer();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocationPinpointer#pinpoint(com.misc.common.moplaf.gis.GisLocation) <em>Pinpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Pinpoint</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisLocationPinpointer#pinpoint(com.misc.common.moplaf.gis.GisLocation)
-	 * @generated
-	 */
-	EOperation getGisLocationPinpointer__Pinpoint__GisLocation();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisToolLocation <em>Tool Location</em>}'.
@@ -3363,14 +3335,14 @@ public interface GisPackage extends EPackage {
 	EOperation getGisLocation__AddTool__GisToolLocation();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocation#addToolEnabled(com.misc.common.moplaf.gis.GisToolLocation) <em>Add Tool Enabled</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocation#getAddToolFeedback(com.misc.common.moplaf.gis.GisToolLocation) <em>Get Add Tool Feedback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Tool Enabled</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisLocation#addToolEnabled(com.misc.common.moplaf.gis.GisToolLocation)
+	 * @return the meta object for the '<em>Get Add Tool Feedback</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisLocation#getAddToolFeedback(com.misc.common.moplaf.gis.GisToolLocation)
 	 * @generated
 	 */
-	EOperation getGisLocation__AddToolEnabled__GisToolLocation();
+	EOperation getGisLocation__GetAddToolFeedback__GisToolLocation();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddressGeocoder <em>Address Geocoder</em>}'.
@@ -3381,16 +3353,6 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisAddressGeocoder();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddressGeocoder#geocode(com.misc.common.moplaf.gis.GisAddress) <em>Geocode</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Geocode</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisAddressGeocoder#geocode(com.misc.common.moplaf.gis.GisAddress)
-	 * @generated
-	 */
-	EOperation getGisAddressGeocoder__Geocode__GisAddress();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisRouteCalculator <em>Route Calculator</em>}'.
@@ -3757,14 +3719,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_LOCATION_PINPOINTER = eINSTANCE.getGisLocationPinpointer();
-
-		/**
-		 * The meta object literal for the '<em><b>Pinpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GIS_LOCATION_PINPOINTER___PINPOINT__GISLOCATION = eINSTANCE.getGisLocationPinpointer__Pinpoint__GisLocation();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisToolLocationImpl <em>Tool Location</em>}' class.
@@ -4389,12 +4343,12 @@ public interface GisPackage extends EPackage {
 		EOperation GIS_LOCATION___ADD_TOOL__GISTOOLLOCATION = eINSTANCE.getGisLocation__AddTool__GisToolLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Tool Enabled</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Add Tool Feedback</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_LOCATION___ADD_TOOL_ENABLED__GISTOOLLOCATION = eINSTANCE.getGisLocation__AddToolEnabled__GisToolLocation();
+		EOperation GIS_LOCATION___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = eINSTANCE.getGisLocation__GetAddToolFeedback__GisToolLocation();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl <em>Address Geocoder</em>}' class.
@@ -4405,14 +4359,6 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_ADDRESS_GEOCODER = eINSTANCE.getGisAddressGeocoder();
-
-		/**
-		 * The meta object literal for the '<em><b>Geocode</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS = eINSTANCE.getGisAddressGeocoder__Geocode__GisAddress();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisRouteCalculatorImpl <em>Route Calculator</em>}' class.

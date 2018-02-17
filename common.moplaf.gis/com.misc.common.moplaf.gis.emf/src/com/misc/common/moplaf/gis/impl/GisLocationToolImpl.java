@@ -230,14 +230,14 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback getDoToolFeedback() {
-		// TODO: implement this method to return the 'Do Tool Feedback' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( this.getTool()==null ) {
+			return new EnabledFeedback(false, "No Tool");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
-
+		
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,12 +252,9 @@ public class GisLocationToolImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void flushResults() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.getResults().clear();
 	}
 
 	/**
