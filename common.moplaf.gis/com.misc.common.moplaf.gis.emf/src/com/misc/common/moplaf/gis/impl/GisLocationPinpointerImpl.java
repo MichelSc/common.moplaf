@@ -37,7 +37,7 @@ public abstract class GisLocationPinpointerImpl extends GisToolLocationImpl impl
 
 	@Override
 	protected void handleImpl(GisLocationTool location) {
-		assert location.getLocation() instanceof GisAddress;
+		location.flushResults();
 		this.pinpointImpl(location);
 	}
 	

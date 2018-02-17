@@ -47,7 +47,12 @@ public abstract class GisAddressGeocoderImpl extends GisToolLocationImpl impleme
 
 	@Override
 	protected void handleImpl(GisLocationTool location) {
+		
 		assert location.getLocation() instanceof GisAddress;
+		GisAddress address = (GisAddress) location.getLocation();
+		address.setGeocodedSelected(null);
+		location.flushResults();
+		
 		this.geocodeImpl(location);
 	}
 	

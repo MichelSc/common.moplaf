@@ -392,7 +392,6 @@ public class GisPinpointerOsrmNearestImpl extends GisLocationPinpointerImpl impl
 		Plugin.INSTANCE.logInfo("GisPinpointerOsrmNearest: code ="+response_code);
 		switch ( response_code ){
 		case "Ok" : 
-			location.flushResults();
 			// indicates the response contains a valid result.
 			JSONArray points = (JSONArray)responseObject.get("waypoints");
 			for (int point_index = 0; point_index<points.size(); point_index++) {

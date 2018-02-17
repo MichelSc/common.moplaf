@@ -399,7 +399,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	}
 
 	@Override
-	public void geocodeImpl(GisLocationTool location) {
+	protected void geocodeImpl(GisLocationTool location) {
 		GisAddress address = (GisAddress) location.getLocation();
 		String feedback = "Ok";
 	
@@ -505,7 +505,6 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		switch ( responsestatus){
 		case "OK" : 
 			// indicates the response contains a valid result.
-	    	location.flushResults();
 			JSONArray resultObjects = (JSONArray)responseObject.get("results");
 			for (int resultIndex = 0; resultIndex<resultObjects.size(); resultIndex++){
 		    	JSONObject resultObject = (JSONObject)resultObjects.get(resultIndex);

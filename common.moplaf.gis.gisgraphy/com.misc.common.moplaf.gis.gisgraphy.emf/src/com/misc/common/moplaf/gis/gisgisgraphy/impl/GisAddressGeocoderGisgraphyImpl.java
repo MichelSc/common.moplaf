@@ -352,7 +352,7 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	}
 
 	@Override
-	public void geocodeImpl(GisLocationTool location) {
+	protected void geocodeImpl(GisLocationTool location) {
 		GisAddress address = (GisAddress) location.getLocation();
 		String feedback = "Ok";
 		// make the URL
@@ -459,7 +459,6 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		}
 		//String responsestatus = (String)responseObject.get("status");
 		// indicates the response contains a valid result.
-    	location.flushResults();
 		JSONArray resultObjects = (JSONArray)responseObject.get("result");
 		for (int resultIndex = 0; resultIndex<resultObjects.size(); resultIndex++){
 	    	JSONObject resultObject = (JSONObject)resultObjects.get(resultIndex);
