@@ -159,7 +159,7 @@ public class GisPinpointerOsrmNearestImpl extends GisLocationPinpointerImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_PINPOINTS_EDEFAULT = 0;
+	protected static final int MAX_PINPOINTS_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getMaxPinpoints() <em>Max Pinpoints</em>}' attribute.

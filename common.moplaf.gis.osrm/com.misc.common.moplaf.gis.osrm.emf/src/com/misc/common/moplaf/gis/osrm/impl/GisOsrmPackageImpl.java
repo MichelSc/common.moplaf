@@ -439,7 +439,7 @@ public class GisOsrmPackageImpl extends EPackageImpl implements GisOsrmPackage {
 		initEAttribute(getGisPinpointerOsrmNearest_Port(), ecorePackage.getEInt(), "Port", "443", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisPinpointerOsrmNearest_Path(), ecorePackage.getEString(), "Path", "/nearest/v1", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisPinpointerOsrmNearest_Profile(), ecorePackage.getEString(), "Profile", "driving", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisPinpointerOsrmNearest_MaxPinpoints(), ecorePackage.getEInt(), "MaxPinpoints", null, 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisPinpointerOsrmNearest_MaxPinpoints(), ecorePackage.getEInt(), "MaxPinpoints", "1", 0, 1, GisPinpointerOsrmNearest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(protocolEEnum, Protocol.class, "Protocol");

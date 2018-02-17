@@ -20,9 +20,11 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
+import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisRouteCalculator;
 import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.util.GeocoderFactory;
+import com.misc.common.moplaf.gis.util.PinpointerFactory;
 import com.misc.common.moplaf.gis.util.RouterFactory;
 
 
@@ -43,7 +45,7 @@ public class Util {
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
-				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.provider.Util.collectNewChildGeocoderDescriptors exception caught "+e.getMessage());
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.gis.provider.Util.collectNewChildGeocoderDescriptors exception caught "+e.getMessage());
 			}
 		}
 	}  // method collectNewChildGeocoderDescriptors2
@@ -63,8 +65,28 @@ public class Util {
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
-				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.provider.Util.collectNewChildRouterDescriptors exception caught "+e.getMessage());
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.gis.provider.Util.collectNewChildRouterDescriptors exception caught "+e.getMessage());
 			}
 		}
 	}  // method collectNewChildRouterDescriptors2
+
+	public static void collectNewChildPinpointerDescriptors2(Collection<Object> newChildDescriptors, Object object, EStructuralFeature feature) {
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.gis.emf.pinpointer_factory");
+		for ( IConfigurationElement element : elements){
+			Object value;
+			try {
+				value = element.createExecutableExtension("class");
+				if ( value instanceof PinpointerFactory) {
+					 GisLocationPinpointer pinpointer = ((PinpointerFactory)value).createPinpointer();
+					if ( pinpointer!=null){
+						newChildDescriptors.add(new CommandParameter(null, feature, pinpointer));
+					}
+				}
+			} catch (CoreException e) {
+				e.printStackTrace();
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.gis.provider.Util.collectNewChildPinpointerDescriptors2 exception caught "+e.getMessage());
+			}
+		}
+	}  // method collectNewChildPinpointerDescriptors2
 }

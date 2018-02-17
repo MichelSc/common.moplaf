@@ -166,6 +166,7 @@ public interface GisPinpointerOsrmNearest extends GisLocationPinpointer {
 
 	/**
 	 * Returns the value of the '<em><b>Max Pinpoints</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Max Pinpoints</em>' attribute isn't clear,
@@ -175,7 +176,7 @@ public interface GisPinpointerOsrmNearest extends GisLocationPinpointer {
 	 * @return the value of the '<em>Max Pinpoints</em>' attribute.
 	 * @see #setMaxPinpoints(int)
 	 * @see com.misc.common.moplaf.gis.osrm.GisOsrmPackage#getGisPinpointerOsrmNearest_MaxPinpoints()
-	 * @model
+	 * @model default="1"
 	 * @generated
 	 */
 	int getMaxPinpoints();

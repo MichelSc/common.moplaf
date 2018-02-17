@@ -33,5 +33,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisDistanceMatrixCalculatorOsrmManyToMany/Path"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisDistanceMatrixCalculatorOsrmManyToMany/Profile"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="gisosrm.ecore#//GisPinpointerOsrmNearest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisPinpointerOsrmNearest/Protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisPinpointerOsrmNearest/Host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisPinpointerOsrmNearest/Port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisPinpointerOsrmNearest/Path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisPinpointerOsrmNearest/Profile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisosrm.ecore#//GisPinpointerOsrmNearest/MaxPinpoints"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

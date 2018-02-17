@@ -22,5 +22,11 @@
             class="com.misc.common.moplaf.gis.osrm.util.OsrmRouterNNFactory">
       </factory>
    </extension>
+  <extension
+        point="com.misc.common.moplaf.gis.emf.pinpointer_factory">
+     <factory
+           class="com.misc.common.moplaf.gis.osrm.util.OsrmPinpointerFactory">
+     </factory>
+  </extension>
 
 </plugin>

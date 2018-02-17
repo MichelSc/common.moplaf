@@ -13,5 +13,5 @@ package com.misc.common.moplaf.gis.util;
 import com.misc.common.moplaf.gis.GisLocationPinpointer;
 
 public interface PinpointerFactory {
-	public GisLocationPinpointer createGeocoder();
+	public GisLocationPinpointer createPinpointer();
 }
