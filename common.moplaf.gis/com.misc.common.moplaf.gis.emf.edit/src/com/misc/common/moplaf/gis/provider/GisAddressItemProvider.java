@@ -14,15 +14,16 @@ package com.misc.common.moplaf.gis.provider;
 
 
 import com.misc.common.moplaf.gis.GisAddress;
-import com.misc.common.moplaf.gis.GisAddressGeocoded;
+import com.misc.common.moplaf.gis.GisAddressGeocoder;
+import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -49,7 +50,6 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -58,7 +58,8 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 
 			addNamePropertyDescriptor(object);
 			addCountryCodePropertyDescriptor(object);
-			addGeocodedSelectedPropertyDescriptor(object);
+//			addGeocodedSelectedPropertyDescriptor(object);
+			addSelectedGeocodedLocationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -128,8 +129,15 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 null){
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
-						EList<GisAddressGeocoded> geocodingCandidates = null;
-						return geocodingCandidates;
+						GisAddress this_address = (GisAddress) object;
+						
+						List<GisLocation> to_select_locations = this_address
+								.getTools().stream() 
+								.filter(t -> t.getTool() instanceof GisAddressGeocoder )
+								.flatMap(t -> t.getResults().stream())
+								.collect(Collectors.toList());
+						
+						return to_select_locations;
 					}
 		});
 	}

@@ -8,7 +8,7 @@ Bundle-ClassPath: .,
 Bundle-Activator: com.misc.common.moplaf.gis.Plugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.misc.common.moplaf.gis,
  com.misc.common.moplaf.gis.impl,
  com.misc.common.moplaf.gis.util,
