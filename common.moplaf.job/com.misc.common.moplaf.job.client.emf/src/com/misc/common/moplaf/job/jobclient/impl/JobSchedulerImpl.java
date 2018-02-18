@@ -777,9 +777,11 @@ return description;
 
 	private void refreshScheduledJobStatus() {
 		for ( JobScheduled job : this.getJobs()) {
-			JobEngine engine = job.getScheduledOn();
-			if ( engine!=null) {
-				engine.refreshJobStatus(job);;
+			if ( !job.isReturned()) {
+				JobEngine engine = job.getScheduledOn();
+				if ( engine!=null) {
+					engine.refreshJobStatus(job);;
+				}
 			}
 		}
 	}

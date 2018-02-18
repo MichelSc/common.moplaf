@@ -15,12 +15,16 @@ package com.misc.common.moplaf.job.jobxmlrpc.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import com.misc.common.moplaf.job.jobxmlrpc.util.Util;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,7 +34,9 @@ import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -355,6 +361,21 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	    return status;
 	}
 	
+	private String callGetResult(int executeNr) {
+		String result = "";
+	    Object[] params = new Object[]{executeNr};
+    	Object resultAsObject = this.call("handlejob.getJobResult", params);
+	    if ( resultAsObject instanceof String ) {
+	    	result = (String)resultAsObject; 
+			Plugin.INSTANCE.logInfo(String.format("JobEngineClient.getJobResult, result %s", result));
+	    } else if ( resultAsObject == null ){
+	    	Plugin.INSTANCE.logError(String.format("JobEngineClient.getJobResult, no value returned"));
+	    } else {
+	    	Plugin.INSTANCE.logError(String.format("JobEngineClient.getJobResult, unexpected value returned %s ", resultAsObject.getClass().getName()));
+	    }
+	    return result;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +387,14 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			switch (status) {
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
+				String result = this.callGetResult(job.getExecuteNr());
+				InputStream inputStream = new ByteArrayInputStream(result.getBytes());
+				EObject result_as_object = Util.deserialize(inputStream);
+				if ( result_as_object instanceof Run ) {
+					Run result_run = (Run) result_as_object;
+					EcoreUtil.replace(job.getRun(), result_run);
+					job.setRun(result_run);
+				}
 				break;
 			case FAILLED:
 				job.setReturn(ReturnFeedback.FAILURE);

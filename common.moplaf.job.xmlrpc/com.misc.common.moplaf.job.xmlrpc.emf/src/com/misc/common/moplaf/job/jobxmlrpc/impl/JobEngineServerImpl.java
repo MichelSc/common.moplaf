@@ -27,6 +27,7 @@ import com.misc.common.moplaf.job.jobxmlrpc.util.Util;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.XmlRpcRequest;
@@ -340,12 +341,8 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		@Override
 		public int getJobStatus(int jobExecuteNr) {
 			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatuts: jobExecutenr= %d", jobExecuteNr));
-			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
-			JobScheduled job = jobEngineServer.getJobsScheduled()
-					.stream()
-					.filter(j -> j.getExecuteNr()==jobExecuteNr)
-					.findFirst()
-					.orElse(null);
+			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
+			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 			if ( job == null ) {
 				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatuts: jobExecutenr= %d, job not found", jobExecuteNr));
 				return JobStatus.UNKNOWN_VALUE;
@@ -358,10 +355,32 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 
 		@Override
 		public String getJobResult(int jobExecuteNr) {
-			throw new UnsupportedOperationException();
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d", jobExecuteNr));
+			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
+			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
+			if ( job == null ) {
+				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
+				return "";
+			}
+		    StringWriter stringWriter = new StringWriter();
+		    boolean serialized = Util.serialize(job.getRun(), stringWriter);
+			if ( !serialized ) {
+				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: result not serialized"));
+				return "";
+			}
+		    String jobAsString = stringWriter.toString();
+		    return jobAsString;
 		}
 	};
 
+	protected JobScheduled getJobScheduled(int job_execute_nr) {
+		JobScheduled job = this.getJobsScheduled()
+				.stream()
+				.filter(j -> j.getExecuteNr()==job_execute_nr)
+				.findFirst()
+				.orElse(null);
+		return job;
+	}
 
 	/**
 	 * Specified by JobSource
@@ -431,7 +450,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	public void onJobReturned(JobScheduled job, ReturnFeedback feedback) {
 		super.onJobReturned(job, feedback);
 		Plugin.INSTANCE.logInfo("JobEngineServer.onJobReturned: called");
-		job.setRun(null); // release the run, as it is contained in no resource
+		//job.setRun(null); // release the run, as it is contained in no resource
 	}
 	
 	
