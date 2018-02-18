@@ -20,6 +20,7 @@ import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
+import com.misc.common.moplaf.job.jobxmlrpc.util.Util;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -30,15 +31,23 @@ import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.XMLSave;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -309,27 +318,13 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	protected int executeJobImpl(JobScheduled job) {
-	    
-		// the job
-	    // create resourceFactory, resourceSet
-	    XMLResourceFactoryImpl rf = new XMLResourceFactoryImpl(); 
-	    ResourceSet            rs = new ResourceSetImpl();
-	    rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", rf);
-	    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
-	    XMLResource resource = (XMLResource)rs.createResource(uri);
-	    EObject copyJob = EcoreUtil.copy(job.getRun());
-	    resource.getContents().add(copyJob);
+	    int executeNr = -1;
 	    StringWriter stringWriter = new StringWriter();
-	    try {
-			resource.save(stringWriter, null);
-		} catch (IOException e) {
-			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, serialize "+ e.getMessage());
+	    boolean serialized = Util.serialize(job.getRun(), stringWriter);
+		if ( serialized ) {
+		    String jobAsString = stringWriter.toString();
+		    executeNr = this.callHandleJobRunJob(jobAsString);
 		}
-	    
-	    // to the call
-	    String jobAsString = stringWriter.toString();
-	    int executeNr = this.callHandleJobRunJob(jobAsString);
-	    
 		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
 		return executeNr;
 	}

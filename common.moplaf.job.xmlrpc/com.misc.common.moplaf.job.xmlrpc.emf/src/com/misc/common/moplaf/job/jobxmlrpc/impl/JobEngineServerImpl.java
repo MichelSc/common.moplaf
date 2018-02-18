@@ -22,9 +22,12 @@ import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
+import com.misc.common.moplaf.job.jobxmlrpc.util.Util;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.XmlRpcRequest;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
@@ -35,12 +38,9 @@ import org.apache.xmlrpc.webserver.WebServer;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
-
 
 
 /**
@@ -311,39 +311,24 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 
 			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 			JobScheduler scheduler = jobEngineServer.getScheduler();
-			
+
 			InputStream inputStream = new ByteArrayInputStream(jobAsString.getBytes());
-		    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
-		    XMLResource resource = new XMLResourceImpl(uri);
-		    try {
-		    	resource.load(inputStream, null);
-			} catch (IOException e) {
-				Plugin.INSTANCE.logError("ServerCallInterface.runJob: exception in load: "+e.getMessage());
-				return -1;
-			}
+	    	EList<EObject> objects = new BasicEList<EObject>();
+	    	boolean deserialized = Util.deserialize(objects, inputStream);
 
 		    int result =-1;
-		    try {
-			    // get the jogs
-		    	EList<Run> jobs = new BasicEList<Run>();
-				for (Object object : resource.getContents()){
+		    if ( deserialized ) {
+				for (EObject object : objects){
 			    	if ( object instanceof Run) {
 			    		Run job = (Run) object;
-			    		jobs.add(job);
 			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job received");
+			    		JobScheduled submittedJob = scheduler.submitRun(job);
+			    		result = submittedJob.getScheduleNr();
+						jobEngineServer.getJobsScheduled().add(submittedJob);
+			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
 			    	}
 				}
-			    // add the jobs
-				for ( Run job : jobs){
-		    		JobScheduled submittedJob = scheduler.submitRun(job);
-		    		result = submittedJob.getScheduleNr();
-					jobEngineServer.getJobsScheduled().add(submittedJob);
-		    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
-				}
 		    }
-			catch (Exception e) {
-				Plugin.INSTANCE.logError("ServerCallInterface.runJob: exception "+e.getMessage());
-			}
 			
 			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: call done ");
 			return result;
