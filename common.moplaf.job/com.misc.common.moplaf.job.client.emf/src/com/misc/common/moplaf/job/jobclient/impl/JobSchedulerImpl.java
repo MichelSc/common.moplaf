@@ -759,6 +759,22 @@ return description;
 	    }
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public JobScheduled submitRun(Run run, boolean takes_ownership) {
+		JobScheduled job = JobClientFactory.eINSTANCE.createJobScheduled();
+		this.getJobs().add(job);
+		job.setRun(run);
+		job.setSubmissionTime(new Date());
+		job.setScheduleNr(this.makeNewScheduleNr());
+		if ( takes_ownership) {
+			job.setOwnedRun(run);
+		}
+		return job;
+	}
+
 	private void refreshScheduledJobStatus() {
 		for ( JobScheduled job : this.getJobs()) {
 			JobEngine engine = job.getScheduledOn();
@@ -786,19 +802,6 @@ return description;
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public JobScheduled submitRun(Run run) {
-		JobScheduled job = JobClientFactory.eINSTANCE.createJobScheduled();
-		this.getJobs().add(job);
-		job.setRun(run);
-		job.setSubmissionTime(new Date());
-		job.setScheduleNr(this.makeNewScheduleNr());
-		return job;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public void setLastFeedback() {
 		this.setLastFeedback(new Date());
 	}
@@ -811,6 +814,18 @@ return description;
 		int new_nr = this.getCurrentScheduleNr()+1;
 		this.setCurrentScheduleNr(new_nr);
 		return new_nr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void flush() {
+		for ( JobScheduled scheduled : this.getJobs()) {
+			scheduled.setSource(null);
+			scheduled.setScheduledOn(null);
+		}
+		this.getJobs().clear();
 	}
 
 	/**
@@ -1038,13 +1053,16 @@ return description;
 			case JobClientPackage.JOB_SCHEDULER___REFRESH:
 				refresh();
 				return null;
-			case JobClientPackage.JOB_SCHEDULER___SUBMIT_RUN__RUN:
-				return submitRun((Run)arguments.get(0));
+			case JobClientPackage.JOB_SCHEDULER___SUBMIT_RUN__RUN_BOOLEAN:
+				return submitRun((Run)arguments.get(0), (Boolean)arguments.get(1));
 			case JobClientPackage.JOB_SCHEDULER___SET_LAST_FEEDBACK:
 				setLastFeedback();
 				return null;
 			case JobClientPackage.JOB_SCHEDULER___MAKE_NEW_SCHEDULE_NR:
 				return makeNewScheduleNr();
+			case JobClientPackage.JOB_SCHEDULER___FLUSH:
+				flush();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

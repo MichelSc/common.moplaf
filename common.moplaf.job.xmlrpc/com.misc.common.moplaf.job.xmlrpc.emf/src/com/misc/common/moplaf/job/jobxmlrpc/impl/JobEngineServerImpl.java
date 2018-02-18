@@ -322,7 +322,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			    	if ( object instanceof Run) {
 			    		Run job = (Run) object;
 			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job received");
-			    		JobScheduled submittedJob = scheduler.submitRun(job);
+			    		JobScheduled submittedJob = scheduler.submitRun(job, true);  // takes ownership
 			    		result = submittedJob.getScheduleNr();
 						jobEngineServer.getJobsScheduled().add(submittedJob);
 			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");

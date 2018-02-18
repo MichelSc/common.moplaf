@@ -363,7 +363,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJobScheduler__SubmitRun__Run() {
+	public EOperation getJobScheduler__SubmitRun__Run_boolean() {
 		return jobSchedulerEClass.getEOperations().get(3);
 	}
 
@@ -383,6 +383,15 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 */
 	public EOperation getJobScheduler__MakeNewScheduleNr() {
 		return jobSchedulerEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJobScheduler__Flush() {
+		return jobSchedulerEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -527,6 +536,15 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 */
 	public EAttribute getJobScheduled_ExecuteNr() {
 		return (EAttribute)jobScheduledEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobScheduled_OwnedRun() {
+		return (EReference)jobScheduledEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -852,9 +870,10 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___START);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___STOP);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___REFRESH);
-		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___SUBMIT_RUN__RUN);
+		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___SUBMIT_RUN__RUN_BOOLEAN);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___SET_LAST_FEEDBACK);
 		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___MAKE_NEW_SCHEDULE_NR);
+		createEOperation(jobSchedulerEClass, JOB_SCHEDULER___FLUSH);
 
 		jobScheduledEClass = createEClass(JOB_SCHEDULED);
 		createEReference(jobScheduledEClass, JOB_SCHEDULED__RUN);
@@ -877,6 +896,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEAttribute(jobScheduledEClass, JOB_SCHEDULED__SCHEDULE_NR);
 		createEReference(jobScheduledEClass, JOB_SCHEDULED__SOURCE);
 		createEAttribute(jobScheduledEClass, JOB_SCHEDULED__EXECUTE_NR);
+		createEReference(jobScheduledEClass, JOB_SCHEDULED__OWNED_RUN);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___CANCEL);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___SET_RUNNING);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___SET_RETURN__RETURNFEEDBACK);
@@ -974,12 +994,15 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 
 		initEOperation(getJobScheduler__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getJobScheduler__SubmitRun__Run(), this.getJobScheduled(), "submitRun", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getJobScheduler__SubmitRun__Run_boolean(), this.getJobScheduled(), "submitRun", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theJobPackage.getRun(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "takes_ownership", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getJobScheduler__SetLastFeedback(), null, "setLastFeedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getJobScheduler__MakeNewScheduleNr(), ecorePackage.getEInt(), "makeNewScheduleNr", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getJobScheduler__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobScheduledEClass, JobScheduled.class, "JobScheduled", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobScheduled_Run(), theJobPackage.getRun(), null, "Run", null, 1, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1002,6 +1025,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		initEAttribute(getJobScheduled_ScheduleNr(), ecorePackage.getEInt(), "ScheduleNr", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobScheduled_Source(), this.getJobSource(), this.getJobSource_JobsScheduled(), "Source", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobScheduled_ExecuteNr(), ecorePackage.getEInt(), "ExecuteNr", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobScheduled_OwnedRun(), theJobPackage.getRun(), null, "OwnedRun", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getJobScheduled__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);
 

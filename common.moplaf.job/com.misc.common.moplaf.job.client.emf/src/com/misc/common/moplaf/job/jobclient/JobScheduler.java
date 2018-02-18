@@ -468,7 +468,7 @@ public interface JobScheduler extends EObject {
 	 * @model
 	 * @generated
 	 */
-	JobScheduled submitRun(Run run);
+	JobScheduled submitRun(Run run, boolean takes_ownership);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -485,5 +485,13 @@ public interface JobScheduler extends EObject {
 	 * @generated
 	 */
 	int makeNewScheduleNr();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
 
 } // JobScheduler

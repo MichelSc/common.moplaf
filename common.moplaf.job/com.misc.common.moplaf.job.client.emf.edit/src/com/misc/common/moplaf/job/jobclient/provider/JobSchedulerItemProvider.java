@@ -6,6 +6,7 @@ package com.misc.common.moplaf.job.jobclient.provider;
 import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.emf.edit.command.StartCommand;
 import com.misc.common.moplaf.emf.edit.command.StopCommand;
@@ -519,6 +520,29 @@ public class JobSchedulerItemProvider
 	}
 	
 	/*
+	 * SchedulerFlushCommand
+	 */
+	private class SchedulerFlushCommand extends FlushCommand{
+		private JobScheduler jobscheduler;
+		
+		// constructor
+		public SchedulerFlushCommand(JobScheduler aJobScheduler)	{
+			this.jobscheduler = aJobScheduler;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.jobscheduler.flush();
+		}
+	} // class SchedulerFlushCommand
+	
+	/*
 	 * SchedulerStartCommand
 	 */
 	private class SchedulerStartCommand extends StartCommand{
@@ -619,6 +643,9 @@ public class JobSchedulerItemProvider
 		else if ( commandClass == StopCommand.class){
 			return new SchedulerStopCommand((JobScheduler) object); 
 		}
+		else if ( commandClass == FlushCommand.class){
+			return new SchedulerFlushCommand((JobScheduler) object); 
+		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
@@ -644,7 +671,7 @@ public class JobSchedulerItemProvider
 
 		@Override
 		public void execute() {
-			this.scheduler.submitRun(run);
+			this.scheduler.submitRun(run, false);
 		}
 	} // class RunResetCommand
 	

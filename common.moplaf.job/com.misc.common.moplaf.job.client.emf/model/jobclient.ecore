@@ -9,9 +9,11 @@
     <eOperations name="refresh"/>
     <eOperations name="submitRun" eType="#//JobScheduled">
       <eParameters name="run" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"/>
+      <eParameters name="takes_ownership" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="setLastFeedback"/>
     <eOperations name="makeNewScheduleNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="flush"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Jobs" upperBound="-1" eType="#//JobScheduled"
         containment="true" eOpposite="#//JobScheduled/Scheduler"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Engines" upperBound="-1"
@@ -83,6 +85,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Source" eType="#//JobSource"
         eOpposite="#//JobSource/JobsScheduled"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecuteNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedRun" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true" eSuperTypes="#//JobSchedulerService">
     <eOperations name="executeJob">

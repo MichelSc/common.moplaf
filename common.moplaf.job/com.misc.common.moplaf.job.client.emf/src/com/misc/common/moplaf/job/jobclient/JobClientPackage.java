@@ -708,7 +708,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER___SUBMIT_RUN__RUN = 3;
+	int JOB_SCHEDULER___SUBMIT_RUN__RUN_BOOLEAN = 3;
 
 	/**
 	 * The operation id for the '<em>Set Last Feedback</em>' operation.
@@ -729,13 +729,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER___MAKE_NEW_SCHEDULE_NR = 5;
 
 	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER___FLUSH = 6;
+
+	/**
 	 * The number of operations of the '<em>Job Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_OPERATION_COUNT = 6;
+	int JOB_SCHEDULER_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.
@@ -928,13 +937,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULED__EXECUTE_NR = 19;
 
 	/**
+	 * The feature id for the '<em><b>Owned Run</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULED__OWNED_RUN = 20;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduled</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED_FEATURE_COUNT = 20;
+	int JOB_SCHEDULED_FEATURE_COUNT = 21;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -1398,14 +1416,14 @@ public interface JobClientPackage extends EPackage {
 	EOperation getJobScheduler__Refresh();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#submitRun(com.misc.common.moplaf.job.Run) <em>Submit Run</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#submitRun(com.misc.common.moplaf.job.Run, boolean) <em>Submit Run</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Submit Run</em>' operation.
-	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#submitRun(com.misc.common.moplaf.job.Run)
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#submitRun(com.misc.common.moplaf.job.Run, boolean)
 	 * @generated
 	 */
-	EOperation getJobScheduler__SubmitRun__Run();
+	EOperation getJobScheduler__SubmitRun__Run_boolean();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#setLastFeedback() <em>Set Last Feedback</em>}' operation.
@@ -1426,6 +1444,16 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJobScheduler__MakeNewScheduleNr();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#flush() <em>Flush</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#flush()
+	 * @generated
+	 */
+	EOperation getJobScheduler__Flush();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobScheduled <em>Job Scheduled</em>}'.
@@ -1601,6 +1629,17 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJobScheduled_ExecuteNr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getOwnedRun <em>Owned Run</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Owned Run</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getOwnedRun()
+	 * @see #getJobScheduled()
+	 * @generated
+	 */
+	EReference getJobScheduled_OwnedRun();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelTime <em>Cancel Time</em>}'.
@@ -2143,7 +2182,7 @@ public interface JobClientPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB_SCHEDULER___SUBMIT_RUN__RUN = eINSTANCE.getJobScheduler__SubmitRun__Run();
+		EOperation JOB_SCHEDULER___SUBMIT_RUN__RUN_BOOLEAN = eINSTANCE.getJobScheduler__SubmitRun__Run_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Last Feedback</b></em>' operation.
@@ -2160,6 +2199,14 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_SCHEDULER___MAKE_NEW_SCHEDULE_NR = eINSTANCE.getJobScheduler__MakeNewScheduleNr();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_SCHEDULER___FLUSH = eINSTANCE.getJobScheduler__Flush();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl <em>Job Scheduled</em>}' class.
@@ -2290,6 +2337,14 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_SCHEDULED__EXECUTE_NR = eINSTANCE.getJobScheduled_ExecuteNr();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned Run</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_SCHEDULED__OWNED_RUN = eINSTANCE.getJobScheduled_OwnedRun();
 
 		/**
 		 * The meta object literal for the '<em><b>Cancel Time</b></em>' attribute feature.

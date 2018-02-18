@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduleNr <em>Schedule Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getSource <em>Source</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getExecuteNr <em>Execute Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getOwnedRun <em>Owned Run</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled()
@@ -393,6 +394,32 @@ public interface JobScheduled extends EObject {
 	 * @generated
 	 */
 	void setExecuteNr(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Owned Run</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Owned Run</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owned Run</em>' containment reference.
+	 * @see #setOwnedRun(Run)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_OwnedRun()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Run getOwnedRun();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getOwnedRun <em>Owned Run</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owned Run</em>' containment reference.
+	 * @see #getOwnedRun()
+	 * @generated
+	 */
+	void setOwnedRun(Run value);
 
 	/**
 	 * Returns the value of the '<em><b>Cancel Time</b></em>' attribute.

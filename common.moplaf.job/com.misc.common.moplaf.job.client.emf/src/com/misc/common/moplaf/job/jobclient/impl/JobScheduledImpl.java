@@ -55,6 +55,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getScheduleNr <em>Schedule Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getSource <em>Source</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getExecuteNr <em>Execute Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getOwnedRun <em>Owned Run</em>}</li>
  * </ul>
  *
  * @generated
@@ -359,6 +360,16 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * @ordered
 	 */
 	protected int executeNr = EXECUTE_NR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOwnedRun() <em>Owned Run</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwnedRun()
+	 * @generated
+	 * @ordered
+	 */
+	protected Run ownedRun;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -738,6 +749,49 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Run getOwnedRun() {
+		return ownedRun;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOwnedRun(Run newOwnedRun, NotificationChain msgs) {
+		Run oldOwnedRun = ownedRun;
+		ownedRun = newOwnedRun;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULED__OWNED_RUN, oldOwnedRun, newOwnedRun);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOwnedRun(Run newOwnedRun) {
+		if (newOwnedRun != ownedRun) {
+			NotificationChain msgs = null;
+			if (ownedRun != null)
+				msgs = ((InternalEObject)ownedRun).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JobClientPackage.JOB_SCHEDULED__OWNED_RUN, null, msgs);
+			if (newOwnedRun != null)
+				msgs = ((InternalEObject)newOwnedRun).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JobClientPackage.JOB_SCHEDULED__OWNED_RUN, null, msgs);
+			msgs = basicSetOwnedRun(newOwnedRun, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULED__OWNED_RUN, newOwnedRun, newOwnedRun));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Date getCancelTime() {
 		return cancelTime;
 	}
@@ -972,6 +1026,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return basicSetScheduler(null, msgs);
 			case JobClientPackage.JOB_SCHEDULED__SOURCE:
 				return basicSetSource(null, msgs);
+			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
+				return basicSetOwnedRun(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1041,6 +1097,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return basicGetSource();
 			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
 				return getExecuteNr();
+			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
+				return getOwnedRun();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1097,6 +1155,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return;
 			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
 				setExecuteNr((Integer)newValue);
+				return;
+			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
+				setOwnedRun((Run)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1155,6 +1216,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
 				setExecuteNr(EXECUTE_NR_EDEFAULT);
 				return;
+			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
+				setOwnedRun((Run)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1207,6 +1271,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return source != null;
 			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
 				return executeNr != EXECUTE_NR_EDEFAULT;
+			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
+				return ownedRun != null;
 		}
 		return super.eIsSet(featureID);
 	}
