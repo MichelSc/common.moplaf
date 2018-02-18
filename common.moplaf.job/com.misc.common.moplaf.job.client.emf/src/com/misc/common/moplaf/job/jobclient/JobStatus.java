@@ -69,14 +69,14 @@ public enum JobStatus implements Enumerator {
 	 * @ordered
 	 */
 	COMPLETE(5, "COMPLETE", "Complete"), /**
-	 * The '<em><b>FAILLED</b></em>' literal object.
+	 * The '<em><b>FAILED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FAILLED_VALUE
+	 * @see #FAILED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	FAILLED(6, "FAILLED", "Failed");
+	FAILED(6, "FAILED", "Failed");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -169,19 +169,19 @@ public enum JobStatus implements Enumerator {
 	public static final int COMPLETE_VALUE = 5;
 
 	/**
-	 * The '<em><b>FAILLED</b></em>' literal value.
+	 * The '<em><b>FAILED</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>FAILLED</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>FAILED</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FAILLED
+	 * @see #FAILED
 	 * @model literal="Failed"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FAILLED_VALUE = 6;
+	public static final int FAILED_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Job Status</b></em>' enumerators.
@@ -197,7 +197,7 @@ public enum JobStatus implements Enumerator {
 			SCHEDULED,
 			RUNNING,
 			COMPLETE,
-			FAILLED,
+			FAILED,
 		};
 
 	/**
@@ -260,7 +260,7 @@ public enum JobStatus implements Enumerator {
 			case SCHEDULED_VALUE: return SCHEDULED;
 			case RUNNING_VALUE: return RUNNING;
 			case COMPLETE_VALUE: return COMPLETE;
-			case FAILLED_VALUE: return FAILLED;
+			case FAILED_VALUE: return FAILED;
 		}
 		return null;
 	}

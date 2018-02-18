@@ -786,7 +786,7 @@ public class JobSchedulerItemProvider
 						return Color.COLOR_MAGENTA.toURI();
 					case COMPLETE:
 						return Color.COLOR_GREEN.toURI();
-					case FAILLED:
+					case FAILED:
 						return Color.COLOR_RED.toURI();
 					default:
 						return null;

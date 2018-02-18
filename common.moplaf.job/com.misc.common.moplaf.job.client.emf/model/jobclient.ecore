@@ -108,7 +108,7 @@
     <eLiterals name="SCHEDULED" value="3" literal="Scheduled"/>
     <eLiterals name="RUNNING" value="4" literal="Running"/>
     <eLiterals name="COMPLETE" value="5" literal="Complete"/>
-    <eLiterals name="FAILLED" value="6" literal="Failed"/>
+    <eLiterals name="FAILED" value="6" literal="Failed"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobSource" abstract="true" eSuperTypes="#//JobSchedulerService">
     <eOperations name="refresh"/>

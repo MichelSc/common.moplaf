@@ -707,7 +707,7 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 */
 	public JobStatus getStatus() {
 		if ( this.isFailed()) {
-			return JobStatus.FAILLED;
+			return JobStatus.FAILED;
 		} else  if ( this.isReturned() ) {
 			return JobStatus.COMPLETE;
 		} else if ( this.isRunning() ) {

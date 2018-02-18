@@ -396,7 +396,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 					job.setRun(result_run);
 				}
 				break;
-			case FAILLED:
+			case FAILED:
 				job.setReturn(ReturnFeedback.FAILURE);
 				break;
 			case RUNNING:

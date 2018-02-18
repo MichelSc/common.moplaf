@@ -1078,7 +1078,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		addEEnumLiteral(jobStatusEEnum, JobStatus.SCHEDULED);
 		addEEnumLiteral(jobStatusEEnum, JobStatus.RUNNING);
 		addEEnumLiteral(jobStatusEEnum, JobStatus.COMPLETE);
-		addEEnumLiteral(jobStatusEEnum, JobStatus.FAILLED);
+		addEEnumLiteral(jobStatusEEnum, JobStatus.FAILED);
 
 		// Create resource
 		createResource(eNS_URI);
