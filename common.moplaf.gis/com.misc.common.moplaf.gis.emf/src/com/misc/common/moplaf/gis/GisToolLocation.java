@@ -55,4 +55,12 @@ public interface GisToolLocation extends EObject {
 	 */
 	void handle(GisLocationTool location);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GisLocationTool constructLocationTool();
+
 } // GisToolLocation

@@ -549,13 +549,22 @@ public interface GisPackage extends EPackage {
 	int GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL = 0;
 
 	/**
+	 * The operation id for the '<em>Construct Location Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_TOOL_LOCATION___CONSTRUCT_LOCATION_TOOL = 1;
+
+	/**
 	 * The number of operations of the '<em>Tool Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_TOOL_LOCATION_OPERATION_COUNT = 1;
+	int GIS_TOOL_LOCATION_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1240,6 +1249,15 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_GEOCODER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
+
+	/**
+	 * The operation id for the '<em>Construct Location Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER___CONSTRUCT_LOCATION_TOOL = GIS_TOOL_LOCATION___CONSTRUCT_LOCATION_TOOL;
 
 	/**
 	 * The number of operations of the '<em>Address Geocoder</em>' class.
@@ -2367,6 +2385,15 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION_PINPOINTER___HANDLE__GISLOCATIONTOOL = GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL;
 
 	/**
+	 * The operation id for the '<em>Construct Location Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION_PINPOINTER___CONSTRUCT_LOCATION_TOOL = GIS_TOOL_LOCATION___CONSTRUCT_LOCATION_TOOL;
+
+	/**
 	 * The number of operations of the '<em>Location Pinpointer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2586,6 +2613,16 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGisToolLocation__Handle__GisLocationTool();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisToolLocation#constructLocationTool() <em>Construct Location Tool</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Location Tool</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisToolLocation#constructLocationTool()
+	 * @generated
+	 */
+	EOperation getGisToolLocation__ConstructLocationTool();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisLocationTool <em>Location Tool</em>}'.
@@ -3765,6 +3802,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL = eINSTANCE.getGisToolLocation__Handle__GisLocationTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Construct Location Tool</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_TOOL_LOCATION___CONSTRUCT_LOCATION_TOOL = eINSTANCE.getGisToolLocation__ConstructLocationTool();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisLocationToolImpl <em>Location Tool</em>}' class.

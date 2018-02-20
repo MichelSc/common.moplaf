@@ -14,7 +14,6 @@ package com.misc.common.moplaf.gis.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
-import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisLocationTool;
@@ -146,7 +145,7 @@ public abstract class GisLocationImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 */
 	public GisLocationTool addTool(GisToolLocation tool) {
-		GisLocationTool location_tool = GisFactory.eINSTANCE.createGisLocationTool();
+		GisLocationTool location_tool = tool.constructLocationTool();
 		location_tool.setTool(tool);
 		this.getTools().add(location_tool);
 		return location_tool;

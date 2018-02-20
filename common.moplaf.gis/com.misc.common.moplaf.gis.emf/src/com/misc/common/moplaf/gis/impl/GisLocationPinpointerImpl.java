@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
-import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisLocationPinpointer;
 import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;

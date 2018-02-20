@@ -35,6 +35,7 @@
     <eOperations name="handle">
       <eParameters name="location" eType="#//GisLocationTool"/>
     </eOperations>
+    <eOperations name="constructLocationTool" eType="#//GisLocationTool"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisCoordinatesAbstract" abstract="true"

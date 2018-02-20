@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
+import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocationTool;
 import com.misc.common.moplaf.gis.GisPackage;
 import com.misc.common.moplaf.gis.GisToolLocation;
@@ -102,6 +103,15 @@ public abstract class GisToolLocationImpl extends MinimalEObjectImpl.Container i
 		Plugin.INSTANCE.logInfo(handling+": done");
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public GisLocationTool constructLocationTool() {
+		GisLocationTool location_tool = GisFactory.eINSTANCE.createGisLocationTool();
+		return location_tool;
+	}
+
 	protected void handleImpl(GisLocationTool location) {
 		throw new UnsupportedOperationException();
 	}
@@ -176,6 +186,8 @@ public abstract class GisToolLocationImpl extends MinimalEObjectImpl.Container i
 			case GisPackage.GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL:
 				handle((GisLocationTool)arguments.get(0));
 				return null;
+			case GisPackage.GIS_TOOL_LOCATION___CONSTRUCT_LOCATION_TOOL:
+				return constructLocationTool();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

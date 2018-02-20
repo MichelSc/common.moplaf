@@ -423,6 +423,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getGisToolLocation__ConstructLocationTool() {
+		return gisToolLocationEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGisLocationTool() {
 		return gisLocationToolEClass;
 	}
@@ -1358,6 +1367,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		gisToolLocationEClass = createEClass(GIS_TOOL_LOCATION);
 		createEAttribute(gisToolLocationEClass, GIS_TOOL_LOCATION__NAME);
 		createEOperation(gisToolLocationEClass, GIS_TOOL_LOCATION___HANDLE__GISLOCATIONTOOL);
+		createEOperation(gisToolLocationEClass, GIS_TOOL_LOCATION___CONSTRUCT_LOCATION_TOOL);
 
 		gisCoordinatesAbstractEClass = createEClass(GIS_COORDINATES_ABSTRACT);
 		createEAttribute(gisCoordinatesAbstractEClass, GIS_COORDINATES_ABSTRACT__LONGITUDE);
@@ -1558,6 +1568,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		op = initEOperation(getGisToolLocation__Handle__GisLocationTool(), null, "handle", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisLocationTool(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGisToolLocation__ConstructLocationTool(), this.getGisLocationTool(), "constructLocationTool", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisCoordinatesAbstractEClass, GisCoordinatesAbstract.class, "GisCoordinatesAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisCoordinatesAbstract_Longitude(), ecorePackage.getEDouble(), "Longitude", null, 0, 1, GisCoordinatesAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
