@@ -516,7 +516,7 @@ public class GisDistanceMatrixCalculatorOsrmOneToOneImpl extends GisRouteCalcula
 			responseAsString = response.toString();
 		} catch (Exception e) {
 			feedback = "Connection failed: "+e.getMessage();
-			Plugin.INSTANCE.logInfo("GisDistanceMatrixCalculatorOsrmOneToOne: "+feedback);
+			Plugin.INSTANCE.logError("GisDistanceMatrixCalculatorOsrmOneToOne: "+feedback);
 			return null;
 		} finally {
 			if(connection != null) {
