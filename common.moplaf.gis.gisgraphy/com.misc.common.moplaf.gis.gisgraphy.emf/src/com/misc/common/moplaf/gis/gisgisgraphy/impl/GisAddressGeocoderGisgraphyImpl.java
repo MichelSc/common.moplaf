@@ -366,9 +366,6 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 			if ( countryCode!=null && countryCode.length()>0) {
 				parameters.add("country="+countryCode);
 			}
-//			if ( this.getKey()!=null ){
-//				parameters.add("apikey="+this.getKey());
-//			}
 			if ( address instanceof GisAddressStructured){
 				LinkedList<String> addressElements = new LinkedList<String>();
 				GisAddressStructured addressStructured = (GisAddressStructured)address;
@@ -438,9 +435,8 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 			rd.close();
 			responseAsString = response.toString();
 		} catch (Exception e) {
-			Plugin.INSTANCE.logInfo("GisAddressGeocoderGisgraphy: connection failed "+e.getMessage());
 			feedback = "Connection failed: "+e.getMessage();
-			Plugin.INSTANCE.logError("GeocoderGisgraphy: "+feedback);
+			Plugin.INSTANCE.logError("GisAddressGeocoderGisgraphy: connection failed "+feedback);
 			return;
 		} finally {
 			if(connection != null) {
@@ -462,16 +458,18 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 		JSONArray resultObjects = (JSONArray)responseObject.get("result");
 		for (int resultIndex = 0; resultIndex<resultObjects.size(); resultIndex++){
 	    	JSONObject resultObject = (JSONObject)resultObjects.get(resultIndex);
-	    	double latitude  = (double)resultObject.get("lat");
-	    	double longitude = (double)resultObject.get("lng");
+	    	Number latitude  = (Number)resultObject.get("lat");
+	    	Number longitude = (Number)resultObject.get("lng");
+	    	Number score = (Number)resultObject.get("score");
 	    	String street = (String)resultObject.get("streetName");
 	    	String city = (String)resultObject.get("city");
 	    	//long id = (long)resultObject.get("id");
 	    	String description = String.format("%s %s", street, city);
 	    	GisAddressGeocoded newGeocoded = GisFactory.eINSTANCE.createGisAddressGeocoded();
 	    	newGeocoded.setAddressGeocoded(description);
-	    	newGeocoded.setLatitude(latitude);
-	    	newGeocoded.setLongitude(longitude);
+	    	newGeocoded.setLatitude(latitude.doubleValue());
+	    	newGeocoded.setLongitude(longitude.doubleValue());
+	    	newGeocoded.setScore(score.floatValue());
 	    	location.getResults().add(newGeocoded);
 		}
 	}
