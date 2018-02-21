@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kml" nsURI="http://www.misc.com/common/moplaf/gis/kml/model/0.1"
+    nsPrefix="kml">
+  <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" eSuperTypes="#//Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Features" upperBound="-1"
+        eType="#//Feature" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Folder" eSuperTypes="#//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Placemark" eSuperTypes="#//Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Geometries" upperBound="-1"
+        eType="#//Geometry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Geometry" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry ../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisCoordinatesAbstract"/>
+</ecore:EPackage>

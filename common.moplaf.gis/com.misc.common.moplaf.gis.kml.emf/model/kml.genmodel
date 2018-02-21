@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.gis.kml.emf/src" modelPluginID="com.misc.common.moplaf.gis.kml.emf"
+    modelName="Kml" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.gis.emf/model/gis.genmodel#//gis ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>kml.ecore</foreignModel>
+  <genPackages prefix="Kml" basePackage="com.misc.common.moplaf.gis" disposableProviderFactory="true"
+      ecorePackage="kml.ecore#/">
+    <genClasses ecoreClass="kml.ecore#//Document">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Document/Folders"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="kml.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Container/Features"/>
+    </genClasses>
+    <genClasses ecoreClass="kml.ecore#//Folder"/>
+    <genClasses image="false" ecoreClass="kml.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//Feature/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="kml.ecore#//Placemark">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Placemark/Geometries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="kml.ecore#//Geometry"/>
+    <genClasses ecoreClass="kml.ecore#//Point"/>
+  </genPackages>
+</genmodel:GenModel>
