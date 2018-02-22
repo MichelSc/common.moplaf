@@ -289,13 +289,22 @@ public interface KmlPackage extends EPackage {
 	int GEOMETRY = 5;
 
 	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOMETRY__PLACEMARK = 0;
+
+	/**
 	 * The number of structural features of the '<em>Geometry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_FEATURE_COUNT = 0;
+	int GEOMETRY_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Geometry</em>' class.
@@ -315,6 +324,15 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 */
 	int POINT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__PLACEMARK = GEOMETRY__PLACEMARK;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -557,6 +575,17 @@ public interface KmlPackage extends EPackage {
 	EClass getGeometry();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.kml.Geometry#getPlacemark <em>Placemark</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Placemark</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Geometry#getPlacemark()
+	 * @see #getGeometry()
+	 * @generated
+	 */
+	EReference getGeometry_Placemark();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Point <em>Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -704,6 +733,14 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GEOMETRY = eINSTANCE.getGeometry();
+
+		/**
+		 * The meta object literal for the '<em><b>Placemark</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GEOMETRY__PLACEMARK = eINSTANCE.getGeometry_Placemark();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.PointImpl <em>Point</em>}' class.

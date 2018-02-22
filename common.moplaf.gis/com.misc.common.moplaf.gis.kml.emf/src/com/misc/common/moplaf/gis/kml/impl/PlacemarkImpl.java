@@ -87,14 +87,30 @@ public class PlacemarkImpl extends FeatureImpl implements Placemark {
 		if (newGeometry != geometry) {
 			NotificationChain msgs = null;
 			if (geometry != null)
-				msgs = ((InternalEObject)geometry).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KmlPackage.PLACEMARK__GEOMETRY, null, msgs);
+				msgs = ((InternalEObject)geometry).eInverseRemove(this, KmlPackage.GEOMETRY__PLACEMARK, Geometry.class, msgs);
 			if (newGeometry != null)
-				msgs = ((InternalEObject)newGeometry).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KmlPackage.PLACEMARK__GEOMETRY, null, msgs);
+				msgs = ((InternalEObject)newGeometry).eInverseAdd(this, KmlPackage.GEOMETRY__PLACEMARK, Geometry.class, msgs);
 			msgs = basicSetGeometry(newGeometry, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KmlPackage.PLACEMARK__GEOMETRY, newGeometry, newGeometry));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case KmlPackage.PLACEMARK__GEOMETRY:
+				if (geometry != null)
+					msgs = ((InternalEObject)geometry).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KmlPackage.PLACEMARK__GEOMETRY, null, msgs);
+				return basicSetGeometry((Geometry)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

@@ -239,6 +239,15 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGeometry_Placemark() {
+		return (EReference)geometryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPoint() {
 		return pointEClass;
 	}
@@ -312,6 +321,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		createEReference(placemarkEClass, PLACEMARK__GEOMETRY);
 
 		geometryEClass = createEClass(GEOMETRY);
+		createEReference(geometryEClass, GEOMETRY__PLACEMARK);
 
 		pointEClass = createEClass(POINT);
 
@@ -372,9 +382,10 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		initEAttribute(getFeature_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(placemarkEClass, Placemark.class, "Placemark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlacemark_Geometry(), this.getGeometry(), null, "Geometry", null, 0, 1, Placemark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlacemark_Geometry(), this.getGeometry(), this.getGeometry_Placemark(), "Geometry", null, 0, 1, Placemark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(geometryEClass, Geometry.class, "Geometry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGeometry_Placemark(), this.getPlacemark(), this.getPlacemark_Geometry(), "Placemark", null, 1, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

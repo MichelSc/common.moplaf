@@ -13,9 +13,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Placemark" eSuperTypes="#//Feature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Geometry" eType="#//Geometry"
-        containment="true"/>
+        containment="true" eOpposite="#//Geometry/Placemark"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Geometry" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Geometry" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Placemark" lowerBound="1"
+        eType="#//Placemark" eOpposite="#//Placemark/Geometry"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry ../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisCoordinatesAbstract"/>
   <eClassifiers xsi:type="ecore:EClass" name="Kml" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReader">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Files" eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
