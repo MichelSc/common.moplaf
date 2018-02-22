@@ -60,6 +60,7 @@ public class KmlFactoryImpl extends EFactoryImpl implements KmlFactory {
 			case KmlPackage.FOLDER: return createFolder();
 			case KmlPackage.PLACEMARK: return createPlacemark();
 			case KmlPackage.POINT: return createPoint();
+			case KmlPackage.KML: return createKml();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -103,6 +104,16 @@ public class KmlFactoryImpl extends EFactoryImpl implements KmlFactory {
 	public Point createPoint() {
 		PointImpl point = new PointImpl();
 		return point;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Kml createKml() {
+		KmlImpl kml = new KmlImpl();
+		return kml;
 	}
 
 	/**

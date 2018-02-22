@@ -9,6 +9,7 @@ import com.misc.common.moplaf.gis.kml.Document;
 import com.misc.common.moplaf.gis.kml.Feature;
 import com.misc.common.moplaf.gis.kml.Folder;
 import com.misc.common.moplaf.gis.kml.Geometry;
+import com.misc.common.moplaf.gis.kml.Kml;
 import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.Placemark;
@@ -78,6 +79,13 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * @generated
 	 */
 	private EClass pointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass kmlEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -177,15 +185,6 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Files() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFolder() {
 		return folderEClass;
 	}
@@ -249,6 +248,33 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getKml() {
+		return kmlEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getKml_Files() {
+		return (EReference)kmlEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getKml_Features() {
+		return (EReference)kmlEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public KmlFactory getKmlFactory() {
 		return (KmlFactory)getEFactoryInstance();
 	}
@@ -276,7 +302,6 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__FEATURES);
-		createEReference(containerEClass, CONTAINER__FILES);
 
 		folderEClass = createEClass(FOLDER);
 
@@ -289,6 +314,10 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		geometryEClass = createEClass(GEOMETRY);
 
 		pointEClass = createEClass(POINT);
+
+		kmlEClass = createEClass(KML);
+		createEReference(kmlEClass, KML__FILES);
+		createEReference(kmlEClass, KML__FEATURES);
 	}
 
 	/**
@@ -315,8 +344,8 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		FilePackage theFilePackage = (FilePackage)EPackage.Registry.INSTANCE.getEPackage(FilePackage.eNS_URI);
 		GisPackage theGisPackage = (GisPackage)EPackage.Registry.INSTANCE.getEPackage(GisPackage.eNS_URI);
+		FilePackage theFilePackage = (FilePackage)EPackage.Registry.INSTANCE.getEPackage(FilePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -325,18 +354,17 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		// Add supertypes to classes
 		documentEClass.getESuperTypes().add(this.getContainer());
 		containerEClass.getESuperTypes().add(this.getFeature());
-		containerEClass.getESuperTypes().add(theFilePackage.getFileReader());
 		folderEClass.getESuperTypes().add(this.getContainer());
 		placemarkEClass.getESuperTypes().add(this.getFeature());
 		pointEClass.getESuperTypes().add(this.getGeometry());
 		pointEClass.getESuperTypes().add(theGisPackage.getGisCoordinatesAbstract());
+		kmlEClass.getESuperTypes().add(theFilePackage.getFileReader());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(containerEClass, com.misc.common.moplaf.gis.kml.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainer_Features(), this.getFeature(), null, "Features", null, 0, -1, com.misc.common.moplaf.gis.kml.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, com.misc.common.moplaf.gis.kml.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -349,6 +377,10 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		initEClass(geometryEClass, Geometry.class, "Geometry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getKml_Features(), this.getFeature(), null, "Features", null, 0, -1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

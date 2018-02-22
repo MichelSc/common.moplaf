@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml;
 
+import com.misc.common.moplaf.file.FilePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -122,31 +123,13 @@ public interface KmlPackage extends EPackage {
 	int CONTAINER__FEATURES = FEATURE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__FILES = FEATURE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Read File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER___READ_FILE__FILE = FEATURE_OPERATION_COUNT + 0;
+	int CONTAINER_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -155,7 +138,7 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 1;
+	int CONTAINER_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.DocumentImpl <em>Document</em>}' class.
@@ -186,15 +169,6 @@ public interface KmlPackage extends EPackage {
 	int DOCUMENT__FEATURES = CONTAINER__FEATURES;
 
 	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__FILES = CONTAINER__FILES;
-
-	/**
 	 * The number of structural features of the '<em>Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,15 +176,6 @@ public interface KmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOCUMENT_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Read File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT___READ_FILE__FILE = CONTAINER___READ_FILE__FILE;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -250,15 +215,6 @@ public interface KmlPackage extends EPackage {
 	int FOLDER__FEATURES = CONTAINER__FEATURES;
 
 	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__FILES = CONTAINER__FILES;
-
-	/**
 	 * The number of structural features of the '<em>Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,15 +222,6 @@ public interface KmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOLDER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Read File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER___READ_FILE__FILE = CONTAINER___READ_FILE__FILE;
 
 	/**
 	 * The number of operations of the '<em>Folder</em>' class.
@@ -461,6 +408,62 @@ public interface KmlPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.kml.impl.KmlImpl
+	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getKml()
+	 * @generated
+	 */
+	int KML = 7;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML__FILES = FilePackage.FILE_READER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML__FEATURES = FilePackage.FILE_READER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Kml</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML_FEATURE_COUNT = FilePackage.FILE_READER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML___READ_FILE__FILE = FilePackage.FILE_READER___READ_FILE__FILE;
+
+	/**
+	 * The number of operations of the '<em>Kml</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML_OPERATION_COUNT = FilePackage.FILE_READER_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Document <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -490,17 +493,6 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContainer_Features();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Container#getFiles <em>Files</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Files</em>'.
-	 * @see com.misc.common.moplaf.gis.kml.Container#getFiles()
-	 * @see #getContainer()
-	 * @generated
-	 */
-	EReference getContainer_Files();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Folder <em>Folder</em>}'.
@@ -575,6 +567,38 @@ public interface KmlPackage extends EPackage {
 	EClass getPoint();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Kml <em>Kml</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Kml</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Kml
+	 * @generated
+	 */
+	EClass getKml();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Kml#getFiles <em>Files</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Files</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Kml#getFiles()
+	 * @see #getKml()
+	 * @generated
+	 */
+	EReference getKml_Files();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Kml#getFeatures <em>Features</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Features</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Kml#getFeatures()
+	 * @see #getKml()
+	 * @generated
+	 */
+	EReference getKml_Features();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -624,14 +648,6 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__FEATURES = eINSTANCE.getContainer_Features();
-
-		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER__FILES = eINSTANCE.getContainer_Files();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.FolderImpl <em>Folder</em>}' class.
@@ -698,6 +714,32 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POINT = eINSTANCE.getPoint();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.kml.impl.KmlImpl
+		 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getKml()
+		 * @generated
+		 */
+		EClass KML = eINSTANCE.getKml();
+
+		/**
+		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KML__FILES = eINSTANCE.getKml_Files();
+
+		/**
+		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KML__FEATURES = eINSTANCE.getKml_Features();
 
 	}
 

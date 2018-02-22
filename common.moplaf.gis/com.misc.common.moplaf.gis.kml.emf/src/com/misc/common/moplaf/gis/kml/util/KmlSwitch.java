@@ -75,7 +75,6 @@ public class KmlSwitch<T> extends Switch<T> {
 				T result = caseDocument(document);
 				if (result == null) result = caseContainer(document);
 				if (result == null) result = caseFeature(document);
-				if (result == null) result = caseFileReader(document);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -83,7 +82,6 @@ public class KmlSwitch<T> extends Switch<T> {
 				Container container = (Container)theEObject;
 				T result = caseContainer(container);
 				if (result == null) result = caseFeature(container);
-				if (result == null) result = caseFileReader(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -92,7 +90,6 @@ public class KmlSwitch<T> extends Switch<T> {
 				T result = caseFolder(folder);
 				if (result == null) result = caseContainer(folder);
 				if (result == null) result = caseFeature(folder);
-				if (result == null) result = caseFileReader(folder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,6 +118,13 @@ public class KmlSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGeometry(point);
 				if (result == null) result = caseGisCoordinatesAbstract(point);
 				if (result == null) result = caseGisLocation(point);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KmlPackage.KML: {
+				Kml kml = (Kml)theEObject;
+				T result = caseKml(kml);
+				if (result == null) result = caseFileReader(kml);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -234,17 +238,17 @@ public class KmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Kml</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Kml</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFileReader(FileReader object) {
+	public T caseKml(Kml object) {
 		return null;
 	}
 
@@ -275,6 +279,21 @@ public class KmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisCoordinatesAbstract(GisCoordinatesAbstract object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileReader(FileReader object) {
 		return null;
 	}
 

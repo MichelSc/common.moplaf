@@ -58,6 +58,15 @@ public interface KmlFactory extends EFactory {
 	Point createPoint();
 
 	/**
+	 * Returns a new object of class '<em>Kml</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Kml</em>'.
+	 * @generated
+	 */
+	Kml createKml();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

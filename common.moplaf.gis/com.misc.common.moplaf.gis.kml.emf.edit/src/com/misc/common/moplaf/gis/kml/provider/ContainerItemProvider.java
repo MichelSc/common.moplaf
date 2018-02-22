@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.gis.kml.provider;
 
 
-import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.gis.kml.Container;
 import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
@@ -64,7 +63,6 @@ public class ContainerItemProvider extends FeatureItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(KmlPackage.Literals.CONTAINER__FEATURES);
-			childrenFeatures.add(KmlPackage.Literals.CONTAINER__FILES);
 		}
 		return childrenFeatures;
 	}
@@ -110,7 +108,6 @@ public class ContainerItemProvider extends FeatureItemProvider {
 
 		switch (notification.getFeatureID(Container.class)) {
 			case KmlPackage.CONTAINER__FEATURES:
-			case KmlPackage.CONTAINER__FILES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -142,21 +139,6 @@ public class ContainerItemProvider extends FeatureItemProvider {
 			(createChildParameter
 				(KmlPackage.Literals.CONTAINER__FEATURES,
 				 KmlFactory.eINSTANCE.createPlacemark()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.CONTAINER__FILES,
-				 FileFactory.eINSTANCE.createFileLocal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.CONTAINER__FILES,
-				 FileFactory.eINSTANCE.createFileRemote()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.CONTAINER__FILES,
-				 FileFactory.eINSTANCE.createFileInMemory()));
 	}
 
 }

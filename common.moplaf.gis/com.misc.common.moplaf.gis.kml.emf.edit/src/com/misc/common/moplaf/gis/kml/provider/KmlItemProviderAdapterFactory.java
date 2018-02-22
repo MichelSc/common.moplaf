@@ -164,6 +164,29 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.kml.Kml} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KmlItemProvider kmlItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.kml.Kml}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKmlAdapter() {
+		if (kmlItemProvider == null) {
+			kmlItemProvider = new KmlItemProvider(this);
+		}
+
+		return kmlItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +289,7 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 		if (folderItemProvider != null) folderItemProvider.dispose();
 		if (placemarkItemProvider != null) placemarkItemProvider.dispose();
 		if (pointItemProvider != null) pointItemProvider.dispose();
+		if (kmlItemProvider != null) kmlItemProvider.dispose();
 	}
 
 }
