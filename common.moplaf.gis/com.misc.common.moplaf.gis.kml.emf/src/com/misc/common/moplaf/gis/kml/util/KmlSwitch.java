@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml.util;
 
+import com.misc.common.moplaf.file.FileReader;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisLocation;
 
@@ -74,6 +75,7 @@ public class KmlSwitch<T> extends Switch<T> {
 				T result = caseDocument(document);
 				if (result == null) result = caseContainer(document);
 				if (result == null) result = caseFeature(document);
+				if (result == null) result = caseFileReader(document);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -81,6 +83,7 @@ public class KmlSwitch<T> extends Switch<T> {
 				Container container = (Container)theEObject;
 				T result = caseContainer(container);
 				if (result == null) result = caseFeature(container);
+				if (result == null) result = caseFileReader(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,6 +92,7 @@ public class KmlSwitch<T> extends Switch<T> {
 				T result = caseFolder(folder);
 				if (result == null) result = caseContainer(folder);
 				if (result == null) result = caseFeature(folder);
+				if (result == null) result = caseFileReader(folder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -226,6 +230,21 @@ public class KmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePoint(Point object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileReader(FileReader object) {
 		return null;
 	}
 

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml.util;
 
+import com.misc.common.moplaf.file.FileReader;
 import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
 import com.misc.common.moplaf.gis.GisLocation;
 
@@ -97,6 +98,10 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePoint(Point object) {
 				return createPointAdapter();
+			}
+			@Override
+			public Adapter caseFileReader(FileReader object) {
+				return createFileReaderAdapter();
 			}
 			@Override
 			public Adapter caseGisLocation(GisLocation object) {
@@ -221,6 +226,20 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReader <em>Reader</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileReader
+	 * @generated
+	 */
+	public Adapter createFileReaderAdapter() {
 		return null;
 	}
 

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import com.misc.common.moplaf.gis.provider.GisEditPlugin;
 
 import com.misc.common.moplaf.job.provider.JobEditPlugin;
@@ -42,6 +43,7 @@ public final class KmlEditPlugin extends EMFPlugin {
 	public KmlEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     FileEditPlugin.INSTANCE,
 		     GisEditPlugin.INSTANCE,
 		     JobEditPlugin.INSTANCE,
 		   });
