@@ -62,7 +62,7 @@ public class PlacemarkItemProvider extends FeatureItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KmlPackage.Literals.PLACEMARK__GEOMETRIES);
+			childrenFeatures.add(KmlPackage.Literals.PLACEMARK__GEOMETRY);
 		}
 		return childrenFeatures;
 	}
@@ -118,7 +118,7 @@ public class PlacemarkItemProvider extends FeatureItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Placemark.class)) {
-			case KmlPackage.PLACEMARK__GEOMETRIES:
+			case KmlPackage.PLACEMARK__GEOMETRY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,7 +138,7 @@ public class PlacemarkItemProvider extends FeatureItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KmlPackage.Literals.PLACEMARK__GEOMETRIES,
+				(KmlPackage.Literals.PLACEMARK__GEOMETRY,
 				 KmlFactory.eINSTANCE.createPoint()));
 	}
 

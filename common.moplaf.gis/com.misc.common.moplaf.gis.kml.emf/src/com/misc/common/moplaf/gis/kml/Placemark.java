@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.gis.kml;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Placemark</b></em>'.
@@ -13,7 +11,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.kml.Placemark#getGeometries <em>Geometries</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.kml.Placemark#getGeometry <em>Geometry</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPlacemark()
@@ -22,19 +20,29 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Placemark extends Feature {
 	/**
-	 * Returns the value of the '<em><b>Geometries</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.gis.kml.Geometry}.
+	 * Returns the value of the '<em><b>Geometry</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Geometries</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Geometry</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Geometries</em>' containment reference list.
-	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPlacemark_Geometries()
+	 * @return the value of the '<em>Geometry</em>' containment reference.
+	 * @see #setGeometry(Geometry)
+	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPlacemark_Geometry()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Geometry> getGeometries();
+	Geometry getGeometry();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Placemark#getGeometry <em>Geometry</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Geometry</em>' containment reference.
+	 * @see #getGeometry()
+	 * @generated
+	 */
+	void setGeometry(Geometry value);
 
 } // Placemark

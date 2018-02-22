@@ -2107,6 +2107,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_JLO2ERMyEeiizpX8JklCQQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_JLO2EhMyEeiizpX8JklCQQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_Tu05ABgGEeiDwvRWmaZfCQ" type="3010" element="_TuOcEBgGEeiDwvRWmaZfCQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Tu05ARgGEeiDwvRWmaZfCQ" fontName="Oxygen-Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Tu05AhgGEeiDwvRWmaZfCQ"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_JLMZ0RMyEeiizpX8JklCQQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_JLMZ0hMyEeiizpX8JklCQQ"/>
           </children>
@@ -2339,6 +2343,14 @@
         <semanticElements xmi:type="ecore:EOperation" href="gis.ecore#//GisToolLocation/handle"/>
         <semanticElements xmi:type="ecore:EParameter" href="gis.ecore#//GisToolLocation/handle/location"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_JK9JQRMyEeiizpX8JklCQQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TuOcEBgGEeiDwvRWmaZfCQ" name="constructLocationTool() : GisLocationTool" tooltipText="constructLocationTool() : GisLocationTool">
+        <target xmi:type="ecore:EOperation" href="gis.ecore#//GisToolLocation/constructLocationTool"/>
+        <semanticElements xmi:type="ecore:EOperation" href="gis.ecore#//GisToolLocation/constructLocationTool"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_TuSGcBgGEeiDwvRWmaZfCQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

@@ -221,7 +221,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlacemark_Geometries() {
+	public EReference getPlacemark_Geometry() {
 		return (EReference)placemarkEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -266,7 +266,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getKml_Features() {
+	public EReference getKml_Feature() {
 		return (EReference)kmlEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -309,7 +309,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		createEAttribute(featureEClass, FEATURE__NAME);
 
 		placemarkEClass = createEClass(PLACEMARK);
-		createEReference(placemarkEClass, PLACEMARK__GEOMETRIES);
+		createEReference(placemarkEClass, PLACEMARK__GEOMETRY);
 
 		geometryEClass = createEClass(GEOMETRY);
 
@@ -317,7 +317,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		kmlEClass = createEClass(KML);
 		createEReference(kmlEClass, KML__FILES);
-		createEReference(kmlEClass, KML__FEATURES);
+		createEReference(kmlEClass, KML__FEATURE);
 	}
 
 	/**
@@ -372,15 +372,15 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		initEAttribute(getFeature_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(placemarkEClass, Placemark.class, "Placemark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlacemark_Geometries(), this.getGeometry(), null, "Geometries", null, 0, -1, Placemark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlacemark_Geometry(), this.getGeometry(), null, "Geometry", null, 0, 1, Placemark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(geometryEClass, Geometry.class, "Geometry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getKml_Features(), this.getFeature(), null, "Features", null, 0, -1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getKml_Feature(), this.getFeature(), null, "Feature", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

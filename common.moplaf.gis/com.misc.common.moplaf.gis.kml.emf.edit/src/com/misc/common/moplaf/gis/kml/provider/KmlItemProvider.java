@@ -80,7 +80,7 @@ public class KmlItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(KmlPackage.Literals.KML__FILES);
-			childrenFeatures.add(KmlPackage.Literals.KML__FEATURES);
+			childrenFeatures.add(KmlPackage.Literals.KML__FEATURE);
 		}
 		return childrenFeatures;
 	}
@@ -134,7 +134,7 @@ public class KmlItemProvider
 
 		switch (notification.getFeatureID(Kml.class)) {
 			case KmlPackage.KML__FILES:
-			case KmlPackage.KML__FEATURES:
+			case KmlPackage.KML__FEATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -169,17 +169,17 @@ public class KmlItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KmlPackage.Literals.KML__FEATURES,
+				(KmlPackage.Literals.KML__FEATURE,
 				 KmlFactory.eINSTANCE.createDocument()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KmlPackage.Literals.KML__FEATURES,
+				(KmlPackage.Literals.KML__FEATURE,
 				 KmlFactory.eINSTANCE.createFolder()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KmlPackage.Literals.KML__FEATURES,
+				(KmlPackage.Literals.KML__FEATURE,
 				 KmlFactory.eINSTANCE.createPlacemark()));
 	}
 

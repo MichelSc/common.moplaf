@@ -5,18 +5,12 @@ package com.misc.common.moplaf.gis.kml.impl;
 import com.misc.common.moplaf.gis.kml.Geometry;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.Placemark;
-
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,22 +20,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.kml.impl.PlacemarkImpl#getGeometries <em>Geometries</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.kml.impl.PlacemarkImpl#getGeometry <em>Geometry</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PlacemarkImpl extends FeatureImpl implements Placemark {
 	/**
-	 * The cached value of the '{@link #getGeometries() <em>Geometries</em>}' containment reference list.
+	 * The cached value of the '{@link #getGeometry() <em>Geometry</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGeometries()
+	 * @see #getGeometry()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Geometry> geometries;
-
+	protected Geometry geometry;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,11 +59,42 @@ public class PlacemarkImpl extends FeatureImpl implements Placemark {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Geometry> getGeometries() {
-		if (geometries == null) {
-			geometries = new EObjectContainmentEList<Geometry>(Geometry.class, this, KmlPackage.PLACEMARK__GEOMETRIES);
+	public Geometry getGeometry() {
+		return geometry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGeometry(Geometry newGeometry, NotificationChain msgs) {
+		Geometry oldGeometry = geometry;
+		geometry = newGeometry;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KmlPackage.PLACEMARK__GEOMETRY, oldGeometry, newGeometry);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return geometries;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGeometry(Geometry newGeometry) {
+		if (newGeometry != geometry) {
+			NotificationChain msgs = null;
+			if (geometry != null)
+				msgs = ((InternalEObject)geometry).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KmlPackage.PLACEMARK__GEOMETRY, null, msgs);
+			if (newGeometry != null)
+				msgs = ((InternalEObject)newGeometry).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KmlPackage.PLACEMARK__GEOMETRY, null, msgs);
+			msgs = basicSetGeometry(newGeometry, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KmlPackage.PLACEMARK__GEOMETRY, newGeometry, newGeometry));
 	}
 
 	/**
@@ -81,8 +105,8 @@ public class PlacemarkImpl extends FeatureImpl implements Placemark {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case KmlPackage.PLACEMARK__GEOMETRIES:
-				return ((InternalEList<?>)getGeometries()).basicRemove(otherEnd, msgs);
+			case KmlPackage.PLACEMARK__GEOMETRY:
+				return basicSetGeometry(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,8 +119,8 @@ public class PlacemarkImpl extends FeatureImpl implements Placemark {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KmlPackage.PLACEMARK__GEOMETRIES:
-				return getGeometries();
+			case KmlPackage.PLACEMARK__GEOMETRY:
+				return getGeometry();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,9 +134,8 @@ public class PlacemarkImpl extends FeatureImpl implements Placemark {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case KmlPackage.PLACEMARK__GEOMETRIES:
-				getGeometries().clear();
-				getGeometries().addAll((Collection<? extends Geometry>)newValue);
+			case KmlPackage.PLACEMARK__GEOMETRY:
+				setGeometry((Geometry)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,8 +149,8 @@ public class PlacemarkImpl extends FeatureImpl implements Placemark {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case KmlPackage.PLACEMARK__GEOMETRIES:
-				getGeometries().clear();
+			case KmlPackage.PLACEMARK__GEOMETRY:
+				setGeometry((Geometry)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -141,8 +164,8 @@ public class PlacemarkImpl extends FeatureImpl implements Placemark {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KmlPackage.PLACEMARK__GEOMETRIES:
-				return geometries != null && !geometries.isEmpty();
+			case KmlPackage.PLACEMARK__GEOMETRY:
+				return geometry != null;
 		}
 		return super.eIsSet(featureID);
 	}

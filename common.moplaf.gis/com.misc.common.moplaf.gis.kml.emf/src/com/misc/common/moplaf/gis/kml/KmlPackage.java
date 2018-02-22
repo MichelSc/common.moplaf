@@ -252,13 +252,13 @@ public interface KmlPackage extends EPackage {
 	int PLACEMARK__NAME = FEATURE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Geometries</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Geometry</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMARK__GEOMETRIES = FEATURE_FEATURE_COUNT + 0;
+	int PLACEMARK__GEOMETRY = FEATURE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Placemark</em>' class.
@@ -418,7 +418,7 @@ public interface KmlPackage extends EPackage {
 	int KML = 7;
 
 	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Files</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -427,13 +427,13 @@ public interface KmlPackage extends EPackage {
 	int KML__FILES = FilePackage.FILE_READER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Feature</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KML__FEATURES = FilePackage.FILE_READER_FEATURE_COUNT + 1;
+	int KML__FEATURE = FilePackage.FILE_READER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Kml</em>' class.
@@ -536,15 +536,15 @@ public interface KmlPackage extends EPackage {
 	EClass getPlacemark();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Placemark#getGeometries <em>Geometries</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.gis.kml.Placemark#getGeometry <em>Geometry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Geometries</em>'.
-	 * @see com.misc.common.moplaf.gis.kml.Placemark#getGeometries()
+	 * @return the meta object for the containment reference '<em>Geometry</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Placemark#getGeometry()
 	 * @see #getPlacemark()
 	 * @generated
 	 */
-	EReference getPlacemark_Geometries();
+	EReference getPlacemark_Geometry();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Geometry <em>Geometry</em>}'.
@@ -577,10 +577,10 @@ public interface KmlPackage extends EPackage {
 	EClass getKml();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Kml#getFiles <em>Files</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.gis.kml.Kml#getFiles <em>Files</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Files</em>'.
+	 * @return the meta object for the containment reference '<em>Files</em>'.
 	 * @see com.misc.common.moplaf.gis.kml.Kml#getFiles()
 	 * @see #getKml()
 	 * @generated
@@ -588,15 +588,15 @@ public interface KmlPackage extends EPackage {
 	EReference getKml_Files();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Kml#getFeatures <em>Features</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.gis.kml.Kml#getFeature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Features</em>'.
-	 * @see com.misc.common.moplaf.gis.kml.Kml#getFeatures()
+	 * @return the meta object for the containment reference '<em>Feature</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Kml#getFeature()
 	 * @see #getKml()
 	 * @generated
 	 */
-	EReference getKml_Features();
+	EReference getKml_Feature();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -688,12 +688,12 @@ public interface KmlPackage extends EPackage {
 		EClass PLACEMARK = eINSTANCE.getPlacemark();
 
 		/**
-		 * The meta object literal for the '<em><b>Geometries</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Geometry</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PLACEMARK__GEOMETRIES = eINSTANCE.getPlacemark_Geometries();
+		EReference PLACEMARK__GEOMETRY = eINSTANCE.getPlacemark_Geometry();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.GeometryImpl <em>Geometry</em>}' class.
@@ -726,7 +726,7 @@ public interface KmlPackage extends EPackage {
 		EClass KML = eINSTANCE.getKml();
 
 		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Files</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -734,12 +734,12 @@ public interface KmlPackage extends EPackage {
 		EReference KML__FILES = eINSTANCE.getKml_Files();
 
 		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Feature</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference KML__FEATURES = eINSTANCE.getKml_Features();
+		EReference KML__FEATURE = eINSTANCE.getKml_Feature();
 
 	}
 
