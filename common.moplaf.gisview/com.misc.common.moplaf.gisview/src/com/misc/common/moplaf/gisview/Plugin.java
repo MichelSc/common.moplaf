@@ -19,13 +19,16 @@ import org.osgi.framework.BundleContext;
 
 import com.misc.common.moplaf.gisview.preference.Activator;
 import com.misc.common.moplaf.gisview.preference.PrefConstants;
+import com.misc.common.moplaf.gisview.preference.PreferenceInitializer;
 
 /**
  * The activator class controls the plug-in life cycle
  */
 public class Plugin extends AbstractUIPlugin implements PrefConstants{
 
-	private int mapMaxDepth = 4;
+	private int mapMaxDepth      = PreferenceInitializer.getDefaultMapMaxDepth();
+	private String mapServerUrl  = PreferenceInitializer.getDefaultMapServerUrl();
+	private int mapServerMaxZoom = PreferenceInitializer.getDefaultMapServerMaxZoom();
 	
 	public int getMapMaxDepth() {
 		return mapMaxDepth;
@@ -33,6 +36,22 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants{
 
 	public void setMapMaxDepth(int mapMaxDepth) {
 		this.mapMaxDepth = mapMaxDepth;
+	}
+
+	public String getMapServerUrl() {
+		return mapServerUrl;
+	}
+
+	public void setMapServerUrl(String mapServerUrl) {
+		this.mapServerUrl = mapServerUrl;
+	}
+
+	public int getMapServerMaxZoom() {
+		return mapServerMaxZoom;
+	}
+
+	public void setMapServerMaxZoom(int mapServerMaxZoom) {
+		this.mapServerMaxZoom = mapServerMaxZoom;
 	}
 
 	// The plug-in ID
@@ -99,8 +118,15 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants{
 		    	  
 		    	  if ( newValue instanceof Integer ){
 		    		  Integer newValueAsInteger = (Integer)newValue;
-			    	  if        ( property.equals(PREF_MAP_MAX_DEPTH) ){
+			    	  if ( property.equals(PREF_MAP_MAX_DEPTH) ){
 			    			Plugin.getDefault().setMapMaxDepth(newValueAsInteger);
+			    	  } else if ( property.equals(PREF_MAP_SERVER_MAX_ZOOM)) {
+			    			Plugin.getDefault().setMapServerMaxZoom(newValueAsInteger);
+			    	  }
+		    	  } else if ( newValue instanceof String) {
+		    		  String newValueAsString = (String)newValue;
+			    	  if ( property.equals(PREF_MAP_SERVER_URL) ){
+			    			Plugin.getDefault().setMapServerUrl(newValueAsString);
 			    	  }
 		    	  }
 		       }; // property changed

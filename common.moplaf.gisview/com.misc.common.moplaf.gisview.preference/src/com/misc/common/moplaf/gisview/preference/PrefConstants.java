@@ -13,4 +13,6 @@ package com.misc.common.moplaf.gisview.preference;
 public interface PrefConstants {
 	
 	String PREF_MAP_MAX_DEPTH        = "com.misc.common.moplaf.gisview.Preference.mapMaxDepth";
+	String PREF_MAP_SERVER_URL       = "com.misc.common.moplaf.gisview.Preference.mapServerUrl";
+	String PREF_MAP_SERVER_MAX_ZOOM  = "com.misc.common.moplaf.gisview.Preference.mapServerMaxZoom";
 }

@@ -13,6 +13,7 @@ package com.misc.common.moplaf.gisview.preference;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IntegerFieldEditor;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
@@ -30,6 +31,8 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 	@Override
 	protected void createFieldEditors() {
 		this.addField(new IntegerFieldEditor(PREF_MAP_MAX_DEPTH,        "Map Max Depth:"       , this.getFieldEditorParent()));
+		this.addField(new StringFieldEditor (PREF_MAP_SERVER_URL,       "MapServer Url:"       , this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_MAP_SERVER_MAX_ZOOM,  "MapServer Max Zoom:"  , this.getFieldEditorParent()));
 	}
 
 }

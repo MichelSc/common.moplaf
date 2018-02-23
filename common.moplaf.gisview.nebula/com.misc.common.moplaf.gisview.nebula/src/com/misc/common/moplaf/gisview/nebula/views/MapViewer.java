@@ -22,6 +22,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.nebula.widgets.geomap.GeoMap;
 import org.eclipse.nebula.widgets.geomap.GeoMapUtil;
+import org.eclipse.nebula.widgets.geomap.OsmTileServer;
 import org.eclipse.nebula.widgets.geomap.PointD;
 import org.eclipse.nebula.widgets.geomap.TileServer;
 import org.eclipse.swt.SWT;
@@ -31,6 +32,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
 import com.misc.common.moplaf.gisview.ILocation;
+import com.misc.common.moplaf.gisview.Plugin;
 import com.misc.common.moplaf.gisview.viewers.MapViewerAbstract;
 
 import org.eclipse.swt.graphics.Color;
@@ -81,6 +83,16 @@ public class MapViewer extends MapViewerAbstract {
 	public MapViewer(Composite parent){
 		// make the control
 		this.geoMap = new GeoMap(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+		
+		// set the tileserver
+//		this.geoMap.setTileServer(GoogleTileServer.TILESERVERS[1]);
+//		this.geoMap.setTileServer(OsmTileServer.TILESERVERS[0]);
+		String url = Plugin.getDefault().getMapServerUrl();
+		int maxZoom = Plugin.getDefault().getMapServerMaxZoom();
+		TileServer tileServer = new OsmTileServer(url, maxZoom);
+		this.geoMap.setTileServer(tileServer);
+		
+		// add the paint listener
 		this.geoMap.addPaintListener(new PaintListener() {
 			public void paintControl(PaintEvent e) {
 				GeoMap map = MapViewer.this.geoMap;
@@ -114,7 +126,7 @@ public class MapViewer extends MapViewerAbstract {
 		
 		TileServer server = this.geoMap.getTileServer();
 		String serverAsString = server.toString();
-		System.out.println("MapViewer, goeMap created, server "+serverAsString);        
+		System.out.println("MapViewer, geoMap created, server "+serverAsString);        
 		
 		int zoom = this.geoMap.getZoom();
 		int x = GeoMapUtil.lon2position(4.414d, zoom);
