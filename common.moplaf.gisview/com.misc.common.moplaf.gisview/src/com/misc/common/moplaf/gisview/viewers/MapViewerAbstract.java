@@ -25,6 +25,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 
 import com.misc.common.moplaf.gisview.ILocationProvider;
 import com.misc.common.moplaf.gisview.IPathProvider;
+import com.misc.common.moplaf.gisview.Plugin;
 
 public abstract class MapViewerAbstract extends ContentViewer {
 
@@ -125,7 +126,8 @@ public abstract class MapViewerAbstract extends ContentViewer {
 			locations.add(element);
 		}
 		// the children
-		if ( depth<4) {
+		int max_depth = Plugin.getDefault().getMapMaxDepth();
+		if ( depth<max_depth) {
 			Object[] children_element= this.getTreeContentProvider().getChildren(element);
 			for (Object child_element : children_element) {
 				// the parent of child is modelElement, this is an actual child
@@ -146,7 +148,8 @@ public abstract class MapViewerAbstract extends ContentViewer {
 			paths.add(element);
 		}
 		// the children
-		if ( depth<3) {
+		int max_depth = Plugin.getDefault().getMapMaxDepth();
+		if ( depth<max_depth ) {
 			Object[] children_element= this.getTreeContentProvider().getChildren(element);
 			for (Object child_element : children_element) {
 				// the parent of child is modelElement, this is an actual child
