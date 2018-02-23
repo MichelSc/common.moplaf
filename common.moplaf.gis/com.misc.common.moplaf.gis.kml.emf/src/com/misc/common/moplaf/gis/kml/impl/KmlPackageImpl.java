@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.gis.kml.impl;
 
 import com.misc.common.moplaf.file.FilePackage;
-import com.misc.common.moplaf.gis.GisPackage;
-
 import com.misc.common.moplaf.gis.kml.Document;
 import com.misc.common.moplaf.gis.kml.Feature;
 import com.misc.common.moplaf.gis.kml.Folder;
@@ -14,9 +12,6 @@ import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.Placemark;
 import com.misc.common.moplaf.gis.kml.Point;
-
-import com.misc.common.moplaf.job.JobPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -135,8 +130,6 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		// Initialize simple dependencies
 		FilePackage.eINSTANCE.eClass();
-		GisPackage.eINSTANCE.eClass();
-		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theKmlPackage.createPackageContents();
@@ -257,6 +250,24 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPoint_Longitude() {
+		return (EAttribute)pointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPoint_Latitude() {
+		return (EAttribute)pointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getKml() {
 		return kmlEClass;
 	}
@@ -324,6 +335,8 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		createEReference(geometryEClass, GEOMETRY__PLACEMARK);
 
 		pointEClass = createEClass(POINT);
+		createEAttribute(pointEClass, POINT__LONGITUDE);
+		createEAttribute(pointEClass, POINT__LATITUDE);
 
 		kmlEClass = createEClass(KML);
 		createEReference(kmlEClass, KML__FILES);
@@ -354,7 +367,6 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		GisPackage theGisPackage = (GisPackage)EPackage.Registry.INSTANCE.getEPackage(GisPackage.eNS_URI);
 		FilePackage theFilePackage = (FilePackage)EPackage.Registry.INSTANCE.getEPackage(FilePackage.eNS_URI);
 
 		// Create type parameters
@@ -367,7 +379,6 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		folderEClass.getESuperTypes().add(this.getContainer());
 		placemarkEClass.getESuperTypes().add(this.getFeature());
 		pointEClass.getESuperTypes().add(this.getGeometry());
-		pointEClass.getESuperTypes().add(theGisPackage.getGisCoordinatesAbstract());
 		kmlEClass.getESuperTypes().add(theFilePackage.getFileReader());
 
 		// Initialize classes, features, and operations; add parameters
@@ -388,6 +399,8 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		initEReference(getGeometry_Placemark(), this.getPlacemark(), this.getPlacemark_Geometry(), "Placemark", null, 1, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPoint_Longitude(), ecorePackage.getEDouble(), "Longitude", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPoint_Latitude(), ecorePackage.getEDouble(), "Latitude", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -3,24 +3,29 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.gis.kml.emf/src" modelPluginID="com.misc.common.moplaf.gis.kml.emf"
     modelName="Kml" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file ../../com.misc.common.moplaf.gis.emf/model/gis.genmodel#//gis ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
+    usedGenPackages="../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
     operationReflection="true" importOrganizing="true">
   <foreignModel>kml.ecore</foreignModel>
   <genPackages prefix="Kml" basePackage="com.misc.common.moplaf.gis" disposableProviderFactory="true"
       ecorePackage="kml.ecore#/">
-    <genClasses ecoreClass="kml.ecore#//Document"/>
+    <genClasses image="false" ecoreClass="kml.ecore#//Document"/>
     <genClasses image="false" ecoreClass="kml.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Container/Features"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Container/Files"/>
     </genClasses>
-    <genClasses ecoreClass="kml.ecore#//Folder"/>
-    <genClasses image="false" ecoreClass="kml.ecore#//Feature">
+    <genClasses image="false" ecoreClass="kml.ecore#//Folder"/>
+    <genClasses ecoreClass="kml.ecore#//Feature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//Feature/Name"/>
     </genClasses>
     <genClasses ecoreClass="kml.ecore#//Placemark">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Placemark/Geometries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Placemark/Geometry"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="kml.ecore#//Geometry"/>
-    <genClasses ecoreClass="kml.ecore#//Point"/>
+    <genClasses ecoreClass="kml.ecore#//Geometry">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference kml.ecore#//Geometry/Placemark"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="kml.ecore#//Point"/>
+    <genClasses ecoreClass="kml.ecore#//Kml">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Files"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Feature"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -16,5 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.job.emf.edit;visibility:=reexport,
  com.misc.common.moplaf.gisview;visibility:=reexport,
  com.misc.common.moplaf.emf.edit;bundle-version="1.0.0",
- com.misc.common.moplaf.gisview.emf.edit;bundle-version="1.0.0"
+ com.misc.common.moplaf.gisview.emf.edit;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

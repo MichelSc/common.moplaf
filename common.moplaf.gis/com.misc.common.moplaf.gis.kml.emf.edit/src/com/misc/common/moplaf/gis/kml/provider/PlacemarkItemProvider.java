@@ -84,11 +84,10 @@ public class PlacemarkItemProvider extends FeatureItemProvider {
 	 * This returns Placemark.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Placemark"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/pin56.png"));
 	}
 
 	/**

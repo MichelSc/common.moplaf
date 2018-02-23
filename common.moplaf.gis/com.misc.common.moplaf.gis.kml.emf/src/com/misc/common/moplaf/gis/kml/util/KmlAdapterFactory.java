@@ -3,9 +3,6 @@
 package com.misc.common.moplaf.gis.kml.util;
 
 import com.misc.common.moplaf.file.FileReader;
-import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
-import com.misc.common.moplaf.gis.GisLocation;
-
 import com.misc.common.moplaf.gis.kml.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -102,14 +99,6 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseKml(Kml object) {
 				return createKmlAdapter();
-			}
-			@Override
-			public Adapter caseGisLocation(GisLocation object) {
-				return createGisLocationAdapter();
-			}
-			@Override
-			public Adapter caseGisCoordinatesAbstract(GisCoordinatesAbstract object) {
-				return createGisCoordinatesAbstractAdapter();
 			}
 			@Override
 			public Adapter caseFileReader(FileReader object) {
@@ -244,34 +233,6 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createKmlAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisLocation
-	 * @generated
-	 */
-	public Adapter createGisLocationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisCoordinatesAbstract <em>Coordinates Abstract</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisCoordinatesAbstract
-	 * @generated
-	 */
-	public Adapter createGisCoordinatesAbstractAdapter() {
 		return null;
 	}
 

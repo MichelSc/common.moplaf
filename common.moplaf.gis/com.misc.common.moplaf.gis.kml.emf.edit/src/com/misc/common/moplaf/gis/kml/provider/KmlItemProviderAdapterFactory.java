@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.kml.provider;
 
 import com.misc.common.moplaf.gis.kml.util.KmlAdapterFactory;
+import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,7 +62,6 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public KmlItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +69,7 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemLocationsProvider.class); // non emf interface
 	}
 
 	/**

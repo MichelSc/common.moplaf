@@ -125,7 +125,7 @@ public abstract class MapViewerAbstract extends ContentViewer {
 			locations.add(element);
 		}
 		// the children
-		if ( depth<3) {
+		if ( depth<4) {
 			Object[] children_element= this.getTreeContentProvider().getChildren(element);
 			for (Object child_element : children_element) {
 				// the parent of child is modelElement, this is an actual child

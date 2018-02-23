@@ -264,8 +264,7 @@ public class GisLocationItemProvider
 
 	@Override
 	public Object getLocationImage(Object element, Object location) {
-		GisLocation element_as_location = (GisLocation)element;
-		return this.getImage(element_as_location);
+		return this.getImage(element);
 	}
 
 	/**

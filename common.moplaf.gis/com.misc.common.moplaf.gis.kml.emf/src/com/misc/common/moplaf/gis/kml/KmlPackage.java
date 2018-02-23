@@ -335,40 +335,13 @@ public interface KmlPackage extends EPackage {
 	int POINT__PLACEMARK = GEOMETRY__PLACEMARK;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__DESCRIPTION = GEOMETRY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Geocoded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__GEOCODED = GEOMETRY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Tools</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__TOOLS = GEOMETRY_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT__LONGITUDE = GEOMETRY_FEATURE_COUNT + 3;
+	int POINT__LONGITUDE = GEOMETRY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
@@ -377,7 +350,7 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POINT__LATITUDE = GEOMETRY_FEATURE_COUNT + 4;
+	int POINT__LATITUDE = GEOMETRY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Point</em>' class.
@@ -386,34 +359,7 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POINT_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Get Coordinates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT___GET_COORDINATES = GEOMETRY_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Add Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT___ADD_TOOL__GISTOOLLOCATION = GEOMETRY_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Add Tool Feedback</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT___GET_ADD_TOOL_FEEDBACK__GISTOOLLOCATION = GEOMETRY_OPERATION_COUNT + 2;
+	int POINT_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Point</em>' class.
@@ -422,7 +368,7 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POINT_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 3;
+	int POINT_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
 
 
 	/**
@@ -596,6 +542,28 @@ public interface KmlPackage extends EPackage {
 	EClass getPoint();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Point#getLongitude <em>Longitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Longitude</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Point#getLongitude()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EAttribute getPoint_Longitude();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Point#getLatitude <em>Latitude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Latitude</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Point#getLatitude()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EAttribute getPoint_Latitude();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Kml <em>Kml</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -751,6 +719,22 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POINT = eINSTANCE.getPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Longitude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POINT__LONGITUDE = eINSTANCE.getPoint_Longitude();
+
+		/**
+		 * The meta object literal for the '<em><b>Latitude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POINT__LATITUDE = eINSTANCE.getPoint_Latitude();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.

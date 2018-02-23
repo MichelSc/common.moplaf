@@ -3,9 +3,6 @@
 package com.misc.common.moplaf.gis.kml.util;
 
 import com.misc.common.moplaf.file.FileReader;
-import com.misc.common.moplaf.gis.GisCoordinatesAbstract;
-import com.misc.common.moplaf.gis.GisLocation;
-
 import com.misc.common.moplaf.gis.kml.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -116,8 +113,6 @@ public class KmlSwitch<T> extends Switch<T> {
 				Point point = (Point)theEObject;
 				T result = casePoint(point);
 				if (result == null) result = caseGeometry(point);
-				if (result == null) result = caseGisCoordinatesAbstract(point);
-				if (result == null) result = caseGisLocation(point);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -249,36 +244,6 @@ public class KmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseKml(Kml object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Location</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Location</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGisLocation(GisLocation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Coordinates Abstract</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Coordinates Abstract</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGisCoordinatesAbstract(GisCoordinatesAbstract object) {
 		return null;
 	}
 

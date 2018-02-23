@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.gis.kml.impl;
 
 import com.misc.common.moplaf.file.File;
-import com.misc.common.moplaf.gis.Plugin;
 import com.misc.common.moplaf.gis.kml.Document;
 import com.misc.common.moplaf.gis.kml.Feature;
 import com.misc.common.moplaf.gis.kml.Folder;
@@ -26,6 +25,7 @@ import net.opengis.kml._2.PointType;
 import org.eclipse.emf.common.notify.Notification;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -199,11 +199,11 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 				this.setFeature(feature);
 				
 				boolean ok = klm != null;
-				Plugin.INSTANCE.logInfo("KML read: "+ok);
+//				Plugin.INSTANCE.logInfo("KML read: "+ok);
 
 			  } catch (JAXBException e) {
 				e.printStackTrace();
-				Plugin.INSTANCE.logError("KML not read: "+e.getMessage());
+	//			Plugin.INSTANCE.logError("KML not read: "+e.getMessage());
 			  }
 	}
 
@@ -223,12 +223,21 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	
 	private void synchPoint(Point point , PointType point_ele) {
 		this.synchGeometry(point, point_ele);
-		List<String> coordinates = point_ele.getCoordinates();
-		if ( coordinates.size()>=2) {
-			String longitude_asstring = coordinates.get(0);
-			String latitude_asstring = coordinates.get(0);
-			point.setLongitude(0.0d);
-			point.setLatitude(0.0d);
+		List<String> coordinates_collec = point_ele.getCoordinates();
+		if ( coordinates_collec.size()>0) {
+			String coordinates = coordinates_collec.get(0);
+			StringTokenizer tokenizer = new StringTokenizer(coordinates, ",");
+			int index = 0;
+			while ( tokenizer.hasMoreTokens()) {
+				String token = tokenizer.nextToken();
+				Double value = new Double(token);
+				if ( index == 0 ) {
+					point.setLongitude(value);
+				} else if ( index == 1) {
+					point.setLatitude(value);
+				}
+				index++;
+			}
 		}
 	}
 	
