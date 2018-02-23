@@ -13,6 +13,7 @@ package com.misc.common.moplaf.gis.kml;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.kml.Point#getLongitude <em>Longitude</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.kml.Point#getLatitude <em>Latitude</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.kml.Point#getElevation <em>Elevation</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPoint()
@@ -72,4 +73,30 @@ public interface Point extends Geometry {
 	 * @generated
 	 */
 	void setLatitude(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Elevation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Elevation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elevation</em>' attribute.
+	 * @see #setElevation(double)
+	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPoint_Elevation()
+	 * @model
+	 * @generated
+	 */
+	double getElevation();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Point#getElevation <em>Elevation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Elevation</em>' attribute.
+	 * @see #getElevation()
+	 * @generated
+	 */
+	void setElevation(double value);
 } // Point

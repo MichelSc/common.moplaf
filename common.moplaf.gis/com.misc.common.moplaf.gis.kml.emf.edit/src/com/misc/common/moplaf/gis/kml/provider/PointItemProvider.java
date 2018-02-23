@@ -48,6 +48,7 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 
 			addLongitudePropertyDescriptor(object);
 			addLatitudePropertyDescriptor(object);
+			addElevationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +98,28 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 	}
 
 	/**
+	 * This adds a property descriptor for the Elevation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addElevationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Point_Elevation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Point_Elevation_feature", "_UI_Point_type"),
+				 KmlPackage.Literals.POINT__ELEVATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,6 +146,7 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 		switch (notification.getFeatureID(Point.class)) {
 			case KmlPackage.POINT__LONGITUDE:
 			case KmlPackage.POINT__LATITUDE:
+			case KmlPackage.POINT__ELEVATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

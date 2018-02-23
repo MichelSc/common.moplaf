@@ -353,13 +353,22 @@ public interface KmlPackage extends EPackage {
 	int POINT__LATITUDE = GEOMETRY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Elevation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__ELEVATION = GEOMETRY_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 2;
+	int POINT_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Point</em>' class.
@@ -564,6 +573,17 @@ public interface KmlPackage extends EPackage {
 	EAttribute getPoint_Latitude();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Point#getElevation <em>Elevation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Elevation</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Point#getElevation()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EAttribute getPoint_Elevation();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Kml <em>Kml</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -735,6 +755,14 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POINT__LATITUDE = eINSTANCE.getPoint_Latitude();
+
+		/**
+		 * The meta object literal for the '<em><b>Elevation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POINT__ELEVATION = eINSTANCE.getPoint_Elevation();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.

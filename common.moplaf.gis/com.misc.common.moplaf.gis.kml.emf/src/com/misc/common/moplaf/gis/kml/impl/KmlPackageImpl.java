@@ -268,6 +268,15 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPoint_Elevation() {
+		return (EAttribute)pointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getKml() {
 		return kmlEClass;
 	}
@@ -337,6 +346,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		pointEClass = createEClass(POINT);
 		createEAttribute(pointEClass, POINT__LONGITUDE);
 		createEAttribute(pointEClass, POINT__LATITUDE);
+		createEAttribute(pointEClass, POINT__ELEVATION);
 
 		kmlEClass = createEClass(KML);
 		createEReference(kmlEClass, KML__FILES);
@@ -401,6 +411,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPoint_Longitude(), ecorePackage.getEDouble(), "Longitude", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPoint_Latitude(), ecorePackage.getEDouble(), "Latitude", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPoint_Elevation(), ecorePackage.getEDouble(), "Elevation", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

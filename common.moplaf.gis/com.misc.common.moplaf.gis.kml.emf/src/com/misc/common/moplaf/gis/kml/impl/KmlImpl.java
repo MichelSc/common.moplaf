@@ -235,6 +235,8 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 					point.setLongitude(value);
 				} else if ( index == 1) {
 					point.setLatitude(value);
+				} else if ( index == 2 ) {
+					point.setElevation(value);
 				}
 				index++;
 			}

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.kml.impl.PointImpl#getLongitude <em>Longitude</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.kml.impl.PointImpl#getLatitude <em>Latitude</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.kml.impl.PointImpl#getElevation <em>Elevation</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +60,25 @@ public class PointImpl extends GeometryImpl implements Point {
 	 * @ordered
 	 */
 	protected double latitude = LATITUDE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getElevation() <em>Elevation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElevation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ELEVATION_EDEFAULT = 0.0;
+	/**
+	 * The cached value of the '{@link #getElevation() <em>Elevation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElevation()
+	 * @generated
+	 * @ordered
+	 */
+	protected double elevation = ELEVATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,6 +146,27 @@ public class PointImpl extends GeometryImpl implements Point {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getElevation() {
+		return elevation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElevation(double newElevation) {
+		double oldElevation = elevation;
+		elevation = newElevation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KmlPackage.POINT__ELEVATION, oldElevation, elevation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -133,6 +174,8 @@ public class PointImpl extends GeometryImpl implements Point {
 				return getLongitude();
 			case KmlPackage.POINT__LATITUDE:
 				return getLatitude();
+			case KmlPackage.POINT__ELEVATION:
+				return getElevation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,6 +193,9 @@ public class PointImpl extends GeometryImpl implements Point {
 				return;
 			case KmlPackage.POINT__LATITUDE:
 				setLatitude((Double)newValue);
+				return;
+			case KmlPackage.POINT__ELEVATION:
+				setElevation((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,6 +215,9 @@ public class PointImpl extends GeometryImpl implements Point {
 			case KmlPackage.POINT__LATITUDE:
 				setLatitude(LATITUDE_EDEFAULT);
 				return;
+			case KmlPackage.POINT__ELEVATION:
+				setElevation(ELEVATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -185,6 +234,8 @@ public class PointImpl extends GeometryImpl implements Point {
 				return longitude != LONGITUDE_EDEFAULT;
 			case KmlPackage.POINT__LATITUDE:
 				return latitude != LATITUDE_EDEFAULT;
+			case KmlPackage.POINT__ELEVATION:
+				return elevation != ELEVATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -203,6 +254,8 @@ public class PointImpl extends GeometryImpl implements Point {
 		result.append(longitude);
 		result.append(", Latitude: ");
 		result.append(latitude);
+		result.append(", Elevation: ");
+		result.append(elevation);
 		result.append(')');
 		return result.toString();
 	}

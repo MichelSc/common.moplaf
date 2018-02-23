@@ -22,6 +22,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Elevation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Kml" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReader">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Files" eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"

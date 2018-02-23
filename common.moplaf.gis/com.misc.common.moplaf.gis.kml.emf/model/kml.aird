@@ -123,6 +123,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_MDMvARiTEeiVrtV9R802Jg" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_MDMvAhiTEeiVrtV9R802Jg"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_MAR84BieEeiVrtV9R802Jg" type="3010" element="_MAHk0BieEeiVrtV9R802Jg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_MAR84RieEeiVrtV9R802Jg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_MAR84hieEeiVrtV9R802Jg"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_HVi-IRcUEeitvtHeRmjcWg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_HVi-IhcUEeitvtHeRmjcWg"/>
           </children>
@@ -343,6 +347,14 @@
         <target xmi:type="ecore:EAttribute" href="kml.ecore#//Point/Latitude"/>
         <semanticElements xmi:type="ecore:EAttribute" href="kml.ecore#//Point/Latitude"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MCsYsBiTEeiVrtV9R802Jg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MAHk0BieEeiVrtV9R802Jg" name="Elevation : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="kml.ecore#//Point/Elevation"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="kml.ecore#//Point/Elevation"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MAJaABieEeiVrtV9R802Jg" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
