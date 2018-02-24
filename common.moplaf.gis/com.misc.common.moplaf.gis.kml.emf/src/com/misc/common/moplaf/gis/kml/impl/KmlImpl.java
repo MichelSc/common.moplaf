@@ -11,6 +11,8 @@ import com.misc.common.moplaf.gis.kml.Geometry;
 import com.misc.common.moplaf.gis.kml.Kml;
 import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
+import com.misc.common.moplaf.gis.kml.LineString;
+import com.misc.common.moplaf.gis.kml.LinearRing;
 import com.misc.common.moplaf.gis.kml.Placemark;
 import com.misc.common.moplaf.gis.kml.Point;
 
@@ -20,11 +22,14 @@ import net.opengis.kml._2.AbstractGeometryType;
 import net.opengis.kml._2.DocumentType;
 import net.opengis.kml._2.FolderType;
 import net.opengis.kml._2.KmlType;
+import net.opengis.kml._2.LineStringType;
+import net.opengis.kml._2.LinearRingType;
 import net.opengis.kml._2.PlacemarkType;
 import net.opengis.kml._2.PointType;
 
 import org.eclipse.emf.common.notify.Notification;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -41,6 +46,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,14 +65,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	/**
-	 * The cached value of the '{@link #getFiles() <em>Files</em>}' containment reference.
+	 * The cached value of the '{@link #getFiles() <em>Files</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFiles()
 	 * @generated
 	 * @ordered
 	 */
-	protected File files;
+	protected EList<File> files;
 
 	/**
 	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference.
@@ -101,42 +108,11 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public File getFiles() {
+	public EList<File> getFiles() {
+		if (files == null) {
+			files = new EObjectContainmentEList<File>(File.class, this, KmlPackage.KML__FILES);
+		}
 		return files;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFiles(File newFiles, NotificationChain msgs) {
-		File oldFiles = files;
-		files = newFiles;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KmlPackage.KML__FILES, oldFiles, newFiles);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFiles(File newFiles) {
-		if (newFiles != files) {
-			NotificationChain msgs = null;
-			if (files != null)
-				msgs = ((InternalEObject)files).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KmlPackage.KML__FILES, null, msgs);
-			if (newFiles != null)
-				msgs = ((InternalEObject)newFiles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KmlPackage.KML__FILES, null, msgs);
-			msgs = basicSetFiles(newFiles, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KmlPackage.KML__FILES, newFiles, newFiles));
 	}
 
 	/**
@@ -214,6 +190,14 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 			Point new_point = KmlFactory.eINSTANCE.createPoint();
 			this.synchPoint(new_point, (PointType)geometry_ele);
 			new_geometry = new_point;
+		} else if ( geometry_ele instanceof LineStringType) {
+			LineString new_linestring = KmlFactory.eINSTANCE.createLineString();
+			this.synchLineString(new_linestring, (LineStringType)geometry_ele);
+			new_geometry = new_linestring;
+		} else if ( geometry_ele instanceof LinearRingType) {
+			LinearRing new_linearring = KmlFactory.eINSTANCE.createLinearRing();
+			this.synchLinearRing(new_linearring, (LinearRingType)geometry_ele);
+			new_geometry = new_linearring;
 		}
 		return new_geometry;
 	}
@@ -228,6 +212,26 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 			String coordinates_string = coordinates_collec.get(0);
 			Coordinates coordinates = Coordinates.valueOf(coordinates_string);
 			point.setCoordinates(coordinates);
+		}
+	}
+	
+	private void synchLineString(LineString line, LineStringType line_ele) {
+		this.synchGeometry(line, line_ele);
+		List<String> coordinates_collec = line_ele.getCoordinates();
+		line.getCoordinates().clear();
+		for ( String coordinates_string : coordinates_collec ) {
+			Coordinates coordinates = Coordinates.valueOf(coordinates_string);
+			line.getCoordinates().add(coordinates);
+		}
+	}
+	
+	private void synchLinearRing(LinearRing line, LinearRingType line_ele) {
+		this.synchGeometry(line, line_ele);
+		List<String> coordinates_collec = line_ele.getCoordinates();
+		line.getCoordinates().clear();
+		for ( String coordinates_string : coordinates_collec ) {
+			Coordinates coordinates = Coordinates.valueOf(coordinates_string);
+			line.getCoordinates().add(coordinates);
 		}
 	}
 	
@@ -293,7 +297,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case KmlPackage.KML__FILES:
-				return basicSetFiles(null, msgs);
+				return ((InternalEList<?>)getFiles()).basicRemove(otherEnd, msgs);
 			case KmlPackage.KML__FEATURE:
 				return basicSetFeature(null, msgs);
 		}
@@ -326,7 +330,8 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case KmlPackage.KML__FILES:
-				setFiles((File)newValue);
+				getFiles().clear();
+				getFiles().addAll((Collection<? extends File>)newValue);
 				return;
 			case KmlPackage.KML__FEATURE:
 				setFeature((Feature)newValue);
@@ -344,7 +349,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case KmlPackage.KML__FILES:
-				setFiles((File)null);
+				getFiles().clear();
 				return;
 			case KmlPackage.KML__FEATURE:
 				setFeature((Feature)null);
@@ -362,7 +367,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case KmlPackage.KML__FILES:
-				return files != null;
+				return files != null && !files.isEmpty();
 			case KmlPackage.KML__FEATURE:
 				return feature != null;
 		}

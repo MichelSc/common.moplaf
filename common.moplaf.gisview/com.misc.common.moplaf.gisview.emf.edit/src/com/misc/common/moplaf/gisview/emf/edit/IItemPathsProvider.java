@@ -44,6 +44,18 @@ public interface IItemPathsProvider {
 	}
 
 	/**
+	 * Returns the number paths published by the element. 
+	 * <p>
+	 * Will be used only if getPaths does not return anything.
+	 * In that case, the paths are identified by an Integer, 0 based.
+	 * @param element
+	 * @return
+	 */
+	default int getPathsNr(Object element){
+		return 0;
+	}
+
+	/**
 	 * Return the text associated to a path published by the element.
 	 * @param element
 	 * @param grid

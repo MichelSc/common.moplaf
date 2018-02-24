@@ -107,7 +107,11 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	private void collectLocationProviders(Object element, IItemLocationsProvider locationsProvider, ArrayList<Object> providers){
 		Object locations = locationsProvider.getLocations(element);
 		if ( locations == null ) {
-			// no location for the element
+			int nr_locations = locationsProvider.getLocationsNr(element);
+			for ( int location_index = 0; location_index<nr_locations; location_index++) {
+				LocationProvider provider = this.createLocationProvider(element, location_index, locationsProvider);
+				providers.add(provider);
+			}
 		} else if ( locations instanceof Collection<?>) {
 			Collection<?> collection = (Collection<?>)locations;
 			// the element HAS locations
@@ -130,7 +134,11 @@ public class AdapterFactoryGisProvider extends AdapterFactoryArrayContentProvide
 	private void collectPathProviders(Object element, IItemPathsProvider pathsProvider, ArrayList<Object> providers){
 		Object paths = pathsProvider.getPaths(element);
 		if ( paths == null ) {
-			// no path for the element
+			int nr_paths = pathsProvider.getPathsNr(element);
+			for ( int path_index = 0; path_index<nr_paths; path_index++) {
+				PathProvider provider = this.createPathProvider(element, path_index, pathsProvider);
+				providers.add(provider);
+			}
 		} else if ( paths instanceof Collection<?>) {
 			Collection<?> collection = (Collection<?>)paths;
 			// the element HAS paths

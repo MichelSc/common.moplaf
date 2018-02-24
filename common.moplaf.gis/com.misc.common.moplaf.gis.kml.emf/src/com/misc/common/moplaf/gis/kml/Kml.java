@@ -5,6 +5,7 @@ package com.misc.common.moplaf.gis.kml;
 import com.misc.common.moplaf.file.File;
 
 import com.misc.common.moplaf.file.FileReader;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,30 +26,20 @@ import com.misc.common.moplaf.file.FileReader;
  */
 public interface Kml extends FileReader {
 	/**
-	 * Returns the value of the '<em><b>Files</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Files</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.file.File}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Files</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Files</em>' containment reference.
-	 * @see #setFiles(File)
+	 * @return the value of the '<em>Files</em>' containment reference list.
 	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getKml_Files()
 	 * @model containment="true"
 	 * @generated
 	 */
-	File getFiles();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Kml#getFiles <em>Files</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Files</em>' containment reference.
-	 * @see #getFiles()
-	 * @generated
-	 */
-	void setFiles(File value);
+	EList<File> getFiles();
 
 	/**
 	 * Returns the value of the '<em><b>Feature</b></em>' containment reference.

@@ -169,7 +169,7 @@ public interface KmlPackage extends EPackage {
 	int KML = 0;
 
 	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference.
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -709,10 +709,10 @@ public interface KmlPackage extends EPackage {
 	EClass getKml();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.gis.kml.Kml#getFiles <em>Files</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Kml#getFiles <em>Files</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Files</em>'.
+	 * @return the meta object for the containment reference list '<em>Files</em>'.
 	 * @see com.misc.common.moplaf.gis.kml.Kml#getFiles()
 	 * @see #getKml()
 	 * @generated
@@ -920,7 +920,7 @@ public interface KmlPackage extends EPackage {
 		EClass KML = eINSTANCE.getKml();
 
 		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

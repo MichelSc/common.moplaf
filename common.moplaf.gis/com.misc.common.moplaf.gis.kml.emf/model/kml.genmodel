@@ -8,6 +8,11 @@
   <foreignModel>kml.ecore</foreignModel>
   <genPackages prefix="Kml" basePackage="com.misc.common.moplaf.gis" disposableProviderFactory="true"
       ecorePackage="kml.ecore#/">
+    <genDataTypes ecoreDataType="kml.ecore#//Coordinates"/>
+    <genClasses ecoreClass="kml.ecore#//Kml">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Files"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Feature"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="kml.ecore#//Document"/>
     <genClasses image="false" ecoreClass="kml.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Container/Features"/>
@@ -22,10 +27,14 @@
     <genClasses ecoreClass="kml.ecore#//Geometry">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference kml.ecore#//Geometry/Placemark"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="kml.ecore#//Point"/>
-    <genClasses ecoreClass="kml.ecore#//Kml">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Files"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Feature"/>
+    <genClasses image="false" ecoreClass="kml.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//Point/Coordinates"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="kml.ecore#//LineString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//LineString/Coordinates"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="kml.ecore#//LinearRing">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//LinearRing/Coordinates"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -39,6 +39,18 @@ public interface IItemLocationsProvider {
 	}
 
 	/**
+	 * Returns the number locations published by the element. 
+	 * <p>
+	 * Will be used only if getLocations does not return anything.
+	 * In that case, the locations are identified by an Integer, 0 based.
+	 * @param element
+	 * @return
+	 */
+	default int getLocationsNr(Object element){
+		return 0;
+	}
+
+	/**
 	 * Return the text associated to a location published by the element.
 	 * @param element
 	 * @param grid

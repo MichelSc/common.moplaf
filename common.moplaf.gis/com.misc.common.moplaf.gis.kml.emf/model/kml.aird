@@ -945,7 +945,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_AoNI4BfDEeiUGMBT3-0sFA" name="[0..1] Files" sourceNode="_D9wDMBfVEeiUGMBT3-0sFA" targetNode="_An4YwBfDEeiUGMBT3-0sFA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_AoNI4BfDEeiUGMBT3-0sFA" name="[0..*] Files" sourceNode="_D9wDMBfVEeiUGMBT3-0sFA" targetNode="_An4YwBfDEeiUGMBT3-0sFA">
       <target xmi:type="ecore:EReference" href="kml.ecore#//Kml/Files"/>
       <semanticElements xmi:type="ecore:EReference" href="kml.ecore#//Kml/Files"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_AoNv8xfDEeiUGMBT3-0sFA" description="_AoNv8BfDEeiUGMBT3-0sFA" sourceArrow="FillDiamond" strokeColor="0,0,0">
