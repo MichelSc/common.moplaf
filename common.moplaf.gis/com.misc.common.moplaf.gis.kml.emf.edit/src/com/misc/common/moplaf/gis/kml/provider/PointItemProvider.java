@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.kml.provider;
 
 
+import com.misc.common.moplaf.common.Coordinates;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.Point;
 import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
@@ -46,75 +47,29 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLongitudePropertyDescriptor(object);
-			addLatitudePropertyDescriptor(object);
-			addElevationPropertyDescriptor(object);
+			addCoordinatesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Longitude feature.
+	 * This adds a property descriptor for the Coordinates feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLongitudePropertyDescriptor(Object object) {
+	protected void addCoordinatesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Point_Longitude_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Point_Longitude_feature", "_UI_Point_type"),
-				 KmlPackage.Literals.POINT__LONGITUDE,
+				 getString("_UI_Point_Coordinates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Point_Coordinates_feature", "_UI_Point_type"),
+				 KmlPackage.Literals.POINT__COORDINATES,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Latitude feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLatitudePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Point_Latitude_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Point_Latitude_feature", "_UI_Point_type"),
-				 KmlPackage.Literals.POINT__LATITUDE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Elevation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElevationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Point_Elevation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Point_Elevation_feature", "_UI_Point_type"),
-				 KmlPackage.Literals.POINT__ELEVATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -127,8 +82,11 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 	 */
 	@Override
 	public String getText(Object object) {
-		Point point = (Point)object;
-		return getString("_UI_Point_type") + " " + point.getLongitude();
+		Coordinates labelValue = ((Point)object).getCoordinates();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Point_type") :
+			getString("_UI_Point_type") + " " + label;
 	}
 	
 
@@ -144,9 +102,7 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Point.class)) {
-			case KmlPackage.POINT__LONGITUDE:
-			case KmlPackage.POINT__LATITUDE:
-			case KmlPackage.POINT__ELEVATION:
+			case KmlPackage.POINT__COORDINATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -173,13 +129,22 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 	@Override
 	public double getLocationLongitude(Object element, Object location) {
 		Point point = (Point)location;
-		return point.getLongitude();
+		Coordinates coordinates = point.getCoordinates();
+		return coordinates.getX();
 	}
 
 	@Override
 	public double getLocationLatitude(Object element, Object location) {
 		Point point = (Point)location;
-		return point.getLatitude();
+		Coordinates coordinates = point.getCoordinates();
+		return coordinates.getY();
+	}
+
+	@Override
+	public double getLocationElevation(Object element, Object location) {
+		Point point = (Point)location;
+		Coordinates coordinates = point.getCoordinates();
+		return coordinates.getZ();
 	}
 
 	@Override

@@ -67,6 +67,13 @@ public class KmlSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case KmlPackage.KML: {
+				Kml kml = (Kml)theEObject;
+				T result = caseKml(kml);
+				if (result == null) result = caseFileReader(kml);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case KmlPackage.DOCUMENT: {
 				Document document = (Document)theEObject;
 				T result = caseDocument(document);
@@ -116,10 +123,17 @@ public class KmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KmlPackage.KML: {
-				Kml kml = (Kml)theEObject;
-				T result = caseKml(kml);
-				if (result == null) result = caseFileReader(kml);
+			case KmlPackage.LINE_STRING: {
+				LineString lineString = (LineString)theEObject;
+				T result = caseLineString(lineString);
+				if (result == null) result = caseGeometry(lineString);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KmlPackage.LINEAR_RING: {
+				LinearRing linearRing = (LinearRing)theEObject;
+				T result = caseLinearRing(linearRing);
+				if (result == null) result = caseGeometry(linearRing);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -229,6 +243,36 @@ public class KmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePoint(Point object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLineString(LineString object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Linear Ring</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Linear Ring</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinearRing(LinearRing object) {
 		return null;
 	}
 

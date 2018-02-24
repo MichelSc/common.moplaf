@@ -139,6 +139,16 @@ public class PlacemarkItemProvider extends FeatureItemProvider {
 			(createChildParameter
 				(KmlPackage.Literals.PLACEMARK__GEOMETRY,
 				 KmlFactory.eINSTANCE.createPoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KmlPackage.Literals.PLACEMARK__GEOMETRY,
+				 KmlFactory.eINSTANCE.createLineString()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KmlPackage.Literals.PLACEMARK__GEOMETRY,
+				 KmlFactory.eINSTANCE.createLinearRing()));
 	}
 
 }

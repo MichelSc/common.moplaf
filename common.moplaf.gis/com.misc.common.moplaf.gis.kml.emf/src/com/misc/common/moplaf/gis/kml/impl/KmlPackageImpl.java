@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml.impl;
 
+import com.misc.common.moplaf.common.Coordinates;
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.gis.kml.Document;
 import com.misc.common.moplaf.gis.kml.Feature;
@@ -10,10 +11,13 @@ import com.misc.common.moplaf.gis.kml.Geometry;
 import com.misc.common.moplaf.gis.kml.Kml;
 import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
+import com.misc.common.moplaf.gis.kml.LineString;
+import com.misc.common.moplaf.gis.kml.LinearRing;
 import com.misc.common.moplaf.gis.kml.Placemark;
 import com.misc.common.moplaf.gis.kml.Point;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -74,6 +78,27 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * @generated
 	 */
 	private EClass pointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lineStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linearRingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType coordinatesEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,7 +275,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPoint_Longitude() {
+	public EAttribute getPoint_Coordinates() {
 		return (EAttribute)pointEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -259,8 +284,8 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPoint_Latitude() {
-		return (EAttribute)pointEClass.getEStructuralFeatures().get(1);
+	public EClass getLineString() {
+		return lineStringEClass;
 	}
 
 	/**
@@ -268,8 +293,35 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPoint_Elevation() {
-		return (EAttribute)pointEClass.getEStructuralFeatures().get(2);
+	public EAttribute getLineString_Coordinates() {
+		return (EAttribute)lineStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLinearRing() {
+		return linearRingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLinearRing_Coordinates() {
+		return (EAttribute)linearRingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getCoordinates() {
+		return coordinatesEDataType;
 	}
 
 	/**
@@ -327,6 +379,10 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		kmlEClass = createEClass(KML);
+		createEReference(kmlEClass, KML__FILES);
+		createEReference(kmlEClass, KML__FEATURE);
+
 		documentEClass = createEClass(DOCUMENT);
 
 		containerEClass = createEClass(CONTAINER);
@@ -344,13 +400,16 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		createEReference(geometryEClass, GEOMETRY__PLACEMARK);
 
 		pointEClass = createEClass(POINT);
-		createEAttribute(pointEClass, POINT__LONGITUDE);
-		createEAttribute(pointEClass, POINT__LATITUDE);
-		createEAttribute(pointEClass, POINT__ELEVATION);
+		createEAttribute(pointEClass, POINT__COORDINATES);
 
-		kmlEClass = createEClass(KML);
-		createEReference(kmlEClass, KML__FILES);
-		createEReference(kmlEClass, KML__FEATURE);
+		lineStringEClass = createEClass(LINE_STRING);
+		createEAttribute(lineStringEClass, LINE_STRING__COORDINATES);
+
+		linearRingEClass = createEClass(LINEAR_RING);
+		createEAttribute(linearRingEClass, LINEAR_RING__COORDINATES);
+
+		// Create data types
+		coordinatesEDataType = createEDataType(COORDINATES);
 	}
 
 	/**
@@ -384,14 +443,20 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		kmlEClass.getESuperTypes().add(theFilePackage.getFileReader());
 		documentEClass.getESuperTypes().add(this.getContainer());
 		containerEClass.getESuperTypes().add(this.getFeature());
 		folderEClass.getESuperTypes().add(this.getContainer());
 		placemarkEClass.getESuperTypes().add(this.getFeature());
 		pointEClass.getESuperTypes().add(this.getGeometry());
-		kmlEClass.getESuperTypes().add(theFilePackage.getFileReader());
+		lineStringEClass.getESuperTypes().add(this.getGeometry());
+		linearRingEClass.getESuperTypes().add(this.getGeometry());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getKml_Feature(), this.getFeature(), null, "Feature", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(containerEClass, com.misc.common.moplaf.gis.kml.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -409,13 +474,16 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		initEReference(getGeometry_Placemark(), this.getPlacemark(), this.getPlacemark_Geometry(), "Placemark", null, 1, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPoint_Longitude(), ecorePackage.getEDouble(), "Longitude", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPoint_Latitude(), ecorePackage.getEDouble(), "Latitude", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPoint_Elevation(), ecorePackage.getEDouble(), "Elevation", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPoint_Coordinates(), this.getCoordinates(), "Coordinates", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getKml_Feature(), this.getFeature(), null, "Feature", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(lineStringEClass, LineString.class, "LineString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLineString_Coordinates(), this.getCoordinates(), "Coordinates", null, 0, -1, LineString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(linearRingEClass, LinearRing.class, "LinearRing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLinearRing_Coordinates(), this.getCoordinates(), "Coordinates", null, 0, -1, LinearRing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(coordinatesEDataType, Coordinates.class, "Coordinates", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

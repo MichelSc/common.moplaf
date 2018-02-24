@@ -2,6 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kml" nsURI="http://www.misc.com/common/moplaf/gis/kml/model/0.1"
     nsPrefix="kml">
+  <eClassifiers xsi:type="ecore:EClass" name="Kml" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReader">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" eType="#//Feature"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//Container"/>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" eSuperTypes="#//Feature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Features" upperBound="-1"
@@ -20,14 +26,15 @@
         eType="#//Placemark" eOpposite="#//Placemark/Geometry"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Elevation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coordinates" eType="#//Coordinates"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Kml" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReader">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" eType="#//Feature"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LineString" eSuperTypes="#//Geometry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coordinates" upperBound="-1"
+        eType="#//Coordinates"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinearRing" eSuperTypes="#//Geometry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coordinates" upperBound="-1"
+        eType="#//Coordinates"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Coordinates" instanceClassName="com.misc.common.moplaf.common.Coordinates"/>
 </ecore:EPackage>

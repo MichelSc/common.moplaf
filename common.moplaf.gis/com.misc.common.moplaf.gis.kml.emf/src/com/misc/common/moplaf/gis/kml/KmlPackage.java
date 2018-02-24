@@ -5,6 +5,7 @@ package com.misc.common.moplaf.gis.kml;
 import com.misc.common.moplaf.file.FilePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -65,34 +66,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getFeature()
 	 * @generated
 	 */
-	int FEATURE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Feature</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Feature</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_OPERATION_COUNT = 0;
+	int FEATURE = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.ContainerImpl <em>Container</em>}' class.
@@ -102,43 +76,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__NAME = FEATURE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__FEATURES = FEATURE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Container</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Container</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+	int CONTAINER = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.DocumentImpl <em>Document</em>}' class.
@@ -148,43 +86,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getDocument()
 	 * @generated
 	 */
-	int DOCUMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__FEATURES = CONTAINER__FEATURES;
-
-	/**
-	 * The number of structural features of the '<em>Document</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Document</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
+	int DOCUMENT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.FolderImpl <em>Folder</em>}' class.
@@ -194,43 +96,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getFolder()
 	 * @generated
 	 */
-	int FOLDER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__FEATURES = CONTAINER__FEATURES;
-
-	/**
-	 * The number of structural features of the '<em>Folder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Folder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
+	int FOLDER = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.PlacemarkImpl <em>Placemark</em>}' class.
@@ -240,43 +106,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getPlacemark()
 	 * @generated
 	 */
-	int PLACEMARK = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLACEMARK__NAME = FEATURE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Geometry</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLACEMARK__GEOMETRY = FEATURE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Placemark</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLACEMARK_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Placemark</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLACEMARK_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+	int PLACEMARK = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.GeometryImpl <em>Geometry</em>}' class.
@@ -286,34 +116,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getGeometry()
 	 * @generated
 	 */
-	int GEOMETRY = 5;
-
-	/**
-	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRY__PLACEMARK = 0;
-
-	/**
-	 * The number of structural features of the '<em>Geometry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRY_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Geometry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRY_OPERATION_COUNT = 0;
+	int GEOMETRY = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.PointImpl <em>Point</em>}' class.
@@ -323,62 +126,37 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getPoint()
 	 * @generated
 	 */
-	int POINT = 6;
+	int POINT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.LineStringImpl <em>Line String</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.kml.impl.LineStringImpl
+	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getLineString()
 	 * @generated
-	 * @ordered
 	 */
-	int POINT__PLACEMARK = GEOMETRY__PLACEMARK;
+	int LINE_STRING = 8;
 
 	/**
-	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.LinearRingImpl <em>Linear Ring</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.kml.impl.LinearRingImpl
+	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getLinearRing()
 	 * @generated
-	 * @ordered
 	 */
-	int POINT__LONGITUDE = GEOMETRY_FEATURE_COUNT + 0;
+	int LINEAR_RING = 9;
 
 	/**
-	 * The feature id for the '<em><b>Latitude</b></em>' attribute.
+	 * The meta object id for the '<em>Coordinates</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.Coordinates
+	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getCoordinates()
 	 * @generated
-	 * @ordered
 	 */
-	int POINT__LATITUDE = GEOMETRY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Elevation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__ELEVATION = GEOMETRY_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Point</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Point</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
-
+	int COORDINATES = 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.
@@ -388,7 +166,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getKml()
 	 * @generated
 	 */
-	int KML = 7;
+	int KML = 0;
 
 	/**
 	 * The feature id for the '<em><b>Files</b></em>' containment reference.
@@ -434,6 +212,312 @@ public interface KmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int KML_OPERATION_COUNT = FilePackage.FILE_READER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__NAME = FEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__FEATURES = FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__NAME = CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__FEATURES = CONTAINER__FEATURES;
+
+	/**
+	 * The number of structural features of the '<em>Document</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Document</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__NAME = CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__FEATURES = CONTAINER__FEATURES;
+
+	/**
+	 * The number of structural features of the '<em>Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Folder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEMARK__NAME = FEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Geometry</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEMARK__GEOMETRY = FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Placemark</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEMARK_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Placemark</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLACEMARK_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOMETRY__PLACEMARK = 0;
+
+	/**
+	 * The number of structural features of the '<em>Geometry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOMETRY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Geometry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOMETRY_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Coordinates</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__COORDINATES = GEOMETRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_STRING__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Coordinates</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_STRING__COORDINATES = GEOMETRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Line String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_STRING_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Line String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_STRING_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINEAR_RING__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Coordinates</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINEAR_RING__COORDINATES = GEOMETRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Linear Ring</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINEAR_RING_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Linear Ring</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINEAR_RING_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
 
 
 	/**
@@ -551,37 +635,68 @@ public interface KmlPackage extends EPackage {
 	EClass getPoint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Point#getLongitude <em>Longitude</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Point#getCoordinates <em>Coordinates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Longitude</em>'.
-	 * @see com.misc.common.moplaf.gis.kml.Point#getLongitude()
+	 * @return the meta object for the attribute '<em>Coordinates</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Point#getCoordinates()
 	 * @see #getPoint()
 	 * @generated
 	 */
-	EAttribute getPoint_Longitude();
+	EAttribute getPoint_Coordinates();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Point#getLatitude <em>Latitude</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.LineString <em>Line String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Latitude</em>'.
-	 * @see com.misc.common.moplaf.gis.kml.Point#getLatitude()
-	 * @see #getPoint()
+	 * @return the meta object for class '<em>Line String</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.LineString
 	 * @generated
 	 */
-	EAttribute getPoint_Latitude();
+	EClass getLineString();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Point#getElevation <em>Elevation</em>}'.
+	 * Returns the meta object for the attribute list '{@link com.misc.common.moplaf.gis.kml.LineString#getCoordinates <em>Coordinates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Elevation</em>'.
-	 * @see com.misc.common.moplaf.gis.kml.Point#getElevation()
-	 * @see #getPoint()
+	 * @return the meta object for the attribute list '<em>Coordinates</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.LineString#getCoordinates()
+	 * @see #getLineString()
 	 * @generated
 	 */
-	EAttribute getPoint_Elevation();
+	EAttribute getLineString_Coordinates();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.LinearRing <em>Linear Ring</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Linear Ring</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.LinearRing
+	 * @generated
+	 */
+	EClass getLinearRing();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link com.misc.common.moplaf.gis.kml.LinearRing#getCoordinates <em>Coordinates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Coordinates</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.LinearRing#getCoordinates()
+	 * @see #getLinearRing()
+	 * @generated
+	 */
+	EAttribute getLinearRing_Coordinates();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.Coordinates <em>Coordinates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Coordinates</em>'.
+	 * @see com.misc.common.moplaf.common.Coordinates
+	 * @model instanceClass="com.misc.common.moplaf.common.Coordinates"
+	 * @generated
+	 */
+	EDataType getCoordinates();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Kml <em>Kml</em>}'.
@@ -741,28 +856,58 @@ public interface KmlPackage extends EPackage {
 		EClass POINT = eINSTANCE.getPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Longitude</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Coordinates</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POINT__LONGITUDE = eINSTANCE.getPoint_Longitude();
+		EAttribute POINT__COORDINATES = eINSTANCE.getPoint_Coordinates();
 
 		/**
-		 * The meta object literal for the '<em><b>Latitude</b></em>' attribute feature.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.LineStringImpl <em>Line String</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.kml.impl.LineStringImpl
+		 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getLineString()
 		 * @generated
 		 */
-		EAttribute POINT__LATITUDE = eINSTANCE.getPoint_Latitude();
+		EClass LINE_STRING = eINSTANCE.getLineString();
 
 		/**
-		 * The meta object literal for the '<em><b>Elevation</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Coordinates</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POINT__ELEVATION = eINSTANCE.getPoint_Elevation();
+		EAttribute LINE_STRING__COORDINATES = eINSTANCE.getLineString_Coordinates();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.LinearRingImpl <em>Linear Ring</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.kml.impl.LinearRingImpl
+		 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getLinearRing()
+		 * @generated
+		 */
+		EClass LINEAR_RING = eINSTANCE.getLinearRing();
+
+		/**
+		 * The meta object literal for the '<em><b>Coordinates</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINEAR_RING__COORDINATES = eINSTANCE.getLinearRing_Coordinates();
+
+		/**
+		 * The meta object literal for the '<em>Coordinates</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.Coordinates
+		 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getCoordinates()
+		 * @generated
+		 */
+		EDataType COORDINATES = eINSTANCE.getCoordinates();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.

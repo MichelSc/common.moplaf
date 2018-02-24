@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.gis.kml;
 
+import com.misc.common.moplaf.common.Coordinates;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Point</b></em>'.
@@ -11,9 +13,7 @@ package com.misc.common.moplaf.gis.kml;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.kml.Point#getLongitude <em>Longitude</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.kml.Point#getLatitude <em>Latitude</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.kml.Point#getElevation <em>Elevation</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.kml.Point#getCoordinates <em>Coordinates</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPoint()
@@ -23,80 +23,28 @@ package com.misc.common.moplaf.gis.kml;
 public interface Point extends Geometry {
 
 	/**
-	 * Returns the value of the '<em><b>Longitude</b></em>' attribute.
+	 * Returns the value of the '<em><b>Coordinates</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Longitude</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Coordinates</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Longitude</em>' attribute.
-	 * @see #setLongitude(double)
-	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPoint_Longitude()
-	 * @model
+	 * @return the value of the '<em>Coordinates</em>' attribute.
+	 * @see #setCoordinates(Coordinates)
+	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPoint_Coordinates()
+	 * @model dataType="com.misc.common.moplaf.gis.kml.Coordinates"
 	 * @generated
 	 */
-	double getLongitude();
+	Coordinates getCoordinates();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Point#getLongitude <em>Longitude</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Point#getCoordinates <em>Coordinates</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Longitude</em>' attribute.
-	 * @see #getLongitude()
+	 * @param value the new value of the '<em>Coordinates</em>' attribute.
+	 * @see #getCoordinates()
 	 * @generated
 	 */
-	void setLongitude(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Latitude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Latitude</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Latitude</em>' attribute.
-	 * @see #setLatitude(double)
-	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPoint_Latitude()
-	 * @model
-	 * @generated
-	 */
-	double getLatitude();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Point#getLatitude <em>Latitude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Latitude</em>' attribute.
-	 * @see #getLatitude()
-	 * @generated
-	 */
-	void setLatitude(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Elevation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elevation</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elevation</em>' attribute.
-	 * @see #setElevation(double)
-	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPoint_Elevation()
-	 * @model
-	 * @generated
-	 */
-	double getElevation();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Point#getElevation <em>Elevation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Elevation</em>' attribute.
-	 * @see #getElevation()
-	 * @generated
-	 */
-	void setElevation(double value);
+	void setCoordinates(Coordinates value);
 } // Point

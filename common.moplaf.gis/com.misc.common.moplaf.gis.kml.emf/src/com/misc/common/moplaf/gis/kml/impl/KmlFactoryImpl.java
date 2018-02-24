@@ -2,9 +2,11 @@
  */
 package com.misc.common.moplaf.gis.kml.impl;
 
+import com.misc.common.moplaf.common.Coordinates;
 import com.misc.common.moplaf.gis.kml.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -56,13 +58,45 @@ public class KmlFactoryImpl extends EFactoryImpl implements KmlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case KmlPackage.KML: return createKml();
 			case KmlPackage.DOCUMENT: return createDocument();
 			case KmlPackage.FOLDER: return createFolder();
 			case KmlPackage.PLACEMARK: return createPlacemark();
 			case KmlPackage.POINT: return createPoint();
-			case KmlPackage.KML: return createKml();
+			case KmlPackage.LINE_STRING: return createLineString();
+			case KmlPackage.LINEAR_RING: return createLinearRing();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case KmlPackage.COORDINATES:
+				return createCoordinatesFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case KmlPackage.COORDINATES:
+				return convertCoordinatesToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -104,6 +138,44 @@ public class KmlFactoryImpl extends EFactoryImpl implements KmlFactory {
 	public Point createPoint() {
 		PointImpl point = new PointImpl();
 		return point;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LineString createLineString() {
+		LineStringImpl lineString = new LineStringImpl();
+		return lineString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LinearRing createLinearRing() {
+		LinearRingImpl linearRing = new LinearRingImpl();
+		return linearRing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Coordinates createCoordinatesFromString(EDataType eDataType, String initialValue) {
+		return (Coordinates)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCoordinatesToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

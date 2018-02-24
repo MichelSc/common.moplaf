@@ -58,6 +58,24 @@ public interface KmlFactory extends EFactory {
 	Point createPoint();
 
 	/**
+	 * Returns a new object of class '<em>Line String</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line String</em>'.
+	 * @generated
+	 */
+	LineString createLineString();
+
+	/**
+	 * Returns a new object of class '<em>Linear Ring</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Linear Ring</em>'.
+	 * @generated
+	 */
+	LinearRing createLinearRing();
+
+	/**
 	 * Returns a new object of class '<em>Kml</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml.impl;
 
+import com.misc.common.moplaf.common.Coordinates;
 import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.gis.kml.Document;
 import com.misc.common.moplaf.gis.kml.Feature;
@@ -25,7 +26,6 @@ import net.opengis.kml._2.PointType;
 import org.eclipse.emf.common.notify.Notification;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -225,21 +225,9 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 		this.synchGeometry(point, point_ele);
 		List<String> coordinates_collec = point_ele.getCoordinates();
 		if ( coordinates_collec.size()>0) {
-			String coordinates = coordinates_collec.get(0);
-			StringTokenizer tokenizer = new StringTokenizer(coordinates, ",");
-			int index = 0;
-			while ( tokenizer.hasMoreTokens()) {
-				String token = tokenizer.nextToken();
-				Double value = new Double(token);
-				if ( index == 0 ) {
-					point.setLongitude(value);
-				} else if ( index == 1) {
-					point.setLatitude(value);
-				} else if ( index == 2 ) {
-					point.setElevation(value);
-				}
-				index++;
-			}
+			String coordinates_string = coordinates_collec.get(0);
+			Coordinates coordinates = Coordinates.valueOf(coordinates_string);
+			point.setCoordinates(coordinates);
 		}
 	}
 	

@@ -69,6 +69,10 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 	protected KmlSwitch<Adapter> modelSwitch =
 		new KmlSwitch<Adapter>() {
 			@Override
+			public Adapter caseKml(Kml object) {
+				return createKmlAdapter();
+			}
+			@Override
 			public Adapter caseDocument(Document object) {
 				return createDocumentAdapter();
 			}
@@ -97,8 +101,12 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 				return createPointAdapter();
 			}
 			@Override
-			public Adapter caseKml(Kml object) {
-				return createKmlAdapter();
+			public Adapter caseLineString(LineString object) {
+				return createLineStringAdapter();
+			}
+			@Override
+			public Adapter caseLinearRing(LinearRing object) {
+				return createLinearRingAdapter();
 			}
 			@Override
 			public Adapter caseFileReader(FileReader object) {
@@ -219,6 +227,34 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.kml.LineString <em>Line String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.kml.LineString
+	 * @generated
+	 */
+	public Adapter createLineStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.kml.LinearRing <em>Linear Ring</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.kml.LinearRing
+	 * @generated
+	 */
+	public Adapter createLinearRingAdapter() {
 		return null;
 	}
 

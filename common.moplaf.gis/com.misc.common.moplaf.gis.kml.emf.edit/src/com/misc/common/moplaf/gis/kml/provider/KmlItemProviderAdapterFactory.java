@@ -165,6 +165,52 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.kml.LineString} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineStringItemProvider lineStringItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.kml.LineString}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineStringAdapter() {
+		if (lineStringItemProvider == null) {
+			lineStringItemProvider = new LineStringItemProvider(this);
+		}
+
+		return lineStringItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.kml.LinearRing} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinearRingItemProvider linearRingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.kml.LinearRing}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinearRingAdapter() {
+		if (linearRingItemProvider == null) {
+			linearRingItemProvider = new LinearRingItemProvider(this);
+		}
+
+		return linearRingItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.kml.Kml} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -286,11 +332,13 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 	 * @generated
 	 */
 	public void dispose() {
+		if (kmlItemProvider != null) kmlItemProvider.dispose();
 		if (documentItemProvider != null) documentItemProvider.dispose();
 		if (folderItemProvider != null) folderItemProvider.dispose();
 		if (placemarkItemProvider != null) placemarkItemProvider.dispose();
 		if (pointItemProvider != null) pointItemProvider.dispose();
-		if (kmlItemProvider != null) kmlItemProvider.dispose();
+		if (lineStringItemProvider != null) lineStringItemProvider.dispose();
+		if (linearRingItemProvider != null) linearRingItemProvider.dispose();
 	}
 
 }
