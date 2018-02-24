@@ -36,6 +36,10 @@
     <genClasses image="false" ecoreClass="kml.ecore#//LinearRing">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//LinearRing/Coordinates"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="kml.ecore#//Polygon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Polygon/OuterBoundary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Polygon/InnerBoundaries"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="kml.ecore#//MultiGeometry">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//MultiGeometry/Geometries"/>
     </genClasses>

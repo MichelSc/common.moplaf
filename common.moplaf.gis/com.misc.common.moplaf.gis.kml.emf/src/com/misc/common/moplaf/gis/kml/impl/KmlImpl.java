@@ -174,17 +174,14 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 
 				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 				JAXBElement<KmlType> result = (JAXBElement<KmlType>) jaxbUnmarshaller.unmarshal(file.getInputStream());
-				KmlType klm = result.getValue();
-				JAXBElement<? extends AbstractFeatureType> feature_ele = klm.getAbstractFeatureGroup();
-				Feature feature = this.createFeature(feature_ele.getValue());
-				this.setFeature(feature);
-				
-				boolean ok = klm != null;
-//				Plugin.INSTANCE.logInfo("KML read: "+ok);
-
+				if ( result != null ) {
+					KmlType kml = result.getValue();
+					JAXBElement<? extends AbstractFeatureType> feature_ele = kml.getAbstractFeatureGroup();
+					Feature feature = this.createFeature(feature_ele.getValue());
+					this.setFeature(feature);
+				}
 			  } catch (JAXBException e) {
 				e.printStackTrace();
-	//			Plugin.INSTANCE.logError("KML not read: "+e.getMessage());
 			  }
 	}
 
