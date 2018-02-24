@@ -5,7 +5,7 @@ package com.misc.common.moplaf.gis.kml.provider;
 
 import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
-import com.misc.common.moplaf.gis.kml.MultiGeometry;
+import com.misc.common.moplaf.gis.kml.Polygon;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,19 +19,19 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.kml.MultiGeometry} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.kml.Polygon} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MultiGeometryItemProvider extends GeometryItemProvider {
+public class PolygonItemProvider extends GeometryItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MultiGeometryItemProvider(AdapterFactory adapterFactory) {
+	public PolygonItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +62,8 @@ public class MultiGeometryItemProvider extends GeometryItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KmlPackage.Literals.MULTI_GEOMETRY__GEOMETRIES);
+			childrenFeatures.add(KmlPackage.Literals.POLYGON__OUTER_BOUNDARY);
+			childrenFeatures.add(KmlPackage.Literals.POLYGON__INNER_BOUNDARIES);
 		}
 		return childrenFeatures;
 	}
@@ -81,6 +82,17 @@ public class MultiGeometryItemProvider extends GeometryItemProvider {
 	}
 
 	/**
+	 * This returns Polygon.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Polygon"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +100,7 @@ public class MultiGeometryItemProvider extends GeometryItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_MultiGeometry_type");
+		return getString("_UI_Polygon_type");
 	}
 	
 
@@ -103,8 +115,9 @@ public class MultiGeometryItemProvider extends GeometryItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MultiGeometry.class)) {
-			case KmlPackage.MULTI_GEOMETRY__GEOMETRIES:
+		switch (notification.getFeatureID(Polygon.class)) {
+			case KmlPackage.POLYGON__OUTER_BOUNDARY:
+			case KmlPackage.POLYGON__INNER_BOUNDARIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -124,28 +137,36 @@ public class MultiGeometryItemProvider extends GeometryItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KmlPackage.Literals.MULTI_GEOMETRY__GEOMETRIES,
-				 KmlFactory.eINSTANCE.createPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.MULTI_GEOMETRY__GEOMETRIES,
-				 KmlFactory.eINSTANCE.createLineString()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.MULTI_GEOMETRY__GEOMETRIES,
+				(KmlPackage.Literals.POLYGON__OUTER_BOUNDARY,
 				 KmlFactory.eINSTANCE.createLinearRing()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KmlPackage.Literals.MULTI_GEOMETRY__GEOMETRIES,
-				 KmlFactory.eINSTANCE.createMultiGeometry()));
+				(KmlPackage.Literals.POLYGON__INNER_BOUNDARIES,
+				 KmlFactory.eINSTANCE.createLinearRing()));
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.MULTI_GEOMETRY__GEOMETRIES,
-				 KmlFactory.eINSTANCE.createPolygon()));
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == KmlPackage.Literals.POLYGON__OUTER_BOUNDARY ||
+			childFeature == KmlPackage.Literals.POLYGON__INNER_BOUNDARIES;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

@@ -113,6 +113,10 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 				return createMultiGeometryAdapter();
 			}
 			@Override
+			public Adapter casePolygon(Polygon object) {
+				return createPolygonAdapter();
+			}
+			@Override
 			public Adapter caseFileReader(FileReader object) {
 				return createFileReaderAdapter();
 			}
@@ -273,6 +277,20 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMultiGeometryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.kml.Polygon <em>Polygon</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.kml.Polygon
+	 * @generated
+	 */
+	public Adapter createPolygonAdapter() {
 		return null;
 	}
 

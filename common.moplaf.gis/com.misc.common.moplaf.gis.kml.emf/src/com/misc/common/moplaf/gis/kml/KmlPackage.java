@@ -156,7 +156,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getCoordinates()
 	 * @generated
 	 */
-	int COORDINATES = 11;
+	int COORDINATES = 12;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.
@@ -567,6 +567,61 @@ public interface KmlPackage extends EPackage {
 	int MULTI_GEOMETRY_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.PolygonImpl <em>Polygon</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.kml.impl.PolygonImpl
+	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getPolygon()
+	 * @generated
+	 */
+	int POLYGON = 11;
+
+	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLYGON__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Outer Boundary</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLYGON__OUTER_BOUNDARY = GEOMETRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Inner Boundaries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLYGON__INNER_BOUNDARIES = GEOMETRY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Polygon</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLYGON_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Polygon</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLYGON_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Document <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -753,6 +808,38 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMultiGeometry_Geometries();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Polygon <em>Polygon</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Polygon</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Polygon
+	 * @generated
+	 */
+	EClass getPolygon();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.gis.kml.Polygon#getOuterBoundary <em>Outer Boundary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Outer Boundary</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Polygon#getOuterBoundary()
+	 * @see #getPolygon()
+	 * @generated
+	 */
+	EReference getPolygon_OuterBoundary();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Polygon#getInnerBoundaries <em>Inner Boundaries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Inner Boundaries</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Polygon#getInnerBoundaries()
+	 * @see #getPolygon()
+	 * @generated
+	 */
+	EReference getPolygon_InnerBoundaries();
 
 	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.Coordinates <em>Coordinates</em>}'.
@@ -983,6 +1070,32 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MULTI_GEOMETRY__GEOMETRIES = eINSTANCE.getMultiGeometry_Geometries();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.PolygonImpl <em>Polygon</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.kml.impl.PolygonImpl
+		 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getPolygon()
+		 * @generated
+		 */
+		EClass POLYGON = eINSTANCE.getPolygon();
+
+		/**
+		 * The meta object literal for the '<em><b>Outer Boundary</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POLYGON__OUTER_BOUNDARY = eINSTANCE.getPolygon_OuterBoundary();
+
+		/**
+		 * The meta object literal for the '<em><b>Inner Boundaries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POLYGON__INNER_BOUNDARIES = eINSTANCE.getPolygon_InnerBoundaries();
 
 		/**
 		 * The meta object literal for the '<em>Coordinates</em>' data type.

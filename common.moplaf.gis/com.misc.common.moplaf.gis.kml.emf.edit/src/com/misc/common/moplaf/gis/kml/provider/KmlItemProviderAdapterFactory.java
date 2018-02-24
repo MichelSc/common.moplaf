@@ -234,6 +234,29 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.kml.Polygon} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PolygonItemProvider polygonItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.kml.Polygon}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPolygonAdapter() {
+		if (polygonItemProvider == null) {
+			polygonItemProvider = new PolygonItemProvider(this);
+		}
+
+		return polygonItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.kml.Kml} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -363,6 +386,7 @@ public class KmlItemProviderAdapterFactory extends KmlAdapterFactory implements 
 		if (lineStringItemProvider != null) lineStringItemProvider.dispose();
 		if (linearRingItemProvider != null) linearRingItemProvider.dispose();
 		if (multiGeometryItemProvider != null) multiGeometryItemProvider.dispose();
+		if (polygonItemProvider != null) polygonItemProvider.dispose();
 	}
 
 }

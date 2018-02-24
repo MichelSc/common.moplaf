@@ -66,6 +66,7 @@ public class KmlFactoryImpl extends EFactoryImpl implements KmlFactory {
 			case KmlPackage.LINE_STRING: return createLineString();
 			case KmlPackage.LINEAR_RING: return createLinearRing();
 			case KmlPackage.MULTI_GEOMETRY: return createMultiGeometry();
+			case KmlPackage.POLYGON: return createPolygon();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -169,6 +170,16 @@ public class KmlFactoryImpl extends EFactoryImpl implements KmlFactory {
 	public MultiGeometry createMultiGeometry() {
 		MultiGeometryImpl multiGeometry = new MultiGeometryImpl();
 		return multiGeometry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Polygon createPolygon() {
+		PolygonImpl polygon = new PolygonImpl();
+		return polygon;
 	}
 
 	/**

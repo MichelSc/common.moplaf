@@ -42,4 +42,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Geometries" upperBound="-1"
         eType="#//Geometry" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Polygon" eSuperTypes="#//Geometry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OuterBoundary" lowerBound="1"
+        eType="#//LinearRing" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InnerBoundaries" upperBound="-1"
+        eType="#//LinearRing" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

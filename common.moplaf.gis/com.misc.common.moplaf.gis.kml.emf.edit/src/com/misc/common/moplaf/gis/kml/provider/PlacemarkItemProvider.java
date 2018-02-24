@@ -154,6 +154,11 @@ public class PlacemarkItemProvider extends FeatureItemProvider {
 			(createChildParameter
 				(KmlPackage.Literals.PLACEMARK__GEOMETRY,
 				 KmlFactory.eINSTANCE.createMultiGeometry()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KmlPackage.Literals.PLACEMARK__GEOMETRY,
+				 KmlFactory.eINSTANCE.createPolygon()));
 	}
 
 }

@@ -16,6 +16,7 @@ import com.misc.common.moplaf.gis.kml.LinearRing;
 import com.misc.common.moplaf.gis.kml.MultiGeometry;
 import com.misc.common.moplaf.gis.kml.Placemark;
 import com.misc.common.moplaf.gis.kml.Point;
+import com.misc.common.moplaf.gis.kml.Polygon;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -100,6 +101,13 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * @generated
 	 */
 	private EClass multiGeometryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass polygonEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -346,6 +354,33 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPolygon() {
+		return polygonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPolygon_OuterBoundary() {
+		return (EReference)polygonEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPolygon_InnerBoundaries() {
+		return (EReference)polygonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getCoordinates() {
 		return coordinatesEDataType;
 	}
@@ -437,6 +472,10 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		multiGeometryEClass = createEClass(MULTI_GEOMETRY);
 		createEReference(multiGeometryEClass, MULTI_GEOMETRY__GEOMETRIES);
 
+		polygonEClass = createEClass(POLYGON);
+		createEReference(polygonEClass, POLYGON__OUTER_BOUNDARY);
+		createEReference(polygonEClass, POLYGON__INNER_BOUNDARIES);
+
 		// Create data types
 		coordinatesEDataType = createEDataType(COORDINATES);
 	}
@@ -481,6 +520,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		lineStringEClass.getESuperTypes().add(this.getGeometry());
 		linearRingEClass.getESuperTypes().add(this.getGeometry());
 		multiGeometryEClass.getESuperTypes().add(this.getGeometry());
+		polygonEClass.getESuperTypes().add(this.getGeometry());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -514,6 +554,10 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		initEClass(multiGeometryEClass, MultiGeometry.class, "MultiGeometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultiGeometry_Geometries(), this.getGeometry(), null, "Geometries", null, 0, -1, MultiGeometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(polygonEClass, Polygon.class, "Polygon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPolygon_OuterBoundary(), this.getLinearRing(), null, "OuterBoundary", null, 1, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPolygon_InnerBoundaries(), this.getLinearRing(), null, "InnerBoundaries", null, 0, -1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(coordinatesEDataType, Coordinates.class, "Coordinates", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

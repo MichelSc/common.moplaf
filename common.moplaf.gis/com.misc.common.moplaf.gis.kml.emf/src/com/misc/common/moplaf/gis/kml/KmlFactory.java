@@ -85,6 +85,15 @@ public interface KmlFactory extends EFactory {
 	MultiGeometry createMultiGeometry();
 
 	/**
+	 * Returns a new object of class '<em>Polygon</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Polygon</em>'.
+	 * @generated
+	 */
+	Polygon createPolygon();
+
+	/**
 	 * Returns a new object of class '<em>Kml</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

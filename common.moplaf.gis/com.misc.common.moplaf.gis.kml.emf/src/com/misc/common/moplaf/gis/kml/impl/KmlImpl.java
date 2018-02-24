@@ -16,10 +16,12 @@ import com.misc.common.moplaf.gis.kml.LinearRing;
 import com.misc.common.moplaf.gis.kml.MultiGeometry;
 import com.misc.common.moplaf.gis.kml.Placemark;
 import com.misc.common.moplaf.gis.kml.Point;
+import com.misc.common.moplaf.gis.kml.Polygon;
 
 import net.opengis.kml._2.AbstractContainerType;
 import net.opengis.kml._2.AbstractFeatureType;
 import net.opengis.kml._2.AbstractGeometryType;
+import net.opengis.kml._2.BoundaryType;
 import net.opengis.kml._2.DocumentType;
 import net.opengis.kml._2.FolderType;
 import net.opengis.kml._2.KmlType;
@@ -28,6 +30,7 @@ import net.opengis.kml._2.LinearRingType;
 import net.opengis.kml._2.MultiGeometryType;
 import net.opengis.kml._2.PlacemarkType;
 import net.opengis.kml._2.PointType;
+import net.opengis.kml._2.PolygonType;
 
 import org.eclipse.emf.common.notify.Notification;
 import java.lang.reflect.InvocationTargetException;
@@ -173,7 +176,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 				JAXBElement<KmlType> result = (JAXBElement<KmlType>) jaxbUnmarshaller.unmarshal(file.getInputStream());
 				KmlType klm = result.getValue();
 				JAXBElement<? extends AbstractFeatureType> feature_ele = klm.getAbstractFeatureGroup();
-				Feature feature = this.createFeature(feature_ele);
+				Feature feature = this.createFeature(feature_ele.getValue());
 				this.setFeature(feature);
 				
 				boolean ok = klm != null;
@@ -185,8 +188,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 			  }
 	}
 
-	private Geometry createGeometry(JAXBElement<? extends AbstractGeometryType> element) {
-		AbstractGeometryType geometry_ele = element.getValue();
+	private Geometry createGeometry(AbstractGeometryType geometry_ele) {
 		Geometry new_geometry = null;
 		if ( geometry_ele instanceof PointType) {
 			Point new_point = KmlFactory.eINSTANCE.createPoint();
@@ -200,6 +202,10 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 			LinearRing new_linearring = KmlFactory.eINSTANCE.createLinearRing();
 			this.synchLinearRing(new_linearring, (LinearRingType)geometry_ele);
 			new_geometry = new_linearring;
+		} else if ( geometry_ele instanceof PolygonType) {
+			Polygon new_poly = KmlFactory.eINSTANCE.createPolygon();
+			this.synchPolygon(new_poly, (PolygonType)geometry_ele);
+			new_geometry = new_poly;
 		} else if ( geometry_ele instanceof MultiGeometryType) {
 			MultiGeometry new_multi = KmlFactory.eINSTANCE.createMultiGeometry();
 			this.synchMultiGeometry(new_multi, (MultiGeometryType)geometry_ele);
@@ -245,13 +251,30 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 		this.synchGeometry(multi, multi_ele);
 		multi.getGeometries().clear();
 		for (  JAXBElement<? extends AbstractGeometryType> element : multi_ele.getAbstractGeometryGroup() ) {
-			Geometry new_geometry = this.createGeometry(element);
+			Geometry new_geometry = this.createGeometry(element.getValue());
 			multi.getGeometries().add(new_geometry);
 		}
 	}
 	
-	private Feature createFeature(JAXBElement<? extends AbstractFeatureType> element) {
-		AbstractFeatureType feature_ele = element.getValue();
+	private void synchPolygon(Polygon poly, PolygonType poly_ele) {
+		this.synchGeometry(poly, poly_ele);
+		// outer boundary
+		LinearRingType outer_ele = poly_ele.getOuterBoundaryIs().getLinearRing();
+		LinearRing new_linearring_outer = KmlFactory.eINSTANCE.createLinearRing();
+		this.synchLinearRing(new_linearring_outer, outer_ele);
+		poly.setOuterBoundary(new_linearring_outer);
+		
+		// inner boundaries
+		poly.getInnerBoundaries().clear();
+		for ( BoundaryType  boundary : poly_ele.getInnerBoundaryIs()) {
+			LinearRingType inner_ele = boundary.getLinearRing();
+			LinearRing new_linearring_inner = KmlFactory.eINSTANCE.createLinearRing();
+			this.synchLinearRing(new_linearring_inner, inner_ele);
+			poly.getInnerBoundaries().add(new_linearring_inner);
+		}
+	}
+	
+	private Feature createFeature(AbstractFeatureType feature_ele) {
 		Feature new_feature = null;
 		if ( feature_ele instanceof DocumentType) {
 			Document new_document = KmlFactory.eINSTANCE.createDocument();
@@ -278,7 +301,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 		this.synchFeature(placemark, placemark_ele);
 		JAXBElement<? extends AbstractGeometryType> geometry_ele = placemark_ele.getAbstractGeometryGroup();
 		if ( geometry_ele != null ) {
-			Geometry new_geometry = this.createGeometry(geometry_ele);
+			Geometry new_geometry = this.createGeometry(geometry_ele.getValue());
 			placemark.setGeometry(new_geometry);
 		}
 	}
@@ -290,7 +313,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	private void synchDocument(Document doc, DocumentType doc_ele) {
 		this.synchContainer(doc, doc_ele);
 		for ( JAXBElement<? extends AbstractFeatureType> element_feature : doc_ele.getAbstractFeatureGroup() ) {
-			Feature new_feature = this.createFeature(element_feature);
+			Feature new_feature = this.createFeature(element_feature.getValue());
 			doc.getFeatures().add(new_feature);
 		}
 	}
@@ -298,7 +321,7 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 	private void synchFolder(Folder folder, FolderType folder_ele) {
 		this.synchContainer(folder, folder_ele);
 		for ( JAXBElement<? extends AbstractFeatureType> element_feature : folder_ele.getAbstractFeatureGroup() ) {
-			Feature new_feature = this.createFeature(element_feature);
+			Feature new_feature = this.createFeature(element_feature.getValue());
 			folder.getFeatures().add(new_feature);
 		}
 	}
