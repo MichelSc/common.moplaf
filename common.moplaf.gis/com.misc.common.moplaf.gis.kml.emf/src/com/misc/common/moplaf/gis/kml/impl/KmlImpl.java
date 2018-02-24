@@ -13,6 +13,7 @@ import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.LineString;
 import com.misc.common.moplaf.gis.kml.LinearRing;
+import com.misc.common.moplaf.gis.kml.MultiGeometry;
 import com.misc.common.moplaf.gis.kml.Placemark;
 import com.misc.common.moplaf.gis.kml.Point;
 
@@ -24,6 +25,7 @@ import net.opengis.kml._2.FolderType;
 import net.opengis.kml._2.KmlType;
 import net.opengis.kml._2.LineStringType;
 import net.opengis.kml._2.LinearRingType;
+import net.opengis.kml._2.MultiGeometryType;
 import net.opengis.kml._2.PlacemarkType;
 import net.opengis.kml._2.PointType;
 
@@ -198,6 +200,10 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 			LinearRing new_linearring = KmlFactory.eINSTANCE.createLinearRing();
 			this.synchLinearRing(new_linearring, (LinearRingType)geometry_ele);
 			new_geometry = new_linearring;
+		} else if ( geometry_ele instanceof MultiGeometryType) {
+			MultiGeometry new_multi = KmlFactory.eINSTANCE.createMultiGeometry();
+			this.synchMultiGeometry(new_multi, (MultiGeometryType)geometry_ele);
+			new_geometry = new_multi;
 		}
 		return new_geometry;
 	}
@@ -232,6 +238,15 @@ public class KmlImpl extends MinimalEObjectImpl.Container implements Kml {
 		for ( String coordinates_string : coordinates_collec ) {
 			Coordinates coordinates = Coordinates.valueOf(coordinates_string);
 			line.getCoordinates().add(coordinates);
+		}
+	}
+	
+	private void synchMultiGeometry(MultiGeometry multi, MultiGeometryType multi_ele) {
+		this.synchGeometry(multi, multi_ele);
+		multi.getGeometries().clear();
+		for (  JAXBElement<? extends AbstractGeometryType> element : multi_ele.getAbstractGeometryGroup() ) {
+			Geometry new_geometry = this.createGeometry(element);
+			multi.getGeometries().add(new_geometry);
 		}
 	}
 	

@@ -13,6 +13,7 @@ import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.LineString;
 import com.misc.common.moplaf.gis.kml.LinearRing;
+import com.misc.common.moplaf.gis.kml.MultiGeometry;
 import com.misc.common.moplaf.gis.kml.Placemark;
 import com.misc.common.moplaf.gis.kml.Point;
 import org.eclipse.emf.ecore.EAttribute;
@@ -92,6 +93,13 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * @generated
 	 */
 	private EClass linearRingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multiGeometryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -320,6 +328,24 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMultiGeometry() {
+		return multiGeometryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMultiGeometry_Geometries() {
+		return (EReference)multiGeometryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getCoordinates() {
 		return coordinatesEDataType;
 	}
@@ -408,6 +434,9 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		linearRingEClass = createEClass(LINEAR_RING);
 		createEAttribute(linearRingEClass, LINEAR_RING__COORDINATES);
 
+		multiGeometryEClass = createEClass(MULTI_GEOMETRY);
+		createEReference(multiGeometryEClass, MULTI_GEOMETRY__GEOMETRIES);
+
 		// Create data types
 		coordinatesEDataType = createEDataType(COORDINATES);
 	}
@@ -451,6 +480,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		pointEClass.getESuperTypes().add(this.getGeometry());
 		lineStringEClass.getESuperTypes().add(this.getGeometry());
 		linearRingEClass.getESuperTypes().add(this.getGeometry());
+		multiGeometryEClass.getESuperTypes().add(this.getGeometry());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -468,10 +498,10 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		initEAttribute(getFeature_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(placemarkEClass, Placemark.class, "Placemark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlacemark_Geometry(), this.getGeometry(), this.getGeometry_Placemark(), "Geometry", null, 0, 1, Placemark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlacemark_Geometry(), this.getGeometry(), null, "Geometry", null, 0, 1, Placemark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(geometryEClass, Geometry.class, "Geometry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeometry_Placemark(), this.getPlacemark(), this.getPlacemark_Geometry(), "Placemark", null, 1, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeometry_Placemark(), this.getPlacemark(), null, "Placemark", null, 1, 1, Geometry.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPoint_Coordinates(), this.getCoordinates(), "Coordinates", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -481,6 +511,9 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		initEClass(linearRingEClass, LinearRing.class, "LinearRing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLinearRing_Coordinates(), this.getCoordinates(), "Coordinates", null, 0, -1, LinearRing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(multiGeometryEClass, MultiGeometry.class, "MultiGeometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMultiGeometry_Geometries(), this.getGeometry(), null, "Geometries", null, 0, -1, MultiGeometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(coordinatesEDataType, Coordinates.class, "Coordinates", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

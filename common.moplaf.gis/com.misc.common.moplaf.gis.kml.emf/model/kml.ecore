@@ -20,11 +20,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Placemark" eSuperTypes="#//Feature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Geometry" eType="#//Geometry"
-        containment="true" eOpposite="#//Geometry/Placemark"/>
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Geometry" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Placemark" lowerBound="1"
-        eType="#//Placemark" eOpposite="#//Placemark/Geometry"/>
+        eType="#//Placemark" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coordinates" eType="#//Coordinates"/>
@@ -38,4 +38,8 @@
         eType="#//Coordinates"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Coordinates" instanceClassName="com.misc.common.moplaf.common.Coordinates"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiGeometry" eSuperTypes="#//Geometry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Geometries" upperBound="-1"
+        eType="#//Geometry" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

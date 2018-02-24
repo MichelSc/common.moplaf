@@ -23,30 +23,17 @@ import org.eclipse.emf.ecore.EObject;
 public interface Geometry extends EObject {
 
 	/**
-	 * Returns the value of the '<em><b>Placemark</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.kml.Placemark#getGeometry <em>Geometry</em>}'.
+	 * Returns the value of the '<em><b>Placemark</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Placemark</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Placemark</em>' container reference.
-	 * @see #setPlacemark(Placemark)
+	 * @return the value of the '<em>Placemark</em>' reference.
 	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getGeometry_Placemark()
-	 * @see com.misc.common.moplaf.gis.kml.Placemark#getGeometry
-	 * @model opposite="Geometry" required="true" transient="false"
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	Placemark getPlacemark();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.kml.Geometry#getPlacemark <em>Placemark</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Placemark</em>' container reference.
-	 * @see #getPlacemark()
-	 * @generated
-	 */
-	void setPlacemark(Placemark value);
 } // Geometry

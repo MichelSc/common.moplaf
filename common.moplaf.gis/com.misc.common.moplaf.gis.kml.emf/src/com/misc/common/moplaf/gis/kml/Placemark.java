@@ -21,7 +21,6 @@ package com.misc.common.moplaf.gis.kml;
 public interface Placemark extends Feature {
 	/**
 	 * Returns the value of the '<em><b>Geometry</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.kml.Geometry#getPlacemark <em>Placemark</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Geometry</em>' containment reference isn't clear,
@@ -31,8 +30,7 @@ public interface Placemark extends Feature {
 	 * @return the value of the '<em>Geometry</em>' containment reference.
 	 * @see #setGeometry(Geometry)
 	 * @see com.misc.common.moplaf.gis.kml.KmlPackage#getPlacemark_Geometry()
-	 * @see com.misc.common.moplaf.gis.kml.Geometry#getPlacemark
-	 * @model opposite="Placemark" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	Geometry getGeometry();

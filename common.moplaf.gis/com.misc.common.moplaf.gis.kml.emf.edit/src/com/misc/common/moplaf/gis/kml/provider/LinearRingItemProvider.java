@@ -5,7 +5,6 @@ package com.misc.common.moplaf.gis.kml.provider;
 
 import com.misc.common.moplaf.common.Coordinates;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
-import com.misc.common.moplaf.gis.kml.LineString;
 import com.misc.common.moplaf.gis.kml.LinearRing;
 import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
 

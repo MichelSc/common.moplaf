@@ -137,6 +137,13 @@ public class KmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KmlPackage.MULTI_GEOMETRY: {
+				MultiGeometry multiGeometry = (MultiGeometry)theEObject;
+				T result = caseMultiGeometry(multiGeometry);
+				if (result == null) result = caseGeometry(multiGeometry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -273,6 +280,21 @@ public class KmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLinearRing(LinearRing object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Geometry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Geometry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMultiGeometry(MultiGeometry object) {
 		return null;
 	}
 

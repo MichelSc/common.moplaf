@@ -156,7 +156,7 @@ public interface KmlPackage extends EPackage {
 	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getCoordinates()
 	 * @generated
 	 */
-	int COORDINATES = 10;
+	int COORDINATES = 11;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.KmlImpl <em>Kml</em>}' class.
@@ -385,7 +385,7 @@ public interface KmlPackage extends EPackage {
 	int PLACEMARK_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * The feature id for the '<em><b>Placemark</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -412,7 +412,7 @@ public interface KmlPackage extends EPackage {
 	int GEOMETRY_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * The feature id for the '<em><b>Placemark</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -448,7 +448,7 @@ public interface KmlPackage extends EPackage {
 	int POINT_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * The feature id for the '<em><b>Placemark</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -484,7 +484,7 @@ public interface KmlPackage extends EPackage {
 	int LINE_STRING_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Placemark</b></em>' container reference.
+	 * The feature id for the '<em><b>Placemark</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -519,6 +519,52 @@ public interface KmlPackage extends EPackage {
 	 */
 	int LINEAR_RING_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
 
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.kml.impl.MultiGeometryImpl <em>Multi Geometry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.kml.impl.MultiGeometryImpl
+	 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getMultiGeometry()
+	 * @generated
+	 */
+	int MULTI_GEOMETRY = 10;
+
+	/**
+	 * The feature id for the '<em><b>Placemark</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_GEOMETRY__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Geometries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_GEOMETRY__GEOMETRIES = GEOMETRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Multi Geometry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_GEOMETRY_FEATURE_COUNT = GEOMETRY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Multi Geometry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_GEOMETRY_OPERATION_COUNT = GEOMETRY_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Document <em>Document</em>}'.
@@ -614,10 +660,10 @@ public interface KmlPackage extends EPackage {
 	EClass getGeometry();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.gis.kml.Geometry#getPlacemark <em>Placemark</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.kml.Geometry#getPlacemark <em>Placemark</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Placemark</em>'.
+	 * @return the meta object for the reference '<em>Placemark</em>'.
 	 * @see com.misc.common.moplaf.gis.kml.Geometry#getPlacemark()
 	 * @see #getGeometry()
 	 * @generated
@@ -686,6 +732,27 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLinearRing_Coordinates();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.MultiGeometry <em>Multi Geometry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multi Geometry</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.MultiGeometry
+	 * @generated
+	 */
+	EClass getMultiGeometry();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.MultiGeometry#getGeometries <em>Geometries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Geometries</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.MultiGeometry#getGeometries()
+	 * @see #getMultiGeometry()
+	 * @generated
+	 */
+	EReference getMultiGeometry_Geometries();
 
 	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.Coordinates <em>Coordinates</em>}'.
@@ -838,7 +905,7 @@ public interface KmlPackage extends EPackage {
 		EClass GEOMETRY = eINSTANCE.getGeometry();
 
 		/**
-		 * The meta object literal for the '<em><b>Placemark</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Placemark</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -898,6 +965,24 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LINEAR_RING__COORDINATES = eINSTANCE.getLinearRing_Coordinates();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.MultiGeometryImpl <em>Multi Geometry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.kml.impl.MultiGeometryImpl
+		 * @see com.misc.common.moplaf.gis.kml.impl.KmlPackageImpl#getMultiGeometry()
+		 * @generated
+		 */
+		EClass MULTI_GEOMETRY = eINSTANCE.getMultiGeometry();
+
+		/**
+		 * The meta object literal for the '<em><b>Geometries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTI_GEOMETRY__GEOMETRIES = eINSTANCE.getMultiGeometry_Geometries();
 
 		/**
 		 * The meta object literal for the '<em>Coordinates</em>' data type.

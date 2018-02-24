@@ -76,6 +76,15 @@ public interface KmlFactory extends EFactory {
 	LinearRing createLinearRing();
 
 	/**
+	 * Returns a new object of class '<em>Multi Geometry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multi Geometry</em>'.
+	 * @generated
+	 */
+	MultiGeometry createMultiGeometry();
+
+	/**
 	 * Returns a new object of class '<em>Kml</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
