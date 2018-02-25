@@ -16,7 +16,8 @@
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource
-               com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider"/>
+               com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider
+               com.misc.common.moplaf.gisview.emf.edit.IItemPathsProvider"/>
    </extension>
 
 </plugin>

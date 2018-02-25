@@ -7,7 +7,7 @@ import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.Coordinates;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.LineString;
-import com.misc.common.moplaf.gisview.emf.edit.IItemLocationsProvider;
+import com.misc.common.moplaf.gisview.emf.edit.IItemPathsProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,11 +23,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.kml.LineString} object.
  * <!-- begin-user-doc -->
- * @implements IItemLocationsProvider
+ * @implements IItemPathsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class LineStringItemProvider extends GeometryItemProvider implements IItemLocationsProvider {
+public class LineStringItemProvider extends GeometryItemProvider implements IItemPathsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -121,54 +121,53 @@ public class LineStringItemProvider extends GeometryItemProvider implements IIte
 	}
 
 	@Override
-	public int getLocationsNr(Object element) {
-		LineString line = (LineString)element;
-		return line.getCoordinates().size();
+	public Object getPaths(Object element) {
+		return element;
 	}
 
 	@Override
-	public double getLocationLongitude(Object element, Object location) {
-		LineString line = (LineString)element;
-		Integer location_index = (Integer)location;
-		Coordinates coordinates = line.getCoordinates().get(location_index);
-		return coordinates.getX();
-	}
-
-	@Override
-	public double getLocationLatitude(Object element, Object location) {
-		LineString line = (LineString)element;
-		Integer location_index = (Integer)location;
-		Coordinates coordinates = line.getCoordinates().get(location_index);
-		return coordinates.getY();
-	}
-
-	@Override
-	public double getLocationElevation(Object element, Object location) {
-		LineString line = (LineString)element;
-		Integer location_index = (Integer)location;
-		Coordinates coordinates = line.getCoordinates().get(location_index);
-		return coordinates.getZ();
-	}
-
-	@Override
-	public String getLocationText(Object element, Object location) {
+	public String getPathText(Object element, Object path) {
 		LineString line = (LineString)element;
 		String text = line.getPlacemark().getName();
 		return text;
 	}
 
 	@Override
-	public Object getLocationForeground(Object element, Object location) {
+	public Object getPathForeground(Object element, Object path) {
 		LineString line = (LineString)element;
 		int rgb = line.getColor();
 		Color color = new Color(rgb);
 		return color.toURI();
 	}
-	
-	
 
-//	@Override
-//	public Object getLocationImage(Object element, Object location) {
-//		return this.getImage(element);
-//	}
+	@Override
+	public int getNrPathStops(Object element, Object path) {
+		LineString line = (LineString)element;
+		return line.getCoordinates().size();
+	}
+
+	@Override
+	public double getPathStopLongitude(Object element, Object path, Object stop) {
+		LineString line = (LineString)element;
+		Integer location_index = (Integer)stop;
+		Coordinates coordinates = line.getCoordinates().get(location_index);
+		return coordinates.getX();
+	}
+
+	@Override
+	public double getPathStopLatitude(Object element, Object path, Object stop) {
+		LineString line = (LineString)element;
+		Integer location_index = (Integer)stop;
+		Coordinates coordinates = line.getCoordinates().get(location_index);
+		return coordinates.getY();
+	}
+
+	@Override
+	public double getPathStopElevation(Object element, Object path, Object stop) {
+		LineString line = (LineString)element;
+		Integer location_index = (Integer)stop;
+		Coordinates coordinates = line.getCoordinates().get(location_index);
+		return coordinates.getZ();
+	}
+
 }
