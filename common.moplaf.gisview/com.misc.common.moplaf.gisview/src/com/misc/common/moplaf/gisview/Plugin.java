@@ -27,6 +27,8 @@ import com.misc.common.moplaf.gisview.preference.PreferenceInitializer;
 public class Plugin extends AbstractUIPlugin implements PrefConstants{
 
 	private int mapMaxDepth      = PreferenceInitializer.getDefaultMapMaxDepth();
+	private int mapLocationSize  = PreferenceInitializer.getDefaultMapLocationSize();
+	private int mapPathWidth     = PreferenceInitializer.getDefaultMapPathWidth();
 	private String mapServerUrl  = PreferenceInitializer.getDefaultMapServerUrl();
 	private int mapServerMaxZoom = PreferenceInitializer.getDefaultMapServerMaxZoom();
 	
@@ -36,6 +38,22 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants{
 
 	public void setMapMaxDepth(int mapMaxDepth) {
 		this.mapMaxDepth = mapMaxDepth;
+	}
+
+	public int getMapLocationSize() {
+		return mapLocationSize;
+	}
+
+	public void setMapLocationSize(int mapLocationSize) {
+		this.mapLocationSize = mapLocationSize;
+	}
+
+	public int getMapPathWidth() {
+		return mapPathWidth;
+	}
+
+	public void setMapPathWidth(int mapPathWidth) {
+		this.mapPathWidth = mapPathWidth;
 	}
 
 	public String getMapServerUrl() {
@@ -107,9 +125,17 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants{
 	
 	private void initPreferences(){
 		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
-		int maxDepth       = prefStore.getInt(PREF_MAP_MAX_DEPTH);
+		int maxDepth         = prefStore.getInt(PREF_MAP_MAX_DEPTH);
+		int locationSize     = prefStore.getInt(PREF_MAP_LOCATION_SIZE);
+		int pathWidth        = prefStore.getInt(PREF_MAP_PATH_WIDTH);
+		int maxZoom          = prefStore.getInt(PREF_MAP_SERVER_MAX_ZOOM);
+		String mapServerUrl  = prefStore.getString(PREF_MAP_SERVER_URL);
 		
 		Plugin.getDefault().setMapMaxDepth(maxDepth);
+		Plugin.getDefault().setMapLocationSize(locationSize);
+		Plugin.getDefault().setMapPathWidth(pathWidth);
+		Plugin.getDefault().setMapServerMaxZoom(maxZoom);
+		Plugin.getDefault().setMapServerUrl(mapServerUrl);
 		
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
 		      public void propertyChange(PropertyChangeEvent event) {
@@ -122,6 +148,10 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants{
 			    			Plugin.getDefault().setMapMaxDepth(newValueAsInteger);
 			    	  } else if ( property.equals(PREF_MAP_SERVER_MAX_ZOOM)) {
 			    			Plugin.getDefault().setMapServerMaxZoom(newValueAsInteger);
+			    	  } else if ( property.equals(PREF_MAP_LOCATION_SIZE)) {
+			    			Plugin.getDefault().setMapLocationSize(newValueAsInteger);
+			    	  } else if ( property.equals(PREF_MAP_PATH_WIDTH)) {
+			    			Plugin.getDefault().setMapPathWidth(newValueAsInteger);
 			    	  }
 		    	  } else if ( newValue instanceof String) {
 		    		  String newValueAsString = (String)newValue;

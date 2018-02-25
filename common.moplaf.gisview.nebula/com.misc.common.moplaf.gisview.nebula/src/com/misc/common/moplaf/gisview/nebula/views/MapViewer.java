@@ -96,9 +96,9 @@ public class MapViewer extends MapViewerAbstract {
 		// add the paint listener
 		this.geoMap.addPaintListener(new PaintListener() {
 			public void paintControl(PaintEvent e) {
+				int marker_size = Plugin.getDefault().getMapLocationSize();
 				GeoMap map = MapViewer.this.geoMap;
 				int zoom = map.getZoom();
-				int marker_size = 4;
 		    	Point mapposition = map.getMapPosition();
 			    GC gc = e.gc;
 			    Color foreground_before = gc.getForeground();
@@ -122,8 +122,9 @@ public class MapViewer extends MapViewerAbstract {
 			        }
 			    } // traverse the points to draw        
 			    for ( MapPath path : MapViewer.this.paths.values()){
+			    	int path_width = Plugin.getDefault().getMapPathWidth();
 				    gc.setForeground(path.color);
-				    gc.setLineWidth(6);
+				    gc.setLineWidth(path_width);
 			    	for ( int i=0; i<path.points.length-1; i++) {
 				        int x1 = GeoMapUtil.lon2position(path.points[i].x, zoom);
 				        int y1 = GeoMapUtil.lat2position(path.points[i].y, zoom);

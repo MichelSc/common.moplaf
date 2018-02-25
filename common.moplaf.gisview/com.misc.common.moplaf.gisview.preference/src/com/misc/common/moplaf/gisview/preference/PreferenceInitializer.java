@@ -22,11 +22,15 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer impleme
 	public void initializeDefaultPreferences() {
 		IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
 		prefStore.setDefault(PREF_MAP_MAX_DEPTH,        getDefaultMapMaxDepth());
+		prefStore.setDefault(PREF_MAP_LOCATION_SIZE,    getDefaultMapLocationSize());
+		prefStore.setDefault(PREF_MAP_PATH_WIDTH,       getDefaultMapPathWidth());
 		prefStore.setDefault(PREF_MAP_SERVER_URL,       getDefaultMapServerUrl());
 		prefStore.setDefault(PREF_MAP_SERVER_MAX_ZOOM,  getDefaultMapServerMaxZoom());
 	}
 
 	public static int    getDefaultMapMaxDepth()      { return 4; }
+	public static int    getDefaultMapLocationSize()  { return 6; }
+	public static int    getDefaultMapPathWidth()     { return 3; }
 	public static String getDefaultMapServerUrl()     { return "http://a.tile.openstreetmap.org/"; }
 	public static int    getDefaultMapServerMaxZoom() { return 18; }
 }
