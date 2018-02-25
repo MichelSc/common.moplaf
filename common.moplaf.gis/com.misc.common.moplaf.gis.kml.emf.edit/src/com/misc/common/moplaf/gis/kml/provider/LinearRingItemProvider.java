@@ -83,7 +83,8 @@ public class LinearRingItemProvider extends GeometryItemProvider implements IIte
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_LinearRing_type");
+		LinearRing linearRing = (LinearRing)object;
+		return getString("_UI_LinearRing_type") + " " + linearRing.getColor();
 	}
 	
 

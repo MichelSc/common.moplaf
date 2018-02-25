@@ -394,13 +394,22 @@ public interface KmlPackage extends EPackage {
 	int GEOMETRY__PLACEMARK = 0;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GEOMETRY__COLOR = 1;
+
+	/**
 	 * The number of structural features of the '<em>Geometry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GEOMETRY_FEATURE_COUNT = 1;
+	int GEOMETRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Geometry</em>' class.
@@ -419,6 +428,15 @@ public interface KmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINT__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__COLOR = GEOMETRY__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Coordinates</b></em>' attribute.
@@ -457,6 +475,15 @@ public interface KmlPackage extends EPackage {
 	int LINE_STRING__PLACEMARK = GEOMETRY__PLACEMARK;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_STRING__COLOR = GEOMETRY__COLOR;
+
+	/**
 	 * The feature id for the '<em><b>Coordinates</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -491,6 +518,15 @@ public interface KmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int LINEAR_RING__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINEAR_RING__COLOR = GEOMETRY__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Coordinates</b></em>' attribute list.
@@ -540,6 +576,15 @@ public interface KmlPackage extends EPackage {
 	int MULTI_GEOMETRY__PLACEMARK = GEOMETRY__PLACEMARK;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_GEOMETRY__COLOR = GEOMETRY__COLOR;
+
+	/**
 	 * The feature id for the '<em><b>Geometries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,6 +629,15 @@ public interface KmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int POLYGON__PLACEMARK = GEOMETRY__PLACEMARK;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLYGON__COLOR = GEOMETRY__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Outer Boundary</b></em>' containment reference.
@@ -724,6 +778,17 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGeometry_Placemark();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.kml.Geometry#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see com.misc.common.moplaf.gis.kml.Geometry#getColor()
+	 * @see #getGeometry()
+	 * @generated
+	 */
+	EAttribute getGeometry_Color();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.kml.Point <em>Point</em>}'.
@@ -998,6 +1063,14 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GEOMETRY__PLACEMARK = eINSTANCE.getGeometry_Placemark();
+
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GEOMETRY__COLOR = eINSTANCE.getGeometry_Color();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.kml.impl.PointImpl <em>Point</em>}' class.

@@ -82,11 +82,8 @@ public class PointItemProvider extends GeometryItemProvider implements IItemLoca
 	 */
 	@Override
 	public String getText(Object object) {
-		Coordinates labelValue = ((Point)object).getCoordinates();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Point_type") :
-			getString("_UI_Point_type") + " " + label;
+		Point point = (Point)object;
+		return getString("_UI_Point_type") + " " + point.getColor();
 	}
 	
 

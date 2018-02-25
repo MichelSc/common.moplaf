@@ -49,6 +49,7 @@ public class MapViewer extends MapViewerAbstract {
 		private double longitude;
 		private double latitude;
 		private Image image;
+		private Color color;
 		
 		public MapMarker (Object modelObject){
 			this.modelObject = modelObject;
@@ -97,16 +98,28 @@ public class MapViewer extends MapViewerAbstract {
 			public void paintControl(PaintEvent e) {
 				GeoMap map = MapViewer.this.geoMap;
 				int zoom = map.getZoom();
+				int marker_size = 4;
 		    	Point mapposition = map.getMapPosition();
 			    GC gc = e.gc;
+			    Color foreground_before = gc.getForeground();
 			    for ( MapMarker marker : MapViewer.this.markers.values()){
 			        int x = GeoMapUtil.lon2position(marker.longitude, zoom);
 			        int y = GeoMapUtil.lat2position(marker.latitude, zoom);
 			        Image icon = marker.image;
-			        Rectangle bounds = icon.getBounds();
-			        gc.drawImage(icon, 
-			        		     x-mapposition.x-bounds.width/2, 
-			        		     y-mapposition.y-bounds.height/2);
+			        if ( icon != null ) {
+				        Rectangle bounds = icon.getBounds();
+				        gc.drawImage(icon, 
+				        		     x-mapposition.x-bounds.width/2, 
+				        		     y-mapposition.y-bounds.height/2);
+			        } else {
+			        	gc.setForeground(marker.color);
+			        	gc.drawOval(
+			        			x-mapposition.x-marker_size/2, 
+			        			y-mapposition.y-marker_size/2, 
+			        			marker_size/2, 
+			        			marker_size/2);
+			        	
+			        }
 			    } // traverse the points to draw        
 			    for ( MapPath path : MapViewer.this.paths.values()){
 				    gc.setForeground(path.color);
@@ -118,7 +131,8 @@ public class MapViewer extends MapViewerAbstract {
 				        int y2 = GeoMapUtil.lat2position(path.points[i+1].y, zoom);
 				        gc.drawLine(x1-mapposition.x, y1-mapposition.y, x2-mapposition.x, y2-mapposition.y);
 			    	}
-			    } // traverse the points to draw        
+			    } // traverse the points to draw
+			    gc.setForeground(foreground_before);
 			}
 		});
 
@@ -209,22 +223,22 @@ public class MapViewer extends MapViewerAbstract {
 			double latitude  = location_object.getLatitude();
 			Image image      = this.getILabelProvider()   .getImage(location);
 			MapMarker marker = this.markers.get(location);
-			if ( image!=null ) {
-				// only mark location with image
-				// this should be extended to object without images!
-				if ( marker==null ) {
-					// create
-					marker = new MapMarker(location);
-					this.markers.put(location, marker);
-				} else {
-					// keep
-					objectsToRemove.remove(location);
-				}
-				// update
-				marker.longitude = longitude; 
-				marker.latitude  = latitude;  
-				marker.image     = image;     
+			// only mark location with image
+			// this should be extended to object without images!
+			if ( marker==null ) {
+				// create
+				marker = new MapMarker(location);
+				this.markers.put(location, marker);
+			} else {
+				// keep
+				objectsToRemove.remove(location);
 			}
+			// update
+			Color  color = this.getIColorProvider().getForeground(location);
+			marker.longitude = longitude; 
+			marker.latitude  = latitude;  
+			marker.image     = image;     
+			marker.color     = color;
 		}
 		// delete
 		for ( Object objectToRemove : objectsToRemove){

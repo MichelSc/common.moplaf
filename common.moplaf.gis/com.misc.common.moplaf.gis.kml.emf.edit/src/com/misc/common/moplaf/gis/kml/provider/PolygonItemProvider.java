@@ -89,7 +89,8 @@ public class PolygonItemProvider extends GeometryItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Polygon_type");
+		Polygon polygon = (Polygon)object;
+		return getString("_UI_Polygon_type") + " " + polygon.getColor();
 	}
 	
 

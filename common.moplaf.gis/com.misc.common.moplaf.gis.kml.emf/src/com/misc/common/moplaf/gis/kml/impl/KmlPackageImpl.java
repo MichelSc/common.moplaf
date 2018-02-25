@@ -282,6 +282,15 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGeometry_Color() {
+		return (EAttribute)geometryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPoint() {
 		return pointEClass;
 	}
@@ -459,6 +468,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		geometryEClass = createEClass(GEOMETRY);
 		createEReference(geometryEClass, GEOMETRY__PLACEMARK);
+		createEAttribute(geometryEClass, GEOMETRY__COLOR);
 
 		pointEClass = createEClass(POINT);
 		createEAttribute(pointEClass, POINT__COORDINATES);
@@ -542,6 +552,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		initEClass(geometryEClass, Geometry.class, "Geometry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeometry_Placemark(), this.getPlacemark(), null, "Placemark", null, 1, 1, Geometry.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeometry_Color(), ecorePackage.getEInt(), "Color", null, 0, 1, Geometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPoint_Coordinates(), this.getCoordinates(), "Coordinates", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -88,7 +88,8 @@ public class MultiGeometryItemProvider extends GeometryItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_MultiGeometry_type");
+		MultiGeometry multiGeometry = (MultiGeometry)object;
+		return getString("_UI_MultiGeometry_type") + " " + multiGeometry.getColor();
 	}
 	
 

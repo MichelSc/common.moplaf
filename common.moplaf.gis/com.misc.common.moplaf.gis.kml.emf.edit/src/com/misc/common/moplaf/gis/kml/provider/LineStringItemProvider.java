@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.kml.provider;
 
 
+import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.Coordinates;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.LineString;
@@ -83,7 +84,8 @@ public class LineStringItemProvider extends GeometryItemProvider implements IIte
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_LineString_type");
+		LineString lineString = (LineString)object;
+		return getString("_UI_LineString_type") + " " + lineString.getColor();
 	}
 	
 
@@ -156,7 +158,17 @@ public class LineStringItemProvider extends GeometryItemProvider implements IIte
 	}
 
 	@Override
-	public Object getLocationImage(Object element, Object location) {
-		return this.getImage(element);
+	public Object getLocationForeground(Object element, Object location) {
+		LineString line = (LineString)element;
+		int rgb = line.getColor();
+		Color color = new Color(rgb);
+		return color.toURI();
 	}
+	
+	
+
+//	@Override
+//	public Object getLocationImage(Object element, Object location) {
+//		return this.getImage(element);
+//	}
 }

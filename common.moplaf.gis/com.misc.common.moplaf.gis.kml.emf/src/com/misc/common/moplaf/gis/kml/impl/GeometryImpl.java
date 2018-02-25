@@ -6,9 +6,11 @@ import com.misc.common.moplaf.gis.kml.Geometry;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
 import com.misc.common.moplaf.gis.kml.MultiGeometry;
 import com.misc.common.moplaf.gis.kml.Placemark;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
@@ -20,11 +22,31 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.kml.impl.GeometryImpl#getPlacemark <em>Placemark</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.kml.impl.GeometryImpl#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class GeometryImpl extends MinimalEObjectImpl.Container implements Geometry {
+	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COLOR_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected int color = COLOR_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,14 +96,67 @@ public abstract class GeometryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getColor() {
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColor(int newColor) {
+		int oldColor = color;
+		color = newColor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KmlPackage.GEOMETRY__COLOR, oldColor, color));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case KmlPackage.GEOMETRY__PLACEMARK:
 				if (resolve) return getPlacemark();
 				return basicGetPlacemark();
+			case KmlPackage.GEOMETRY__COLOR:
+				return getColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case KmlPackage.GEOMETRY__COLOR:
+				setColor((Integer)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case KmlPackage.GEOMETRY__COLOR:
+				setColor(COLOR_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -94,8 +169,26 @@ public abstract class GeometryImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case KmlPackage.GEOMETRY__PLACEMARK:
 				return basicGetPlacemark() != null;
+			case KmlPackage.GEOMETRY__COLOR:
+				return color != COLOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Color: ");
+		result.append(color);
+		result.append(')');
+		return result.toString();
 	}
 
 } //GeometryImpl
