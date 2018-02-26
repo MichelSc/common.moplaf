@@ -357,6 +357,10 @@ public interface IItemGridsProvider {
 			return -sense; 
 		}
 		switch (type1) {
+		case CELL_TYPE_BOOLEAN:
+			Boolean boolean1 = (Boolean)value1;
+			Boolean boolean2 = (Boolean)value2;
+			return sense*boolean1.compareTo(boolean2);
 		case CELL_TYPE_STRING:
 			String string1 = (String)value1;
 			String string2 = (String)value2;
