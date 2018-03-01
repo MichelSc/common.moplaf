@@ -10,13 +10,13 @@ import java.util.List;
  * The consumer (i.e. the component using the locations data, typically a map component)
  * will provide, when relevant
  * <ul>
- * <li> an element:Object: the object owning the locations(s) </li>
+ * <li> an element:Object: the object owning the paths(s) </li>
  * <li> an path:Object: the object identifying a path </li>
  * <li> a stop:Object: the object identifying a stop of a path </li>
  * </ul>
  * in order to get
  * <ul>
- * <li> the paths(s) supported by the element </li>
+ * <li> the paths(s) provided by the element </li>
  * <li> properties to be displayed for a given path </li>
  * <li> the stops of a path </li>
  * <li> properties to be displayed for a given stop of a given path </li>
@@ -51,7 +51,7 @@ public interface IItemPathsProvider {
 	 * @param element
 	 * @return
 	 */
-	default int getPathsNr(Object element){
+	default int getNrPaths(Object element){
 		return 0;
 	}
 

@@ -46,7 +46,7 @@ public interface IItemLocationsProvider {
 	 * @param element
 	 * @return
 	 */
-	default int getLocationsNr(Object element){
+	default int getNrLocations(Object element){
 		return 0;
 	}
 
