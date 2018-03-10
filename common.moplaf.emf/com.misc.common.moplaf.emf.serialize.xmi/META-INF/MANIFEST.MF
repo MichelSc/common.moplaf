@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.misc.common.moplaf.emf.serialize.xmi
+Bundle-SymbolicName: com.misc.common.moplaf.emf.serialize.xmi;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ com.misc.common.moplaf.emf.serialize;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;bundle-version="2.13.0"

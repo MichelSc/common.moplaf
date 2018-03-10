@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.misc.common.moplaf.emf.serialize
+Bundle-SymbolicName: com.misc.common.moplaf.emf.serialize;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.core.runtime;bundle-version="3.13.0"
+Export-Package: com.misc.common.moplaf.serialize

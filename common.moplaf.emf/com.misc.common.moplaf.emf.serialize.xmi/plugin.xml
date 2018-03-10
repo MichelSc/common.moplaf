@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="com.misc.common.moplaf.emf.serialize.xmi.schemes"
+         point="com.misc.common.moplaf.emf.serialize.scheme">
+      <scheme
+            class="com.misc.common.moplaf.serialize.xmi.XMIScheme"
+            id="xmi"
+            name="XMI serialization scheme ">
+      </scheme>
+      <scheme
+            class="com.misc.common.moplaf.serialize.xmi.XMLScheme"
+            id="xml"
+            name="XML serialization scheme ">
+      </scheme>
+   </extension>
+
+</plugin>
