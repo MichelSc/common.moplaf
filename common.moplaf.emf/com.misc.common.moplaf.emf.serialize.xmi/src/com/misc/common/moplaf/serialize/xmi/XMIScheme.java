@@ -14,9 +14,13 @@ import com.misc.common.moplaf.serialize.Scheme;
 
 
 public class XMIScheme implements Scheme {
-
+	
 	public XMIScheme() {
 	}
+
+	public static Scheme INSTANCE = new XMIScheme();
+	
+	public static String SCHEME_ID = "com.misc.common.moplaf.emf.serialize.xmi.schemes.xmi";
 
 	@Override
 	public boolean serialize(EList<EObject> objects, StringWriter writer) throws IOException {

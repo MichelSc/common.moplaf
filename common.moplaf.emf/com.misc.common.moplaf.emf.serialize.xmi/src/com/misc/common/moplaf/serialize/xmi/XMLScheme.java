@@ -17,6 +17,10 @@ public class XMLScheme implements Scheme {
 	public XMLScheme() {
 	}
 
+	public static Scheme INSTANCE = new XMLScheme();
+
+	public static String SCHEME_ID = "com.misc.common.moplaf.emf.serialize.xmi.schemes.xml";
+
 	@Override
 	public boolean serialize(EList<EObject> objects, StringWriter writer) throws IOException {
 	    XMLResource new_resource = new XMLResourceImpl();

@@ -6,3 +6,4 @@ Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,
  com.misc.common.moplaf.emf.serialize;bundle-version="0.1.0";visibility:=reexport,
  org.eclipse.emf.ecore.xmi;bundle-version="2.13.0"
+Export-Package: com.misc.common.moplaf.serialize.xmi

@@ -340,16 +340,16 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		 */
 		@Override
 		public int getJobStatus(int jobExecuteNr) {
-			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatuts: jobExecutenr= %d", jobExecuteNr));
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d", jobExecuteNr));
 			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
 			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 			if ( job == null ) {
-				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatuts: jobExecutenr= %d, job not found", jobExecuteNr));
+				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d, job not found", jobExecuteNr));
 				return JobStatus.UNKNOWN_VALUE;
 			}
 
 			int status = job.getStatus().getValue();
-			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatuts: status= %d", status));
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: status= %d", status));
 			return status;
 		}
 

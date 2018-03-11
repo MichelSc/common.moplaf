@@ -13,45 +13,45 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+
 public class Util {
-	static public String getDefaultExtensionID() {
-		return "com.misc.common.moplaf.emf.serialize.xmi.schemes";
-	}
 	
-	static public Scheme getScheme(String extension_id, String scheme_id) {
-		String the_extention_id = extension_id==null ? Util.getDefaultExtensionID() : extension_id;
+	static public Scheme getScheme(String scheme_id) {
 		
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
 		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.emf.serialize.scheme");
 		for ( IConfigurationElement element : elements){
 			// check the extension id 
-			String element_extension = element.getDeclaringExtension().getUniqueIdentifier();
-			if ( !element_extension.equals(the_extention_id)) {
-				continue;
+			String extension_id = element.getDeclaringExtension().getUniqueIdentifier();
+			String element_id = element.getAttribute("id");
+			String this_element_full_id = extension_id == null ? "" : extension_id;
+			if ( element_id != null ) {
+				if ( this_element_full_id.length()>0 ) {
+					this_element_full_id += ".";
+				}
+				this_element_full_id += element_id;
 			}
-			// check the scheme id
-			if ( scheme_id!=null && !element.getAttribute("id").equals(scheme_id) ) {
-				continue;
-			}
-			Object value;
-			try {
-				value = element.createExecutableExtension("class");
-			} catch (CoreException e) {
-				continue;
-			}
-			if ( value instanceof Scheme) {
-				return (Scheme)value;
+			if ( this_element_full_id.contentEquals(scheme_id)) {
+				Object value;
+				try {
+					value = element.createExecutableExtension("class");
+				} catch (CoreException e) {
+					// this is an error. We should report it instead of silently ignoring it.
+					return null;
+				}
+				if ( value instanceof Scheme) {
+					return (Scheme)value;
+				} else {
+					// this is an error. We should report it instead of silently ignoring it.
+					return null;
+				}
 			}
 		}
 		return null;
 	}
 	
-	static public Scheme getScheme(String extension_id) {
-		return Util.getScheme(extension_id, null);
-	}
-	
-	static public boolean serialize(EList<EObject> objects, StringWriter writer, String extension_id, String scheme_id) throws IOException {
-		Scheme scheme = Util.getScheme(extension_id, scheme_id);
+	static public boolean serialize(String scheme_id, EList<EObject> objects, StringWriter writer) throws IOException {
+		Scheme scheme = Util.getScheme(scheme_id);
 		if ( scheme == null ) {
 			return false;
 		}
@@ -59,23 +59,29 @@ public class Util {
 		return scheme.serialize(objects,  writer);
 	}
 
-	static public boolean serialize(EObject object, StringWriter writer, String extension_id, String scheme_id) throws IOException {
+	static public boolean serialize(String scheme_id, EObject object, StringWriter writer) throws IOException {
 		BasicEList<EObject> objects = new BasicEList<>();
 		objects.add(object);
-		return Util.serialize(objects, writer, extension_id, scheme_id);
+		return Util.serialize(scheme_id, objects, writer);
 	}
 
-	static public boolean deserialize(EList<EObject> objects, InputStream reader, String extension_id, String scheme_id) throws IOException {
-		Scheme scheme = Util.getScheme(extension_id, scheme_id);
+	static public boolean serialize(Scheme scheme, EObject object, StringWriter writer) throws IOException {
+		BasicEList<EObject> objects = new BasicEList<>();
+		objects.add(object);
+		return scheme.serialize(objects, writer);
+	}
+
+	static public boolean deserialize(String scheme_id, EList<EObject> objects, InputStream reader, String extension_id) throws IOException {
+		Scheme scheme = Util.getScheme(scheme_id);
 		if ( scheme == null ) {
 			return false;
 		}
 		return scheme.deserialize(objects,  reader);
 	}
 	
-	static public EObject deserialize(InputStream reader, String extension_id, String scheme_id) throws IOException {
+	static public EObject deserialize(String scheme_id, InputStream reader, String extension_id) throws IOException {
 		BasicEList<EObject> objects = new BasicEList<>();
-		boolean serialized = Util.deserialize(objects, reader, extension_id, scheme_id);
+		boolean serialized = Util.deserialize(scheme_id, objects, reader, extension_id);
 		if ( !serialized ) {
 			return null;
 		}
@@ -84,5 +90,16 @@ public class Util {
 		}
 		return objects.get(0);
 	}
-
+	
+	static public EObject deserialize(Scheme scheme, InputStream reader, String extension_id) throws IOException {
+		BasicEList<EObject> objects = new BasicEList<>();
+		boolean serialized = scheme.deserialize(objects, reader);
+		if ( !serialized ) {
+			return null;
+		}
+		if ( objects.size()==0 ) {
+			return null;
+		}
+		return objects.get(0);
+	}
 }

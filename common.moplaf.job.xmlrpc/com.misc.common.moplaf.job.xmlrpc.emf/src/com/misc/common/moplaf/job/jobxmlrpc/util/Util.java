@@ -9,11 +9,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.misc.common.moplaf.job.Plugin;
+import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
 public class Util {
 	static public boolean serialize(EList<EObject> objects, StringWriter writer) {
 		try {
-			return com.misc.common.moplaf.serialize.Util.serialize(objects, writer, null, "xmi");
+			return XMIScheme.INSTANCE.serialize(objects, writer);
 		} catch (IOException e) {
 			e.printStackTrace();
 			Plugin.INSTANCE.logError("JobEngineClient.runJobImpl, serialize "+ e.getMessage());
@@ -23,7 +24,7 @@ public class Util {
 
 	static public boolean deserialize(EList<EObject> objects, InputStream reader) {
 	    try {
-	    	return com.misc.common.moplaf.serialize.Util.deserialize(objects,  reader,  null, "xmi");
+			return XMIScheme.INSTANCE.deserialize(objects, reader);
 	    	} 
 	    catch (IOException e) {
 			e.printStackTrace();
