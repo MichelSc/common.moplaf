@@ -326,9 +326,8 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			    	if ( object instanceof Run) {
 			    		Run job = (Run) object;
 			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job received");
-			    		JobScheduled submittedJob = scheduler.submitRun(job, true);  // takes ownership
+			    		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
 			    		result = submittedJob.getScheduleNr();
-						jobEngineServer.getJobsScheduled().add(submittedJob);
 			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
 			    	}
 				}
@@ -399,7 +398,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	}
 
 	/**
-	 * Specified by JobSource
+	 * Specified by JobSchedulerService
 	 */
 	@Override
 	protected void startImpl() {
@@ -440,7 +439,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	}
 
 	/**
-	 * Specified by JobSource
+	 * Specified by JobSchedulerService
 	 */
 	@Override
 	protected void stopImpl() {
@@ -452,16 +451,25 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		}
 	}
 
+	/**
+	 * Specified by JobSource
+	 */
 	@Override
 	public void refresh() {
 		super.refresh();
 	}
 
+	/**
+	 * Specified by JobSource
+	 */
 	@Override
 	public void onJobRunning(JobScheduled job) {
 		super.onJobRunning(job);
 	}
 
+	/**
+	 * Specified by JobSource
+	 */
 	@Override
 	public void onJobReturned(JobScheduled job, ReturnFeedback feedback) {
 		super.onJobReturned(job, feedback);

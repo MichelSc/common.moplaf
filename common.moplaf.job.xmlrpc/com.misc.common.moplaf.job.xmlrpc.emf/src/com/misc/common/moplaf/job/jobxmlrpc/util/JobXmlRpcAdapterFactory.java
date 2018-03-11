@@ -5,6 +5,7 @@ package com.misc.common.moplaf.job.jobxmlrpc.util;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobSchedulerService;
 import com.misc.common.moplaf.job.jobclient.JobSource;
+import com.misc.common.moplaf.job.jobclient.Service;
 import com.misc.common.moplaf.job.jobxmlrpc.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -79,6 +80,10 @@ public class JobXmlRpcAdapterFactory extends AdapterFactoryImpl {
 				return createJobEngineServerAdapter();
 			}
 			@Override
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
+			}
+			@Override
 			public Adapter caseJobSchedulerService(JobSchedulerService object) {
 				return createJobSchedulerServiceAdapter();
 			}
@@ -135,6 +140,20 @@ public class JobXmlRpcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJobEngineServerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.jobclient.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.jobclient.Service
+	 * @generated
+	 */
+	public Adapter createServiceAdapter() {
 		return null;
 	}
 

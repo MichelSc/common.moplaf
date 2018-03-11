@@ -8,8 +8,6 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.emf.edit.command.StartCommand;
-import com.misc.common.moplaf.emf.edit.command.StopCommand;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
@@ -23,22 +21,13 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -49,9 +38,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class JobSchedulerItemProvider 
-	extends ItemProviderAdapter
+	extends ServiceItemProvider
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
+		IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,10 +62,7 @@ public class JobSchedulerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addStartFeedbackPropertyDescriptor(object);
-			addStopFeedbackPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
-			addStatusPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addRefreshRatePropertyDescriptor(object);
@@ -89,50 +75,6 @@ public class JobSchedulerItemProvider
 			addCurrentScheduleNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Start Feedback feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStartFeedbackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduler_StartFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_StartFeedback_feature", "_UI_JobScheduler_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULER__START_FEEDBACK,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10EnabledPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Stop Feedback feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStopFeedbackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduler_StopFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_StopFeedback_feature", "_UI_JobScheduler_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULER__STOP_FEEDBACK,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10EnabledPropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -378,28 +320,6 @@ public class JobSchedulerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Status feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStatusPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduler_Status_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Status_feature", "_UI_JobScheduler_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULER__STATUS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -468,14 +388,10 @@ public class JobSchedulerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobScheduler.class)) {
-			case JobClientPackage.JOB_SCHEDULER__START_FEEDBACK:
-			case JobClientPackage.JOB_SCHEDULER__STOP_FEEDBACK:
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
-			case JobClientPackage.JOB_SCHEDULER__STATUS:
 			case JobClientPackage.JOB_SCHEDULER__DESCRIPTION:
 			case JobClientPackage.JOB_SCHEDULER__NAME:
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
-			case JobClientPackage.JOB_SCHEDULER__RUNNING:
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_WAITING:
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_RUNNING:
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_FAILED:
@@ -508,17 +424,6 @@ public class JobSchedulerItemProvider
 		Util.collectNewChildJobSourceDescriptors2(newChildDescriptors, object, JobClientPackage.Literals.JOB_SCHEDULER__SOURCES);
 	}
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return JobclientEditPlugin.INSTANCE;
-	}
-	
 	/*
 	 * SchedulerFlushCommand
 	 */
@@ -541,62 +446,6 @@ public class JobSchedulerItemProvider
 			this.jobscheduler.flush();
 		}
 	} // class SchedulerFlushCommand
-	
-	/*
-	 * SchedulerStartCommand
-	 */
-	private class SchedulerStartCommand extends StartCommand{
-		private JobScheduler jobscheduler;
-		
-		// constructor
-		public SchedulerStartCommand(JobScheduler aJobScheduler)	{
-			this.jobscheduler = aJobScheduler;
-		}
-
-		@Override
-		protected boolean prepare(){
-			boolean isExecutable = true;
-			EnabledFeedback feedback = this.jobscheduler.getStartFeedback();
-			if ( !feedback.isEnabled() ) {
-				isExecutable = false;
-				this.setDescription(feedback.getFeedback());
-			}
-			return isExecutable;
-		}
-
-		@Override
-		public void execute() {
-			this.jobscheduler.start();
-		}
-	} // class SchedulerStartCommand
-	
-	/*
-	 * SchedulerStopCommand
-	 */
-	private class SchedulerStopCommand extends StopCommand{
-		private JobScheduler jobscheduler;
-		
-		// constructor
-		public SchedulerStopCommand(JobScheduler aJobScheduler)	{
-			this.jobscheduler = aJobScheduler;
-		}
-
-		@Override
-		protected boolean prepare(){
-			boolean isExecutable = true;
-			EnabledFeedback feedback = this.jobscheduler.getStopFeedback();
-			if ( !feedback.isEnabled() ) {
-				isExecutable = false;
-				this.setDescription(feedback.getFeedback());
-			}
-			return isExecutable;
-		}
-
-		@Override
-		public void execute() {
-			this.jobscheduler.stop();
-		}
-	} // class SchedulerStopCommand
 	
 	/*
 	 * SchedulerRefreshCommand
@@ -634,14 +483,8 @@ public class JobSchedulerItemProvider
 	public Command createCommand(Object object, EditingDomain domain,
 			Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
-		if ( commandClass == StartCommand.class){
-			return new SchedulerStartCommand((JobScheduler) object); 
-		}
-		else if ( commandClass == RefreshCommand.class){
+		if ( commandClass == RefreshCommand.class){
 			return new SchedulerRefreshCommand((JobScheduler) object); 
-		}
-		else if ( commandClass == StopCommand.class){
-			return new SchedulerStopCommand((JobScheduler) object); 
 		}
 		else if ( commandClass == FlushCommand.class){
 			return new SchedulerFlushCommand((JobScheduler) object); 
@@ -650,7 +493,7 @@ public class JobSchedulerItemProvider
 	} //method createCommand
 
 	/*
-	 * RunCopyParamsCommand
+	 * JobSchedulerSubmitRunCommand
 	 */
 	public class JobSchedulerSubmitRunCommand extends BaseCommand{
 		private JobScheduler scheduler;
@@ -671,9 +514,9 @@ public class JobSchedulerItemProvider
 
 		@Override
 		public void execute() {
-			this.scheduler.submitRun(run, false);
+			this.scheduler.submitRun(null, run, false);
 		}
-	} // class RunResetCommand
+	} // class JobSchedulerSubmitRunCommand
 	
 	protected Command createDropCommand(Object owner, Object droppedObject){ 
 		JobScheduler this_scheduler = (JobScheduler) owner;

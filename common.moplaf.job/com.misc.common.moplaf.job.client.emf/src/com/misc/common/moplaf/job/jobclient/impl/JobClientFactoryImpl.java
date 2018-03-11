@@ -61,6 +61,7 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 			case JobClientPackage.JOB_SCHEDULER: return createJobScheduler();
 			case JobClientPackage.JOB_SCHEDULED: return createJobScheduled();
 			case JobClientPackage.JOB_SCHEDULER_SERVICE: return createJobSchedulerService();
+			case JobClientPackage.SERVICE: return createService();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -134,6 +135,16 @@ public class JobClientFactoryImpl extends EFactoryImpl implements JobClientFacto
 	public JobSchedulerService createJobSchedulerService() {
 		JobSchedulerServiceImpl jobSchedulerService = new JobSchedulerServiceImpl();
 		return jobSchedulerService;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Service createService() {
+		ServiceImpl service = new ServiceImpl();
+		return service;
 	}
 
 	/**

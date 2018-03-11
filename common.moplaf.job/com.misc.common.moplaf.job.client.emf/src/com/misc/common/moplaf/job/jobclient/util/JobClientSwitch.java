@@ -71,12 +71,14 @@ public class JobClientSwitch<T> extends Switch<T> {
 				T result = caseJobEngineInProcess(jobEngineInProcess);
 				if (result == null) result = caseJobEngine(jobEngineInProcess);
 				if (result == null) result = caseJobSchedulerService(jobEngineInProcess);
+				if (result == null) result = caseService(jobEngineInProcess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JobClientPackage.JOB_SCHEDULER: {
 				JobScheduler jobScheduler = (JobScheduler)theEObject;
 				T result = caseJobScheduler(jobScheduler);
+				if (result == null) result = caseService(jobScheduler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,6 +92,7 @@ public class JobClientSwitch<T> extends Switch<T> {
 				JobEngine jobEngine = (JobEngine)theEObject;
 				T result = caseJobEngine(jobEngine);
 				if (result == null) result = caseJobSchedulerService(jobEngine);
+				if (result == null) result = caseService(jobEngine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -97,12 +100,20 @@ public class JobClientSwitch<T> extends Switch<T> {
 				JobSource jobSource = (JobSource)theEObject;
 				T result = caseJobSource(jobSource);
 				if (result == null) result = caseJobSchedulerService(jobSource);
+				if (result == null) result = caseService(jobSource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JobClientPackage.JOB_SCHEDULER_SERVICE: {
 				JobSchedulerService jobSchedulerService = (JobSchedulerService)theEObject;
 				T result = caseJobSchedulerService(jobSchedulerService);
+				if (result == null) result = caseService(jobSchedulerService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobClientPackage.SERVICE: {
+				Service service = (Service)theEObject;
+				T result = caseService(service);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -197,6 +208,21 @@ public class JobClientSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobSchedulerService(JobSchedulerService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseService(Service object) {
 		return null;
 	}
 

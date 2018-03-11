@@ -208,14 +208,14 @@ public abstract class JobSourceImpl extends JobSchedulerServiceImpl implements J
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobClientPackage.JOB_SOURCE___REFRESH:
-				refresh();
-				return null;
 			case JobClientPackage.JOB_SOURCE___ON_JOB_RUNNING__JOBSCHEDULED:
 				onJobRunning((JobScheduled)arguments.get(0));
 				return null;
 			case JobClientPackage.JOB_SOURCE___ON_JOB_RETURNED__JOBSCHEDULED_RETURNFEEDBACK:
 				onJobReturned((JobScheduled)arguments.get(0), (ReturnFeedback)arguments.get(1));
+				return null;
+			case JobClientPackage.JOB_SOURCE___REFRESH:
+				refresh();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

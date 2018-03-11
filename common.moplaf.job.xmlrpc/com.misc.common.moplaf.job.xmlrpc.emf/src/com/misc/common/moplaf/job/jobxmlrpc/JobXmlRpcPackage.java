@@ -86,6 +86,24 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_CLIENT__STOP_FEEDBACK = JobClientPackage.JOB_ENGINE__STOP_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__RUNNING = JobClientPackage.JOB_ENGINE__RUNNING;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__STATUS = JobClientPackage.JOB_ENGINE__STATUS;
+
+	/**
 	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,24 +129,6 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_CLIENT__DESCRIPTION = JobClientPackage.JOB_ENGINE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_CLIENT__STATUS = JobClientPackage.JOB_ENGINE__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_CLIENT__RUNNING = JobClientPackage.JOB_ENGINE__RUNNING;
 
 	/**
 	 * The feature id for the '<em><b>Scheduler</b></em>' reference.
@@ -267,6 +267,24 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER__STOP_FEEDBACK = JobClientPackage.JOB_SOURCE__STOP_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__RUNNING = JobClientPackage.JOB_SOURCE__RUNNING;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__STATUS = JobClientPackage.JOB_SOURCE__STATUS;
+
+	/**
 	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -292,24 +310,6 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_SERVER__DESCRIPTION = JobClientPackage.JOB_SOURCE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_SERVER__STATUS = JobClientPackage.JOB_SOURCE__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_SERVER__RUNNING = JobClientPackage.JOB_SOURCE__RUNNING;
 
 	/**
 	 * The feature id for the '<em><b>Scheduler</b></em>' reference.
@@ -375,15 +375,6 @@ public interface JobXmlRpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER___STOP = JobClientPackage.JOB_SOURCE___STOP;
 
 	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_SERVER___REFRESH = JobClientPackage.JOB_SOURCE___REFRESH;
-
-	/**
 	 * The operation id for the '<em>On Job Running</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,6 +391,15 @@ public interface JobXmlRpcPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_SERVER___ON_JOB_RETURNED__JOBSCHEDULED_RETURNFEEDBACK = JobClientPackage.JOB_SOURCE___ON_JOB_RETURNED__JOBSCHEDULED_RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___REFRESH = JobClientPackage.JOB_SOURCE___REFRESH;
 
 	/**
 	 * The number of operations of the '<em>Job Engine Server</em>' class.

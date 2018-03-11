@@ -47,14 +47,6 @@ public interface JobSource extends JobSchedulerService {
 	 * @model
 	 * @generated
 	 */
-	void refresh();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void onJobRunning(JobScheduled job);
 
 	/**
@@ -64,5 +56,13 @@ public interface JobSource extends JobSchedulerService {
 	 * @generated
 	 */
 	void onJobReturned(JobScheduled job, ReturnFeedback feedback);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
 
 } // JobSource

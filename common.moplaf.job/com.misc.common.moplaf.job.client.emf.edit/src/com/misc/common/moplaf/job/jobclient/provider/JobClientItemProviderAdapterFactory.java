@@ -165,6 +165,29 @@ public class JobClientItemProviderAdapterFactory extends JobClientAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.jobclient.Service} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceItemProvider serviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.jobclient.Service}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceAdapter() {
+		if (serviceItemProvider == null) {
+			serviceItemProvider = new ServiceItemProvider(this);
+		}
+
+		return serviceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,6 +290,7 @@ public class JobClientItemProviderAdapterFactory extends JobClientAdapterFactory
 		if (jobSchedulerItemProvider != null) jobSchedulerItemProvider.dispose();
 		if (jobScheduledItemProvider != null) jobScheduledItemProvider.dispose();
 		if (jobSchedulerServiceItemProvider != null) jobSchedulerServiceItemProvider.dispose();
+		if (serviceItemProvider != null) serviceItemProvider.dispose();
 	}
 
 }
