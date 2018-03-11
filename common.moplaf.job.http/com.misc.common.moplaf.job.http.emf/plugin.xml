@@ -13,5 +13,17 @@
             class="com.misc.common.moplaf.job.jobhttp.JobHttpPackage"
             genModel="model/jobhttp.genmodel"/>
    </extension>
+   <extension
+         point="com.misc.common.moplaf.job.client.emf.jobengine_factory">
+      <factory
+            class="com.misc.common.moplaf.job.jobhttp.util.JobEngineFactoryClient">
+      </factory>
+   </extension>
+   <extension
+         point="com.misc.common.moplaf.job.client.emf.jobsource_factory">
+      <factory
+            class="com.misc.common.moplaf.job.jobhttp.util.JobSourceFactoryServer">
+      </factory>
+   </extension>
 
 </plugin>

@@ -14,6 +14,8 @@ import com.misc.common.moplaf.job.jobclient.JobSource;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getPath <em>Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getSelectedServer <em>Selected Server</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getOwnerServer <em>Owner Server</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getServer <em>Server</em>}</li>
  * </ul>
  *
@@ -50,8 +52,63 @@ public interface JobEngineServer extends JobSource {
 	void setPath(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Selected Server</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobhttp.JobServer#getHandlersAsSelected <em>Handlers As Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selected Server</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selected Server</em>' reference.
+	 * @see #setSelectedServer(JobServer)
+	 * @see com.misc.common.moplaf.job.jobhttp.JobHttpPackage#getJobEngineServer_SelectedServer()
+	 * @see com.misc.common.moplaf.job.jobhttp.JobServer#getHandlersAsSelected
+	 * @model opposite="HandlersAsSelected"
+	 * @generated
+	 */
+	JobServer getSelectedServer();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getSelectedServer <em>Selected Server</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Selected Server</em>' reference.
+	 * @see #getSelectedServer()
+	 * @generated
+	 */
+	void setSelectedServer(JobServer value);
+
+	/**
+	 * Returns the value of the '<em><b>Owner Server</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobhttp.JobServer#getHandlerAsOwned <em>Handler As Owned</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Owner Server</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner Server</em>' containment reference.
+	 * @see #setOwnerServer(JobServer)
+	 * @see com.misc.common.moplaf.job.jobhttp.JobHttpPackage#getJobEngineServer_OwnerServer()
+	 * @see com.misc.common.moplaf.job.jobhttp.JobServer#getHandlerAsOwned
+	 * @model opposite="HandlerAsOwned" containment="true"
+	 * @generated
+	 */
+	JobServer getOwnerServer();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getOwnerServer <em>Owner Server</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner Server</em>' containment reference.
+	 * @see #getOwnerServer()
+	 * @generated
+	 */
+	void setOwnerServer(JobServer value);
+
+	/**
 	 * Returns the value of the '<em><b>Server</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobhttp.JobServer#getHandlers <em>Handlers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Server</em>' reference isn't clear,
@@ -59,22 +116,10 @@ public interface JobEngineServer extends JobSource {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Server</em>' reference.
-	 * @see #setServer(JobServer)
 	 * @see com.misc.common.moplaf.job.jobhttp.JobHttpPackage#getJobEngineServer_Server()
-	 * @see com.misc.common.moplaf.job.jobhttp.JobServer#getHandlers
-	 * @model opposite="Handlers" required="true"
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	JobServer getServer();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getServer <em>Server</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Server</em>' reference.
-	 * @see #getServer()
-	 * @generated
-	 */
-	void setServer(JobServer value);
 
 } // JobEngineServer

@@ -171,8 +171,26 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobEngineServer_Server() {
+	public EReference getJobEngineServer_SelectedServer() {
 		return (EReference)jobEngineServerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobEngineServer_OwnerServer() {
+		return (EReference)jobEngineServerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobEngineServer_Server() {
+		return (EReference)jobEngineServerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -198,8 +216,26 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJobServer_Handlers() {
+	public EReference getJobServer_HandlersAsSelected() {
 		return (EReference)jobServerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobServer_Handlers() {
+		return (EReference)jobServerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobServer_HandlerAsOwned() {
+		return (EReference)jobServerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -237,11 +273,15 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 
 		jobEngineServerEClass = createEClass(JOB_ENGINE_SERVER);
 		createEAttribute(jobEngineServerEClass, JOB_ENGINE_SERVER__PATH);
+		createEReference(jobEngineServerEClass, JOB_ENGINE_SERVER__SELECTED_SERVER);
+		createEReference(jobEngineServerEClass, JOB_ENGINE_SERVER__OWNER_SERVER);
 		createEReference(jobEngineServerEClass, JOB_ENGINE_SERVER__SERVER);
 
 		jobServerEClass = createEClass(JOB_SERVER);
 		createEAttribute(jobServerEClass, JOB_SERVER__PORT);
+		createEReference(jobServerEClass, JOB_SERVER__HANDLERS_AS_SELECTED);
 		createEReference(jobServerEClass, JOB_SERVER__HANDLERS);
+		createEReference(jobServerEClass, JOB_SERVER__HANDLER_AS_OWNED);
 	}
 
 	/**
@@ -287,11 +327,15 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 
 		initEClass(jobEngineServerEClass, JobEngineServer.class, "JobEngineServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobEngineServer_Path(), ecorePackage.getEString(), "Path", "xmlrpc", 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJobEngineServer_Server(), this.getJobServer(), this.getJobServer_Handlers(), "Server", null, 1, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobEngineServer_SelectedServer(), this.getJobServer(), this.getJobServer_HandlersAsSelected(), "SelectedServer", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobEngineServer_OwnerServer(), this.getJobServer(), this.getJobServer_HandlerAsOwned(), "OwnerServer", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobEngineServer_Server(), this.getJobServer(), null, "Server", null, 1, 1, JobEngineServer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobServerEClass, JobServer.class, "JobServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobServer_Port(), ecorePackage.getEInt(), "Port", "8080", 0, 1, JobServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJobServer_Handlers(), this.getJobEngineServer(), this.getJobEngineServer_Server(), "Handlers", null, 0, -1, JobServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobServer_HandlersAsSelected(), this.getJobEngineServer(), this.getJobEngineServer_SelectedServer(), "HandlersAsSelected", null, 0, -1, JobServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobServer_Handlers(), this.getJobEngineServer(), null, "Handlers", null, 0, -1, JobServer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getJobServer_HandlerAsOwned(), this.getJobEngineServer(), this.getJobEngineServer_OwnerServer(), "HandlerAsOwned", null, 0, 1, JobServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobhttp.impl;
 
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.job.jobclient.impl.ServiceImpl;
 
 import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,7 +34,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobServerImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobServerImpl#getHandlersAsSelected <em>Handlers As Selected</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobServerImpl#getHandlers <em>Handlers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobServerImpl#getHandlerAsOwned <em>Handler As Owned</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,14 +63,14 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 	protected int port = PORT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' reference list.
+	 * The cached value of the '{@link #getHandlersAsSelected() <em>Handlers As Selected</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHandlers()
+	 * @see #getHandlersAsSelected()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<JobEngineServer> handlers;
+	protected EList<JobEngineServer> handlersAsSelected;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,11 +117,72 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<JobEngineServer> getHandlers() {
-		if (handlers == null) {
-			handlers = new EObjectWithInverseResolvingEList<JobEngineServer>(JobEngineServer.class, this, JobHttpPackage.JOB_SERVER__HANDLERS, JobHttpPackage.JOB_ENGINE_SERVER__SERVER);
+	public EList<JobEngineServer> getHandlersAsSelected() {
+		if (handlersAsSelected == null) {
+			handlersAsSelected = new EObjectWithInverseResolvingEList<JobEngineServer>(JobEngineServer.class, this, JobHttpPackage.JOB_SERVER__HANDLERS_AS_SELECTED, JobHttpPackage.JOB_ENGINE_SERVER__SELECTED_SERVER);
 		}
-		return handlers;
+		return handlersAsSelected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<JobEngineServer> getHandlers() {
+		EList<JobEngineServer> list = new EObjectListDerived<JobEngineServer>
+		(	JobEngineServer.class, 
+			this, 
+			JobHttpPackage.JOB_SERVER__HANDLERS, 
+			true);
+		for ( JobEngineServer handler: this.getHandlersAsSelected()) {
+			list.add(handler);
+		}
+		JobEngineServer handler = this.getHandlerAsOwned();
+		if ( handler!=null) {
+			list.add(handler);
+		}
+	return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobEngineServer getHandlerAsOwned() {
+		if (eContainerFeatureID() != JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED) return null;
+		return (JobEngineServer)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHandlerAsOwned(JobEngineServer newHandlerAsOwned, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newHandlerAsOwned, JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHandlerAsOwned(JobEngineServer newHandlerAsOwned) {
+		if (newHandlerAsOwned != eInternalContainer() || (eContainerFeatureID() != JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED && newHandlerAsOwned != null)) {
+			if (EcoreUtil.isAncestor(this, newHandlerAsOwned))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newHandlerAsOwned != null)
+				msgs = ((InternalEObject)newHandlerAsOwned).eInverseAdd(this, JobHttpPackage.JOB_ENGINE_SERVER__OWNER_SERVER, JobEngineServer.class, msgs);
+			msgs = basicSetHandlerAsOwned(newHandlerAsOwned, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED, newHandlerAsOwned, newHandlerAsOwned));
 	}
 
 	/**
@@ -129,8 +194,12 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobHttpPackage.JOB_SERVER__HANDLERS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHandlers()).basicAdd(otherEnd, msgs);
+			case JobHttpPackage.JOB_SERVER__HANDLERS_AS_SELECTED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHandlersAsSelected()).basicAdd(otherEnd, msgs);
+			case JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetHandlerAsOwned((JobEngineServer)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -143,10 +212,26 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobHttpPackage.JOB_SERVER__HANDLERS:
-				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
+			case JobHttpPackage.JOB_SERVER__HANDLERS_AS_SELECTED:
+				return ((InternalEList<?>)getHandlersAsSelected()).basicRemove(otherEnd, msgs);
+			case JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED:
+				return basicSetHandlerAsOwned(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED:
+				return eInternalContainer().eInverseRemove(this, JobHttpPackage.JOB_ENGINE_SERVER__OWNER_SERVER, JobEngineServer.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -159,8 +244,12 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 		switch (featureID) {
 			case JobHttpPackage.JOB_SERVER__PORT:
 				return getPort();
+			case JobHttpPackage.JOB_SERVER__HANDLERS_AS_SELECTED:
+				return getHandlersAsSelected();
 			case JobHttpPackage.JOB_SERVER__HANDLERS:
 				return getHandlers();
+			case JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED:
+				return getHandlerAsOwned();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,9 +266,12 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 			case JobHttpPackage.JOB_SERVER__PORT:
 				setPort((Integer)newValue);
 				return;
-			case JobHttpPackage.JOB_SERVER__HANDLERS:
-				getHandlers().clear();
-				getHandlers().addAll((Collection<? extends JobEngineServer>)newValue);
+			case JobHttpPackage.JOB_SERVER__HANDLERS_AS_SELECTED:
+				getHandlersAsSelected().clear();
+				getHandlersAsSelected().addAll((Collection<? extends JobEngineServer>)newValue);
+				return;
+			case JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED:
+				setHandlerAsOwned((JobEngineServer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,8 +288,11 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 			case JobHttpPackage.JOB_SERVER__PORT:
 				setPort(PORT_EDEFAULT);
 				return;
-			case JobHttpPackage.JOB_SERVER__HANDLERS:
-				getHandlers().clear();
+			case JobHttpPackage.JOB_SERVER__HANDLERS_AS_SELECTED:
+				getHandlersAsSelected().clear();
+				return;
+			case JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED:
+				setHandlerAsOwned((JobEngineServer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,8 +308,12 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 		switch (featureID) {
 			case JobHttpPackage.JOB_SERVER__PORT:
 				return port != PORT_EDEFAULT;
+			case JobHttpPackage.JOB_SERVER__HANDLERS_AS_SELECTED:
+				return handlersAsSelected != null && !handlersAsSelected.isEmpty();
 			case JobHttpPackage.JOB_SERVER__HANDLERS:
-				return handlers != null && !handlers.isEmpty();
+				return !getHandlers().isEmpty();
+			case JobHttpPackage.JOB_SERVER__HANDLER_AS_OWNED:
+				return getHandlerAsOwned() != null;
 		}
 		return super.eIsSet(featureID);
 	}

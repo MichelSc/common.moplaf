@@ -340,13 +340,31 @@ public interface JobHttpPackage extends EPackage {
 	int JOB_ENGINE_SERVER__PATH = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Selected Server</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__SELECTED_SERVER = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Owner Server</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__OWNER_SERVER = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Server</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER__SERVER = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 1;
+	int JOB_ENGINE_SERVER__SERVER = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Job Engine Server</em>' class.
@@ -355,7 +373,7 @@ public interface JobHttpPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER_FEATURE_COUNT = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 2;
+	int JOB_ENGINE_SERVER_FEATURE_COUNT = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -485,13 +503,31 @@ public interface JobHttpPackage extends EPackage {
 	int JOB_SERVER__PORT = JobClientPackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Handlers As Selected</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SERVER__HANDLERS_AS_SELECTED = JobClientPackage.SERVICE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Handlers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SERVER__HANDLERS = JobClientPackage.SERVICE_FEATURE_COUNT + 1;
+	int JOB_SERVER__HANDLERS = JobClientPackage.SERVICE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Handler As Owned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SERVER__HANDLER_AS_OWNED = JobClientPackage.SERVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Job Server</em>' class.
@@ -500,7 +536,7 @@ public interface JobHttpPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SERVER_FEATURE_COUNT = JobClientPackage.SERVICE_FEATURE_COUNT + 2;
+	int JOB_SERVER_FEATURE_COUNT = JobClientPackage.SERVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -595,6 +631,28 @@ public interface JobHttpPackage extends EPackage {
 	EAttribute getJobEngineServer_Path();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getSelectedServer <em>Selected Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Selected Server</em>'.
+	 * @see com.misc.common.moplaf.job.jobhttp.JobEngineServer#getSelectedServer()
+	 * @see #getJobEngineServer()
+	 * @generated
+	 */
+	EReference getJobEngineServer_SelectedServer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getOwnerServer <em>Owner Server</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Owner Server</em>'.
+	 * @see com.misc.common.moplaf.job.jobhttp.JobEngineServer#getOwnerServer()
+	 * @see #getJobEngineServer()
+	 * @generated
+	 */
+	EReference getJobEngineServer_OwnerServer();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getServer <em>Server</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -627,6 +685,17 @@ public interface JobHttpPackage extends EPackage {
 	EAttribute getJobServer_Port();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobhttp.JobServer#getHandlersAsSelected <em>Handlers As Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Handlers As Selected</em>'.
+	 * @see com.misc.common.moplaf.job.jobhttp.JobServer#getHandlersAsSelected()
+	 * @see #getJobServer()
+	 * @generated
+	 */
+	EReference getJobServer_HandlersAsSelected();
+
+	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobhttp.JobServer#getHandlers <em>Handlers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -636,6 +705,17 @@ public interface JobHttpPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getJobServer_Handlers();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.jobhttp.JobServer#getHandlerAsOwned <em>Handler As Owned</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Handler As Owned</em>'.
+	 * @see com.misc.common.moplaf.job.jobhttp.JobServer#getHandlerAsOwned()
+	 * @see #getJobServer()
+	 * @generated
+	 */
+	EReference getJobServer_HandlerAsOwned();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -713,6 +793,22 @@ public interface JobHttpPackage extends EPackage {
 		EAttribute JOB_ENGINE_SERVER__PATH = eINSTANCE.getJobEngineServer_Path();
 
 		/**
+		 * The meta object literal for the '<em><b>Selected Server</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_ENGINE_SERVER__SELECTED_SERVER = eINSTANCE.getJobEngineServer_SelectedServer();
+
+		/**
+		 * The meta object literal for the '<em><b>Owner Server</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_ENGINE_SERVER__OWNER_SERVER = eINSTANCE.getJobEngineServer_OwnerServer();
+
+		/**
 		 * The meta object literal for the '<em><b>Server</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -739,12 +835,28 @@ public interface JobHttpPackage extends EPackage {
 		EAttribute JOB_SERVER__PORT = eINSTANCE.getJobServer_Port();
 
 		/**
+		 * The meta object literal for the '<em><b>Handlers As Selected</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_SERVER__HANDLERS_AS_SELECTED = eINSTANCE.getJobServer_HandlersAsSelected();
+
+		/**
 		 * The meta object literal for the '<em><b>Handlers</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference JOB_SERVER__HANDLERS = eINSTANCE.getJobServer_Handlers();
+
+		/**
+		 * The meta object literal for the '<em><b>Handler As Owned</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_SERVER__HANDLER_AS_OWNED = eINSTANCE.getJobServer_HandlerAsOwned();
 
 	}
 

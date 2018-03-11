@@ -13,13 +13,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="JobEngineServer" eSuperTypes="../../com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobSource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="xmlrpc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedServer" eType="#//JobServer"
+        eOpposite="#//JobServer/HandlersAsSelected"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerServer" eType="#//JobServer"
+        containment="true" eOpposite="#//JobServer/HandlerAsOwned"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Server" lowerBound="1"
-        eType="#//JobServer" eOpposite="#//JobServer/Handlers"/>
+        eType="#//JobServer" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobServer" eSuperTypes="../../com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//Service">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="8080"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HandlersAsSelected" upperBound="-1"
+        eType="#//JobEngineServer" eOpposite="#//JobEngineServer/SelectedServer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Handlers" upperBound="-1"
-        eType="#//JobEngineServer" eOpposite="#//JobEngineServer/Server"/>
+        eType="#//JobEngineServer" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HandlerAsOwned" eType="#//JobEngineServer"
+        eOpposite="#//JobEngineServer/OwnerServer"/>
   </eClassifiers>
 </ecore:EPackage>

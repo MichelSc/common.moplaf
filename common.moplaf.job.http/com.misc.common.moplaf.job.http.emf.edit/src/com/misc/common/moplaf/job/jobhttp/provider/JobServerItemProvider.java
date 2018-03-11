@@ -52,6 +52,7 @@ public class JobServerItemProvider extends ServiceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPortPropertyDescriptor(object);
+			addHandlersAsSelectedPropertyDescriptor(object);
 			addHandlersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -76,6 +77,28 @@ public class JobServerItemProvider extends ServiceItemProvider {
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__30ServerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Handlers As Selected feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHandlersAsSelectedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobServer_HandlersAsSelected_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobServer_HandlersAsSelected_feature", "_UI_JobServer_type"),
+				 JobHttpPackage.Literals.JOB_SERVER__HANDLERS_AS_SELECTED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
 				 null));
 	}
 

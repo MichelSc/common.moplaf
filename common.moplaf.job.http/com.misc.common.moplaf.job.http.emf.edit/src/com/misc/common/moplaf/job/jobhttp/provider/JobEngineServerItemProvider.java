@@ -6,6 +6,7 @@ package com.misc.common.moplaf.job.jobhttp.provider;
 import com.misc.common.moplaf.job.jobclient.provider.JobSourceItemProvider;
 
 import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
+import com.misc.common.moplaf.job.jobhttp.JobHttpFactory;
 import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 
 import java.util.Collection;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -50,6 +52,7 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPathPropertyDescriptor(object);
+			addSelectedServerPropertyDescriptor(object);
 			addServerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -78,6 +81,28 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Selected Server feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectedServerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobEngineServer_SelectedServer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineServer_SelectedServer_feature", "_UI_JobEngineServer_type"),
+				 JobHttpPackage.Literals.JOB_ENGINE_SERVER__SELECTED_SERVER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Server feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,12 +116,42 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 				 getString("_UI_JobEngineServer_Server_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineServer_Server_feature", "_UI_JobEngineServer_type"),
 				 JobHttpPackage.Literals.JOB_ENGINE_SERVER__SERVER,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
 				 getString("_UI__30ServerPropertyCategory"),
 				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(JobHttpPackage.Literals.JOB_ENGINE_SERVER__SERVER);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -138,6 +193,7 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 
 		switch (notification.getFeatureID(JobEngineServer.class)) {
 			case JobHttpPackage.JOB_ENGINE_SERVER__PATH:
+			case JobHttpPackage.JOB_ENGINE_SERVER__OWNER_SERVER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -154,6 +210,11 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobHttpPackage.Literals.JOB_ENGINE_SERVER__OWNER_SERVER,
+				 JobHttpFactory.eINSTANCE.createJobServer()));
 	}
 
 	/**
