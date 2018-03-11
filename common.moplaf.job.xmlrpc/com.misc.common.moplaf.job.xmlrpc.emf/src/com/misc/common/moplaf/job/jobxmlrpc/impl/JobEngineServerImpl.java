@@ -22,7 +22,8 @@ import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
-import com.misc.common.moplaf.job.jobxmlrpc.util.Util;
+import com.misc.common.moplaf.serialize.Util;
+import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -280,9 +281,11 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 *
 	 */
 	public interface ServerCallInterface {
+		public int runJob(String serializeSchemeID, String jobAsString);
 		public int runJob(String jobAsString);
 		public int getJobStatus(int jobExecuteNr);
 		public String getJobResult(int jobExecuteNr);
+		public String getJobResult(String serializeSchemeID, int jobExecuteNr);
 	}
 	
 	/**
@@ -307,7 +310,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		 * Its result is then serialized and returned as String.
 		 */
 		@Override
-		public int runJob(String jobAsString) {
+		public int runJob(String serializeSchemeID, String jobAsString) {
 			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
 
 			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
@@ -315,7 +318,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 
 			InputStream inputStream = new ByteArrayInputStream(jobAsString.getBytes());
 	    	EList<EObject> objects = new BasicEList<EObject>();
-	    	boolean deserialized = Util.deserialize(objects, inputStream);
+	    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, inputStream);
 
 		    int result =-1;
 		    if ( deserialized ) {
@@ -329,12 +332,20 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
 			    	}
 				}
+		    } else {
+				Plugin.INSTANCE.logError("ServerCallInterface.runJob: job not deserialized");
 		    }
 			
 			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: call done ");
 			return result;
 		}
 
+		@Override
+		public int runJob(String jobAsString) {
+			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
+			return this.runJob(XMIScheme.SCHEME_ID, jobAsString);
+		}
+		
 		/**
 		 * 
 		 */
@@ -354,7 +365,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		}
 
 		@Override
-		public String getJobResult(int jobExecuteNr) {
+		public String getJobResult(String serializeSchemeID, int jobExecuteNr) {
 			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d", jobExecuteNr));
 			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
 			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
@@ -363,13 +374,18 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				return "";
 			}
 		    StringWriter stringWriter = new StringWriter();
-		    boolean serialized = Util.serialize(job.getRun(), stringWriter);
+		    boolean serialized = Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
 			if ( !serialized ) {
 				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: result not serialized"));
 				return "";
 			}
 		    String jobAsString = stringWriter.toString();
 		    return jobAsString;
+		}
+		
+		@Override
+		public String getJobResult(int jobExecuteNr) {
+			return getJobResult(XMIScheme.SCHEME_ID, jobExecuteNr);
 		}
 	};
 

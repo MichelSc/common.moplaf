@@ -21,7 +21,8 @@ import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
-import com.misc.common.moplaf.job.jobxmlrpc.util.Util;
+import com.misc.common.moplaf.serialize.Util;
+import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -309,10 +310,10 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	protected int executeJobImpl(JobScheduled job) {
 	    int executeNr = -1;
 	    StringWriter stringWriter = new StringWriter();
-	    boolean serialized = Util.serialize(job.getRun(), stringWriter);
+	    boolean serialized = Util.serialize(XMIScheme.SCHEME_ID, job.getRun(), stringWriter);
 		if ( serialized ) {
 		    String jobAsString = stringWriter.toString();
-		    executeNr = this.callHandleJobRunJob(jobAsString);
+		    executeNr = this.callHandleJobRunJob(XMIScheme.SCHEME_ID, jobAsString);
 		}
 		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
 		return executeNr;
@@ -330,9 +331,9 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	    return result;
 	}
 	
-	private int callHandleJobRunJob(String jobAsString) {
+	private int callHandleJobRunJob(String serializeSchemeID, String jobAsString) {
     	int executeNr = -1;
-	    Object[] params = new Object[]{jobAsString};
+	    Object[] params = new Object[]{serializeSchemeID, jobAsString};
     	Object resultAsObject = this.call("handlejob.runJob", params);
 	    if ( resultAsObject instanceof Integer) {
 	    	executeNr = ((Integer)resultAsObject).intValue(); // to be kept somewhere
@@ -361,9 +362,9 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	    return status;
 	}
 	
-	private String callGetResult(int executeNr) {
+	private String callGetResult(String serializeSchemeID, int executeNr) {
 		String result = "";
-	    Object[] params = new Object[]{executeNr};
+	    Object[] params = new Object[]{serializeSchemeID, executeNr};
     	Object resultAsObject = this.call("handlejob.getJobResult", params);
 	    if ( resultAsObject instanceof String ) {
 	    	result = (String)resultAsObject; 
@@ -387,9 +388,9 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			switch (status) {
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
-				String result = this.callGetResult(job.getExecuteNr());
+				String result = this.callGetResult(XMIScheme.SCHEME_ID, job.getExecuteNr());
 				InputStream inputStream = new ByteArrayInputStream(result.getBytes());
-				EObject result_as_object = Util.deserialize(inputStream);
+				EObject result_as_object = Util.deserialize(XMIScheme.SCHEME_ID, inputStream);
 				if ( result_as_object instanceof Run ) {
 					Run result_run = (Run) result_as_object;
 					EcoreUtil.replace(job.getRun(), result_run);

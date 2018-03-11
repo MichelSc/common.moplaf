@@ -36,7 +36,7 @@ public class Util {
 				try {
 					value = element.createExecutableExtension("class");
 				} catch (CoreException e) {
-					// this is an error. We should report it instead of silently ignoring it.
+					e.printStackTrace();
 					return null;
 				}
 				if ( value instanceof Scheme) {
@@ -50,38 +50,53 @@ public class Util {
 		return null;
 	}
 	
-	static public boolean serialize(String scheme_id, EList<EObject> objects, StringWriter writer) throws IOException {
+	static public boolean serialize(String scheme_id, EList<EObject> objects, StringWriter writer){
 		Scheme scheme = Util.getScheme(scheme_id);
 		if ( scheme == null ) {
 			return false;
 		}
 		
-		return scheme.serialize(objects,  writer);
+		try {
+			return scheme.serialize(objects,  writer);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
-	static public boolean serialize(String scheme_id, EObject object, StringWriter writer) throws IOException {
+	static public boolean serialize(String scheme_id, EObject object, StringWriter writer) {
 		BasicEList<EObject> objects = new BasicEList<>();
 		objects.add(object);
 		return Util.serialize(scheme_id, objects, writer);
 	}
 
-	static public boolean serialize(Scheme scheme, EObject object, StringWriter writer) throws IOException {
+	static public boolean serialize(Scheme scheme, EObject object, StringWriter writer) {
 		BasicEList<EObject> objects = new BasicEList<>();
 		objects.add(object);
-		return scheme.serialize(objects, writer);
+		try {
+			return scheme.serialize(objects, writer);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
-	static public boolean deserialize(String scheme_id, EList<EObject> objects, InputStream reader, String extension_id) throws IOException {
+	static public boolean deserialize(String scheme_id, EList<EObject> objects, InputStream reader)  {
 		Scheme scheme = Util.getScheme(scheme_id);
 		if ( scheme == null ) {
 			return false;
 		}
-		return scheme.deserialize(objects,  reader);
+		try {
+			return scheme.deserialize(objects,  reader);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
-	static public EObject deserialize(String scheme_id, InputStream reader, String extension_id) throws IOException {
+	static public EObject deserialize(String scheme_id, InputStream reader)  {
 		BasicEList<EObject> objects = new BasicEList<>();
-		boolean serialized = Util.deserialize(scheme_id, objects, reader, extension_id);
+		boolean serialized = Util.deserialize(scheme_id, objects, reader);
 		if ( !serialized ) {
 			return null;
 		}
@@ -91,9 +106,15 @@ public class Util {
 		return objects.get(0);
 	}
 	
-	static public EObject deserialize(Scheme scheme, InputStream reader, String extension_id) throws IOException {
+	static public EObject deserialize(Scheme scheme, InputStream reader, String extension_id)  {
 		BasicEList<EObject> objects = new BasicEList<>();
-		boolean serialized = scheme.deserialize(objects, reader);
+		boolean serialized;
+		try {
+			serialized = scheme.deserialize(objects, reader);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 		if ( !serialized ) {
 			return null;
 		}
