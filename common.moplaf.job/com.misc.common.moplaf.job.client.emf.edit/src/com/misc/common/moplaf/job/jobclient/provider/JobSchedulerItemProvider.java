@@ -64,7 +64,6 @@ public class JobSchedulerItemProvider
 
 			addRefreshFeedbackPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 			addRefreshRatePropertyDescriptor(object);
 			addNrJobsWaitingPropertyDescriptor(object);
 			addNrJobsRunningPropertyDescriptor(object);
@@ -276,28 +275,6 @@ public class JobSchedulerItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduler_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduler_Name_feature", "_UI_JobScheduler_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULER__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__30SchedulerPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Refresh Rate feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,7 +367,6 @@ public class JobSchedulerItemProvider
 		switch (notification.getFeatureID(JobScheduler.class)) {
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_FEEDBACK:
 			case JobClientPackage.JOB_SCHEDULER__DESCRIPTION:
-			case JobClientPackage.JOB_SCHEDULER__NAME:
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_WAITING:
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_RUNNING:

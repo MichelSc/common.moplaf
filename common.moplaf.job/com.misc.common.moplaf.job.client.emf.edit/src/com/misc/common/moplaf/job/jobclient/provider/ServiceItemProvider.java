@@ -7,7 +7,6 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.StartCommand;
 import com.misc.common.moplaf.emf.edit.command.StopCommand;
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
-import com.misc.common.moplaf.job.jobclient.JobScheduler;
 import com.misc.common.moplaf.job.jobclient.Service;
 
 import java.util.Collection;
@@ -68,8 +67,9 @@ public class ServiceItemProvider
 
 			addStartFeedbackPropertyDescriptor(object);
 			addStopFeedbackPropertyDescriptor(object);
-			addRunningPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
+			addRunningPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addAutoStartStopPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -142,6 +142,28 @@ public class ServiceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Service_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Service_Name_feature", "_UI_Service_type"),
+				 JobClientPackage.Literals.SERVICE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__30ServicePropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Status feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,7 +203,7 @@ public class ServiceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20ServicePropertyCategory"),
+				 getString("_UI__30ServicePropertyCategory"),
 				 null));
 	}
 
@@ -204,8 +226,7 @@ public class ServiceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		EnabledFeedback labelValue = ((Service)object).getStartFeedback();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Service)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Service_type") :
 			getString("_UI_Service_type") + " " + label;
@@ -226,8 +247,9 @@ public class ServiceItemProvider
 		switch (notification.getFeatureID(Service.class)) {
 			case JobClientPackage.SERVICE__START_FEEDBACK:
 			case JobClientPackage.SERVICE__STOP_FEEDBACK:
-			case JobClientPackage.SERVICE__RUNNING:
 			case JobClientPackage.SERVICE__STATUS:
+			case JobClientPackage.SERVICE__RUNNING:
+			case JobClientPackage.SERVICE__NAME:
 			case JobClientPackage.SERVICE__AUTO_START_STOP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -87,22 +87,31 @@ public interface JobClientPackage extends EPackage {
 	int SERVICE__STOP_FEEDBACK = 1;
 
 	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__RUNNING = 2;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE__STATUS = 3;
+	int SERVICE__STATUS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__RUNNING = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__NAME = 4;
 
 	/**
 	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
@@ -111,7 +120,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE__AUTO_START_STOP = 4;
+	int SERVICE__AUTO_START_STOP = 5;
 
 	/**
 	 * The number of structural features of the '<em>Service</em>' class.
@@ -120,7 +129,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = 5;
+	int SERVICE_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -178,6 +187,15 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER_SERVICE__STOP_FEEDBACK = SERVICE__STOP_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER_SERVICE__STATUS = SERVICE__STATUS;
+
+	/**
 	 * The feature id for the '<em><b>Running</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,13 +205,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER_SERVICE__RUNNING = SERVICE__RUNNING;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_SERVICE__STATUS = SERVICE__STATUS;
+	int JOB_SCHEDULER_SERVICE__NAME = SERVICE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
@@ -205,22 +223,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER_SERVICE__AUTO_START_STOP = SERVICE__AUTO_START_STOP;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_SCHEDULER_SERVICE__NAME = SERVICE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_SERVICE__DESCRIPTION = SERVICE_FEATURE_COUNT + 1;
+	int JOB_SCHEDULER_SERVICE__DESCRIPTION = SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Scheduler</b></em>' reference.
@@ -229,7 +238,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_SERVICE__SCHEDULER = SERVICE_FEATURE_COUNT + 2;
+	int JOB_SCHEDULER_SERVICE__SCHEDULER = SERVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Job Scheduler Service</em>' class.
@@ -238,7 +247,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 3;
+	int JOB_SCHEDULER_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -296,15 +305,6 @@ public interface JobClientPackage extends EPackage {
 	int JOB_ENGINE__STOP_FEEDBACK = JOB_SCHEDULER_SERVICE__STOP_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE__RUNNING = JOB_SCHEDULER_SERVICE__RUNNING;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,13 +314,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_ENGINE__STATUS = JOB_SCHEDULER_SERVICE__STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE__AUTO_START_STOP = JOB_SCHEDULER_SERVICE__AUTO_START_STOP;
+	int JOB_ENGINE__RUNNING = JOB_SCHEDULER_SERVICE__RUNNING;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -330,6 +330,15 @@ public interface JobClientPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE__NAME = JOB_SCHEDULER_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE__AUTO_START_STOP = JOB_SCHEDULER_SERVICE__AUTO_START_STOP;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -450,15 +459,6 @@ public interface JobClientPackage extends EPackage {
 	int JOB_ENGINE_IN_PROCESS__STOP_FEEDBACK = JOB_ENGINE__STOP_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_ENGINE_IN_PROCESS__RUNNING = JOB_ENGINE__RUNNING;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -468,13 +468,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_ENGINE_IN_PROCESS__STATUS = JOB_ENGINE__STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS__AUTO_START_STOP = JOB_ENGINE__AUTO_START_STOP;
+	int JOB_ENGINE_IN_PROCESS__RUNNING = JOB_ENGINE__RUNNING;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -484,6 +484,15 @@ public interface JobClientPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_IN_PROCESS__NAME = JOB_ENGINE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_IN_PROCESS__AUTO_START_STOP = JOB_ENGINE__AUTO_START_STOP;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -604,6 +613,15 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER__STOP_FEEDBACK = SERVICE__STOP_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULER__STATUS = SERVICE__STATUS;
+
+	/**
 	 * The feature id for the '<em><b>Running</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -613,13 +631,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER__RUNNING = SERVICE__RUNNING;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__STATUS = SERVICE__STATUS;
+	int JOB_SCHEDULER__NAME = SERVICE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
@@ -667,22 +685,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULER__DESCRIPTION = SERVICE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_SCHEDULER__NAME = SERVICE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Refresh Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__REFRESH_RATE = SERVICE_FEATURE_COUNT + 5;
+	int JOB_SCHEDULER__REFRESH_RATE = SERVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Nr Jobs Waiting</b></em>' attribute.
@@ -691,7 +700,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__NR_JOBS_WAITING = SERVICE_FEATURE_COUNT + 6;
+	int JOB_SCHEDULER__NR_JOBS_WAITING = SERVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Nr Jobs Running</b></em>' attribute.
@@ -700,7 +709,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__NR_JOBS_RUNNING = SERVICE_FEATURE_COUNT + 7;
+	int JOB_SCHEDULER__NR_JOBS_RUNNING = SERVICE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Nr Jobs Failed</b></em>' attribute.
@@ -709,7 +718,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__NR_JOBS_FAILED = SERVICE_FEATURE_COUNT + 8;
+	int JOB_SCHEDULER__NR_JOBS_FAILED = SERVICE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Nr Jobs Cancelled</b></em>' attribute.
@@ -718,7 +727,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__NR_JOBS_CANCELLED = SERVICE_FEATURE_COUNT + 9;
+	int JOB_SCHEDULER__NR_JOBS_CANCELLED = SERVICE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Last Refresh</b></em>' attribute.
@@ -727,7 +736,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__LAST_REFRESH = SERVICE_FEATURE_COUNT + 10;
+	int JOB_SCHEDULER__LAST_REFRESH = SERVICE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Last Feedback</b></em>' attribute.
@@ -736,7 +745,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__LAST_FEEDBACK = SERVICE_FEATURE_COUNT + 11;
+	int JOB_SCHEDULER__LAST_FEEDBACK = SERVICE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Current Schedule Nr</b></em>' attribute.
@@ -745,7 +754,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__CURRENT_SCHEDULE_NR = SERVICE_FEATURE_COUNT + 12;
+	int JOB_SCHEDULER__CURRENT_SCHEDULE_NR = SERVICE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Services</b></em>' reference list.
@@ -754,7 +763,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__SERVICES = SERVICE_FEATURE_COUNT + 13;
+	int JOB_SCHEDULER__SERVICES = SERVICE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Sources</b></em>' containment reference list.
@@ -763,7 +772,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER__SOURCES = SERVICE_FEATURE_COUNT + 14;
+	int JOB_SCHEDULER__SOURCES = SERVICE_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Job Scheduler</em>' class.
@@ -772,7 +781,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULER_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 15;
+	int JOB_SCHEDULER_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -1120,15 +1129,6 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SOURCE__STOP_FEEDBACK = JOB_SCHEDULER_SERVICE__STOP_FEEDBACK;
 
 	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_SOURCE__RUNNING = JOB_SCHEDULER_SERVICE__RUNNING;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1138,13 +1138,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SOURCE__STATUS = JOB_SCHEDULER_SERVICE__STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SOURCE__AUTO_START_STOP = JOB_SCHEDULER_SERVICE__AUTO_START_STOP;
+	int JOB_SOURCE__RUNNING = JOB_SCHEDULER_SERVICE__RUNNING;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1154,6 +1154,15 @@ public interface JobClientPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_SOURCE__NAME = JOB_SCHEDULER_SERVICE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start Stop</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SOURCE__AUTO_START_STOP = JOB_SCHEDULER_SERVICE__AUTO_START_STOP;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1418,17 +1427,6 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJobScheduler_RefreshFeedback();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.job.jobclient.JobScheduler#getName()
-	 * @see #getJobScheduler()
-	 * @generated
-	 */
-	EAttribute getJobScheduler_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduler#getRefreshRate <em>Refresh Rate</em>}'.
@@ -1876,17 +1874,6 @@ public interface JobClientPackage extends EPackage {
 	EClass getJobSchedulerService();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobSchedulerService#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.job.jobclient.JobSchedulerService#getName()
-	 * @see #getJobSchedulerService()
-	 * @generated
-	 */
-	EAttribute getJobSchedulerService_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobSchedulerService#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1950,6 +1937,17 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getService_Running();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.Service#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.Service#getName()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.Service#getStatus <em>Status</em>}'.
@@ -2149,14 +2147,6 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_SCHEDULER__REFRESH_FEEDBACK = eINSTANCE.getJobScheduler_RefreshFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB_SCHEDULER__NAME = eINSTANCE.getJobScheduler_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Rate</b></em>' attribute feature.
@@ -2503,14 +2493,6 @@ public interface JobClientPackage extends EPackage {
 		EClass JOB_SCHEDULER_SERVICE = eINSTANCE.getJobSchedulerService();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB_SCHEDULER_SERVICE__NAME = eINSTANCE.getJobSchedulerService_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2559,6 +2541,14 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SERVICE__RUNNING = eINSTANCE.getService_Running();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__NAME = eINSTANCE.getService_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.

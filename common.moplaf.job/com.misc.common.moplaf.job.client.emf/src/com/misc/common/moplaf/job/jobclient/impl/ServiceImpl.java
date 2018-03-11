@@ -28,8 +28,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.ServiceImpl#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.ServiceImpl#getStopFeedback <em>Stop Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.ServiceImpl#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.ServiceImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.ServiceImpl#isRunning <em>Running</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.ServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.ServiceImpl#isAutoStartStop <em>Auto Start Stop</em>}</li>
  * </ul>
  *
@@ -57,6 +58,16 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	protected static final EnabledFeedback STOP_FEEDBACK_EDEFAULT = null;
 
 	/**
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATUS_EDEFAULT = null;
+
+	/**
 	 * The default value of the '{@link #isRunning() <em>Running</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,14 +88,24 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	protected boolean running = RUNNING_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatus()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String STATUS_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isAutoStartStop() <em>Auto Start Stop</em>}' attribute.
@@ -172,6 +193,27 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.SERVICE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public String getStatus() {
 		String status = this.isRunning() ? "Running" : "Stopped";
@@ -204,8 +246,16 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * <!-- end-user-doc -->
 	 */
 	public void start() {
+		Plugin.INSTANCE.logInfo(String.format("Service %s about to start", this.getName()));
+		this.startImpl();
 		this.setRunning(true);
-	    Plugin.INSTANCE.logInfo("Service started");
+		Plugin.INSTANCE.logInfo(String.format("Service %s started", this.getName()));
+	}
+	
+	/**
+	 * 
+	 */
+	protected void startImpl() {
 	}
 
 	/**
@@ -213,8 +263,16 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * <!-- end-user-doc -->
 	 */
 	public void stop() {
+		Plugin.INSTANCE.logInfo(String.format("Service %s about to stop", this.getName()));
+		this.stopImpl();
 		this.setRunning(false);
-		Plugin.INSTANCE.logInfo("Service stopped");
+		Plugin.INSTANCE.logInfo(String.format("Service %s stopped", this.getName()));
+	}
+
+	/**
+	 * 
+	 */
+	protected void stopImpl() {
 	}
 
 	/**
@@ -229,10 +287,12 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return getStartFeedback();
 			case JobClientPackage.SERVICE__STOP_FEEDBACK:
 				return getStopFeedback();
-			case JobClientPackage.SERVICE__RUNNING:
-				return isRunning();
 			case JobClientPackage.SERVICE__STATUS:
 				return getStatus();
+			case JobClientPackage.SERVICE__RUNNING:
+				return isRunning();
+			case JobClientPackage.SERVICE__NAME:
+				return getName();
 			case JobClientPackage.SERVICE__AUTO_START_STOP:
 				return isAutoStartStop();
 		}
@@ -249,6 +309,9 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 		switch (featureID) {
 			case JobClientPackage.SERVICE__RUNNING:
 				setRunning((Boolean)newValue);
+				return;
+			case JobClientPackage.SERVICE__NAME:
+				setName((String)newValue);
 				return;
 			case JobClientPackage.SERVICE__AUTO_START_STOP:
 				setAutoStartStop((Boolean)newValue);
@@ -267,6 +330,9 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 		switch (featureID) {
 			case JobClientPackage.SERVICE__RUNNING:
 				setRunning(RUNNING_EDEFAULT);
+				return;
+			case JobClientPackage.SERVICE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case JobClientPackage.SERVICE__AUTO_START_STOP:
 				setAutoStartStop(AUTO_START_STOP_EDEFAULT);
@@ -287,10 +353,12 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return START_FEEDBACK_EDEFAULT == null ? getStartFeedback() != null : !START_FEEDBACK_EDEFAULT.equals(getStartFeedback());
 			case JobClientPackage.SERVICE__STOP_FEEDBACK:
 				return STOP_FEEDBACK_EDEFAULT == null ? getStopFeedback() != null : !STOP_FEEDBACK_EDEFAULT.equals(getStopFeedback());
-			case JobClientPackage.SERVICE__RUNNING:
-				return running != RUNNING_EDEFAULT;
 			case JobClientPackage.SERVICE__STATUS:
 				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
+			case JobClientPackage.SERVICE__RUNNING:
+				return running != RUNNING_EDEFAULT;
+			case JobClientPackage.SERVICE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JobClientPackage.SERVICE__AUTO_START_STOP:
 				return autoStartStop != AUTO_START_STOP_EDEFAULT;
 		}
@@ -327,6 +395,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Running: ");
 		result.append(running);
+		result.append(", Name: ");
+		result.append(name);
 		result.append(", AutoStartStop: ");
 		result.append(autoStartStop);
 		result.append(')');

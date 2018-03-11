@@ -48,7 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getEngines <em>Engines</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getRefreshRate <em>Refresh Rate</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsWaiting <em>Nr Jobs Waiting</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobSchedulerImpl#getNrJobsRunning <em>Nr Jobs Running</em>}</li>
@@ -103,26 +102,6 @@ public class JobSchedulerImpl extends ServiceImpl implements JobScheduler {
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRefreshRate() <em>Refresh Rate</em>}' attribute.
@@ -474,27 +453,6 @@ return description;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULER__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public float getRefreshRate() {
 		return refreshRate;
 	}
@@ -752,8 +710,6 @@ return description;
 				return getRefreshFeedback();
 			case JobClientPackage.JOB_SCHEDULER__DESCRIPTION:
 				return getDescription();
-			case JobClientPackage.JOB_SCHEDULER__NAME:
-				return getName();
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				return getRefreshRate();
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_WAITING:
@@ -791,9 +747,6 @@ return description;
 				getJobs().clear();
 				getJobs().addAll((Collection<? extends JobScheduled>)newValue);
 				return;
-			case JobClientPackage.JOB_SCHEDULER__NAME:
-				setName((String)newValue);
-				return;
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				setRefreshRate((Float)newValue);
 				return;
@@ -824,9 +777,6 @@ return description;
 		switch (featureID) {
 			case JobClientPackage.JOB_SCHEDULER__JOBS:
 				getJobs().clear();
-				return;
-			case JobClientPackage.JOB_SCHEDULER__NAME:
-				setName(NAME_EDEFAULT);
 				return;
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				setRefreshRate(REFRESH_RATE_EDEFAULT);
@@ -863,8 +813,6 @@ return description;
 				return REFRESH_FEEDBACK_EDEFAULT == null ? getRefreshFeedback() != null : !REFRESH_FEEDBACK_EDEFAULT.equals(getRefreshFeedback());
 			case JobClientPackage.JOB_SCHEDULER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case JobClientPackage.JOB_SCHEDULER__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JobClientPackage.JOB_SCHEDULER__REFRESH_RATE:
 				return refreshRate != REFRESH_RATE_EDEFAULT;
 			case JobClientPackage.JOB_SCHEDULER__NR_JOBS_WAITING:
@@ -924,9 +872,7 @@ return description;
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
-		result.append(", RefreshRate: ");
+		result.append(" (RefreshRate: ");
 		result.append(refreshRate);
 		result.append(", LastRefresh: ");
 		result.append(lastRefresh);
