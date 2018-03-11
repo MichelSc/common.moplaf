@@ -26,7 +26,7 @@ import com.misc.common.moplaf.job.jobclient.JobSource;
 public interface JobEngineServer extends JobSource {
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
-	 * The default value is <code>"xmlrpc"</code>.
+	 * The default value is <code>"default_path"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Path</em>' attribute isn't clear,
@@ -36,7 +36,7 @@ public interface JobEngineServer extends JobSource {
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
 	 * @see com.misc.common.moplaf.job.jobhttp.JobHttpPackage#getJobEngineServer_Path()
-	 * @model default="xmlrpc"
+	 * @model default="default_path"
 	 * @generated
 	 */
 	String getPath();

@@ -41,7 +41,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PATH_EDEFAULT = "xmlrpc";
+	protected static final String PATH_EDEFAULT = "default_path";
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.

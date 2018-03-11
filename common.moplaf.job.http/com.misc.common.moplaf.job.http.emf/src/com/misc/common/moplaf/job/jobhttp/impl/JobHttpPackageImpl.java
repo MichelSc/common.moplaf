@@ -326,7 +326,7 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 		initEAttribute(getJobEngineClient_Path(), ecorePackage.getEString(), "Path", "xmlrpc", 0, 1, JobEngineClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobEngineServerEClass, JobEngineServer.class, "JobEngineServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJobEngineServer_Path(), ecorePackage.getEString(), "Path", "xmlrpc", 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngineServer_Path(), ecorePackage.getEString(), "Path", "default_path", 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobEngineServer_SelectedServer(), this.getJobServer(), this.getJobServer_HandlersAsSelected(), "SelectedServer", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobEngineServer_OwnerServer(), this.getJobServer(), this.getJobServer_HandlerAsOwned(), "OwnerServer", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobEngineServer_Server(), this.getJobServer(), null, "Server", null, 1, 1, JobEngineServer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
