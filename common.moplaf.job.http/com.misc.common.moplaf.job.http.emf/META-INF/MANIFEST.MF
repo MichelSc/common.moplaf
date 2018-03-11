@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.misc.common.moplaf.job.http.emf;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.misc.common.moplaf.job.jobhttp,
+ com.misc.common.moplaf.job.jobhttp.impl,
+ com.misc.common.moplaf.job.jobhttp.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
+ com.misc.common.moplaf.job.client.emf;visibility:=reexport
+Bundle-ActivationPolicy: lazy

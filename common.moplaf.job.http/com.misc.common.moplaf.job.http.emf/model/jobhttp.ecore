@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jobhttp" nsURI="//www.misc.com/common/moplaf/job/client/http/model/0.1"
+    nsPrefix="jbh">
+  <eClassifiers xsi:type="ecore:EClass" name="JobEngineClient" eSuperTypes="../../com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobEngine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="localhost"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="8080"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="xmlrpc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobEngineServer" eSuperTypes="../../com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobSource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="xmlrpc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Server" lowerBound="1"
+        eType="#//JobServer" eOpposite="#//JobServer/Handlers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobServer" eSuperTypes="../../com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//Service">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="8080"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Handlers" upperBound="-1"
+        eType="#//JobEngineServer" eOpposite="#//JobEngineServer/Server"/>
+  </eClassifiers>
+</ecore:EPackage>

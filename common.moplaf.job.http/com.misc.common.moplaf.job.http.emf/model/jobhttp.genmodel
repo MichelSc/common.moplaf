@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.job.http.emf/src" modelPluginID="com.misc.common.moplaf.job.http.emf"
+    modelName="Jobhttp" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>jobhttp.ecore</foreignModel>
+  <genPackages prefix="JobHttp" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
+      ecorePackage="jobhttp.ecore#/">
+    <genClasses ecoreClass="jobhttp.ecore#//JobEngineClient">
+      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Host"/>
+      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Port"/>
+      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Path"/>
+    </genClasses>
+    <genClasses ecoreClass="jobhttp.ecore#//JobEngineServer">
+      <genFeatures createChild="false" propertyCategory="30 Server" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineServer/Path"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="30 Server"
+          propertySortChoices="true" ecoreFeature="ecore:EReference jobhttp.ecore#//JobEngineServer/Server"/>
+    </genClasses>
+    <genClasses ecoreClass="jobhttp.ecore#//JobServer">
+      <genFeatures createChild="false" propertyCategory="30 Server" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobServer/Port"/>
+      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference jobhttp.ecore#//JobServer/Handlers"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
