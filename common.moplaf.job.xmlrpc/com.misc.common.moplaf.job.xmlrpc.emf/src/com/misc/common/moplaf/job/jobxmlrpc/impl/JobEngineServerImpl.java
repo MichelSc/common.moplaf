@@ -25,9 +25,8 @@ import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import com.misc.common.moplaf.serialize.Util;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.StringReader;
 import java.io.StringWriter;
 
 import org.apache.xmlrpc.XmlRpcException;
@@ -316,7 +315,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 			JobScheduler scheduler = jobEngineServer.getScheduler();
 
-			InputStream inputStream = new ByteArrayInputStream(jobAsString.getBytes());
+			StringReader inputStream = new StringReader(jobAsString);
 	    	EList<EObject> objects = new BasicEList<EObject>();
 	    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, inputStream);
 

@@ -7,8 +7,14 @@ import com.misc.common.moplaf.file.FilePackage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Reader;
+import java.io.Writer;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
@@ -171,14 +177,14 @@ public class FileLocalImpl extends FileImpl implements FileLocal {
 	@Override
 	public Reader getReader() {
 		// open the file
-		java.io.FileReader reader = null;
+		FileReader reader = null;
 		try {
-			reader = new java.io.FileReader(this.getFilePath());
+			reader = new FileReader(this.getFilePath());
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("Spreadsheet.load: file NOT found");
+			CommonPlugin.INSTANCE.log("FileLocal.getReader: file NOT found");
 			return null;
 		} 
-		CommonPlugin.INSTANCE.log("Spreadsheet.load: file found");
+		CommonPlugin.INSTANCE.log("FileLocal.getReader: file found");
 		return reader;
 	}
 	
@@ -187,17 +193,48 @@ public class FileLocalImpl extends FileImpl implements FileLocal {
 	 */
 	@Override
 	public InputStream getInputStream() {
-		// open the file
 		FileInputStream inputstream = null;
 		try {
 			inputstream = new FileInputStream(this.getFilePath());
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("Spreadsheet.load: file NOT found");
+			CommonPlugin.INSTANCE.log("FileLocal.getInputStream: file NOT found");
 			return null;
 		} 
-		CommonPlugin.INSTANCE.log("Spreadsheet.load: file found");
+		CommonPlugin.INSTANCE.log("FileLocal.getInputStream: file found");
 		return inputstream;
 	}
+
+	/**
+	 * For writing characters files
+	 */
+	@Override
+	public Writer getWriter() {
+		FileWriter writer = null;
+		try {
+			writer = new FileWriter(this.getFilePath());
+		} catch (IOException e) {
+			CommonPlugin.INSTANCE.log("FileLocal.getWriter: file NOT found");
+		} 
+		CommonPlugin.INSTANCE.log("FileLocal.getWriter: file found");
+		return writer;
+	}
+	
+	/**
+	 * For writing raw data files
+	 */
+	@Override
+	public OutputStream getOutputStream() {
+		FileOutputStream outputstream = null;
+		try {
+			outputstream = new FileOutputStream(this.getFilePath());
+		} catch (FileNotFoundException e) {
+			CommonPlugin.INSTANCE.log("FileLocal.getOutputStream: file NOT found");
+			return null;
+		} 
+		CommonPlugin.INSTANCE.log("FileLocal.getOutputStream: file found");
+		return outputstream;
+	}
+
 
 
 } //FileLocalImpl

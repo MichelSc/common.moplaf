@@ -3,7 +3,9 @@
 package com.misc.common.moplaf.file;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Reader;
+import java.io.Writer;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -61,6 +63,20 @@ public interface File extends EObject {
 	 * For reading raw data files
 	 */
 	public default InputStream getInputStream() {
+		return null;
+	}
+
+	/**
+	 * For writing characters files
+	 */
+	public default Writer getWriter() {
+		return null;
+	}
+	
+	/**
+	 * For writing raw data files
+	 */
+	public default OutputStream getOutputStream() {
 		return null;
 	}
 

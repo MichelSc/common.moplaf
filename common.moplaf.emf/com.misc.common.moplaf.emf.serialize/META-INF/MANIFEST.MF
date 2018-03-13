@@ -1,8 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: com.misc.common.moplaf.emf.serialize
+Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.emf.serialize;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore,
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.file.emf;visibility:=reexport,
  org.eclipse.core.runtime;bundle-version="3.13.0"
-Export-Package: com.misc.common.moplaf.serialize
+Bundle-ActivationPolicy: lazy
+Export-Package: com.misc.common.moplaf.serialize,
+ com.misc.common.moplaf.serialize.impl,
+ com.misc.common.moplaf.serialize.util

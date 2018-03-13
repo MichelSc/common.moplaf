@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.emf.serialize/src" modelPluginID="com.misc.common.moplaf.emf.serialize"
+    modelName="Serialize" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>serialize.ecore</foreignModel>
+  <genPackages prefix="Serialize" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="serialize.ecore#/">
+    <genClasses ecoreClass="serialize.ecore#//Serializable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference serialize.ecore#//Serializable/Files"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute serialize.ecore#//Serializable/Scheme"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference serialize.ecore#//Serializable/SelectedObjects"/>
+    </genClasses>
+    <genClasses ecoreClass="serialize.ecore#//Deserializable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference serialize.ecore#//Deserializable/Files"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute serialize.ecore#//Deserializable/Scheme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference serialize.ecore#//Deserializable/OwnedObjects"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

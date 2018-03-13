@@ -5,9 +5,17 @@ package com.misc.common.moplaf.file.impl;
 import com.misc.common.moplaf.file.FileInMemory;
 import com.misc.common.moplaf.file.FilePackage;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.Writer;
 
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -171,4 +179,14 @@ public class FileInMemoryImpl extends FileImpl implements FileInMemory {
 		return reader;
 	}
 
+	/**
+	 * For writing characters files
+	 */
+	@Override
+	public Writer getWriter() {
+		StringWriter writer = null;
+		writer = new StringWriter();
+		return writer;
+	}
+	
 } //FileInMemoryImpl

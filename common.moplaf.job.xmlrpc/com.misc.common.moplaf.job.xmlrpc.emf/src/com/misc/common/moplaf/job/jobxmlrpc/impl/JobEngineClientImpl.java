@@ -24,8 +24,7 @@ import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
 import com.misc.common.moplaf.serialize.Util;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -389,7 +388,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
 				String result = this.callGetResult(XMIScheme.SCHEME_ID, job.getExecuteNr());
-				InputStream inputStream = new ByteArrayInputStream(result.getBytes());
+				StringReader inputStream = new StringReader(result);
 				EObject result_as_object = Util.deserialize(XMIScheme.SCHEME_ID, inputStream);
 				if ( result_as_object instanceof Run ) {
 					Run result_run = (Run) result_as_object;

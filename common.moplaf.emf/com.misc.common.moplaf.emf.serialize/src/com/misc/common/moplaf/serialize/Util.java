@@ -1,8 +1,8 @@
 package com.misc.common.moplaf.serialize;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
+import java.io.Reader;
+import java.io.Writer;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -50,7 +50,7 @@ public class Util {
 		return null;
 	}
 	
-	static public boolean serialize(String scheme_id, EList<EObject> objects, StringWriter writer){
+	static public boolean serialize(String scheme_id, EList<EObject> objects, Writer writer){
 		Scheme scheme = Util.getScheme(scheme_id);
 		if ( scheme == null ) {
 			return false;
@@ -64,13 +64,13 @@ public class Util {
 		}
 	}
 
-	static public boolean serialize(String scheme_id, EObject object, StringWriter writer) {
+	static public boolean serialize(String scheme_id, EObject object, Writer writer) {
 		BasicEList<EObject> objects = new BasicEList<>();
 		objects.add(object);
 		return Util.serialize(scheme_id, objects, writer);
 	}
 
-	static public boolean serialize(Scheme scheme, EObject object, StringWriter writer) {
+	static public boolean serialize(Scheme scheme, EObject object, Writer writer) {
 		BasicEList<EObject> objects = new BasicEList<>();
 		objects.add(object);
 		try {
@@ -81,7 +81,7 @@ public class Util {
 		}
 	}
 
-	static public boolean deserialize(String scheme_id, EList<EObject> objects, InputStream reader)  {
+	static public boolean deserialize(String scheme_id, EList<EObject> objects, Reader reader)  {
 		Scheme scheme = Util.getScheme(scheme_id);
 		if ( scheme == null ) {
 			return false;
@@ -94,7 +94,7 @@ public class Util {
 		}
 	}
 	
-	static public EObject deserialize(String scheme_id, InputStream reader)  {
+	static public EObject deserialize(String scheme_id, Reader reader)  {
 		BasicEList<EObject> objects = new BasicEList<>();
 		boolean serialized = Util.deserialize(scheme_id, objects, reader);
 		if ( !serialized ) {
@@ -106,7 +106,7 @@ public class Util {
 		return objects.get(0);
 	}
 	
-	static public EObject deserialize(Scheme scheme, InputStream reader, String extension_id)  {
+	static public EObject deserialize(Scheme scheme, Reader reader, String extension_id)  {
 		BasicEList<EObject> objects = new BasicEList<>();
 		boolean serialized;
 		try {

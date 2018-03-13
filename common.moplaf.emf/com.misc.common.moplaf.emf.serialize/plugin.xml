@@ -3,4 +3,12 @@
 <plugin>
    <extension-point id="scheme" name="Serialization scheme  for MOPLAF" schema="schema/scheme.exsd"/>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated serialize -->
+      <package
+            uri="http://www.misc.com/common/moplaf/serialize/model/0.1"
+            class="com.misc.common.moplaf.serialize.SerializePackage"
+            genModel="model/serialize.genmodel"/>
+   </extension>
+
 </plugin>
