@@ -8,6 +8,8 @@ import com.misc.common.moplaf.serialize.Serializable;
 import com.misc.common.moplaf.serialize.SerializePackage;
 import com.misc.common.moplaf.serialize.Util;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -195,7 +197,13 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 	 * <!-- end-user-doc -->
 	 */
 	public void writeFile(File file) {
-		Util.serialize(this.getScheme(), this.getSelectedObjects(), file.getWriter());
+		Writer writer = file.getWriter();
+		Util.serialize(this.getScheme(), this.getSelectedObjects(), writer);
+		try {
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

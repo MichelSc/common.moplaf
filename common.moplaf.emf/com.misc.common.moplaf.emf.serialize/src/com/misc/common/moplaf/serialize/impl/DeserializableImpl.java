@@ -10,6 +10,9 @@ import com.misc.common.moplaf.serialize.Deserializable;
 import com.misc.common.moplaf.serialize.SerializePackage;
 import com.misc.common.moplaf.serialize.Util;
 
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -196,7 +199,13 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void writeFile(File file) {
-		Util.serialize(this.getScheme(), this.getOwnedObjects(), file.getWriter());
+		Writer writer = file.getWriter();
+		Util.serialize(this.getScheme(), this.getOwnedObjects(), writer);
+		try {
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -204,7 +213,13 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void readFile(File file) {
-		Util.serialize(this.getScheme(), this.getOwnedObjects(), file.getWriter());
+		Reader reader = file.getReader();
+		Util.deserialize(this.getScheme(), this.getOwnedObjects(), reader);
+		try {
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
