@@ -3,6 +3,7 @@ package com.misc.common.moplaf.serialize.xmi;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -42,10 +43,12 @@ public class XMLScheme implements Scheme {
 
 	    new_resource.load(new InputSource(reader), null);
 
-		for (EObject object : new_resource.getContents()){
-			objects.add(object);
+		Iterator<EObject> iterator = new_resource.getContents().iterator();
+		while ( iterator.hasNext() ){
+			EObject object = iterator.next();
+			iterator.remove();
+			objects.add(object);  
 		}
-		new_resource.getContents().clear();
 		
 		return true;
 	}

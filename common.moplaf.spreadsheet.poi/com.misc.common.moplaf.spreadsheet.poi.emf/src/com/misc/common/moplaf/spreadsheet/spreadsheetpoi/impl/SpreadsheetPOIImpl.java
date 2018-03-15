@@ -156,6 +156,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 		}  // traverse the sheets 
 		try {
 			wb.close();
+			inputStream.close();
 		} catch (IOException e) {
 			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: file not closed, exeption "+e.getMessage());
 			return;

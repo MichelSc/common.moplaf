@@ -449,6 +449,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		 
 		try {
 			parser.close();
+			reader.close();
 		} catch (IOException e) {
 			CommonPlugin.INSTANCE.log("SpreadsheetCSV.close: exeption "+e.getMessage());
 			e.printStackTrace();
