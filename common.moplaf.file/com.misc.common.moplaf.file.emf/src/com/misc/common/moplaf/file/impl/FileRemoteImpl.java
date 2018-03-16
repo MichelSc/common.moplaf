@@ -5,6 +5,17 @@ package com.misc.common.moplaf.file.impl;
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.FileRemote;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -158,5 +169,74 @@ public class FileRemoteImpl extends FileImpl implements FileRemote {
 		result.append(')');
 		return result.toString();
 	}
+	
+	private URI getURI_private() {
+		try {
+			return new URI(this.getURI());
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	private java.io.File getFile_private() {
+		URI uri = this.getURI_private();
+		if ( uri == null ) {
+			return null;
+		}
+		java.io.File file = new java.io.File(uri);
+		return file;
+	}
+
+	@Override
+	public Reader getReader() {
+		java.io.File file = this.getFile_private();
+		if ( file == null) {
+			CommonPlugin.INSTANCE.log("FileRemote.getReader: file NOT found");
+			return null;
+		}
+		Reader reader;
+		try {
+			reader = new FileReader(file);
+		} catch (FileNotFoundException e) {
+			CommonPlugin.INSTANCE.log("FileRemote.getReader: Reader NOT created");
+			e.printStackTrace();
+			return null;
+		}
+		
+		return reader;
+	}
+
+	@Override
+	public InputStream getInputStream() {
+		java.io.File file = this.getFile_private();
+		if ( file == null) {
+			CommonPlugin.INSTANCE.log("FileRemote.getInputStream: file NOT found");
+			return null;
+		}
+		FileInputStream inputstream = null;
+		try {
+			inputstream = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			CommonPlugin.INSTANCE.log("FileRemote.getInputStream: stream NOT created");
+			return null;
+		} 
+		return inputstream;
+	}
+
+	@Override
+	public Writer getWriter() {
+		// TODO Auto-generated method stub
+		return super.getWriter();
+	}
+
+	@Override
+	public OutputStream getOutputStream() {
+		// TODO Auto-generated method stub
+		return super.getOutputStream();
+	}
+	
+	
 
 } //FileRemoteImpl
