@@ -28,9 +28,11 @@ import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.eclipse.emf.common.CommonPlugin;
@@ -355,13 +357,8 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		result.append(')');
 		return result.toString();
 	}
-
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
-	 */
-	@Override
-	public void readFileImpl(File file){
-		CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: started");
+	
+	private CSVFormat getCSVFormat_private() {
 		
 		CSVFormat format = CSVFormat.DEFAULT;
 		switch ( this.getFormat()) {
@@ -406,6 +403,19 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 				}
 			}
 		}
+		
+		return format;
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
+	 */
+	@Override
+	public void readFileImpl(File file){
+		CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: started");
+		
+		CSVFormat format = this.getCSVFormat_private();
 			
 		Reader reader = file.getReader();
 		if ( reader == null ) {
@@ -458,4 +468,45 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		CommonPlugin.INSTANCE.log("SpreadsheetCSV.load: sheet loaded");
 	} // readFileImpl method
 
+	@Override
+	public void writeFileImpl(File file) {
+		// create the printer
+		Writer writer = file.getWriter();
+		CSVFormat format = this.getCSVFormat_private();
+
+		try {
+			CSVPrinter printer = new CSVPrinter(writer, format);
+			
+			// fill in the wb
+			for ( Sheet from_sheet : this.getSheets()) {
+				for( Row from_row : from_sheet.getRows()) {
+					for( Cell from_cell : from_row.getCells()){
+						switch ( from_cell.getCellType()) {
+						case CELL_TYPE_BOOLEAN:
+							throw new UnsupportedOperationException();
+						case CELL_TYPE_NUMERIC:
+							printer.print(from_cell.getDoubleValue());
+							break;
+						case CELL_TYPE_STRING:
+							printer.print(from_cell.getStringValue());
+							break;
+						default:
+							throw new UnsupportedOperationException();
+						}
+					}  // traverse the cells
+					printer.println();
+				} // traverse the rows
+				break; // ignore the sheets after the first one
+			}  // traverse the sheets
+			
+			// write the file
+			printer.close();
+			writer.close();
+		} catch (IOException e) {
+			CommonPlugin.INSTANCE.log("SpreadsheetCSV.writeFile: sheet NOT written, exeption "+e.getMessage());
+			return;
+		}
+	}
+	
+	
 } //SpreadsheetCSVImpl
