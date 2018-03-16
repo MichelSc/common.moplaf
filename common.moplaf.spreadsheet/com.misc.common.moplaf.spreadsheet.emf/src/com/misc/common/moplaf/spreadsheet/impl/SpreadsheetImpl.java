@@ -188,26 +188,37 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void writeFile(File file) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		CommonPlugin.INSTANCE.log("Spreadsheet.write: started");
+		
+		if ( file != null ) {
+			this.writeFileImpl(file);
+		}
+
+		CommonPlugin.INSTANCE.log("Spreadsheet.write: finished");
+	}
+
+	/*
+	 * 
+	 */
+	protected void writeFileImpl(File file){
 		throw new UnsupportedOperationException();
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public void readFile(File file) {
-		CommonPlugin.INSTANCE.log("Spreadsheet.load: started");
+		CommonPlugin.INSTANCE.log("Spreadsheet.read: started");
 		
 		if ( file != null ) {
 			this.readFileImpl(file);
 		}
 
-		CommonPlugin.INSTANCE.log("Spreadsheet.load: file found");
+		CommonPlugin.INSTANCE.log("Spreadsheet.read: finished");
 	}
 
 	/*

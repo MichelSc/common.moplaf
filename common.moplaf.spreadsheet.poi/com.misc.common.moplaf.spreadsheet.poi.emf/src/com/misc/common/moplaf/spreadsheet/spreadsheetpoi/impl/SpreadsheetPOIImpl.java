@@ -14,6 +14,7 @@ package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +28,8 @@ import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl;
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI;
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -65,8 +68,6 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 	 */
 	@Override
 	public void readFileImpl(File file){
-		CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: started");
-		
 		InputStream inputStream = file.getInputStream();
 		if ( inputStream==null) {
 			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: sheet NOT read");
@@ -78,7 +79,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 		try {
 			wb = new HSSFWorkbook(inputStream);
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: sheet NOT loaded, exeption "+e.getMessage());
+			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: file NOT opened, exeption "+e.getMessage());
 			return;
 		}
 		CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: sheet loaded");
@@ -162,5 +163,50 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 			return;
 		}
 	} // load readFile
+
+	@Override
+	public void writeFileImpl(File file) {
+		HSSFWorkbook wb = new HSSFWorkbook();
+
+		// fill in the wb
+		for ( Sheet from_sheet : this.getSheets()) {
+			HSSFSheet to_sheet = wb.createSheet(from_sheet.getSheetName());
+			for( Row from_row : from_sheet.getRows()) {
+				HSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
+				for( Cell from_cell : from_row.getCells()){
+					HSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
+					switch ( from_cell.getCellType()) {
+					case CELL_TYPE_BOOLEAN:
+						throw new UnsupportedOperationException();
+					case CELL_TYPE_NUMERIC:
+						to_cell.setCellValue(from_cell.getDoubleValue());
+						break;
+					case CELL_TYPE_STRING:
+						to_cell.setCellValue(from_cell.getStringValue());
+						break;
+					default:
+						throw new UnsupportedOperationException();
+					}
+				}
+			}
+		}
+		
+		// write the file
+		try {
+			OutputStream outputStream = file.getOutputStream();
+			if ( outputStream==null) {
+				CommonPlugin.INSTANCE.log("SpreadsheetPOI.writeFile: file NOT opened");
+				return;
+			}
+			wb.write(outputStream);
+			wb.close();
+			outputStream.close();
+		} catch (IOException e) {
+			CommonPlugin.INSTANCE.log("SpreadsheetPOI.writeFile: sheet NOT written, exeption "+e.getMessage());
+			return;
+		}
+	}
+	
+	
 
 } //SpreadsheetPOIImpl
