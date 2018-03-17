@@ -14,7 +14,6 @@ package com.misc.common.moplaf.spreadsheet.provider;
 
 
 
-import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
@@ -177,7 +176,6 @@ public class SpreadsheetItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -188,20 +186,7 @@ public class SpreadsheetItemProvider
 				(SpreadsheetPackage.Literals.SPREADSHEET__SHEETS,
 				 SpreadsheetFactory.eINSTANCE.createSheet()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpreadsheetPackage.Literals.SPREADSHEET__FILES,
-				 FileFactory.eINSTANCE.createFileLocal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpreadsheetPackage.Literals.SPREADSHEET__FILES,
-				 FileFactory.eINSTANCE.createFileRemote()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpreadsheetPackage.Literals.SPREADSHEET__FILES,
-				 FileFactory.eINSTANCE.createFileInMemory()));
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, SpreadsheetPackage.Literals.SPREADSHEET__FILES);
 	}
 
 	/**

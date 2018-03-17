@@ -225,7 +225,7 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		spreadsheetCSVEClass.getESuperTypes().add(theSpreadsheetPackage.getSpreadsheet());
+		spreadsheetCSVEClass.getESuperTypes().add(theSpreadsheetPackage.getSpreadsheetReaderWriter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(spreadsheetCSVEClass, SpreadsheetCSV.class, "SpreadsheetCSV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

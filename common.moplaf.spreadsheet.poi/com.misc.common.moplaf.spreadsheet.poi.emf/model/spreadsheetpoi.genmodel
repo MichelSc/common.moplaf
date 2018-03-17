@@ -3,11 +3,11 @@
     modelDirectory="/com.misc.common.moplaf.spreadsheet.poi.emf/src"
     modelPluginID="com.misc.common.moplaf.spreadsheet.poi.emf" modelName="Spreadsheetpoi"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.genmodel#//spreadsheet"
+    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.genmodel#//spreadsheet ../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
     operationReflection="true" importOrganizing="true">
   <foreignModel>spreadsheetpoi.ecore</foreignModel>
   <genPackages prefix="SpreadsheetPOI" basePackage="com.misc.common.moplaf.spreadsheet"
       disposableProviderFactory="true" ecorePackage="spreadsheetpoi.ecore#/">
-    <genClasses image="false" ecoreClass="spreadsheetpoi.ecore#//SpreadsheetPOI" labelFeature="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.genmodel#//spreadsheet/Spreadsheet/Name"/>
+    <genClasses image="false" ecoreClass="spreadsheetpoi.ecore#//SpreadsheetPOI"/>
   </genPackages>
 </genmodel:GenModel>

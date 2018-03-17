@@ -12,7 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi;
 
-import com.misc.common.moplaf.spreadsheet.Spreadsheet;
+import com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,5 +24,5 @@ import com.misc.common.moplaf.spreadsheet.Spreadsheet;
  * @model
  * @generated
  */
-public interface SpreadsheetPOI extends Spreadsheet {
+public interface SpreadsheetPOI extends SpreadsheetReaderWriter {
 } // SpreadsheetPOI

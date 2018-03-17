@@ -83,6 +83,29 @@ public class SpreadsheetItemProviderAdapterFactory extends SpreadsheetAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.spreadsheet.Spreadsheet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpreadsheetItemProvider spreadsheetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.spreadsheet.Spreadsheet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpreadsheetAdapter() {
+		if (spreadsheetItemProvider == null) {
+			spreadsheetItemProvider = new SpreadsheetItemProvider(this);
+		}
+
+		return spreadsheetItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.spreadsheet.Sheet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -273,6 +296,7 @@ public class SpreadsheetItemProviderAdapterFactory extends SpreadsheetAdapterFac
 	 * @generated
 	 */
 	public void dispose() {
+		if (spreadsheetItemProvider != null) spreadsheetItemProvider.dispose();
 		if (sheetItemProvider != null) sheetItemProvider.dispose();
 		if (rowItemProvider != null) rowItemProvider.dispose();
 		if (columnItemProvider != null) columnItemProvider.dispose();

@@ -2,23 +2,17 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="serialize" nsURI="http://www.misc.com/common/moplaf/serialize/model/0.1"
     nsPrefix="srlz">
-  <eClassifiers xsi:type="ecore:EClass" name="Serializable" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileWriter">
+  <eClassifiers xsi:type="ecore:EClass" name="Serializable" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReaderWriter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scheme" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="com.misc.common.moplaf.emf.serialize.xmi.schemes.xmi"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedObjects" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
-        eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
-        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Deserializable" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReader ../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileWriter">
+  <eClassifiers xsi:type="ecore:EClass" name="Deserializable" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReaderWriter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scheme" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="com.misc.common.moplaf.emf.serialize.xmi.schemes.xmi"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
-        eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedObjects" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>

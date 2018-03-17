@@ -13,5 +13,11 @@
             class="com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage"
             genModel="model/spreadsheetcsv.genmodel"/>
    </extension>
+   <extension
+         point="com.misc.common.moplaf.spreadsheet.emf.readerwriter_factory">
+      <factory
+            class="com.misc.common.moplaf.spreadsheet.spreadsheetcsv.util.ReaderWriterFactory">
+      </factory>
+   </extension>
 
 </plugin>

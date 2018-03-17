@@ -69,13 +69,58 @@ public interface SerializePackage extends EPackage {
 	int SERIALIZABLE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE__FILES = FilePackage.FILE_READER_WRITER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Selected File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE__SELECTED_FILE = FilePackage.FILE_READER_WRITER__SELECTED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Handled File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE__HANDLED_FILE = FilePackage.FILE_READER_WRITER__HANDLED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Read Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE__READ_FEEDBACK = FilePackage.FILE_READER_WRITER__READ_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Write Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE__WRITE_FEEDBACK = FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERIALIZABLE__NAME = FilePackage.FILE_WRITER_FEATURE_COUNT + 0;
+	int SERIALIZABLE__NAME = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Scheme</b></em>' attribute.
@@ -84,7 +129,7 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERIALIZABLE__SCHEME = FilePackage.FILE_WRITER_FEATURE_COUNT + 1;
+	int SERIALIZABLE__SCHEME = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Selected Objects</b></em>' reference list.
@@ -93,16 +138,7 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERIALIZABLE__SELECTED_OBJECTS = FilePackage.FILE_WRITER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERIALIZABLE__FILES = FilePackage.FILE_WRITER_FEATURE_COUNT + 3;
+	int SERIALIZABLE__SELECTED_OBJECTS = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Serializable</em>' class.
@@ -111,7 +147,34 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERIALIZABLE_FEATURE_COUNT = FilePackage.FILE_WRITER_FEATURE_COUNT + 4;
+	int SERIALIZABLE_FEATURE_COUNT = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Read Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE___GET_READ_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_READ_FEEDBACK__FILE;
+
+	/**
+	 * The operation id for the '<em>Get Write Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE___GET_WRITE_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE___READ_FILE = FilePackage.FILE_READER_WRITER___READ_FILE;
 
 	/**
 	 * The operation id for the '<em>Write File</em>' operation.
@@ -120,7 +183,25 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERIALIZABLE___WRITE_FILE__FILE = FilePackage.FILE_WRITER___WRITE_FILE__FILE;
+	int SERIALIZABLE___WRITE_FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE___READ_FILE__FILE = FilePackage.FILE_READER_WRITER___READ_FILE__FILE;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERIALIZABLE___WRITE_FILE__FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE__FILE;
 
 	/**
 	 * The number of operations of the '<em>Serializable</em>' class.
@@ -129,7 +210,7 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERIALIZABLE_OPERATION_COUNT = FilePackage.FILE_WRITER_OPERATION_COUNT + 0;
+	int SERIALIZABLE_OPERATION_COUNT = FilePackage.FILE_READER_WRITER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.serialize.impl.DeserializableImpl <em>Deserializable</em>}' class.
@@ -142,13 +223,58 @@ public interface SerializePackage extends EPackage {
 	int DESERIALIZABLE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE__FILES = FilePackage.FILE_READER_WRITER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Selected File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE__SELECTED_FILE = FilePackage.FILE_READER_WRITER__SELECTED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Handled File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE__HANDLED_FILE = FilePackage.FILE_READER_WRITER__HANDLED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Read Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE__READ_FEEDBACK = FilePackage.FILE_READER_WRITER__READ_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Write Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE__WRITE_FEEDBACK = FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESERIALIZABLE__NAME = FilePackage.FILE_READER_FEATURE_COUNT + 0;
+	int DESERIALIZABLE__NAME = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Scheme</b></em>' attribute.
@@ -157,16 +283,7 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESERIALIZABLE__SCHEME = FilePackage.FILE_READER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DESERIALIZABLE__FILES = FilePackage.FILE_READER_FEATURE_COUNT + 2;
+	int DESERIALIZABLE__SCHEME = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Owned Objects</b></em>' containment reference list.
@@ -175,7 +292,7 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESERIALIZABLE__OWNED_OBJECTS = FilePackage.FILE_READER_FEATURE_COUNT + 3;
+	int DESERIALIZABLE__OWNED_OBJECTS = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Deserializable</em>' class.
@@ -184,7 +301,25 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESERIALIZABLE_FEATURE_COUNT = FilePackage.FILE_READER_FEATURE_COUNT + 4;
+	int DESERIALIZABLE_FEATURE_COUNT = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Read Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE___GET_READ_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_READ_FEEDBACK__FILE;
+
+	/**
+	 * The operation id for the '<em>Get Write Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE___GET_WRITE_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -193,7 +328,7 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESERIALIZABLE___READ_FILE__FILE = FilePackage.FILE_READER___READ_FILE__FILE;
+	int DESERIALIZABLE___READ_FILE = FilePackage.FILE_READER_WRITER___READ_FILE;
 
 	/**
 	 * The operation id for the '<em>Write File</em>' operation.
@@ -202,7 +337,25 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESERIALIZABLE___WRITE_FILE__FILE = FilePackage.FILE_READER_OPERATION_COUNT + 0;
+	int DESERIALIZABLE___WRITE_FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE___READ_FILE__FILE = FilePackage.FILE_READER_WRITER___READ_FILE__FILE;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESERIALIZABLE___WRITE_FILE__FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE__FILE;
 
 	/**
 	 * The number of operations of the '<em>Deserializable</em>' class.
@@ -211,7 +364,7 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DESERIALIZABLE_OPERATION_COUNT = FilePackage.FILE_READER_OPERATION_COUNT + 1;
+	int DESERIALIZABLE_OPERATION_COUNT = FilePackage.FILE_READER_WRITER_OPERATION_COUNT + 0;
 
 
 	/**
@@ -234,17 +387,6 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSerializable_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.serialize.Serializable#getFiles <em>Files</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Files</em>'.
-	 * @see com.misc.common.moplaf.serialize.Serializable#getFiles()
-	 * @see #getSerializable()
-	 * @generated
-	 */
-	EReference getSerializable_Files();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.serialize.Serializable#getScheme <em>Scheme</em>}'.
@@ -288,17 +430,6 @@ public interface SerializePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDeserializable_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.serialize.Deserializable#getFiles <em>Files</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Files</em>'.
-	 * @see com.misc.common.moplaf.serialize.Deserializable#getFiles()
-	 * @see #getDeserializable()
-	 * @generated
-	 */
-	EReference getDeserializable_Files();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.serialize.Deserializable#getScheme <em>Scheme</em>}'.
@@ -364,14 +495,6 @@ public interface SerializePackage extends EPackage {
 		EAttribute SERIALIZABLE__NAME = eINSTANCE.getSerializable_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SERIALIZABLE__FILES = eINSTANCE.getSerializable_Files();
-
-		/**
 		 * The meta object literal for the '<em><b>Scheme</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -404,14 +527,6 @@ public interface SerializePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DESERIALIZABLE__NAME = eINSTANCE.getDeserializable_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DESERIALIZABLE__FILES = eINSTANCE.getDeserializable_Files();
 
 		/**
 		 * The meta object literal for the '<em><b>Scheme</b></em>' attribute feature.

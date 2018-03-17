@@ -2,10 +2,10 @@
  */
 package com.misc.common.moplaf.serialize.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.file.File;
-import com.misc.common.moplaf.file.FilePackage;
-import com.misc.common.moplaf.file.FileWriter;
-
+import com.misc.common.moplaf.file.Plugin;
+import com.misc.common.moplaf.file.impl.FileReaderWriterImpl;
 import com.misc.common.moplaf.serialize.Deserializable;
 import com.misc.common.moplaf.serialize.SerializePackage;
 import com.misc.common.moplaf.serialize.Util;
@@ -13,8 +13,6 @@ import com.misc.common.moplaf.serialize.Util;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,8 +25,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -42,13 +38,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.serialize.impl.DeserializableImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.serialize.impl.DeserializableImpl#getScheme <em>Scheme</em>}</li>
- *   <li>{@link com.misc.common.moplaf.serialize.impl.DeserializableImpl#getFiles <em>Files</em>}</li>
  *   <li>{@link com.misc.common.moplaf.serialize.impl.DeserializableImpl#getOwnedObjects <em>Owned Objects</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DeserializableImpl extends MinimalEObjectImpl.Container implements Deserializable {
+public class DeserializableImpl extends FileReaderWriterImpl implements Deserializable {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,16 +83,6 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected String scheme = SCHEME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getFiles() <em>Files</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFiles()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<File> files;
 
 	/**
 	 * The cached value of the '{@link #getOwnedObjects() <em>Owned Objects</em>}' containment reference list.
@@ -154,18 +139,6 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<File> getFiles() {
-		if (files == null) {
-			files = new EObjectContainmentEList<File>(File.class, this, SerializePackage.DESERIALIZABLE__FILES);
-		}
-		return files;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getScheme() {
 		return scheme;
 	}
@@ -198,13 +171,14 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public void writeFile(File file) {
 		Writer writer = file.getWriter();
 		Util.serialize(this.getScheme(), this.getOwnedObjects(), writer);
 		try {
 			writer.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Deserialize.writeFile, exception "+e.getMessage());
 		}
 	}
 
@@ -212,14 +186,25 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public void readFile(File file) {
 		Reader reader = file.getReader();
 		Util.deserialize(this.getScheme(), this.getOwnedObjects(), reader);
 		try {
 			reader.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Deserialize.readFile, exception "+e.getMessage());
 		}
+	}
+
+	@Override
+	public EnabledFeedback getReadFeedbackImpl(File file) {
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	@Override
+	public EnabledFeedback getWriteFeedbackImpl(File file) {
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**
@@ -230,8 +215,6 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SerializePackage.DESERIALIZABLE__FILES:
-				return ((InternalEList<?>)getFiles()).basicRemove(otherEnd, msgs);
 			case SerializePackage.DESERIALIZABLE__OWNED_OBJECTS:
 				return ((InternalEList<?>)getOwnedObjects()).basicRemove(otherEnd, msgs);
 		}
@@ -250,8 +233,6 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 				return getName();
 			case SerializePackage.DESERIALIZABLE__SCHEME:
 				return getScheme();
-			case SerializePackage.DESERIALIZABLE__FILES:
-				return getFiles();
 			case SerializePackage.DESERIALIZABLE__OWNED_OBJECTS:
 				return getOwnedObjects();
 		}
@@ -272,10 +253,6 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case SerializePackage.DESERIALIZABLE__SCHEME:
 				setScheme((String)newValue);
-				return;
-			case SerializePackage.DESERIALIZABLE__FILES:
-				getFiles().clear();
-				getFiles().addAll((Collection<? extends File>)newValue);
 				return;
 			case SerializePackage.DESERIALIZABLE__OWNED_OBJECTS:
 				getOwnedObjects().clear();
@@ -299,9 +276,6 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 			case SerializePackage.DESERIALIZABLE__SCHEME:
 				setScheme(SCHEME_EDEFAULT);
 				return;
-			case SerializePackage.DESERIALIZABLE__FILES:
-				getFiles().clear();
-				return;
 			case SerializePackage.DESERIALIZABLE__OWNED_OBJECTS:
 				getOwnedObjects().clear();
 				return;
@@ -321,46 +295,10 @@ public class DeserializableImpl extends MinimalEObjectImpl.Container implements 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SerializePackage.DESERIALIZABLE__SCHEME:
 				return SCHEME_EDEFAULT == null ? scheme != null : !SCHEME_EDEFAULT.equals(scheme);
-			case SerializePackage.DESERIALIZABLE__FILES:
-				return files != null && !files.isEmpty();
 			case SerializePackage.DESERIALIZABLE__OWNED_OBJECTS:
 				return ownedObjects != null && !ownedObjects.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == FileWriter.class) {
-			switch (baseOperationID) {
-				case FilePackage.FILE_WRITER___WRITE_FILE__FILE: return SerializePackage.DESERIALIZABLE___WRITE_FILE__FILE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case SerializePackage.DESERIALIZABLE___WRITE_FILE__FILE:
-				writeFile((File)arguments.get(0));
-				return null;
-			case SerializePackage.DESERIALIZABLE___READ_FILE__FILE:
-				readFile((File)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

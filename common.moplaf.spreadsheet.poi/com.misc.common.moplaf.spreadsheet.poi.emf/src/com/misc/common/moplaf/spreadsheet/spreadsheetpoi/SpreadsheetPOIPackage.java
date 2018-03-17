@@ -67,31 +67,58 @@ public interface SpreadsheetPOIPackage extends EPackage {
 	int SPREADSHEET_POI = 0;
 
 	/**
-	 * The feature id for the '<em><b>Sheets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET_POI__SHEETS = SpreadsheetPackage.SPREADSHEET__SHEETS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET_POI__NAME = SpreadsheetPackage.SPREADSHEET__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI__FILES = SpreadsheetPackage.SPREADSHEET__FILES;
+	int SPREADSHEET_POI__FILES = SpreadsheetPackage.SPREADSHEET_READER_WRITER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Selected File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI__SELECTED_FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER__SELECTED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Handled File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI__HANDLED_FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER__HANDLED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Read Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI__READ_FEEDBACK = SpreadsheetPackage.SPREADSHEET_READER_WRITER__READ_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Write Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI__WRITE_FEEDBACK = SpreadsheetPackage.SPREADSHEET_READER_WRITER__WRITE_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Spreadsheet</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI__SPREADSHEET = SpreadsheetPackage.SPREADSHEET_READER_WRITER__SPREADSHEET;
 
 	/**
 	 * The number of structural features of the '<em>Spreadsheet POI</em>' class.
@@ -100,7 +127,25 @@ public interface SpreadsheetPOIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI_FEATURE_COUNT = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 0;
+	int SPREADSHEET_POI_FEATURE_COUNT = SpreadsheetPackage.SPREADSHEET_READER_WRITER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Read Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI___GET_READ_FEEDBACK__FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER___GET_READ_FEEDBACK__FILE;
+
+	/**
+	 * The operation id for the '<em>Get Write Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI___GET_WRITE_FEEDBACK__FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER___GET_WRITE_FEEDBACK__FILE;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -109,7 +154,7 @@ public interface SpreadsheetPOIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI___READ_FILE__FILE = SpreadsheetPackage.SPREADSHEET___READ_FILE__FILE;
+	int SPREADSHEET_POI___READ_FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER___READ_FILE;
 
 	/**
 	 * The operation id for the '<em>Write File</em>' operation.
@@ -118,25 +163,25 @@ public interface SpreadsheetPOIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI___WRITE_FILE__FILE = SpreadsheetPackage.SPREADSHEET___WRITE_FILE__FILE;
+	int SPREADSHEET_POI___WRITE_FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER___WRITE_FILE;
 
 	/**
-	 * The operation id for the '<em>Get Sheet</em>' operation.
+	 * The operation id for the '<em>Read File</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI___GET_SHEET__STRING = SpreadsheetPackage.SPREADSHEET___GET_SHEET__STRING;
+	int SPREADSHEET_POI___READ_FILE__FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER___READ_FILE__FILE;
 
 	/**
-	 * The operation id for the '<em>Get Sheet</em>' operation.
+	 * The operation id for the '<em>Write File</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI___GET_SHEET__INT = SpreadsheetPackage.SPREADSHEET___GET_SHEET__INT;
+	int SPREADSHEET_POI___WRITE_FILE__FILE = SpreadsheetPackage.SPREADSHEET_READER_WRITER___WRITE_FILE__FILE;
 
 	/**
 	 * The number of operations of the '<em>Spreadsheet POI</em>' class.
@@ -145,7 +190,7 @@ public interface SpreadsheetPOIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI_OPERATION_COUNT = SpreadsheetPackage.SPREADSHEET_OPERATION_COUNT + 0;
+	int SPREADSHEET_POI_OPERATION_COUNT = SpreadsheetPackage.SPREADSHEET_READER_WRITER_OPERATION_COUNT + 0;
 
 
 	/**

@@ -13,15 +13,17 @@
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.file.File;
+import com.misc.common.moplaf.file.Plugin;
 import com.misc.common.moplaf.spreadsheet.Cell;
 import com.misc.common.moplaf.spreadsheet.CellType;
 import com.misc.common.moplaf.spreadsheet.Column;
 import com.misc.common.moplaf.spreadsheet.Row;
 import com.misc.common.moplaf.spreadsheet.Sheet;
+import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
-import com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl;
-
+import com.misc.common.moplaf.spreadsheet.impl.SpreadsheetReaderWriterImpl;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage;
@@ -35,7 +37,6 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang.StringEscapeUtils;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -55,7 +56,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCSV {
+public class SpreadsheetCSVImpl extends SpreadsheetReaderWriterImpl implements SpreadsheetCSV {
 	/**
 	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -379,11 +380,11 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		if ( this.isSetDelimiter()){
 			String charAsEscapedString = this.getDelimiter();
 			if ( charAsEscapedString == null ){
-				CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no delimeter character");
+				Plugin.INSTANCE.logError("SpreadsheetCSV.read: error, no delimeter character");
 			} else {
 				String unescaped = StringEscapeUtils.unescapeJava(charAsEscapedString);
 				if ( unescaped.length()!=1 ){
-					CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no single delimiter character");
+					Plugin.INSTANCE.logError("SpreadsheetCSV.read: error, no single delimiter character");
 				} else {
 					format = format.withDelimiter(unescaped.charAt(0));
 				}
@@ -393,11 +394,11 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		if ( this.isSetQuoteCharacter()){
 			String charAsEscapedString = this.getQuoteCharacter();
 			if ( charAsEscapedString == null ){
-				CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no quote character");
+				Plugin.INSTANCE.logError("SpreadsheetCSV.read: error, no quote character");
 			} else {
 				String unescaped = StringEscapeUtils.unescapeJava(charAsEscapedString);
 				if ( unescaped.length()!=1 ){
-					CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no single quote character");
+					Plugin.INSTANCE.logError("SpreadsheetCSV.read: error, no single quote character");
 				} else {
 					format = format.withQuote(unescaped.charAt(0));
 				}
@@ -407,35 +408,47 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		return format;
 		
 	}
+	
+	
+	@Override
+	protected EnabledFeedback getReadFeedbackImpl(File file) {
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	@Override
+	protected EnabledFeedback getWriteFeedbackImpl(File file) {
+		return EnabledFeedback.NOFEEDBACK;
+	}
 
 	/* (non-Javadoc)
 	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
 	 */
 	@Override
-	public void readFileImpl(File file){
-		CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: started");
+	public void readFile(File file){
+		Plugin.INSTANCE.logError("SpreadsheetCSV.read: started");
 		
 		CSVFormat format = this.getCSVFormat_private();
 			
 		Reader reader = file.getReader();
 		if ( reader == null ) {
-			CommonPlugin.INSTANCE.log("SpreadsheetCSV.readFile: file NOT found");
+			Plugin.INSTANCE.logError("SpreadsheetCSV.readFile: file NOT found");
 			return;
 		}
 		CSVParser parser = null;
 		try {
 			parser = new CSVParser(reader, format);
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("SpreadsheetCSV.readFile: file NOT loaded, exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetCSV.readFile: file NOT loaded, exeption "+e.getMessage());
 			return;
 		}
 		
-		this.getSheets().clear();
+		Spreadsheet spreadsheet = this.getSpreadsheet();
+		spreadsheet.getSheets().clear();
 		
 		Sheet sheet = SpreadsheetFactory.eINSTANCE.createSheet();
 		sheet.setSheetName("sheet");
 		sheet.setSheetIndex(0);
-		sheet.setSpreadsheet(this);
+		sheet.setSpreadsheet(spreadsheet);
 		
 		int rowNr = 0;
 		for (CSVRecord record : parser) {
@@ -461,15 +474,15 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 			parser.close();
 			reader.close();
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("SpreadsheetCSV.close: exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetCSV.close: exeption "+e.getMessage());
 			e.printStackTrace();
 		}
 		
-		CommonPlugin.INSTANCE.log("SpreadsheetCSV.load: sheet loaded");
+		Plugin.INSTANCE.logError("SpreadsheetCSV.load: sheet loaded");
 	} // readFileImpl method
 
 	@Override
-	public void writeFileImpl(File file) {
+	public void writeFile(File file) {
 		// create the printer
 		Writer writer = file.getWriter();
 		CSVFormat format = this.getCSVFormat_private();
@@ -478,7 +491,8 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 			CSVPrinter printer = new CSVPrinter(writer, format);
 			
 			// fill in the wb
-			for ( Sheet from_sheet : this.getSheets()) {
+			Spreadsheet spreadsheet = this.getSpreadsheet();
+			for ( Sheet from_sheet : spreadsheet.getSheets()) {
 				for( Row from_row : from_sheet.getRows()) {
 					for( Cell from_cell : from_row.getCells()){
 						switch ( from_cell.getCellType()) {
@@ -503,7 +517,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 			printer.close();
 			writer.close();
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("SpreadsheetCSV.writeFile: sheet NOT written, exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetCSV.writeFile: sheet NOT written, exeption "+e.getMessage());
 			return;
 		}
 	}

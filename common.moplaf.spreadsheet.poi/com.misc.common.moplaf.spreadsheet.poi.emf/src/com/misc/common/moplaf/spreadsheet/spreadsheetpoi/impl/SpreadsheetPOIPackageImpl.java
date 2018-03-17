@@ -164,7 +164,7 @@ public class SpreadsheetPOIPackageImpl extends EPackageImpl implements Spreadshe
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		spreadsheetPOIEClass.getESuperTypes().add(theSpreadsheetPackage.getSpreadsheet());
+		spreadsheetPOIEClass.getESuperTypes().add(theSpreadsheetPackage.getSpreadsheetReaderWriter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(spreadsheetPOIEClass, SpreadsheetPOI.class, "SpreadsheetPOI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

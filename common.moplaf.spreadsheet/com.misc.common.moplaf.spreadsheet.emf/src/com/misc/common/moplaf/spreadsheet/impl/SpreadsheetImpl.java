@@ -12,18 +12,15 @@
  */
 package com.misc.common.moplaf.spreadsheet.impl;
 
-import com.misc.common.moplaf.file.File;
-import com.misc.common.moplaf.file.FilePackage;
-import com.misc.common.moplaf.file.FileWriter;
 import com.misc.common.moplaf.spreadsheet.Sheet;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
+import com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,8 +31,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -54,7 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spreadsheet {
+public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spreadsheet {
 	/**
 	 * The cached value of the '{@link #getSheets() <em>Sheets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -93,7 +88,7 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<File> files;
+	protected EList<SpreadsheetReaderWriter> files;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,9 +147,9 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<File> getFiles() {
+	public EList<SpreadsheetReaderWriter> getFiles() {
 		if (files == null) {
-			files = new EObjectContainmentEList<File>(File.class, this, SpreadsheetPackage.SPREADSHEET__FILES);
+			files = new EObjectContainmentWithInverseEList<SpreadsheetReaderWriter>(SpreadsheetReaderWriter.class, this, SpreadsheetPackage.SPREADSHEET__FILES, SpreadsheetPackage.SPREADSHEET_READER_WRITER__SPREADSHEET);
 		}
 		return files;
 	}
@@ -188,49 +183,6 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void writeFile(File file) {
-		CommonPlugin.INSTANCE.log("Spreadsheet.write: started");
-		
-		if ( file != null ) {
-			this.writeFileImpl(file);
-		}
-
-		CommonPlugin.INSTANCE.log("Spreadsheet.write: finished");
-	}
-
-	/*
-	 * 
-	 */
-	protected void writeFileImpl(File file){
-		throw new UnsupportedOperationException();
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void readFile(File file) {
-		CommonPlugin.INSTANCE.log("Spreadsheet.read: started");
-		
-		if ( file != null ) {
-			this.readFileImpl(file);
-		}
-
-		CommonPlugin.INSTANCE.log("Spreadsheet.read: finished");
-	}
-
-	/*
-	 * 
-	 */
-	protected void readFileImpl(File file){
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -239,6 +191,8 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID) {
 			case SpreadsheetPackage.SPREADSHEET__SHEETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSheets()).basicAdd(otherEnd, msgs);
+			case SpreadsheetPackage.SPREADSHEET__FILES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFiles()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -295,7 +249,7 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 				return;
 			case SpreadsheetPackage.SPREADSHEET__FILES:
 				getFiles().clear();
-				getFiles().addAll((Collection<? extends File>)newValue);
+				getFiles().addAll((Collection<? extends SpreadsheetReaderWriter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,34 +300,12 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == FileWriter.class) {
-			switch (baseOperationID) {
-				case FilePackage.FILE_WRITER___WRITE_FILE__FILE: return SpreadsheetPackage.SPREADSHEET___WRITE_FILE__FILE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case SpreadsheetPackage.SPREADSHEET___GET_SHEET__STRING:
 				return getSheet((String)arguments.get(0));
 			case SpreadsheetPackage.SPREADSHEET___GET_SHEET__INT:
 				return getSheet((Integer)arguments.get(0));
-			case SpreadsheetPackage.SPREADSHEET___WRITE_FILE__FILE:
-				writeFile((File)arguments.get(0));
-				return null;
-			case SpreadsheetPackage.SPREADSHEET___READ_FILE__FILE:
-				readFile((File)arguments.get(0));
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

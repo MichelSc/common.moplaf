@@ -32,6 +32,15 @@ public interface SpreadsheetFactory extends EFactory {
 	SpreadsheetFactory eINSTANCE = com.misc.common.moplaf.spreadsheet.impl.SpreadsheetFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Spreadsheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Spreadsheet</em>'.
+	 * @generated
+	 */
+	Spreadsheet createSpreadsheet();
+
+	/**
 	 * Returns a new object of class '<em>Sheet</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

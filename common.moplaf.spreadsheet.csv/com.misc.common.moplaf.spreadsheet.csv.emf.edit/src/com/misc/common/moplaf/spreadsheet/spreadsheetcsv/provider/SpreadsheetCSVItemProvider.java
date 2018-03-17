@@ -13,8 +13,8 @@
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.provider;
 
 
-import com.misc.common.moplaf.spreadsheet.provider.SpreadsheetItemProvider;
-
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.spreadsheet.provider.SpreadsheetReaderWriterItemProvider;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV;
 
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage;
@@ -37,7 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpreadsheetCSVItemProvider extends SpreadsheetItemProvider {
+public class SpreadsheetCSVItemProvider extends SpreadsheetReaderWriterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -140,7 +140,8 @@ public class SpreadsheetCSVItemProvider extends SpreadsheetItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SpreadsheetCSV)object).getName();
+		EnabledFeedback labelValue = ((SpreadsheetCSV)object).getReadFeedback();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SpreadsheetCSV_type") :
 			getString("_UI_SpreadsheetCSV_type") + " " + label;

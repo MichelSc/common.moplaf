@@ -2,9 +2,7 @@
  */
 package com.misc.common.moplaf.serialize.util;
 
-import com.misc.common.moplaf.file.FileReader;
-import com.misc.common.moplaf.file.FileWriter;
-
+import com.misc.common.moplaf.file.FileReaderWriter;
 import com.misc.common.moplaf.serialize.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -72,15 +70,14 @@ public class SerializeSwitch<T> extends Switch<T> {
 			case SerializePackage.SERIALIZABLE: {
 				Serializable serializable = (Serializable)theEObject;
 				T result = caseSerializable(serializable);
-				if (result == null) result = caseFileWriter(serializable);
+				if (result == null) result = caseFileReaderWriter(serializable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SerializePackage.DESERIALIZABLE: {
 				Deserializable deserializable = (Deserializable)theEObject;
 				T result = caseDeserializable(deserializable);
-				if (result == null) result = caseFileReader(deserializable);
-				if (result == null) result = caseFileWriter(deserializable);
+				if (result == null) result = caseFileReaderWriter(deserializable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,32 +116,17 @@ public class SerializeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Writer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Reader Writer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Writer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Reader Writer</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFileWriter(FileWriter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reader</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reader</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFileReader(FileReader object) {
+	public T caseFileReaderWriter(FileReaderWriter object) {
 		return null;
 	}
 

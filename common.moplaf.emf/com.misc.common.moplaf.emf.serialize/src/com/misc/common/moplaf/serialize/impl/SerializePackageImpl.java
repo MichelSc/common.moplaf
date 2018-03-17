@@ -124,15 +124,6 @@ public class SerializePackageImpl extends EPackageImpl implements SerializePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSerializable_Files() {
-		return (EReference)serializableEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSerializable_Scheme() {
 		return (EAttribute)serializableEClass.getEStructuralFeatures().get(1);
 	}
@@ -169,15 +160,6 @@ public class SerializePackageImpl extends EPackageImpl implements SerializePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDeserializable_Files() {
-		return (EReference)deserializableEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDeserializable_Scheme() {
 		return (EAttribute)deserializableEClass.getEStructuralFeatures().get(1);
 	}
@@ -188,7 +170,7 @@ public class SerializePackageImpl extends EPackageImpl implements SerializePacka
 	 * @generated
 	 */
 	public EReference getDeserializable_OwnedObjects() {
-		return (EReference)deserializableEClass.getEStructuralFeatures().get(3);
+		return (EReference)deserializableEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -223,12 +205,10 @@ public class SerializePackageImpl extends EPackageImpl implements SerializePacka
 		createEAttribute(serializableEClass, SERIALIZABLE__NAME);
 		createEAttribute(serializableEClass, SERIALIZABLE__SCHEME);
 		createEReference(serializableEClass, SERIALIZABLE__SELECTED_OBJECTS);
-		createEReference(serializableEClass, SERIALIZABLE__FILES);
 
 		deserializableEClass = createEClass(DESERIALIZABLE);
 		createEAttribute(deserializableEClass, DESERIALIZABLE__NAME);
 		createEAttribute(deserializableEClass, DESERIALIZABLE__SCHEME);
-		createEReference(deserializableEClass, DESERIALIZABLE__FILES);
 		createEReference(deserializableEClass, DESERIALIZABLE__OWNED_OBJECTS);
 	}
 
@@ -263,21 +243,18 @@ public class SerializePackageImpl extends EPackageImpl implements SerializePacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		serializableEClass.getESuperTypes().add(theFilePackage.getFileWriter());
-		deserializableEClass.getESuperTypes().add(theFilePackage.getFileReader());
-		deserializableEClass.getESuperTypes().add(theFilePackage.getFileWriter());
+		serializableEClass.getESuperTypes().add(theFilePackage.getFileReaderWriter());
+		deserializableEClass.getESuperTypes().add(theFilePackage.getFileReaderWriter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(serializableEClass, Serializable.class, "Serializable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSerializable_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Serializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSerializable_Scheme(), ecorePackage.getEString(), "Scheme", "com.misc.common.moplaf.emf.serialize.xmi.schemes.xmi", 0, 1, Serializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSerializable_SelectedObjects(), ecorePackage.getEObject(), null, "SelectedObjects", null, 0, -1, Serializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSerializable_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, Serializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deserializableEClass, Deserializable.class, "Deserializable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeserializable_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Deserializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeserializable_Scheme(), ecorePackage.getEString(), "Scheme", "com.misc.common.moplaf.emf.serialize.xmi.schemes.xmi", 0, 1, Deserializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeserializable_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, Deserializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeserializable_OwnedObjects(), ecorePackage.getEObject(), null, "OwnedObjects", null, 0, -1, Deserializable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

@@ -86,7 +86,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET__SHEETS = FilePackage.FILE_READER_FEATURE_COUNT + 0;
+	int SPREADSHEET__SHEETS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -95,7 +95,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET__NAME = FilePackage.FILE_READER_FEATURE_COUNT + 1;
+	int SPREADSHEET__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
@@ -104,7 +104,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET__FILES = FilePackage.FILE_READER_FEATURE_COUNT + 2;
+	int SPREADSHEET__FILES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Spreadsheet</em>' class.
@@ -113,25 +113,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_FEATURE_COUNT = FilePackage.FILE_READER_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Read File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET___READ_FILE__FILE = FilePackage.FILE_READER___READ_FILE__FILE;
-
-	/**
-	 * The operation id for the '<em>Write File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET___WRITE_FILE__FILE = FilePackage.FILE_READER_OPERATION_COUNT + 0;
+	int SPREADSHEET_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Sheet</em>' operation.
@@ -140,7 +122,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET___GET_SHEET__STRING = FilePackage.FILE_READER_OPERATION_COUNT + 1;
+	int SPREADSHEET___GET_SHEET__STRING = 0;
 
 	/**
 	 * The operation id for the '<em>Get Sheet</em>' operation.
@@ -149,7 +131,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET___GET_SHEET__INT = FilePackage.FILE_READER_OPERATION_COUNT + 2;
+	int SPREADSHEET___GET_SHEET__INT = 1;
 
 	/**
 	 * The number of operations of the '<em>Spreadsheet</em>' class.
@@ -158,7 +140,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_OPERATION_COUNT = FilePackage.FILE_READER_OPERATION_COUNT + 3;
+	int SPREADSHEET_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
@@ -570,6 +552,142 @@ public interface SpreadsheetPackage extends EPackage {
 	int CELL_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetReaderWriterImpl <em>Reader Writer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetReaderWriterImpl
+	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetPackageImpl#getSpreadsheetReaderWriter()
+	 * @generated
+	 */
+	int SPREADSHEET_READER_WRITER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__FILES = FilePackage.FILE_READER_WRITER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Selected File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__SELECTED_FILE = FilePackage.FILE_READER_WRITER__SELECTED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Handled File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__HANDLED_FILE = FilePackage.FILE_READER_WRITER__HANDLED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Read Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__READ_FEEDBACK = FilePackage.FILE_READER_WRITER__READ_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Write Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__WRITE_FEEDBACK = FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Spreadsheet</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__SPREADSHEET = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Reader Writer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER_FEATURE_COUNT = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Read Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER___GET_READ_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_READ_FEEDBACK__FILE;
+
+	/**
+	 * The operation id for the '<em>Get Write Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER___GET_WRITE_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER___READ_FILE = FilePackage.FILE_READER_WRITER___READ_FILE;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER___WRITE_FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER___READ_FILE__FILE = FilePackage.FILE_READER_WRITER___READ_FILE__FILE;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER___WRITE_FILE__FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE__FILE;
+
+	/**
+	 * The number of operations of the '<em>Reader Writer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER_OPERATION_COUNT = FilePackage.FILE_READER_WRITER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.CellType <em>Cell Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -577,7 +695,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetPackageImpl#getCellType()
 	 * @generated
 	 */
-	int CELL_TYPE = 5;
+	int CELL_TYPE = 6;
 
 
 	/**
@@ -1029,6 +1147,27 @@ public interface SpreadsheetPackage extends EPackage {
 	EAttribute getCell_DateValue();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter <em>Reader Writer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reader Writer</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter
+	 * @generated
+	 */
+	EClass getSpreadsheetReaderWriter();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter#getSpreadsheet <em>Spreadsheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Spreadsheet</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter#getSpreadsheet()
+	 * @see #getSpreadsheetReaderWriter()
+	 * @generated
+	 */
+	EReference getSpreadsheetReaderWriter_Spreadsheet();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1417,6 +1556,24 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CELL__DATE_VALUE = eINSTANCE.getCell_DateValue();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetReaderWriterImpl <em>Reader Writer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetReaderWriterImpl
+		 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetPackageImpl#getSpreadsheetReaderWriter()
+		 * @generated
+		 */
+		EClass SPREADSHEET_READER_WRITER = eINSTANCE.getSpreadsheetReaderWriter();
+
+		/**
+		 * The meta object literal for the '<em><b>Spreadsheet</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPREADSHEET_READER_WRITER__SPREADSHEET = eINSTANCE.getSpreadsheetReaderWriter_Spreadsheet();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

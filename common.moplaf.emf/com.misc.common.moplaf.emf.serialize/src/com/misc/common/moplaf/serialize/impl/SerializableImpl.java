@@ -2,33 +2,25 @@
  */
 package com.misc.common.moplaf.serialize.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.file.File;
-
+import com.misc.common.moplaf.file.Plugin;
+import com.misc.common.moplaf.file.impl.FileReaderWriterImpl;
 import com.misc.common.moplaf.serialize.Serializable;
 import com.misc.common.moplaf.serialize.SerializePackage;
 import com.misc.common.moplaf.serialize.Util;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,12 +33,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.serialize.impl.SerializableImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.serialize.impl.SerializableImpl#getScheme <em>Scheme</em>}</li>
  *   <li>{@link com.misc.common.moplaf.serialize.impl.SerializableImpl#getSelectedObjects <em>Selected Objects</em>}</li>
- *   <li>{@link com.misc.common.moplaf.serialize.impl.SerializableImpl#getFiles <em>Files</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SerializableImpl extends MinimalEObjectImpl.Container implements Serializable {
+public class SerializableImpl extends FileReaderWriterImpl implements Serializable {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,16 +89,6 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 	protected EList<EObject> selectedObjects;
 
 	/**
-	 * The cached value of the '{@link #getFiles() <em>Files</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFiles()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<File> files;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -145,18 +126,6 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SerializePackage.SERIALIZABLE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<File> getFiles() {
-		if (files == null) {
-			files = new EObjectContainmentEList<File>(File.class, this, SerializePackage.SERIALIZABLE__FILES);
-		}
-		return files;
 	}
 
 	/**
@@ -202,22 +171,13 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 		try {
 			writer.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Deserialize.writeFile, exception "+e.getMessage());
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SerializePackage.SERIALIZABLE__FILES:
-				return ((InternalEList<?>)getFiles()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public EnabledFeedback getWriteFeedbackImpl(File file) {
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**
@@ -234,8 +194,6 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 				return getScheme();
 			case SerializePackage.SERIALIZABLE__SELECTED_OBJECTS:
 				return getSelectedObjects();
-			case SerializePackage.SERIALIZABLE__FILES:
-				return getFiles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -259,10 +217,6 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 				getSelectedObjects().clear();
 				getSelectedObjects().addAll((Collection<? extends EObject>)newValue);
 				return;
-			case SerializePackage.SERIALIZABLE__FILES:
-				getFiles().clear();
-				getFiles().addAll((Collection<? extends File>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -284,9 +238,6 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 			case SerializePackage.SERIALIZABLE__SELECTED_OBJECTS:
 				getSelectedObjects().clear();
 				return;
-			case SerializePackage.SERIALIZABLE__FILES:
-				getFiles().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,25 +256,8 @@ public class SerializableImpl extends MinimalEObjectImpl.Container implements Se
 				return SCHEME_EDEFAULT == null ? scheme != null : !SCHEME_EDEFAULT.equals(scheme);
 			case SerializePackage.SERIALIZABLE__SELECTED_OBJECTS:
 				return selectedObjects != null && !selectedObjects.isEmpty();
-			case SerializePackage.SERIALIZABLE__FILES:
-				return files != null && !files.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case SerializePackage.SERIALIZABLE___WRITE_FILE__FILE:
-				writeFile((File)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

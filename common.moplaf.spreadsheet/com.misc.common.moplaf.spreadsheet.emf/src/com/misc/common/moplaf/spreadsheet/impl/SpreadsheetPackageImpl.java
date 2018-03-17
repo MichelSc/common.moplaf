@@ -22,6 +22,7 @@ import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
+import com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -72,6 +73,13 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * @generated
 	 */
 	private EClass cellEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass spreadsheetReaderWriterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -527,6 +535,24 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSpreadsheetReaderWriter() {
+		return spreadsheetReaderWriterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpreadsheetReaderWriter_Spreadsheet() {
+		return (EReference)spreadsheetReaderWriterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getCell_Description() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(2);
 	}
@@ -616,6 +642,9 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEAttribute(cellEClass, CELL__BOOLEAN_VALUE);
 		createEAttribute(cellEClass, CELL__DATE_VALUE);
 
+		spreadsheetReaderWriterEClass = createEClass(SPREADSHEET_READER_WRITER);
+		createEReference(spreadsheetReaderWriterEClass, SPREADSHEET_READER_WRITER__SPREADSHEET);
+
 		// Create enums
 		cellTypeEEnum = createEEnum(CELL_TYPE);
 	}
@@ -651,14 +680,13 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		spreadsheetEClass.getESuperTypes().add(theFilePackage.getFileReader());
-		spreadsheetEClass.getESuperTypes().add(theFilePackage.getFileWriter());
+		spreadsheetReaderWriterEClass.getESuperTypes().add(theFilePackage.getFileReaderWriter());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(spreadsheetEClass, Spreadsheet.class, "Spreadsheet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(spreadsheetEClass, Spreadsheet.class, "Spreadsheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpreadsheet_Sheets(), this.getSheet(), this.getSheet_Spreadsheet(), "Sheets", null, 1, -1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpreadsheet_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpreadsheet_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpreadsheet_Files(), this.getSpreadsheetReaderWriter(), this.getSpreadsheetReaderWriter_Spreadsheet(), "Files", null, 0, -1, Spreadsheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getSpreadsheet__GetSheet__String(), this.getSheet(), "getSheet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "sheetname", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -720,6 +748,9 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEAttribute(getCell_StringValue(), ecorePackage.getEString(), "StringValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_BooleanValue(), ecorePackage.getEBoolean(), "BooleanValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_DateValue(), ecorePackage.getEDate(), "DateValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(spreadsheetReaderWriterEClass, SpreadsheetReaderWriter.class, "SpreadsheetReaderWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpreadsheetReaderWriter_Spreadsheet(), this.getSpreadsheet(), this.getSpreadsheet_Files(), "Spreadsheet", null, 0, 1, SpreadsheetReaderWriter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(cellTypeEEnum, CellType.class, "CellType");

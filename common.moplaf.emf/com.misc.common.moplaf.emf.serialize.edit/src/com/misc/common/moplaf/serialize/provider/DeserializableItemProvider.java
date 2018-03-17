@@ -5,6 +5,8 @@ package com.misc.common.moplaf.serialize.provider;
 
 import com.misc.common.moplaf.file.FileFactory;
 
+import com.misc.common.moplaf.file.FilePackage;
+import com.misc.common.moplaf.file.provider.FileReaderWriterItemProvider;
 import com.misc.common.moplaf.serialize.Deserializable;
 import com.misc.common.moplaf.serialize.SerializeFactory;
 import com.misc.common.moplaf.serialize.SerializePackage;
@@ -20,14 +22,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -37,13 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DeserializableItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends FileReaderWriterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -127,7 +117,6 @@ public class DeserializableItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SerializePackage.Literals.DESERIALIZABLE__FILES);
 			childrenFeatures.add(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS);
 		}
 		return childrenFeatures;
@@ -188,7 +177,6 @@ public class DeserializableItemProvider
 			case SerializePackage.DESERIALIZABLE__SCHEME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SerializePackage.DESERIALIZABLE__FILES:
 			case SerializePackage.DESERIALIZABLE__OWNED_OBJECTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -206,21 +194,6 @@ public class DeserializableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__FILES,
-				 FileFactory.eINSTANCE.createFileLocal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__FILES,
-				 FileFactory.eINSTANCE.createFileRemote()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__FILES,
-				 FileFactory.eINSTANCE.createFileInMemory()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -260,7 +233,7 @@ public class DeserializableItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == SerializePackage.Literals.DESERIALIZABLE__FILES ||
+			childFeature == FilePackage.Literals.FILE_READER_WRITER__FILES ||
 			childFeature == SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS;
 
 		if (qualify) {

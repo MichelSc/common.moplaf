@@ -67,6 +67,7 @@ public class SpreadsheetFactoryImpl extends EFactoryImpl implements SpreadsheetF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case SpreadsheetPackage.SPREADSHEET: return createSpreadsheet();
 			case SpreadsheetPackage.SHEET: return createSheet();
 			case SpreadsheetPackage.ROW: return createRow();
 			case SpreadsheetPackage.COLUMN: return createColumn();
@@ -104,6 +105,16 @@ public class SpreadsheetFactoryImpl extends EFactoryImpl implements SpreadsheetF
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Spreadsheet createSpreadsheet() {
+		SpreadsheetImpl spreadsheet = new SpreadsheetImpl();
+		return spreadsheet;
 	}
 
 	/**

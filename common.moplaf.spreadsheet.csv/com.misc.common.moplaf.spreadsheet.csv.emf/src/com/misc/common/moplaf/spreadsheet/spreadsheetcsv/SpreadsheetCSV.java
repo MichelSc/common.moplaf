@@ -12,7 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv;
 
-import com.misc.common.moplaf.spreadsheet.Spreadsheet;
+import com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import com.misc.common.moplaf.spreadsheet.Spreadsheet;
  * @model
  * @generated
  */
-public interface SpreadsheetCSV extends Spreadsheet {
+public interface SpreadsheetCSV extends SpreadsheetReaderWriter {
 
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.

@@ -12,10 +12,8 @@
  */
 package com.misc.common.moplaf.spreadsheet;
 
-import com.misc.common.moplaf.file.File;
-import com.misc.common.moplaf.file.FileReader;
-import com.misc.common.moplaf.file.FileWriter;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,10 +30,10 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSpreadsheet()
- * @model abstract="true"
+ * @model
  * @generated
  */
-public interface Spreadsheet extends FileReader, FileWriter {
+public interface Spreadsheet extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Sheets</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.spreadsheet.Sheet}.
@@ -82,7 +80,8 @@ public interface Spreadsheet extends FileReader, FileWriter {
 
 	/**
 	 * Returns the value of the '<em><b>Files</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.file.File}.
+	 * The list contents are of type {@link com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter#getSpreadsheet <em>Spreadsheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Files</em>' containment reference list isn't clear,
@@ -91,10 +90,11 @@ public interface Spreadsheet extends FileReader, FileWriter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Files</em>' containment reference list.
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSpreadsheet_Files()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter#getSpreadsheet
+	 * @model opposite="Spreadsheet" containment="true"
 	 * @generated
 	 */
-	EList<File> getFiles();
+	EList<SpreadsheetReaderWriter> getFiles();
 
 	/**
 	 * <!-- begin-user-doc -->

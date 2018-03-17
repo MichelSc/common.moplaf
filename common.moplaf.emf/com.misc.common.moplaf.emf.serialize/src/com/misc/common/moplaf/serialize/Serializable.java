@@ -2,9 +2,7 @@
  */
 package com.misc.common.moplaf.serialize;
 
-import com.misc.common.moplaf.file.File;
-import com.misc.common.moplaf.file.FileWriter;
-
+import com.misc.common.moplaf.file.FileReaderWriter;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -21,14 +19,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.serialize.Serializable#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.serialize.Serializable#getScheme <em>Scheme</em>}</li>
  *   <li>{@link com.misc.common.moplaf.serialize.Serializable#getSelectedObjects <em>Selected Objects</em>}</li>
- *   <li>{@link com.misc.common.moplaf.serialize.Serializable#getFiles <em>Files</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.serialize.SerializePackage#getSerializable()
  * @model
  * @generated
  */
-public interface Serializable extends FileWriter {
+public interface Serializable extends FileReaderWriter {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -54,22 +51,6 @@ public interface Serializable extends FileWriter {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Files</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.file.File}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Files</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Files</em>' containment reference list.
-	 * @see com.misc.common.moplaf.serialize.SerializePackage#getSerializable_Files()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<File> getFiles();
 
 	/**
 	 * Returns the value of the '<em><b>Scheme</b></em>' attribute.

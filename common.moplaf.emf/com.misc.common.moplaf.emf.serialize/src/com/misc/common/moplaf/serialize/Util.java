@@ -13,6 +13,8 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import com.misc.common.moplaf.file.Plugin;
+
 
 public class Util {
 	
@@ -36,13 +38,15 @@ public class Util {
 				try {
 					value = element.createExecutableExtension("class");
 				} catch (CoreException e) {
-					e.printStackTrace();
+					String message = String.format("Extension %s, creating the class, execption "+e.getMessage());
+					Plugin.INSTANCE.logError(message);
 					return null;
 				}
 				if ( value instanceof Scheme) {
 					return (Scheme)value;
 				} else {
-					// this is an error. We should report it instead of silently ignoring it.
+					String message = String.format("Extension %s returned no Scheme, but a %s", scheme_id, value.getClass().getName());
+					Plugin.INSTANCE.logError(message);
 					return null;
 				}
 			}
@@ -53,13 +57,13 @@ public class Util {
 	static public boolean serialize(String scheme_id, EList<EObject> objects, Writer writer){
 		Scheme scheme = Util.getScheme(scheme_id);
 		if ( scheme == null ) {
-			return false;
+			Plugin.INSTANCE.logError("Serialize no scheme");
 		}
 		
 		try {
 			return scheme.serialize(objects,  writer);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Serialize exception "+e.getMessage());
 			return false;
 		}
 	}
@@ -76,7 +80,7 @@ public class Util {
 		try {
 			return scheme.serialize(objects, writer);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Serialize exception "+e.getMessage());
 			return false;
 		}
 	}
@@ -89,7 +93,7 @@ public class Util {
 		try {
 			return scheme.deserialize(objects,  reader);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Deserialize exception "+e.getMessage());
 			return false;
 		}
 	}
@@ -112,7 +116,7 @@ public class Util {
 		try {
 			serialized = scheme.deserialize(objects, reader);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Deserialize exception "+e.getMessage());
 			return null;
 		}
 		if ( !serialized ) {

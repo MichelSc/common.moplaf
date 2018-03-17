@@ -84,5 +84,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/BooleanValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/DateValue"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="spreadsheet.ecore#//SpreadsheetReaderWriter">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference spreadsheet.ecore#//SpreadsheetReaderWriter/Spreadsheet"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

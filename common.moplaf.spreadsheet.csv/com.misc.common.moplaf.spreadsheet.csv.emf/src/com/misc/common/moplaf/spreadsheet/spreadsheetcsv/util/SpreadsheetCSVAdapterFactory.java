@@ -12,10 +12,8 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.util;
 
-import com.misc.common.moplaf.file.FileReader;
-import com.misc.common.moplaf.file.FileWriter;
-import com.misc.common.moplaf.spreadsheet.Spreadsheet;
-
+import com.misc.common.moplaf.file.FileReaderWriter;
+import com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -86,16 +84,12 @@ public class SpreadsheetCSVAdapterFactory extends AdapterFactoryImpl {
 				return createSpreadsheetCSVAdapter();
 			}
 			@Override
-			public Adapter caseFileReader(FileReader object) {
-				return createFileReaderAdapter();
+			public Adapter caseFileReaderWriter(FileReaderWriter object) {
+				return createFileReaderWriterAdapter();
 			}
 			@Override
-			public Adapter caseFileWriter(FileWriter object) {
-				return createFileWriterAdapter();
-			}
-			@Override
-			public Adapter caseSpreadsheet(Spreadsheet object) {
-				return createSpreadsheetAdapter();
+			public Adapter caseSpreadsheetReaderWriter(SpreadsheetReaderWriter object) {
+				return createSpreadsheetReaderWriterAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -132,44 +126,30 @@ public class SpreadsheetCSVAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReader <em>Reader</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReaderWriter <em>Reader Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.file.FileReader
+	 * @see com.misc.common.moplaf.file.FileReaderWriter
 	 * @generated
 	 */
-	public Adapter createFileReaderAdapter() {
+	public Adapter createFileReaderWriterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileWriter <em>Writer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter <em>Reader Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.file.FileWriter
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter
 	 * @generated
 	 */
-	public Adapter createFileWriterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet <em>Spreadsheet</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet
-	 * @generated
-	 */
-	public Adapter createSpreadsheetAdapter() {
+	public Adapter createSpreadsheetReaderWriterAdapter() {
 		return null;
 	}
 

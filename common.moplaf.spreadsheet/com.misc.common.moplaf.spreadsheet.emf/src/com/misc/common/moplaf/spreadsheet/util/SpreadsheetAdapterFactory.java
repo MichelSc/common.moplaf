@@ -12,8 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.util;
 
-import com.misc.common.moplaf.file.FileReader;
-import com.misc.common.moplaf.file.FileWriter;
+import com.misc.common.moplaf.file.FileReaderWriter;
 import com.misc.common.moplaf.spreadsheet.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -100,12 +99,12 @@ public class SpreadsheetAdapterFactory extends AdapterFactoryImpl {
 				return createCellAdapter();
 			}
 			@Override
-			public Adapter caseFileReader(FileReader object) {
-				return createFileReaderAdapter();
+			public Adapter caseSpreadsheetReaderWriter(SpreadsheetReaderWriter object) {
+				return createSpreadsheetReaderWriterAdapter();
 			}
 			@Override
-			public Adapter caseFileWriter(FileWriter object) {
-				return createFileWriterAdapter();
+			public Adapter caseFileReaderWriter(FileReaderWriter object) {
+				return createFileReaderWriterAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -198,30 +197,30 @@ public class SpreadsheetAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReader <em>Reader</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter <em>Reader Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.file.FileReader
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter
 	 * @generated
 	 */
-	public Adapter createFileReaderAdapter() {
+	public Adapter createSpreadsheetReaderWriterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileWriter <em>Writer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReaderWriter <em>Reader Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.file.FileWriter
+	 * @see com.misc.common.moplaf.file.FileReaderWriter
 	 * @generated
 	 */
-	public Adapter createFileWriterAdapter() {
+	public Adapter createFileReaderWriterAdapter() {
 		return null;
 	}
 
