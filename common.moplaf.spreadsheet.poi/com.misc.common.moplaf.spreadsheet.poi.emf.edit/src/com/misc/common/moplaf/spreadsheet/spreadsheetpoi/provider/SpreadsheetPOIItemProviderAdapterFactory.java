@@ -95,6 +95,29 @@ public class SpreadsheetPOIItemProviderAdapterFactory extends SpreadsheetPOIAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIx} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpreadsheetPOIxItemProvider spreadsheetPOIxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIx}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpreadsheetPOIxAdapter() {
+		if (spreadsheetPOIxItemProvider == null) {
+			spreadsheetPOIxItemProvider = new SpreadsheetPOIxItemProvider(this);
+		}
+
+		return spreadsheetPOIxItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +217,7 @@ public class SpreadsheetPOIItemProviderAdapterFactory extends SpreadsheetPOIAdap
 	 */
 	public void dispose() {
 		if (spreadsheetPOIItemProvider != null) spreadsheetPOIItemProvider.dispose();
+		if (spreadsheetPOIxItemProvider != null) spreadsheetPOIxItemProvider.dispose();
 	}
 
 }

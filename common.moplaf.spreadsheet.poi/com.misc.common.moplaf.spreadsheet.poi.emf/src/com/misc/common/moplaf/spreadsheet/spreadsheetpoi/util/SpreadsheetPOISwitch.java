@@ -76,6 +76,14 @@ public class SpreadsheetPOISwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SpreadsheetPOIPackage.SPREADSHEET_PO_IX: {
+				SpreadsheetPOIx spreadsheetPOIx = (SpreadsheetPOIx)theEObject;
+				T result = caseSpreadsheetPOIx(spreadsheetPOIx);
+				if (result == null) result = caseSpreadsheetReaderWriter(spreadsheetPOIx);
+				if (result == null) result = caseFileReaderWriter(spreadsheetPOIx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -92,6 +100,21 @@ public class SpreadsheetPOISwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSpreadsheetPOI(SpreadsheetPOI object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Spreadsheet PO Ix</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Spreadsheet PO Ix</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpreadsheetPOIx(SpreadsheetPOIx object) {
 		return null;
 	}
 

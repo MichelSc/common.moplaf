@@ -9,6 +9,7 @@ import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI;
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIFactory;
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage;
 
+import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIx;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -27,6 +28,13 @@ public class SpreadsheetPOIPackageImpl extends EPackageImpl implements Spreadshe
 	 * @generated
 	 */
 	private EClass spreadsheetPOIEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass spreadsheetPOIxEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -107,6 +115,15 @@ public class SpreadsheetPOIPackageImpl extends EPackageImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSpreadsheetPOIx() {
+		return spreadsheetPOIxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SpreadsheetPOIFactory getSpreadsheetPOIFactory() {
 		return (SpreadsheetPOIFactory)getEFactoryInstance();
 	}
@@ -131,6 +148,8 @@ public class SpreadsheetPOIPackageImpl extends EPackageImpl implements Spreadshe
 
 		// Create classes and their features
 		spreadsheetPOIEClass = createEClass(SPREADSHEET_POI);
+
+		spreadsheetPOIxEClass = createEClass(SPREADSHEET_PO_IX);
 	}
 
 	/**
@@ -165,9 +184,12 @@ public class SpreadsheetPOIPackageImpl extends EPackageImpl implements Spreadshe
 
 		// Add supertypes to classes
 		spreadsheetPOIEClass.getESuperTypes().add(theSpreadsheetPackage.getSpreadsheetReaderWriter());
+		spreadsheetPOIxEClass.getESuperTypes().add(theSpreadsheetPackage.getSpreadsheetReaderWriter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(spreadsheetPOIEClass, SpreadsheetPOI.class, "SpreadsheetPOI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(spreadsheetPOIxEClass, SpreadsheetPOIx.class, "SpreadsheetPOIx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

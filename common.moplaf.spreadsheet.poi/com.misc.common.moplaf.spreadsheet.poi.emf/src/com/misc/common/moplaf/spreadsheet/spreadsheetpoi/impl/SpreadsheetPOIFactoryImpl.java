@@ -57,6 +57,7 @@ public class SpreadsheetPOIFactoryImpl extends EFactoryImpl implements Spreadshe
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SpreadsheetPOIPackage.SPREADSHEET_POI: return createSpreadsheetPOI();
+			case SpreadsheetPOIPackage.SPREADSHEET_PO_IX: return createSpreadsheetPOIx();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +71,16 @@ public class SpreadsheetPOIFactoryImpl extends EFactoryImpl implements Spreadshe
 	public SpreadsheetPOI createSpreadsheetPOI() {
 		SpreadsheetPOIImpl spreadsheetPOI = new SpreadsheetPOIImpl();
 		return spreadsheetPOI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpreadsheetPOIx createSpreadsheetPOIx() {
+		SpreadsheetPOIxImpl spreadsheetPOIx = new SpreadsheetPOIxImpl();
+		return spreadsheetPOIx;
 	}
 
 	/**

@@ -3,4 +3,5 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spreadsheetpoi" nsURI="http://www.misc.com/common/moplaf/spreadsheet/poi/model/0.1"
     nsPrefix="spshpoi">
   <eClassifiers xsi:type="ecore:EClass" name="SpreadsheetPOI" eSuperTypes="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//SpreadsheetReaderWriter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpreadsheetPOIx" eSuperTypes="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//SpreadsheetReaderWriter"/>
 </ecore:EPackage>

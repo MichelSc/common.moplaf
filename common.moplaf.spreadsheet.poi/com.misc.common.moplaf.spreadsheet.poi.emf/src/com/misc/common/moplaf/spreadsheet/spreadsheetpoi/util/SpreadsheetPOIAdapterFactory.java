@@ -74,6 +74,10 @@ public class SpreadsheetPOIAdapterFactory extends AdapterFactoryImpl {
 				return createSpreadsheetPOIAdapter();
 			}
 			@Override
+			public Adapter caseSpreadsheetPOIx(SpreadsheetPOIx object) {
+				return createSpreadsheetPOIxAdapter();
+			}
+			@Override
 			public Adapter caseFileReaderWriter(FileReaderWriter object) {
 				return createFileReaderWriterAdapter();
 			}
@@ -112,6 +116,20 @@ public class SpreadsheetPOIAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSpreadsheetPOIAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIx <em>Spreadsheet PO Ix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIx
+	 * @generated
+	 */
+	public Adapter createSpreadsheetPOIxAdapter() {
 		return null;
 	}
 

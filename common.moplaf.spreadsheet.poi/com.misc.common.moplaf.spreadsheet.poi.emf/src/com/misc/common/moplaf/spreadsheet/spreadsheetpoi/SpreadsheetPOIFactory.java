@@ -31,6 +31,15 @@ public interface SpreadsheetPOIFactory extends EFactory {
 	SpreadsheetPOI createSpreadsheetPOI();
 
 	/**
+	 * Returns a new object of class '<em>Spreadsheet PO Ix</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Spreadsheet PO Ix</em>'.
+	 * @generated
+	 */
+	SpreadsheetPOIx createSpreadsheetPOIx();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

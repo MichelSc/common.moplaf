@@ -18,6 +18,9 @@
       <factory
             class="com.misc.common.moplaf.spreadsheet.spreadsheetpoi.util.ReaderWriterFactory">
       </factory>
+      <factory
+            class="com.misc.common.moplaf.spreadsheet.spreadsheetpoi.util.ReaderWriterFactoryx">
+      </factory>
    </extension>
 
 </plugin>

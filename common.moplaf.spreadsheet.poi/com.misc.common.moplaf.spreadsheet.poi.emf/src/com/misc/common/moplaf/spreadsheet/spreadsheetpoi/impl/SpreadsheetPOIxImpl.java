@@ -1,22 +1,6 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.file.File;
@@ -29,29 +13,36 @@ import com.misc.common.moplaf.spreadsheet.Sheet;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.impl.SpreadsheetReaderWriterImpl;
-import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI;
-import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage;
+import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIx;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Spreadsheet POI</b></em>'.
+ * An implementation of the model object '<em><b>Spreadsheet PO Ix</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements SpreadsheetPOI {
+public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements SpreadsheetPOIx {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SpreadsheetPOIImpl() {
+	protected SpreadsheetPOIxImpl() {
 		super();
 	}
 
@@ -62,9 +53,9 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SpreadsheetPOIPackage.Literals.SPREADSHEET_POI;
+		return SpreadsheetPOIPackage.Literals.SPREADSHEET_PO_IX;
 	}
-	
+
 	@Override
 	protected EnabledFeedback getReadFeedbackImpl(File file) {
 		return EnabledFeedback.NOFEEDBACK;
@@ -77,16 +68,17 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 	public void readFile(File file){
 		InputStream inputStream = file.getInputStream();
 		if ( inputStream==null) {
-			Plugin.INSTANCE.logError("SpreadsheetPOI.readFile: sheet NOT read");
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: sheet NOT read");
 			return;
 		}
 		
 		// load the file
-		HSSFWorkbook wb = null;
+		XSSFWorkbook wb = null;
 		try {
-			wb = new HSSFWorkbook(inputStream);
+			wb = new XSSFWorkbook(inputStream);
 		} catch (IOException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOI.readFile: file NOT opened, exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, exeption "+e.getMessage());
+			
 			return;
 		}
 		Plugin.INSTANCE.logInfo("SpreadsheetPOI.readFile: sheet loaded");
@@ -96,10 +88,10 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 			Map<Integer, Column> pocolumns = new HashMap<Integer, Column>();
 			
 			// run through the sheets
-			HSSFSheet sheet = wb.getSheetAt(k);
+			XSSFSheet sheet = wb.getSheetAt(k);
 			int rows = sheet.getPhysicalNumberOfRows();
-			String sheetname = wb.getSheetName(k);
-			Plugin.INSTANCE.logInfo("SpreadsheetPOI.readFile: Sheet "
+			String sheetname =  sheet.getSheetName();
+			Plugin.INSTANCE.logInfo("SpreadsheetPOIx.readFile: Sheet "
                     + k 
                     + ", "  
 	                 + sheetname 
@@ -113,7 +105,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 			// load the rows
 			for (int r = 0; r < rows; r++) {
 				// run trough the rows
-				HSSFRow row = sheet.getRow(r);
+				 XSSFRow row = sheet.getRow(r);
 				if (row == null) {
 					continue;
 				}
@@ -166,7 +158,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 			wb.close();
 			inputStream.close();
 		} catch (IOException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOI.readFile: file not closed, exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file not closed, exeption "+e.getMessage());
 			return;
 		}
 	} // load readFile
@@ -178,16 +170,16 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 
 	@Override
 	public void writeFile(File file) {
-		HSSFWorkbook wb = new HSSFWorkbook();
+		XSSFWorkbook wb = new XSSFWorkbook();
 
 		// fill in the wb
 		Spreadsheet spreadsheet = this.getSpreadsheet();
 		for ( Sheet from_sheet : spreadsheet.getSheets()) {
-			HSSFSheet to_sheet = wb.createSheet(from_sheet.getSheetName());
+			XSSFSheet to_sheet = wb.createSheet(from_sheet.getSheetName());
 			for( Row from_row : from_sheet.getRows()) {
-				HSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
+				XSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
 				for( Cell from_cell : from_row.getCells()){
-					HSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
+					XSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
 					switch ( from_cell.getCellType()) {
 					case CELL_TYPE_BOOLEAN:
 						throw new UnsupportedOperationException();
@@ -208,18 +200,15 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 		try {
 			OutputStream outputStream = file.getOutputStream();
 			if ( outputStream==null) {
-				Plugin.INSTANCE.logError("SpreadsheetPOI.writeFile: file NOT opened");
+				Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: file NOT opened");
 				return;
 			}
 			wb.write(outputStream);
 			wb.close();
 			outputStream.close();
 		} catch (IOException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOI.writeFile: sheet NOT written, exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: sheet NOT written, exeption "+e.getMessage());
 			return;
 		}
 	}
-	
-	
-
-} //SpreadsheetPOIImpl
+} //SpreadsheetPOIxImpl
