@@ -4,6 +4,7 @@ package com.misc.common.moplaf.file.impl;
 
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.FileRemote;
+import com.misc.common.moplaf.file.Plugin;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,7 +16,6 @@ import java.io.Writer;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -193,15 +193,14 @@ public class FileRemoteImpl extends FileImpl implements FileRemote {
 	public Reader getReader() {
 		java.io.File file = this.getFile_private();
 		if ( file == null) {
-			CommonPlugin.INSTANCE.log("FileRemote.getReader: file NOT found");
+			Plugin.INSTANCE.logError("FileRemote.getReader: file NOT found");
 			return null;
 		}
 		Reader reader;
 		try {
 			reader = new FileReader(file);
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("FileRemote.getReader: Reader NOT created");
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("FileRemote.getReader: Reader NOT created");
 			return null;
 		}
 		
@@ -212,14 +211,14 @@ public class FileRemoteImpl extends FileImpl implements FileRemote {
 	public InputStream getInputStream() {
 		java.io.File file = this.getFile_private();
 		if ( file == null) {
-			CommonPlugin.INSTANCE.log("FileRemote.getInputStream: file NOT found");
+			Plugin.INSTANCE.logError("FileRemote.getInputStream: file NOT found");
 			return null;
 		}
 		FileInputStream inputstream = null;
 		try {
 			inputstream = new FileInputStream(file);
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("FileRemote.getInputStream: stream NOT created");
+			Plugin.INSTANCE.logError("FileRemote.getInputStream: stream NOT created");
 			return null;
 		} 
 		return inputstream;

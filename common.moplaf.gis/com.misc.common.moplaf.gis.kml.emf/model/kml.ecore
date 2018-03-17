@@ -2,10 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kml" nsURI="http://www.misc.com/common/moplaf/gis/kml/model/0.1"
     nsPrefix="kml">
-  <eClassifiers xsi:type="ecore:EClass" name="Kml" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReader">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
-        eType="ecore:EClass ../../com.misc.common.moplaf.file.emf/model/file.ecore#//File"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Kml" eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReaderWriter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" eType="#//Feature"
         containment="true"/>
   </eClassifiers>

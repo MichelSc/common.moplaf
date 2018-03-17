@@ -9,8 +9,7 @@
   <genPackages prefix="Kml" basePackage="com.misc.common.moplaf.gis" disposableProviderFactory="true"
       ecorePackage="kml.ecore#/">
     <genDataTypes ecoreDataType="kml.ecore#//Coordinates"/>
-    <genClasses ecoreClass="kml.ecore#//Kml">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Files"/>
+    <genClasses image="false" ecoreClass="kml.ecore#//Kml">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Kml/Feature"/>
     </genClasses>
     <genClasses image="false" ecoreClass="kml.ecore#//Document"/>
@@ -26,6 +25,7 @@
     </genClasses>
     <genClasses ecoreClass="kml.ecore#//Geometry">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference kml.ecore#//Geometry/Placemark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//Geometry/Color"/>
     </genClasses>
     <genClasses image="false" ecoreClass="kml.ecore#//Point">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//Point/Coordinates"/>
@@ -36,12 +36,12 @@
     <genClasses image="false" ecoreClass="kml.ecore#//LinearRing">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kml.ecore#//LinearRing/Coordinates"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="kml.ecore#//MultiGeometry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//MultiGeometry/Geometries"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="kml.ecore#//Polygon">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Polygon/OuterBoundary"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//Polygon/InnerBoundaries"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="kml.ecore#//MultiGeometry">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kml.ecore#//MultiGeometry/Geometries"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

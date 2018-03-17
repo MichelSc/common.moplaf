@@ -93,15 +93,9 @@ public class FileSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FilePackage.FILE_READER: {
-				FileReader fileReader = (FileReader)theEObject;
-				T result = caseFileReader(fileReader);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FilePackage.FILE_WRITER: {
-				FileWriter fileWriter = (FileWriter)theEObject;
-				T result = caseFileWriter(fileWriter);
+			case FilePackage.FILE_READER_WRITER: {
+				FileReaderWriter fileReaderWriter = (FileReaderWriter)theEObject;
+				T result = caseFileReaderWriter(fileReaderWriter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,32 +164,17 @@ public class FileSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Reader Writer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reader</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Reader Writer</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFileReader(FileReader object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Writer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Writer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFileWriter(FileWriter object) {
+	public T caseFileReaderWriter(FileReaderWriter object) {
 		return null;
 	}
 

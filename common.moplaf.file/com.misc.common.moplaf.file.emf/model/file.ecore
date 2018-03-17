@@ -17,14 +17,30 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileReader" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="FileReaderWriter" abstract="true">
+    <eOperations name="getReadFeedback" eType="#//EnabledFeedback">
+      <eParameters name="file" eType="#//File"/>
+    </eOperations>
+    <eOperations name="getWriteFeedback" eType="#//EnabledFeedback">
+      <eParameters name="file" eType="#//File"/>
+    </eOperations>
+    <eOperations name="readFile"/>
+    <eOperations name="writeFile"/>
     <eOperations name="readFile">
       <eParameters name="file" eType="#//File"/>
     </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileWriter" abstract="true" interface="true">
     <eOperations name="writeFile">
       <eParameters name="file" eType="#//File"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
+        eType="#//File" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedFile" eType="#//File"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HandledFile" eType="#//File"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReadFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WriteFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
 </ecore:EPackage>

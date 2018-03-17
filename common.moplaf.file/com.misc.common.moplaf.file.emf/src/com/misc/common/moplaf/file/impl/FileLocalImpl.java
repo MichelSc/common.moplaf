@@ -4,6 +4,7 @@ package com.misc.common.moplaf.file.impl;
 
 import com.misc.common.moplaf.file.FileLocal;
 import com.misc.common.moplaf.file.FilePackage;
+import com.misc.common.moplaf.file.Plugin;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,7 +17,6 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -181,10 +181,9 @@ public class FileLocalImpl extends FileImpl implements FileLocal {
 		try {
 			reader = new FileReader(this.getFilePath());
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("FileLocal.getReader: file NOT found");
+			Plugin.INSTANCE.logError("FileLocal.getReader: file NOT found");
 			return null;
 		} 
-		CommonPlugin.INSTANCE.log("FileLocal.getReader: file found");
 		return reader;
 	}
 	
@@ -197,10 +196,9 @@ public class FileLocalImpl extends FileImpl implements FileLocal {
 		try {
 			inputstream = new FileInputStream(this.getFilePath());
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("FileLocal.getInputStream: file NOT found");
+			Plugin.INSTANCE.logError("FileLocal.getInputStream: file NOT found");
 			return null;
 		} 
-		CommonPlugin.INSTANCE.log("FileLocal.getInputStream: file found");
 		return inputstream;
 	}
 
@@ -213,9 +211,8 @@ public class FileLocalImpl extends FileImpl implements FileLocal {
 		try {
 			writer = new FileWriter(this.getFilePath());
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("FileLocal.getWriter: file NOT found");
+			Plugin.INSTANCE.logError("FileLocal.getWriter: file NOT found");
 		} 
-		CommonPlugin.INSTANCE.log("FileLocal.getWriter: file found");
 		return writer;
 	}
 	
@@ -228,10 +225,9 @@ public class FileLocalImpl extends FileImpl implements FileLocal {
 		try {
 			outputstream = new FileOutputStream(this.getFilePath());
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("FileLocal.getOutputStream: file NOT found");
+			Plugin.INSTANCE.logError("FileLocal.getOutputStream: file NOT found");
 			return null;
 		} 
-		CommonPlugin.INSTANCE.log("FileLocal.getOutputStream: file found");
 		return outputstream;
 	}
 

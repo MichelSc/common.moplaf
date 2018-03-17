@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml.util;
 
-import com.misc.common.moplaf.file.FileReader;
+import com.misc.common.moplaf.file.FileReaderWriter;
 import com.misc.common.moplaf.gis.kml.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -117,8 +117,8 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 				return createPolygonAdapter();
 			}
 			@Override
-			public Adapter caseFileReader(FileReader object) {
-				return createFileReaderAdapter();
+			public Adapter caseFileReaderWriter(FileReaderWriter object) {
+				return createFileReaderWriterAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -295,6 +295,20 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReaderWriter <em>Reader Writer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileReaderWriter
+	 * @generated
+	 */
+	public Adapter createFileReaderWriterAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.kml.Kml <em>Kml</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -305,20 +319,6 @@ public class KmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createKmlAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReader <em>Reader</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.file.FileReader
-	 * @generated
-	 */
-	public Adapter createFileReaderAdapter() {
 		return null;
 	}
 

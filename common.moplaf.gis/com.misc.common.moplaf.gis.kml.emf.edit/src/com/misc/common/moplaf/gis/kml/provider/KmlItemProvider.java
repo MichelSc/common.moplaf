@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.gis.kml.provider;
 
 
-import com.misc.common.moplaf.file.FileFactory;
-
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.file.provider.FileReaderWriterItemProvider;
 import com.misc.common.moplaf.gis.kml.Kml;
 import com.misc.common.moplaf.gis.kml.KmlFactory;
 import com.misc.common.moplaf.gis.kml.KmlPackage;
@@ -18,14 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -35,13 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class KmlItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends FileReaderWriterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,7 +66,6 @@ public class KmlItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KmlPackage.Literals.KML__FILES);
 			childrenFeatures.add(KmlPackage.Literals.KML__FEATURE);
 		}
 		return childrenFeatures;
@@ -99,16 +85,6 @@ public class KmlItemProvider
 	}
 
 	/**
-	 * This returns Kml.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/document.png"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,7 +92,11 @@ public class KmlItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Kml_type");
+		EnabledFeedback labelValue = ((Kml)object).getReadFeedback();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Kml_type") :
+			getString("_UI_Kml_type") + " " + label;
 	}
 	
 
@@ -132,7 +112,6 @@ public class KmlItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Kml.class)) {
-			case KmlPackage.KML__FILES:
 			case KmlPackage.KML__FEATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -150,21 +129,6 @@ public class KmlItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.KML__FILES,
-				 FileFactory.eINSTANCE.createFileLocal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.KML__FILES,
-				 FileFactory.eINSTANCE.createFileRemote()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KmlPackage.Literals.KML__FILES,
-				 FileFactory.eINSTANCE.createFileInMemory()));
 
 		newChildDescriptors.add
 			(createChildParameter

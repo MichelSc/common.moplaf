@@ -3,12 +3,12 @@
 package com.misc.common.moplaf.file.provider;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.ReadCommand;
 import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.file.FilePackage;
-import com.misc.common.moplaf.file.FileReader;
-import com.misc.common.moplaf.file.FileWriter;
+import com.misc.common.moplaf.file.FileReaderWriter;
 
 import java.util.Collection;
 import java.util.List;
@@ -177,8 +177,14 @@ public class FileItemProvider
 				this.setDescription("No container");
 				return false;
 			}
-			if ( ! (container instanceof FileWriter)) {
-				this.setDescription("The container of the File is not a Writer");
+			if ( ! (container instanceof FileReaderWriter )) {
+				this.setDescription("The container of the File is not a FileReaderWriter");
+				return false;
+			}
+			FileReaderWriter handler = (FileReaderWriter)container;
+			EnabledFeedback feedback = handler.getWriteFeedback(this.file);
+			if ( !feedback.isEnabled()) {
+				this.setDescription(feedback.getFeedback());
 				return false;
 			}
 			return true;
@@ -186,8 +192,8 @@ public class FileItemProvider
 
 		@Override
 		public void execute() {
-			FileWriter writer = (FileWriter)this.file.eContainer();
-			writer.writeFile(this.file);
+			FileReaderWriter handler = (FileReaderWriter)this.file.eContainer();
+			handler.writeFile(this.file);
 		}
 	} // class FileWriteCommand
 
@@ -207,8 +213,14 @@ public class FileItemProvider
 				this.setDescription("No container");
 				return false;
 			}
-			if ( ! (container instanceof FileReader)) {
-				this.setDescription("The container of the File is not a Reader");
+			if ( ! (container instanceof FileReaderWriter )) {
+				this.setDescription("The container of the File is not a FileReaderWriter");
+				return false;
+			}
+			FileReaderWriter handler = (FileReaderWriter)container;
+			EnabledFeedback feedback = handler.getReadFeedback(this.file);
+			if ( !feedback.isEnabled()) {
+				this.setDescription(feedback.getFeedback());
 				return false;
 			}
 			return true;
@@ -216,8 +228,8 @@ public class FileItemProvider
 
 		@Override
 		public void execute() {
-			FileReader reader = (FileReader)this.file.eContainer();
-			reader.readFile(this.file);
+			FileReaderWriter handler = (FileReaderWriter)this.file.eContainer();
+			handler.readFile(this.file);
 		}
 	} // class FileReadCommand
 

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.file.emf/src" modelPluginID="com.misc.common.moplaf.file.emf"
-    modelName="File" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    modelName="File" modelPluginClass="com.misc.common.moplaf.file.Plugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>file.ecore</foreignModel>
   <genPackages prefix="File" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="file.ecore#/">
+    <genDataTypes ecoreDataType="file.ecore#//EnabledFeedback"/>
     <genClasses ecoreClass="file.ecore#//File">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//File/Name"/>
     </genClasses>
@@ -19,14 +20,25 @@
     <genClasses image="false" ecoreClass="file.ecore#//FileInMemory">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute file.ecore#//FileInMemory/Content"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="file.ecore#//FileReader">
-      <genOperations ecoreOperation="file.ecore#//FileReader/readFile">
-        <genParameters ecoreParameter="file.ecore#//FileReader/readFile/file"/>
+    <genClasses ecoreClass="file.ecore#//FileReaderWriter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference file.ecore#//FileReaderWriter/Files"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference file.ecore#//FileReaderWriter/SelectedFile"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference file.ecore#//FileReaderWriter/HandledFile"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/ReadFeedback"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/WriteFeedback"/>
+      <genOperations ecoreOperation="file.ecore#//FileReaderWriter/getReadFeedback">
+        <genParameters ecoreParameter="file.ecore#//FileReaderWriter/getReadFeedback/file"/>
       </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="file.ecore#//FileWriter">
-      <genOperations ecoreOperation="file.ecore#//FileWriter/writeFile">
-        <genParameters ecoreParameter="file.ecore#//FileWriter/writeFile/file"/>
+      <genOperations ecoreOperation="file.ecore#//FileReaderWriter/getWriteFeedback">
+        <genParameters ecoreParameter="file.ecore#//FileReaderWriter/getWriteFeedback/file"/>
+      </genOperations>
+      <genOperations ecoreOperation="file.ecore#//FileReaderWriter/readFile"/>
+      <genOperations ecoreOperation="file.ecore#//FileReaderWriter/writeFile"/>
+      <genOperations ecoreOperation="file.ecore#//FileReaderWriter/readFile.1">
+        <genParameters ecoreParameter="file.ecore#//FileReaderWriter/readFile.1/file"/>
+      </genOperations>
+      <genOperations ecoreOperation="file.ecore#//FileReaderWriter/writeFile.1">
+        <genParameters ecoreParameter="file.ecore#//FileReaderWriter/writeFile.1/file"/>
       </genOperations>
     </genClasses>
   </genPackages>

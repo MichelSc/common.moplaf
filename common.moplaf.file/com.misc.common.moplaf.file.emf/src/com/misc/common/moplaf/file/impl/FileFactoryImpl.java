@@ -2,9 +2,11 @@
  */
 package com.misc.common.moplaf.file.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.file.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -69,6 +71,36 @@ public class FileFactoryImpl extends EFactoryImpl implements FileFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case FilePackage.ENABLED_FEEDBACK:
+				return createEnabledFeedbackFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case FilePackage.ENABLED_FEEDBACK:
+				return convertEnabledFeedbackToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FileLocal createFileLocal() {
 		FileLocalImpl fileLocal = new FileLocalImpl();
 		return fileLocal;
@@ -92,6 +124,24 @@ public class FileFactoryImpl extends EFactoryImpl implements FileFactory {
 	public FileInMemory createFileInMemory() {
 		FileInMemoryImpl fileInMemory = new FileInMemoryImpl();
 		return fileInMemory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback createEnabledFeedbackFromString(EDataType eDataType, String initialValue) {
+		return (EnabledFeedback)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnabledFeedbackToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

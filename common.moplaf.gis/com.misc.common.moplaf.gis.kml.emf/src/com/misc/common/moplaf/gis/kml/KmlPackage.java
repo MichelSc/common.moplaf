@@ -175,7 +175,43 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KML__FILES = FilePackage.FILE_READER_FEATURE_COUNT + 0;
+	int KML__FILES = FilePackage.FILE_READER_WRITER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Selected File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML__SELECTED_FILE = FilePackage.FILE_READER_WRITER__SELECTED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Handled File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML__HANDLED_FILE = FilePackage.FILE_READER_WRITER__HANDLED_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Read Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML__READ_FEEDBACK = FilePackage.FILE_READER_WRITER__READ_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Write Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML__WRITE_FEEDBACK = FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Feature</b></em>' containment reference.
@@ -184,7 +220,7 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KML__FEATURE = FilePackage.FILE_READER_FEATURE_COUNT + 1;
+	int KML__FEATURE = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Kml</em>' class.
@@ -193,7 +229,25 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KML_FEATURE_COUNT = FilePackage.FILE_READER_FEATURE_COUNT + 2;
+	int KML_FEATURE_COUNT = FilePackage.FILE_READER_WRITER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Read Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML___GET_READ_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_READ_FEEDBACK__FILE;
+
+	/**
+	 * The operation id for the '<em>Get Write Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML___GET_WRITE_FEEDBACK__FILE = FilePackage.FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -202,7 +256,34 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KML___READ_FILE__FILE = FilePackage.FILE_READER___READ_FILE__FILE;
+	int KML___READ_FILE = FilePackage.FILE_READER_WRITER___READ_FILE;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML___WRITE_FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML___READ_FILE__FILE = FilePackage.FILE_READER_WRITER___READ_FILE__FILE;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KML___WRITE_FILE__FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE__FILE;
 
 	/**
 	 * The number of operations of the '<em>Kml</em>' class.
@@ -211,7 +292,7 @@ public interface KmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KML_OPERATION_COUNT = FilePackage.FILE_READER_OPERATION_COUNT + 0;
+	int KML_OPERATION_COUNT = FilePackage.FILE_READER_WRITER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -928,17 +1009,6 @@ public interface KmlPackage extends EPackage {
 	EClass getKml();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.kml.Kml#getFiles <em>Files</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Files</em>'.
-	 * @see com.misc.common.moplaf.gis.kml.Kml#getFiles()
-	 * @see #getKml()
-	 * @generated
-	 */
-	EReference getKml_Files();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.gis.kml.Kml#getFeature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1189,14 +1259,6 @@ public interface KmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass KML = eINSTANCE.getKml();
-
-		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference KML__FILES = eINSTANCE.getKml_Files();
 
 		/**
 		 * The meta object literal for the '<em><b>Feature</b></em>' containment reference feature.

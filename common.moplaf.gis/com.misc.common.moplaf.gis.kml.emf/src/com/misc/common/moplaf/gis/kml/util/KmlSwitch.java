@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.gis.kml.util;
 
-import com.misc.common.moplaf.file.FileReader;
+import com.misc.common.moplaf.file.FileReaderWriter;
 import com.misc.common.moplaf.gis.kml.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -70,7 +70,7 @@ public class KmlSwitch<T> extends Switch<T> {
 			case KmlPackage.KML: {
 				Kml kml = (Kml)theEObject;
 				T result = caseKml(kml);
-				if (result == null) result = caseFileReader(kml);
+				if (result == null) result = caseFileReaderWriter(kml);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,6 +321,21 @@ public class KmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reader Writer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reader Writer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileReaderWriter(FileReaderWriter object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Kml</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -332,21 +347,6 @@ public class KmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseKml(Kml object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reader</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reader</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFileReader(FileReader object) {
 		return null;
 	}
 

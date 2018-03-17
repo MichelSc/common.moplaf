@@ -408,17 +408,8 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getKml_Files() {
-		return (EReference)kmlEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getKml_Feature() {
-		return (EReference)kmlEClass.getEStructuralFeatures().get(1);
+		return (EReference)kmlEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -450,7 +441,6 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		// Create classes and their features
 		kmlEClass = createEClass(KML);
-		createEReference(kmlEClass, KML__FILES);
 		createEReference(kmlEClass, KML__FEATURE);
 
 		documentEClass = createEClass(DOCUMENT);
@@ -521,7 +511,7 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		kmlEClass.getESuperTypes().add(theFilePackage.getFileReader());
+		kmlEClass.getESuperTypes().add(theFilePackage.getFileReaderWriter());
 		documentEClass.getESuperTypes().add(this.getContainer());
 		containerEClass.getESuperTypes().add(this.getFeature());
 		folderEClass.getESuperTypes().add(this.getContainer());
@@ -534,7 +524,6 @@ public class KmlPackageImpl extends EPackageImpl implements KmlPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(kmlEClass, Kml.class, "Kml", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getKml_Files(), theFilePackage.getFile(), null, "Files", null, 0, -1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getKml_Feature(), this.getFeature(), null, "Feature", null, 0, 1, Kml.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

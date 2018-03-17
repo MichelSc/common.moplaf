@@ -84,12 +84,8 @@ public class FileAdapterFactory extends AdapterFactoryImpl {
 				return createFileInMemoryAdapter();
 			}
 			@Override
-			public Adapter caseFileReader(FileReader object) {
-				return createFileReaderAdapter();
-			}
-			@Override
-			public Adapter caseFileWriter(FileWriter object) {
-				return createFileWriterAdapter();
+			public Adapter caseFileReaderWriter(FileReaderWriter object) {
+				return createFileReaderWriterAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -168,30 +164,16 @@ public class FileAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReader <em>Reader</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileReaderWriter <em>Reader Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.file.FileReader
+	 * @see com.misc.common.moplaf.file.FileReaderWriter
 	 * @generated
 	 */
-	public Adapter createFileReaderAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileWriter <em>Writer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.file.FileWriter
-	 * @generated
-	 */
-	public Adapter createFileWriterAdapter() {
+	public Adapter createFileReaderWriterAdapter() {
 		return null;
 	}
 
