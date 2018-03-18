@@ -29,18 +29,22 @@ import com.misc.common.moplaf.common.Logger.Level;
  */
 public final class Plugin extends EMFPlugin {
 	private Logger logger = new Logger("Job");
-	private boolean showMetadata = false;
 
 	public Logger getLogger(){
 		return this.logger;
 	}
 	
-	// Setter
+	private boolean showMetadata = false;
+
+	public boolean getShowMetadata(){
+		return this.showMetadata;
+	}
+
 	public void setShowMetadata(boolean showMetadata) {
 		this.showMetadata = showMetadata;
 	}
 
-
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -102,12 +106,6 @@ public final class Plugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-
-	public boolean getShowMetadata(){
-		return this.showMetadata;
-	}
-
-
 
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.

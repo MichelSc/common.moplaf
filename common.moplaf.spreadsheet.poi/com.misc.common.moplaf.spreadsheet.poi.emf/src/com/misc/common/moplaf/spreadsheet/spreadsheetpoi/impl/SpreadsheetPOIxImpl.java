@@ -77,8 +77,10 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 		try {
 			wb = new XSSFWorkbook(inputStream);
 		} catch (IOException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, exeption "+e.getMessage());
-			
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, i/o exeption "+e.getMessage());
+			return;
+		} catch (RuntimeException e) {
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, runtime exeption "+e.getMessage());
 			return;
 		}
 		Plugin.INSTANCE.logInfo("SpreadsheetPOI.readFile: sheet loaded");

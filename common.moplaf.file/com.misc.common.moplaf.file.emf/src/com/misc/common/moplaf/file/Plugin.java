@@ -16,12 +16,22 @@ import com.misc.common.moplaf.common.Logger.Level;
  * @generated
  */
 public final class Plugin extends EMFPlugin {
-	private Logger logger = new Logger("Job");
+	private Logger logger = new Logger("File");
 
 	public Logger getLogger(){
 		return this.logger;
 	}
 	
+	private boolean showMetadata = false;
+
+	public boolean getShowMetadata(){
+		return this.showMetadata;
+	}
+
+	public void setShowMetadata(boolean showMetadata) {
+		this.showMetadata = showMetadata;
+	}
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
