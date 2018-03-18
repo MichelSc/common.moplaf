@@ -192,7 +192,7 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 						to_cell.setCellValue(from_cell.getStringValue());
 						break;
 					default:
-						throw new UnsupportedOperationException();
+						// ignore the cell
 					}
 				}
 			}

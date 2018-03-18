@@ -27,7 +27,7 @@ public class CellEditorFactory {
     	final String filePathAsIs= path;
     	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, label_provider){
             	protected Object openDialogBox(Control cellEditorWindow) {
-                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.OPEN);
+                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.OPEN | SWT.SAVE);
 	                d.setFileName(filePathAsIs);
 	                //d.setFilterPath(filePathAsString);
                 String filePathToBe = d.open();  // open the dialog
