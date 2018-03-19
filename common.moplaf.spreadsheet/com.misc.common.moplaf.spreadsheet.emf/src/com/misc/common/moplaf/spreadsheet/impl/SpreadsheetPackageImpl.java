@@ -517,7 +517,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCell_BooleanValue() {
+	public EAttribute getCell_BooleanValueSet() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -639,7 +639,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEAttribute(cellEClass, CELL__CELL_TYPE);
 		createEAttribute(cellEClass, CELL__DOUBLE_VALUE);
 		createEAttribute(cellEClass, CELL__STRING_VALUE);
-		createEAttribute(cellEClass, CELL__BOOLEAN_VALUE);
+		createEAttribute(cellEClass, CELL__BOOLEAN_VALUE_SET);
 		createEAttribute(cellEClass, CELL__DATE_VALUE);
 
 		spreadsheetReaderWriterEClass = createEClass(SPREADSHEET_READER_WRITER);
@@ -746,7 +746,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEAttribute(getCell_CellType(), this.getCellType(), "CellType", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_DoubleValue(), ecorePackage.getEDouble(), "DoubleValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_StringValue(), ecorePackage.getEString(), "StringValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCell_BooleanValue(), ecorePackage.getEBoolean(), "BooleanValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_BooleanValueSet(), ecorePackage.getEBoolean(), "BooleanValueSet", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_DateValue(), ecorePackage.getEDate(), "DateValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(spreadsheetReaderWriterEClass, SpreadsheetReaderWriter.class, "SpreadsheetReaderWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -516,13 +516,13 @@ public interface SpreadsheetPackage extends EPackage {
 	int CELL__STRING_VALUE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Boolean Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Boolean Value Set</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__BOOLEAN_VALUE = 7;
+	int CELL__BOOLEAN_VALUE_SET = 7;
 
 	/**
 	 * The feature id for the '<em><b>Date Value</b></em>' attribute.
@@ -1125,15 +1125,15 @@ public interface SpreadsheetPackage extends EPackage {
 	EAttribute getCell_StringValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue <em>Boolean Value</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValueSet <em>Boolean Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Boolean Value</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue()
+	 * @return the meta object for the attribute '<em>Boolean Value Set</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Cell#isBooleanValueSet()
 	 * @see #getCell()
 	 * @generated
 	 */
-	EAttribute getCell_BooleanValue();
+	EAttribute getCell_BooleanValueSet();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#getDateValue <em>Date Value</em>}'.
@@ -1542,12 +1542,12 @@ public interface SpreadsheetPackage extends EPackage {
 		EAttribute CELL__STRING_VALUE = eINSTANCE.getCell_StringValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Boolean Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Boolean Value Set</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CELL__BOOLEAN_VALUE = eINSTANCE.getCell_BooleanValue();
+		EAttribute CELL__BOOLEAN_VALUE_SET = eINSTANCE.getCell_BooleanValueSet();
 
 		/**
 		 * The meta object literal for the '<em><b>Date Value</b></em>' attribute feature.

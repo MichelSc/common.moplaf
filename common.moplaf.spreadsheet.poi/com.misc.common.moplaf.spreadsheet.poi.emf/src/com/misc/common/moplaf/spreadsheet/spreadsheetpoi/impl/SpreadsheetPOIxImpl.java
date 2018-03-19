@@ -151,6 +151,7 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 				pocell.setCellType(pocelltype);
 				pocell.setDoubleValue(doublevalue);
 				pocell.setStringValue(stringvalue);
+				pocell.setBooleanValueSet(booleanvalue);
 				pocell.setRow(porow);
 				pocell.setColumn(pocolumn);
 				} // traverse the cells
@@ -183,8 +184,12 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 				for( Cell from_cell : from_row.getCells()){
 					XSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
 					switch ( from_cell.getCellType()) {
+					case CELL_TYPE_DATE:
+						to_cell.setCellValue(from_cell.getDateValue());
+						break;
 					case CELL_TYPE_BOOLEAN:
-						throw new UnsupportedOperationException();
+						to_cell.setCellValue(from_cell.isBooleanValueSet());
+						break;
 					case CELL_TYPE_NUMERIC:
 						to_cell.setCellValue(from_cell.getDoubleValue());
 						break;

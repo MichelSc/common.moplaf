@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getCellType <em>Cell Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getDoubleValue <em>Double Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getStringValue <em>String Value</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#isBooleanValue <em>Boolean Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#isBooleanValueSet <em>Boolean Value Set</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getDateValue <em>Date Value</em>}</li>
  * </ul>
  *
@@ -143,24 +143,24 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	protected String stringValue = STRING_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
+	 * The default value of the '{@link #isBooleanValueSet() <em>Boolean Value Set</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isBooleanValue()
+	 * @see #isBooleanValueSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean BOOLEAN_VALUE_EDEFAULT = false;
+	protected static final boolean BOOLEAN_VALUE_SET_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isBooleanValue() <em>Boolean Value</em>}' attribute.
+	 * The cached value of the '{@link #isBooleanValueSet() <em>Boolean Value Set</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isBooleanValue()
+	 * @see #isBooleanValueSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean booleanValue = BOOLEAN_VALUE_EDEFAULT;
+	protected boolean booleanValueSet = BOOLEAN_VALUE_SET_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDateValue() <em>Date Value</em>}' attribute.
@@ -389,8 +389,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isBooleanValue() {
-		return booleanValue;
+	public boolean isBooleanValueSet() {
+		return booleanValueSet;
 	}
 
 	/**
@@ -398,11 +398,11 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBooleanValue(boolean newBooleanValue) {
-		boolean oldBooleanValue = booleanValue;
-		booleanValue = newBooleanValue;
+	public void setBooleanValueSet(boolean newBooleanValueSet) {
+		boolean oldBooleanValueSet = booleanValueSet;
+		booleanValueSet = newBooleanValueSet;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.CELL__BOOLEAN_VALUE, oldBooleanValue, booleanValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.CELL__BOOLEAN_VALUE_SET, oldBooleanValueSet, booleanValueSet));
 	}
 
 	/**
@@ -510,8 +510,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 				return getDoubleValue();
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				return getStringValue();
-			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
-				return isBooleanValue();
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE_SET:
+				return isBooleanValueSet();
 			case SpreadsheetPackage.CELL__DATE_VALUE:
 				return getDateValue();
 		}
@@ -541,8 +541,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				setStringValue((String)newValue);
 				return;
-			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
-				setBooleanValue((Boolean)newValue);
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE_SET:
+				setBooleanValueSet((Boolean)newValue);
 				return;
 			case SpreadsheetPackage.CELL__DATE_VALUE:
 				setDateValue((Date)newValue);
@@ -574,8 +574,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				setStringValue(STRING_VALUE_EDEFAULT);
 				return;
-			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
-				setBooleanValue(BOOLEAN_VALUE_EDEFAULT);
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE_SET:
+				setBooleanValueSet(BOOLEAN_VALUE_SET_EDEFAULT);
 				return;
 			case SpreadsheetPackage.CELL__DATE_VALUE:
 				setDateValue(DATE_VALUE_EDEFAULT);
@@ -606,8 +606,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 				return doubleValue != DOUBLE_VALUE_EDEFAULT;
 			case SpreadsheetPackage.CELL__STRING_VALUE:
 				return STRING_VALUE_EDEFAULT == null ? stringValue != null : !STRING_VALUE_EDEFAULT.equals(stringValue);
-			case SpreadsheetPackage.CELL__BOOLEAN_VALUE:
-				return booleanValue != BOOLEAN_VALUE_EDEFAULT;
+			case SpreadsheetPackage.CELL__BOOLEAN_VALUE_SET:
+				return booleanValueSet != BOOLEAN_VALUE_SET_EDEFAULT;
 			case SpreadsheetPackage.CELL__DATE_VALUE:
 				return DATE_VALUE_EDEFAULT == null ? dateValue != null : !DATE_VALUE_EDEFAULT.equals(dateValue);
 		}
@@ -630,8 +630,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 		result.append(doubleValue);
 		result.append(", StringValue: ");
 		result.append(stringValue);
-		result.append(", BooleanValue: ");
-		result.append(booleanValue);
+		result.append(", BooleanValueSet: ");
+		result.append(booleanValueSet);
 		result.append(", DateValue: ");
 		result.append(dateValue);
 		result.append(')');

@@ -505,7 +505,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetReaderWriterImpl implements S
 							printer.print(from_cell.getStringValue());
 							break;
 						default:
-							throw new UnsupportedOperationException();
+							// ignore the value
 						}
 					}  // traverse the cells
 					printer.println();

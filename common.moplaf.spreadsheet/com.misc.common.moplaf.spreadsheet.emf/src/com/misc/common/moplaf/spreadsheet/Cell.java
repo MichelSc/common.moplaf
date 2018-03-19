@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getCellType <em>Cell Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getDoubleValue <em>Double Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getStringValue <em>String Value</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue <em>Boolean Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValueSet <em>Boolean Value Set</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getDateValue <em>Date Value</em>}</li>
  * </ul>
  *
@@ -193,30 +193,30 @@ public interface Cell extends EObject {
 	void setStringValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Boolean Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Boolean Value Set</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Boolean Value</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Boolean Value Set</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Boolean Value</em>' attribute.
-	 * @see #setBooleanValue(boolean)
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getCell_BooleanValue()
+	 * @return the value of the '<em>Boolean Value Set</em>' attribute.
+	 * @see #setBooleanValueSet(boolean)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getCell_BooleanValueSet()
 	 * @model
 	 * @generated
 	 */
-	boolean isBooleanValue();
+	boolean isBooleanValueSet();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValue <em>Boolean Value</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Cell#isBooleanValueSet <em>Boolean Value Set</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Boolean Value</em>' attribute.
-	 * @see #isBooleanValue()
+	 * @param value the new value of the '<em>Boolean Value Set</em>' attribute.
+	 * @see #isBooleanValueSet()
 	 * @generated
 	 */
-	void setBooleanValue(boolean value);
+	void setBooleanValueSet(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Date Value</b></em>' attribute.
