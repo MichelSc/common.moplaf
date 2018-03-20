@@ -141,7 +141,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetReaderWriterImpl implements S
 							break;
 						case BOOLEAN:
 							booleanvalue = cell.getBooleanCellValue();
-							pocelltype = CellType.CELL_TYPE_STRING;
+							pocelltype = CellType.CELL_TYPE_BOOLEAN;
 							break;
 						default:
 					} // switch on the type

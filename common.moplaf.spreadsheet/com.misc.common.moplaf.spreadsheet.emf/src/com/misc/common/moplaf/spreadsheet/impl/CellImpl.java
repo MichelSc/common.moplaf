@@ -314,7 +314,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 		case CELL_TYPE_NUMERIC:
 			return String.format("%f", this.getDoubleValue());
 		case CELL_TYPE_BOOLEAN:
-			return String.format("%b", this.isBooleanValue());
+			return String.format("%b", this.isBooleanValueSet());
 		case CELL_TYPE_DATE:
 			return String.format("%tc", this.getDateValue());
 		}
