@@ -154,8 +154,14 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		EObjectEList list = new EObjectEList(DistributionEvent.class, 
 							                this, 
 							                TimeContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS);
-		list.add(this.getStartEvent());
-		list.add(this.getEndEvent());
+		ProvidedEvent startEvent = this.getStartEvent();
+		if ( startEvent!=null) {
+			list.add(startEvent);
+		}
+		ProvidedEvent endEvent = this.getEndEvent();
+		if ( endEvent!=null) {
+			list.add(endEvent);
+		}
 		return list;
 	}
 

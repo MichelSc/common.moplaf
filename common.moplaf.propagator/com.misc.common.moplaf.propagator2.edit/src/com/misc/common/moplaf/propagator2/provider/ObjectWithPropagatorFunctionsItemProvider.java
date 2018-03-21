@@ -226,7 +226,7 @@ public class ObjectWithPropagatorFunctionsItemProvider
 		public void execute() {
 			this.scope.refresh();
 		}
-	} // class ProjectResetCommand
+	} // class ObjectRefreshCommand
 
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
