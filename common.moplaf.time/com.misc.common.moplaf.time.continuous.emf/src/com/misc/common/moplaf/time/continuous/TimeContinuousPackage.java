@@ -451,13 +451,22 @@ public interface TimeContinuousPackage extends EPackage {
 	int DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 24;
 
 	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 25;
+
+	/**
 	 * The number of operations of the '<em>Distribution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 25;
+	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 26;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl <em>Distribution Event</em>}' class.
@@ -8156,6 +8165,16 @@ public interface TimeContinuousPackage extends EPackage {
 	EOperation getDistribution__Accept__Date_Date_DistributionVisitor();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#refresh()
+	 * @generated
+	 */
+	EOperation getDistribution__Refresh();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.DistributionEvent <em>Distribution Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9529,6 +9548,14 @@ public interface TimeContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = eINSTANCE.getDistribution__Accept__Date_Date_DistributionVisitor();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___REFRESH = eINSTANCE.getDistribution__Refresh();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl <em>Distribution Event</em>}' class.

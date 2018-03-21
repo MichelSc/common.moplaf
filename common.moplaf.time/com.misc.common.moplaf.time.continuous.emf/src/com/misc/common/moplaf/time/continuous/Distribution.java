@@ -558,4 +558,12 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 */
 	void accept(Date from, Date to, DistributionVisitor visitor);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
+
 } // Distribution

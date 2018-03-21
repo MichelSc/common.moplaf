@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.misc.common.moplaf.time;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Util {
@@ -47,6 +48,17 @@ public class Util {
 			long millisAsFromEpoch = date.getTime()+(long)(seconds*1000.0d);
 			return new Date(millisAsFromEpoch);
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	static public Date addDays(Date date, int days) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		c.add(Calendar.DATE, days);  
+		return c.getTime();
 	}
 
 	/**

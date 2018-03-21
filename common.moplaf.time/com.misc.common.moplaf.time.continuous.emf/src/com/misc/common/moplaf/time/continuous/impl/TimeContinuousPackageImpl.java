@@ -708,6 +708,15 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDistribution__Refresh() {
+		return distributionEClass.getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDistributionEvent() {
 		return distributionEventEClass;
 	}
@@ -1668,6 +1677,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_CHILD_EVENT);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_PROVIDED_EVENTS);
 		createEOperation(distributionEClass, DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR);
+		createEOperation(distributionEClass, DISTRIBUTION___REFRESH);
 
 		distributionEventEClass = createEClass(DISTRIBUTION_EVENT);
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__MOMENT);
@@ -1972,6 +1982,8 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDistributionVisitor(), "visitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDistribution__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(distributionEventEClass, DistributionEvent.class, "DistributionEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDistributionEvent_Moment(), ecorePackage.getEDate(), "Moment", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

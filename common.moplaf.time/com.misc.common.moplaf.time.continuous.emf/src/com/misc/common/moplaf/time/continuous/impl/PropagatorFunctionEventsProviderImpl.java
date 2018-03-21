@@ -13,7 +13,6 @@
 package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
-import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
 import com.misc.common.moplaf.time.continuous.PropagatorFunctionEventsProvider;
 
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;

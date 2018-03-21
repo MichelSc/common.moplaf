@@ -1063,6 +1063,17 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refresh() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	private boolean isSequenceEvent(DistributionEvent event){
 		Date moment = event.getMoment();
 		if( moment==null ) { return false; }
@@ -1414,6 +1425,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				return null;
 			case TimeContinuousPackage.DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR:
 				accept((Date)arguments.get(0), (Date)arguments.get(1), (DistributionVisitor)arguments.get(2));
+				return null;
+			case TimeContinuousPackage.DISTRIBUTION___REFRESH:
+				refresh();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
