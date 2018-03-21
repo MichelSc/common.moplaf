@@ -13,3 +13,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.common,
  com.misc.common.moplaf.common.util
+Bundle-Activator: com.misc.common.moplaf.common.Plugin

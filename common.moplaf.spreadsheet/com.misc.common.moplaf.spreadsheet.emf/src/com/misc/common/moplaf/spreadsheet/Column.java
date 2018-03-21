@@ -139,4 +139,12 @@ public interface Column extends EObject {
 	 */
 	Cell getCell(Row row);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Cell lookUp(String value);
+
 } // Column

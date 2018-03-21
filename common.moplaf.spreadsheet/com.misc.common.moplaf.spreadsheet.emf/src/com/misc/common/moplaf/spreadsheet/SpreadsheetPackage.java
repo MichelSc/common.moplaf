@@ -352,13 +352,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW___GET_CELL__COLUMN = 1;
 
 	/**
+	 * The operation id for the '<em>Look Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW___LOOK_UP__STRING = 2;
+
+	/**
 	 * The number of operations of the '<em>Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OPERATION_COUNT = 2;
+	int ROW_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl <em>Column</em>}' class.
@@ -434,13 +443,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int COLUMN___GET_CELL__ROW = 1;
 
 	/**
+	 * The operation id for the '<em>Look Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN___LOOK_UP__STRING = 2;
+
+	/**
 	 * The number of operations of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_OPERATION_COUNT = 2;
+	int COLUMN_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl <em>Cell</em>}' class.
@@ -975,6 +993,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getRow__GetCell__Column();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#lookUp(java.lang.String) <em>Look Up</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Look Up</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Row#lookUp(java.lang.String)
+	 * @generated
+	 */
+	EOperation getRow__LookUp__String();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Column <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1047,6 +1075,16 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getColumn__GetCell__Row();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Column#lookUp(java.lang.String) <em>Look Up</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Look Up</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Column#lookUp(java.lang.String)
+	 * @generated
+	 */
+	EOperation getColumn__LookUp__String();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Cell <em>Cell</em>}'.
@@ -1426,6 +1464,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation ROW___GET_CELL__COLUMN = eINSTANCE.getRow__GetCell__Column();
 
 		/**
+		 * The meta object literal for the '<em><b>Look Up</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROW___LOOK_UP__STRING = eINSTANCE.getRow__LookUp__String();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl <em>Column</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1482,6 +1528,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COLUMN___GET_CELL__ROW = eINSTANCE.getColumn__GetCell__Row();
+
+		/**
+		 * The meta object literal for the '<em><b>Look Up</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMN___LOOK_UP__STRING = eINSTANCE.getColumn__LookUp__String();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl <em>Cell</em>}' class.

@@ -391,6 +391,15 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getRow__LookUp__String() {
+		return rowEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -447,6 +456,15 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	public EOperation getColumn__GetCell__Row() {
 		return columnEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getColumn__LookUp__String() {
+		return columnEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -622,6 +640,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEAttribute(rowEClass, ROW__ROW_INDEX);
 		createEOperation(rowEClass, ROW___GET_CELL__INT);
 		createEOperation(rowEClass, ROW___GET_CELL__COLUMN);
+		createEOperation(rowEClass, ROW___LOOK_UP__STRING);
 
 		columnEClass = createEClass(COLUMN);
 		createEReference(columnEClass, COLUMN__CELLS);
@@ -630,6 +649,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEAttribute(columnEClass, COLUMN__COLUMN_INDEX);
 		createEOperation(columnEClass, COLUMN___GET_CELL__INT);
 		createEOperation(columnEClass, COLUMN___GET_CELL__ROW);
+		createEOperation(columnEClass, COLUMN___LOOK_UP__STRING);
 
 		cellEClass = createEClass(CELL);
 		createEReference(cellEClass, CELL__ROW);
@@ -726,6 +746,9 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		op = initEOperation(getRow__GetCell__Column(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getColumn(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getRow__LookUp__String(), this.getCell(), "lookUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getColumn_Cells(), this.getCell(), this.getCell_Column(), "Cells", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_Sheet(), this.getSheet(), this.getSheet_Columns(), "Sheet", null, 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -737,6 +760,9 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 
 		op = initEOperation(getColumn__GetCell__Row(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRow(), "row", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getColumn__LookUp__String(), this.getCell(), "lookUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCell_Row(), this.getRow(), this.getRow_Cells(), "Row", null, 1, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -100,6 +100,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_K8PSXE3BEeexsos4UuDRjA"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="__emy8WzWEeS8xaqIEkJGCQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_uCaSgCz3EeiC6f1y0WFumA" type="3010" element="_uBmaMCz3EeiC6f1y0WFumA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uCaSgSz3EeiC6f1y0WFumA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uCaSgiz3EeiC6f1y0WFumA"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="__elk0mzWEeS8xaqIEkJGCQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="__elk02zWEeS8xaqIEkJGCQ"/>
           </children>
@@ -124,6 +128,10 @@
             <children xmi:type="notation:Node" xmi:id="___B_cmzWEeS8xaqIEkJGCQ" type="3010" element="__-3AUGzWEeS8xaqIEkJGCQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_K8PSX03BEeexsos4UuDRjA"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="___B_c2zWEeS8xaqIEkJGCQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_75WNICz3EeiC6f1y0WFumA" type="3010" element="_74_n0Cz3EeiC6f1y0WFumA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_75WNISz3EeiC6f1y0WFumA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_75WNIiz3EeiC6f1y0WFumA"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="___AxUmzWEeS8xaqIEkJGCQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="___AxU2zWEeS8xaqIEkJGCQ"/>
@@ -613,7 +621,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="__eO_gGzWEeS8xaqIEkJGCQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2VI9sCz3EeiC6f1y0WFumA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -645,6 +653,15 @@
         <semanticElements xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Row/getCell.1"/>
         <semanticElements xmi:type="ecore:EParameter" href="spreadsheet.ecore#//Row/getCell.1/column"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="__edpAWzWEeS8xaqIEkJGCQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_uBmaMCz3EeiC6f1y0WFumA" name="lookUp(value EString) : Cell" tooltipText="lookUp(value) : Cell">
+        <target xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Row/lookUp"/>
+        <semanticElements xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Row/lookUp"/>
+        <semanticElements xmi:type="ecore:EParameter" href="spreadsheet.ecore#//Row/lookUp/value"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_uBmaMSz3EeiC6f1y0WFumA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
@@ -699,6 +716,15 @@
         <semanticElements xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Column/getCell.1"/>
         <semanticElements xmi:type="ecore:EParameter" href="spreadsheet.ecore#//Column/getCell.1/row"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="__-3AUWzWEeS8xaqIEkJGCQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_74_n0Cz3EeiC6f1y0WFumA" name="lookUp(value EString) : Cell" tooltipText="lookUp(value) : Cell">
+        <target xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Column/lookUp"/>
+        <semanticElements xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Column/lookUp"/>
+        <semanticElements xmi:type="ecore:EParameter" href="spreadsheet.ecore#//Column/lookUp/value"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_74_n0Sz3EeiC6f1y0WFumA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

@@ -45,6 +45,9 @@
     <eOperations name="getCell" eType="#//Cell">
       <eParameters name="column" eType="#//Column"/>
     </eOperations>
+    <eOperations name="lookUp" eType="#//Cell">
+      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Cells" upperBound="-1"
         eType="#//Cell" containment="true" eOpposite="#//Cell/Row"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//Sheet"
@@ -59,6 +62,9 @@
     </eOperations>
     <eOperations name="getCell" eType="#//Cell">
       <eParameters name="row" eType="#//Row"/>
+    </eOperations>
+    <eOperations name="lookUp" eType="#//Cell">
+      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Cells" upperBound="-1"
         eType="#//Cell" eOpposite="#//Cell/Column"/>

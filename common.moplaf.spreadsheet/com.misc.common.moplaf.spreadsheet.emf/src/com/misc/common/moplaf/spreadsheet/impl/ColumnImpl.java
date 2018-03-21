@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.spreadsheet.impl;
 
 import com.misc.common.moplaf.spreadsheet.Cell;
+import com.misc.common.moplaf.spreadsheet.CellType;
 import com.misc.common.moplaf.spreadsheet.Column;
 import com.misc.common.moplaf.spreadsheet.Row;
 import com.misc.common.moplaf.spreadsheet.Sheet;
@@ -220,6 +221,21 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public Cell lookUp(String value) {
+		for ( Cell cell : this.getCells()) {
+			if ( cell.getCellType()==CellType.CELL_TYPE_STRING ){
+				if ( cell.getStringValue().equals(value)) {
+					return cell;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -362,6 +378,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				return getCell((Integer)arguments.get(0));
 			case SpreadsheetPackage.COLUMN___GET_CELL__ROW:
 				return getCell((Row)arguments.get(0));
+			case SpreadsheetPackage.COLUMN___LOOK_UP__STRING:
+				return lookUp((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -139,4 +139,12 @@ public interface Row extends EObject {
 	 */
 	Cell getCell(Column column);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Cell lookUp(String value);
+
 } // Row
