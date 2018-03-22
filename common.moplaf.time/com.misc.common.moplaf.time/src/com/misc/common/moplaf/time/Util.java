@@ -20,8 +20,6 @@ public class Util {
 	public static int MAX_SECONDS = Integer.MAX_VALUE;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public int getSeconds(Date start, Date end) {
 		int seconds = 0;
@@ -39,8 +37,6 @@ public class Util {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public Date addSeconds(Date date, double seconds) {
 		if ( seconds == 0.0d) { return date; }
@@ -51,8 +47,6 @@ public class Util {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public Date addDays(Date date, int days) {
 		Calendar c = Calendar.getInstance();
@@ -62,24 +56,18 @@ public class Util {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public Date addMinutes(Date date, double minutes) {
 		return Util.addSeconds(date,  minutes*60.0d);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public Date addHours(Date date, double hours) {
 		return Util.addMinutes(date,  hours*60.0d);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public int getSecondsIntersection(Date from1, Date to1, Date from2, Date to2) {
 		Date from = new Date(Math.max(from1.getTime(), from2.getTime()));
@@ -89,8 +77,6 @@ public class Util {
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public Date getMaxDate(Date date1, Date date2){
 		if ( date1.compareTo(date2)>=0 ){
@@ -101,8 +87,6 @@ public class Util {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	static public Date getMinDate(Date date1, Date date2){
 		if ( date1.compareTo(date2)<=0 ){
@@ -111,4 +95,16 @@ public class Util {
 			return date2;
 		}
 	}
+	
+	/**
+	 * Return the day of the week, in a range from 1 (Sunday) to 7 (Saturday)
+	 */
+	static public int getDayOfWeek(Date date){
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		return dayOfWeek;
+	}
+	
+	
 }
