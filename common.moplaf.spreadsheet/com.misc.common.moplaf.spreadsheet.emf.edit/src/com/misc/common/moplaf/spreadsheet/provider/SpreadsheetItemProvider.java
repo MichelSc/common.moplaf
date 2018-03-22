@@ -14,16 +14,21 @@ package com.misc.common.moplaf.spreadsheet.provider;
 
 
 
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
 import java.util.Collection;
 import java.util.List;
+
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -200,4 +205,33 @@ public class SpreadsheetItemProvider
 		return SpreadsheetEditPlugin.INSTANCE;
 	}
 
+	public class SpreadsheetFlushCommand extends FlushCommand{
+		private Spreadsheet spreadsheet;
+		
+		// constructor
+		public SpreadsheetFlushCommand(Spreadsheet spreadsheet)	{
+			super();
+			this.spreadsheet = spreadsheet;
+		}
+
+		@Override
+		protected boolean prepare(){
+			return true;
+		}
+
+		@Override
+		public void execute() {
+			this.spreadsheet.flush();
+		}
+	} // class FlushCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == FlushCommand.class){
+			return new SpreadsheetFlushCommand((Spreadsheet) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

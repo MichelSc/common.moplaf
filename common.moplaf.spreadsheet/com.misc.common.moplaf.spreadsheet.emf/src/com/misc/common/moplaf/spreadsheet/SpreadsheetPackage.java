@@ -134,13 +134,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int SPREADSHEET___GET_SHEET__INT = 1;
 
 	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___FLUSH = 2;
+
+	/**
 	 * The number of operations of the '<em>Spreadsheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_OPERATION_COUNT = 2;
+	int SPREADSHEET_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
@@ -270,13 +279,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET___GET_ROW__INT = 2;
 
 	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___FLUSH = 3;
+
+	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_OPERATION_COUNT = 3;
+	int SHEET_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
@@ -780,6 +798,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSpreadsheet__GetSheet__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#flush() <em>Flush</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#flush()
+	 * @generated
+	 */
+	EOperation getSpreadsheet__Flush();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Sheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +945,16 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSheet__GetRow__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#flush() <em>Flush</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#flush()
+	 * @generated
+	 */
+	EOperation getSheet__Flush();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Row <em>Row</em>}'.
@@ -1300,6 +1338,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SPREADSHEET___GET_SHEET__INT = eINSTANCE.getSpreadsheet__GetSheet__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___FLUSH = eINSTANCE.getSpreadsheet__Flush();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1404,6 +1450,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SHEET___GET_ROW__INT = eINSTANCE.getSheet__GetRow__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___FLUSH = eINSTANCE.getSheet__Flush();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.

@@ -9,6 +9,7 @@
     <eOperations name="getSheet" eType="#//Sheet">
       <eParameters name="sheetindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="flush"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" lowerBound="1"
         upperBound="-1" eType="#//Sheet" containment="true" eOpposite="#//Sheet/Spreadsheet"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -25,6 +26,7 @@
     <eOperations name="getRow" eType="#//Row">
       <eParameters name="rowindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="flush"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Rows" upperBound="-1" eType="#//Row"
         containment="true" eOpposite="#//Row/Sheet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"

@@ -14,6 +14,7 @@ package com.misc.common.moplaf.spreadsheet.provider;
 
 
 import com.misc.common.moplaf.common.Color;
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.spreadsheet.Cell;
 import com.misc.common.moplaf.spreadsheet.Column;
@@ -25,13 +26,15 @@ import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -464,7 +467,34 @@ public class SheetItemProvider
 		}
 	}
 	
-	
-	
+	public class SheetFlushCommand extends FlushCommand{
+		private Sheet sheet;
+		
+		// constructor
+		public SheetFlushCommand(Sheet sheet)	{
+			super();
+			this.sheet = sheet;
+		}
+
+		@Override
+		protected boolean prepare(){
+			return true;
+		}
+
+		@Override
+		public void execute() {
+			this.sheet.flush();
+		}
+	} // class FlushCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == FlushCommand.class){
+			return new SheetFlushCommand((Sheet) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 	
 }

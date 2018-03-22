@@ -285,4 +285,12 @@ public interface Sheet extends EObject {
 	 */
 	Row getRow(int rowindex);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
+
 } // Sheet

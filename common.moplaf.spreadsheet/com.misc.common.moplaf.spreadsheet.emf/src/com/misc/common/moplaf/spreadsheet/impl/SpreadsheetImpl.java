@@ -183,6 +183,14 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void flush() {
+		this.getSheets().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -306,6 +314,9 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 				return getSheet((String)arguments.get(0));
 			case SpreadsheetPackage.SPREADSHEET___GET_SHEET__INT:
 				return getSheet((Integer)arguments.get(0));
+			case SpreadsheetPackage.SPREADSHEET___FLUSH:
+				flush();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

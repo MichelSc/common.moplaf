@@ -112,4 +112,12 @@ public interface Spreadsheet extends EObject {
 	 */
 	Sheet getSheet(int sheetindex);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
+
 } // Spreadsheet

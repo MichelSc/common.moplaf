@@ -13,6 +13,8 @@
 package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.propagator2.impl.ObjectWithPropagatorFunctionsImpl;
+import com.misc.common.moplaf.time.continuous.AmountAbsolute;
+import com.misc.common.moplaf.time.continuous.AmountImpulsion;
 import com.misc.common.moplaf.time.continuous.ChildEvent;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
@@ -21,6 +23,8 @@ import com.misc.common.moplaf.time.continuous.EndEvent;
 import com.misc.common.moplaf.time.continuous.EventProvider;
 import com.misc.common.moplaf.time.continuous.EventsProvider;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
+import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
+import com.misc.common.moplaf.time.continuous.SlopeImpulsion;
 import com.misc.common.moplaf.time.continuous.StartEvent;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
@@ -1065,9 +1069,56 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Refresh the complete set of derived elements of this Distribution
+	 * <p>
+	 * The children of this Distribution are not refreshed. It is the responsibility
+	 * of the caller to guarantee that the children are up to date.
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
+		
+		// init
+		this.refreshInit();
+		
+		// composite events refresh
+		for ( EventsProviderAbstract composite : this.getEventsProviders()) {
+			composite.refreshEvents();
+		}
+		
+		// provided events
+		this.refreshProvidedEvents();
+		
+		// event sequence (and moments)
+		for ( DistributionEvent event : this.getProvidedEvents()) {
+			event.refreshMoment();
+		}
+		this.refreshSequence();
+		
+		// slope
+		for ( DistributionEvent event : this.getSequenceEvents()) {
+			if ( event instanceof SlopeAbsolute ) {
+				SlopeAbsolute slope_absolute = (SlopeAbsolute)event;
+				slope_absolute.refreshSlopeAbsolute();
+			} else if ( event instanceof SlopeImpulsion ) {
+				SlopeImpulsion slope_impulsion = (SlopeImpulsion)event;
+				slope_impulsion.refreshSlopeImpulsion();
+			}
+			event.refreshSlopeBefore();
+			event.refreshSlopeAfter();
+		}
+		
+		// amounts
+		for ( DistributionEvent event : this.getSequenceEvents()) {
+			if ( event instanceof AmountAbsolute ) {
+				AmountAbsolute amount_absolute = (AmountAbsolute)event;
+				amount_absolute.refreshAmountAbsolute();
+			} else if ( event instanceof AmountImpulsion ) {
+				AmountImpulsion amount_impulsion = (AmountImpulsion)event;
+				amount_impulsion.refreshAmountImpulsion();
+			}
+			event.refreshAmountBefore();
+			event.refreshAmountAfter();
+		}
 	}
 
 	private boolean isSequenceEvent(DistributionEvent event){

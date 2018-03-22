@@ -448,6 +448,15 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void flush() {
+		this.getRows().clear();
+		this.getColumns().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -653,6 +662,9 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 				return getOrCreateColumn((Integer)arguments.get(0));
 			case SpreadsheetPackage.SHEET___GET_ROW__INT:
 				return getRow((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___FLUSH:
+				flush();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
