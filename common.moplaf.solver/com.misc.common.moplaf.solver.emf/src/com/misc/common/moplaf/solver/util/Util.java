@@ -11,10 +11,17 @@
 package com.misc.common.moplaf.solver.util;
 
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
+
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.Plugin;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 
 public class Util {
@@ -171,6 +178,49 @@ public class Util {
 		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0d, 1.0d);
 		return var;
 	}
+	
+	/**
+	 * 
+	 * @param solver_factory_id
+	 * @return
+	 */
+	static public Solver constructSolver(String solver_factory_id) {
+		
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.solver.emf.solver_factory");
+		for ( IConfigurationElement element : elements){
+			// check the extension id 
+			String extension_id = element.getDeclaringExtension().getUniqueIdentifier();
+			String element_id = element.getAttribute("id");
+			String this_element_full_id = extension_id == null ? "" : extension_id;
+			if ( element_id != null ) {
+				if ( this_element_full_id.length()>0 ) {
+					this_element_full_id += ".";
+				}
+				this_element_full_id += element_id;
+			}
+			if ( this_element_full_id.contentEquals(solver_factory_id)) {
+				Object value;
+				try {
+					value = element.createExecutableExtension("class");
+				} catch (CoreException e) {
+					String message = String.format("Util.constructSolver, factory %s, creating the class, exception %s", solver_factory_id, e.getMessage());
+					Plugin.INSTANCE.logError(message);
+					return null;
+				}
+				if ( value instanceof com.misc.common.moplaf.solver.util.SolverFactory ) {
+					com.misc.common.moplaf.solver.util.SolverFactory factory = (com.misc.common.moplaf.solver.util.SolverFactory)value;
+					return factory.createSolver();
+				} else {
+					String message = String.format("Util.constructSolver, factory %s returned no SolverFactory, but a %s", solver_factory_id, value.getClass().getName());
+					Plugin.INSTANCE.logError(message);
+					return null;
+				}
+			}
+		}
+		return null;
+	}
+
 
 }
 

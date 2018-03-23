@@ -38,7 +38,7 @@ public class Util {
 				try {
 					value = element.createExecutableExtension("class");
 				} catch (CoreException e) {
-					String message = String.format("Extension %s, creating the class, execption "+e.getMessage());
+					String message = String.format("Extension %s, creating the class, exception %s", scheme_id, e.getMessage());
 					Plugin.INSTANCE.logError(message);
 					return null;
 				}

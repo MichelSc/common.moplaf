@@ -7,6 +7,7 @@
 <plugin>
 
    <extension
+         id="solver_factories"
          point="com.misc.common.moplaf.solver.emf.solver_factory">
       <factory
             class="com.misc.common.moplaf.solver.solvercplex.util.SolverFactory">
