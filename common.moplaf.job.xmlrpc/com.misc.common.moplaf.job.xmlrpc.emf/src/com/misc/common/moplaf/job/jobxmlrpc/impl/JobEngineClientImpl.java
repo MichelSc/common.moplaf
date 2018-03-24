@@ -21,7 +21,7 @@ import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
 import com.misc.common.moplaf.job.jobxmlrpc.JobXmlRpcPackage;
-import com.misc.common.moplaf.serialize.Util;
+import com.misc.common.moplaf.serialize.util.Util;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
 import java.io.StringReader;

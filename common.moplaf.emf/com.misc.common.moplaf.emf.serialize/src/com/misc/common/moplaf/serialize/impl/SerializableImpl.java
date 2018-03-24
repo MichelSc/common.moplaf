@@ -8,7 +8,7 @@ import com.misc.common.moplaf.file.Plugin;
 import com.misc.common.moplaf.file.impl.FileReaderWriterImpl;
 import com.misc.common.moplaf.serialize.Serializable;
 import com.misc.common.moplaf.serialize.SerializePackage;
-import com.misc.common.moplaf.serialize.Util;
+import com.misc.common.moplaf.serialize.util.Util;
 
 import java.io.IOException;
 import java.io.Writer;

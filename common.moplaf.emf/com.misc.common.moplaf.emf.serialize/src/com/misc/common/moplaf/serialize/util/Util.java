@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.serialize;
+package com.misc.common.moplaf.serialize.util;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.misc.common.moplaf.file.Plugin;
+import com.misc.common.moplaf.serialize.Scheme;
 
 
 public class Util {
