@@ -75,17 +75,6 @@ public class CalcDistributionInitializationItemProvider extends PropagatorFuncti
 	}
 
 	/**
-	 * This returns CalcDistributionInitialization.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcDistributionInitialization"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,8 +82,10 @@ public class CalcDistributionInitializationItemProvider extends PropagatorFuncti
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcDistributionInitialization calcDistributionInitialization = (CalcDistributionInitialization)object;
-		return getString("_UI_CalcDistributionInitialization_type") + " " + calcDistributionInitialization.isTouched();
+		String label = ((CalcDistributionInitialization)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcDistributionInitialization_type") :
+			getString("_UI_CalcDistributionInitialization_type") + " " + label;
 	}
 	
 

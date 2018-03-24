@@ -75,17 +75,6 @@ public class CalcDistributionChildEventsItemProvider extends PropagatorFunctionD
 	}
 
 	/**
-	 * This returns CalcDistributionChildEvents.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcDistributionChildEvents"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,8 +82,10 @@ public class CalcDistributionChildEventsItemProvider extends PropagatorFunctionD
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcDistributionChildEvents calcDistributionChildEvents = (CalcDistributionChildEvents)object;
-		return getString("_UI_CalcDistributionChildEvents_type") + " " + calcDistributionChildEvents.isTouched();
+		String label = ((CalcDistributionChildEvents)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcDistributionChildEvents_type") :
+			getString("_UI_CalcDistributionChildEvents_type") + " " + label;
 	}
 	
 

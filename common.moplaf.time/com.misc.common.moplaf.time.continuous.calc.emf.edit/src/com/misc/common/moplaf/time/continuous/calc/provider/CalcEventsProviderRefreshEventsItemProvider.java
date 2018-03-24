@@ -75,17 +75,6 @@ public class CalcEventsProviderRefreshEventsItemProvider extends PropagatorFunct
 	}
 
 	/**
-	 * This returns CalcEventsProviderRefreshEvents.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcEventsProviderRefreshEvents"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,8 +82,10 @@ public class CalcEventsProviderRefreshEventsItemProvider extends PropagatorFunct
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcEventsProviderRefreshEvents calcEventsProviderRefreshEvents = (CalcEventsProviderRefreshEvents)object;
-		return getString("_UI_CalcEventsProviderRefreshEvents_type") + " " + calcEventsProviderRefreshEvents.isTouched();
+		String label = ((CalcEventsProviderRefreshEvents)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcEventsProviderRefreshEvents_type") :
+			getString("_UI_CalcEventsProviderRefreshEvents_type") + " " + label;
 	}
 	
 

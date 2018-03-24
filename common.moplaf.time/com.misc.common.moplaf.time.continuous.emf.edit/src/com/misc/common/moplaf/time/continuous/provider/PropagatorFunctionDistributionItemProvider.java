@@ -80,17 +80,6 @@ public class PropagatorFunctionDistributionItemProvider extends PropagatorFuncti
 	}
 
 	/**
-	 * This returns PropagatorFunctionDistribution.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropagatorFunctionDistribution"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,8 +87,10 @@ public class PropagatorFunctionDistributionItemProvider extends PropagatorFuncti
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorFunctionDistribution propagatorFunctionDistribution = (PropagatorFunctionDistribution)object;
-		return getString("_UI_PropagatorFunctionDistribution_type") + " " + propagatorFunctionDistribution.isTouched();
+		String label = ((PropagatorFunctionDistribution)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorFunctionDistribution_type") :
+			getString("_UI_PropagatorFunctionDistribution_type") + " " + label;
 	}
 	
 

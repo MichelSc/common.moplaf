@@ -50,17 +50,6 @@ public class ScopeDistributionItemProvider extends PropagatorFunctionDistributio
 	}
 
 	/**
-	 * This returns ScopeDistribution.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ScopeDistribution"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,8 +57,10 @@ public class ScopeDistributionItemProvider extends PropagatorFunctionDistributio
 	 */
 	@Override
 	public String getText(Object object) {
-		ScopeDistribution scopeDistribution = (ScopeDistribution)object;
-		return getString("_UI_ScopeDistribution_type") + " " + scopeDistribution.isTouched();
+		String label = ((ScopeDistribution)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ScopeDistribution_type") :
+			getString("_UI_ScopeDistribution_type") + " " + label;
 	}
 	
 

@@ -46,17 +46,6 @@ public class CalcCapacityChangeEndMomentItemProvider extends CalcEventMomentItem
 	}
 
 	/**
-	 * This returns CalcCapacityChangeEndMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcCapacityChangeEndMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcCapacityChangeEndMomentItemProvider extends CalcEventMomentItem
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcCapacityChangeEndMoment calcCapacityChangeEndMoment = (CalcCapacityChangeEndMoment)object;
-		return getString("_UI_CalcCapacityChangeEndMoment_type") + " " + calcCapacityChangeEndMoment.isTouched();
+		String label = ((CalcCapacityChangeEndMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcCapacityChangeEndMoment_type") :
+			getString("_UI_CalcCapacityChangeEndMoment_type") + " " + label;
 	}
 	
 

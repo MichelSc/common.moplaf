@@ -46,17 +46,6 @@ public class CalcSlopeDeltaAtomicMomentItemProvider extends CalcEventMomentItemP
 	}
 
 	/**
-	 * This returns CalcSlopeDeltaAtomicMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcSlopeDeltaAtomicMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcSlopeDeltaAtomicMomentItemProvider extends CalcEventMomentItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcSlopeDeltaAtomicMoment calcSlopeDeltaAtomicMoment = (CalcSlopeDeltaAtomicMoment)object;
-		return getString("_UI_CalcSlopeDeltaAtomicMoment_type") + " " + calcSlopeDeltaAtomicMoment.isTouched();
+		String label = ((CalcSlopeDeltaAtomicMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcSlopeDeltaAtomicMoment_type") :
+			getString("_UI_CalcSlopeDeltaAtomicMoment_type") + " " + label;
 	}
 	
 

@@ -98,17 +98,6 @@ public class LayerDistributionAmountsItemProvider extends PropagatorFunctionDist
 	}
 
 	/**
-	 * This returns LayerDistributionAmounts.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LayerDistributionAmounts"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,8 +105,10 @@ public class LayerDistributionAmountsItemProvider extends PropagatorFunctionDist
 	 */
 	@Override
 	public String getText(Object object) {
-		LayerDistributionAmounts layerDistributionAmounts = (LayerDistributionAmounts)object;
-		return getString("_UI_LayerDistributionAmounts_type") + " " + layerDistributionAmounts.isTouched();
+		String label = ((LayerDistributionAmounts)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LayerDistributionAmounts_type") :
+			getString("_UI_LayerDistributionAmounts_type") + " " + label;
 	}
 	
 

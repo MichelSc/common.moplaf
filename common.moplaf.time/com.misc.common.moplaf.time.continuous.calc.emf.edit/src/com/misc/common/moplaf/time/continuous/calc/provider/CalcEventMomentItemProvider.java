@@ -75,17 +75,6 @@ public class CalcEventMomentItemProvider extends PropagatorFunctionDistributionE
 	}
 
 	/**
-	 * This returns CalcEventMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcEventMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,8 +82,10 @@ public class CalcEventMomentItemProvider extends PropagatorFunctionDistributionE
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcEventMoment calcEventMoment = (CalcEventMoment)object;
-		return getString("_UI_CalcEventMoment_type") + " " + calcEventMoment.isTouched();
+		String label = ((CalcEventMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcEventMoment_type") :
+			getString("_UI_CalcEventMoment_type") + " " + label;
 	}
 	
 

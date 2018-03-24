@@ -46,17 +46,6 @@ public class CalcChildEventMomentItemProvider extends CalcEventMomentItemProvide
 	}
 
 	/**
-	 * This returns CalcChildEventMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcChildEventMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcChildEventMomentItemProvider extends CalcEventMomentItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcChildEventMoment calcChildEventMoment = (CalcChildEventMoment)object;
-		return getString("_UI_CalcChildEventMoment_type") + " " + calcChildEventMoment.isTouched();
+		String label = ((CalcChildEventMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcChildEventMoment_type") :
+			getString("_UI_CalcChildEventMoment_type") + " " + label;
 	}
 	
 

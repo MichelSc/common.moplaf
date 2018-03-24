@@ -46,17 +46,6 @@ public class CalcEventSlopeAfterItemProvider extends CalcEventSlopeItemProvider 
 	}
 
 	/**
-	 * This returns CalcEventSlopeAfter.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcEventSlopeAfter"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcEventSlopeAfterItemProvider extends CalcEventSlopeItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcEventSlopeAfter calcEventSlopeAfter = (CalcEventSlopeAfter)object;
-		return getString("_UI_CalcEventSlopeAfter_type") + " " + calcEventSlopeAfter.isTouched();
+		String label = ((CalcEventSlopeAfter)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcEventSlopeAfter_type") :
+			getString("_UI_CalcEventSlopeAfter_type") + " " + label;
 	}
 	
 

@@ -80,17 +80,6 @@ public class PropagatorFunctionEventsProviderItemProvider extends PropagatorFunc
 	}
 
 	/**
-	 * This returns PropagatorFunctionEventsProvider.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropagatorFunctionEventsProvider"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,8 +87,10 @@ public class PropagatorFunctionEventsProviderItemProvider extends PropagatorFunc
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorFunctionEventsProvider propagatorFunctionEventsProvider = (PropagatorFunctionEventsProvider)object;
-		return getString("_UI_PropagatorFunctionEventsProvider_type") + " " + propagatorFunctionEventsProvider.isTouched();
+		String label = ((PropagatorFunctionEventsProvider)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorFunctionEventsProvider_type") :
+			getString("_UI_PropagatorFunctionEventsProvider_type") + " " + label;
 	}
 	
 

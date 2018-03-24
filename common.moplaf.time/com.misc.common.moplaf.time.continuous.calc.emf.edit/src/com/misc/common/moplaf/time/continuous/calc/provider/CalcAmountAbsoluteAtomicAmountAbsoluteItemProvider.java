@@ -46,17 +46,6 @@ public class CalcAmountAbsoluteAtomicAmountAbsoluteItemProvider extends CalcAmou
 	}
 
 	/**
-	 * This returns CalcAmountAbsoluteAtomicAmountAbsolute.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcAmountAbsoluteAtomicAmountAbsolute"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcAmountAbsoluteAtomicAmountAbsoluteItemProvider extends CalcAmou
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcAmountAbsoluteAtomicAmountAbsolute calcAmountAbsoluteAtomicAmountAbsolute = (CalcAmountAbsoluteAtomicAmountAbsolute)object;
-		return getString("_UI_CalcAmountAbsoluteAtomicAmountAbsolute_type") + " " + calcAmountAbsoluteAtomicAmountAbsolute.isTouched();
+		String label = ((CalcAmountAbsoluteAtomicAmountAbsolute)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcAmountAbsoluteAtomicAmountAbsolute_type") :
+			getString("_UI_CalcAmountAbsoluteAtomicAmountAbsolute_type") + " " + label;
 	}
 	
 

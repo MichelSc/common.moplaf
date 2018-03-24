@@ -46,17 +46,6 @@ public class CalcSlopeAbsoluteAtomicMomentItemProvider extends CalcEventMomentIt
 	}
 
 	/**
-	 * This returns CalcSlopeAbsoluteAtomicMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcSlopeAbsoluteAtomicMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcSlopeAbsoluteAtomicMomentItemProvider extends CalcEventMomentIt
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcSlopeAbsoluteAtomicMoment calcSlopeAbsoluteAtomicMoment = (CalcSlopeAbsoluteAtomicMoment)object;
-		return getString("_UI_CalcSlopeAbsoluteAtomicMoment_type") + " " + calcSlopeAbsoluteAtomicMoment.isTouched();
+		String label = ((CalcSlopeAbsoluteAtomicMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcSlopeAbsoluteAtomicMoment_type") :
+			getString("_UI_CalcSlopeAbsoluteAtomicMoment_type") + " " + label;
 	}
 	
 

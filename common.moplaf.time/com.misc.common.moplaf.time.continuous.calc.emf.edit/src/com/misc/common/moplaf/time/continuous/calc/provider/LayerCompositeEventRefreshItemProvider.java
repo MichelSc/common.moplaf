@@ -98,17 +98,6 @@ public class LayerCompositeEventRefreshItemProvider extends PropagatorFunctionDi
 	}
 
 	/**
-	 * This returns LayerCompositeEventRefresh.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LayerCompositeEventRefresh"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,8 +105,10 @@ public class LayerCompositeEventRefreshItemProvider extends PropagatorFunctionDi
 	 */
 	@Override
 	public String getText(Object object) {
-		LayerCompositeEventRefresh layerCompositeEventRefresh = (LayerCompositeEventRefresh)object;
-		return getString("_UI_LayerCompositeEventRefresh_type") + " " + layerCompositeEventRefresh.isTouched();
+		String label = ((LayerCompositeEventRefresh)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LayerCompositeEventRefresh_type") :
+			getString("_UI_LayerCompositeEventRefresh_type") + " " + label;
 	}
 	
 

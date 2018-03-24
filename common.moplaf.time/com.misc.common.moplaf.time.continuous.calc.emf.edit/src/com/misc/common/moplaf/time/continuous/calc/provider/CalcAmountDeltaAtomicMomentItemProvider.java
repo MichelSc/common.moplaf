@@ -46,17 +46,6 @@ public class CalcAmountDeltaAtomicMomentItemProvider extends CalcEventMomentItem
 	}
 
 	/**
-	 * This returns CalcAmountDeltaAtomicMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcAmountDeltaAtomicMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcAmountDeltaAtomicMomentItemProvider extends CalcEventMomentItem
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcAmountDeltaAtomicMoment calcAmountDeltaAtomicMoment = (CalcAmountDeltaAtomicMoment)object;
-		return getString("_UI_CalcAmountDeltaAtomicMoment_type") + " " + calcAmountDeltaAtomicMoment.isTouched();
+		String label = ((CalcAmountDeltaAtomicMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcAmountDeltaAtomicMoment_type") :
+			getString("_UI_CalcAmountDeltaAtomicMoment_type") + " " + label;
 	}
 	
 

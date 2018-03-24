@@ -46,17 +46,6 @@ public class CalcAmountDeltaAmountDeltaItemProvider extends CalcEventAmountItemP
 	}
 
 	/**
-	 * This returns CalcAmountDeltaAmountDelta.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcAmountDeltaAmountDelta"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcAmountDeltaAmountDeltaItemProvider extends CalcEventAmountItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcAmountDeltaAmountDelta calcAmountDeltaAmountDelta = (CalcAmountDeltaAmountDelta)object;
-		return getString("_UI_CalcAmountDeltaAmountDelta_type") + " " + calcAmountDeltaAmountDelta.isTouched();
+		String label = ((CalcAmountDeltaAmountDelta)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcAmountDeltaAmountDelta_type") :
+			getString("_UI_CalcAmountDeltaAmountDelta_type") + " " + label;
 	}
 	
 

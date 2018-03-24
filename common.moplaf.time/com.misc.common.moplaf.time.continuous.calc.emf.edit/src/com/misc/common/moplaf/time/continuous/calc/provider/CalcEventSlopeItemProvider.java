@@ -75,17 +75,6 @@ public class CalcEventSlopeItemProvider extends PropagatorFunctionDistributionEv
 	}
 
 	/**
-	 * This returns CalcEventSlope.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcEventSlope"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,8 +82,10 @@ public class CalcEventSlopeItemProvider extends PropagatorFunctionDistributionEv
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcEventSlope calcEventSlope = (CalcEventSlope)object;
-		return getString("_UI_CalcEventSlope_type") + " " + calcEventSlope.isTouched();
+		String label = ((CalcEventSlope)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcEventSlope_type") :
+			getString("_UI_CalcEventSlope_type") + " " + label;
 	}
 	
 

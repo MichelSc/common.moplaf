@@ -98,17 +98,6 @@ public class LayerDistributionSlopesItemProvider extends PropagatorFunctionDistr
 	}
 
 	/**
-	 * This returns LayerDistributionSlopes.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LayerDistributionSlopes"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,8 +105,10 @@ public class LayerDistributionSlopesItemProvider extends PropagatorFunctionDistr
 	 */
 	@Override
 	public String getText(Object object) {
-		LayerDistributionSlopes layerDistributionSlopes = (LayerDistributionSlopes)object;
-		return getString("_UI_LayerDistributionSlopes_type") + " " + layerDistributionSlopes.isTouched();
+		String label = ((LayerDistributionSlopes)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LayerDistributionSlopes_type") :
+			getString("_UI_LayerDistributionSlopes_type") + " " + label;
 	}
 	
 

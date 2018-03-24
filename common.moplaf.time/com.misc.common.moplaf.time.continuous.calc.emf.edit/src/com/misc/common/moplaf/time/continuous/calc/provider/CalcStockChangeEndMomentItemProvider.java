@@ -46,17 +46,6 @@ public class CalcStockChangeEndMomentItemProvider extends CalcEventMomentItemPro
 	}
 
 	/**
-	 * This returns CalcStockChangeEndMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcStockChangeEndMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcStockChangeEndMomentItemProvider extends CalcEventMomentItemPro
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcStockChangeEndMoment calcStockChangeEndMoment = (CalcStockChangeEndMoment)object;
-		return getString("_UI_CalcStockChangeEndMoment_type") + " " + calcStockChangeEndMoment.isTouched();
+		String label = ((CalcStockChangeEndMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcStockChangeEndMoment_type") :
+			getString("_UI_CalcStockChangeEndMoment_type") + " " + label;
 	}
 	
 

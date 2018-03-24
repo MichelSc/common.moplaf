@@ -46,17 +46,6 @@ public class CalcStockChangeEndSlopeDeltaItemProvider extends CalcSlopeDeltaSlop
 	}
 
 	/**
-	 * This returns CalcStockChangeEndSlopeDelta.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcStockChangeEndSlopeDelta"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcStockChangeEndSlopeDeltaItemProvider extends CalcSlopeDeltaSlop
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcStockChangeEndSlopeDelta calcStockChangeEndSlopeDelta = (CalcStockChangeEndSlopeDelta)object;
-		return getString("_UI_CalcStockChangeEndSlopeDelta_type") + " " + calcStockChangeEndSlopeDelta.isTouched();
+		String label = ((CalcStockChangeEndSlopeDelta)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcStockChangeEndSlopeDelta_type") :
+			getString("_UI_CalcStockChangeEndSlopeDelta_type") + " " + label;
 	}
 	
 

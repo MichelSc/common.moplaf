@@ -46,17 +46,6 @@ public class CalcSlopeDeltaSlopeDeltaItemProvider extends CalcEventSlopeItemProv
 	}
 
 	/**
-	 * This returns CalcSlopeDeltaSlopeDelta.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcSlopeDeltaSlopeDelta"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcSlopeDeltaSlopeDeltaItemProvider extends CalcEventSlopeItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcSlopeDeltaSlopeDelta calcSlopeDeltaSlopeDelta = (CalcSlopeDeltaSlopeDelta)object;
-		return getString("_UI_CalcSlopeDeltaSlopeDelta_type") + " " + calcSlopeDeltaSlopeDelta.isTouched();
+		String label = ((CalcSlopeDeltaSlopeDelta)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcSlopeDeltaSlopeDelta_type") :
+			getString("_UI_CalcSlopeDeltaSlopeDelta_type") + " " + label;
 	}
 	
 

@@ -46,17 +46,6 @@ public class CalcCapacityChangeStartAmountDeltaItemProvider extends CalcAmountDe
 	}
 
 	/**
-	 * This returns CalcCapacityChangeStartAmountDelta.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcCapacityChangeStartAmountDelta"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcCapacityChangeStartAmountDeltaItemProvider extends CalcAmountDe
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcCapacityChangeStartAmountDelta calcCapacityChangeStartAmountDelta = (CalcCapacityChangeStartAmountDelta)object;
-		return getString("_UI_CalcCapacityChangeStartAmountDelta_type") + " " + calcCapacityChangeStartAmountDelta.isTouched();
+		String label = ((CalcCapacityChangeStartAmountDelta)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcCapacityChangeStartAmountDelta_type") :
+			getString("_UI_CalcCapacityChangeStartAmountDelta_type") + " " + label;
 	}
 	
 

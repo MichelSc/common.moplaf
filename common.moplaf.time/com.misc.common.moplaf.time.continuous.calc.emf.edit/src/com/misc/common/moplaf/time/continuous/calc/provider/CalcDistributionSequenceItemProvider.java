@@ -98,17 +98,6 @@ public class CalcDistributionSequenceItemProvider extends PropagatorFunctionDist
 	}
 
 	/**
-	 * This returns CalcDistributionSequence.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcDistributionSequence"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,8 +105,10 @@ public class CalcDistributionSequenceItemProvider extends PropagatorFunctionDist
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcDistributionSequence calcDistributionSequence = (CalcDistributionSequence)object;
-		return getString("_UI_CalcDistributionSequence_type") + " " + calcDistributionSequence.isTouched();
+		String label = ((CalcDistributionSequence)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcDistributionSequence_type") :
+			getString("_UI_CalcDistributionSequence_type") + " " + label;
 	}
 	
 

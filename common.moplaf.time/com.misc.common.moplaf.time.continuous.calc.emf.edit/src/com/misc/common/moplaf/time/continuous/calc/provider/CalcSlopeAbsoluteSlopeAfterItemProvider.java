@@ -46,17 +46,6 @@ public class CalcSlopeAbsoluteSlopeAfterItemProvider extends CalcEventSlopeAfter
 	}
 
 	/**
-	 * This returns CalcSlopeAbsoluteSlopeAfter.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcSlopeAbsoluteSlopeAfter"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcSlopeAbsoluteSlopeAfterItemProvider extends CalcEventSlopeAfter
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcSlopeAbsoluteSlopeAfter calcSlopeAbsoluteSlopeAfter = (CalcSlopeAbsoluteSlopeAfter)object;
-		return getString("_UI_CalcSlopeAbsoluteSlopeAfter_type") + " " + calcSlopeAbsoluteSlopeAfter.isTouched();
+		String label = ((CalcSlopeAbsoluteSlopeAfter)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcSlopeAbsoluteSlopeAfter_type") :
+			getString("_UI_CalcSlopeAbsoluteSlopeAfter_type") + " " + label;
 	}
 	
 

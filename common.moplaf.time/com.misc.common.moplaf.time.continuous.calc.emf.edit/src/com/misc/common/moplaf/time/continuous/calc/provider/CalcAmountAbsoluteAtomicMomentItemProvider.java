@@ -46,17 +46,6 @@ public class CalcAmountAbsoluteAtomicMomentItemProvider extends CalcEventMomentI
 	}
 
 	/**
-	 * This returns CalcAmountAbsoluteAtomicMoment.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcAmountAbsoluteAtomicMoment"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcAmountAbsoluteAtomicMomentItemProvider extends CalcEventMomentI
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcAmountAbsoluteAtomicMoment calcAmountAbsoluteAtomicMoment = (CalcAmountAbsoluteAtomicMoment)object;
-		return getString("_UI_CalcAmountAbsoluteAtomicMoment_type") + " " + calcAmountAbsoluteAtomicMoment.isTouched();
+		String label = ((CalcAmountAbsoluteAtomicMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcAmountAbsoluteAtomicMoment_type") :
+			getString("_UI_CalcAmountAbsoluteAtomicMoment_type") + " " + label;
 	}
 	
 

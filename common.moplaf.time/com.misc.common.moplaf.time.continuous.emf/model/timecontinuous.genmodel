@@ -256,15 +256,19 @@
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//ProvidedEvent" labelFeature="#//continuous/DistributionEvent/Description">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//ProvidedEvent/EventProvider"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistribution"
+        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//PropagatorFunctionDistribution/Distribution"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistributionEvent">
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistributionEvent"
+        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//PropagatorFunctionDistributionEvent/DistributionEvent"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionEventsProvider">
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//PropagatorFunctionEventsProvider"
+        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//PropagatorFunctionEventsProvider/EventsProvider"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistributionAbstract"/>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistributionAbstract"
+        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
   </genPackages>
 </genmodel:GenModel>

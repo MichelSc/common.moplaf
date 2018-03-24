@@ -46,17 +46,6 @@ public class CalcAmountAbsoluteAmountAfterItemProvider extends CalcEventAmountAf
 	}
 
 	/**
-	 * This returns CalcAmountAbsoluteAmountAfter.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CalcAmountAbsoluteAmountAfter"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,8 +53,10 @@ public class CalcAmountAbsoluteAmountAfterItemProvider extends CalcEventAmountAf
 	 */
 	@Override
 	public String getText(Object object) {
-		CalcAmountAbsoluteAmountAfter calcAmountAbsoluteAmountAfter = (CalcAmountAbsoluteAmountAfter)object;
-		return getString("_UI_CalcAmountAbsoluteAmountAfter_type") + " " + calcAmountAbsoluteAmountAfter.isTouched();
+		String label = ((CalcAmountAbsoluteAmountAfter)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalcAmountAbsoluteAmountAfter_type") :
+			getString("_UI_CalcAmountAbsoluteAmountAfter_type") + " " + label;
 	}
 	
 
