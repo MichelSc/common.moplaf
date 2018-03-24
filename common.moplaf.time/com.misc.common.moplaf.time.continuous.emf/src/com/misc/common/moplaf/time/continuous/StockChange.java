@@ -100,12 +100,12 @@ public interface StockChange extends EventsProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope</em>' attribute.
-	 * @see #setSlope(float)
+	 * @see #setSlope(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChange_Slope()
 	 * @model
 	 * @generated
 	 */
-	float getSlope();
+	double getSlope();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StockChange#getSlope <em>Slope</em>}' attribute.
@@ -115,7 +115,7 @@ public interface StockChange extends EventsProvider {
 	 * @see #getSlope()
 	 * @generated
 	 */
-	void setSlope(float value);
+	void setSlope(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Start Event</b></em>' containment reference.

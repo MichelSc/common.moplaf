@@ -121,6 +121,7 @@
         <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/accept/to"/>
         <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/accept/visitor"/>
       </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refresh"/>
     </genClasses>
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//DistributionEvent"
         labelFeature="#//continuous/DistributionEvent/Description">
@@ -166,14 +167,13 @@
       <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StartEvent/SlopeAtStart"/>
     </genClasses>
     <genClasses ecoreClass="timecontinuous.ecore#//EndEvent" labelFeature="#//continuous/DistributionEvent/Description"/>
-    <genClasses image="false" ecoreClass="timecontinuous.ecore#//AmountImpulsion"
-        labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountImpulsion/AmountImpulsion"/>
-      <genOperations ecoreOperation="timecontinuous.ecore#//AmountImpulsion/refreshAmountImpulsion"/>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//AmountDelta">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountDelta/AmountDelta"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//AmountDelta/refreshAmountDelta"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="timecontinuous.ecore#//SlopeImpulsion" labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeImpulsion/SlopeImpulsion"/>
-      <genOperations ecoreOperation="timecontinuous.ecore#//SlopeImpulsion/refreshSlopeImpulsion"/>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//SlopeDelta">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeDelta/SlopeDelta"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//SlopeDelta/refreshSlopeDelta"/>
     </genClasses>
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//AmountAbsolute" labelFeature="#//continuous/DistributionEvent/Description">
       <genFeatures createChild="false" propertyCategory="10 Distribution" propertyDescription=""
@@ -197,11 +197,11 @@
     <genClasses ecoreClass="timecontinuous.ecore#//StockChangeEnd" labelFeature="#//continuous/DistributionEvent/Description">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//StockChangeEnd/Provider"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//AmountImpulsionAtomic" labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountImpulsionAtomic/Provider"/>
+    <genClasses ecoreClass="timecontinuous.ecore#//AmountDeltaAtomic">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountDeltaAtomic/Provider"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//SlopeImpulsionAtomic" labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeImpulsionAtomic/Provider"/>
+    <genClasses ecoreClass="timecontinuous.ecore#//SlopeDeltaAtomic">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeDeltaAtomic/Provider"/>
     </genClasses>
     <genClasses ecoreClass="timecontinuous.ecore#//AmountAbsoluteAtomic" labelFeature="#//continuous/DistributionEvent/Description">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountAbsoluteAtomic/Provider"/>
@@ -236,17 +236,17 @@
           ecoreFeature="ecore:EReference timecontinuous.ecore#//EventProvider/ProvidedEvent"/>
       <genFeatures createChild="false" propertyCategory="10 Provider" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//EventProvider/Moment"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//SlopeImpulsionProvider">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeImpulsionProvider/Event"/>
-      <genFeatures createChild="false" propertyCategory="10 Provider" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeImpulsionProvider/SlopeImpulsion"/>
+    <genClasses ecoreClass="timecontinuous.ecore#//SlopeDeltaProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeDeltaProvider/Event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeDeltaProvider/SlopeDelta"/>
     </genClasses>
     <genClasses ecoreClass="timecontinuous.ecore#//SlopeAbsoluteProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeAbsoluteProvider/Event"/>
       <genFeatures createChild="false" propertyCategory="10 Provider" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeAbsoluteProvider/SlopeAbsolute"/>
     </genClasses>
-    <genClasses ecoreClass="timecontinuous.ecore#//AmountImpulsionProvider">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountImpulsionProvider/Event"/>
-      <genFeatures createChild="false" propertyCategory="10 Provider" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountImpulsionProvider/AmountImpulsion"/>
+    <genClasses ecoreClass="timecontinuous.ecore#//AmountDeltaProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountDeltaProvider/Event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountDeltaProvider/AmountDelta"/>
     </genClasses>
     <genClasses ecoreClass="timecontinuous.ecore#//AmountAbsoluteProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountAbsoluteProvider/Event"/>

@@ -161,12 +161,12 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Before</em>' attribute.
-	 * @see #setAmountBefore(float)
+	 * @see #setAmountBefore(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_AmountBefore()
 	 * @model
 	 * @generated
 	 */
-	float getAmountBefore();
+	double getAmountBefore();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getAmountBefore <em>Amount Before</em>}' attribute.
@@ -176,7 +176,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * @see #getAmountBefore()
 	 * @generated
 	 */
-	void setAmountBefore(float value);
+	void setAmountBefore(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Amount After</b></em>' attribute.
@@ -187,12 +187,12 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount After</em>' attribute.
-	 * @see #setAmountAfter(float)
+	 * @see #setAmountAfter(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_AmountAfter()
 	 * @model
 	 * @generated
 	 */
-	float getAmountAfter();
+	double getAmountAfter();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getAmountAfter <em>Amount After</em>}' attribute.
@@ -202,7 +202,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * @see #getAmountAfter()
 	 * @generated
 	 */
-	void setAmountAfter(float value);
+	void setAmountAfter(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Slope Before</b></em>' attribute.
@@ -213,12 +213,12 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope Before</em>' attribute.
-	 * @see #setSlopeBefore(float)
+	 * @see #setSlopeBefore(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_SlopeBefore()
 	 * @model
 	 * @generated
 	 */
-	float getSlopeBefore();
+	double getSlopeBefore();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeBefore <em>Slope Before</em>}' attribute.
@@ -228,7 +228,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * @see #getSlopeBefore()
 	 * @generated
 	 */
-	void setSlopeBefore(float value);
+	void setSlopeBefore(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Slope After</b></em>' attribute.
@@ -239,12 +239,12 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope After</em>' attribute.
-	 * @see #setSlopeAfter(float)
+	 * @see #setSlopeAfter(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_SlopeAfter()
 	 * @model
 	 * @generated
 	 */
-	float getSlopeAfter();
+	double getSlopeAfter();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeAfter <em>Slope After</em>}' attribute.
@@ -254,7 +254,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * @see #getSlopeAfter()
 	 * @generated
 	 */
-	void setSlopeAfter(float value);
+	void setSlopeAfter(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -349,7 +349,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getAmountBefore(Date moment);
+	double getAmountBefore(Date moment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -357,7 +357,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getAmountAfter(Date moment);
+	double getAmountAfter(Date moment);
 
 	/**
 	 * <!-- begin-user-doc -->

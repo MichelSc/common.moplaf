@@ -82,1084 +82,1084 @@ public class TimeContinuousCalcItemProviderAdapterFactory extends TimeContinuous
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.ScopeDistribution} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorScopeDistributionItemProvider propagatorScopeDistributionItemProvider;
+	protected ScopeDistributionItemProvider scopeDistributionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.ScopeDistribution}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorScopeDistributionAdapter() {
-		if (propagatorScopeDistributionItemProvider == null) {
-			propagatorScopeDistributionItemProvider = new PropagatorScopeDistributionItemProvider(this);
+	public Adapter createScopeDistributionAdapter() {
+		if (scopeDistributionItemProvider == null) {
+			scopeDistributionItemProvider = new ScopeDistributionItemProvider(this);
 		}
 
-		return propagatorScopeDistributionItemProvider;
+		return scopeDistributionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionInitialization} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcDistributionInitializationItemProvider propagatorCalcDistributionInitializationItemProvider;
+	protected CalcDistributionInitializationItemProvider calcDistributionInitializationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionInitialization}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcDistributionInitializationAdapter() {
-		if (propagatorCalcDistributionInitializationItemProvider == null) {
-			propagatorCalcDistributionInitializationItemProvider = new PropagatorCalcDistributionInitializationItemProvider(this);
+	public Adapter createCalcDistributionInitializationAdapter() {
+		if (calcDistributionInitializationItemProvider == null) {
+			calcDistributionInitializationItemProvider = new CalcDistributionInitializationItemProvider(this);
 		}
 
-		return propagatorCalcDistributionInitializationItemProvider;
+		return calcDistributionInitializationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.LayerCompositeEventRefresh} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorLayerCompositeEventRefreshItemProvider propagatorLayerCompositeEventRefreshItemProvider;
+	protected LayerCompositeEventRefreshItemProvider layerCompositeEventRefreshItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.LayerCompositeEventRefresh}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorLayerCompositeEventRefreshAdapter() {
-		if (propagatorLayerCompositeEventRefreshItemProvider == null) {
-			propagatorLayerCompositeEventRefreshItemProvider = new PropagatorLayerCompositeEventRefreshItemProvider(this);
+	public Adapter createLayerCompositeEventRefreshAdapter() {
+		if (layerCompositeEventRefreshItemProvider == null) {
+			layerCompositeEventRefreshItemProvider = new LayerCompositeEventRefreshItemProvider(this);
 		}
 
-		return propagatorLayerCompositeEventRefreshItemProvider;
+		return layerCompositeEventRefreshItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionChildEvents} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcDistributionChildEventsItemProvider propagatorCalcDistributionChildEventsItemProvider;
+	protected CalcDistributionChildEventsItemProvider calcDistributionChildEventsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionChildEvents}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcDistributionChildEventsAdapter() {
-		if (propagatorCalcDistributionChildEventsItemProvider == null) {
-			propagatorCalcDistributionChildEventsItemProvider = new PropagatorCalcDistributionChildEventsItemProvider(this);
+	public Adapter createCalcDistributionChildEventsAdapter() {
+		if (calcDistributionChildEventsItemProvider == null) {
+			calcDistributionChildEventsItemProvider = new CalcDistributionChildEventsItemProvider(this);
 		}
 
-		return propagatorCalcDistributionChildEventsItemProvider;
+		return calcDistributionChildEventsItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionProvidedEvents} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcDistributionProvidedEventsItemProvider propagatorCalcDistributionProvidedEventsItemProvider;
+	protected CalcDistributionProvidedEventsItemProvider calcDistributionProvidedEventsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionProvidedEvents}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcDistributionProvidedEventsAdapter() {
-		if (propagatorCalcDistributionProvidedEventsItemProvider == null) {
-			propagatorCalcDistributionProvidedEventsItemProvider = new PropagatorCalcDistributionProvidedEventsItemProvider(this);
+	public Adapter createCalcDistributionProvidedEventsAdapter() {
+		if (calcDistributionProvidedEventsItemProvider == null) {
+			calcDistributionProvidedEventsItemProvider = new CalcDistributionProvidedEventsItemProvider(this);
 		}
 
-		return propagatorCalcDistributionProvidedEventsItemProvider;
+		return calcDistributionProvidedEventsItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionSequence} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcDistributionSequenceItemProvider propagatorCalcDistributionSequenceItemProvider;
+	protected CalcDistributionSequenceItemProvider calcDistributionSequenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionSequence}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcDistributionSequenceAdapter() {
-		if (propagatorCalcDistributionSequenceItemProvider == null) {
-			propagatorCalcDistributionSequenceItemProvider = new PropagatorCalcDistributionSequenceItemProvider(this);
+	public Adapter createCalcDistributionSequenceAdapter() {
+		if (calcDistributionSequenceItemProvider == null) {
+			calcDistributionSequenceItemProvider = new CalcDistributionSequenceItemProvider(this);
 		}
 
-		return propagatorCalcDistributionSequenceItemProvider;
+		return calcDistributionSequenceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.LayerDistributionSlopes} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorLayerDistributionSlopesItemProvider propagatorLayerDistributionSlopesItemProvider;
+	protected LayerDistributionSlopesItemProvider layerDistributionSlopesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.LayerDistributionSlopes}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorLayerDistributionSlopesAdapter() {
-		if (propagatorLayerDistributionSlopesItemProvider == null) {
-			propagatorLayerDistributionSlopesItemProvider = new PropagatorLayerDistributionSlopesItemProvider(this);
+	public Adapter createLayerDistributionSlopesAdapter() {
+		if (layerDistributionSlopesItemProvider == null) {
+			layerDistributionSlopesItemProvider = new LayerDistributionSlopesItemProvider(this);
 		}
 
-		return propagatorLayerDistributionSlopesItemProvider;
+		return layerDistributionSlopesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.LayerDistributionAmounts} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorLayerDistributionAmountsItemProvider propagatorLayerDistributionAmountsItemProvider;
+	protected LayerDistributionAmountsItemProvider layerDistributionAmountsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.LayerDistributionAmounts}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorLayerDistributionAmountsAdapter() {
-		if (propagatorLayerDistributionAmountsItemProvider == null) {
-			propagatorLayerDistributionAmountsItemProvider = new PropagatorLayerDistributionAmountsItemProvider(this);
+	public Adapter createLayerDistributionAmountsAdapter() {
+		if (layerDistributionAmountsItemProvider == null) {
+			layerDistributionAmountsItemProvider = new LayerDistributionAmountsItemProvider(this);
 		}
 
-		return propagatorLayerDistributionAmountsItemProvider;
+		return layerDistributionAmountsItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAbsolute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountAbsoluteAmountAbsoluteItemProvider propagatorCalcAmountAbsoluteAmountAbsoluteItemProvider;
+	protected CalcAmountAbsoluteAmountAbsoluteItemProvider calcAmountAbsoluteAmountAbsoluteItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAbsolute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountAbsoluteAmountAbsoluteAdapter() {
-		if (propagatorCalcAmountAbsoluteAmountAbsoluteItemProvider == null) {
-			propagatorCalcAmountAbsoluteAmountAbsoluteItemProvider = new PropagatorCalcAmountAbsoluteAmountAbsoluteItemProvider(this);
+	public Adapter createCalcAmountAbsoluteAmountAbsoluteAdapter() {
+		if (calcAmountAbsoluteAmountAbsoluteItemProvider == null) {
+			calcAmountAbsoluteAmountAbsoluteItemProvider = new CalcAmountAbsoluteAmountAbsoluteItemProvider(this);
 		}
 
-		return propagatorCalcAmountAbsoluteAmountAbsoluteItemProvider;
+		return calcAmountAbsoluteAmountAbsoluteItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountAbsoluteAmountAfterItemProvider propagatorCalcAmountAbsoluteAmountAfterItemProvider;
+	protected CalcAmountAbsoluteAmountAfterItemProvider calcAmountAbsoluteAmountAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountAbsoluteAmountAfterAdapter() {
-		if (propagatorCalcAmountAbsoluteAmountAfterItemProvider == null) {
-			propagatorCalcAmountAbsoluteAmountAfterItemProvider = new PropagatorCalcAmountAbsoluteAmountAfterItemProvider(this);
+	public Adapter createCalcAmountAbsoluteAmountAfterAdapter() {
+		if (calcAmountAbsoluteAmountAfterItemProvider == null) {
+			calcAmountAbsoluteAmountAfterItemProvider = new CalcAmountAbsoluteAmountAfterItemProvider(this);
 		}
 
-		return propagatorCalcAmountAbsoluteAmountAfterItemProvider;
+		return calcAmountAbsoluteAmountAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicAmountAbsolute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider propagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider;
+	protected CalcAmountAbsoluteAtomicAmountAbsoluteItemProvider calcAmountAbsoluteAtomicAmountAbsoluteItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicAmountAbsolute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountAbsoluteAtomicAmountAbsoluteAdapter() {
-		if (propagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider == null) {
-			propagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider = new PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider(this);
+	public Adapter createCalcAmountAbsoluteAtomicAmountAbsoluteAdapter() {
+		if (calcAmountAbsoluteAtomicAmountAbsoluteItemProvider == null) {
+			calcAmountAbsoluteAtomicAmountAbsoluteItemProvider = new CalcAmountAbsoluteAtomicAmountAbsoluteItemProvider(this);
 		}
 
-		return propagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider;
+		return calcAmountAbsoluteAtomicAmountAbsoluteItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountAbsoluteAtomicMomentItemProvider propagatorCalcAmountAbsoluteAtomicMomentItemProvider;
+	protected CalcAmountAbsoluteAtomicMomentItemProvider calcAmountAbsoluteAtomicMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountAbsoluteAtomicMomentAdapter() {
-		if (propagatorCalcAmountAbsoluteAtomicMomentItemProvider == null) {
-			propagatorCalcAmountAbsoluteAtomicMomentItemProvider = new PropagatorCalcAmountAbsoluteAtomicMomentItemProvider(this);
+	public Adapter createCalcAmountAbsoluteAtomicMomentAdapter() {
+		if (calcAmountAbsoluteAtomicMomentItemProvider == null) {
+			calcAmountAbsoluteAtomicMomentItemProvider = new CalcAmountAbsoluteAtomicMomentItemProvider(this);
 		}
 
-		return propagatorCalcAmountAbsoluteAtomicMomentItemProvider;
+		return calcAmountAbsoluteAtomicMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountImpulsionAmountAfterItemProvider propagatorCalcAmountImpulsionAmountAfterItemProvider;
+	protected CalcAmountDeltaAmountAfterItemProvider calcAmountDeltaAmountAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountImpulsionAmountAfterAdapter() {
-		if (propagatorCalcAmountImpulsionAmountAfterItemProvider == null) {
-			propagatorCalcAmountImpulsionAmountAfterItemProvider = new PropagatorCalcAmountImpulsionAmountAfterItemProvider(this);
+	public Adapter createCalcAmountDeltaAmountAfterAdapter() {
+		if (calcAmountDeltaAmountAfterItemProvider == null) {
+			calcAmountDeltaAmountAfterItemProvider = new CalcAmountDeltaAmountAfterItemProvider(this);
 		}
 
-		return propagatorCalcAmountImpulsionAmountAfterItemProvider;
+		return calcAmountDeltaAmountAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountImpulsionAmountImpulsionItemProvider propagatorCalcAmountImpulsionAmountImpulsionItemProvider;
+	protected CalcAmountDeltaAmountDeltaItemProvider calcAmountDeltaAmountDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountImpulsionAmountImpulsionAdapter() {
-		if (propagatorCalcAmountImpulsionAmountImpulsionItemProvider == null) {
-			propagatorCalcAmountImpulsionAmountImpulsionItemProvider = new PropagatorCalcAmountImpulsionAmountImpulsionItemProvider(this);
+	public Adapter createCalcAmountDeltaAmountDeltaAdapter() {
+		if (calcAmountDeltaAmountDeltaItemProvider == null) {
+			calcAmountDeltaAmountDeltaItemProvider = new CalcAmountDeltaAmountDeltaItemProvider(this);
 		}
 
-		return propagatorCalcAmountImpulsionAmountImpulsionItemProvider;
+		return calcAmountDeltaAmountDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicAmountImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicAmountDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider propagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider;
+	protected CalcAmountDeltaAtomicAmountDeltaItemProvider calcAmountDeltaAtomicAmountDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicAmountImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicAmountDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountImpulsionAtomicAmountImpulsionAdapter() {
-		if (propagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider == null) {
-			propagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider = new PropagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider(this);
+	public Adapter createCalcAmountDeltaAtomicAmountDeltaAdapter() {
+		if (calcAmountDeltaAtomicAmountDeltaItemProvider == null) {
+			calcAmountDeltaAtomicAmountDeltaItemProvider = new CalcAmountDeltaAtomicAmountDeltaItemProvider(this);
 		}
 
-		return propagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider;
+		return calcAmountDeltaAtomicAmountDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcAmountImpulsionAtomicMomentItemProvider propagatorCalcAmountImpulsionAtomicMomentItemProvider;
+	protected CalcAmountDeltaAtomicMomentItemProvider calcAmountDeltaAtomicMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcAmountImpulsionAtomicMomentAdapter() {
-		if (propagatorCalcAmountImpulsionAtomicMomentItemProvider == null) {
-			propagatorCalcAmountImpulsionAtomicMomentItemProvider = new PropagatorCalcAmountImpulsionAtomicMomentItemProvider(this);
+	public Adapter createCalcAmountDeltaAtomicMomentAdapter() {
+		if (calcAmountDeltaAtomicMomentItemProvider == null) {
+			calcAmountDeltaAtomicMomentItemProvider = new CalcAmountDeltaAtomicMomentItemProvider(this);
 		}
 
-		return propagatorCalcAmountImpulsionAtomicMomentItemProvider;
+		return calcAmountDeltaAtomicMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndAmountImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndAmountDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcCapacityChangeEndAmountImpulsionItemProvider propagatorCalcCapacityChangeEndAmountImpulsionItemProvider;
+	protected CalcCapacityChangeEndAmountDeltaItemProvider calcCapacityChangeEndAmountDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndAmountImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndAmountDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcCapacityChangeEndAmountImpulsionAdapter() {
-		if (propagatorCalcCapacityChangeEndAmountImpulsionItemProvider == null) {
-			propagatorCalcCapacityChangeEndAmountImpulsionItemProvider = new PropagatorCalcCapacityChangeEndAmountImpulsionItemProvider(this);
+	public Adapter createCalcCapacityChangeEndAmountDeltaAdapter() {
+		if (calcCapacityChangeEndAmountDeltaItemProvider == null) {
+			calcCapacityChangeEndAmountDeltaItemProvider = new CalcCapacityChangeEndAmountDeltaItemProvider(this);
 		}
 
-		return propagatorCalcCapacityChangeEndAmountImpulsionItemProvider;
+		return calcCapacityChangeEndAmountDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcCapacityChangeEndMomentItemProvider propagatorCalcCapacityChangeEndMomentItemProvider;
+	protected CalcCapacityChangeEndMomentItemProvider calcCapacityChangeEndMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcCapacityChangeEndMomentAdapter() {
-		if (propagatorCalcCapacityChangeEndMomentItemProvider == null) {
-			propagatorCalcCapacityChangeEndMomentItemProvider = new PropagatorCalcCapacityChangeEndMomentItemProvider(this);
+	public Adapter createCalcCapacityChangeEndMomentAdapter() {
+		if (calcCapacityChangeEndMomentItemProvider == null) {
+			calcCapacityChangeEndMomentItemProvider = new CalcCapacityChangeEndMomentItemProvider(this);
 		}
 
-		return propagatorCalcCapacityChangeEndMomentItemProvider;
+		return calcCapacityChangeEndMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartAmountImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartAmountDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcCapacityChangeStartAmountImpulsionItemProvider propagatorCalcCapacityChangeStartAmountImpulsionItemProvider;
+	protected CalcCapacityChangeStartAmountDeltaItemProvider calcCapacityChangeStartAmountDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartAmountImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartAmountDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcCapacityChangeStartAmountImpulsionAdapter() {
-		if (propagatorCalcCapacityChangeStartAmountImpulsionItemProvider == null) {
-			propagatorCalcCapacityChangeStartAmountImpulsionItemProvider = new PropagatorCalcCapacityChangeStartAmountImpulsionItemProvider(this);
+	public Adapter createCalcCapacityChangeStartAmountDeltaAdapter() {
+		if (calcCapacityChangeStartAmountDeltaItemProvider == null) {
+			calcCapacityChangeStartAmountDeltaItemProvider = new CalcCapacityChangeStartAmountDeltaItemProvider(this);
 		}
 
-		return propagatorCalcCapacityChangeStartAmountImpulsionItemProvider;
+		return calcCapacityChangeStartAmountDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcCapacityChangeStartMomentItemProvider propagatorCalcCapacityChangeStartMomentItemProvider;
+	protected CalcCapacityChangeStartMomentItemProvider calcCapacityChangeStartMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcCapacityChangeStartMomentAdapter() {
-		if (propagatorCalcCapacityChangeStartMomentItemProvider == null) {
-			propagatorCalcCapacityChangeStartMomentItemProvider = new PropagatorCalcCapacityChangeStartMomentItemProvider(this);
+	public Adapter createCalcCapacityChangeStartMomentAdapter() {
+		if (calcCapacityChangeStartMomentItemProvider == null) {
+			calcCapacityChangeStartMomentItemProvider = new CalcCapacityChangeStartMomentItemProvider(this);
 		}
 
-		return propagatorCalcCapacityChangeStartMomentItemProvider;
+		return calcCapacityChangeStartMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventAmountAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventAmountAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcChildEventAmountAfterItemProvider propagatorCalcChildEventAmountAfterItemProvider;
+	protected CalcChildEventAmountAfterItemProvider calcChildEventAmountAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventAmountAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventAmountAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcChildEventAmountAfterAdapter() {
-		if (propagatorCalcChildEventAmountAfterItemProvider == null) {
-			propagatorCalcChildEventAmountAfterItemProvider = new PropagatorCalcChildEventAmountAfterItemProvider(this);
+	public Adapter createCalcChildEventAmountAfterAdapter() {
+		if (calcChildEventAmountAfterItemProvider == null) {
+			calcChildEventAmountAfterItemProvider = new CalcChildEventAmountAfterItemProvider(this);
 		}
 
-		return propagatorCalcChildEventAmountAfterItemProvider;
+		return calcChildEventAmountAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcChildEventMomentItemProvider propagatorCalcChildEventMomentItemProvider;
+	protected CalcChildEventMomentItemProvider calcChildEventMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcChildEventMomentAdapter() {
-		if (propagatorCalcChildEventMomentItemProvider == null) {
-			propagatorCalcChildEventMomentItemProvider = new PropagatorCalcChildEventMomentItemProvider(this);
+	public Adapter createCalcChildEventMomentAdapter() {
+		if (calcChildEventMomentItemProvider == null) {
+			calcChildEventMomentItemProvider = new CalcChildEventMomentItemProvider(this);
 		}
 
-		return propagatorCalcChildEventMomentItemProvider;
+		return calcChildEventMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventSlopeAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcChildEventSlopeAfterItemProvider propagatorCalcChildEventSlopeAfterItemProvider;
+	protected CalcChildEventSlopeAfterItemProvider calcChildEventSlopeAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventSlopeAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcChildEventSlopeAfterAdapter() {
-		if (propagatorCalcChildEventSlopeAfterItemProvider == null) {
-			propagatorCalcChildEventSlopeAfterItemProvider = new PropagatorCalcChildEventSlopeAfterItemProvider(this);
+	public Adapter createCalcChildEventSlopeAfterAdapter() {
+		if (calcChildEventSlopeAfterItemProvider == null) {
+			calcChildEventSlopeAfterItemProvider = new CalcChildEventSlopeAfterItemProvider(this);
 		}
 
-		return propagatorCalcChildEventSlopeAfterItemProvider;
+		return calcChildEventSlopeAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEndEventMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEndEventMomentItemProvider propagatorCalcEndEventMomentItemProvider;
+	protected CalcEndEventMomentItemProvider calcEndEventMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEndEventMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEndEventMomentAdapter() {
-		if (propagatorCalcEndEventMomentItemProvider == null) {
-			propagatorCalcEndEventMomentItemProvider = new PropagatorCalcEndEventMomentItemProvider(this);
+	public Adapter createCalcEndEventMomentAdapter() {
+		if (calcEndEventMomentItemProvider == null) {
+			calcEndEventMomentItemProvider = new CalcEndEventMomentItemProvider(this);
 		}
 
-		return propagatorCalcEndEventMomentItemProvider;
+		return calcEndEventMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmountAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventAmountAfterItemProvider propagatorCalcEventAmountAfterItemProvider;
+	protected CalcEventAmountAfterItemProvider calcEventAmountAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmountAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventAmountAfterAdapter() {
-		if (propagatorCalcEventAmountAfterItemProvider == null) {
-			propagatorCalcEventAmountAfterItemProvider = new PropagatorCalcEventAmountAfterItemProvider(this);
+	public Adapter createCalcEventAmountAfterAdapter() {
+		if (calcEventAmountAfterItemProvider == null) {
+			calcEventAmountAfterItemProvider = new CalcEventAmountAfterItemProvider(this);
 		}
 
-		return propagatorCalcEventAmountAfterItemProvider;
+		return calcEventAmountAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmountBefore} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventAmountBeforeItemProvider propagatorCalcEventAmountBeforeItemProvider;
+	protected CalcEventAmountBeforeItemProvider calcEventAmountBeforeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmountBefore}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventAmountBeforeAdapter() {
-		if (propagatorCalcEventAmountBeforeItemProvider == null) {
-			propagatorCalcEventAmountBeforeItemProvider = new PropagatorCalcEventAmountBeforeItemProvider(this);
+	public Adapter createCalcEventAmountBeforeAdapter() {
+		if (calcEventAmountBeforeItemProvider == null) {
+			calcEventAmountBeforeItemProvider = new CalcEventAmountBeforeItemProvider(this);
 		}
 
-		return propagatorCalcEventAmountBeforeItemProvider;
+		return calcEventAmountBeforeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventMomentItemProvider propagatorCalcEventMomentItemProvider;
+	protected CalcEventMomentItemProvider calcEventMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventMomentAdapter() {
-		if (propagatorCalcEventMomentItemProvider == null) {
-			propagatorCalcEventMomentItemProvider = new PropagatorCalcEventMomentItemProvider(this);
+	public Adapter createCalcEventMomentAdapter() {
+		if (calcEventMomentItemProvider == null) {
+			calcEventMomentItemProvider = new CalcEventMomentItemProvider(this);
 		}
 
-		return propagatorCalcEventMomentItemProvider;
+		return calcEventMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventSlopeAfterItemProvider propagatorCalcEventSlopeAfterItemProvider;
+	protected CalcEventSlopeAfterItemProvider calcEventSlopeAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventSlopeAfterAdapter() {
-		if (propagatorCalcEventSlopeAfterItemProvider == null) {
-			propagatorCalcEventSlopeAfterItemProvider = new PropagatorCalcEventSlopeAfterItemProvider(this);
+	public Adapter createCalcEventSlopeAfterAdapter() {
+		if (calcEventSlopeAfterItemProvider == null) {
+			calcEventSlopeAfterItemProvider = new CalcEventSlopeAfterItemProvider(this);
 		}
 
-		return propagatorCalcEventSlopeAfterItemProvider;
+		return calcEventSlopeAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeBefore} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeBefore} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventSlopeBeforeItemProvider propagatorCalcEventSlopeBeforeItemProvider;
+	protected CalcEventSlopeBeforeItemProvider calcEventSlopeBeforeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeBefore}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeBefore}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventSlopeBeforeAdapter() {
-		if (propagatorCalcEventSlopeBeforeItemProvider == null) {
-			propagatorCalcEventSlopeBeforeItemProvider = new PropagatorCalcEventSlopeBeforeItemProvider(this);
+	public Adapter createCalcEventSlopeBeforeAdapter() {
+		if (calcEventSlopeBeforeItemProvider == null) {
+			calcEventSlopeBeforeItemProvider = new CalcEventSlopeBeforeItemProvider(this);
 		}
 
-		return propagatorCalcEventSlopeBeforeItemProvider;
+		return calcEventSlopeBeforeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventsProviderRefreshEvents} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventsProviderRefreshEventsItemProvider propagatorCalcEventsProviderRefreshEventsItemProvider;
+	protected CalcEventsProviderRefreshEventsItemProvider calcEventsProviderRefreshEventsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventsProviderRefreshEvents}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventsProviderRefreshEventsAdapter() {
-		if (propagatorCalcEventsProviderRefreshEventsItemProvider == null) {
-			propagatorCalcEventsProviderRefreshEventsItemProvider = new PropagatorCalcEventsProviderRefreshEventsItemProvider(this);
+	public Adapter createCalcEventsProviderRefreshEventsAdapter() {
+		if (calcEventsProviderRefreshEventsItemProvider == null) {
+			calcEventsProviderRefreshEventsItemProvider = new CalcEventsProviderRefreshEventsItemProvider(this);
 		}
 
-		return propagatorCalcEventsProviderRefreshEventsItemProvider;
+		return calcEventsProviderRefreshEventsItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeAbsoluteAtomicMomentItemProvider propagatorCalcSlopeAbsoluteAtomicMomentItemProvider;
+	protected CalcSlopeAbsoluteAtomicMomentItemProvider calcSlopeAbsoluteAtomicMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeAbsoluteAtomicMomentAdapter() {
-		if (propagatorCalcSlopeAbsoluteAtomicMomentItemProvider == null) {
-			propagatorCalcSlopeAbsoluteAtomicMomentItemProvider = new PropagatorCalcSlopeAbsoluteAtomicMomentItemProvider(this);
+	public Adapter createCalcSlopeAbsoluteAtomicMomentAdapter() {
+		if (calcSlopeAbsoluteAtomicMomentItemProvider == null) {
+			calcSlopeAbsoluteAtomicMomentItemProvider = new CalcSlopeAbsoluteAtomicMomentItemProvider(this);
 		}
 
-		return propagatorCalcSlopeAbsoluteAtomicMomentItemProvider;
+		return calcSlopeAbsoluteAtomicMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicSlopeAbsolute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider;
+	protected CalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider calcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicSlopeAbsolute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteAdapter() {
-		if (propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider == null) {
-			propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider = new PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider(this);
+	public Adapter createCalcSlopeAbsoluteAtomicSlopeAbsoluteAdapter() {
+		if (calcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider == null) {
+			calcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider = new CalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider(this);
 		}
 
-		return propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider;
+		return calcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAbsolute} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAbsolute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider propagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider;
+	protected CalcSlopeAbsoluteSlopeAbsoluteItemProvider calcSlopeAbsoluteSlopeAbsoluteItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAbsolute}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAbsolute}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeAbsoluteSlopeAbsoluteAdapter() {
-		if (propagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider == null) {
-			propagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider = new PropagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider(this);
+	public Adapter createCalcSlopeAbsoluteSlopeAbsoluteAdapter() {
+		if (calcSlopeAbsoluteSlopeAbsoluteItemProvider == null) {
+			calcSlopeAbsoluteSlopeAbsoluteItemProvider = new CalcSlopeAbsoluteSlopeAbsoluteItemProvider(this);
 		}
 
-		return propagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider;
+		return calcSlopeAbsoluteSlopeAbsoluteItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeAbsoluteSlopeAfterItemProvider propagatorCalcSlopeAbsoluteSlopeAfterItemProvider;
+	protected CalcSlopeAbsoluteSlopeAfterItemProvider calcSlopeAbsoluteSlopeAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeAbsoluteSlopeAfterAdapter() {
-		if (propagatorCalcSlopeAbsoluteSlopeAfterItemProvider == null) {
-			propagatorCalcSlopeAbsoluteSlopeAfterItemProvider = new PropagatorCalcSlopeAbsoluteSlopeAfterItemProvider(this);
+	public Adapter createCalcSlopeAbsoluteSlopeAfterAdapter() {
+		if (calcSlopeAbsoluteSlopeAfterItemProvider == null) {
+			calcSlopeAbsoluteSlopeAfterItemProvider = new CalcSlopeAbsoluteSlopeAfterItemProvider(this);
 		}
 
-		return propagatorCalcSlopeAbsoluteSlopeAfterItemProvider;
+		return calcSlopeAbsoluteSlopeAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeImpulsionAtomicMomentItemProvider propagatorCalcSlopeImpulsionAtomicMomentItemProvider;
+	protected CalcSlopeDeltaAtomicMomentItemProvider calcSlopeDeltaAtomicMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeImpulsionAtomicMomentAdapter() {
-		if (propagatorCalcSlopeImpulsionAtomicMomentItemProvider == null) {
-			propagatorCalcSlopeImpulsionAtomicMomentItemProvider = new PropagatorCalcSlopeImpulsionAtomicMomentItemProvider(this);
+	public Adapter createCalcSlopeDeltaAtomicMomentAdapter() {
+		if (calcSlopeDeltaAtomicMomentItemProvider == null) {
+			calcSlopeDeltaAtomicMomentItemProvider = new CalcSlopeDeltaAtomicMomentItemProvider(this);
 		}
 
-		return propagatorCalcSlopeImpulsionAtomicMomentItemProvider;
+		return calcSlopeDeltaAtomicMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicSlopeDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider propagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider;
+	protected CalcSlopeDeltaAtomicSlopeDeltaItemProvider calcSlopeDeltaAtomicSlopeDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicSlopeDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeImpulsionAtomicSlopeImpulsionAdapter() {
-		if (propagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider == null) {
-			propagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider = new PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider(this);
+	public Adapter createCalcSlopeDeltaAtomicSlopeDeltaAdapter() {
+		if (calcSlopeDeltaAtomicSlopeDeltaItemProvider == null) {
+			calcSlopeDeltaAtomicSlopeDeltaItemProvider = new CalcSlopeDeltaAtomicSlopeDeltaItemProvider(this);
 		}
 
-		return propagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider;
+		return calcSlopeDeltaAtomicSlopeDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeImpulsionSlopeAfterItemProvider propagatorCalcSlopeImpulsionSlopeAfterItemProvider;
+	protected CalcSlopeDeltaSlopeAfterItemProvider calcSlopeDeltaSlopeAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeImpulsionSlopeAfterAdapter() {
-		if (propagatorCalcSlopeImpulsionSlopeAfterItemProvider == null) {
-			propagatorCalcSlopeImpulsionSlopeAfterItemProvider = new PropagatorCalcSlopeImpulsionSlopeAfterItemProvider(this);
+	public Adapter createCalcSlopeDeltaSlopeAfterAdapter() {
+		if (calcSlopeDeltaSlopeAfterItemProvider == null) {
+			calcSlopeDeltaSlopeAfterItemProvider = new CalcSlopeDeltaSlopeAfterItemProvider(this);
 		}
 
-		return propagatorCalcSlopeImpulsionSlopeAfterItemProvider;
+		return calcSlopeDeltaSlopeAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcSlopeImpulsionSlopeImpulsionItemProvider propagatorCalcSlopeImpulsionSlopeImpulsionItemProvider;
+	protected CalcSlopeDeltaSlopeDeltaItemProvider calcSlopeDeltaSlopeDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcSlopeImpulsionSlopeImpulsionAdapter() {
-		if (propagatorCalcSlopeImpulsionSlopeImpulsionItemProvider == null) {
-			propagatorCalcSlopeImpulsionSlopeImpulsionItemProvider = new PropagatorCalcSlopeImpulsionSlopeImpulsionItemProvider(this);
+	public Adapter createCalcSlopeDeltaSlopeDeltaAdapter() {
+		if (calcSlopeDeltaSlopeDeltaItemProvider == null) {
+			calcSlopeDeltaSlopeDeltaItemProvider = new CalcSlopeDeltaSlopeDeltaItemProvider(this);
 		}
 
-		return propagatorCalcSlopeImpulsionSlopeImpulsionItemProvider;
+		return calcSlopeDeltaSlopeDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventAmountAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcStartEventAmountAfterItemProvider propagatorCalcStartEventAmountAfterItemProvider;
+	protected CalcStartEventAmountAfterItemProvider calcStartEventAmountAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventAmountAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcStartEventAmountAfterAdapter() {
-		if (propagatorCalcStartEventAmountAfterItemProvider == null) {
-			propagatorCalcStartEventAmountAfterItemProvider = new PropagatorCalcStartEventAmountAfterItemProvider(this);
+	public Adapter createCalcStartEventAmountAfterAdapter() {
+		if (calcStartEventAmountAfterItemProvider == null) {
+			calcStartEventAmountAfterItemProvider = new CalcStartEventAmountAfterItemProvider(this);
 		}
 
-		return propagatorCalcStartEventAmountAfterItemProvider;
+		return calcStartEventAmountAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcStartEventMomentItemProvider propagatorCalcStartEventMomentItemProvider;
+	protected CalcStartEventMomentItemProvider calcStartEventMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcStartEventMomentAdapter() {
-		if (propagatorCalcStartEventMomentItemProvider == null) {
-			propagatorCalcStartEventMomentItemProvider = new PropagatorCalcStartEventMomentItemProvider(this);
+	public Adapter createCalcStartEventMomentAdapter() {
+		if (calcStartEventMomentItemProvider == null) {
+			calcStartEventMomentItemProvider = new CalcStartEventMomentItemProvider(this);
 		}
 
-		return propagatorCalcStartEventMomentItemProvider;
+		return calcStartEventMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlopeAfter} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventSlopeAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcStartEventSlopeAfterItemProvider propagatorCalcStartEventSlopeAfterItemProvider;
+	protected CalcStartEventSlopeAfterItemProvider calcStartEventSlopeAfterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlopeAfter}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventSlopeAfter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcStartEventSlopeAfterAdapter() {
-		if (propagatorCalcStartEventSlopeAfterItemProvider == null) {
-			propagatorCalcStartEventSlopeAfterItemProvider = new PropagatorCalcStartEventSlopeAfterItemProvider(this);
+	public Adapter createCalcStartEventSlopeAfterAdapter() {
+		if (calcStartEventSlopeAfterItemProvider == null) {
+			calcStartEventSlopeAfterItemProvider = new CalcStartEventSlopeAfterItemProvider(this);
 		}
 
-		return propagatorCalcStartEventSlopeAfterItemProvider;
+		return calcStartEventSlopeAfterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcStockChangeEndMomentItemProvider propagatorCalcStockChangeEndMomentItemProvider;
+	protected CalcStockChangeEndMomentItemProvider calcStockChangeEndMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcStockChangeEndMomentAdapter() {
-		if (propagatorCalcStockChangeEndMomentItemProvider == null) {
-			propagatorCalcStockChangeEndMomentItemProvider = new PropagatorCalcStockChangeEndMomentItemProvider(this);
+	public Adapter createCalcStockChangeEndMomentAdapter() {
+		if (calcStockChangeEndMomentItemProvider == null) {
+			calcStockChangeEndMomentItemProvider = new CalcStockChangeEndMomentItemProvider(this);
 		}
 
-		return propagatorCalcStockChangeEndMomentItemProvider;
+		return calcStockChangeEndMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndSlopeImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndSlopeDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcStockChangeEndSlopeImpulsionItemProvider propagatorCalcStockChangeEndSlopeImpulsionItemProvider;
+	protected CalcStockChangeEndSlopeDeltaItemProvider calcStockChangeEndSlopeDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndSlopeImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndSlopeDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcStockChangeEndSlopeImpulsionAdapter() {
-		if (propagatorCalcStockChangeEndSlopeImpulsionItemProvider == null) {
-			propagatorCalcStockChangeEndSlopeImpulsionItemProvider = new PropagatorCalcStockChangeEndSlopeImpulsionItemProvider(this);
+	public Adapter createCalcStockChangeEndSlopeDeltaAdapter() {
+		if (calcStockChangeEndSlopeDeltaItemProvider == null) {
+			calcStockChangeEndSlopeDeltaItemProvider = new CalcStockChangeEndSlopeDeltaItemProvider(this);
 		}
 
-		return propagatorCalcStockChangeEndSlopeImpulsionItemProvider;
+		return calcStockChangeEndSlopeDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartMoment} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartMoment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcStockChangeStartMomentItemProvider propagatorCalcStockChangeStartMomentItemProvider;
+	protected CalcStockChangeStartMomentItemProvider calcStockChangeStartMomentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartMoment}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartMoment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcStockChangeStartMomentAdapter() {
-		if (propagatorCalcStockChangeStartMomentItemProvider == null) {
-			propagatorCalcStockChangeStartMomentItemProvider = new PropagatorCalcStockChangeStartMomentItemProvider(this);
+	public Adapter createCalcStockChangeStartMomentAdapter() {
+		if (calcStockChangeStartMomentItemProvider == null) {
+			calcStockChangeStartMomentItemProvider = new CalcStockChangeStartMomentItemProvider(this);
 		}
 
-		return propagatorCalcStockChangeStartMomentItemProvider;
+		return calcStockChangeStartMomentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartSlopeImpulsion} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartSlopeDelta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcStockChangeStartSlopeImpulsionItemProvider propagatorCalcStockChangeStartSlopeImpulsionItemProvider;
+	protected CalcStockChangeStartSlopeDeltaItemProvider calcStockChangeStartSlopeDeltaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartSlopeImpulsion}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartSlopeDelta}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcStockChangeStartSlopeImpulsionAdapter() {
-		if (propagatorCalcStockChangeStartSlopeImpulsionItemProvider == null) {
-			propagatorCalcStockChangeStartSlopeImpulsionItemProvider = new PropagatorCalcStockChangeStartSlopeImpulsionItemProvider(this);
+	public Adapter createCalcStockChangeStartSlopeDeltaAdapter() {
+		if (calcStockChangeStartSlopeDeltaItemProvider == null) {
+			calcStockChangeStartSlopeDeltaItemProvider = new CalcStockChangeStartSlopeDeltaItemProvider(this);
 		}
 
-		return propagatorCalcStockChangeStartSlopeImpulsionItemProvider;
+		return calcStockChangeStartSlopeDeltaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlope} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventSlopeItemProvider propagatorCalcEventSlopeItemProvider;
+	protected CalcEventSlopeItemProvider calcEventSlopeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlope}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventSlopeAdapter() {
-		if (propagatorCalcEventSlopeItemProvider == null) {
-			propagatorCalcEventSlopeItemProvider = new PropagatorCalcEventSlopeItemProvider(this);
+	public Adapter createCalcEventSlopeAdapter() {
+		if (calcEventSlopeItemProvider == null) {
+			calcEventSlopeItemProvider = new CalcEventSlopeItemProvider(this);
 		}
 
-		return propagatorCalcEventSlopeItemProvider;
+		return calcEventSlopeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmount} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropagatorCalcEventAmountItemProvider propagatorCalcEventAmountItemProvider;
+	protected CalcEventAmountItemProvider calcEventAmountItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmount}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropagatorCalcEventAmountAdapter() {
-		if (propagatorCalcEventAmountItemProvider == null) {
-			propagatorCalcEventAmountItemProvider = new PropagatorCalcEventAmountItemProvider(this);
+	public Adapter createCalcEventAmountAdapter() {
+		if (calcEventAmountItemProvider == null) {
+			calcEventAmountItemProvider = new CalcEventAmountItemProvider(this);
 		}
 
-		return propagatorCalcEventAmountItemProvider;
+		return calcEventAmountItemProvider;
 	}
 
 	/**
@@ -1261,53 +1261,53 @@ public class TimeContinuousCalcItemProviderAdapterFactory extends TimeContinuous
 	 * @generated
 	 */
 	public void dispose() {
-		if (propagatorScopeDistributionItemProvider != null) propagatorScopeDistributionItemProvider.dispose();
-		if (propagatorCalcDistributionInitializationItemProvider != null) propagatorCalcDistributionInitializationItemProvider.dispose();
-		if (propagatorLayerCompositeEventRefreshItemProvider != null) propagatorLayerCompositeEventRefreshItemProvider.dispose();
-		if (propagatorCalcDistributionChildEventsItemProvider != null) propagatorCalcDistributionChildEventsItemProvider.dispose();
-		if (propagatorCalcDistributionProvidedEventsItemProvider != null) propagatorCalcDistributionProvidedEventsItemProvider.dispose();
-		if (propagatorCalcDistributionSequenceItemProvider != null) propagatorCalcDistributionSequenceItemProvider.dispose();
-		if (propagatorLayerDistributionSlopesItemProvider != null) propagatorLayerDistributionSlopesItemProvider.dispose();
-		if (propagatorLayerDistributionAmountsItemProvider != null) propagatorLayerDistributionAmountsItemProvider.dispose();
-		if (propagatorCalcAmountAbsoluteAmountAbsoluteItemProvider != null) propagatorCalcAmountAbsoluteAmountAbsoluteItemProvider.dispose();
-		if (propagatorCalcAmountAbsoluteAmountAfterItemProvider != null) propagatorCalcAmountAbsoluteAmountAfterItemProvider.dispose();
-		if (propagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider != null) propagatorCalcAmountAbsoluteAtomicAmountAbsoluteItemProvider.dispose();
-		if (propagatorCalcAmountAbsoluteAtomicMomentItemProvider != null) propagatorCalcAmountAbsoluteAtomicMomentItemProvider.dispose();
-		if (propagatorCalcAmountImpulsionAmountAfterItemProvider != null) propagatorCalcAmountImpulsionAmountAfterItemProvider.dispose();
-		if (propagatorCalcAmountImpulsionAmountImpulsionItemProvider != null) propagatorCalcAmountImpulsionAmountImpulsionItemProvider.dispose();
-		if (propagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider != null) propagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider.dispose();
-		if (propagatorCalcAmountImpulsionAtomicMomentItemProvider != null) propagatorCalcAmountImpulsionAtomicMomentItemProvider.dispose();
-		if (propagatorCalcCapacityChangeEndAmountImpulsionItemProvider != null) propagatorCalcCapacityChangeEndAmountImpulsionItemProvider.dispose();
-		if (propagatorCalcCapacityChangeEndMomentItemProvider != null) propagatorCalcCapacityChangeEndMomentItemProvider.dispose();
-		if (propagatorCalcCapacityChangeStartAmountImpulsionItemProvider != null) propagatorCalcCapacityChangeStartAmountImpulsionItemProvider.dispose();
-		if (propagatorCalcCapacityChangeStartMomentItemProvider != null) propagatorCalcCapacityChangeStartMomentItemProvider.dispose();
-		if (propagatorCalcChildEventAmountAfterItemProvider != null) propagatorCalcChildEventAmountAfterItemProvider.dispose();
-		if (propagatorCalcChildEventMomentItemProvider != null) propagatorCalcChildEventMomentItemProvider.dispose();
-		if (propagatorCalcChildEventSlopeAfterItemProvider != null) propagatorCalcChildEventSlopeAfterItemProvider.dispose();
-		if (propagatorCalcEndEventMomentItemProvider != null) propagatorCalcEndEventMomentItemProvider.dispose();
-		if (propagatorCalcEventAmountAfterItemProvider != null) propagatorCalcEventAmountAfterItemProvider.dispose();
-		if (propagatorCalcEventAmountBeforeItemProvider != null) propagatorCalcEventAmountBeforeItemProvider.dispose();
-		if (propagatorCalcEventMomentItemProvider != null) propagatorCalcEventMomentItemProvider.dispose();
-		if (propagatorCalcEventSlopeAfterItemProvider != null) propagatorCalcEventSlopeAfterItemProvider.dispose();
-		if (propagatorCalcEventSlopeBeforeItemProvider != null) propagatorCalcEventSlopeBeforeItemProvider.dispose();
-		if (propagatorCalcEventsProviderRefreshEventsItemProvider != null) propagatorCalcEventsProviderRefreshEventsItemProvider.dispose();
-		if (propagatorCalcSlopeAbsoluteAtomicMomentItemProvider != null) propagatorCalcSlopeAbsoluteAtomicMomentItemProvider.dispose();
-		if (propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider != null) propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider.dispose();
-		if (propagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider != null) propagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider.dispose();
-		if (propagatorCalcSlopeAbsoluteSlopeAfterItemProvider != null) propagatorCalcSlopeAbsoluteSlopeAfterItemProvider.dispose();
-		if (propagatorCalcSlopeImpulsionAtomicMomentItemProvider != null) propagatorCalcSlopeImpulsionAtomicMomentItemProvider.dispose();
-		if (propagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider != null) propagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider.dispose();
-		if (propagatorCalcSlopeImpulsionSlopeAfterItemProvider != null) propagatorCalcSlopeImpulsionSlopeAfterItemProvider.dispose();
-		if (propagatorCalcSlopeImpulsionSlopeImpulsionItemProvider != null) propagatorCalcSlopeImpulsionSlopeImpulsionItemProvider.dispose();
-		if (propagatorCalcStartEventAmountAfterItemProvider != null) propagatorCalcStartEventAmountAfterItemProvider.dispose();
-		if (propagatorCalcStartEventMomentItemProvider != null) propagatorCalcStartEventMomentItemProvider.dispose();
-		if (propagatorCalcStartEventSlopeAfterItemProvider != null) propagatorCalcStartEventSlopeAfterItemProvider.dispose();
-		if (propagatorCalcStockChangeEndMomentItemProvider != null) propagatorCalcStockChangeEndMomentItemProvider.dispose();
-		if (propagatorCalcStockChangeEndSlopeImpulsionItemProvider != null) propagatorCalcStockChangeEndSlopeImpulsionItemProvider.dispose();
-		if (propagatorCalcStockChangeStartMomentItemProvider != null) propagatorCalcStockChangeStartMomentItemProvider.dispose();
-		if (propagatorCalcStockChangeStartSlopeImpulsionItemProvider != null) propagatorCalcStockChangeStartSlopeImpulsionItemProvider.dispose();
-		if (propagatorCalcEventSlopeItemProvider != null) propagatorCalcEventSlopeItemProvider.dispose();
-		if (propagatorCalcEventAmountItemProvider != null) propagatorCalcEventAmountItemProvider.dispose();
+		if (scopeDistributionItemProvider != null) scopeDistributionItemProvider.dispose();
+		if (calcDistributionInitializationItemProvider != null) calcDistributionInitializationItemProvider.dispose();
+		if (layerCompositeEventRefreshItemProvider != null) layerCompositeEventRefreshItemProvider.dispose();
+		if (calcDistributionChildEventsItemProvider != null) calcDistributionChildEventsItemProvider.dispose();
+		if (calcDistributionProvidedEventsItemProvider != null) calcDistributionProvidedEventsItemProvider.dispose();
+		if (calcDistributionSequenceItemProvider != null) calcDistributionSequenceItemProvider.dispose();
+		if (layerDistributionSlopesItemProvider != null) layerDistributionSlopesItemProvider.dispose();
+		if (layerDistributionAmountsItemProvider != null) layerDistributionAmountsItemProvider.dispose();
+		if (calcAmountAbsoluteAmountAbsoluteItemProvider != null) calcAmountAbsoluteAmountAbsoluteItemProvider.dispose();
+		if (calcAmountAbsoluteAmountAfterItemProvider != null) calcAmountAbsoluteAmountAfterItemProvider.dispose();
+		if (calcAmountAbsoluteAtomicAmountAbsoluteItemProvider != null) calcAmountAbsoluteAtomicAmountAbsoluteItemProvider.dispose();
+		if (calcAmountAbsoluteAtomicMomentItemProvider != null) calcAmountAbsoluteAtomicMomentItemProvider.dispose();
+		if (calcAmountDeltaAmountAfterItemProvider != null) calcAmountDeltaAmountAfterItemProvider.dispose();
+		if (calcAmountDeltaAmountDeltaItemProvider != null) calcAmountDeltaAmountDeltaItemProvider.dispose();
+		if (calcAmountDeltaAtomicAmountDeltaItemProvider != null) calcAmountDeltaAtomicAmountDeltaItemProvider.dispose();
+		if (calcAmountDeltaAtomicMomentItemProvider != null) calcAmountDeltaAtomicMomentItemProvider.dispose();
+		if (calcCapacityChangeEndAmountDeltaItemProvider != null) calcCapacityChangeEndAmountDeltaItemProvider.dispose();
+		if (calcCapacityChangeEndMomentItemProvider != null) calcCapacityChangeEndMomentItemProvider.dispose();
+		if (calcCapacityChangeStartAmountDeltaItemProvider != null) calcCapacityChangeStartAmountDeltaItemProvider.dispose();
+		if (calcCapacityChangeStartMomentItemProvider != null) calcCapacityChangeStartMomentItemProvider.dispose();
+		if (calcChildEventAmountAfterItemProvider != null) calcChildEventAmountAfterItemProvider.dispose();
+		if (calcChildEventMomentItemProvider != null) calcChildEventMomentItemProvider.dispose();
+		if (calcChildEventSlopeAfterItemProvider != null) calcChildEventSlopeAfterItemProvider.dispose();
+		if (calcEndEventMomentItemProvider != null) calcEndEventMomentItemProvider.dispose();
+		if (calcEventAmountAfterItemProvider != null) calcEventAmountAfterItemProvider.dispose();
+		if (calcEventAmountBeforeItemProvider != null) calcEventAmountBeforeItemProvider.dispose();
+		if (calcEventMomentItemProvider != null) calcEventMomentItemProvider.dispose();
+		if (calcEventSlopeAfterItemProvider != null) calcEventSlopeAfterItemProvider.dispose();
+		if (calcEventSlopeBeforeItemProvider != null) calcEventSlopeBeforeItemProvider.dispose();
+		if (calcEventsProviderRefreshEventsItemProvider != null) calcEventsProviderRefreshEventsItemProvider.dispose();
+		if (calcSlopeAbsoluteAtomicMomentItemProvider != null) calcSlopeAbsoluteAtomicMomentItemProvider.dispose();
+		if (calcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider != null) calcSlopeAbsoluteAtomicSlopeAbsoluteItemProvider.dispose();
+		if (calcSlopeAbsoluteSlopeAbsoluteItemProvider != null) calcSlopeAbsoluteSlopeAbsoluteItemProvider.dispose();
+		if (calcSlopeAbsoluteSlopeAfterItemProvider != null) calcSlopeAbsoluteSlopeAfterItemProvider.dispose();
+		if (calcSlopeDeltaAtomicMomentItemProvider != null) calcSlopeDeltaAtomicMomentItemProvider.dispose();
+		if (calcSlopeDeltaAtomicSlopeDeltaItemProvider != null) calcSlopeDeltaAtomicSlopeDeltaItemProvider.dispose();
+		if (calcSlopeDeltaSlopeAfterItemProvider != null) calcSlopeDeltaSlopeAfterItemProvider.dispose();
+		if (calcSlopeDeltaSlopeDeltaItemProvider != null) calcSlopeDeltaSlopeDeltaItemProvider.dispose();
+		if (calcStartEventAmountAfterItemProvider != null) calcStartEventAmountAfterItemProvider.dispose();
+		if (calcStartEventMomentItemProvider != null) calcStartEventMomentItemProvider.dispose();
+		if (calcStartEventSlopeAfterItemProvider != null) calcStartEventSlopeAfterItemProvider.dispose();
+		if (calcStockChangeEndMomentItemProvider != null) calcStockChangeEndMomentItemProvider.dispose();
+		if (calcStockChangeEndSlopeDeltaItemProvider != null) calcStockChangeEndSlopeDeltaItemProvider.dispose();
+		if (calcStockChangeStartMomentItemProvider != null) calcStockChangeStartMomentItemProvider.dispose();
+		if (calcStockChangeStartSlopeDeltaItemProvider != null) calcStockChangeStartSlopeDeltaItemProvider.dispose();
+		if (calcEventSlopeItemProvider != null) calcEventSlopeItemProvider.dispose();
+		if (calcEventAmountItemProvider != null) calcEventAmountItemProvider.dispose();
 	}
 
 }

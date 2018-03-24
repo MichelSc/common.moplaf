@@ -224,7 +224,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 
 	@Override
 	public void refreshAmountAbsolute() {
-		float amount = this.getProvider().getAmountAbsolute();
+		double amount = this.getProvider().getAmountAbsolute();
 		this.setAmountAbsolute(amount);;
 	}
 	

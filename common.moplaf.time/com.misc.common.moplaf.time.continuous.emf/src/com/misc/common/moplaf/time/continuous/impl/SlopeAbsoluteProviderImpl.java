@@ -60,7 +60,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SLOPE_ABSOLUTE_EDEFAULT = 0.0F;
+	protected static final double SLOPE_ABSOLUTE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSlopeAbsolute() <em>Slope Absolute</em>}' attribute.
@@ -70,7 +70,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	 * @generated
 	 * @ordered
 	 */
-	protected float slopeAbsolute = SLOPE_ABSOLUTE_EDEFAULT;
+	protected double slopeAbsolute = SLOPE_ABSOLUTE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,7 +148,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSlopeAbsolute() {
+	public double getSlopeAbsolute() {
 		return slopeAbsolute;
 	}
 
@@ -157,8 +157,8 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSlopeAbsolute(float newSlopeAbsolute) {
-		float oldSlopeAbsolute = slopeAbsolute;
+	public void setSlopeAbsolute(double newSlopeAbsolute) {
+		double oldSlopeAbsolute = slopeAbsolute;
 		slopeAbsolute = newSlopeAbsolute;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE, oldSlopeAbsolute, slopeAbsolute));
@@ -222,7 +222,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 				setEvent((SlopeAbsoluteAtomic)newValue);
 				return;
 			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
-				setSlopeAbsolute((Float)newValue);
+				setSlopeAbsolute((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

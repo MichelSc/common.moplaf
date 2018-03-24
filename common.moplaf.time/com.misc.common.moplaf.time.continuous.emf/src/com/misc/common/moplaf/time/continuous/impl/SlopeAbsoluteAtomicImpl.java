@@ -224,7 +224,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 
 	@Override
 	public void refreshSlopeAbsolute() {
-		float absolute = this.getProvider().getSlopeAbsolute();
+		double absolute = this.getProvider().getSlopeAbsolute();
 		this.setSlopeAbsolute(absolute);
 	}
 	

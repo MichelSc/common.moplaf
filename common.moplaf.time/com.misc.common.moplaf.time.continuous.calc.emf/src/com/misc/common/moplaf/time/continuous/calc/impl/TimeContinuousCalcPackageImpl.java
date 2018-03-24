@@ -14,53 +14,53 @@ package com.misc.common.moplaf.time.continuous.calc.impl;
 
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicAmountImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndAmountImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartAmountImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeBefore;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAbsolute;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlopeAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndSlopeImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartSlopeImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAbsolute;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicAmountAbsolute;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountDelta;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicAmountDelta;
+import com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndAmountDelta;
+import com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartAmountDelta;
+import com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcChildEventAmountAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcChildEventMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcChildEventSlopeAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcDistributionChildEvents;
+import com.misc.common.moplaf.time.continuous.calc.CalcDistributionInitialization;
+import com.misc.common.moplaf.time.continuous.calc.CalcDistributionProvidedEvents;
+import com.misc.common.moplaf.time.continuous.calc.CalcDistributionSequence;
+import com.misc.common.moplaf.time.continuous.calc.CalcEndEventMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventAmount;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventAmountAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventAmountBefore;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventSlope;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeBefore;
+import com.misc.common.moplaf.time.continuous.calc.CalcEventsProviderRefreshEvents;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicSlopeAbsolute;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAbsolute;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicSlopeDelta;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeDelta;
+import com.misc.common.moplaf.time.continuous.calc.CalcStartEventAmountAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcStartEventMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcStartEventSlopeAfter;
+import com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndSlopeDelta;
+import com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartMoment;
+import com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartSlopeDelta;
+import com.misc.common.moplaf.time.continuous.calc.LayerCompositeEventRefresh;
+import com.misc.common.moplaf.time.continuous.calc.LayerDistributionAmounts;
+import com.misc.common.moplaf.time.continuous.calc.LayerDistributionSlopes;
+import com.misc.common.moplaf.time.continuous.calc.ScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcFactory;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
 
@@ -82,329 +82,329 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountAbsoluteAmountAbsoluteEClass = null;
+	private EClass scopeDistributionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountAbsoluteAmountAfterEClass = null;
+	private EClass calcDistributionInitializationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountAbsoluteAtomicAmountAbsoluteEClass = null;
+	private EClass layerCompositeEventRefreshEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountAbsoluteAtomicMomentEClass = null;
+	private EClass calcDistributionChildEventsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountImpulsionAmountAfterEClass = null;
+	private EClass calcDistributionProvidedEventsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountImpulsionAmountImpulsionEClass = null;
+	private EClass calcDistributionSequenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountImpulsionAtomicAmountImpulsionEClass = null;
+	private EClass layerDistributionSlopesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcAmountImpulsionAtomicMomentEClass = null;
+	private EClass layerDistributionAmountsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcCapacityChangeEndAmountImpulsionEClass = null;
+	private EClass calcAmountAbsoluteAmountAbsoluteEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcCapacityChangeEndMomentEClass = null;
+	private EClass calcAmountAbsoluteAmountAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcCapacityChangeStartAmountImpulsionEClass = null;
+	private EClass calcAmountAbsoluteAtomicAmountAbsoluteEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcCapacityChangeStartMomentEClass = null;
+	private EClass calcAmountAbsoluteAtomicMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcChildEventAmountAfterEClass = null;
+	private EClass calcAmountDeltaAmountAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcChildEventMomentEClass = null;
+	private EClass calcAmountDeltaAmountDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcChildEventSlopeAfterEClass = null;
+	private EClass calcAmountDeltaAtomicAmountDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcDistributionChildEventsEClass = null;
+	private EClass calcAmountDeltaAtomicMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcDistributionInitializationEClass = null;
+	private EClass calcCapacityChangeEndAmountDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcDistributionProvidedEventsEClass = null;
+	private EClass calcCapacityChangeEndMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcDistributionSequenceEClass = null;
+	private EClass calcCapacityChangeStartAmountDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEndEventMomentEClass = null;
+	private EClass calcCapacityChangeStartMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventAmountAfterEClass = null;
+	private EClass calcChildEventAmountAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventAmountBeforeEClass = null;
+	private EClass calcChildEventMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventMomentEClass = null;
+	private EClass calcChildEventSlopeAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventSlopeAfterEClass = null;
+	private EClass calcEndEventMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventSlopeBeforeEClass = null;
+	private EClass calcEventAmountAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventsProviderRefreshEventsEClass = null;
+	private EClass calcEventAmountBeforeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeAbsoluteAtomicMomentEClass = null;
+	private EClass calcEventMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteEClass = null;
+	private EClass calcEventSlopeAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeAbsoluteSlopeAbsoluteEClass = null;
+	private EClass calcEventSlopeBeforeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeAbsoluteSlopeAfterEClass = null;
+	private EClass calcEventsProviderRefreshEventsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeImpulsionAtomicMomentEClass = null;
+	private EClass calcSlopeAbsoluteAtomicMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeImpulsionAtomicSlopeImpulsionEClass = null;
+	private EClass calcSlopeAbsoluteAtomicSlopeAbsoluteEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeImpulsionSlopeAfterEClass = null;
+	private EClass calcSlopeAbsoluteSlopeAbsoluteEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcSlopeImpulsionSlopeImpulsionEClass = null;
+	private EClass calcSlopeAbsoluteSlopeAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcStartEventAmountAfterEClass = null;
+	private EClass calcSlopeDeltaAtomicMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcStartEventMomentEClass = null;
+	private EClass calcSlopeDeltaAtomicSlopeDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcStartEventSlopeAfterEClass = null;
+	private EClass calcSlopeDeltaSlopeAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcStockChangeEndMomentEClass = null;
+	private EClass calcSlopeDeltaSlopeDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcStockChangeEndSlopeImpulsionEClass = null;
+	private EClass calcStartEventAmountAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcStockChangeStartMomentEClass = null;
+	private EClass calcStartEventMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcStockChangeStartSlopeImpulsionEClass = null;
+	private EClass calcStartEventSlopeAfterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventSlopeEClass = null;
+	private EClass calcStockChangeEndMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventAmountEClass = null;
+	private EClass calcStockChangeEndSlopeDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorLayerCompositeEventRefreshEClass = null;
+	private EClass calcStockChangeStartMomentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorLayerDistributionAmountsEClass = null;
+	private EClass calcStockChangeStartSlopeDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorLayerDistributionSlopesEClass = null;
+	private EClass calcEventSlopeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorScopeDistributionEClass = null;
+	private EClass calcEventAmountEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -476,8 +476,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountAbsoluteAmountAbsolute() {
-		return propagatorCalcAmountAbsoluteAmountAbsoluteEClass;
+	public EClass getScopeDistribution() {
+		return scopeDistributionEClass;
 	}
 
 	/**
@@ -485,8 +485,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountAbsoluteAmountAfter() {
-		return propagatorCalcAmountAbsoluteAmountAfterEClass;
+	public EClass getCalcDistributionInitialization() {
+		return calcDistributionInitializationEClass;
 	}
 
 	/**
@@ -494,8 +494,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountAbsoluteAtomicAmountAbsolute() {
-		return propagatorCalcAmountAbsoluteAtomicAmountAbsoluteEClass;
+	public EReference getCalcDistributionInitialization_ConcreteParent() {
+		return (EReference)calcDistributionInitializationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -503,8 +503,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountAbsoluteAtomicMoment() {
-		return propagatorCalcAmountAbsoluteAtomicMomentEClass;
+	public EClass getLayerCompositeEventRefresh() {
+		return layerCompositeEventRefreshEClass;
 	}
 
 	/**
@@ -512,8 +512,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountImpulsionAmountAfter() {
-		return propagatorCalcAmountImpulsionAmountAfterEClass;
+	public EReference getLayerCompositeEventRefresh_ConcreteParent() {
+		return (EReference)layerCompositeEventRefreshEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -521,8 +521,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountImpulsionAmountImpulsion() {
-		return propagatorCalcAmountImpulsionAmountImpulsionEClass;
+	public EReference getLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization() {
+		return (EReference)layerCompositeEventRefreshEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -530,8 +530,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountImpulsionAtomicAmountImpulsion() {
-		return propagatorCalcAmountImpulsionAtomicAmountImpulsionEClass;
+	public EClass getCalcDistributionChildEvents() {
+		return calcDistributionChildEventsEClass;
 	}
 
 	/**
@@ -539,8 +539,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcAmountImpulsionAtomicMoment() {
-		return propagatorCalcAmountImpulsionAtomicMomentEClass;
+	public EReference getCalcDistributionChildEvents_ConcreteParent() {
+		return (EReference)calcDistributionChildEventsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -548,8 +548,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcCapacityChangeEndAmountImpulsion() {
-		return propagatorCalcCapacityChangeEndAmountImpulsionEClass;
+	public EClass getCalcDistributionProvidedEvents() {
+		return calcDistributionProvidedEventsEClass;
 	}
 
 	/**
@@ -557,8 +557,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcCapacityChangeEndMoment() {
-		return propagatorCalcCapacityChangeEndMomentEClass;
+	public EReference getCalcDistributionProvidedEvents_ConcreteParent() {
+		return (EReference)calcDistributionProvidedEventsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -566,8 +566,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcCapacityChangeStartAmountImpulsion() {
-		return propagatorCalcCapacityChangeStartAmountImpulsionEClass;
+	public EReference getCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh() {
+		return (EReference)calcDistributionProvidedEventsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -575,8 +575,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcCapacityChangeStartMoment() {
-		return propagatorCalcCapacityChangeStartMomentEClass;
+	public EReference getCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents() {
+		return (EReference)calcDistributionProvidedEventsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -584,8 +584,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcChildEventAmountAfter() {
-		return propagatorCalcChildEventAmountAfterEClass;
+	public EClass getCalcDistributionSequence() {
+		return calcDistributionSequenceEClass;
 	}
 
 	/**
@@ -593,8 +593,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcChildEventMoment() {
-		return propagatorCalcChildEventMomentEClass;
+	public EReference getCalcDistributionSequence_ConcreteParent() {
+		return (EReference)calcDistributionSequenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -602,8 +602,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcChildEventSlopeAfter() {
-		return propagatorCalcChildEventSlopeAfterEClass;
+	public EReference getCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents() {
+		return (EReference)calcDistributionSequenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -611,8 +611,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcDistributionChildEvents() {
-		return propagatorCalcDistributionChildEventsEClass;
+	public EClass getLayerDistributionSlopes() {
+		return layerDistributionSlopesEClass;
 	}
 
 	/**
@@ -620,8 +620,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcDistributionChildEvents_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionChildEventsEClass.getEStructuralFeatures().get(0);
+	public EReference getLayerDistributionSlopes_ConcreteParent() {
+		return (EReference)layerDistributionSlopesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -629,8 +629,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcDistributionInitialization() {
-		return propagatorCalcDistributionInitializationEClass;
+	public EReference getLayerDistributionSlopes_AntecedentCalcDistributionSequence() {
+		return (EReference)layerDistributionSlopesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -638,8 +638,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcDistributionInitialization_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionInitializationEClass.getEStructuralFeatures().get(0);
+	public EClass getLayerDistributionAmounts() {
+		return layerDistributionAmountsEClass;
 	}
 
 	/**
@@ -647,8 +647,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcDistributionProvidedEvents() {
-		return propagatorCalcDistributionProvidedEventsEClass;
+	public EReference getLayerDistributionAmounts_ConcreteParent() {
+		return (EReference)layerDistributionAmountsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -656,8 +656,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcDistributionProvidedEvents_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(0);
+	public EReference getLayerDistributionAmounts_AntecedentLayerDistributionSlopes() {
+		return (EReference)layerDistributionAmountsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -665,8 +665,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh() {
-		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(1);
+	public EClass getCalcAmountAbsoluteAmountAbsolute() {
+		return calcAmountAbsoluteAmountAbsoluteEClass;
 	}
 
 	/**
@@ -674,8 +674,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents() {
-		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(2);
+	public EClass getCalcAmountAbsoluteAmountAfter() {
+		return calcAmountAbsoluteAmountAfterEClass;
 	}
 
 	/**
@@ -683,8 +683,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcDistributionSequence() {
-		return propagatorCalcDistributionSequenceEClass;
+	public EClass getCalcAmountAbsoluteAtomicAmountAbsolute() {
+		return calcAmountAbsoluteAtomicAmountAbsoluteEClass;
 	}
 
 	/**
@@ -692,8 +692,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcDistributionSequence_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionSequenceEClass.getEStructuralFeatures().get(0);
+	public EClass getCalcAmountAbsoluteAtomicMoment() {
+		return calcAmountAbsoluteAtomicMomentEClass;
 	}
 
 	/**
@@ -701,8 +701,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents() {
-		return (EReference)propagatorCalcDistributionSequenceEClass.getEStructuralFeatures().get(1);
+	public EClass getCalcAmountDeltaAmountAfter() {
+		return calcAmountDeltaAmountAfterEClass;
 	}
 
 	/**
@@ -710,8 +710,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEndEventMoment() {
-		return propagatorCalcEndEventMomentEClass;
+	public EClass getCalcAmountDeltaAmountDelta() {
+		return calcAmountDeltaAmountDeltaEClass;
 	}
 
 	/**
@@ -719,8 +719,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventAmountAfter() {
-		return propagatorCalcEventAmountAfterEClass;
+	public EClass getCalcAmountDeltaAtomicAmountDelta() {
+		return calcAmountDeltaAtomicAmountDeltaEClass;
 	}
 
 	/**
@@ -728,8 +728,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventAmountBefore() {
-		return propagatorCalcEventAmountBeforeEClass;
+	public EClass getCalcAmountDeltaAtomicMoment() {
+		return calcAmountDeltaAtomicMomentEClass;
 	}
 
 	/**
@@ -737,8 +737,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventMoment() {
-		return propagatorCalcEventMomentEClass;
+	public EClass getCalcCapacityChangeEndAmountDelta() {
+		return calcCapacityChangeEndAmountDeltaEClass;
 	}
 
 	/**
@@ -746,8 +746,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcEventMoment_ConcreteParent() {
-		return (EReference)propagatorCalcEventMomentEClass.getEStructuralFeatures().get(0);
+	public EClass getCalcCapacityChangeEndMoment() {
+		return calcCapacityChangeEndMomentEClass;
 	}
 
 	/**
@@ -755,8 +755,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventSlopeAfter() {
-		return propagatorCalcEventSlopeAfterEClass;
+	public EClass getCalcCapacityChangeStartAmountDelta() {
+		return calcCapacityChangeStartAmountDeltaEClass;
 	}
 
 	/**
@@ -764,8 +764,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventSlopeBefore() {
-		return propagatorCalcEventSlopeBeforeEClass;
+	public EClass getCalcCapacityChangeStartMoment() {
+		return calcCapacityChangeStartMomentEClass;
 	}
 
 	/**
@@ -773,8 +773,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventsProviderRefreshEvents() {
-		return propagatorCalcEventsProviderRefreshEventsEClass;
+	public EClass getCalcChildEventAmountAfter() {
+		return calcChildEventAmountAfterEClass;
 	}
 
 	/**
@@ -782,8 +782,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcEventsProviderRefreshEvents_ConcreteParent() {
-		return (EReference)propagatorCalcEventsProviderRefreshEventsEClass.getEStructuralFeatures().get(0);
+	public EClass getCalcChildEventMoment() {
+		return calcChildEventMomentEClass;
 	}
 
 	/**
@@ -791,8 +791,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeAbsoluteAtomicMoment() {
-		return propagatorCalcSlopeAbsoluteAtomicMomentEClass;
+	public EClass getCalcChildEventSlopeAfter() {
+		return calcChildEventSlopeAfterEClass;
 	}
 
 	/**
@@ -800,8 +800,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute() {
-		return propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteEClass;
+	public EClass getCalcEndEventMoment() {
+		return calcEndEventMomentEClass;
 	}
 
 	/**
@@ -809,8 +809,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeAbsoluteSlopeAbsolute() {
-		return propagatorCalcSlopeAbsoluteSlopeAbsoluteEClass;
+	public EClass getCalcEventAmountAfter() {
+		return calcEventAmountAfterEClass;
 	}
 
 	/**
@@ -818,8 +818,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeAbsoluteSlopeAfter() {
-		return propagatorCalcSlopeAbsoluteSlopeAfterEClass;
+	public EClass getCalcEventAmountBefore() {
+		return calcEventAmountBeforeEClass;
 	}
 
 	/**
@@ -827,8 +827,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeImpulsionAtomicMoment() {
-		return propagatorCalcSlopeImpulsionAtomicMomentEClass;
+	public EClass getCalcEventMoment() {
+		return calcEventMomentEClass;
 	}
 
 	/**
@@ -836,8 +836,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeImpulsionAtomicSlopeImpulsion() {
-		return propagatorCalcSlopeImpulsionAtomicSlopeImpulsionEClass;
+	public EReference getCalcEventMoment_ConcreteParent() {
+		return (EReference)calcEventMomentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -845,8 +845,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeImpulsionSlopeAfter() {
-		return propagatorCalcSlopeImpulsionSlopeAfterEClass;
+	public EClass getCalcEventSlopeAfter() {
+		return calcEventSlopeAfterEClass;
 	}
 
 	/**
@@ -854,8 +854,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcSlopeImpulsionSlopeImpulsion() {
-		return propagatorCalcSlopeImpulsionSlopeImpulsionEClass;
+	public EClass getCalcEventSlopeBefore() {
+		return calcEventSlopeBeforeEClass;
 	}
 
 	/**
@@ -863,8 +863,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcStartEventAmountAfter() {
-		return propagatorCalcStartEventAmountAfterEClass;
+	public EClass getCalcEventsProviderRefreshEvents() {
+		return calcEventsProviderRefreshEventsEClass;
 	}
 
 	/**
@@ -872,8 +872,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcStartEventMoment() {
-		return propagatorCalcStartEventMomentEClass;
+	public EReference getCalcEventsProviderRefreshEvents_ConcreteParent() {
+		return (EReference)calcEventsProviderRefreshEventsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -881,8 +881,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcStartEventSlopeAfter() {
-		return propagatorCalcStartEventSlopeAfterEClass;
+	public EClass getCalcSlopeAbsoluteAtomicMoment() {
+		return calcSlopeAbsoluteAtomicMomentEClass;
 	}
 
 	/**
@@ -890,8 +890,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcStockChangeEndMoment() {
-		return propagatorCalcStockChangeEndMomentEClass;
+	public EClass getCalcSlopeAbsoluteAtomicSlopeAbsolute() {
+		return calcSlopeAbsoluteAtomicSlopeAbsoluteEClass;
 	}
 
 	/**
@@ -899,8 +899,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcStockChangeEndSlopeImpulsion() {
-		return propagatorCalcStockChangeEndSlopeImpulsionEClass;
+	public EClass getCalcSlopeAbsoluteSlopeAbsolute() {
+		return calcSlopeAbsoluteSlopeAbsoluteEClass;
 	}
 
 	/**
@@ -908,8 +908,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcStockChangeStartMoment() {
-		return propagatorCalcStockChangeStartMomentEClass;
+	public EClass getCalcSlopeAbsoluteSlopeAfter() {
+		return calcSlopeAbsoluteSlopeAfterEClass;
 	}
 
 	/**
@@ -917,8 +917,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcStockChangeStartSlopeImpulsion() {
-		return propagatorCalcStockChangeStartSlopeImpulsionEClass;
+	public EClass getCalcSlopeDeltaAtomicMoment() {
+		return calcSlopeDeltaAtomicMomentEClass;
 	}
 
 	/**
@@ -926,8 +926,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventSlope() {
-		return propagatorCalcEventSlopeEClass;
+	public EClass getCalcSlopeDeltaAtomicSlopeDelta() {
+		return calcSlopeDeltaAtomicSlopeDeltaEClass;
 	}
 
 	/**
@@ -935,8 +935,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcEventSlope_ConcreteParent() {
-		return (EReference)propagatorCalcEventSlopeEClass.getEStructuralFeatures().get(0);
+	public EClass getCalcSlopeDeltaSlopeAfter() {
+		return calcSlopeDeltaSlopeAfterEClass;
 	}
 
 	/**
@@ -944,8 +944,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventAmount() {
-		return propagatorCalcEventAmountEClass;
+	public EClass getCalcSlopeDeltaSlopeDelta() {
+		return calcSlopeDeltaSlopeDeltaEClass;
 	}
 
 	/**
@@ -953,8 +953,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorCalcEventAmount_ConcreteParent() {
-		return (EReference)propagatorCalcEventAmountEClass.getEStructuralFeatures().get(0);
+	public EClass getCalcStartEventAmountAfter() {
+		return calcStartEventAmountAfterEClass;
 	}
 
 	/**
@@ -962,8 +962,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorLayerCompositeEventRefresh() {
-		return propagatorLayerCompositeEventRefreshEClass;
+	public EClass getCalcStartEventMoment() {
+		return calcStartEventMomentEClass;
 	}
 
 	/**
@@ -971,8 +971,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorLayerCompositeEventRefresh_ConcreteParent() {
-		return (EReference)propagatorLayerCompositeEventRefreshEClass.getEStructuralFeatures().get(0);
+	public EClass getCalcStartEventSlopeAfter() {
+		return calcStartEventSlopeAfterEClass;
 	}
 
 	/**
@@ -980,8 +980,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization() {
-		return (EReference)propagatorLayerCompositeEventRefreshEClass.getEStructuralFeatures().get(1);
+	public EClass getCalcStockChangeEndMoment() {
+		return calcStockChangeEndMomentEClass;
 	}
 
 	/**
@@ -989,8 +989,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorLayerDistributionAmounts() {
-		return propagatorLayerDistributionAmountsEClass;
+	public EClass getCalcStockChangeEndSlopeDelta() {
+		return calcStockChangeEndSlopeDeltaEClass;
 	}
 
 	/**
@@ -998,8 +998,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorLayerDistributionAmounts_ConcreteParent() {
-		return (EReference)propagatorLayerDistributionAmountsEClass.getEStructuralFeatures().get(0);
+	public EClass getCalcStockChangeStartMoment() {
+		return calcStockChangeStartMomentEClass;
 	}
 
 	/**
@@ -1007,8 +1007,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes() {
-		return (EReference)propagatorLayerDistributionAmountsEClass.getEStructuralFeatures().get(1);
+	public EClass getCalcStockChangeStartSlopeDelta() {
+		return calcStockChangeStartSlopeDeltaEClass;
 	}
 
 	/**
@@ -1016,8 +1016,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorLayerDistributionSlopes() {
-		return propagatorLayerDistributionSlopesEClass;
+	public EClass getCalcEventSlope() {
+		return calcEventSlopeEClass;
 	}
 
 	/**
@@ -1025,8 +1025,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorLayerDistributionSlopes_ConcreteParent() {
-		return (EReference)propagatorLayerDistributionSlopesEClass.getEStructuralFeatures().get(0);
+	public EReference getCalcEventSlope_ConcreteParent() {
+		return (EReference)calcEventSlopeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1034,8 +1034,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence() {
-		return (EReference)propagatorLayerDistributionSlopesEClass.getEStructuralFeatures().get(1);
+	public EClass getCalcEventAmount() {
+		return calcEventAmountEClass;
 	}
 
 	/**
@@ -1043,8 +1043,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorScopeDistribution() {
-		return propagatorScopeDistributionEClass;
+	public EReference getCalcEventAmount_ConcreteParent() {
+		return (EReference)calcEventAmountEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1075,116 +1075,116 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		isCreated = true;
 
 		// Create classes and their features
-		propagatorScopeDistributionEClass = createEClass(PROPAGATOR_SCOPE_DISTRIBUTION);
+		scopeDistributionEClass = createEClass(SCOPE_DISTRIBUTION);
 
-		propagatorCalcDistributionInitializationEClass = createEClass(PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION);
-		createEReference(propagatorCalcDistributionInitializationEClass, PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION__CONCRETE_PARENT);
+		calcDistributionInitializationEClass = createEClass(CALC_DISTRIBUTION_INITIALIZATION);
+		createEReference(calcDistributionInitializationEClass, CALC_DISTRIBUTION_INITIALIZATION__CONCRETE_PARENT);
 
-		propagatorLayerCompositeEventRefreshEClass = createEClass(PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH);
-		createEReference(propagatorLayerCompositeEventRefreshEClass, PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__CONCRETE_PARENT);
-		createEReference(propagatorLayerCompositeEventRefreshEClass, PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__ANTECEDEN_CALC_DISTRIBUTION_INITIALIZATION);
+		layerCompositeEventRefreshEClass = createEClass(LAYER_COMPOSITE_EVENT_REFRESH);
+		createEReference(layerCompositeEventRefreshEClass, LAYER_COMPOSITE_EVENT_REFRESH__CONCRETE_PARENT);
+		createEReference(layerCompositeEventRefreshEClass, LAYER_COMPOSITE_EVENT_REFRESH__ANTECEDEN_CALC_DISTRIBUTION_INITIALIZATION);
 
-		propagatorCalcDistributionChildEventsEClass = createEClass(PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS);
-		createEReference(propagatorCalcDistributionChildEventsEClass, PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS__CONCRETE_PARENT);
+		calcDistributionChildEventsEClass = createEClass(CALC_DISTRIBUTION_CHILD_EVENTS);
+		createEReference(calcDistributionChildEventsEClass, CALC_DISTRIBUTION_CHILD_EVENTS__CONCRETE_PARENT);
 
-		propagatorCalcDistributionProvidedEventsEClass = createEClass(PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS);
-		createEReference(propagatorCalcDistributionProvidedEventsEClass, PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__CONCRETE_PARENT);
-		createEReference(propagatorCalcDistributionProvidedEventsEClass, PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_LAYER_COMPOSITEEVENT_REFRESH);
-		createEReference(propagatorCalcDistributionProvidedEventsEClass, PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_CALC_DISTRIBUTIONCHILD_EVENTS);
+		calcDistributionProvidedEventsEClass = createEClass(CALC_DISTRIBUTION_PROVIDED_EVENTS);
+		createEReference(calcDistributionProvidedEventsEClass, CALC_DISTRIBUTION_PROVIDED_EVENTS__CONCRETE_PARENT);
+		createEReference(calcDistributionProvidedEventsEClass, CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_LAYER_COMPOSITEEVENT_REFRESH);
+		createEReference(calcDistributionProvidedEventsEClass, CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_CALC_DISTRIBUTIONCHILD_EVENTS);
 
-		propagatorCalcDistributionSequenceEClass = createEClass(PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE);
-		createEReference(propagatorCalcDistributionSequenceEClass, PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__CONCRETE_PARENT);
-		createEReference(propagatorCalcDistributionSequenceEClass, PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__ANTECEDENT_CALC_DISTRIBUTION_PROVIDED_EVENTS);
+		calcDistributionSequenceEClass = createEClass(CALC_DISTRIBUTION_SEQUENCE);
+		createEReference(calcDistributionSequenceEClass, CALC_DISTRIBUTION_SEQUENCE__CONCRETE_PARENT);
+		createEReference(calcDistributionSequenceEClass, CALC_DISTRIBUTION_SEQUENCE__ANTECEDENT_CALC_DISTRIBUTION_PROVIDED_EVENTS);
 
-		propagatorLayerDistributionSlopesEClass = createEClass(PROPAGATOR_LAYER_DISTRIBUTION_SLOPES);
-		createEReference(propagatorLayerDistributionSlopesEClass, PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__CONCRETE_PARENT);
-		createEReference(propagatorLayerDistributionSlopesEClass, PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__ANTECEDENT_CALC_DISTRIBUTION_SEQUENCE);
+		layerDistributionSlopesEClass = createEClass(LAYER_DISTRIBUTION_SLOPES);
+		createEReference(layerDistributionSlopesEClass, LAYER_DISTRIBUTION_SLOPES__CONCRETE_PARENT);
+		createEReference(layerDistributionSlopesEClass, LAYER_DISTRIBUTION_SLOPES__ANTECEDENT_CALC_DISTRIBUTION_SEQUENCE);
 
-		propagatorLayerDistributionAmountsEClass = createEClass(PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS);
-		createEReference(propagatorLayerDistributionAmountsEClass, PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__CONCRETE_PARENT);
-		createEReference(propagatorLayerDistributionAmountsEClass, PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__ANTECEDENT_LAYER_DISTRIBUTION_SLOPES);
+		layerDistributionAmountsEClass = createEClass(LAYER_DISTRIBUTION_AMOUNTS);
+		createEReference(layerDistributionAmountsEClass, LAYER_DISTRIBUTION_AMOUNTS__CONCRETE_PARENT);
+		createEReference(layerDistributionAmountsEClass, LAYER_DISTRIBUTION_AMOUNTS__ANTECEDENT_LAYER_DISTRIBUTION_SLOPES);
 
-		propagatorCalcAmountAbsoluteAmountAbsoluteEClass = createEClass(PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE);
+		calcAmountAbsoluteAmountAbsoluteEClass = createEClass(CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE);
 
-		propagatorCalcAmountAbsoluteAmountAfterEClass = createEClass(PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER);
+		calcAmountAbsoluteAmountAfterEClass = createEClass(CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER);
 
-		propagatorCalcAmountAbsoluteAtomicAmountAbsoluteEClass = createEClass(PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE);
+		calcAmountAbsoluteAtomicAmountAbsoluteEClass = createEClass(CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE);
 
-		propagatorCalcAmountAbsoluteAtomicMomentEClass = createEClass(PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT);
+		calcAmountAbsoluteAtomicMomentEClass = createEClass(CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT);
 
-		propagatorCalcAmountImpulsionAmountAfterEClass = createEClass(PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER);
+		calcAmountDeltaAmountAfterEClass = createEClass(CALC_AMOUNT_DELTA_AMOUNT_AFTER);
 
-		propagatorCalcAmountImpulsionAmountImpulsionEClass = createEClass(PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION);
+		calcAmountDeltaAmountDeltaEClass = createEClass(CALC_AMOUNT_DELTA_AMOUNT_DELTA);
 
-		propagatorCalcAmountImpulsionAtomicAmountImpulsionEClass = createEClass(PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION);
+		calcAmountDeltaAtomicAmountDeltaEClass = createEClass(CALC_AMOUNT_DELTA_ATOMIC_AMOUNT_DELTA);
 
-		propagatorCalcAmountImpulsionAtomicMomentEClass = createEClass(PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT);
+		calcAmountDeltaAtomicMomentEClass = createEClass(CALC_AMOUNT_DELTA_ATOMIC_MOMENT);
 
-		propagatorCalcCapacityChangeEndAmountImpulsionEClass = createEClass(PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION);
+		calcCapacityChangeEndAmountDeltaEClass = createEClass(CALC_CAPACITY_CHANGE_END_AMOUNT_DELTA);
 
-		propagatorCalcCapacityChangeEndMomentEClass = createEClass(PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT);
+		calcCapacityChangeEndMomentEClass = createEClass(CALC_CAPACITY_CHANGE_END_MOMENT);
 
-		propagatorCalcCapacityChangeStartAmountImpulsionEClass = createEClass(PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION);
+		calcCapacityChangeStartAmountDeltaEClass = createEClass(CALC_CAPACITY_CHANGE_START_AMOUNT_DELTA);
 
-		propagatorCalcCapacityChangeStartMomentEClass = createEClass(PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT);
+		calcCapacityChangeStartMomentEClass = createEClass(CALC_CAPACITY_CHANGE_START_MOMENT);
 
-		propagatorCalcChildEventAmountAfterEClass = createEClass(PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER);
+		calcChildEventAmountAfterEClass = createEClass(CALC_CHILD_EVENT_AMOUNT_AFTER);
 
-		propagatorCalcChildEventMomentEClass = createEClass(PROPAGATOR_CALC_CHILD_EVENT_MOMENT);
+		calcChildEventMomentEClass = createEClass(CALC_CHILD_EVENT_MOMENT);
 
-		propagatorCalcChildEventSlopeAfterEClass = createEClass(PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER);
+		calcChildEventSlopeAfterEClass = createEClass(CALC_CHILD_EVENT_SLOPE_AFTER);
 
-		propagatorCalcEndEventMomentEClass = createEClass(PROPAGATOR_CALC_END_EVENT_MOMENT);
+		calcEndEventMomentEClass = createEClass(CALC_END_EVENT_MOMENT);
 
-		propagatorCalcEventAmountAfterEClass = createEClass(PROPAGATOR_CALC_EVENT_AMOUNT_AFTER);
+		calcEventAmountAfterEClass = createEClass(CALC_EVENT_AMOUNT_AFTER);
 
-		propagatorCalcEventAmountBeforeEClass = createEClass(PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE);
+		calcEventAmountBeforeEClass = createEClass(CALC_EVENT_AMOUNT_BEFORE);
 
-		propagatorCalcEventMomentEClass = createEClass(PROPAGATOR_CALC_EVENT_MOMENT);
-		createEReference(propagatorCalcEventMomentEClass, PROPAGATOR_CALC_EVENT_MOMENT__CONCRETE_PARENT);
+		calcEventMomentEClass = createEClass(CALC_EVENT_MOMENT);
+		createEReference(calcEventMomentEClass, CALC_EVENT_MOMENT__CONCRETE_PARENT);
 
-		propagatorCalcEventSlopeAfterEClass = createEClass(PROPAGATOR_CALC_EVENT_SLOPE_AFTER);
+		calcEventSlopeAfterEClass = createEClass(CALC_EVENT_SLOPE_AFTER);
 
-		propagatorCalcEventSlopeBeforeEClass = createEClass(PROPAGATOR_CALC_EVENT_SLOPE_BEFORE);
+		calcEventSlopeBeforeEClass = createEClass(CALC_EVENT_SLOPE_BEFORE);
 
-		propagatorCalcEventsProviderRefreshEventsEClass = createEClass(PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS);
-		createEReference(propagatorCalcEventsProviderRefreshEventsEClass, PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS__CONCRETE_PARENT);
+		calcEventsProviderRefreshEventsEClass = createEClass(CALC_EVENTS_PROVIDER_REFRESH_EVENTS);
+		createEReference(calcEventsProviderRefreshEventsEClass, CALC_EVENTS_PROVIDER_REFRESH_EVENTS__CONCRETE_PARENT);
 
-		propagatorCalcSlopeAbsoluteAtomicMomentEClass = createEClass(PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT);
+		calcSlopeAbsoluteAtomicMomentEClass = createEClass(CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT);
 
-		propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteEClass = createEClass(PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE);
+		calcSlopeAbsoluteAtomicSlopeAbsoluteEClass = createEClass(CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE);
 
-		propagatorCalcSlopeAbsoluteSlopeAbsoluteEClass = createEClass(PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE);
+		calcSlopeAbsoluteSlopeAbsoluteEClass = createEClass(CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE);
 
-		propagatorCalcSlopeAbsoluteSlopeAfterEClass = createEClass(PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER);
+		calcSlopeAbsoluteSlopeAfterEClass = createEClass(CALC_SLOPE_ABSOLUTE_SLOPE_AFTER);
 
-		propagatorCalcSlopeImpulsionAtomicMomentEClass = createEClass(PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT);
+		calcSlopeDeltaAtomicMomentEClass = createEClass(CALC_SLOPE_DELTA_ATOMIC_MOMENT);
 
-		propagatorCalcSlopeImpulsionAtomicSlopeImpulsionEClass = createEClass(PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION);
+		calcSlopeDeltaAtomicSlopeDeltaEClass = createEClass(CALC_SLOPE_DELTA_ATOMIC_SLOPE_DELTA);
 
-		propagatorCalcSlopeImpulsionSlopeAfterEClass = createEClass(PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER);
+		calcSlopeDeltaSlopeAfterEClass = createEClass(CALC_SLOPE_DELTA_SLOPE_AFTER);
 
-		propagatorCalcSlopeImpulsionSlopeImpulsionEClass = createEClass(PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION);
+		calcSlopeDeltaSlopeDeltaEClass = createEClass(CALC_SLOPE_DELTA_SLOPE_DELTA);
 
-		propagatorCalcStartEventAmountAfterEClass = createEClass(PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER);
+		calcStartEventAmountAfterEClass = createEClass(CALC_START_EVENT_AMOUNT_AFTER);
 
-		propagatorCalcStartEventMomentEClass = createEClass(PROPAGATOR_CALC_START_EVENT_MOMENT);
+		calcStartEventMomentEClass = createEClass(CALC_START_EVENT_MOMENT);
 
-		propagatorCalcStartEventSlopeAfterEClass = createEClass(PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER);
+		calcStartEventSlopeAfterEClass = createEClass(CALC_START_EVENT_SLOPE_AFTER);
 
-		propagatorCalcStockChangeEndMomentEClass = createEClass(PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT);
+		calcStockChangeEndMomentEClass = createEClass(CALC_STOCK_CHANGE_END_MOMENT);
 
-		propagatorCalcStockChangeEndSlopeImpulsionEClass = createEClass(PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION);
+		calcStockChangeEndSlopeDeltaEClass = createEClass(CALC_STOCK_CHANGE_END_SLOPE_DELTA);
 
-		propagatorCalcStockChangeStartMomentEClass = createEClass(PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT);
+		calcStockChangeStartMomentEClass = createEClass(CALC_STOCK_CHANGE_START_MOMENT);
 
-		propagatorCalcStockChangeStartSlopeImpulsionEClass = createEClass(PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION);
+		calcStockChangeStartSlopeDeltaEClass = createEClass(CALC_STOCK_CHANGE_START_SLOPE_DELTA);
 
-		propagatorCalcEventSlopeEClass = createEClass(PROPAGATOR_CALC_EVENT_SLOPE);
-		createEReference(propagatorCalcEventSlopeEClass, PROPAGATOR_CALC_EVENT_SLOPE__CONCRETE_PARENT);
+		calcEventSlopeEClass = createEClass(CALC_EVENT_SLOPE);
+		createEReference(calcEventSlopeEClass, CALC_EVENT_SLOPE__CONCRETE_PARENT);
 
-		propagatorCalcEventAmountEClass = createEClass(PROPAGATOR_CALC_EVENT_AMOUNT);
-		createEReference(propagatorCalcEventAmountEClass, PROPAGATOR_CALC_EVENT_AMOUNT__CONCRETE_PARENT);
+		calcEventAmountEClass = createEClass(CALC_EVENT_AMOUNT);
+		createEReference(calcEventAmountEClass, CALC_EVENT_AMOUNT__CONCRETE_PARENT);
 	}
 
 	/**
@@ -1218,165 +1218,165 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		propagatorScopeDistributionEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorCalcDistributionInitializationEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorLayerCompositeEventRefreshEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorCalcDistributionChildEventsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorCalcDistributionProvidedEventsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorCalcDistributionSequenceEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorLayerDistributionSlopesEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorLayerDistributionAmountsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorCalcAmountAbsoluteAmountAbsoluteEClass.getESuperTypes().add(this.getPropagatorCalcEventAmount());
-		propagatorCalcAmountAbsoluteAmountAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventAmountAfter());
-		propagatorCalcAmountAbsoluteAtomicAmountAbsoluteEClass.getESuperTypes().add(this.getPropagatorCalcAmountAbsoluteAmountAbsolute());
-		propagatorCalcAmountAbsoluteAtomicMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcAmountImpulsionAmountAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventAmountAfter());
-		propagatorCalcAmountImpulsionAmountImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcEventAmount());
-		propagatorCalcAmountImpulsionAtomicAmountImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcAmountImpulsionAmountImpulsion());
-		propagatorCalcAmountImpulsionAtomicMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcCapacityChangeEndAmountImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcAmountImpulsionAmountImpulsion());
-		propagatorCalcCapacityChangeEndMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcCapacityChangeStartAmountImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcAmountImpulsionAmountImpulsion());
-		propagatorCalcCapacityChangeStartMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcChildEventAmountAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventAmountAfter());
-		propagatorCalcChildEventMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcChildEventSlopeAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventSlopeAfter());
-		propagatorCalcEndEventMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcEventAmountAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventAmount());
-		propagatorCalcEventAmountBeforeEClass.getESuperTypes().add(this.getPropagatorCalcEventAmount());
-		propagatorCalcEventMomentEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
-		propagatorCalcEventSlopeAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventSlope());
-		propagatorCalcEventSlopeBeforeEClass.getESuperTypes().add(this.getPropagatorCalcEventSlope());
-		propagatorCalcEventsProviderRefreshEventsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionEventsProvider());
-		propagatorCalcSlopeAbsoluteAtomicMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteEClass.getESuperTypes().add(this.getPropagatorCalcSlopeAbsoluteSlopeAbsolute());
-		propagatorCalcSlopeAbsoluteSlopeAbsoluteEClass.getESuperTypes().add(this.getPropagatorCalcEventSlope());
-		propagatorCalcSlopeAbsoluteSlopeAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventSlopeAfter());
-		propagatorCalcSlopeImpulsionAtomicMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcSlopeImpulsionAtomicSlopeImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcSlopeImpulsionSlopeImpulsion());
-		propagatorCalcSlopeImpulsionSlopeAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventSlopeAfter());
-		propagatorCalcSlopeImpulsionSlopeImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcEventSlope());
-		propagatorCalcStartEventAmountAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventAmountAfter());
-		propagatorCalcStartEventMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcStartEventSlopeAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventSlopeAfter());
-		propagatorCalcStockChangeEndMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcStockChangeEndSlopeImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcSlopeImpulsionSlopeImpulsion());
-		propagatorCalcStockChangeStartMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
-		propagatorCalcStockChangeStartSlopeImpulsionEClass.getESuperTypes().add(this.getPropagatorCalcSlopeImpulsionSlopeImpulsion());
-		propagatorCalcEventSlopeEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
-		propagatorCalcEventAmountEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
+		scopeDistributionEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		calcDistributionInitializationEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		layerCompositeEventRefreshEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		calcDistributionChildEventsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		calcDistributionProvidedEventsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		calcDistributionSequenceEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		layerDistributionSlopesEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		layerDistributionAmountsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
+		calcAmountAbsoluteAmountAbsoluteEClass.getESuperTypes().add(this.getCalcEventAmount());
+		calcAmountAbsoluteAmountAfterEClass.getESuperTypes().add(this.getCalcEventAmountAfter());
+		calcAmountAbsoluteAtomicAmountAbsoluteEClass.getESuperTypes().add(this.getCalcAmountAbsoluteAmountAbsolute());
+		calcAmountAbsoluteAtomicMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcAmountDeltaAmountAfterEClass.getESuperTypes().add(this.getCalcEventAmountAfter());
+		calcAmountDeltaAmountDeltaEClass.getESuperTypes().add(this.getCalcEventAmount());
+		calcAmountDeltaAtomicAmountDeltaEClass.getESuperTypes().add(this.getCalcAmountDeltaAmountDelta());
+		calcAmountDeltaAtomicMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcCapacityChangeEndAmountDeltaEClass.getESuperTypes().add(this.getCalcAmountDeltaAmountDelta());
+		calcCapacityChangeEndMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcCapacityChangeStartAmountDeltaEClass.getESuperTypes().add(this.getCalcAmountDeltaAmountDelta());
+		calcCapacityChangeStartMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcChildEventAmountAfterEClass.getESuperTypes().add(this.getCalcEventAmountAfter());
+		calcChildEventMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcChildEventSlopeAfterEClass.getESuperTypes().add(this.getCalcEventSlopeAfter());
+		calcEndEventMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcEventAmountAfterEClass.getESuperTypes().add(this.getCalcEventAmount());
+		calcEventAmountBeforeEClass.getESuperTypes().add(this.getCalcEventAmount());
+		calcEventMomentEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
+		calcEventSlopeAfterEClass.getESuperTypes().add(this.getCalcEventSlope());
+		calcEventSlopeBeforeEClass.getESuperTypes().add(this.getCalcEventSlope());
+		calcEventsProviderRefreshEventsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionEventsProvider());
+		calcSlopeAbsoluteAtomicMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcSlopeAbsoluteAtomicSlopeAbsoluteEClass.getESuperTypes().add(this.getCalcSlopeAbsoluteSlopeAbsolute());
+		calcSlopeAbsoluteSlopeAbsoluteEClass.getESuperTypes().add(this.getCalcEventSlope());
+		calcSlopeAbsoluteSlopeAfterEClass.getESuperTypes().add(this.getCalcEventSlopeAfter());
+		calcSlopeDeltaAtomicMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcSlopeDeltaAtomicSlopeDeltaEClass.getESuperTypes().add(this.getCalcSlopeDeltaSlopeDelta());
+		calcSlopeDeltaSlopeAfterEClass.getESuperTypes().add(this.getCalcEventSlopeAfter());
+		calcSlopeDeltaSlopeDeltaEClass.getESuperTypes().add(this.getCalcEventSlope());
+		calcStartEventAmountAfterEClass.getESuperTypes().add(this.getCalcEventAmountAfter());
+		calcStartEventMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcStartEventSlopeAfterEClass.getESuperTypes().add(this.getCalcEventSlopeAfter());
+		calcStockChangeEndMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcStockChangeEndSlopeDeltaEClass.getESuperTypes().add(this.getCalcSlopeDeltaSlopeDelta());
+		calcStockChangeStartMomentEClass.getESuperTypes().add(this.getCalcEventMoment());
+		calcStockChangeStartSlopeDeltaEClass.getESuperTypes().add(this.getCalcSlopeDeltaSlopeDelta());
+		calcEventSlopeEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
+		calcEventAmountEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(propagatorScopeDistributionEClass, PropagatorScopeDistribution.class, "PropagatorScopeDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(scopeDistributionEClass, ScopeDistribution.class, "ScopeDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcDistributionInitializationEClass, PropagatorCalcDistributionInitialization.class, "PropagatorCalcDistributionInitialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcDistributionInitialization_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorCalcDistributionInitialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(calcDistributionInitializationEClass, CalcDistributionInitialization.class, "CalcDistributionInitialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcDistributionInitialization_ConcreteParent(), this.getScopeDistribution(), null, "ConcreteParent", null, 0, 1, CalcDistributionInitialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorLayerCompositeEventRefreshEClass, PropagatorLayerCompositeEventRefresh.class, "PropagatorLayerCompositeEventRefresh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorLayerCompositeEventRefresh_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorLayerCompositeEventRefresh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization(), this.getPropagatorCalcDistributionInitialization(), null, "AntecedenCalcDistributionInitialization", null, 0, 1, PropagatorLayerCompositeEventRefresh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(layerCompositeEventRefreshEClass, LayerCompositeEventRefresh.class, "LayerCompositeEventRefresh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLayerCompositeEventRefresh_ConcreteParent(), this.getScopeDistribution(), null, "ConcreteParent", null, 0, 1, LayerCompositeEventRefresh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization(), this.getCalcDistributionInitialization(), null, "AntecedenCalcDistributionInitialization", null, 0, 1, LayerCompositeEventRefresh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorCalcDistributionChildEventsEClass, PropagatorCalcDistributionChildEvents.class, "PropagatorCalcDistributionChildEvents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcDistributionChildEvents_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorCalcDistributionChildEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(calcDistributionChildEventsEClass, CalcDistributionChildEvents.class, "CalcDistributionChildEvents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcDistributionChildEvents_ConcreteParent(), this.getScopeDistribution(), null, "ConcreteParent", null, 0, 1, CalcDistributionChildEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorCalcDistributionProvidedEventsEClass, PropagatorCalcDistributionProvidedEvents.class, "PropagatorCalcDistributionProvidedEvents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcDistributionProvidedEvents_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorCalcDistributionProvidedEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh(), this.getPropagatorLayerCompositeEventRefresh(), null, "AntecedentLayerCompositeeventRefresh", null, 0, 1, PropagatorCalcDistributionProvidedEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents(), this.getPropagatorCalcDistributionChildEvents(), null, "AntecedentCalcDistributionchildEvents", null, 0, 1, PropagatorCalcDistributionProvidedEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(calcDistributionProvidedEventsEClass, CalcDistributionProvidedEvents.class, "CalcDistributionProvidedEvents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcDistributionProvidedEvents_ConcreteParent(), this.getScopeDistribution(), null, "ConcreteParent", null, 0, 1, CalcDistributionProvidedEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh(), this.getLayerCompositeEventRefresh(), null, "AntecedentLayerCompositeeventRefresh", null, 0, 1, CalcDistributionProvidedEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents(), this.getCalcDistributionChildEvents(), null, "AntecedentCalcDistributionchildEvents", null, 0, 1, CalcDistributionProvidedEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorCalcDistributionSequenceEClass, PropagatorCalcDistributionSequence.class, "PropagatorCalcDistributionSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcDistributionSequence_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorCalcDistributionSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents(), this.getPropagatorCalcDistributionProvidedEvents(), null, "AntecedentCalcDistributionProvidedEvents", null, 0, 1, PropagatorCalcDistributionSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(calcDistributionSequenceEClass, CalcDistributionSequence.class, "CalcDistributionSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcDistributionSequence_ConcreteParent(), this.getScopeDistribution(), null, "ConcreteParent", null, 0, 1, CalcDistributionSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents(), this.getCalcDistributionProvidedEvents(), null, "AntecedentCalcDistributionProvidedEvents", null, 0, 1, CalcDistributionSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorLayerDistributionSlopesEClass, PropagatorLayerDistributionSlopes.class, "PropagatorLayerDistributionSlopes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorLayerDistributionSlopes_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorLayerDistributionSlopes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence(), this.getPropagatorCalcDistributionSequence(), null, "AntecedentCalcDistributionSequence", null, 0, 1, PropagatorLayerDistributionSlopes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(layerDistributionSlopesEClass, LayerDistributionSlopes.class, "LayerDistributionSlopes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLayerDistributionSlopes_ConcreteParent(), this.getScopeDistribution(), null, "ConcreteParent", null, 0, 1, LayerDistributionSlopes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLayerDistributionSlopes_AntecedentCalcDistributionSequence(), this.getCalcDistributionSequence(), null, "AntecedentCalcDistributionSequence", null, 0, 1, LayerDistributionSlopes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorLayerDistributionAmountsEClass, PropagatorLayerDistributionAmounts.class, "PropagatorLayerDistributionAmounts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorLayerDistributionAmounts_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorLayerDistributionAmounts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes(), this.getPropagatorLayerDistributionSlopes(), null, "AntecedentLayerDistributionSlopes", null, 0, 1, PropagatorLayerDistributionAmounts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(layerDistributionAmountsEClass, LayerDistributionAmounts.class, "LayerDistributionAmounts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLayerDistributionAmounts_ConcreteParent(), this.getScopeDistribution(), null, "ConcreteParent", null, 0, 1, LayerDistributionAmounts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLayerDistributionAmounts_AntecedentLayerDistributionSlopes(), this.getLayerDistributionSlopes(), null, "AntecedentLayerDistributionSlopes", null, 0, 1, LayerDistributionAmounts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorCalcAmountAbsoluteAmountAbsoluteEClass, PropagatorCalcAmountAbsoluteAmountAbsolute.class, "PropagatorCalcAmountAbsoluteAmountAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountAbsoluteAmountAbsoluteEClass, CalcAmountAbsoluteAmountAbsolute.class, "CalcAmountAbsoluteAmountAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcAmountAbsoluteAmountAfterEClass, PropagatorCalcAmountAbsoluteAmountAfter.class, "PropagatorCalcAmountAbsoluteAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountAbsoluteAmountAfterEClass, CalcAmountAbsoluteAmountAfter.class, "CalcAmountAbsoluteAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcAmountAbsoluteAtomicAmountAbsoluteEClass, PropagatorCalcAmountAbsoluteAtomicAmountAbsolute.class, "PropagatorCalcAmountAbsoluteAtomicAmountAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountAbsoluteAtomicAmountAbsoluteEClass, CalcAmountAbsoluteAtomicAmountAbsolute.class, "CalcAmountAbsoluteAtomicAmountAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcAmountAbsoluteAtomicMomentEClass, PropagatorCalcAmountAbsoluteAtomicMoment.class, "PropagatorCalcAmountAbsoluteAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountAbsoluteAtomicMomentEClass, CalcAmountAbsoluteAtomicMoment.class, "CalcAmountAbsoluteAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcAmountImpulsionAmountAfterEClass, PropagatorCalcAmountImpulsionAmountAfter.class, "PropagatorCalcAmountImpulsionAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountDeltaAmountAfterEClass, CalcAmountDeltaAmountAfter.class, "CalcAmountDeltaAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcAmountImpulsionAmountImpulsionEClass, PropagatorCalcAmountImpulsionAmountImpulsion.class, "PropagatorCalcAmountImpulsionAmountImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountDeltaAmountDeltaEClass, CalcAmountDeltaAmountDelta.class, "CalcAmountDeltaAmountDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcAmountImpulsionAtomicAmountImpulsionEClass, PropagatorCalcAmountImpulsionAtomicAmountImpulsion.class, "PropagatorCalcAmountImpulsionAtomicAmountImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountDeltaAtomicAmountDeltaEClass, CalcAmountDeltaAtomicAmountDelta.class, "CalcAmountDeltaAtomicAmountDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcAmountImpulsionAtomicMomentEClass, PropagatorCalcAmountImpulsionAtomicMoment.class, "PropagatorCalcAmountImpulsionAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcAmountDeltaAtomicMomentEClass, CalcAmountDeltaAtomicMoment.class, "CalcAmountDeltaAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcCapacityChangeEndAmountImpulsionEClass, PropagatorCalcCapacityChangeEndAmountImpulsion.class, "PropagatorCalcCapacityChangeEndAmountImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcCapacityChangeEndAmountDeltaEClass, CalcCapacityChangeEndAmountDelta.class, "CalcCapacityChangeEndAmountDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcCapacityChangeEndMomentEClass, PropagatorCalcCapacityChangeEndMoment.class, "PropagatorCalcCapacityChangeEndMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcCapacityChangeEndMomentEClass, CalcCapacityChangeEndMoment.class, "CalcCapacityChangeEndMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcCapacityChangeStartAmountImpulsionEClass, PropagatorCalcCapacityChangeStartAmountImpulsion.class, "PropagatorCalcCapacityChangeStartAmountImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcCapacityChangeStartAmountDeltaEClass, CalcCapacityChangeStartAmountDelta.class, "CalcCapacityChangeStartAmountDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcCapacityChangeStartMomentEClass, PropagatorCalcCapacityChangeStartMoment.class, "PropagatorCalcCapacityChangeStartMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcCapacityChangeStartMomentEClass, CalcCapacityChangeStartMoment.class, "CalcCapacityChangeStartMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcChildEventAmountAfterEClass, PropagatorCalcChildEventAmountAfter.class, "PropagatorCalcChildEventAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcChildEventAmountAfterEClass, CalcChildEventAmountAfter.class, "CalcChildEventAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcChildEventMomentEClass, PropagatorCalcChildEventMoment.class, "PropagatorCalcChildEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcChildEventMomentEClass, CalcChildEventMoment.class, "CalcChildEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcChildEventSlopeAfterEClass, PropagatorCalcChildEventSlopeAfter.class, "PropagatorCalcChildEventSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcChildEventSlopeAfterEClass, CalcChildEventSlopeAfter.class, "CalcChildEventSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcEndEventMomentEClass, PropagatorCalcEndEventMoment.class, "PropagatorCalcEndEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcEndEventMomentEClass, CalcEndEventMoment.class, "CalcEndEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcEventAmountAfterEClass, PropagatorCalcEventAmountAfter.class, "PropagatorCalcEventAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcEventAmountAfterEClass, CalcEventAmountAfter.class, "CalcEventAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcEventAmountBeforeEClass, PropagatorCalcEventAmountBefore.class, "PropagatorCalcEventAmountBefore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcEventAmountBeforeEClass, CalcEventAmountBefore.class, "CalcEventAmountBefore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcEventMomentEClass, PropagatorCalcEventMoment.class, "PropagatorCalcEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcEventMoment_ConcreteParent(), this.getPropagatorCalcDistributionSequence(), null, "ConcreteParent", null, 0, 1, PropagatorCalcEventMoment.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(calcEventMomentEClass, CalcEventMoment.class, "CalcEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcEventMoment_ConcreteParent(), this.getCalcDistributionSequence(), null, "ConcreteParent", null, 0, 1, CalcEventMoment.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorCalcEventSlopeAfterEClass, PropagatorCalcEventSlopeAfter.class, "PropagatorCalcEventSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcEventSlopeAfterEClass, CalcEventSlopeAfter.class, "CalcEventSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcEventSlopeBeforeEClass, PropagatorCalcEventSlopeBefore.class, "PropagatorCalcEventSlopeBefore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcEventSlopeBeforeEClass, CalcEventSlopeBefore.class, "CalcEventSlopeBefore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcEventsProviderRefreshEventsEClass, PropagatorCalcEventsProviderRefreshEvents.class, "PropagatorCalcEventsProviderRefreshEvents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcEventsProviderRefreshEvents_ConcreteParent(), this.getPropagatorLayerCompositeEventRefresh(), null, "ConcreteParent", null, 0, 1, PropagatorCalcEventsProviderRefreshEvents.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(calcEventsProviderRefreshEventsEClass, CalcEventsProviderRefreshEvents.class, "CalcEventsProviderRefreshEvents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcEventsProviderRefreshEvents_ConcreteParent(), this.getLayerCompositeEventRefresh(), null, "ConcreteParent", null, 0, 1, CalcEventsProviderRefreshEvents.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorCalcSlopeAbsoluteAtomicMomentEClass, PropagatorCalcSlopeAbsoluteAtomicMoment.class, "PropagatorCalcSlopeAbsoluteAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeAbsoluteAtomicMomentEClass, CalcSlopeAbsoluteAtomicMoment.class, "CalcSlopeAbsoluteAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteEClass, PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute.class, "PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeAbsoluteAtomicSlopeAbsoluteEClass, CalcSlopeAbsoluteAtomicSlopeAbsolute.class, "CalcSlopeAbsoluteAtomicSlopeAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcSlopeAbsoluteSlopeAbsoluteEClass, PropagatorCalcSlopeAbsoluteSlopeAbsolute.class, "PropagatorCalcSlopeAbsoluteSlopeAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeAbsoluteSlopeAbsoluteEClass, CalcSlopeAbsoluteSlopeAbsolute.class, "CalcSlopeAbsoluteSlopeAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcSlopeAbsoluteSlopeAfterEClass, PropagatorCalcSlopeAbsoluteSlopeAfter.class, "PropagatorCalcSlopeAbsoluteSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeAbsoluteSlopeAfterEClass, CalcSlopeAbsoluteSlopeAfter.class, "CalcSlopeAbsoluteSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcSlopeImpulsionAtomicMomentEClass, PropagatorCalcSlopeImpulsionAtomicMoment.class, "PropagatorCalcSlopeImpulsionAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeDeltaAtomicMomentEClass, CalcSlopeDeltaAtomicMoment.class, "CalcSlopeDeltaAtomicMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcSlopeImpulsionAtomicSlopeImpulsionEClass, PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion.class, "PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeDeltaAtomicSlopeDeltaEClass, CalcSlopeDeltaAtomicSlopeDelta.class, "CalcSlopeDeltaAtomicSlopeDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcSlopeImpulsionSlopeAfterEClass, PropagatorCalcSlopeImpulsionSlopeAfter.class, "PropagatorCalcSlopeImpulsionSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeDeltaSlopeAfterEClass, CalcSlopeDeltaSlopeAfter.class, "CalcSlopeDeltaSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcSlopeImpulsionSlopeImpulsionEClass, PropagatorCalcSlopeImpulsionSlopeImpulsion.class, "PropagatorCalcSlopeImpulsionSlopeImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcSlopeDeltaSlopeDeltaEClass, CalcSlopeDeltaSlopeDelta.class, "CalcSlopeDeltaSlopeDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcStartEventAmountAfterEClass, PropagatorCalcStartEventAmountAfter.class, "PropagatorCalcStartEventAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcStartEventAmountAfterEClass, CalcStartEventAmountAfter.class, "CalcStartEventAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcStartEventMomentEClass, PropagatorCalcStartEventMoment.class, "PropagatorCalcStartEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcStartEventMomentEClass, CalcStartEventMoment.class, "CalcStartEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcStartEventSlopeAfterEClass, PropagatorCalcStartEventSlopeAfter.class, "PropagatorCalcStartEventSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcStartEventSlopeAfterEClass, CalcStartEventSlopeAfter.class, "CalcStartEventSlopeAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcStockChangeEndMomentEClass, PropagatorCalcStockChangeEndMoment.class, "PropagatorCalcStockChangeEndMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcStockChangeEndMomentEClass, CalcStockChangeEndMoment.class, "CalcStockChangeEndMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcStockChangeEndSlopeImpulsionEClass, PropagatorCalcStockChangeEndSlopeImpulsion.class, "PropagatorCalcStockChangeEndSlopeImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcStockChangeEndSlopeDeltaEClass, CalcStockChangeEndSlopeDelta.class, "CalcStockChangeEndSlopeDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcStockChangeStartMomentEClass, PropagatorCalcStockChangeStartMoment.class, "PropagatorCalcStockChangeStartMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcStockChangeStartMomentEClass, CalcStockChangeStartMoment.class, "CalcStockChangeStartMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcStockChangeStartSlopeImpulsionEClass, PropagatorCalcStockChangeStartSlopeImpulsion.class, "PropagatorCalcStockChangeStartSlopeImpulsion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(calcStockChangeStartSlopeDeltaEClass, CalcStockChangeStartSlopeDelta.class, "CalcStockChangeStartSlopeDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propagatorCalcEventSlopeEClass, PropagatorCalcEventSlope.class, "PropagatorCalcEventSlope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcEventSlope_ConcreteParent(), this.getPropagatorLayerDistributionSlopes(), null, "ConcreteParent", null, 0, 1, PropagatorCalcEventSlope.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(calcEventSlopeEClass, CalcEventSlope.class, "CalcEventSlope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcEventSlope_ConcreteParent(), this.getLayerDistributionSlopes(), null, "ConcreteParent", null, 0, 1, CalcEventSlope.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorCalcEventAmountEClass, PropagatorCalcEventAmount.class, "PropagatorCalcEventAmount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorCalcEventAmount_ConcreteParent(), this.getPropagatorLayerDistributionAmounts(), null, "ConcreteParent", null, 0, 1, PropagatorCalcEventAmount.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(calcEventAmountEClass, CalcEventAmount.class, "CalcEventAmount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCalcEventAmount_ConcreteParent(), this.getLayerDistributionAmounts(), null, "ConcreteParent", null, 0, 1, CalcEventAmount.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

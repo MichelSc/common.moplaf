@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class CapacityChangeStartImpl extends AmountImpulsionImpl implements CapacityChangeStart {
+public class CapacityChangeStartImpl extends AmountDeltaImpl implements CapacityChangeStart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,15 +104,17 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void refreshAmountImpulsion() {
-		float amount = this.getProvider().getAmount();
-		this.setAmountImpulsion(amount);
+	@Override
+	public void refreshAmountDelta() {
+		double amount = this.getProvider().getAmount();
+		this.setAmountDelta(amount);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public void refreshMoment() {
 		Date moment = this.getProvider().getStart();
 		this.setMoment(moment);

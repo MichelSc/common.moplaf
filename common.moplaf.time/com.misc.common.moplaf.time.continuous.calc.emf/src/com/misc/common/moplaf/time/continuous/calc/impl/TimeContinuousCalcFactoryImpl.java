@@ -66,53 +66,53 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TimeContinuousCalcPackage.PROPAGATOR_SCOPE_DISTRIBUTION: return createPropagatorScopeDistribution();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION: return createPropagatorCalcDistributionInitialization();
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH: return createPropagatorLayerCompositeEventRefresh();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS: return createPropagatorCalcDistributionChildEvents();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS: return createPropagatorCalcDistributionProvidedEvents();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE: return createPropagatorCalcDistributionSequence();
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_SLOPES: return createPropagatorLayerDistributionSlopes();
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS: return createPropagatorLayerDistributionAmounts();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE: return createPropagatorCalcAmountAbsoluteAmountAbsolute();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER: return createPropagatorCalcAmountAbsoluteAmountAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE: return createPropagatorCalcAmountAbsoluteAtomicAmountAbsolute();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT: return createPropagatorCalcAmountAbsoluteAtomicMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER: return createPropagatorCalcAmountImpulsionAmountAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION: return createPropagatorCalcAmountImpulsionAmountImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION: return createPropagatorCalcAmountImpulsionAtomicAmountImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT: return createPropagatorCalcAmountImpulsionAtomicMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION: return createPropagatorCalcCapacityChangeEndAmountImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT: return createPropagatorCalcCapacityChangeEndMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION: return createPropagatorCalcCapacityChangeStartAmountImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT: return createPropagatorCalcCapacityChangeStartMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER: return createPropagatorCalcChildEventAmountAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CHILD_EVENT_MOMENT: return createPropagatorCalcChildEventMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER: return createPropagatorCalcChildEventSlopeAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_END_EVENT_MOMENT: return createPropagatorCalcEndEventMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT_AFTER: return createPropagatorCalcEventAmountAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE: return createPropagatorCalcEventAmountBefore();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_MOMENT: return createPropagatorCalcEventMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE_AFTER: return createPropagatorCalcEventSlopeAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE_BEFORE: return createPropagatorCalcEventSlopeBefore();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS: return createPropagatorCalcEventsProviderRefreshEvents();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT: return createPropagatorCalcSlopeAbsoluteAtomicMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE: return createPropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE: return createPropagatorCalcSlopeAbsoluteSlopeAbsolute();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER: return createPropagatorCalcSlopeAbsoluteSlopeAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT: return createPropagatorCalcSlopeImpulsionAtomicMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION: return createPropagatorCalcSlopeImpulsionAtomicSlopeImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER: return createPropagatorCalcSlopeImpulsionSlopeAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION: return createPropagatorCalcSlopeImpulsionSlopeImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER: return createPropagatorCalcStartEventAmountAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_START_EVENT_MOMENT: return createPropagatorCalcStartEventMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER: return createPropagatorCalcStartEventSlopeAfter();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT: return createPropagatorCalcStockChangeEndMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION: return createPropagatorCalcStockChangeEndSlopeImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT: return createPropagatorCalcStockChangeStartMoment();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION: return createPropagatorCalcStockChangeStartSlopeImpulsion();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE: return createPropagatorCalcEventSlope();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT: return createPropagatorCalcEventAmount();
+			case TimeContinuousCalcPackage.SCOPE_DISTRIBUTION: return createScopeDistribution();
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_INITIALIZATION: return createCalcDistributionInitialization();
+			case TimeContinuousCalcPackage.LAYER_COMPOSITE_EVENT_REFRESH: return createLayerCompositeEventRefresh();
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_CHILD_EVENTS: return createCalcDistributionChildEvents();
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_PROVIDED_EVENTS: return createCalcDistributionProvidedEvents();
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_SEQUENCE: return createCalcDistributionSequence();
+			case TimeContinuousCalcPackage.LAYER_DISTRIBUTION_SLOPES: return createLayerDistributionSlopes();
+			case TimeContinuousCalcPackage.LAYER_DISTRIBUTION_AMOUNTS: return createLayerDistributionAmounts();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE: return createCalcAmountAbsoluteAmountAbsolute();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER: return createCalcAmountAbsoluteAmountAfter();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE: return createCalcAmountAbsoluteAtomicAmountAbsolute();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT: return createCalcAmountAbsoluteAtomicMoment();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_AMOUNT_AFTER: return createCalcAmountDeltaAmountAfter();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_AMOUNT_DELTA: return createCalcAmountDeltaAmountDelta();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_ATOMIC_AMOUNT_DELTA: return createCalcAmountDeltaAtomicAmountDelta();
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_ATOMIC_MOMENT: return createCalcAmountDeltaAtomicMoment();
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_END_AMOUNT_DELTA: return createCalcCapacityChangeEndAmountDelta();
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_END_MOMENT: return createCalcCapacityChangeEndMoment();
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_START_AMOUNT_DELTA: return createCalcCapacityChangeStartAmountDelta();
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_START_MOMENT: return createCalcCapacityChangeStartMoment();
+			case TimeContinuousCalcPackage.CALC_CHILD_EVENT_AMOUNT_AFTER: return createCalcChildEventAmountAfter();
+			case TimeContinuousCalcPackage.CALC_CHILD_EVENT_MOMENT: return createCalcChildEventMoment();
+			case TimeContinuousCalcPackage.CALC_CHILD_EVENT_SLOPE_AFTER: return createCalcChildEventSlopeAfter();
+			case TimeContinuousCalcPackage.CALC_END_EVENT_MOMENT: return createCalcEndEventMoment();
+			case TimeContinuousCalcPackage.CALC_EVENT_AMOUNT_AFTER: return createCalcEventAmountAfter();
+			case TimeContinuousCalcPackage.CALC_EVENT_AMOUNT_BEFORE: return createCalcEventAmountBefore();
+			case TimeContinuousCalcPackage.CALC_EVENT_MOMENT: return createCalcEventMoment();
+			case TimeContinuousCalcPackage.CALC_EVENT_SLOPE_AFTER: return createCalcEventSlopeAfter();
+			case TimeContinuousCalcPackage.CALC_EVENT_SLOPE_BEFORE: return createCalcEventSlopeBefore();
+			case TimeContinuousCalcPackage.CALC_EVENTS_PROVIDER_REFRESH_EVENTS: return createCalcEventsProviderRefreshEvents();
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT: return createCalcSlopeAbsoluteAtomicMoment();
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE: return createCalcSlopeAbsoluteAtomicSlopeAbsolute();
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE: return createCalcSlopeAbsoluteSlopeAbsolute();
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_SLOPE_AFTER: return createCalcSlopeAbsoluteSlopeAfter();
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_ATOMIC_MOMENT: return createCalcSlopeDeltaAtomicMoment();
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_ATOMIC_SLOPE_DELTA: return createCalcSlopeDeltaAtomicSlopeDelta();
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_SLOPE_AFTER: return createCalcSlopeDeltaSlopeAfter();
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_SLOPE_DELTA: return createCalcSlopeDeltaSlopeDelta();
+			case TimeContinuousCalcPackage.CALC_START_EVENT_AMOUNT_AFTER: return createCalcStartEventAmountAfter();
+			case TimeContinuousCalcPackage.CALC_START_EVENT_MOMENT: return createCalcStartEventMoment();
+			case TimeContinuousCalcPackage.CALC_START_EVENT_SLOPE_AFTER: return createCalcStartEventSlopeAfter();
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_END_MOMENT: return createCalcStockChangeEndMoment();
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_END_SLOPE_DELTA: return createCalcStockChangeEndSlopeDelta();
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_START_MOMENT: return createCalcStockChangeStartMoment();
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_START_SLOPE_DELTA: return createCalcStockChangeStartSlopeDelta();
+			case TimeContinuousCalcPackage.CALC_EVENT_SLOPE: return createCalcEventSlope();
+			case TimeContinuousCalcPackage.CALC_EVENT_AMOUNT: return createCalcEventAmount();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -123,9 +123,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountAbsoluteAmountAbsolute createPropagatorCalcAmountAbsoluteAmountAbsolute() {
-		PropagatorCalcAmountAbsoluteAmountAbsoluteImpl propagatorCalcAmountAbsoluteAmountAbsolute = new PropagatorCalcAmountAbsoluteAmountAbsoluteImpl();
-		return propagatorCalcAmountAbsoluteAmountAbsolute;
+	public ScopeDistribution createScopeDistribution() {
+		ScopeDistributionImpl scopeDistribution = new ScopeDistributionImpl();
+		return scopeDistribution;
 	}
 
 	/**
@@ -133,9 +133,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountAbsoluteAmountAfter createPropagatorCalcAmountAbsoluteAmountAfter() {
-		PropagatorCalcAmountAbsoluteAmountAfterImpl propagatorCalcAmountAbsoluteAmountAfter = new PropagatorCalcAmountAbsoluteAmountAfterImpl();
-		return propagatorCalcAmountAbsoluteAmountAfter;
+	public CalcDistributionInitialization createCalcDistributionInitialization() {
+		CalcDistributionInitializationImpl calcDistributionInitialization = new CalcDistributionInitializationImpl();
+		return calcDistributionInitialization;
 	}
 
 	/**
@@ -143,9 +143,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountAbsoluteAtomicAmountAbsolute createPropagatorCalcAmountAbsoluteAtomicAmountAbsolute() {
-		PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl propagatorCalcAmountAbsoluteAtomicAmountAbsolute = new PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl();
-		return propagatorCalcAmountAbsoluteAtomicAmountAbsolute;
+	public LayerCompositeEventRefresh createLayerCompositeEventRefresh() {
+		LayerCompositeEventRefreshImpl layerCompositeEventRefresh = new LayerCompositeEventRefreshImpl();
+		return layerCompositeEventRefresh;
 	}
 
 	/**
@@ -153,9 +153,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountAbsoluteAtomicMoment createPropagatorCalcAmountAbsoluteAtomicMoment() {
-		PropagatorCalcAmountAbsoluteAtomicMomentImpl propagatorCalcAmountAbsoluteAtomicMoment = new PropagatorCalcAmountAbsoluteAtomicMomentImpl();
-		return propagatorCalcAmountAbsoluteAtomicMoment;
+	public CalcDistributionChildEvents createCalcDistributionChildEvents() {
+		CalcDistributionChildEventsImpl calcDistributionChildEvents = new CalcDistributionChildEventsImpl();
+		return calcDistributionChildEvents;
 	}
 
 	/**
@@ -163,9 +163,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountImpulsionAmountAfter createPropagatorCalcAmountImpulsionAmountAfter() {
-		PropagatorCalcAmountImpulsionAmountAfterImpl propagatorCalcAmountImpulsionAmountAfter = new PropagatorCalcAmountImpulsionAmountAfterImpl();
-		return propagatorCalcAmountImpulsionAmountAfter;
+	public CalcDistributionProvidedEvents createCalcDistributionProvidedEvents() {
+		CalcDistributionProvidedEventsImpl calcDistributionProvidedEvents = new CalcDistributionProvidedEventsImpl();
+		return calcDistributionProvidedEvents;
 	}
 
 	/**
@@ -173,9 +173,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountImpulsionAmountImpulsion createPropagatorCalcAmountImpulsionAmountImpulsion() {
-		PropagatorCalcAmountImpulsionAmountImpulsionImpl propagatorCalcAmountImpulsionAmountImpulsion = new PropagatorCalcAmountImpulsionAmountImpulsionImpl();
-		return propagatorCalcAmountImpulsionAmountImpulsion;
+	public CalcDistributionSequence createCalcDistributionSequence() {
+		CalcDistributionSequenceImpl calcDistributionSequence = new CalcDistributionSequenceImpl();
+		return calcDistributionSequence;
 	}
 
 	/**
@@ -183,9 +183,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountImpulsionAtomicAmountImpulsion createPropagatorCalcAmountImpulsionAtomicAmountImpulsion() {
-		PropagatorCalcAmountImpulsionAtomicAmountImpulsionImpl propagatorCalcAmountImpulsionAtomicAmountImpulsion = new PropagatorCalcAmountImpulsionAtomicAmountImpulsionImpl();
-		return propagatorCalcAmountImpulsionAtomicAmountImpulsion;
+	public LayerDistributionSlopes createLayerDistributionSlopes() {
+		LayerDistributionSlopesImpl layerDistributionSlopes = new LayerDistributionSlopesImpl();
+		return layerDistributionSlopes;
 	}
 
 	/**
@@ -193,9 +193,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcAmountImpulsionAtomicMoment createPropagatorCalcAmountImpulsionAtomicMoment() {
-		PropagatorCalcAmountImpulsionAtomicMomentImpl propagatorCalcAmountImpulsionAtomicMoment = new PropagatorCalcAmountImpulsionAtomicMomentImpl();
-		return propagatorCalcAmountImpulsionAtomicMoment;
+	public LayerDistributionAmounts createLayerDistributionAmounts() {
+		LayerDistributionAmountsImpl layerDistributionAmounts = new LayerDistributionAmountsImpl();
+		return layerDistributionAmounts;
 	}
 
 	/**
@@ -203,9 +203,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcCapacityChangeEndAmountImpulsion createPropagatorCalcCapacityChangeEndAmountImpulsion() {
-		PropagatorCalcCapacityChangeEndAmountImpulsionImpl propagatorCalcCapacityChangeEndAmountImpulsion = new PropagatorCalcCapacityChangeEndAmountImpulsionImpl();
-		return propagatorCalcCapacityChangeEndAmountImpulsion;
+	public CalcAmountAbsoluteAmountAbsolute createCalcAmountAbsoluteAmountAbsolute() {
+		CalcAmountAbsoluteAmountAbsoluteImpl calcAmountAbsoluteAmountAbsolute = new CalcAmountAbsoluteAmountAbsoluteImpl();
+		return calcAmountAbsoluteAmountAbsolute;
 	}
 
 	/**
@@ -213,9 +213,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcCapacityChangeEndMoment createPropagatorCalcCapacityChangeEndMoment() {
-		PropagatorCalcCapacityChangeEndMomentImpl propagatorCalcCapacityChangeEndMoment = new PropagatorCalcCapacityChangeEndMomentImpl();
-		return propagatorCalcCapacityChangeEndMoment;
+	public CalcAmountAbsoluteAmountAfter createCalcAmountAbsoluteAmountAfter() {
+		CalcAmountAbsoluteAmountAfterImpl calcAmountAbsoluteAmountAfter = new CalcAmountAbsoluteAmountAfterImpl();
+		return calcAmountAbsoluteAmountAfter;
 	}
 
 	/**
@@ -223,9 +223,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcCapacityChangeStartAmountImpulsion createPropagatorCalcCapacityChangeStartAmountImpulsion() {
-		PropagatorCalcCapacityChangeStartAmountImpulsionImpl propagatorCalcCapacityChangeStartAmountImpulsion = new PropagatorCalcCapacityChangeStartAmountImpulsionImpl();
-		return propagatorCalcCapacityChangeStartAmountImpulsion;
+	public CalcAmountAbsoluteAtomicAmountAbsolute createCalcAmountAbsoluteAtomicAmountAbsolute() {
+		CalcAmountAbsoluteAtomicAmountAbsoluteImpl calcAmountAbsoluteAtomicAmountAbsolute = new CalcAmountAbsoluteAtomicAmountAbsoluteImpl();
+		return calcAmountAbsoluteAtomicAmountAbsolute;
 	}
 
 	/**
@@ -233,9 +233,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcCapacityChangeStartMoment createPropagatorCalcCapacityChangeStartMoment() {
-		PropagatorCalcCapacityChangeStartMomentImpl propagatorCalcCapacityChangeStartMoment = new PropagatorCalcCapacityChangeStartMomentImpl();
-		return propagatorCalcCapacityChangeStartMoment;
+	public CalcAmountAbsoluteAtomicMoment createCalcAmountAbsoluteAtomicMoment() {
+		CalcAmountAbsoluteAtomicMomentImpl calcAmountAbsoluteAtomicMoment = new CalcAmountAbsoluteAtomicMomentImpl();
+		return calcAmountAbsoluteAtomicMoment;
 	}
 
 	/**
@@ -243,9 +243,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcChildEventAmountAfter createPropagatorCalcChildEventAmountAfter() {
-		PropagatorCalcChildEventAmountAfterImpl propagatorCalcChildEventAmountAfter = new PropagatorCalcChildEventAmountAfterImpl();
-		return propagatorCalcChildEventAmountAfter;
+	public CalcAmountDeltaAmountAfter createCalcAmountDeltaAmountAfter() {
+		CalcAmountDeltaAmountAfterImpl calcAmountDeltaAmountAfter = new CalcAmountDeltaAmountAfterImpl();
+		return calcAmountDeltaAmountAfter;
 	}
 
 	/**
@@ -253,9 +253,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcChildEventMoment createPropagatorCalcChildEventMoment() {
-		PropagatorCalcChildEventMomentImpl propagatorCalcChildEventMoment = new PropagatorCalcChildEventMomentImpl();
-		return propagatorCalcChildEventMoment;
+	public CalcAmountDeltaAmountDelta createCalcAmountDeltaAmountDelta() {
+		CalcAmountDeltaAmountDeltaImpl calcAmountDeltaAmountDelta = new CalcAmountDeltaAmountDeltaImpl();
+		return calcAmountDeltaAmountDelta;
 	}
 
 	/**
@@ -263,9 +263,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcChildEventSlopeAfter createPropagatorCalcChildEventSlopeAfter() {
-		PropagatorCalcChildEventSlopeAfterImpl propagatorCalcChildEventSlopeAfter = new PropagatorCalcChildEventSlopeAfterImpl();
-		return propagatorCalcChildEventSlopeAfter;
+	public CalcAmountDeltaAtomicAmountDelta createCalcAmountDeltaAtomicAmountDelta() {
+		CalcAmountDeltaAtomicAmountDeltaImpl calcAmountDeltaAtomicAmountDelta = new CalcAmountDeltaAtomicAmountDeltaImpl();
+		return calcAmountDeltaAtomicAmountDelta;
 	}
 
 	/**
@@ -273,9 +273,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcDistributionChildEvents createPropagatorCalcDistributionChildEvents() {
-		PropagatorCalcDistributionChildEventsImpl propagatorCalcDistributionChildEvents = new PropagatorCalcDistributionChildEventsImpl();
-		return propagatorCalcDistributionChildEvents;
+	public CalcAmountDeltaAtomicMoment createCalcAmountDeltaAtomicMoment() {
+		CalcAmountDeltaAtomicMomentImpl calcAmountDeltaAtomicMoment = new CalcAmountDeltaAtomicMomentImpl();
+		return calcAmountDeltaAtomicMoment;
 	}
 
 	/**
@@ -283,9 +283,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcDistributionInitialization createPropagatorCalcDistributionInitialization() {
-		PropagatorCalcDistributionInitializationImpl propagatorCalcDistributionInitialization = new PropagatorCalcDistributionInitializationImpl();
-		return propagatorCalcDistributionInitialization;
+	public CalcCapacityChangeEndAmountDelta createCalcCapacityChangeEndAmountDelta() {
+		CalcCapacityChangeEndAmountDeltaImpl calcCapacityChangeEndAmountDelta = new CalcCapacityChangeEndAmountDeltaImpl();
+		return calcCapacityChangeEndAmountDelta;
 	}
 
 	/**
@@ -293,9 +293,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcDistributionProvidedEvents createPropagatorCalcDistributionProvidedEvents() {
-		PropagatorCalcDistributionProvidedEventsImpl propagatorCalcDistributionProvidedEvents = new PropagatorCalcDistributionProvidedEventsImpl();
-		return propagatorCalcDistributionProvidedEvents;
+	public CalcCapacityChangeEndMoment createCalcCapacityChangeEndMoment() {
+		CalcCapacityChangeEndMomentImpl calcCapacityChangeEndMoment = new CalcCapacityChangeEndMomentImpl();
+		return calcCapacityChangeEndMoment;
 	}
 
 	/**
@@ -303,9 +303,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcDistributionSequence createPropagatorCalcDistributionSequence() {
-		PropagatorCalcDistributionSequenceImpl propagatorCalcDistributionSequence = new PropagatorCalcDistributionSequenceImpl();
-		return propagatorCalcDistributionSequence;
+	public CalcCapacityChangeStartAmountDelta createCalcCapacityChangeStartAmountDelta() {
+		CalcCapacityChangeStartAmountDeltaImpl calcCapacityChangeStartAmountDelta = new CalcCapacityChangeStartAmountDeltaImpl();
+		return calcCapacityChangeStartAmountDelta;
 	}
 
 	/**
@@ -313,9 +313,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEndEventMoment createPropagatorCalcEndEventMoment() {
-		PropagatorCalcEndEventMomentImpl propagatorCalcEndEventMoment = new PropagatorCalcEndEventMomentImpl();
-		return propagatorCalcEndEventMoment;
+	public CalcCapacityChangeStartMoment createCalcCapacityChangeStartMoment() {
+		CalcCapacityChangeStartMomentImpl calcCapacityChangeStartMoment = new CalcCapacityChangeStartMomentImpl();
+		return calcCapacityChangeStartMoment;
 	}
 
 	/**
@@ -323,9 +323,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventAmountAfter createPropagatorCalcEventAmountAfter() {
-		PropagatorCalcEventAmountAfterImpl propagatorCalcEventAmountAfter = new PropagatorCalcEventAmountAfterImpl();
-		return propagatorCalcEventAmountAfter;
+	public CalcChildEventAmountAfter createCalcChildEventAmountAfter() {
+		CalcChildEventAmountAfterImpl calcChildEventAmountAfter = new CalcChildEventAmountAfterImpl();
+		return calcChildEventAmountAfter;
 	}
 
 	/**
@@ -333,9 +333,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventAmountBefore createPropagatorCalcEventAmountBefore() {
-		PropagatorCalcEventAmountBeforeImpl propagatorCalcEventAmountBefore = new PropagatorCalcEventAmountBeforeImpl();
-		return propagatorCalcEventAmountBefore;
+	public CalcChildEventMoment createCalcChildEventMoment() {
+		CalcChildEventMomentImpl calcChildEventMoment = new CalcChildEventMomentImpl();
+		return calcChildEventMoment;
 	}
 
 	/**
@@ -343,9 +343,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventMoment createPropagatorCalcEventMoment() {
-		PropagatorCalcEventMomentImpl propagatorCalcEventMoment = new PropagatorCalcEventMomentImpl();
-		return propagatorCalcEventMoment;
+	public CalcChildEventSlopeAfter createCalcChildEventSlopeAfter() {
+		CalcChildEventSlopeAfterImpl calcChildEventSlopeAfter = new CalcChildEventSlopeAfterImpl();
+		return calcChildEventSlopeAfter;
 	}
 
 	/**
@@ -353,9 +353,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventSlopeAfter createPropagatorCalcEventSlopeAfter() {
-		PropagatorCalcEventSlopeAfterImpl propagatorCalcEventSlopeAfter = new PropagatorCalcEventSlopeAfterImpl();
-		return propagatorCalcEventSlopeAfter;
+	public CalcEndEventMoment createCalcEndEventMoment() {
+		CalcEndEventMomentImpl calcEndEventMoment = new CalcEndEventMomentImpl();
+		return calcEndEventMoment;
 	}
 
 	/**
@@ -363,9 +363,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventSlopeBefore createPropagatorCalcEventSlopeBefore() {
-		PropagatorCalcEventSlopeBeforeImpl propagatorCalcEventSlopeBefore = new PropagatorCalcEventSlopeBeforeImpl();
-		return propagatorCalcEventSlopeBefore;
+	public CalcEventAmountAfter createCalcEventAmountAfter() {
+		CalcEventAmountAfterImpl calcEventAmountAfter = new CalcEventAmountAfterImpl();
+		return calcEventAmountAfter;
 	}
 
 	/**
@@ -373,9 +373,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventsProviderRefreshEvents createPropagatorCalcEventsProviderRefreshEvents() {
-		PropagatorCalcEventsProviderRefreshEventsImpl propagatorCalcEventsProviderRefreshEvents = new PropagatorCalcEventsProviderRefreshEventsImpl();
-		return propagatorCalcEventsProviderRefreshEvents;
+	public CalcEventAmountBefore createCalcEventAmountBefore() {
+		CalcEventAmountBeforeImpl calcEventAmountBefore = new CalcEventAmountBeforeImpl();
+		return calcEventAmountBefore;
 	}
 
 	/**
@@ -383,9 +383,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeAbsoluteAtomicMoment createPropagatorCalcSlopeAbsoluteAtomicMoment() {
-		PropagatorCalcSlopeAbsoluteAtomicMomentImpl propagatorCalcSlopeAbsoluteAtomicMoment = new PropagatorCalcSlopeAbsoluteAtomicMomentImpl();
-		return propagatorCalcSlopeAbsoluteAtomicMoment;
+	public CalcEventMoment createCalcEventMoment() {
+		CalcEventMomentImpl calcEventMoment = new CalcEventMomentImpl();
+		return calcEventMoment;
 	}
 
 	/**
@@ -393,9 +393,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute createPropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute() {
-		PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteImpl propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute = new PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteImpl();
-		return propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute;
+	public CalcEventSlopeAfter createCalcEventSlopeAfter() {
+		CalcEventSlopeAfterImpl calcEventSlopeAfter = new CalcEventSlopeAfterImpl();
+		return calcEventSlopeAfter;
 	}
 
 	/**
@@ -403,9 +403,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeAbsoluteSlopeAbsolute createPropagatorCalcSlopeAbsoluteSlopeAbsolute() {
-		PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl propagatorCalcSlopeAbsoluteSlopeAbsolute = new PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl();
-		return propagatorCalcSlopeAbsoluteSlopeAbsolute;
+	public CalcEventSlopeBefore createCalcEventSlopeBefore() {
+		CalcEventSlopeBeforeImpl calcEventSlopeBefore = new CalcEventSlopeBeforeImpl();
+		return calcEventSlopeBefore;
 	}
 
 	/**
@@ -413,9 +413,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeAbsoluteSlopeAfter createPropagatorCalcSlopeAbsoluteSlopeAfter() {
-		PropagatorCalcSlopeAbsoluteSlopeAfterImpl propagatorCalcSlopeAbsoluteSlopeAfter = new PropagatorCalcSlopeAbsoluteSlopeAfterImpl();
-		return propagatorCalcSlopeAbsoluteSlopeAfter;
+	public CalcEventsProviderRefreshEvents createCalcEventsProviderRefreshEvents() {
+		CalcEventsProviderRefreshEventsImpl calcEventsProviderRefreshEvents = new CalcEventsProviderRefreshEventsImpl();
+		return calcEventsProviderRefreshEvents;
 	}
 
 	/**
@@ -423,9 +423,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeImpulsionAtomicMoment createPropagatorCalcSlopeImpulsionAtomicMoment() {
-		PropagatorCalcSlopeImpulsionAtomicMomentImpl propagatorCalcSlopeImpulsionAtomicMoment = new PropagatorCalcSlopeImpulsionAtomicMomentImpl();
-		return propagatorCalcSlopeImpulsionAtomicMoment;
+	public CalcSlopeAbsoluteAtomicMoment createCalcSlopeAbsoluteAtomicMoment() {
+		CalcSlopeAbsoluteAtomicMomentImpl calcSlopeAbsoluteAtomicMoment = new CalcSlopeAbsoluteAtomicMomentImpl();
+		return calcSlopeAbsoluteAtomicMoment;
 	}
 
 	/**
@@ -433,9 +433,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion createPropagatorCalcSlopeImpulsionAtomicSlopeImpulsion() {
-		PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionImpl propagatorCalcSlopeImpulsionAtomicSlopeImpulsion = new PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionImpl();
-		return propagatorCalcSlopeImpulsionAtomicSlopeImpulsion;
+	public CalcSlopeAbsoluteAtomicSlopeAbsolute createCalcSlopeAbsoluteAtomicSlopeAbsolute() {
+		CalcSlopeAbsoluteAtomicSlopeAbsoluteImpl calcSlopeAbsoluteAtomicSlopeAbsolute = new CalcSlopeAbsoluteAtomicSlopeAbsoluteImpl();
+		return calcSlopeAbsoluteAtomicSlopeAbsolute;
 	}
 
 	/**
@@ -443,9 +443,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeImpulsionSlopeAfter createPropagatorCalcSlopeImpulsionSlopeAfter() {
-		PropagatorCalcSlopeImpulsionSlopeAfterImpl propagatorCalcSlopeImpulsionSlopeAfter = new PropagatorCalcSlopeImpulsionSlopeAfterImpl();
-		return propagatorCalcSlopeImpulsionSlopeAfter;
+	public CalcSlopeAbsoluteSlopeAbsolute createCalcSlopeAbsoluteSlopeAbsolute() {
+		CalcSlopeAbsoluteSlopeAbsoluteImpl calcSlopeAbsoluteSlopeAbsolute = new CalcSlopeAbsoluteSlopeAbsoluteImpl();
+		return calcSlopeAbsoluteSlopeAbsolute;
 	}
 
 	/**
@@ -453,9 +453,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcSlopeImpulsionSlopeImpulsion createPropagatorCalcSlopeImpulsionSlopeImpulsion() {
-		PropagatorCalcSlopeImpulsionSlopeImpulsionImpl propagatorCalcSlopeImpulsionSlopeImpulsion = new PropagatorCalcSlopeImpulsionSlopeImpulsionImpl();
-		return propagatorCalcSlopeImpulsionSlopeImpulsion;
+	public CalcSlopeAbsoluteSlopeAfter createCalcSlopeAbsoluteSlopeAfter() {
+		CalcSlopeAbsoluteSlopeAfterImpl calcSlopeAbsoluteSlopeAfter = new CalcSlopeAbsoluteSlopeAfterImpl();
+		return calcSlopeAbsoluteSlopeAfter;
 	}
 
 	/**
@@ -463,9 +463,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcStartEventAmountAfter createPropagatorCalcStartEventAmountAfter() {
-		PropagatorCalcStartEventAmountAfterImpl propagatorCalcStartEventAmountAfter = new PropagatorCalcStartEventAmountAfterImpl();
-		return propagatorCalcStartEventAmountAfter;
+	public CalcSlopeDeltaAtomicMoment createCalcSlopeDeltaAtomicMoment() {
+		CalcSlopeDeltaAtomicMomentImpl calcSlopeDeltaAtomicMoment = new CalcSlopeDeltaAtomicMomentImpl();
+		return calcSlopeDeltaAtomicMoment;
 	}
 
 	/**
@@ -473,9 +473,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcStartEventMoment createPropagatorCalcStartEventMoment() {
-		PropagatorCalcStartEventMomentImpl propagatorCalcStartEventMoment = new PropagatorCalcStartEventMomentImpl();
-		return propagatorCalcStartEventMoment;
+	public CalcSlopeDeltaAtomicSlopeDelta createCalcSlopeDeltaAtomicSlopeDelta() {
+		CalcSlopeDeltaAtomicSlopeDeltaImpl calcSlopeDeltaAtomicSlopeDelta = new CalcSlopeDeltaAtomicSlopeDeltaImpl();
+		return calcSlopeDeltaAtomicSlopeDelta;
 	}
 
 	/**
@@ -483,9 +483,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcStartEventSlopeAfter createPropagatorCalcStartEventSlopeAfter() {
-		PropagatorCalcStartEventSlopeAfterImpl propagatorCalcStartEventSlopeAfter = new PropagatorCalcStartEventSlopeAfterImpl();
-		return propagatorCalcStartEventSlopeAfter;
+	public CalcSlopeDeltaSlopeAfter createCalcSlopeDeltaSlopeAfter() {
+		CalcSlopeDeltaSlopeAfterImpl calcSlopeDeltaSlopeAfter = new CalcSlopeDeltaSlopeAfterImpl();
+		return calcSlopeDeltaSlopeAfter;
 	}
 
 	/**
@@ -493,9 +493,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcStockChangeEndMoment createPropagatorCalcStockChangeEndMoment() {
-		PropagatorCalcStockChangeEndMomentImpl propagatorCalcStockChangeEndMoment = new PropagatorCalcStockChangeEndMomentImpl();
-		return propagatorCalcStockChangeEndMoment;
+	public CalcSlopeDeltaSlopeDelta createCalcSlopeDeltaSlopeDelta() {
+		CalcSlopeDeltaSlopeDeltaImpl calcSlopeDeltaSlopeDelta = new CalcSlopeDeltaSlopeDeltaImpl();
+		return calcSlopeDeltaSlopeDelta;
 	}
 
 	/**
@@ -503,9 +503,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcStockChangeEndSlopeImpulsion createPropagatorCalcStockChangeEndSlopeImpulsion() {
-		PropagatorCalcStockChangeEndSlopeImpulsionImpl propagatorCalcStockChangeEndSlopeImpulsion = new PropagatorCalcStockChangeEndSlopeImpulsionImpl();
-		return propagatorCalcStockChangeEndSlopeImpulsion;
+	public CalcStartEventAmountAfter createCalcStartEventAmountAfter() {
+		CalcStartEventAmountAfterImpl calcStartEventAmountAfter = new CalcStartEventAmountAfterImpl();
+		return calcStartEventAmountAfter;
 	}
 
 	/**
@@ -513,9 +513,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcStockChangeStartMoment createPropagatorCalcStockChangeStartMoment() {
-		PropagatorCalcStockChangeStartMomentImpl propagatorCalcStockChangeStartMoment = new PropagatorCalcStockChangeStartMomentImpl();
-		return propagatorCalcStockChangeStartMoment;
+	public CalcStartEventMoment createCalcStartEventMoment() {
+		CalcStartEventMomentImpl calcStartEventMoment = new CalcStartEventMomentImpl();
+		return calcStartEventMoment;
 	}
 
 	/**
@@ -523,9 +523,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcStockChangeStartSlopeImpulsion createPropagatorCalcStockChangeStartSlopeImpulsion() {
-		PropagatorCalcStockChangeStartSlopeImpulsionImpl propagatorCalcStockChangeStartSlopeImpulsion = new PropagatorCalcStockChangeStartSlopeImpulsionImpl();
-		return propagatorCalcStockChangeStartSlopeImpulsion;
+	public CalcStartEventSlopeAfter createCalcStartEventSlopeAfter() {
+		CalcStartEventSlopeAfterImpl calcStartEventSlopeAfter = new CalcStartEventSlopeAfterImpl();
+		return calcStartEventSlopeAfter;
 	}
 
 	/**
@@ -533,9 +533,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventSlope createPropagatorCalcEventSlope() {
-		PropagatorCalcEventSlopeImpl propagatorCalcEventSlope = new PropagatorCalcEventSlopeImpl();
-		return propagatorCalcEventSlope;
+	public CalcStockChangeEndMoment createCalcStockChangeEndMoment() {
+		CalcStockChangeEndMomentImpl calcStockChangeEndMoment = new CalcStockChangeEndMomentImpl();
+		return calcStockChangeEndMoment;
 	}
 
 	/**
@@ -543,9 +543,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventAmount createPropagatorCalcEventAmount() {
-		PropagatorCalcEventAmountImpl propagatorCalcEventAmount = new PropagatorCalcEventAmountImpl();
-		return propagatorCalcEventAmount;
+	public CalcStockChangeEndSlopeDelta createCalcStockChangeEndSlopeDelta() {
+		CalcStockChangeEndSlopeDeltaImpl calcStockChangeEndSlopeDelta = new CalcStockChangeEndSlopeDeltaImpl();
+		return calcStockChangeEndSlopeDelta;
 	}
 
 	/**
@@ -553,9 +553,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorLayerCompositeEventRefresh createPropagatorLayerCompositeEventRefresh() {
-		PropagatorLayerCompositeEventRefreshImpl propagatorLayerCompositeEventRefresh = new PropagatorLayerCompositeEventRefreshImpl();
-		return propagatorLayerCompositeEventRefresh;
+	public CalcStockChangeStartMoment createCalcStockChangeStartMoment() {
+		CalcStockChangeStartMomentImpl calcStockChangeStartMoment = new CalcStockChangeStartMomentImpl();
+		return calcStockChangeStartMoment;
 	}
 
 	/**
@@ -563,9 +563,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts() {
-		PropagatorLayerDistributionAmountsImpl propagatorLayerDistributionAmounts = new PropagatorLayerDistributionAmountsImpl();
-		return propagatorLayerDistributionAmounts;
+	public CalcStockChangeStartSlopeDelta createCalcStockChangeStartSlopeDelta() {
+		CalcStockChangeStartSlopeDeltaImpl calcStockChangeStartSlopeDelta = new CalcStockChangeStartSlopeDeltaImpl();
+		return calcStockChangeStartSlopeDelta;
 	}
 
 	/**
@@ -573,9 +573,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorLayerDistributionSlopes createPropagatorLayerDistributionSlopes() {
-		PropagatorLayerDistributionSlopesImpl propagatorLayerDistributionSlopes = new PropagatorLayerDistributionSlopesImpl();
-		return propagatorLayerDistributionSlopes;
+	public CalcEventSlope createCalcEventSlope() {
+		CalcEventSlopeImpl calcEventSlope = new CalcEventSlopeImpl();
+		return calcEventSlope;
 	}
 
 	/**
@@ -583,9 +583,9 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorScopeDistribution createPropagatorScopeDistribution() {
-		PropagatorScopeDistributionImpl propagatorScopeDistribution = new PropagatorScopeDistributionImpl();
-		return propagatorScopeDistribution;
+	public CalcEventAmount createCalcEventAmount() {
+		CalcEventAmountImpl calcEventAmount = new CalcEventAmountImpl();
+		return calcEventAmount;
 	}
 
 	/**

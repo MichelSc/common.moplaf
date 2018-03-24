@@ -367,7 +367,7 @@ public class DistributionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 TimeContinuousFactory.eINSTANCE.createSlopeImpulsionProvider()));
+				 TimeContinuousFactory.eINSTANCE.createSlopeDeltaProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -377,7 +377,7 @@ public class DistributionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 TimeContinuousFactory.eINSTANCE.createAmountImpulsionProvider()));
+				 TimeContinuousFactory.eINSTANCE.createAmountDeltaProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -484,9 +484,9 @@ public class DistributionItemProvider
 		switch ( moment_index )
 		{
 		case 0: 
-			return distributionEvent.getAmountBefore();
+			return (float)distributionEvent.getAmountBefore();
 		case 1: 
-			return distributionEvent.getAmountAfter();
+			return (float)distributionEvent.getAmountAfter();
 		}
 		return 0.0f;
 	}

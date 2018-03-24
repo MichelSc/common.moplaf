@@ -86,192 +86,192 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 	protected TimeContinuousCalcSwitch<Adapter> modelSwitch =
 		new TimeContinuousCalcSwitch<Adapter>() {
 			@Override
-			public Adapter casePropagatorScopeDistribution(PropagatorScopeDistribution object) {
-				return createPropagatorScopeDistributionAdapter();
+			public Adapter caseScopeDistribution(ScopeDistribution object) {
+				return createScopeDistributionAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcDistributionInitialization(PropagatorCalcDistributionInitialization object) {
-				return createPropagatorCalcDistributionInitializationAdapter();
+			public Adapter caseCalcDistributionInitialization(CalcDistributionInitialization object) {
+				return createCalcDistributionInitializationAdapter();
 			}
 			@Override
-			public Adapter casePropagatorLayerCompositeEventRefresh(PropagatorLayerCompositeEventRefresh object) {
-				return createPropagatorLayerCompositeEventRefreshAdapter();
+			public Adapter caseLayerCompositeEventRefresh(LayerCompositeEventRefresh object) {
+				return createLayerCompositeEventRefreshAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcDistributionChildEvents(PropagatorCalcDistributionChildEvents object) {
-				return createPropagatorCalcDistributionChildEventsAdapter();
+			public Adapter caseCalcDistributionChildEvents(CalcDistributionChildEvents object) {
+				return createCalcDistributionChildEventsAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcDistributionProvidedEvents(PropagatorCalcDistributionProvidedEvents object) {
-				return createPropagatorCalcDistributionProvidedEventsAdapter();
+			public Adapter caseCalcDistributionProvidedEvents(CalcDistributionProvidedEvents object) {
+				return createCalcDistributionProvidedEventsAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcDistributionSequence(PropagatorCalcDistributionSequence object) {
-				return createPropagatorCalcDistributionSequenceAdapter();
+			public Adapter caseCalcDistributionSequence(CalcDistributionSequence object) {
+				return createCalcDistributionSequenceAdapter();
 			}
 			@Override
-			public Adapter casePropagatorLayerDistributionSlopes(PropagatorLayerDistributionSlopes object) {
-				return createPropagatorLayerDistributionSlopesAdapter();
+			public Adapter caseLayerDistributionSlopes(LayerDistributionSlopes object) {
+				return createLayerDistributionSlopesAdapter();
 			}
 			@Override
-			public Adapter casePropagatorLayerDistributionAmounts(PropagatorLayerDistributionAmounts object) {
-				return createPropagatorLayerDistributionAmountsAdapter();
+			public Adapter caseLayerDistributionAmounts(LayerDistributionAmounts object) {
+				return createLayerDistributionAmountsAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountAbsoluteAmountAbsolute(PropagatorCalcAmountAbsoluteAmountAbsolute object) {
-				return createPropagatorCalcAmountAbsoluteAmountAbsoluteAdapter();
+			public Adapter caseCalcAmountAbsoluteAmountAbsolute(CalcAmountAbsoluteAmountAbsolute object) {
+				return createCalcAmountAbsoluteAmountAbsoluteAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountAbsoluteAmountAfter(PropagatorCalcAmountAbsoluteAmountAfter object) {
-				return createPropagatorCalcAmountAbsoluteAmountAfterAdapter();
+			public Adapter caseCalcAmountAbsoluteAmountAfter(CalcAmountAbsoluteAmountAfter object) {
+				return createCalcAmountAbsoluteAmountAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountAbsoluteAtomicAmountAbsolute(PropagatorCalcAmountAbsoluteAtomicAmountAbsolute object) {
-				return createPropagatorCalcAmountAbsoluteAtomicAmountAbsoluteAdapter();
+			public Adapter caseCalcAmountAbsoluteAtomicAmountAbsolute(CalcAmountAbsoluteAtomicAmountAbsolute object) {
+				return createCalcAmountAbsoluteAtomicAmountAbsoluteAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountAbsoluteAtomicMoment(PropagatorCalcAmountAbsoluteAtomicMoment object) {
-				return createPropagatorCalcAmountAbsoluteAtomicMomentAdapter();
+			public Adapter caseCalcAmountAbsoluteAtomicMoment(CalcAmountAbsoluteAtomicMoment object) {
+				return createCalcAmountAbsoluteAtomicMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountImpulsionAmountAfter(PropagatorCalcAmountImpulsionAmountAfter object) {
-				return createPropagatorCalcAmountImpulsionAmountAfterAdapter();
+			public Adapter caseCalcAmountDeltaAmountAfter(CalcAmountDeltaAmountAfter object) {
+				return createCalcAmountDeltaAmountAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountImpulsionAmountImpulsion(PropagatorCalcAmountImpulsionAmountImpulsion object) {
-				return createPropagatorCalcAmountImpulsionAmountImpulsionAdapter();
+			public Adapter caseCalcAmountDeltaAmountDelta(CalcAmountDeltaAmountDelta object) {
+				return createCalcAmountDeltaAmountDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountImpulsionAtomicAmountImpulsion(PropagatorCalcAmountImpulsionAtomicAmountImpulsion object) {
-				return createPropagatorCalcAmountImpulsionAtomicAmountImpulsionAdapter();
+			public Adapter caseCalcAmountDeltaAtomicAmountDelta(CalcAmountDeltaAtomicAmountDelta object) {
+				return createCalcAmountDeltaAtomicAmountDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmountImpulsionAtomicMoment(PropagatorCalcAmountImpulsionAtomicMoment object) {
-				return createPropagatorCalcAmountImpulsionAtomicMomentAdapter();
+			public Adapter caseCalcAmountDeltaAtomicMoment(CalcAmountDeltaAtomicMoment object) {
+				return createCalcAmountDeltaAtomicMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcCapacityChangeEndAmountImpulsion(PropagatorCalcCapacityChangeEndAmountImpulsion object) {
-				return createPropagatorCalcCapacityChangeEndAmountImpulsionAdapter();
+			public Adapter caseCalcCapacityChangeEndAmountDelta(CalcCapacityChangeEndAmountDelta object) {
+				return createCalcCapacityChangeEndAmountDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcCapacityChangeEndMoment(PropagatorCalcCapacityChangeEndMoment object) {
-				return createPropagatorCalcCapacityChangeEndMomentAdapter();
+			public Adapter caseCalcCapacityChangeEndMoment(CalcCapacityChangeEndMoment object) {
+				return createCalcCapacityChangeEndMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcCapacityChangeStartAmountImpulsion(PropagatorCalcCapacityChangeStartAmountImpulsion object) {
-				return createPropagatorCalcCapacityChangeStartAmountImpulsionAdapter();
+			public Adapter caseCalcCapacityChangeStartAmountDelta(CalcCapacityChangeStartAmountDelta object) {
+				return createCalcCapacityChangeStartAmountDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcCapacityChangeStartMoment(PropagatorCalcCapacityChangeStartMoment object) {
-				return createPropagatorCalcCapacityChangeStartMomentAdapter();
+			public Adapter caseCalcCapacityChangeStartMoment(CalcCapacityChangeStartMoment object) {
+				return createCalcCapacityChangeStartMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcChildEventAmountAfter(PropagatorCalcChildEventAmountAfter object) {
-				return createPropagatorCalcChildEventAmountAfterAdapter();
+			public Adapter caseCalcChildEventAmountAfter(CalcChildEventAmountAfter object) {
+				return createCalcChildEventAmountAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcChildEventMoment(PropagatorCalcChildEventMoment object) {
-				return createPropagatorCalcChildEventMomentAdapter();
+			public Adapter caseCalcChildEventMoment(CalcChildEventMoment object) {
+				return createCalcChildEventMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcChildEventSlopeAfter(PropagatorCalcChildEventSlopeAfter object) {
-				return createPropagatorCalcChildEventSlopeAfterAdapter();
+			public Adapter caseCalcChildEventSlopeAfter(CalcChildEventSlopeAfter object) {
+				return createCalcChildEventSlopeAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEndEventMoment(PropagatorCalcEndEventMoment object) {
-				return createPropagatorCalcEndEventMomentAdapter();
+			public Adapter caseCalcEndEventMoment(CalcEndEventMoment object) {
+				return createCalcEndEventMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventAmountAfter(PropagatorCalcEventAmountAfter object) {
-				return createPropagatorCalcEventAmountAfterAdapter();
+			public Adapter caseCalcEventAmountAfter(CalcEventAmountAfter object) {
+				return createCalcEventAmountAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventAmountBefore(PropagatorCalcEventAmountBefore object) {
-				return createPropagatorCalcEventAmountBeforeAdapter();
+			public Adapter caseCalcEventAmountBefore(CalcEventAmountBefore object) {
+				return createCalcEventAmountBeforeAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventMoment(PropagatorCalcEventMoment object) {
-				return createPropagatorCalcEventMomentAdapter();
+			public Adapter caseCalcEventMoment(CalcEventMoment object) {
+				return createCalcEventMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventSlopeAfter(PropagatorCalcEventSlopeAfter object) {
-				return createPropagatorCalcEventSlopeAfterAdapter();
+			public Adapter caseCalcEventSlopeAfter(CalcEventSlopeAfter object) {
+				return createCalcEventSlopeAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventSlopeBefore(PropagatorCalcEventSlopeBefore object) {
-				return createPropagatorCalcEventSlopeBeforeAdapter();
+			public Adapter caseCalcEventSlopeBefore(CalcEventSlopeBefore object) {
+				return createCalcEventSlopeBeforeAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventsProviderRefreshEvents(PropagatorCalcEventsProviderRefreshEvents object) {
-				return createPropagatorCalcEventsProviderRefreshEventsAdapter();
+			public Adapter caseCalcEventsProviderRefreshEvents(CalcEventsProviderRefreshEvents object) {
+				return createCalcEventsProviderRefreshEventsAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeAbsoluteAtomicMoment(PropagatorCalcSlopeAbsoluteAtomicMoment object) {
-				return createPropagatorCalcSlopeAbsoluteAtomicMomentAdapter();
+			public Adapter caseCalcSlopeAbsoluteAtomicMoment(CalcSlopeAbsoluteAtomicMoment object) {
+				return createCalcSlopeAbsoluteAtomicMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute(PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute object) {
-				return createPropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteAdapter();
+			public Adapter caseCalcSlopeAbsoluteAtomicSlopeAbsolute(CalcSlopeAbsoluteAtomicSlopeAbsolute object) {
+				return createCalcSlopeAbsoluteAtomicSlopeAbsoluteAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeAbsoluteSlopeAbsolute(PropagatorCalcSlopeAbsoluteSlopeAbsolute object) {
-				return createPropagatorCalcSlopeAbsoluteSlopeAbsoluteAdapter();
+			public Adapter caseCalcSlopeAbsoluteSlopeAbsolute(CalcSlopeAbsoluteSlopeAbsolute object) {
+				return createCalcSlopeAbsoluteSlopeAbsoluteAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeAbsoluteSlopeAfter(PropagatorCalcSlopeAbsoluteSlopeAfter object) {
-				return createPropagatorCalcSlopeAbsoluteSlopeAfterAdapter();
+			public Adapter caseCalcSlopeAbsoluteSlopeAfter(CalcSlopeAbsoluteSlopeAfter object) {
+				return createCalcSlopeAbsoluteSlopeAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeImpulsionAtomicMoment(PropagatorCalcSlopeImpulsionAtomicMoment object) {
-				return createPropagatorCalcSlopeImpulsionAtomicMomentAdapter();
+			public Adapter caseCalcSlopeDeltaAtomicMoment(CalcSlopeDeltaAtomicMoment object) {
+				return createCalcSlopeDeltaAtomicMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeImpulsionAtomicSlopeImpulsion(PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion object) {
-				return createPropagatorCalcSlopeImpulsionAtomicSlopeImpulsionAdapter();
+			public Adapter caseCalcSlopeDeltaAtomicSlopeDelta(CalcSlopeDeltaAtomicSlopeDelta object) {
+				return createCalcSlopeDeltaAtomicSlopeDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeImpulsionSlopeAfter(PropagatorCalcSlopeImpulsionSlopeAfter object) {
-				return createPropagatorCalcSlopeImpulsionSlopeAfterAdapter();
+			public Adapter caseCalcSlopeDeltaSlopeAfter(CalcSlopeDeltaSlopeAfter object) {
+				return createCalcSlopeDeltaSlopeAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcSlopeImpulsionSlopeImpulsion(PropagatorCalcSlopeImpulsionSlopeImpulsion object) {
-				return createPropagatorCalcSlopeImpulsionSlopeImpulsionAdapter();
+			public Adapter caseCalcSlopeDeltaSlopeDelta(CalcSlopeDeltaSlopeDelta object) {
+				return createCalcSlopeDeltaSlopeDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcStartEventAmountAfter(PropagatorCalcStartEventAmountAfter object) {
-				return createPropagatorCalcStartEventAmountAfterAdapter();
+			public Adapter caseCalcStartEventAmountAfter(CalcStartEventAmountAfter object) {
+				return createCalcStartEventAmountAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcStartEventMoment(PropagatorCalcStartEventMoment object) {
-				return createPropagatorCalcStartEventMomentAdapter();
+			public Adapter caseCalcStartEventMoment(CalcStartEventMoment object) {
+				return createCalcStartEventMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcStartEventSlopeAfter(PropagatorCalcStartEventSlopeAfter object) {
-				return createPropagatorCalcStartEventSlopeAfterAdapter();
+			public Adapter caseCalcStartEventSlopeAfter(CalcStartEventSlopeAfter object) {
+				return createCalcStartEventSlopeAfterAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcStockChangeEndMoment(PropagatorCalcStockChangeEndMoment object) {
-				return createPropagatorCalcStockChangeEndMomentAdapter();
+			public Adapter caseCalcStockChangeEndMoment(CalcStockChangeEndMoment object) {
+				return createCalcStockChangeEndMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcStockChangeEndSlopeImpulsion(PropagatorCalcStockChangeEndSlopeImpulsion object) {
-				return createPropagatorCalcStockChangeEndSlopeImpulsionAdapter();
+			public Adapter caseCalcStockChangeEndSlopeDelta(CalcStockChangeEndSlopeDelta object) {
+				return createCalcStockChangeEndSlopeDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcStockChangeStartMoment(PropagatorCalcStockChangeStartMoment object) {
-				return createPropagatorCalcStockChangeStartMomentAdapter();
+			public Adapter caseCalcStockChangeStartMoment(CalcStockChangeStartMoment object) {
+				return createCalcStockChangeStartMomentAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcStockChangeStartSlopeImpulsion(PropagatorCalcStockChangeStartSlopeImpulsion object) {
-				return createPropagatorCalcStockChangeStartSlopeImpulsionAdapter();
+			public Adapter caseCalcStockChangeStartSlopeDelta(CalcStockChangeStartSlopeDelta object) {
+				return createCalcStockChangeStartSlopeDeltaAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventSlope(PropagatorCalcEventSlope object) {
-				return createPropagatorCalcEventSlopeAdapter();
+			public Adapter caseCalcEventSlope(CalcEventSlope object) {
+				return createCalcEventSlopeAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcEventAmount(PropagatorCalcEventAmount object) {
-				return createPropagatorCalcEventAmountAdapter();
+			public Adapter caseCalcEventAmount(CalcEventAmount object) {
+				return createCalcEventAmountAdapter();
 			}
 			@Override
 			public Adapter casePropagatorFunction(PropagatorFunction object) {
@@ -318,660 +318,660 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute <em>Propagator Calc Amount Absolute Amount Absolute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.ScopeDistribution <em>Scope Distribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute
+	 * @see com.misc.common.moplaf.time.continuous.calc.ScopeDistribution
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountAbsoluteAmountAbsoluteAdapter() {
+	public Adapter createScopeDistributionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter <em>Propagator Calc Amount Absolute Amount After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionInitialization <em>Calc Distribution Initialization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcDistributionInitialization
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountAbsoluteAmountAfterAdapter() {
+	public Adapter createCalcDistributionInitializationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute <em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.LayerCompositeEventRefresh <em>Layer Composite Event Refresh</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute
+	 * @see com.misc.common.moplaf.time.continuous.calc.LayerCompositeEventRefresh
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountAbsoluteAtomicAmountAbsoluteAdapter() {
+	public Adapter createLayerCompositeEventRefreshAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicMoment <em>Propagator Calc Amount Absolute Atomic Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionChildEvents <em>Calc Distribution Child Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcDistributionChildEvents
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountAbsoluteAtomicMomentAdapter() {
+	public Adapter createCalcDistributionChildEventsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountAfter <em>Propagator Calc Amount Impulsion Amount After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionProvidedEvents <em>Calc Distribution Provided Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcDistributionProvidedEvents
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountImpulsionAmountAfterAdapter() {
+	public Adapter createCalcDistributionProvidedEventsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountImpulsion <em>Propagator Calc Amount Impulsion Amount Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcDistributionSequence <em>Calc Distribution Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcDistributionSequence
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountImpulsionAmountImpulsionAdapter() {
+	public Adapter createCalcDistributionSequenceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicAmountImpulsion <em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.LayerDistributionSlopes <em>Layer Distribution Slopes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicAmountImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.LayerDistributionSlopes
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountImpulsionAtomicAmountImpulsionAdapter() {
+	public Adapter createLayerDistributionSlopesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicMoment <em>Propagator Calc Amount Impulsion Atomic Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.LayerDistributionAmounts <em>Layer Distribution Amounts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.LayerDistributionAmounts
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcAmountImpulsionAtomicMomentAdapter() {
+	public Adapter createLayerDistributionAmountsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndAmountImpulsion <em>Propagator Calc Capacity Change End Amount Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAbsolute <em>Calc Amount Absolute Amount Absolute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndAmountImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAbsolute
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcCapacityChangeEndAmountImpulsionAdapter() {
+	public Adapter createCalcAmountAbsoluteAmountAbsoluteAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndMoment <em>Propagator Calc Capacity Change End Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAfter <em>Calc Amount Absolute Amount After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeEndMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAmountAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcCapacityChangeEndMomentAdapter() {
+	public Adapter createCalcAmountAbsoluteAmountAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartAmountImpulsion <em>Propagator Calc Capacity Change Start Amount Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicAmountAbsolute <em>Calc Amount Absolute Atomic Amount Absolute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartAmountImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicAmountAbsolute
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcCapacityChangeStartAmountImpulsionAdapter() {
+	public Adapter createCalcAmountAbsoluteAtomicAmountAbsoluteAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartMoment <em>Propagator Calc Capacity Change Start Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicMoment <em>Calc Amount Absolute Atomic Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountAbsoluteAtomicMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcCapacityChangeStartMomentAdapter() {
+	public Adapter createCalcAmountAbsoluteAtomicMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventAmountAfter <em>Propagator Calc Child Event Amount After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountAfter <em>Calc Amount Delta Amount After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventAmountAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcChildEventAmountAfterAdapter() {
+	public Adapter createCalcAmountDeltaAmountAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventMoment <em>Propagator Calc Child Event Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountDelta <em>Calc Amount Delta Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAmountDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcChildEventMomentAdapter() {
+	public Adapter createCalcAmountDeltaAmountDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter <em>Propagator Calc Child Event Slope After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicAmountDelta <em>Calc Amount Delta Atomic Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicAmountDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcChildEventSlopeAfterAdapter() {
+	public Adapter createCalcAmountDeltaAtomicAmountDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents <em>Propagator Calc Distribution Child Events</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicMoment <em>Calc Amount Delta Atomic Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcAmountDeltaAtomicMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcDistributionChildEventsAdapter() {
+	public Adapter createCalcAmountDeltaAtomicMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization <em>Propagator Calc Distribution Initialization</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndAmountDelta <em>Calc Capacity Change End Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndAmountDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcDistributionInitializationAdapter() {
+	public Adapter createCalcCapacityChangeEndAmountDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents <em>Propagator Calc Distribution Provided Events</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndMoment <em>Calc Capacity Change End Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeEndMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcDistributionProvidedEventsAdapter() {
+	public Adapter createCalcCapacityChangeEndMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence <em>Propagator Calc Distribution Sequence</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartAmountDelta <em>Calc Capacity Change Start Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartAmountDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcDistributionSequenceAdapter() {
+	public Adapter createCalcCapacityChangeStartAmountDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment <em>Propagator Calc End Event Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartMoment <em>Calc Capacity Change Start Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcCapacityChangeStartMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEndEventMomentAdapter() {
+	public Adapter createCalcCapacityChangeStartMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter <em>Propagator Calc Event Amount After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventAmountAfter <em>Calc Child Event Amount After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcChildEventAmountAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventAmountAfterAdapter() {
+	public Adapter createCalcChildEventAmountAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore <em>Propagator Calc Event Amount Before</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventMoment <em>Calc Child Event Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcChildEventMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventAmountBeforeAdapter() {
+	public Adapter createCalcChildEventMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment <em>Propagator Calc Event Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcChildEventSlopeAfter <em>Calc Child Event Slope After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcChildEventSlopeAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventMomentAdapter() {
+	public Adapter createCalcChildEventSlopeAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter <em>Propagator Calc Event Slope After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEndEventMoment <em>Calc End Event Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEndEventMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventSlopeAfterAdapter() {
+	public Adapter createCalcEndEventMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeBefore <em>Propagator Calc Event Slope Before</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmountAfter <em>Calc Event Amount After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeBefore
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventAmountAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventSlopeBeforeAdapter() {
+	public Adapter createCalcEventAmountAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents <em>Propagator Calc Events Provider Refresh Events</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmountBefore <em>Calc Event Amount Before</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventAmountBefore
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventsProviderRefreshEventsAdapter() {
+	public Adapter createCalcEventAmountBeforeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicMoment <em>Propagator Calc Slope Absolute Atomic Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventMoment <em>Calc Event Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeAbsoluteAtomicMomentAdapter() {
+	public Adapter createCalcEventMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute <em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeAfter <em>Calc Event Slope After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteAdapter() {
+	public Adapter createCalcEventSlopeAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAbsolute <em>Propagator Calc Slope Absolute Slope Absolute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeBefore <em>Calc Event Slope Before</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAbsolute
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventSlopeBefore
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeAbsoluteSlopeAbsoluteAdapter() {
+	public Adapter createCalcEventSlopeBeforeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter <em>Propagator Calc Slope Absolute Slope After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventsProviderRefreshEvents <em>Calc Events Provider Refresh Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventsProviderRefreshEvents
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeAbsoluteSlopeAfterAdapter() {
+	public Adapter createCalcEventsProviderRefreshEventsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicMoment <em>Propagator Calc Slope Impulsion Atomic Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicMoment <em>Calc Slope Absolute Atomic Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeImpulsionAtomicMomentAdapter() {
+	public Adapter createCalcSlopeAbsoluteAtomicMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion <em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicSlopeAbsolute <em>Calc Slope Absolute Atomic Slope Absolute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteAtomicSlopeAbsolute
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeImpulsionAtomicSlopeImpulsionAdapter() {
+	public Adapter createCalcSlopeAbsoluteAtomicSlopeAbsoluteAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeAfter <em>Propagator Calc Slope Impulsion Slope After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAbsolute <em>Calc Slope Absolute Slope Absolute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAbsolute
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeImpulsionSlopeAfterAdapter() {
+	public Adapter createCalcSlopeAbsoluteSlopeAbsoluteAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeImpulsion <em>Propagator Calc Slope Impulsion Slope Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAfter <em>Calc Slope Absolute Slope After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeAbsoluteSlopeAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcSlopeImpulsionSlopeImpulsionAdapter() {
+	public Adapter createCalcSlopeAbsoluteSlopeAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter <em>Propagator Calc Start Event Amount After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicMoment <em>Calc Slope Delta Atomic Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcStartEventAmountAfterAdapter() {
+	public Adapter createCalcSlopeDeltaAtomicMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment <em>Propagator Calc Start Event Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicSlopeDelta <em>Calc Slope Delta Atomic Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaAtomicSlopeDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcStartEventMomentAdapter() {
+	public Adapter createCalcSlopeDeltaAtomicSlopeDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlopeAfter <em>Propagator Calc Start Event Slope After</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeAfter <em>Calc Slope Delta Slope After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlopeAfter
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcStartEventSlopeAfterAdapter() {
+	public Adapter createCalcSlopeDeltaSlopeAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndMoment <em>Propagator Calc Stock Change End Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeDelta <em>Calc Slope Delta Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcSlopeDeltaSlopeDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcStockChangeEndMomentAdapter() {
+	public Adapter createCalcSlopeDeltaSlopeDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndSlopeImpulsion <em>Propagator Calc Stock Change End Slope Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventAmountAfter <em>Calc Start Event Amount After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndSlopeImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcStartEventAmountAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcStockChangeEndSlopeImpulsionAdapter() {
+	public Adapter createCalcStartEventAmountAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartMoment <em>Propagator Calc Stock Change Start Moment</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventMoment <em>Calc Start Event Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartMoment
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcStartEventMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcStockChangeStartMomentAdapter() {
+	public Adapter createCalcStartEventMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartSlopeImpulsion <em>Propagator Calc Stock Change Start Slope Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcStartEventSlopeAfter <em>Calc Start Event Slope After</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartSlopeImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcStartEventSlopeAfter
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcStockChangeStartSlopeImpulsionAdapter() {
+	public Adapter createCalcStartEventSlopeAfterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope <em>Propagator Calc Event Slope</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndMoment <em>Calc Stock Change End Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventSlopeAdapter() {
+	public Adapter createCalcStockChangeEndMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount <em>Propagator Calc Event Amount</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndSlopeDelta <em>Calc Stock Change End Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcStockChangeEndSlopeDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorCalcEventAmountAdapter() {
+	public Adapter createCalcStockChangeEndSlopeDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh <em>Propagator Layer Composite Event Refresh</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartMoment <em>Calc Stock Change Start Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartMoment
 	 * @generated
 	 */
-	public Adapter createPropagatorLayerCompositeEventRefreshAdapter() {
+	public Adapter createCalcStockChangeStartMomentAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts <em>Propagator Layer Distribution Amounts</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartSlopeDelta <em>Calc Stock Change Start Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcStockChangeStartSlopeDelta
 	 * @generated
 	 */
-	public Adapter createPropagatorLayerDistributionAmountsAdapter() {
+	public Adapter createCalcStockChangeStartSlopeDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes <em>Propagator Layer Distribution Slopes</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventSlope <em>Calc Event Slope</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventSlope
 	 * @generated
 	 */
-	public Adapter createPropagatorLayerDistributionSlopesAdapter() {
+	public Adapter createCalcEventSlopeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution <em>Propagator Scope Distribution</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.CalcEventAmount <em>Calc Event Amount</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution
+	 * @see com.misc.common.moplaf.time.continuous.calc.CalcEventAmount
 	 * @generated
 	 */
-	public Adapter createPropagatorScopeDistributionAdapter() {
+	public Adapter createCalcEventAmountAdapter() {
 		return null;
 	}
 

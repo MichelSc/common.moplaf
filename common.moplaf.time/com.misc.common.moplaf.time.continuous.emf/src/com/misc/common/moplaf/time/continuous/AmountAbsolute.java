@@ -39,12 +39,12 @@ public interface AmountAbsolute extends ProvidedEvent {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Absolute</em>' attribute.
-	 * @see #setAmountAbsolute(float)
+	 * @see #setAmountAbsolute(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsolute_AmountAbsolute()
 	 * @model
 	 * @generated
 	 */
-	float getAmountAbsolute();
+	double getAmountAbsolute();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.AmountAbsolute#getAmountAbsolute <em>Amount Absolute</em>}' attribute.
@@ -54,7 +54,7 @@ public interface AmountAbsolute extends ProvidedEvent {
 	 * @see #getAmountAbsolute()
 	 * @generated
 	 */
-	void setAmountAbsolute(float value);
+	void setAmountAbsolute(double value);
 
 	/**
 	 * <!-- begin-user-doc -->

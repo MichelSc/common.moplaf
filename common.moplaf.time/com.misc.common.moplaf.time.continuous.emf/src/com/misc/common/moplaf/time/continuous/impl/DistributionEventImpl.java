@@ -119,7 +119,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float AMOUNT_BEFORE_EDEFAULT = 0.0F;
+	protected static final double AMOUNT_BEFORE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getAmountBefore() <em>Amount Before</em>}' attribute.
@@ -129,7 +129,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected float amountBefore = AMOUNT_BEFORE_EDEFAULT;
+	protected double amountBefore = AMOUNT_BEFORE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAmountAfter() <em>Amount After</em>}' attribute.
@@ -139,7 +139,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float AMOUNT_AFTER_EDEFAULT = 0.0F;
+	protected static final double AMOUNT_AFTER_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getAmountAfter() <em>Amount After</em>}' attribute.
@@ -149,7 +149,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected float amountAfter = AMOUNT_AFTER_EDEFAULT;
+	protected double amountAfter = AMOUNT_AFTER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSlopeBefore() <em>Slope Before</em>}' attribute.
@@ -159,7 +159,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SLOPE_BEFORE_EDEFAULT = 0.0F;
+	protected static final double SLOPE_BEFORE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSlopeBefore() <em>Slope Before</em>}' attribute.
@@ -169,7 +169,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected float slopeBefore = SLOPE_BEFORE_EDEFAULT;
+	protected double slopeBefore = SLOPE_BEFORE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSlopeAfter() <em>Slope After</em>}' attribute.
@@ -179,7 +179,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SLOPE_AFTER_EDEFAULT = 0.0F;
+	protected static final double SLOPE_AFTER_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSlopeAfter() <em>Slope After</em>}' attribute.
@@ -189,7 +189,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @generated
 	 * @ordered
 	 */
-	protected float slopeAfter = SLOPE_AFTER_EDEFAULT;
+	protected double slopeAfter = SLOPE_AFTER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -416,7 +416,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getAmountBefore() {
+	public double getAmountBefore() {
 		return amountBefore;
 	}
 
@@ -425,8 +425,8 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmountBefore(float newAmountBefore) {
-		float oldAmountBefore = amountBefore;
+	public void setAmountBefore(double newAmountBefore) {
+		double oldAmountBefore = amountBefore;
 		amountBefore = newAmountBefore;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE, oldAmountBefore, amountBefore));
@@ -437,7 +437,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getAmountAfter() {
+	public double getAmountAfter() {
 		return amountAfter;
 	}
 
@@ -446,8 +446,8 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmountAfter(float newAmountAfter) {
-		float oldAmountAfter = amountAfter;
+	public void setAmountAfter(double newAmountAfter) {
+		double oldAmountAfter = amountAfter;
 		amountAfter = newAmountAfter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER, oldAmountAfter, amountAfter));
@@ -458,7 +458,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSlopeBefore() {
+	public double getSlopeBefore() {
 		return slopeBefore;
 	}
 
@@ -467,8 +467,8 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSlopeBefore(float newSlopeBefore) {
-		float oldSlopeBefore = slopeBefore;
+	public void setSlopeBefore(double newSlopeBefore) {
+		double oldSlopeBefore = slopeBefore;
 		slopeBefore = newSlopeBefore;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE, oldSlopeBefore, slopeBefore));
@@ -479,7 +479,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSlopeAfter() {
+	public double getSlopeAfter() {
 		return slopeAfter;
 	}
 
@@ -488,8 +488,8 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSlopeAfter(float newSlopeAfter) {
-		float oldSlopeAfter = slopeAfter;
+	public void setSlopeAfter(double newSlopeAfter) {
+		double oldSlopeAfter = slopeAfter;
 		slopeAfter = newSlopeAfter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER, oldSlopeAfter, slopeAfter));
@@ -650,12 +650,12 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getAmountBefore(Date moment) {
+	public double getAmountBefore(Date moment) {
 		Distribution distribution = this.getDistributionAsSequence();
-		float amountBefore = this.getAmountBefore();
-		float slopeBefore  = this.getSlopeBefore();
-		float duration = distribution.getDuration(moment, this.getMoment());
-		float amount = amountBefore-duration*slopeBefore;
+		double amountBefore = this.getAmountBefore();
+		double slopeBefore  = this.getSlopeBefore();
+		double duration = distribution.getDuration(moment, this.getMoment());
+		double amount = amountBefore-duration*slopeBefore;
 		return amount;
 	}
 
@@ -663,12 +663,12 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getAmountAfter(Date moment) {
+	public double getAmountAfter(Date moment) {
 		Distribution distribution = this.getDistributionAsSequence();
-		float amountAfter = this.getAmountAfter();
-		float slopeAfter = this.getSlopeAfter();
-		float duration = distribution.getDuration(this.getMoment(), moment );
-		float amount   = amountAfter+duration*slopeAfter;
+		double amountAfter = this.getAmountAfter();
+		double slopeAfter = this.getSlopeAfter();
+		double duration = distribution.getDuration(this.getMoment(), moment );
+		double amount   = amountAfter+duration*slopeAfter;
 		return amount;
 	}
 
@@ -701,7 +701,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 			// as it is not part of the sequence
 			return;
 		}
-		float slopeBefore = previous.getSlopeAfter();
+		double slopeBefore = previous.getSlopeAfter();
 		this.setSlopeBefore(slopeBefore);
 	}
 
@@ -716,9 +716,9 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 			// as it is not part of the sequence
 			return;
 		}
-		float slopeBefore = this.getSlopeBefore();
-		float durationBefore = this.getDistributionAsSequence().getDuration(previous.getMoment(), this.getMoment());
-		float amount = slopeBefore*durationBefore+previous.getAmountAfter();
+		double slopeBefore = this.getSlopeBefore();
+		double durationBefore = this.getDistributionAsSequence().getDuration(previous.getMoment(), this.getMoment());
+		double amount = slopeBefore*durationBefore+previous.getAmountAfter();
 		this.setAmountBefore(amount);
 	}
 
@@ -727,7 +727,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 */
 	public void refreshAmountAfter() {
-		float amountAfter = this.getAmountBefore();
+		double amountAfter = this.getAmountBefore();
 		this.setAmountAfter(amountAfter);;
 	}
 
@@ -736,7 +736,7 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * <!-- end-user-doc -->
 	 */
 	public void refreshSlopeAfter() {
-		float slopeAfter = this.getSlopeBefore();
+		double slopeAfter = this.getSlopeBefore();
 		this.setSlopeAfter(slopeAfter);
 	}
 
@@ -861,16 +861,16 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 				setPrevious((DistributionEvent)newValue);
 				return;
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
-				setAmountBefore((Float)newValue);
+				setAmountBefore((Double)newValue);
 				return;
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
-				setAmountAfter((Float)newValue);
+				setAmountAfter((Double)newValue);
 				return;
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
-				setSlopeBefore((Float)newValue);
+				setSlopeBefore((Double)newValue);
 				return;
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
-				setSlopeAfter((Float)newValue);
+				setSlopeAfter((Double)newValue);
 				return;
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				setDistributionAsSequence((Distribution)newValue);

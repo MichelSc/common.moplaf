@@ -306,7 +306,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getDuration(Date from, Date to);
+	double getDuration(Date from, Date to);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,7 +314,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	Date getMoment(Date from, float duration);
+	Date getMoment(Date from, double duration);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -376,7 +376,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getAmountBefore(Date time);
+	double getAmountBefore(Date time);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -387,7 +387,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getAmountAfter(Date time);
+	double getAmountAfter(Date time);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -398,7 +398,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getAmount(Date time);
+	double getAmount(Date time);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -410,7 +410,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getSlopeBefore(Date time);
+	double getSlopeBefore(Date time);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -422,7 +422,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getSlopeAfter(Date time);
+	double getSlopeAfter(Date time);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -434,7 +434,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getMinAmount(Date from, Date to);
+	double getMinAmount(Date from, Date to);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -446,7 +446,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getMaxAmount(Date from, Date to);
+	double getMaxAmount(Date from, Date to);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -458,7 +458,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getAverageAmount(Date from, Date to);
+	double getAverageAmount(Date from, Date to);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -470,7 +470,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	float getCumulatedAmount(Date from, Date to);
+	double getCumulatedAmount(Date from, Date to);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -478,7 +478,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	Date getEarliestBelow(Date after, float duration, float amount);
+	Date getEarliestBelow(Date after, double duration, double amount);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -486,7 +486,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	Date getLatestBelow(Date before, float duration, float amount);
+	Date getLatestBelow(Date before, double duration, double amount);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -494,7 +494,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	Date getEarliestAbove(Date after, float duration, float amount);
+	Date getEarliestAbove(Date after, double duration, double amount);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -502,7 +502,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	Date getLatestAbove(Date before, float duration, float amount);
+	Date getLatestAbove(Date before, double duration, double amount);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -510,7 +510,7 @@ public interface Distribution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	Date getEarliestOutputPossible(float above, Date after, float duration, float amount);
+	Date getEarliestOutputPossible(double above, Date after, double duration, double amount);
 
 	/**
 	 * <!-- begin-user-doc -->

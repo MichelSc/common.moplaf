@@ -60,7 +60,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float AMOUNT_ABSOLUTE_EDEFAULT = 0.0F;
+	protected static final double AMOUNT_ABSOLUTE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getAmountAbsolute() <em>Amount Absolute</em>}' attribute.
@@ -70,7 +70,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	 * @generated
 	 * @ordered
 	 */
-	protected float amountAbsolute = AMOUNT_ABSOLUTE_EDEFAULT;
+	protected double amountAbsolute = AMOUNT_ABSOLUTE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,7 +148,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getAmountAbsolute() {
+	public double getAmountAbsolute() {
 		return amountAbsolute;
 	}
 
@@ -157,8 +157,8 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmountAbsolute(float newAmountAbsolute) {
-		float oldAmountAbsolute = amountAbsolute;
+	public void setAmountAbsolute(double newAmountAbsolute) {
+		double oldAmountAbsolute = amountAbsolute;
 		amountAbsolute = newAmountAbsolute;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE, oldAmountAbsolute, amountAbsolute));
@@ -222,7 +222,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 				setEvent((AmountAbsoluteAtomic)newValue);
 				return;
 			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
-				setAmountAbsolute((Float)newValue);
+				setAmountAbsolute((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

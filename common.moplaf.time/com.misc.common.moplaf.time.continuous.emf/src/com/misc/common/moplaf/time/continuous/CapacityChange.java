@@ -100,12 +100,12 @@ public interface CapacityChange extends EventsProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount</em>' attribute.
-	 * @see #setAmount(float)
+	 * @see #setAmount(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChange_Amount()
 	 * @model
 	 * @generated
 	 */
-	float getAmount();
+	double getAmount();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getAmount <em>Amount</em>}' attribute.
@@ -115,7 +115,7 @@ public interface CapacityChange extends EventsProvider {
 	 * @see #getAmount()
 	 * @generated
 	 */
-	void setAmount(float value);
+	void setAmount(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Start Event</b></em>' containment reference.

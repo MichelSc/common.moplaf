@@ -97,7 +97,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SLOPE_EDEFAULT = 0.0F;
+	protected static final double SLOPE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSlope() <em>Slope</em>}' attribute.
@@ -107,7 +107,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	 * @generated
 	 * @ordered
 	 */
-	protected float slope = SLOPE_EDEFAULT;
+	protected double slope = SLOPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getStartEvent() <em>Start Event</em>}' containment reference.
@@ -222,7 +222,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSlope() {
+	public double getSlope() {
 		return slope;
 	}
 
@@ -231,12 +231,13 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSlope(float newSlope) {
-		float oldSlope = slope;
+	public void setSlope(double newSlope) {
+		double oldSlope = slope;
 		slope = newSlope;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__SLOPE, oldSlope, slope));
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -403,7 +404,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 				setEnd((Date)newValue);
 				return;
 			case TimeContinuousPackage.STOCK_CHANGE__SLOPE:
-				setSlope((Float)newValue);
+				setSlope((Double)newValue);
 				return;
 			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
 				setStartEvent((StockChangeStart)newValue);

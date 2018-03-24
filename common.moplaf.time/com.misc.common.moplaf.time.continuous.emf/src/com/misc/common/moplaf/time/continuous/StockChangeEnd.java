@@ -29,7 +29,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model extendedMetaData="name='SlopeImpulsion'"
  * @generated
  */
-public interface StockChangeEnd extends SlopeImpulsion {
+public interface StockChangeEnd extends SlopeDelta {
 	/**
 	 * Returns the value of the '<em><b>Provider</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChange#getEndEvent <em>End Event</em>}'.

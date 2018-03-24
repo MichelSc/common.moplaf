@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class CapacityChangeEndItemProvider
-	extends AmountImpulsionItemProvider {
+	extends AmountDeltaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

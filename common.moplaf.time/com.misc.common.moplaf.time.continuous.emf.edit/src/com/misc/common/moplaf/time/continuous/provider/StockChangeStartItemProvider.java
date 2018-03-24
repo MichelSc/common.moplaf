@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class StockChangeStartItemProvider
-	extends SlopeImpulsionItemProvider {
+	extends SlopeDeltaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

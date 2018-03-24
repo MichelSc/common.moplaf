@@ -32,427 +32,427 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	TimeContinuousCalcFactory eINSTANCE = com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Absolute Amount Absolute</em>'.
+	 * Returns a new object of class '<em>Scope Distribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Absolute Amount Absolute</em>'.
+	 * @return a new object of class '<em>Scope Distribution</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountAbsoluteAmountAbsolute createPropagatorCalcAmountAbsoluteAmountAbsolute();
+	ScopeDistribution createScopeDistribution();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Absolute Amount After</em>'.
+	 * Returns a new object of class '<em>Calc Distribution Initialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Absolute Amount After</em>'.
+	 * @return a new object of class '<em>Calc Distribution Initialization</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountAbsoluteAmountAfter createPropagatorCalcAmountAbsoluteAmountAfter();
+	CalcDistributionInitialization createCalcDistributionInitialization();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>'.
+	 * Returns a new object of class '<em>Layer Composite Event Refresh</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>'.
+	 * @return a new object of class '<em>Layer Composite Event Refresh</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountAbsoluteAtomicAmountAbsolute createPropagatorCalcAmountAbsoluteAtomicAmountAbsolute();
+	LayerCompositeEventRefresh createLayerCompositeEventRefresh();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Absolute Atomic Moment</em>'.
+	 * Returns a new object of class '<em>Calc Distribution Child Events</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Absolute Atomic Moment</em>'.
+	 * @return a new object of class '<em>Calc Distribution Child Events</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountAbsoluteAtomicMoment createPropagatorCalcAmountAbsoluteAtomicMoment();
+	CalcDistributionChildEvents createCalcDistributionChildEvents();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Impulsion Amount After</em>'.
+	 * Returns a new object of class '<em>Calc Distribution Provided Events</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Impulsion Amount After</em>'.
+	 * @return a new object of class '<em>Calc Distribution Provided Events</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountImpulsionAmountAfter createPropagatorCalcAmountImpulsionAmountAfter();
+	CalcDistributionProvidedEvents createCalcDistributionProvidedEvents();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Impulsion Amount Impulsion</em>'.
+	 * Returns a new object of class '<em>Calc Distribution Sequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Impulsion Amount Impulsion</em>'.
+	 * @return a new object of class '<em>Calc Distribution Sequence</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountImpulsionAmountImpulsion createPropagatorCalcAmountImpulsionAmountImpulsion();
+	CalcDistributionSequence createCalcDistributionSequence();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>'.
+	 * Returns a new object of class '<em>Layer Distribution Slopes</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>'.
+	 * @return a new object of class '<em>Layer Distribution Slopes</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountImpulsionAtomicAmountImpulsion createPropagatorCalcAmountImpulsionAtomicAmountImpulsion();
+	LayerDistributionSlopes createLayerDistributionSlopes();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount Impulsion Atomic Moment</em>'.
+	 * Returns a new object of class '<em>Layer Distribution Amounts</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount Impulsion Atomic Moment</em>'.
+	 * @return a new object of class '<em>Layer Distribution Amounts</em>'.
 	 * @generated
 	 */
-	PropagatorCalcAmountImpulsionAtomicMoment createPropagatorCalcAmountImpulsionAtomicMoment();
+	LayerDistributionAmounts createLayerDistributionAmounts();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Capacity Change End Amount Impulsion</em>'.
+	 * Returns a new object of class '<em>Calc Amount Absolute Amount Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Capacity Change End Amount Impulsion</em>'.
+	 * @return a new object of class '<em>Calc Amount Absolute Amount Absolute</em>'.
 	 * @generated
 	 */
-	PropagatorCalcCapacityChangeEndAmountImpulsion createPropagatorCalcCapacityChangeEndAmountImpulsion();
+	CalcAmountAbsoluteAmountAbsolute createCalcAmountAbsoluteAmountAbsolute();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Capacity Change End Moment</em>'.
+	 * Returns a new object of class '<em>Calc Amount Absolute Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Capacity Change End Moment</em>'.
+	 * @return a new object of class '<em>Calc Amount Absolute Amount After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcCapacityChangeEndMoment createPropagatorCalcCapacityChangeEndMoment();
+	CalcAmountAbsoluteAmountAfter createCalcAmountAbsoluteAmountAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Capacity Change Start Amount Impulsion</em>'.
+	 * Returns a new object of class '<em>Calc Amount Absolute Atomic Amount Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Capacity Change Start Amount Impulsion</em>'.
+	 * @return a new object of class '<em>Calc Amount Absolute Atomic Amount Absolute</em>'.
 	 * @generated
 	 */
-	PropagatorCalcCapacityChangeStartAmountImpulsion createPropagatorCalcCapacityChangeStartAmountImpulsion();
+	CalcAmountAbsoluteAtomicAmountAbsolute createCalcAmountAbsoluteAtomicAmountAbsolute();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Capacity Change Start Moment</em>'.
+	 * Returns a new object of class '<em>Calc Amount Absolute Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Capacity Change Start Moment</em>'.
+	 * @return a new object of class '<em>Calc Amount Absolute Atomic Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcCapacityChangeStartMoment createPropagatorCalcCapacityChangeStartMoment();
+	CalcAmountAbsoluteAtomicMoment createCalcAmountAbsoluteAtomicMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Child Event Amount After</em>'.
+	 * Returns a new object of class '<em>Calc Amount Delta Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Child Event Amount After</em>'.
+	 * @return a new object of class '<em>Calc Amount Delta Amount After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcChildEventAmountAfter createPropagatorCalcChildEventAmountAfter();
+	CalcAmountDeltaAmountAfter createCalcAmountDeltaAmountAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Child Event Moment</em>'.
+	 * Returns a new object of class '<em>Calc Amount Delta Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Child Event Moment</em>'.
+	 * @return a new object of class '<em>Calc Amount Delta Amount Delta</em>'.
 	 * @generated
 	 */
-	PropagatorCalcChildEventMoment createPropagatorCalcChildEventMoment();
+	CalcAmountDeltaAmountDelta createCalcAmountDeltaAmountDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Child Event Slope After</em>'.
+	 * Returns a new object of class '<em>Calc Amount Delta Atomic Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Child Event Slope After</em>'.
+	 * @return a new object of class '<em>Calc Amount Delta Atomic Amount Delta</em>'.
 	 * @generated
 	 */
-	PropagatorCalcChildEventSlopeAfter createPropagatorCalcChildEventSlopeAfter();
+	CalcAmountDeltaAtomicAmountDelta createCalcAmountDeltaAtomicAmountDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Child Events</em>'.
+	 * Returns a new object of class '<em>Calc Amount Delta Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Child Events</em>'.
+	 * @return a new object of class '<em>Calc Amount Delta Atomic Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcDistributionChildEvents createPropagatorCalcDistributionChildEvents();
+	CalcAmountDeltaAtomicMoment createCalcAmountDeltaAtomicMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Initialization</em>'.
+	 * Returns a new object of class '<em>Calc Capacity Change End Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Initialization</em>'.
+	 * @return a new object of class '<em>Calc Capacity Change End Amount Delta</em>'.
 	 * @generated
 	 */
-	PropagatorCalcDistributionInitialization createPropagatorCalcDistributionInitialization();
+	CalcCapacityChangeEndAmountDelta createCalcCapacityChangeEndAmountDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Provided Events</em>'.
+	 * Returns a new object of class '<em>Calc Capacity Change End Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Provided Events</em>'.
+	 * @return a new object of class '<em>Calc Capacity Change End Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcDistributionProvidedEvents createPropagatorCalcDistributionProvidedEvents();
+	CalcCapacityChangeEndMoment createCalcCapacityChangeEndMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Sequence</em>'.
+	 * Returns a new object of class '<em>Calc Capacity Change Start Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Sequence</em>'.
+	 * @return a new object of class '<em>Calc Capacity Change Start Amount Delta</em>'.
 	 * @generated
 	 */
-	PropagatorCalcDistributionSequence createPropagatorCalcDistributionSequence();
+	CalcCapacityChangeStartAmountDelta createCalcCapacityChangeStartAmountDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc End Event Moment</em>'.
+	 * Returns a new object of class '<em>Calc Capacity Change Start Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc End Event Moment</em>'.
+	 * @return a new object of class '<em>Calc Capacity Change Start Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEndEventMoment createPropagatorCalcEndEventMoment();
+	CalcCapacityChangeStartMoment createCalcCapacityChangeStartMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Amount After</em>'.
+	 * Returns a new object of class '<em>Calc Child Event Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Amount After</em>'.
+	 * @return a new object of class '<em>Calc Child Event Amount After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventAmountAfter createPropagatorCalcEventAmountAfter();
+	CalcChildEventAmountAfter createCalcChildEventAmountAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Amount Before</em>'.
+	 * Returns a new object of class '<em>Calc Child Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Amount Before</em>'.
+	 * @return a new object of class '<em>Calc Child Event Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventAmountBefore createPropagatorCalcEventAmountBefore();
+	CalcChildEventMoment createCalcChildEventMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Moment</em>'.
+	 * Returns a new object of class '<em>Calc Child Event Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Moment</em>'.
+	 * @return a new object of class '<em>Calc Child Event Slope After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventMoment createPropagatorCalcEventMoment();
+	CalcChildEventSlopeAfter createCalcChildEventSlopeAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Slope After</em>'.
+	 * Returns a new object of class '<em>Calc End Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Slope After</em>'.
+	 * @return a new object of class '<em>Calc End Event Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventSlopeAfter createPropagatorCalcEventSlopeAfter();
+	CalcEndEventMoment createCalcEndEventMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Slope Before</em>'.
+	 * Returns a new object of class '<em>Calc Event Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Slope Before</em>'.
+	 * @return a new object of class '<em>Calc Event Amount After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventSlopeBefore createPropagatorCalcEventSlopeBefore();
+	CalcEventAmountAfter createCalcEventAmountAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Events Provider Refresh Events</em>'.
+	 * Returns a new object of class '<em>Calc Event Amount Before</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Events Provider Refresh Events</em>'.
+	 * @return a new object of class '<em>Calc Event Amount Before</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventsProviderRefreshEvents createPropagatorCalcEventsProviderRefreshEvents();
+	CalcEventAmountBefore createCalcEventAmountBefore();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Absolute Atomic Moment</em>'.
+	 * Returns a new object of class '<em>Calc Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Absolute Atomic Moment</em>'.
+	 * @return a new object of class '<em>Calc Event Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeAbsoluteAtomicMoment createPropagatorCalcSlopeAbsoluteAtomicMoment();
+	CalcEventMoment createCalcEventMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>'.
+	 * Returns a new object of class '<em>Calc Event Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>'.
+	 * @return a new object of class '<em>Calc Event Slope After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute createPropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute();
+	CalcEventSlopeAfter createCalcEventSlopeAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Absolute Slope Absolute</em>'.
+	 * Returns a new object of class '<em>Calc Event Slope Before</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Absolute Slope Absolute</em>'.
+	 * @return a new object of class '<em>Calc Event Slope Before</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeAbsoluteSlopeAbsolute createPropagatorCalcSlopeAbsoluteSlopeAbsolute();
+	CalcEventSlopeBefore createCalcEventSlopeBefore();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Absolute Slope After</em>'.
+	 * Returns a new object of class '<em>Calc Events Provider Refresh Events</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Absolute Slope After</em>'.
+	 * @return a new object of class '<em>Calc Events Provider Refresh Events</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeAbsoluteSlopeAfter createPropagatorCalcSlopeAbsoluteSlopeAfter();
+	CalcEventsProviderRefreshEvents createCalcEventsProviderRefreshEvents();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Impulsion Atomic Moment</em>'.
+	 * Returns a new object of class '<em>Calc Slope Absolute Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Impulsion Atomic Moment</em>'.
+	 * @return a new object of class '<em>Calc Slope Absolute Atomic Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeImpulsionAtomicMoment createPropagatorCalcSlopeImpulsionAtomicMoment();
+	CalcSlopeAbsoluteAtomicMoment createCalcSlopeAbsoluteAtomicMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>'.
+	 * Returns a new object of class '<em>Calc Slope Absolute Atomic Slope Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>'.
+	 * @return a new object of class '<em>Calc Slope Absolute Atomic Slope Absolute</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion createPropagatorCalcSlopeImpulsionAtomicSlopeImpulsion();
+	CalcSlopeAbsoluteAtomicSlopeAbsolute createCalcSlopeAbsoluteAtomicSlopeAbsolute();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Impulsion Slope After</em>'.
+	 * Returns a new object of class '<em>Calc Slope Absolute Slope Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Impulsion Slope After</em>'.
+	 * @return a new object of class '<em>Calc Slope Absolute Slope Absolute</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeImpulsionSlopeAfter createPropagatorCalcSlopeImpulsionSlopeAfter();
+	CalcSlopeAbsoluteSlopeAbsolute createCalcSlopeAbsoluteSlopeAbsolute();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Slope Impulsion Slope Impulsion</em>'.
+	 * Returns a new object of class '<em>Calc Slope Absolute Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Slope Impulsion Slope Impulsion</em>'.
+	 * @return a new object of class '<em>Calc Slope Absolute Slope After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcSlopeImpulsionSlopeImpulsion createPropagatorCalcSlopeImpulsionSlopeImpulsion();
+	CalcSlopeAbsoluteSlopeAfter createCalcSlopeAbsoluteSlopeAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Start Event Amount After</em>'.
+	 * Returns a new object of class '<em>Calc Slope Delta Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Start Event Amount After</em>'.
+	 * @return a new object of class '<em>Calc Slope Delta Atomic Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcStartEventAmountAfter createPropagatorCalcStartEventAmountAfter();
+	CalcSlopeDeltaAtomicMoment createCalcSlopeDeltaAtomicMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Start Event Moment</em>'.
+	 * Returns a new object of class '<em>Calc Slope Delta Atomic Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Start Event Moment</em>'.
+	 * @return a new object of class '<em>Calc Slope Delta Atomic Slope Delta</em>'.
 	 * @generated
 	 */
-	PropagatorCalcStartEventMoment createPropagatorCalcStartEventMoment();
+	CalcSlopeDeltaAtomicSlopeDelta createCalcSlopeDeltaAtomicSlopeDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Start Event Slope After</em>'.
+	 * Returns a new object of class '<em>Calc Slope Delta Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Start Event Slope After</em>'.
+	 * @return a new object of class '<em>Calc Slope Delta Slope After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcStartEventSlopeAfter createPropagatorCalcStartEventSlopeAfter();
+	CalcSlopeDeltaSlopeAfter createCalcSlopeDeltaSlopeAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Stock Change End Moment</em>'.
+	 * Returns a new object of class '<em>Calc Slope Delta Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Stock Change End Moment</em>'.
+	 * @return a new object of class '<em>Calc Slope Delta Slope Delta</em>'.
 	 * @generated
 	 */
-	PropagatorCalcStockChangeEndMoment createPropagatorCalcStockChangeEndMoment();
+	CalcSlopeDeltaSlopeDelta createCalcSlopeDeltaSlopeDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Stock Change End Slope Impulsion</em>'.
+	 * Returns a new object of class '<em>Calc Start Event Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Stock Change End Slope Impulsion</em>'.
+	 * @return a new object of class '<em>Calc Start Event Amount After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcStockChangeEndSlopeImpulsion createPropagatorCalcStockChangeEndSlopeImpulsion();
+	CalcStartEventAmountAfter createCalcStartEventAmountAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Stock Change Start Moment</em>'.
+	 * Returns a new object of class '<em>Calc Start Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Stock Change Start Moment</em>'.
+	 * @return a new object of class '<em>Calc Start Event Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcStockChangeStartMoment createPropagatorCalcStockChangeStartMoment();
+	CalcStartEventMoment createCalcStartEventMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Stock Change Start Slope Impulsion</em>'.
+	 * Returns a new object of class '<em>Calc Start Event Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Stock Change Start Slope Impulsion</em>'.
+	 * @return a new object of class '<em>Calc Start Event Slope After</em>'.
 	 * @generated
 	 */
-	PropagatorCalcStockChangeStartSlopeImpulsion createPropagatorCalcStockChangeStartSlopeImpulsion();
+	CalcStartEventSlopeAfter createCalcStartEventSlopeAfter();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Slope</em>'.
+	 * Returns a new object of class '<em>Calc Stock Change End Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Slope</em>'.
+	 * @return a new object of class '<em>Calc Stock Change End Moment</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventSlope createPropagatorCalcEventSlope();
+	CalcStockChangeEndMoment createCalcStockChangeEndMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Amount</em>'.
+	 * Returns a new object of class '<em>Calc Stock Change End Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Amount</em>'.
+	 * @return a new object of class '<em>Calc Stock Change End Slope Delta</em>'.
 	 * @generated
 	 */
-	PropagatorCalcEventAmount createPropagatorCalcEventAmount();
+	CalcStockChangeEndSlopeDelta createCalcStockChangeEndSlopeDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Layer Composite Event Refresh</em>'.
+	 * Returns a new object of class '<em>Calc Stock Change Start Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Layer Composite Event Refresh</em>'.
+	 * @return a new object of class '<em>Calc Stock Change Start Moment</em>'.
 	 * @generated
 	 */
-	PropagatorLayerCompositeEventRefresh createPropagatorLayerCompositeEventRefresh();
+	CalcStockChangeStartMoment createCalcStockChangeStartMoment();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Layer Distribution Amounts</em>'.
+	 * Returns a new object of class '<em>Calc Stock Change Start Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Layer Distribution Amounts</em>'.
+	 * @return a new object of class '<em>Calc Stock Change Start Slope Delta</em>'.
 	 * @generated
 	 */
-	PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts();
+	CalcStockChangeStartSlopeDelta createCalcStockChangeStartSlopeDelta();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Layer Distribution Slopes</em>'.
+	 * Returns a new object of class '<em>Calc Event Slope</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Layer Distribution Slopes</em>'.
+	 * @return a new object of class '<em>Calc Event Slope</em>'.
 	 * @generated
 	 */
-	PropagatorLayerDistributionSlopes createPropagatorLayerDistributionSlopes();
+	CalcEventSlope createCalcEventSlope();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Scope Distribution</em>'.
+	 * Returns a new object of class '<em>Calc Event Amount</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Scope Distribution</em>'.
+	 * @return a new object of class '<em>Calc Event Amount</em>'.
 	 * @generated
 	 */
-	PropagatorScopeDistribution createPropagatorScopeDistribution();
+	CalcEventAmount createCalcEventAmount();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -69,12 +69,12 @@ public interface AmountAbsoluteProvider extends EventProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Absolute</em>' attribute.
-	 * @see #setAmountAbsolute(float)
+	 * @see #setAmountAbsolute(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsoluteProvider_AmountAbsolute()
 	 * @model default="0.0"
 	 * @generated
 	 */
-	float getAmountAbsolute();
+	double getAmountAbsolute();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider#getAmountAbsolute <em>Amount Absolute</em>}' attribute.
@@ -84,6 +84,6 @@ public interface AmountAbsoluteProvider extends EventProvider {
 	 * @see #getAmountAbsolute()
 	 * @generated
 	 */
-	void setAmountAbsolute(float value);
+	void setAmountAbsolute(double value);
 
 } // AmountAbsoluteProvider

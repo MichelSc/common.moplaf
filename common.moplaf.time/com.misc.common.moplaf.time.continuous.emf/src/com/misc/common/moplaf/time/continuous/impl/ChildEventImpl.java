@@ -173,7 +173,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	public void refreshAmountAfter() {
 		if ( this.isAlive() ){
 			DistributionEvent originalEvent = this.getOriginal();
-			float amountAfter = this.getAmountBefore()
+			double amountAfter = this.getAmountBefore()
 					          + originalEvent.getAmountAfter()
 					          - originalEvent.getAmountBefore();
 			this.setAmountAfter(amountAfter);
@@ -187,7 +187,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	public void refreshSlopeAfter() {
 		if ( this.isAlive() ){
 			DistributionEvent originalEvent = this.getOriginal();
-			float slopeAfter = this.getSlopeBefore()
+			double slopeAfter = this.getSlopeBefore()
 					         + originalEvent.getSlopeAfter()
 					         - originalEvent.getSlopeBefore();
 			this.setSlopeAfter(slopeAfter);

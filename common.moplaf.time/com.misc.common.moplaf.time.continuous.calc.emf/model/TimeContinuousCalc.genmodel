@@ -8,126 +8,80 @@
   <foreignModel>TimeContinuousCalc.ecore</foreignModel>
   <genPackages prefix="TimeContinuousCalc" basePackage="com.misc.common.moplaf.time.continuous"
       disposableProviderFactory="true" ecorePackage="TimeContinuousCalc.ecore#/">
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorScopeDistribution"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcDistributionInitialization"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcDistributionInitialization/ConcreteParent"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//ScopeDistribution"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcDistributionInitialization">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcDistributionInitialization/ConcreteParent"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorLayerCompositeEventRefresh"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorLayerCompositeEventRefresh/ConcreteParent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorLayerCompositeEventRefresh/AntecedenCalcDistributionInitialization"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//LayerCompositeEventRefresh">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//LayerCompositeEventRefresh/ConcreteParent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//LayerCompositeEventRefresh/AntecedenCalcDistributionInitialization"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcDistributionChildEvents"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcDistributionChildEvents/ConcreteParent"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcDistributionChildEvents">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcDistributionChildEvents/ConcreteParent"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcDistributionProvidedEvents"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcDistributionProvidedEvents/ConcreteParent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcDistributionProvidedEvents/AntecedentLayerCompositeeventRefresh"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcDistributionProvidedEvents/AntecedentCalcDistributionchildEvents"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcDistributionProvidedEvents">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcDistributionProvidedEvents/ConcreteParent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcDistributionProvidedEvents/AntecedentLayerCompositeeventRefresh"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcDistributionProvidedEvents/AntecedentCalcDistributionchildEvents"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcDistributionSequence"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcDistributionSequence/ConcreteParent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcDistributionSequence/AntecedentCalcDistributionProvidedEvents"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcDistributionSequence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcDistributionSequence/ConcreteParent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcDistributionSequence/AntecedentCalcDistributionProvidedEvents"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorLayerDistributionSlopes"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorLayerDistributionSlopes/ConcreteParent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorLayerDistributionSlopes/AntecedentCalcDistributionSequence"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//LayerDistributionSlopes">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//LayerDistributionSlopes/ConcreteParent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//LayerDistributionSlopes/AntecedentCalcDistributionSequence"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorLayerDistributionAmounts"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorLayerDistributionAmounts/ConcreteParent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorLayerDistributionAmounts/AntecedentLayerDistributionSlopes"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//LayerDistributionAmounts">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//LayerDistributionAmounts/ConcreteParent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//LayerDistributionAmounts/AntecedentLayerDistributionSlopes"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountAbsoluteAmountAbsolute"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountAbsoluteAmountAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountAbsoluteAtomicAmountAbsolute"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountAbsoluteAtomicMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountImpulsionAmountAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountImpulsionAmountImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountImpulsionAtomicAmountImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcAmountImpulsionAtomicMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcCapacityChangeEndAmountImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcCapacityChangeEndMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcCapacityChangeStartAmountImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcCapacityChangeStartMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcChildEventAmountAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcChildEventMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcChildEventSlopeAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEndEventMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventAmountAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventAmountBefore"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcEventMoment/ConcreteParent"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountAbsoluteAmountAbsolute"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountAbsoluteAmountAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountAbsoluteAtomicAmountAbsolute"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountAbsoluteAtomicMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountDeltaAmountAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountDeltaAmountDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountDeltaAtomicAmountDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcAmountDeltaAtomicMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcCapacityChangeEndAmountDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcCapacityChangeEndMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcCapacityChangeStartAmountDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcCapacityChangeStartMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcChildEventAmountAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcChildEventMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcChildEventSlopeAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEndEventMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventAmountAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventAmountBefore"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventMoment">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcEventMoment/ConcreteParent"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventSlopeAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventSlopeBefore"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventsProviderRefreshEvents"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcEventsProviderRefreshEvents/ConcreteParent"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventSlopeAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventSlopeBefore"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventsProviderRefreshEvents">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcEventsProviderRefreshEvents/ConcreteParent"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeAbsoluteAtomicMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeAbsoluteSlopeAbsolute"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeAbsoluteSlopeAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeImpulsionAtomicMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeImpulsionSlopeAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcSlopeImpulsionSlopeImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcStartEventAmountAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcStartEventMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcStartEventSlopeAfter"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcStockChangeEndMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcStockChangeEndSlopeImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcStockChangeStartMoment"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcStockChangeStartSlopeImpulsion"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description"/>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventSlope" labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcEventSlope/ConcreteParent"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeAbsoluteAtomicMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeAbsoluteAtomicSlopeAbsolute"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeAbsoluteSlopeAbsolute"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeAbsoluteSlopeAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeDeltaAtomicMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeDeltaAtomicSlopeDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeDeltaSlopeAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcSlopeDeltaSlopeDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcStartEventAmountAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcStartEventMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcStartEventSlopeAfter"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcStockChangeEndMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcStockChangeEndSlopeDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcStockChangeStartMoment"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcStockChangeStartSlopeDelta"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventSlope">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcEventSlope/ConcreteParent"/>
     </genClasses>
-    <genClasses ecoreClass="TimeContinuousCalc.ecore#//PropagatorCalcEventAmount"
-        labelFeature="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2/PropagatorFunction/Description">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//PropagatorCalcEventAmount/ConcreteParent"/>
+    <genClasses ecoreClass="TimeContinuousCalc.ecore#//CalcEventAmount">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference TimeContinuousCalc.ecore#//CalcEventAmount/ConcreteParent"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

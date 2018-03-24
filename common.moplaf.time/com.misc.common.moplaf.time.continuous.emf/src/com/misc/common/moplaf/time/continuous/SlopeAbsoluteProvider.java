@@ -69,12 +69,12 @@ public interface SlopeAbsoluteProvider extends EventProvider {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope Absolute</em>' attribute.
-	 * @see #setSlopeAbsolute(float)
+	 * @see #setSlopeAbsolute(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsoluteProvider_SlopeAbsolute()
 	 * @model default="0.0"
 	 * @generated
 	 */
-	float getSlopeAbsolute();
+	double getSlopeAbsolute();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider#getSlopeAbsolute <em>Slope Absolute</em>}' attribute.
@@ -84,6 +84,6 @@ public interface SlopeAbsoluteProvider extends EventProvider {
 	 * @see #getSlopeAbsolute()
 	 * @generated
 	 */
-	void setSlopeAbsolute(float value);
+	void setSlopeAbsolute(double value);
 
 } // SlopeAbsoluteProvider

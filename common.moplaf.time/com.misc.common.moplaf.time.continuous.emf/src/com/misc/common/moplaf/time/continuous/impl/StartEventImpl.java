@@ -45,7 +45,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float AMOUNT_AT_START_EDEFAULT = 0.0F;
+	protected static final double AMOUNT_AT_START_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getAmountAtStart() <em>Amount At Start</em>}' attribute.
@@ -55,7 +55,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * @generated
 	 * @ordered
 	 */
-	protected float amountAtStart = AMOUNT_AT_START_EDEFAULT;
+	protected double amountAtStart = AMOUNT_AT_START_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSlopeAtStart() <em>Slope At Start</em>}' attribute.
@@ -65,7 +65,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SLOPE_AT_START_EDEFAULT = 0.0F;
+	protected static final double SLOPE_AT_START_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSlopeAtStart() <em>Slope At Start</em>}' attribute.
@@ -75,7 +75,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * @generated
 	 * @ordered
 	 */
-	protected float slopeAtStart = SLOPE_AT_START_EDEFAULT;
+	protected double slopeAtStart = SLOPE_AT_START_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,7 +102,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getAmountAtStart() {
+	public double getAmountAtStart() {
 		return amountAtStart;
 	}
 
@@ -111,8 +111,8 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmountAtStart(float newAmountAtStart) {
-		float oldAmountAtStart = amountAtStart;
+	public void setAmountAtStart(double newAmountAtStart) {
+		double oldAmountAtStart = amountAtStart;
 		amountAtStart = newAmountAtStart;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.START_EVENT__AMOUNT_AT_START, oldAmountAtStart, amountAtStart));
@@ -123,7 +123,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSlopeAtStart() {
+	public double getSlopeAtStart() {
 		return slopeAtStart;
 	}
 
@@ -132,8 +132,8 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSlopeAtStart(float newSlopeAtStart) {
-		float oldSlopeAtStart = slopeAtStart;
+	public void setSlopeAtStart(double newSlopeAtStart) {
+		double oldSlopeAtStart = slopeAtStart;
 		slopeAtStart = newSlopeAtStart;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.START_EVENT__SLOPE_AT_START, oldSlopeAtStart, slopeAtStart));
@@ -164,10 +164,10 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TimeContinuousPackage.START_EVENT__AMOUNT_AT_START:
-				setAmountAtStart((Float)newValue);
+				setAmountAtStart((Double)newValue);
 				return;
 			case TimeContinuousPackage.START_EVENT__SLOPE_AT_START:
-				setSlopeAtStart((Float)newValue);
+				setSlopeAtStart((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -239,7 +239,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 */
 	@Override
 	public void refreshAmountAfter() {
-		float amountAfter = this.getAmountAtStart();
+		double amountAfter = this.getAmountAtStart();
 		this.setAmountAfter(amountAfter);
 	}
 
@@ -257,7 +257,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 */
 	@Override
 	public void refreshSlopeAfter() {
-		float slopeAfter = this.getSlopeAtStart();
+		double slopeAfter = this.getSlopeAtStart();
 		this.setSlopeAfter(slopeAfter);
 	}
 

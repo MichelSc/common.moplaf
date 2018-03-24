@@ -104,22 +104,22 @@ public interface TimeContinuousFactory extends EFactory {
 	StockChangeEnd createStockChangeEnd();
 
 	/**
-	 * Returns a new object of class '<em>Amount Impulsion Atomic</em>'.
+	 * Returns a new object of class '<em>Amount Delta Atomic</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Amount Impulsion Atomic</em>'.
+	 * @return a new object of class '<em>Amount Delta Atomic</em>'.
 	 * @generated
 	 */
-	AmountImpulsionAtomic createAmountImpulsionAtomic();
+	AmountDeltaAtomic createAmountDeltaAtomic();
 
 	/**
-	 * Returns a new object of class '<em>Slope Impulsion Atomic</em>'.
+	 * Returns a new object of class '<em>Slope Delta Atomic</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Slope Impulsion Atomic</em>'.
+	 * @return a new object of class '<em>Slope Delta Atomic</em>'.
 	 * @generated
 	 */
-	SlopeImpulsionAtomic createSlopeImpulsionAtomic();
+	SlopeDeltaAtomic createSlopeDeltaAtomic();
 
 	/**
 	 * Returns a new object of class '<em>Amount Absolute Atomic</em>'.
@@ -158,13 +158,13 @@ public interface TimeContinuousFactory extends EFactory {
 	CapacityChange createCapacityChange();
 
 	/**
-	 * Returns a new object of class '<em>Slope Impulsion Provider</em>'.
+	 * Returns a new object of class '<em>Slope Delta Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Slope Impulsion Provider</em>'.
+	 * @return a new object of class '<em>Slope Delta Provider</em>'.
 	 * @generated
 	 */
-	SlopeImpulsionProvider createSlopeImpulsionProvider();
+	SlopeDeltaProvider createSlopeDeltaProvider();
 
 	/**
 	 * Returns a new object of class '<em>Slope Absolute Provider</em>'.
@@ -176,13 +176,13 @@ public interface TimeContinuousFactory extends EFactory {
 	SlopeAbsoluteProvider createSlopeAbsoluteProvider();
 
 	/**
-	 * Returns a new object of class '<em>Amount Impulsion Provider</em>'.
+	 * Returns a new object of class '<em>Amount Delta Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Amount Impulsion Provider</em>'.
+	 * @return a new object of class '<em>Amount Delta Provider</em>'.
 	 * @generated
 	 */
-	AmountImpulsionProvider createAmountImpulsionProvider();
+	AmountDeltaProvider createAmountDeltaProvider();
 
 	/**
 	 * Returns a new object of class '<em>Amount Absolute Provider</em>'.

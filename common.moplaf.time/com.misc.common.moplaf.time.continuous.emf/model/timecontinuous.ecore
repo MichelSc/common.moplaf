@@ -10,7 +10,7 @@
     <eLiterals name="Day" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Distribution" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
-    <eOperations name="getDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the duration between two times in the unit of the distribution&#xA;"/>
       </eAnnotations>
@@ -19,7 +19,7 @@
     </eOperations>
     <eOperations name="getMoment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="getEventBefore" eType="#//DistributionEvent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -45,58 +45,58 @@
       </eAnnotations>
       <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getAmountBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getAmountBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the value of the Distribution on the left of the given time"/>
       </eAnnotations>
       <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getAmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getAmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the value of the Distribution at the right of the given time"/>
       </eAnnotations>
       <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the value of the Distribution on the left of the given time"/>
       </eAnnotations>
       <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getSlopeBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getSlopeBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the slope of the Distribution at the left of the given time&#xA;"/>
       </eAnnotations>
       <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getSlopeAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getSlopeAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the slope at the right of the given time&#xA;"/>
       </eAnnotations>
       <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getMinAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getMinAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the minimal amount of the Distribution between two given times&#xA;"/>
       </eAnnotations>
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getMaxAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getMaxAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the maximal amount of the Distribution between two given times&#xA;"/>
       </eAnnotations>
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getAverageAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getAverageAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the average amount of the Distribution between two given times&#xA;"/>
       </eAnnotations>
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getCumulatedAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getCumulatedAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the integral of the amount between two given times&#xA;"/>
       </eAnnotations>
@@ -105,29 +105,29 @@
     </eOperations>
     <eOperations name="getEarliestBelow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eParameters name="after" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="getLatestBelow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eParameters name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="getEarliestAbove" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eParameters name="after" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="getLatestAbove" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eParameters name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="getEarliestOutputPossible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
-      <eParameters name="above" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="above" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="after" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="refreshInit"/>
     <eOperations name="refreshSequence">
@@ -177,10 +177,10 @@
     <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
       <details key="archetype" value="Thing"/>
     </eAnnotations>
-    <eOperations name="getAmountBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getAmountBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eParameters name="moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getAmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+    <eOperations name="getAmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eParameters name="moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
     <eOperations name="isBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -200,10 +200,10 @@
         eOpposite="#//DistributionEvent/Previous"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//DistributionEvent"
         eOpposite="#//DistributionEvent/Next"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" defaultValueLiteral=""
         derived="true"/>
@@ -219,52 +219,52 @@
         eType="#//DistributionEvent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StartEvent" eSuperTypes="#//OwnedEvent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAtStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAtStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAtStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAtStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EndEvent" eSuperTypes="#//OwnedEvent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AmountImpulsion" abstract="true" eSuperTypes="#//ProvidedEvent">
-    <eOperations name="refreshAmountImpulsion"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountImpulsion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AmountDelta" abstract="true" eSuperTypes="#//ProvidedEvent">
+    <eOperations name="refreshAmountDelta"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountDelta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlopeImpulsion" abstract="true" eSuperTypes="#//ProvidedEvent">
-    <eOperations name="refreshSlopeImpulsion"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeImpulsion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlopeDelta" abstract="true" eSuperTypes="#//ProvidedEvent">
+    <eOperations name="refreshSlopeDelta"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeDelta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AmountAbsolute" abstract="true" eSuperTypes="#//ProvidedEvent">
     <eOperations name="refreshAmountAbsolute"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlopeAbsolute" abstract="true" eSuperTypes="#//ProvidedEvent">
     <eOperations name="refreshSlopeAbsolute"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CapacityChangeStart" eSuperTypes="#//AmountImpulsion">
+  <eClassifiers xsi:type="ecore:EClass" name="CapacityChangeStart" eSuperTypes="#//AmountDelta">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
         eType="#//CapacityChange" eOpposite="#//CapacityChange/StartEvent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CapacityChangeEnd" eSuperTypes="#//AmountImpulsion">
+  <eClassifiers xsi:type="ecore:EClass" name="CapacityChangeEnd" eSuperTypes="#//AmountDelta">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
         eType="#//CapacityChange" eOpposite="#//CapacityChange/EndEvent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StockChangeStart" eSuperTypes="#//SlopeImpulsion">
+  <eClassifiers xsi:type="ecore:EClass" name="StockChangeStart" eSuperTypes="#//SlopeDelta">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
         eType="#//StockChange" eOpposite="#//StockChange/StartEvent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StockChangeEnd" eSuperTypes="#//SlopeImpulsion">
+  <eClassifiers xsi:type="ecore:EClass" name="StockChangeEnd" eSuperTypes="#//SlopeDelta">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="SlopeImpulsion"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
         eType="#//StockChange" eOpposite="#//StockChange/EndEvent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AmountImpulsionAtomic" eSuperTypes="#//AmountImpulsion">
+  <eClassifiers xsi:type="ecore:EClass" name="AmountDeltaAtomic" eSuperTypes="#//AmountDelta">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
-        eType="#//AmountImpulsionProvider" eOpposite="#//AmountImpulsionProvider/Event"/>
+        eType="#//AmountDeltaProvider" eOpposite="#//AmountDeltaProvider/Event"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlopeImpulsionAtomic" eSuperTypes="#//SlopeImpulsion">
+  <eClassifiers xsi:type="ecore:EClass" name="SlopeDeltaAtomic" eSuperTypes="#//SlopeDelta">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
-        eType="#//SlopeImpulsionProvider" eOpposite="#//SlopeImpulsionProvider/Event"/>
+        eType="#//SlopeDeltaProvider" eOpposite="#//SlopeDeltaProvider/Event"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AmountAbsoluteAtomic" eSuperTypes="#//AmountAbsolute">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
@@ -291,7 +291,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="End" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Slope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Slope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="StartEvent" eType="#//StockChangeStart"
         containment="true" eOpposite="#//StockChangeStart/Provider"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="EndEvent" eType="#//StockChangeEnd"
@@ -306,7 +306,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="End" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="StartEvent" eType="#//CapacityChangeStart"
         containment="true" eOpposite="#//CapacityChangeStart/Provider"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="EndEvent" eType="#//CapacityChangeEnd"
@@ -317,27 +317,27 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlopeImpulsionProvider" eSuperTypes="#//EventProvider">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//SlopeImpulsionAtomic"
-        containment="true" eOpposite="#//SlopeImpulsionAtomic/Provider"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeImpulsion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SlopeDeltaProvider" eSuperTypes="#//EventProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//SlopeDeltaAtomic"
+        containment="true" eOpposite="#//SlopeDeltaAtomic/Provider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeDelta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlopeAbsoluteProvider" eSuperTypes="#//EventProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//SlopeAbsoluteAtomic"
         containment="true" eOpposite="#//SlopeAbsoluteAtomic/Provider"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AmountImpulsionProvider" eSuperTypes="#//EventProvider">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//AmountImpulsionAtomic"
-        containment="true" eOpposite="#//AmountImpulsionAtomic/Provider"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountImpulsion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+  <eClassifiers xsi:type="ecore:EClass" name="AmountDeltaProvider" eSuperTypes="#//EventProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//AmountDeltaAtomic"
+        containment="true" eOpposite="#//AmountDeltaAtomic/Provider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountDelta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AmountAbsoluteProvider" eSuperTypes="#//EventProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//AmountAbsoluteAtomic"
         containment="true" eOpposite="#//AmountAbsoluteAtomic/Provider"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DistributionVisitor" instanceClassName="com.misc.common.moplaf.time.continuous.DistributionVisitor"/>

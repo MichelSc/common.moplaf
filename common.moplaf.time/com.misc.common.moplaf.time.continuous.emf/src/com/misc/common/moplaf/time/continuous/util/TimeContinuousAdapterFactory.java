@@ -102,12 +102,12 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createEndEventAdapter();
 			}
 			@Override
-			public Adapter caseAmountImpulsion(AmountImpulsion object) {
-				return createAmountImpulsionAdapter();
+			public Adapter caseAmountDelta(AmountDelta object) {
+				return createAmountDeltaAdapter();
 			}
 			@Override
-			public Adapter caseSlopeImpulsion(SlopeImpulsion object) {
-				return createSlopeImpulsionAdapter();
+			public Adapter caseSlopeDelta(SlopeDelta object) {
+				return createSlopeDeltaAdapter();
 			}
 			@Override
 			public Adapter caseAmountAbsolute(AmountAbsolute object) {
@@ -134,12 +134,12 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createStockChangeEndAdapter();
 			}
 			@Override
-			public Adapter caseAmountImpulsionAtomic(AmountImpulsionAtomic object) {
-				return createAmountImpulsionAtomicAdapter();
+			public Adapter caseAmountDeltaAtomic(AmountDeltaAtomic object) {
+				return createAmountDeltaAtomicAdapter();
 			}
 			@Override
-			public Adapter caseSlopeImpulsionAtomic(SlopeImpulsionAtomic object) {
-				return createSlopeImpulsionAtomicAdapter();
+			public Adapter caseSlopeDeltaAtomic(SlopeDeltaAtomic object) {
+				return createSlopeDeltaAtomicAdapter();
 			}
 			@Override
 			public Adapter caseAmountAbsoluteAtomic(AmountAbsoluteAtomic object) {
@@ -170,16 +170,16 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createEventProviderAdapter();
 			}
 			@Override
-			public Adapter caseSlopeImpulsionProvider(SlopeImpulsionProvider object) {
-				return createSlopeImpulsionProviderAdapter();
+			public Adapter caseSlopeDeltaProvider(SlopeDeltaProvider object) {
+				return createSlopeDeltaProviderAdapter();
 			}
 			@Override
 			public Adapter caseSlopeAbsoluteProvider(SlopeAbsoluteProvider object) {
 				return createSlopeAbsoluteProviderAdapter();
 			}
 			@Override
-			public Adapter caseAmountImpulsionProvider(AmountImpulsionProvider object) {
-				return createAmountImpulsionProviderAdapter();
+			public Adapter caseAmountDeltaProvider(AmountDeltaProvider object) {
+				return createAmountDeltaProviderAdapter();
 			}
 			@Override
 			public Adapter caseAmountAbsoluteProvider(AmountAbsoluteProvider object) {
@@ -312,30 +312,30 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsion <em>Amount Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountDelta <em>Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.AmountDelta
 	 * @generated
 	 */
-	public Adapter createAmountImpulsionAdapter() {
+	public Adapter createAmountDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsion <em>Slope Impulsion</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeDelta <em>Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsion
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDelta
 	 * @generated
 	 */
-	public Adapter createSlopeImpulsionAdapter() {
+	public Adapter createSlopeDeltaAdapter() {
 		return null;
 	}
 
@@ -424,30 +424,30 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic <em>Amount Impulsion Atomic</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountDeltaAtomic <em>Amount Delta Atomic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic
+	 * @see com.misc.common.moplaf.time.continuous.AmountDeltaAtomic
 	 * @generated
 	 */
-	public Adapter createAmountImpulsionAtomicAdapter() {
+	public Adapter createAmountDeltaAtomicAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic <em>Slope Impulsion Atomic</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic <em>Slope Delta Atomic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic
 	 * @generated
 	 */
-	public Adapter createSlopeImpulsionAtomicAdapter() {
+	public Adapter createSlopeDeltaAtomicAdapter() {
 		return null;
 	}
 
@@ -550,16 +550,16 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider <em>Slope Impulsion Provider</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeDeltaProvider <em>Slope Delta Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDeltaProvider
 	 * @generated
 	 */
-	public Adapter createSlopeImpulsionProviderAdapter() {
+	public Adapter createSlopeDeltaProviderAdapter() {
 		return null;
 	}
 
@@ -578,16 +578,16 @@ public class TimeContinuousAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider <em>Amount Impulsion Provider</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountDeltaProvider <em>Amount Delta Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider
+	 * @see com.misc.common.moplaf.time.continuous.AmountDeltaProvider
 	 * @generated
 	 */
-	public Adapter createAmountImpulsionProviderAdapter() {
+	public Adapter createAmountDeltaProviderAdapter() {
 		return null;
 	}
 

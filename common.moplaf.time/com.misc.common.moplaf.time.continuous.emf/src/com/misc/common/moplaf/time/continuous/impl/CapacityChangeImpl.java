@@ -97,7 +97,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float AMOUNT_EDEFAULT = 0.0F;
+	protected static final double AMOUNT_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' attribute.
@@ -107,7 +107,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	 * @generated
 	 * @ordered
 	 */
-	protected float amount = AMOUNT_EDEFAULT;
+	protected double amount = AMOUNT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getStartEvent() <em>Start Event</em>}' containment reference.
@@ -212,7 +212,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
@@ -221,8 +221,8 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAmount(float newAmount) {
-		float oldAmount = amount;
+	public void setAmount(double newAmount) {
+		double oldAmount = amount;
 		amount = newAmount;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT, oldAmount, amount));
@@ -387,7 +387,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 				setEnd((Date)newValue);
 				return;
 			case TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT:
-				setAmount((Float)newValue);
+				setAmount((Double)newValue);
 				return;
 			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
 				setStartEvent((CapacityChangeStart)newValue);

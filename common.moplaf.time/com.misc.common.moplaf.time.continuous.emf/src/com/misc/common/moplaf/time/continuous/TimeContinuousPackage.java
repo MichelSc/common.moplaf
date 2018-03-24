@@ -241,7 +241,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_MOMENT__DATE_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
+	int DISTRIBUTION___GET_MOMENT__DATE_DOUBLE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Event Before</em>' operation.
@@ -367,7 +367,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 15;
+	int DISTRIBUTION___GET_EARLIEST_BELOW__DATE_DOUBLE_DOUBLE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Latest Below</em>' operation.
@@ -376,7 +376,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 16;
+	int DISTRIBUTION___GET_LATEST_BELOW__DATE_DOUBLE_DOUBLE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Earliest Above</em>' operation.
@@ -385,7 +385,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 17;
+	int DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_DOUBLE_DOUBLE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Get Latest Above</em>' operation.
@@ -394,7 +394,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 18;
+	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_DOUBLE_DOUBLE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Get Earliest Output Possible</em>' operation.
@@ -403,7 +403,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 19;
+	int DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DOUBLE_DATE_DOUBLE_DOUBLE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Refresh Init</em>' operation.
@@ -2023,14 +2023,14 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROVIDED_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountDeltaImpl <em>Amount Delta</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountImpulsion()
+	 * @see com.misc.common.moplaf.time.continuous.impl.AmountDeltaImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountDelta()
 	 * @generated
 	 */
-	int AMOUNT_IMPULSION = 5;
+	int AMOUNT_DELTA = 5;
 
 	/**
 	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
@@ -2039,7 +2039,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__PROPAGATOR_FUNCTIONS = PROVIDED_EVENT__PROPAGATOR_FUNCTIONS;
+	int AMOUNT_DELTA__PROPAGATOR_FUNCTIONS = PROVIDED_EVENT__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2048,7 +2048,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__MOMENT = PROVIDED_EVENT__MOMENT;
+	int AMOUNT_DELTA__MOMENT = PROVIDED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -2057,7 +2057,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
+	int AMOUNT_DELTA__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -2066,7 +2066,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__NEXT = PROVIDED_EVENT__NEXT;
+	int AMOUNT_DELTA__NEXT = PROVIDED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -2075,7 +2075,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
+	int AMOUNT_DELTA__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -2084,7 +2084,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
+	int AMOUNT_DELTA__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -2093,7 +2093,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
+	int AMOUNT_DELTA__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -2102,7 +2102,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
+	int AMOUNT_DELTA__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -2111,7 +2111,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
+	int AMOUNT_DELTA__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2120,7 +2120,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
+	int AMOUNT_DELTA__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -2129,7 +2129,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int AMOUNT_DELTA__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -2138,7 +2138,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
+	int AMOUNT_DELTA__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -2147,7 +2147,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -2156,25 +2156,25 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
+	int AMOUNT_DELTA__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
 
 	/**
-	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Amount Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__AMOUNT_IMPULSION = PROVIDED_EVENT_FEATURE_COUNT + 0;
+	int AMOUNT_DELTA__AMOUNT_DELTA = PROVIDED_EVENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Amount Impulsion</em>' class.
+	 * The number of structural features of the '<em>Amount Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
+	int AMOUNT_DELTA_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -2183,7 +2183,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -2192,7 +2192,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int AMOUNT_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -2201,7 +2201,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -2210,7 +2210,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int AMOUNT_DELTA___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -2219,7 +2219,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
+	int AMOUNT_DELTA___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -2228,7 +2228,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_DELTA___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -2237,7 +2237,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -2246,7 +2246,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
+	int AMOUNT_DELTA___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -2255,7 +2255,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
+	int AMOUNT_DELTA___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -2264,7 +2264,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
+	int AMOUNT_DELTA___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -2273,7 +2273,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
+	int AMOUNT_DELTA___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -2282,35 +2282,35 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
+	int AMOUNT_DELTA___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
 
 	/**
-	 * The operation id for the '<em>Refresh Amount Impulsion</em>' operation.
+	 * The operation id for the '<em>Refresh Amount Delta</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION = PROVIDED_EVENT_OPERATION_COUNT + 0;
+	int AMOUNT_DELTA___REFRESH_AMOUNT_DELTA = PROVIDED_EVENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Amount Impulsion</em>' class.
+	 * The number of operations of the '<em>Amount Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
+	int AMOUNT_DELTA_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionImpl <em>Slope Impulsion</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeDeltaImpl <em>Slope Delta</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeImpulsion()
+	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeDeltaImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeDelta()
 	 * @generated
 	 */
-	int SLOPE_IMPULSION = 6;
+	int SLOPE_DELTA = 6;
 
 	/**
 	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
@@ -2319,7 +2319,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__PROPAGATOR_FUNCTIONS = PROVIDED_EVENT__PROPAGATOR_FUNCTIONS;
+	int SLOPE_DELTA__PROPAGATOR_FUNCTIONS = PROVIDED_EVENT__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2328,7 +2328,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__MOMENT = PROVIDED_EVENT__MOMENT;
+	int SLOPE_DELTA__MOMENT = PROVIDED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -2337,7 +2337,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
+	int SLOPE_DELTA__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -2346,7 +2346,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__NEXT = PROVIDED_EVENT__NEXT;
+	int SLOPE_DELTA__NEXT = PROVIDED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -2355,7 +2355,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
+	int SLOPE_DELTA__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -2364,7 +2364,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
+	int SLOPE_DELTA__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -2373,7 +2373,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
+	int SLOPE_DELTA__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -2382,7 +2382,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
+	int SLOPE_DELTA__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -2391,7 +2391,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
+	int SLOPE_DELTA__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2400,7 +2400,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
+	int SLOPE_DELTA__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -2409,7 +2409,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int SLOPE_DELTA__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -2418,7 +2418,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
+	int SLOPE_DELTA__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -2427,7 +2427,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -2436,25 +2436,25 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
+	int SLOPE_DELTA__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
 
 	/**
-	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Slope Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__SLOPE_IMPULSION = PROVIDED_EVENT_FEATURE_COUNT + 0;
+	int SLOPE_DELTA__SLOPE_DELTA = PROVIDED_EVENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Slope Impulsion</em>' class.
+	 * The number of structural features of the '<em>Slope Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
+	int SLOPE_DELTA_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -2463,7 +2463,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int SLOPE_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -2472,7 +2472,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int SLOPE_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS = PROVIDED_EVENT___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -2481,7 +2481,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int SLOPE_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -2490,7 +2490,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int SLOPE_DELTA___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -2499,7 +2499,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
+	int SLOPE_DELTA___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -2508,7 +2508,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int SLOPE_DELTA___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -2517,7 +2517,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int SLOPE_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -2526,7 +2526,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
+	int SLOPE_DELTA___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -2535,7 +2535,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
+	int SLOPE_DELTA___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -2544,7 +2544,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
+	int SLOPE_DELTA___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -2553,7 +2553,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
+	int SLOPE_DELTA___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -2562,25 +2562,25 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
+	int SLOPE_DELTA___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
 
 	/**
-	 * The operation id for the '<em>Refresh Slope Impulsion</em>' operation.
+	 * The operation id for the '<em>Refresh Slope Delta</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION = PROVIDED_EVENT_OPERATION_COUNT + 0;
+	int SLOPE_DELTA___REFRESH_SLOPE_DELTA = PROVIDED_EVENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Slope Impulsion</em>' class.
+	 * The number of operations of the '<em>Slope Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
+	int SLOPE_DELTA_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteImpl <em>Amount Absolute</em>}' class.
@@ -3159,7 +3159,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__PROPAGATOR_FUNCTIONS = AMOUNT_IMPULSION__PROPAGATOR_FUNCTIONS;
+	int CAPACITY_CHANGE_START__PROPAGATOR_FUNCTIONS = AMOUNT_DELTA__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -3168,7 +3168,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__MOMENT = AMOUNT_IMPULSION__MOMENT;
+	int CAPACITY_CHANGE_START__MOMENT = AMOUNT_DELTA__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -3177,7 +3177,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__EVENT_NR = AMOUNT_IMPULSION__EVENT_NR;
+	int CAPACITY_CHANGE_START__EVENT_NR = AMOUNT_DELTA__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -3186,7 +3186,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__NEXT = AMOUNT_IMPULSION__NEXT;
+	int CAPACITY_CHANGE_START__NEXT = AMOUNT_DELTA__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -3195,7 +3195,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__PREVIOUS = AMOUNT_IMPULSION__PREVIOUS;
+	int CAPACITY_CHANGE_START__PREVIOUS = AMOUNT_DELTA__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -3204,7 +3204,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__AMOUNT_BEFORE = AMOUNT_IMPULSION__AMOUNT_BEFORE;
+	int CAPACITY_CHANGE_START__AMOUNT_BEFORE = AMOUNT_DELTA__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -3213,7 +3213,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__AMOUNT_AFTER = AMOUNT_IMPULSION__AMOUNT_AFTER;
+	int CAPACITY_CHANGE_START__AMOUNT_AFTER = AMOUNT_DELTA__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -3222,7 +3222,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__SLOPE_BEFORE = AMOUNT_IMPULSION__SLOPE_BEFORE;
+	int CAPACITY_CHANGE_START__SLOPE_BEFORE = AMOUNT_DELTA__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -3231,7 +3231,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__SLOPE_AFTER = AMOUNT_IMPULSION__SLOPE_AFTER;
+	int CAPACITY_CHANGE_START__SLOPE_AFTER = AMOUNT_DELTA__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3240,7 +3240,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__DESCRIPTION = AMOUNT_IMPULSION__DESCRIPTION;
+	int CAPACITY_CHANGE_START__DESCRIPTION = AMOUNT_DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -3249,7 +3249,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
+	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = AMOUNT_DELTA__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -3258,7 +3258,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__DISTRIBUTION = AMOUNT_IMPULSION__DISTRIBUTION;
+	int CAPACITY_CHANGE_START__DISTRIBUTION = AMOUNT_DELTA__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -3267,7 +3267,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -3276,16 +3276,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__EVENT_PROVIDER = AMOUNT_IMPULSION__EVENT_PROVIDER;
+	int CAPACITY_CHANGE_START__EVENT_PROVIDER = AMOUNT_DELTA__EVENT_PROVIDER;
 
 	/**
-	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Amount Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__AMOUNT_IMPULSION = AMOUNT_IMPULSION__AMOUNT_IMPULSION;
+	int CAPACITY_CHANGE_START__AMOUNT_DELTA = AMOUNT_DELTA__AMOUNT_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' container reference.
@@ -3294,7 +3294,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__PROVIDER = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
+	int CAPACITY_CHANGE_START__PROVIDER = AMOUNT_DELTA_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Capacity Change Start</em>' class.
@@ -3303,7 +3303,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START_FEATURE_COUNT = AMOUNT_IMPULSION_FEATURE_COUNT + 1;
+	int CAPACITY_CHANGE_START_FEATURE_COUNT = AMOUNT_DELTA_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -3312,7 +3312,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -3321,7 +3321,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int CAPACITY_CHANGE_START___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -3330,7 +3330,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -3339,7 +3339,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___GET_AMOUNT_BEFORE__DATE = AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+	int CAPACITY_CHANGE_START___GET_AMOUNT_BEFORE__DATE = AMOUNT_DELTA___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -3348,7 +3348,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
+	int CAPACITY_CHANGE_START___GET_AMOUNT_AFTER__DATE = AMOUNT_DELTA___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -3357,7 +3357,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+	int CAPACITY_CHANGE_START___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_DELTA___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -3366,7 +3366,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int CAPACITY_CHANGE_START___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -3375,7 +3375,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___REFRESH_SLOPE_BEFORE = AMOUNT_IMPULSION___REFRESH_SLOPE_BEFORE;
+	int CAPACITY_CHANGE_START___REFRESH_SLOPE_BEFORE = AMOUNT_DELTA___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -3384,7 +3384,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___REFRESH_AMOUNT_BEFORE = AMOUNT_IMPULSION___REFRESH_AMOUNT_BEFORE;
+	int CAPACITY_CHANGE_START___REFRESH_AMOUNT_BEFORE = AMOUNT_DELTA___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -3393,7 +3393,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___REFRESH_AMOUNT_AFTER = AMOUNT_IMPULSION___REFRESH_AMOUNT_AFTER;
+	int CAPACITY_CHANGE_START___REFRESH_AMOUNT_AFTER = AMOUNT_DELTA___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -3402,7 +3402,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___REFRESH_SLOPE_AFTER = AMOUNT_IMPULSION___REFRESH_SLOPE_AFTER;
+	int CAPACITY_CHANGE_START___REFRESH_SLOPE_AFTER = AMOUNT_DELTA___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -3411,16 +3411,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___REFRESH_MOMENT = AMOUNT_IMPULSION___REFRESH_MOMENT;
+	int CAPACITY_CHANGE_START___REFRESH_MOMENT = AMOUNT_DELTA___REFRESH_MOMENT;
 
 	/**
-	 * The operation id for the '<em>Refresh Amount Impulsion</em>' operation.
+	 * The operation id for the '<em>Refresh Amount Delta</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___REFRESH_AMOUNT_IMPULSION = AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION;
+	int CAPACITY_CHANGE_START___REFRESH_AMOUNT_DELTA = AMOUNT_DELTA___REFRESH_AMOUNT_DELTA;
 
 	/**
 	 * The number of operations of the '<em>Capacity Change Start</em>' class.
@@ -3429,7 +3429,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START_OPERATION_COUNT = AMOUNT_IMPULSION_OPERATION_COUNT + 0;
+	int CAPACITY_CHANGE_START_OPERATION_COUNT = AMOUNT_DELTA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeEndImpl <em>Capacity Change End</em>}' class.
@@ -3448,7 +3448,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__PROPAGATOR_FUNCTIONS = AMOUNT_IMPULSION__PROPAGATOR_FUNCTIONS;
+	int CAPACITY_CHANGE_END__PROPAGATOR_FUNCTIONS = AMOUNT_DELTA__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -3457,7 +3457,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__MOMENT = AMOUNT_IMPULSION__MOMENT;
+	int CAPACITY_CHANGE_END__MOMENT = AMOUNT_DELTA__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -3466,7 +3466,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__EVENT_NR = AMOUNT_IMPULSION__EVENT_NR;
+	int CAPACITY_CHANGE_END__EVENT_NR = AMOUNT_DELTA__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -3475,7 +3475,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__NEXT = AMOUNT_IMPULSION__NEXT;
+	int CAPACITY_CHANGE_END__NEXT = AMOUNT_DELTA__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -3484,7 +3484,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__PREVIOUS = AMOUNT_IMPULSION__PREVIOUS;
+	int CAPACITY_CHANGE_END__PREVIOUS = AMOUNT_DELTA__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -3493,7 +3493,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__AMOUNT_BEFORE = AMOUNT_IMPULSION__AMOUNT_BEFORE;
+	int CAPACITY_CHANGE_END__AMOUNT_BEFORE = AMOUNT_DELTA__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -3502,7 +3502,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__AMOUNT_AFTER = AMOUNT_IMPULSION__AMOUNT_AFTER;
+	int CAPACITY_CHANGE_END__AMOUNT_AFTER = AMOUNT_DELTA__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -3511,7 +3511,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__SLOPE_BEFORE = AMOUNT_IMPULSION__SLOPE_BEFORE;
+	int CAPACITY_CHANGE_END__SLOPE_BEFORE = AMOUNT_DELTA__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -3520,7 +3520,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__SLOPE_AFTER = AMOUNT_IMPULSION__SLOPE_AFTER;
+	int CAPACITY_CHANGE_END__SLOPE_AFTER = AMOUNT_DELTA__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3529,7 +3529,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__DESCRIPTION = AMOUNT_IMPULSION__DESCRIPTION;
+	int CAPACITY_CHANGE_END__DESCRIPTION = AMOUNT_DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -3538,7 +3538,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
+	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = AMOUNT_DELTA__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -3547,7 +3547,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__DISTRIBUTION = AMOUNT_IMPULSION__DISTRIBUTION;
+	int CAPACITY_CHANGE_END__DISTRIBUTION = AMOUNT_DELTA__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -3556,7 +3556,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -3565,16 +3565,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__EVENT_PROVIDER = AMOUNT_IMPULSION__EVENT_PROVIDER;
+	int CAPACITY_CHANGE_END__EVENT_PROVIDER = AMOUNT_DELTA__EVENT_PROVIDER;
 
 	/**
-	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Amount Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__AMOUNT_IMPULSION = AMOUNT_IMPULSION__AMOUNT_IMPULSION;
+	int CAPACITY_CHANGE_END__AMOUNT_DELTA = AMOUNT_DELTA__AMOUNT_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' container reference.
@@ -3583,7 +3583,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__PROVIDER = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
+	int CAPACITY_CHANGE_END__PROVIDER = AMOUNT_DELTA_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Capacity Change End</em>' class.
@@ -3592,7 +3592,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END_FEATURE_COUNT = AMOUNT_IMPULSION_FEATURE_COUNT + 1;
+	int CAPACITY_CHANGE_END_FEATURE_COUNT = AMOUNT_DELTA_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -3601,7 +3601,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -3610,7 +3610,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int CAPACITY_CHANGE_END___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -3619,7 +3619,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -3628,7 +3628,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___GET_AMOUNT_BEFORE__DATE = AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+	int CAPACITY_CHANGE_END___GET_AMOUNT_BEFORE__DATE = AMOUNT_DELTA___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -3637,7 +3637,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
+	int CAPACITY_CHANGE_END___GET_AMOUNT_AFTER__DATE = AMOUNT_DELTA___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -3646,7 +3646,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+	int CAPACITY_CHANGE_END___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_DELTA___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -3655,7 +3655,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int CAPACITY_CHANGE_END___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -3664,7 +3664,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___REFRESH_SLOPE_BEFORE = AMOUNT_IMPULSION___REFRESH_SLOPE_BEFORE;
+	int CAPACITY_CHANGE_END___REFRESH_SLOPE_BEFORE = AMOUNT_DELTA___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -3673,7 +3673,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___REFRESH_AMOUNT_BEFORE = AMOUNT_IMPULSION___REFRESH_AMOUNT_BEFORE;
+	int CAPACITY_CHANGE_END___REFRESH_AMOUNT_BEFORE = AMOUNT_DELTA___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -3682,7 +3682,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___REFRESH_AMOUNT_AFTER = AMOUNT_IMPULSION___REFRESH_AMOUNT_AFTER;
+	int CAPACITY_CHANGE_END___REFRESH_AMOUNT_AFTER = AMOUNT_DELTA___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -3691,7 +3691,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___REFRESH_SLOPE_AFTER = AMOUNT_IMPULSION___REFRESH_SLOPE_AFTER;
+	int CAPACITY_CHANGE_END___REFRESH_SLOPE_AFTER = AMOUNT_DELTA___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -3700,16 +3700,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___REFRESH_MOMENT = AMOUNT_IMPULSION___REFRESH_MOMENT;
+	int CAPACITY_CHANGE_END___REFRESH_MOMENT = AMOUNT_DELTA___REFRESH_MOMENT;
 
 	/**
-	 * The operation id for the '<em>Refresh Amount Impulsion</em>' operation.
+	 * The operation id for the '<em>Refresh Amount Delta</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END___REFRESH_AMOUNT_IMPULSION = AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION;
+	int CAPACITY_CHANGE_END___REFRESH_AMOUNT_DELTA = AMOUNT_DELTA___REFRESH_AMOUNT_DELTA;
 
 	/**
 	 * The number of operations of the '<em>Capacity Change End</em>' class.
@@ -3718,7 +3718,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END_OPERATION_COUNT = AMOUNT_IMPULSION_OPERATION_COUNT + 0;
+	int CAPACITY_CHANGE_END_OPERATION_COUNT = AMOUNT_DELTA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeStartImpl <em>Stock Change Start</em>}' class.
@@ -3737,7 +3737,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__PROPAGATOR_FUNCTIONS = SLOPE_IMPULSION__PROPAGATOR_FUNCTIONS;
+	int STOCK_CHANGE_START__PROPAGATOR_FUNCTIONS = SLOPE_DELTA__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -3746,7 +3746,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__MOMENT = SLOPE_IMPULSION__MOMENT;
+	int STOCK_CHANGE_START__MOMENT = SLOPE_DELTA__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -3755,7 +3755,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__EVENT_NR = SLOPE_IMPULSION__EVENT_NR;
+	int STOCK_CHANGE_START__EVENT_NR = SLOPE_DELTA__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -3764,7 +3764,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__NEXT = SLOPE_IMPULSION__NEXT;
+	int STOCK_CHANGE_START__NEXT = SLOPE_DELTA__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -3773,7 +3773,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__PREVIOUS = SLOPE_IMPULSION__PREVIOUS;
+	int STOCK_CHANGE_START__PREVIOUS = SLOPE_DELTA__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -3782,7 +3782,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__AMOUNT_BEFORE = SLOPE_IMPULSION__AMOUNT_BEFORE;
+	int STOCK_CHANGE_START__AMOUNT_BEFORE = SLOPE_DELTA__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -3791,7 +3791,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__AMOUNT_AFTER = SLOPE_IMPULSION__AMOUNT_AFTER;
+	int STOCK_CHANGE_START__AMOUNT_AFTER = SLOPE_DELTA__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -3800,7 +3800,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__SLOPE_BEFORE = SLOPE_IMPULSION__SLOPE_BEFORE;
+	int STOCK_CHANGE_START__SLOPE_BEFORE = SLOPE_DELTA__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -3809,7 +3809,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__SLOPE_AFTER = SLOPE_IMPULSION__SLOPE_AFTER;
+	int STOCK_CHANGE_START__SLOPE_AFTER = SLOPE_DELTA__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3818,7 +3818,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__DESCRIPTION = SLOPE_IMPULSION__DESCRIPTION;
+	int STOCK_CHANGE_START__DESCRIPTION = SLOPE_DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -3827,7 +3827,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
+	int STOCK_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = SLOPE_DELTA__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -3836,7 +3836,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__DISTRIBUTION = SLOPE_IMPULSION__DISTRIBUTION;
+	int STOCK_CHANGE_START__DISTRIBUTION = SLOPE_DELTA__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -3845,7 +3845,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int STOCK_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -3854,16 +3854,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__EVENT_PROVIDER = SLOPE_IMPULSION__EVENT_PROVIDER;
+	int STOCK_CHANGE_START__EVENT_PROVIDER = SLOPE_DELTA__EVENT_PROVIDER;
 
 	/**
-	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Slope Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__SLOPE_IMPULSION = SLOPE_IMPULSION__SLOPE_IMPULSION;
+	int STOCK_CHANGE_START__SLOPE_DELTA = SLOPE_DELTA__SLOPE_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' container reference.
@@ -3872,7 +3872,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__PROVIDER = SLOPE_IMPULSION_FEATURE_COUNT + 0;
+	int STOCK_CHANGE_START__PROVIDER = SLOPE_DELTA_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Stock Change Start</em>' class.
@@ -3881,7 +3881,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START_FEATURE_COUNT = SLOPE_IMPULSION_FEATURE_COUNT + 1;
+	int STOCK_CHANGE_START_FEATURE_COUNT = SLOPE_DELTA_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -3890,7 +3890,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -3899,7 +3899,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int STOCK_CHANGE_START___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -3908,7 +3908,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -3917,7 +3917,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___GET_AMOUNT_BEFORE__DATE = SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+	int STOCK_CHANGE_START___GET_AMOUNT_BEFORE__DATE = SLOPE_DELTA___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -3926,7 +3926,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
+	int STOCK_CHANGE_START___GET_AMOUNT_AFTER__DATE = SLOPE_DELTA___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -3935,7 +3935,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+	int STOCK_CHANGE_START___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_DELTA___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -3944,7 +3944,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int STOCK_CHANGE_START___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -3953,7 +3953,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___REFRESH_SLOPE_BEFORE = SLOPE_IMPULSION___REFRESH_SLOPE_BEFORE;
+	int STOCK_CHANGE_START___REFRESH_SLOPE_BEFORE = SLOPE_DELTA___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -3962,7 +3962,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___REFRESH_AMOUNT_BEFORE = SLOPE_IMPULSION___REFRESH_AMOUNT_BEFORE;
+	int STOCK_CHANGE_START___REFRESH_AMOUNT_BEFORE = SLOPE_DELTA___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -3971,7 +3971,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___REFRESH_AMOUNT_AFTER = SLOPE_IMPULSION___REFRESH_AMOUNT_AFTER;
+	int STOCK_CHANGE_START___REFRESH_AMOUNT_AFTER = SLOPE_DELTA___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -3980,7 +3980,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___REFRESH_SLOPE_AFTER = SLOPE_IMPULSION___REFRESH_SLOPE_AFTER;
+	int STOCK_CHANGE_START___REFRESH_SLOPE_AFTER = SLOPE_DELTA___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -3989,16 +3989,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___REFRESH_MOMENT = SLOPE_IMPULSION___REFRESH_MOMENT;
+	int STOCK_CHANGE_START___REFRESH_MOMENT = SLOPE_DELTA___REFRESH_MOMENT;
 
 	/**
-	 * The operation id for the '<em>Refresh Slope Impulsion</em>' operation.
+	 * The operation id for the '<em>Refresh Slope Delta</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___REFRESH_SLOPE_IMPULSION = SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION;
+	int STOCK_CHANGE_START___REFRESH_SLOPE_DELTA = SLOPE_DELTA___REFRESH_SLOPE_DELTA;
 
 	/**
 	 * The number of operations of the '<em>Stock Change Start</em>' class.
@@ -4007,7 +4007,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START_OPERATION_COUNT = SLOPE_IMPULSION_OPERATION_COUNT + 0;
+	int STOCK_CHANGE_START_OPERATION_COUNT = SLOPE_DELTA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeEndImpl <em>Stock Change End</em>}' class.
@@ -4026,7 +4026,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__PROPAGATOR_FUNCTIONS = SLOPE_IMPULSION__PROPAGATOR_FUNCTIONS;
+	int STOCK_CHANGE_END__PROPAGATOR_FUNCTIONS = SLOPE_DELTA__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -4035,7 +4035,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__MOMENT = SLOPE_IMPULSION__MOMENT;
+	int STOCK_CHANGE_END__MOMENT = SLOPE_DELTA__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -4044,7 +4044,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__EVENT_NR = SLOPE_IMPULSION__EVENT_NR;
+	int STOCK_CHANGE_END__EVENT_NR = SLOPE_DELTA__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -4053,7 +4053,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__NEXT = SLOPE_IMPULSION__NEXT;
+	int STOCK_CHANGE_END__NEXT = SLOPE_DELTA__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -4062,7 +4062,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__PREVIOUS = SLOPE_IMPULSION__PREVIOUS;
+	int STOCK_CHANGE_END__PREVIOUS = SLOPE_DELTA__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -4071,7 +4071,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__AMOUNT_BEFORE = SLOPE_IMPULSION__AMOUNT_BEFORE;
+	int STOCK_CHANGE_END__AMOUNT_BEFORE = SLOPE_DELTA__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -4080,7 +4080,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__AMOUNT_AFTER = SLOPE_IMPULSION__AMOUNT_AFTER;
+	int STOCK_CHANGE_END__AMOUNT_AFTER = SLOPE_DELTA__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -4089,7 +4089,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__SLOPE_BEFORE = SLOPE_IMPULSION__SLOPE_BEFORE;
+	int STOCK_CHANGE_END__SLOPE_BEFORE = SLOPE_DELTA__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -4098,7 +4098,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__SLOPE_AFTER = SLOPE_IMPULSION__SLOPE_AFTER;
+	int STOCK_CHANGE_END__SLOPE_AFTER = SLOPE_DELTA__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4107,7 +4107,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__DESCRIPTION = SLOPE_IMPULSION__DESCRIPTION;
+	int STOCK_CHANGE_END__DESCRIPTION = SLOPE_DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -4116,7 +4116,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
+	int STOCK_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = SLOPE_DELTA__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -4125,7 +4125,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__DISTRIBUTION = SLOPE_IMPULSION__DISTRIBUTION;
+	int STOCK_CHANGE_END__DISTRIBUTION = SLOPE_DELTA__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -4134,7 +4134,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int STOCK_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -4143,16 +4143,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__EVENT_PROVIDER = SLOPE_IMPULSION__EVENT_PROVIDER;
+	int STOCK_CHANGE_END__EVENT_PROVIDER = SLOPE_DELTA__EVENT_PROVIDER;
 
 	/**
-	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Slope Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__SLOPE_IMPULSION = SLOPE_IMPULSION__SLOPE_IMPULSION;
+	int STOCK_CHANGE_END__SLOPE_DELTA = SLOPE_DELTA__SLOPE_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' container reference.
@@ -4161,7 +4161,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__PROVIDER = SLOPE_IMPULSION_FEATURE_COUNT + 0;
+	int STOCK_CHANGE_END__PROVIDER = SLOPE_DELTA_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Stock Change End</em>' class.
@@ -4170,7 +4170,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END_FEATURE_COUNT = SLOPE_IMPULSION_FEATURE_COUNT + 1;
+	int STOCK_CHANGE_END_FEATURE_COUNT = SLOPE_DELTA_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -4179,7 +4179,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -4188,7 +4188,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int STOCK_CHANGE_END___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -4197,7 +4197,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -4206,7 +4206,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___GET_AMOUNT_BEFORE__DATE = SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+	int STOCK_CHANGE_END___GET_AMOUNT_BEFORE__DATE = SLOPE_DELTA___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -4215,7 +4215,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
+	int STOCK_CHANGE_END___GET_AMOUNT_AFTER__DATE = SLOPE_DELTA___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -4224,7 +4224,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+	int STOCK_CHANGE_END___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_DELTA___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -4233,7 +4233,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int STOCK_CHANGE_END___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -4242,7 +4242,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___REFRESH_SLOPE_BEFORE = SLOPE_IMPULSION___REFRESH_SLOPE_BEFORE;
+	int STOCK_CHANGE_END___REFRESH_SLOPE_BEFORE = SLOPE_DELTA___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -4251,7 +4251,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___REFRESH_AMOUNT_BEFORE = SLOPE_IMPULSION___REFRESH_AMOUNT_BEFORE;
+	int STOCK_CHANGE_END___REFRESH_AMOUNT_BEFORE = SLOPE_DELTA___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -4260,7 +4260,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___REFRESH_AMOUNT_AFTER = SLOPE_IMPULSION___REFRESH_AMOUNT_AFTER;
+	int STOCK_CHANGE_END___REFRESH_AMOUNT_AFTER = SLOPE_DELTA___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -4269,7 +4269,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___REFRESH_SLOPE_AFTER = SLOPE_IMPULSION___REFRESH_SLOPE_AFTER;
+	int STOCK_CHANGE_END___REFRESH_SLOPE_AFTER = SLOPE_DELTA___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -4278,16 +4278,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___REFRESH_MOMENT = SLOPE_IMPULSION___REFRESH_MOMENT;
+	int STOCK_CHANGE_END___REFRESH_MOMENT = SLOPE_DELTA___REFRESH_MOMENT;
 
 	/**
-	 * The operation id for the '<em>Refresh Slope Impulsion</em>' operation.
+	 * The operation id for the '<em>Refresh Slope Delta</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END___REFRESH_SLOPE_IMPULSION = SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION;
+	int STOCK_CHANGE_END___REFRESH_SLOPE_DELTA = SLOPE_DELTA___REFRESH_SLOPE_DELTA;
 
 	/**
 	 * The number of operations of the '<em>Stock Change End</em>' class.
@@ -4296,306 +4296,17 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END_OPERATION_COUNT = SLOPE_IMPULSION_OPERATION_COUNT + 0;
+	int STOCK_CHANGE_END_OPERATION_COUNT = SLOPE_DELTA_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionAtomicImpl <em>Amount Impulsion Atomic</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountDeltaAtomicImpl <em>Amount Delta Atomic</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionAtomicImpl
-	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountImpulsionAtomic()
+	 * @see com.misc.common.moplaf.time.continuous.impl.AmountDeltaAtomicImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountDeltaAtomic()
 	 * @generated
 	 */
-	int AMOUNT_IMPULSION_ATOMIC = 13;
-
-	/**
-	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__PROPAGATOR_FUNCTIONS = AMOUNT_IMPULSION__PROPAGATOR_FUNCTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Moment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__MOMENT = AMOUNT_IMPULSION__MOMENT;
-
-	/**
-	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__EVENT_NR = AMOUNT_IMPULSION__EVENT_NR;
-
-	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__NEXT = AMOUNT_IMPULSION__NEXT;
-
-	/**
-	 * The feature id for the '<em><b>Previous</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__PREVIOUS = AMOUNT_IMPULSION__PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__AMOUNT_BEFORE = AMOUNT_IMPULSION__AMOUNT_BEFORE;
-
-	/**
-	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__AMOUNT_AFTER = AMOUNT_IMPULSION__AMOUNT_AFTER;
-
-	/**
-	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__SLOPE_BEFORE = AMOUNT_IMPULSION__SLOPE_BEFORE;
-
-	/**
-	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__SLOPE_AFTER = AMOUNT_IMPULSION__SLOPE_AFTER;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__DESCRIPTION = AMOUNT_IMPULSION__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION = AMOUNT_IMPULSION__DISTRIBUTION;
-
-	/**
-	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
-
-	/**
-	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__EVENT_PROVIDER = AMOUNT_IMPULSION__EVENT_PROVIDER;
-
-	/**
-	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__AMOUNT_IMPULSION = AMOUNT_IMPULSION__AMOUNT_IMPULSION;
-
-	/**
-	 * The feature id for the '<em><b>Provider</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__PROVIDER = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Amount Impulsion Atomic</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC_FEATURE_COUNT = AMOUNT_IMPULSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
-
-	/**
-	 * The operation id for the '<em>Get Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
-
-	/**
-	 * The operation id for the '<em>Get Amount Before</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___GET_AMOUNT_BEFORE__DATE = AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE;
-
-	/**
-	 * The operation id for the '<em>Get Amount After</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
-
-	/**
-	 * The operation id for the '<em>Is Before</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
-
-	/**
-	 * The operation id for the '<em>Is Strict Before</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
-
-	/**
-	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___REFRESH_SLOPE_BEFORE = AMOUNT_IMPULSION___REFRESH_SLOPE_BEFORE;
-
-	/**
-	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___REFRESH_AMOUNT_BEFORE = AMOUNT_IMPULSION___REFRESH_AMOUNT_BEFORE;
-
-	/**
-	 * The operation id for the '<em>Refresh Amount After</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___REFRESH_AMOUNT_AFTER = AMOUNT_IMPULSION___REFRESH_AMOUNT_AFTER;
-
-	/**
-	 * The operation id for the '<em>Refresh Slope After</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___REFRESH_SLOPE_AFTER = AMOUNT_IMPULSION___REFRESH_SLOPE_AFTER;
-
-	/**
-	 * The operation id for the '<em>Refresh Moment</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___REFRESH_MOMENT = AMOUNT_IMPULSION___REFRESH_MOMENT;
-
-	/**
-	 * The operation id for the '<em>Refresh Amount Impulsion</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___REFRESH_AMOUNT_IMPULSION = AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION;
-
-	/**
-	 * The number of operations of the '<em>Amount Impulsion Atomic</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC_OPERATION_COUNT = AMOUNT_IMPULSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl <em>Slope Impulsion Atomic</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl
-	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeImpulsionAtomic()
-	 * @generated
-	 */
-	int SLOPE_IMPULSION_ATOMIC = 14;
+	int AMOUNT_DELTA_ATOMIC = 13;
 
 	/**
 	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
@@ -4604,7 +4315,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__PROPAGATOR_FUNCTIONS = SLOPE_IMPULSION__PROPAGATOR_FUNCTIONS;
+	int AMOUNT_DELTA_ATOMIC__PROPAGATOR_FUNCTIONS = AMOUNT_DELTA__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -4613,7 +4324,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__MOMENT = SLOPE_IMPULSION__MOMENT;
+	int AMOUNT_DELTA_ATOMIC__MOMENT = AMOUNT_DELTA__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -4622,7 +4333,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__EVENT_NR = SLOPE_IMPULSION__EVENT_NR;
+	int AMOUNT_DELTA_ATOMIC__EVENT_NR = AMOUNT_DELTA__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -4631,7 +4342,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__NEXT = SLOPE_IMPULSION__NEXT;
+	int AMOUNT_DELTA_ATOMIC__NEXT = AMOUNT_DELTA__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -4640,7 +4351,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__PREVIOUS = SLOPE_IMPULSION__PREVIOUS;
+	int AMOUNT_DELTA_ATOMIC__PREVIOUS = AMOUNT_DELTA__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -4649,7 +4360,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__AMOUNT_BEFORE = SLOPE_IMPULSION__AMOUNT_BEFORE;
+	int AMOUNT_DELTA_ATOMIC__AMOUNT_BEFORE = AMOUNT_DELTA__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -4658,7 +4369,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__AMOUNT_AFTER = SLOPE_IMPULSION__AMOUNT_AFTER;
+	int AMOUNT_DELTA_ATOMIC__AMOUNT_AFTER = AMOUNT_DELTA__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -4667,7 +4378,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__SLOPE_BEFORE = SLOPE_IMPULSION__SLOPE_BEFORE;
+	int AMOUNT_DELTA_ATOMIC__SLOPE_BEFORE = AMOUNT_DELTA__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -4676,7 +4387,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__SLOPE_AFTER = SLOPE_IMPULSION__SLOPE_AFTER;
+	int AMOUNT_DELTA_ATOMIC__SLOPE_AFTER = AMOUNT_DELTA__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4685,7 +4396,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__DESCRIPTION = SLOPE_IMPULSION__DESCRIPTION;
+	int AMOUNT_DELTA_ATOMIC__DESCRIPTION = AMOUNT_DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -4694,7 +4405,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
+	int AMOUNT_DELTA_ATOMIC__DISTRIBUTION_AS_SEQUENCE = AMOUNT_DELTA__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' reference.
@@ -4703,7 +4414,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION = SLOPE_IMPULSION__DISTRIBUTION;
+	int AMOUNT_DELTA_ATOMIC__DISTRIBUTION = AMOUNT_DELTA__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -4712,7 +4423,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int AMOUNT_DELTA_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -4721,16 +4432,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__EVENT_PROVIDER = SLOPE_IMPULSION__EVENT_PROVIDER;
+	int AMOUNT_DELTA_ATOMIC__EVENT_PROVIDER = AMOUNT_DELTA__EVENT_PROVIDER;
 
 	/**
-	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Amount Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__SLOPE_IMPULSION = SLOPE_IMPULSION__SLOPE_IMPULSION;
+	int AMOUNT_DELTA_ATOMIC__AMOUNT_DELTA = AMOUNT_DELTA__AMOUNT_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' container reference.
@@ -4739,16 +4450,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__PROVIDER = SLOPE_IMPULSION_FEATURE_COUNT + 0;
+	int AMOUNT_DELTA_ATOMIC__PROVIDER = AMOUNT_DELTA_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Slope Impulsion Atomic</em>' class.
+	 * The number of structural features of the '<em>Amount Delta Atomic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC_FEATURE_COUNT = SLOPE_IMPULSION_FEATURE_COUNT + 1;
+	int AMOUNT_DELTA_ATOMIC_FEATURE_COUNT = AMOUNT_DELTA_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -4757,7 +4468,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int AMOUNT_DELTA_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -4766,7 +4477,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_IMPULSION___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int AMOUNT_DELTA_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = AMOUNT_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -4775,7 +4486,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int AMOUNT_DELTA_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = AMOUNT_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -4784,7 +4495,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___GET_AMOUNT_BEFORE__DATE = SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+	int AMOUNT_DELTA_ATOMIC___GET_AMOUNT_BEFORE__DATE = AMOUNT_DELTA___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -4793,7 +4504,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
+	int AMOUNT_DELTA_ATOMIC___GET_AMOUNT_AFTER__DATE = AMOUNT_DELTA___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -4802,7 +4513,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_DELTA_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_DELTA___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -4811,7 +4522,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_DELTA_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -4820,7 +4531,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___REFRESH_SLOPE_BEFORE = SLOPE_IMPULSION___REFRESH_SLOPE_BEFORE;
+	int AMOUNT_DELTA_ATOMIC___REFRESH_SLOPE_BEFORE = AMOUNT_DELTA___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -4829,7 +4540,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___REFRESH_AMOUNT_BEFORE = SLOPE_IMPULSION___REFRESH_AMOUNT_BEFORE;
+	int AMOUNT_DELTA_ATOMIC___REFRESH_AMOUNT_BEFORE = AMOUNT_DELTA___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -4838,7 +4549,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___REFRESH_AMOUNT_AFTER = SLOPE_IMPULSION___REFRESH_AMOUNT_AFTER;
+	int AMOUNT_DELTA_ATOMIC___REFRESH_AMOUNT_AFTER = AMOUNT_DELTA___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -4847,7 +4558,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___REFRESH_SLOPE_AFTER = SLOPE_IMPULSION___REFRESH_SLOPE_AFTER;
+	int AMOUNT_DELTA_ATOMIC___REFRESH_SLOPE_AFTER = AMOUNT_DELTA___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -4856,25 +4567,314 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___REFRESH_MOMENT = SLOPE_IMPULSION___REFRESH_MOMENT;
+	int AMOUNT_DELTA_ATOMIC___REFRESH_MOMENT = AMOUNT_DELTA___REFRESH_MOMENT;
 
 	/**
-	 * The operation id for the '<em>Refresh Slope Impulsion</em>' operation.
+	 * The operation id for the '<em>Refresh Amount Delta</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC___REFRESH_SLOPE_IMPULSION = SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION;
+	int AMOUNT_DELTA_ATOMIC___REFRESH_AMOUNT_DELTA = AMOUNT_DELTA___REFRESH_AMOUNT_DELTA;
 
 	/**
-	 * The number of operations of the '<em>Slope Impulsion Atomic</em>' class.
+	 * The number of operations of the '<em>Amount Delta Atomic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC_OPERATION_COUNT = SLOPE_IMPULSION_OPERATION_COUNT + 0;
+	int AMOUNT_DELTA_ATOMIC_OPERATION_COUNT = AMOUNT_DELTA_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeDeltaAtomicImpl <em>Slope Delta Atomic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeDeltaAtomicImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeDeltaAtomic()
+	 * @generated
+	 */
+	int SLOPE_DELTA_ATOMIC = 14;
+
+	/**
+	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__PROPAGATOR_FUNCTIONS = SLOPE_DELTA__PROPAGATOR_FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__MOMENT = SLOPE_DELTA__MOMENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__EVENT_NR = SLOPE_DELTA__EVENT_NR;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__NEXT = SLOPE_DELTA__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__PREVIOUS = SLOPE_DELTA__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__AMOUNT_BEFORE = SLOPE_DELTA__AMOUNT_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__AMOUNT_AFTER = SLOPE_DELTA__AMOUNT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__SLOPE_BEFORE = SLOPE_DELTA__SLOPE_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__SLOPE_AFTER = SLOPE_DELTA__SLOPE_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__DESCRIPTION = SLOPE_DELTA__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__DISTRIBUTION_AS_SEQUENCE = SLOPE_DELTA__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__DISTRIBUTION = SLOPE_DELTA__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__EVENT_PROVIDER = SLOPE_DELTA__EVENT_PROVIDER;
+
+	/**
+	 * The feature id for the '<em><b>Slope Delta</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__SLOPE_DELTA = SLOPE_DELTA__SLOPE_DELTA;
+
+	/**
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__PROVIDER = SLOPE_DELTA_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Slope Delta Atomic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC_FEATURE_COUNT = SLOPE_DELTA_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_DELTA___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+
+	/**
+	 * The operation id for the '<em>Get Propagator Function</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___GET_PROPAGATOR_FUNCTION__ECLASS = SLOPE_DELTA___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___ADD_PROPAGATOR_FUNCTIONS__STRING = SLOPE_DELTA___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___GET_AMOUNT_BEFORE__DATE = SLOPE_DELTA___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___GET_AMOUNT_AFTER__DATE = SLOPE_DELTA___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_DELTA___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_DELTA___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___REFRESH_SLOPE_BEFORE = SLOPE_DELTA___REFRESH_SLOPE_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___REFRESH_AMOUNT_BEFORE = SLOPE_DELTA___REFRESH_AMOUNT_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___REFRESH_AMOUNT_AFTER = SLOPE_DELTA___REFRESH_AMOUNT_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___REFRESH_SLOPE_AFTER = SLOPE_DELTA___REFRESH_SLOPE_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Moment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___REFRESH_MOMENT = SLOPE_DELTA___REFRESH_MOMENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope Delta</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC___REFRESH_SLOPE_DELTA = SLOPE_DELTA___REFRESH_SLOPE_DELTA;
+
+	/**
+	 * The number of operations of the '<em>Slope Delta Atomic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC_OPERATION_COUNT = SLOPE_DELTA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteAtomicImpl <em>Amount Absolute Atomic</em>}' class.
@@ -6000,14 +6000,14 @@ public interface TimeContinuousPackage extends EPackage {
 	int EVENT_PROVIDER_OPERATION_COUNT = EVENTS_PROVIDER_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl <em>Slope Impulsion Provider</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeDeltaProviderImpl <em>Slope Delta Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl
-	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeImpulsionProvider()
+	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeDeltaProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeDeltaProvider()
 	 * @generated
 	 */
-	int SLOPE_IMPULSION_PROVIDER = 22;
+	int SLOPE_DELTA_PROVIDER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
@@ -6016,7 +6016,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER__PROPAGATOR_FUNCTIONS = EVENT_PROVIDER__PROPAGATOR_FUNCTIONS;
+	int SLOPE_DELTA_PROVIDER__PROPAGATOR_FUNCTIONS = EVENT_PROVIDER__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
@@ -6025,7 +6025,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
+	int SLOPE_DELTA_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
@@ -6034,7 +6034,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+	int SLOPE_DELTA_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -6043,7 +6043,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
+	int SLOPE_DELTA_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference.
@@ -6052,25 +6052,25 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
+	int SLOPE_DELTA_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Slope Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION = EVENT_PROVIDER_FEATURE_COUNT + 1;
+	int SLOPE_DELTA_PROVIDER__SLOPE_DELTA = EVENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Slope Impulsion Provider</em>' class.
+	 * The number of structural features of the '<em>Slope Delta Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
+	int SLOPE_DELTA_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -6079,7 +6079,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int SLOPE_DELTA_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -6088,7 +6088,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int SLOPE_DELTA_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -6097,7 +6097,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int SLOPE_DELTA_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
@@ -6106,16 +6106,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
+	int SLOPE_DELTA_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
 
 	/**
-	 * The number of operations of the '<em>Slope Impulsion Provider</em>' class.
+	 * The number of operations of the '<em>Slope Delta Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
+	int SLOPE_DELTA_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl <em>Slope Absolute Provider</em>}' class.
@@ -6236,14 +6236,14 @@ public interface TimeContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl <em>Amount Impulsion Provider</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountDeltaProviderImpl <em>Amount Delta Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl
-	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountImpulsionProvider()
+	 * @see com.misc.common.moplaf.time.continuous.impl.AmountDeltaProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountDeltaProvider()
 	 * @generated
 	 */
-	int AMOUNT_IMPULSION_PROVIDER = 24;
+	int AMOUNT_DELTA_PROVIDER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
@@ -6252,7 +6252,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER__PROPAGATOR_FUNCTIONS = EVENT_PROVIDER__PROPAGATOR_FUNCTIONS;
+	int AMOUNT_DELTA_PROVIDER__PROPAGATOR_FUNCTIONS = EVENT_PROVIDER__PROPAGATOR_FUNCTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
@@ -6261,7 +6261,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
+	int AMOUNT_DELTA_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
@@ -6270,7 +6270,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+	int AMOUNT_DELTA_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -6279,7 +6279,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
+	int AMOUNT_DELTA_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference.
@@ -6288,25 +6288,25 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
+	int AMOUNT_DELTA_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
+	 * The feature id for the '<em><b>Amount Delta</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION = EVENT_PROVIDER_FEATURE_COUNT + 1;
+	int AMOUNT_DELTA_PROVIDER__AMOUNT_DELTA = EVENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Amount Impulsion Provider</em>' class.
+	 * The number of structural features of the '<em>Amount Delta Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
+	int AMOUNT_DELTA_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -6315,7 +6315,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+	int AMOUNT_DELTA_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -6324,7 +6324,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
+	int AMOUNT_DELTA_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS = EVENT_PROVIDER___GET_PROPAGATOR_FUNCTION__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
@@ -6333,7 +6333,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
+	int AMOUNT_DELTA_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
 	 * The operation id for the '<em>Refresh Events</em>' operation.
@@ -6342,16 +6342,16 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
+	int AMOUNT_DELTA_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
 
 	/**
-	 * The number of operations of the '<em>Amount Impulsion Provider</em>' class.
+	 * The number of operations of the '<em>Amount Delta Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
+	int AMOUNT_DELTA_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteProviderImpl <em>Amount Absolute Provider</em>}' class.
@@ -7925,14 +7925,14 @@ public interface TimeContinuousPackage extends EPackage {
 	EOperation getDistribution__GetDuration__Date_Date();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getMoment(java.util.Date, float) <em>Get Moment</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getMoment(java.util.Date, double) <em>Get Moment</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Moment</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getMoment(java.util.Date, float)
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getMoment(java.util.Date, double)
 	 * @generated
 	 */
-	EOperation getDistribution__GetMoment__Date_float();
+	EOperation getDistribution__GetMoment__Date_double();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEventBefore(java.util.Date) <em>Get Event Before</em>}' operation.
@@ -8065,54 +8065,54 @@ public interface TimeContinuousPackage extends EPackage {
 	EOperation getDistribution__GetCumulatedAmount__Date_Date();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestBelow(java.util.Date, float, float) <em>Get Earliest Below</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestBelow(java.util.Date, double, double) <em>Get Earliest Below</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Earliest Below</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestBelow(java.util.Date, float, float)
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestBelow(java.util.Date, double, double)
 	 * @generated
 	 */
-	EOperation getDistribution__GetEarliestBelow__Date_float_float();
+	EOperation getDistribution__GetEarliestBelow__Date_double_double();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getLatestBelow(java.util.Date, float, float) <em>Get Latest Below</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getLatestBelow(java.util.Date, double, double) <em>Get Latest Below</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Latest Below</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getLatestBelow(java.util.Date, float, float)
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getLatestBelow(java.util.Date, double, double)
 	 * @generated
 	 */
-	EOperation getDistribution__GetLatestBelow__Date_float_float();
+	EOperation getDistribution__GetLatestBelow__Date_double_double();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestAbove(java.util.Date, float, float) <em>Get Earliest Above</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestAbove(java.util.Date, double, double) <em>Get Earliest Above</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Earliest Above</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestAbove(java.util.Date, float, float)
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestAbove(java.util.Date, double, double)
 	 * @generated
 	 */
-	EOperation getDistribution__GetEarliestAbove__Date_float_float();
+	EOperation getDistribution__GetEarliestAbove__Date_double_double();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getLatestAbove(java.util.Date, float, float) <em>Get Latest Above</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getLatestAbove(java.util.Date, double, double) <em>Get Latest Above</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Latest Above</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getLatestAbove(java.util.Date, float, float)
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getLatestAbove(java.util.Date, double, double)
 	 * @generated
 	 */
-	EOperation getDistribution__GetLatestAbove__Date_float_float();
+	EOperation getDistribution__GetLatestAbove__Date_double_double();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(float, java.util.Date, float, float) <em>Get Earliest Output Possible</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(double, java.util.Date, double, double) <em>Get Earliest Output Possible</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Earliest Output Possible</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(float, java.util.Date, float, float)
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(double, java.util.Date, double, double)
 	 * @generated
 	 */
-	EOperation getDistribution__GetEarliestOutputPossible__float_Date_float_float();
+	EOperation getDistribution__GetEarliestOutputPossible__double_Date_double_double();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#refreshInit() <em>Refresh Init</em>}' operation.
@@ -8470,66 +8470,66 @@ public interface TimeContinuousPackage extends EPackage {
 	EClass getEndEvent();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsion <em>Amount Impulsion</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountDelta <em>Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Amount Impulsion</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsion
+	 * @return the meta object for class '<em>Amount Delta</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountDelta
 	 * @generated
 	 */
-	EClass getAmountImpulsion();
+	EClass getAmountDelta();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.AmountImpulsion#getAmountImpulsion <em>Amount Impulsion</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.AmountDelta#getAmountDelta <em>Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Amount Impulsion</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsion#getAmountImpulsion()
-	 * @see #getAmountImpulsion()
+	 * @return the meta object for the attribute '<em>Amount Delta</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountDelta#getAmountDelta()
+	 * @see #getAmountDelta()
 	 * @generated
 	 */
-	EAttribute getAmountImpulsion_AmountImpulsion();
+	EAttribute getAmountDelta_AmountDelta();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.AmountImpulsion#refreshAmountImpulsion() <em>Refresh Amount Impulsion</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.AmountDelta#refreshAmountDelta() <em>Refresh Amount Delta</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Amount Impulsion</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsion#refreshAmountImpulsion()
+	 * @return the meta object for the '<em>Refresh Amount Delta</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.AmountDelta#refreshAmountDelta()
 	 * @generated
 	 */
-	EOperation getAmountImpulsion__RefreshAmountImpulsion();
+	EOperation getAmountDelta__RefreshAmountDelta();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsion <em>Slope Impulsion</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeDelta <em>Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Slope Impulsion</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsion
+	 * @return the meta object for class '<em>Slope Delta</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDelta
 	 * @generated
 	 */
-	EClass getSlopeImpulsion();
+	EClass getSlopeDelta();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsion#getSlopeImpulsion <em>Slope Impulsion</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.SlopeDelta#getSlopeDelta <em>Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Slope Impulsion</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsion#getSlopeImpulsion()
-	 * @see #getSlopeImpulsion()
+	 * @return the meta object for the attribute '<em>Slope Delta</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDelta#getSlopeDelta()
+	 * @see #getSlopeDelta()
 	 * @generated
 	 */
-	EAttribute getSlopeImpulsion_SlopeImpulsion();
+	EAttribute getSlopeDelta_SlopeDelta();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsion#refreshSlopeImpulsion() <em>Refresh Slope Impulsion</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.SlopeDelta#refreshSlopeDelta() <em>Refresh Slope Delta</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Slope Impulsion</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsion#refreshSlopeImpulsion()
+	 * @return the meta object for the '<em>Refresh Slope Delta</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDelta#refreshSlopeDelta()
 	 * @generated
 	 */
-	EOperation getSlopeImpulsion__RefreshSlopeImpulsion();
+	EOperation getSlopeDelta__RefreshSlopeDelta();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountAbsolute <em>Amount Absolute</em>}'.
@@ -8678,46 +8678,46 @@ public interface TimeContinuousPackage extends EPackage {
 	EReference getStockChangeEnd_Provider();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic <em>Amount Impulsion Atomic</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountDeltaAtomic <em>Amount Delta Atomic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Amount Impulsion Atomic</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic
+	 * @return the meta object for class '<em>Amount Delta Atomic</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountDeltaAtomic
 	 * @generated
 	 */
-	EClass getAmountImpulsionAtomic();
+	EClass getAmountDeltaAtomic();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic#getProvider <em>Provider</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.AmountDeltaAtomic#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Provider</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic#getProvider()
-	 * @see #getAmountImpulsionAtomic()
+	 * @see com.misc.common.moplaf.time.continuous.AmountDeltaAtomic#getProvider()
+	 * @see #getAmountDeltaAtomic()
 	 * @generated
 	 */
-	EReference getAmountImpulsionAtomic_Provider();
+	EReference getAmountDeltaAtomic_Provider();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic <em>Slope Impulsion Atomic</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic <em>Slope Delta Atomic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Slope Impulsion Atomic</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic
+	 * @return the meta object for class '<em>Slope Delta Atomic</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic
 	 * @generated
 	 */
-	EClass getSlopeImpulsionAtomic();
+	EClass getSlopeDeltaAtomic();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic#getProvider <em>Provider</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Provider</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic#getProvider()
-	 * @see #getSlopeImpulsionAtomic()
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic#getProvider()
+	 * @see #getSlopeDeltaAtomic()
 	 * @generated
 	 */
-	EReference getSlopeImpulsionAtomic_Provider();
+	EReference getSlopeDeltaAtomic_Provider();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic <em>Amount Absolute Atomic</em>}'.
@@ -8976,36 +8976,36 @@ public interface TimeContinuousPackage extends EPackage {
 	EAttribute getEventProvider_Moment();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider <em>Slope Impulsion Provider</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeDeltaProvider <em>Slope Delta Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Slope Impulsion Provider</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider
+	 * @return the meta object for class '<em>Slope Delta Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDeltaProvider
 	 * @generated
 	 */
-	EClass getSlopeImpulsionProvider();
+	EClass getSlopeDeltaProvider();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getEvent <em>Event</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.SlopeDeltaProvider#getEvent <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Event</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getEvent()
-	 * @see #getSlopeImpulsionProvider()
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDeltaProvider#getEvent()
+	 * @see #getSlopeDeltaProvider()
 	 * @generated
 	 */
-	EReference getSlopeImpulsionProvider_Event();
+	EReference getSlopeDeltaProvider_Event();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getSlopeImpulsion <em>Slope Impulsion</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.SlopeDeltaProvider#getSlopeDelta <em>Slope Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Slope Impulsion</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getSlopeImpulsion()
-	 * @see #getSlopeImpulsionProvider()
+	 * @return the meta object for the attribute '<em>Slope Delta</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeDeltaProvider#getSlopeDelta()
+	 * @see #getSlopeDeltaProvider()
 	 * @generated
 	 */
-	EAttribute getSlopeImpulsionProvider_SlopeImpulsion();
+	EAttribute getSlopeDeltaProvider_SlopeDelta();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider <em>Slope Absolute Provider</em>}'.
@@ -9040,36 +9040,36 @@ public interface TimeContinuousPackage extends EPackage {
 	EAttribute getSlopeAbsoluteProvider_SlopeAbsolute();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider <em>Amount Impulsion Provider</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountDeltaProvider <em>Amount Delta Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Amount Impulsion Provider</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider
+	 * @return the meta object for class '<em>Amount Delta Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountDeltaProvider
 	 * @generated
 	 */
-	EClass getAmountImpulsionProvider();
+	EClass getAmountDeltaProvider();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getEvent <em>Event</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.AmountDeltaProvider#getEvent <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Event</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getEvent()
-	 * @see #getAmountImpulsionProvider()
+	 * @see com.misc.common.moplaf.time.continuous.AmountDeltaProvider#getEvent()
+	 * @see #getAmountDeltaProvider()
 	 * @generated
 	 */
-	EReference getAmountImpulsionProvider_Event();
+	EReference getAmountDeltaProvider_Event();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getAmountImpulsion <em>Amount Impulsion</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.AmountDeltaProvider#getAmountDelta <em>Amount Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Amount Impulsion</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getAmountImpulsion()
-	 * @see #getAmountImpulsionProvider()
+	 * @return the meta object for the attribute '<em>Amount Delta</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountDeltaProvider#getAmountDelta()
+	 * @see #getAmountDeltaProvider()
 	 * @generated
 	 */
-	EAttribute getAmountImpulsionProvider_AmountImpulsion();
+	EAttribute getAmountDeltaProvider_AmountDelta();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider <em>Amount Absolute Provider</em>}'.
@@ -9363,7 +9363,7 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_MOMENT__DATE_FLOAT = eINSTANCE.getDistribution__GetMoment__Date_float();
+		EOperation DISTRIBUTION___GET_MOMENT__DATE_DOUBLE = eINSTANCE.getDistribution__GetMoment__Date_double();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Event Before</b></em>' operation.
@@ -9475,7 +9475,7 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestBelow__Date_float_float();
+		EOperation DISTRIBUTION___GET_EARLIEST_BELOW__DATE_DOUBLE_DOUBLE = eINSTANCE.getDistribution__GetEarliestBelow__Date_double_double();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Latest Below</b></em>' operation.
@@ -9483,7 +9483,7 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetLatestBelow__Date_float_float();
+		EOperation DISTRIBUTION___GET_LATEST_BELOW__DATE_DOUBLE_DOUBLE = eINSTANCE.getDistribution__GetLatestBelow__Date_double_double();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Earliest Above</b></em>' operation.
@@ -9491,7 +9491,7 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestAbove__Date_float_float();
+		EOperation DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_DOUBLE_DOUBLE = eINSTANCE.getDistribution__GetEarliestAbove__Date_double_double();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Latest Above</b></em>' operation.
@@ -9499,7 +9499,7 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetLatestAbove__Date_float_float();
+		EOperation DISTRIBUTION___GET_LATEST_ABOVE__DATE_DOUBLE_DOUBLE = eINSTANCE.getDistribution__GetLatestAbove__Date_double_double();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Earliest Output Possible</b></em>' operation.
@@ -9507,7 +9507,7 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestOutputPossible__float_Date_float_float();
+		EOperation DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DOUBLE_DATE_DOUBLE_DOUBLE = eINSTANCE.getDistribution__GetEarliestOutputPossible__double_Date_double_double();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Init</b></em>' operation.
@@ -9790,56 +9790,56 @@ public interface TimeContinuousPackage extends EPackage {
 		EClass END_EVENT = eINSTANCE.getEndEvent();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountDeltaImpl <em>Amount Delta</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl
-		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountImpulsion()
+		 * @see com.misc.common.moplaf.time.continuous.impl.AmountDeltaImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountDelta()
 		 * @generated
 		 */
-		EClass AMOUNT_IMPULSION = eINSTANCE.getAmountImpulsion();
+		EClass AMOUNT_DELTA = eINSTANCE.getAmountDelta();
 
 		/**
-		 * The meta object literal for the '<em><b>Amount Impulsion</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Amount Delta</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AMOUNT_IMPULSION__AMOUNT_IMPULSION = eINSTANCE.getAmountImpulsion_AmountImpulsion();
+		EAttribute AMOUNT_DELTA__AMOUNT_DELTA = eINSTANCE.getAmountDelta_AmountDelta();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh Amount Impulsion</b></em>' operation.
+		 * The meta object literal for the '<em><b>Refresh Amount Delta</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION = eINSTANCE.getAmountImpulsion__RefreshAmountImpulsion();
+		EOperation AMOUNT_DELTA___REFRESH_AMOUNT_DELTA = eINSTANCE.getAmountDelta__RefreshAmountDelta();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionImpl <em>Slope Impulsion</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeDeltaImpl <em>Slope Delta</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionImpl
-		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeImpulsion()
+		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeDeltaImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeDelta()
 		 * @generated
 		 */
-		EClass SLOPE_IMPULSION = eINSTANCE.getSlopeImpulsion();
+		EClass SLOPE_DELTA = eINSTANCE.getSlopeDelta();
 
 		/**
-		 * The meta object literal for the '<em><b>Slope Impulsion</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Slope Delta</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SLOPE_IMPULSION__SLOPE_IMPULSION = eINSTANCE.getSlopeImpulsion_SlopeImpulsion();
+		EAttribute SLOPE_DELTA__SLOPE_DELTA = eINSTANCE.getSlopeDelta_SlopeDelta();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh Slope Impulsion</b></em>' operation.
+		 * The meta object literal for the '<em><b>Refresh Slope Delta</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION = eINSTANCE.getSlopeImpulsion__RefreshSlopeImpulsion();
+		EOperation SLOPE_DELTA___REFRESH_SLOPE_DELTA = eINSTANCE.getSlopeDelta__RefreshSlopeDelta();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteImpl <em>Amount Absolute</em>}' class.
@@ -9966,14 +9966,14 @@ public interface TimeContinuousPackage extends EPackage {
 		EReference STOCK_CHANGE_END__PROVIDER = eINSTANCE.getStockChangeEnd_Provider();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionAtomicImpl <em>Amount Impulsion Atomic</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountDeltaAtomicImpl <em>Amount Delta Atomic</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionAtomicImpl
-		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountImpulsionAtomic()
+		 * @see com.misc.common.moplaf.time.continuous.impl.AmountDeltaAtomicImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountDeltaAtomic()
 		 * @generated
 		 */
-		EClass AMOUNT_IMPULSION_ATOMIC = eINSTANCE.getAmountImpulsionAtomic();
+		EClass AMOUNT_DELTA_ATOMIC = eINSTANCE.getAmountDeltaAtomic();
 
 		/**
 		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
@@ -9981,17 +9981,17 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AMOUNT_IMPULSION_ATOMIC__PROVIDER = eINSTANCE.getAmountImpulsionAtomic_Provider();
+		EReference AMOUNT_DELTA_ATOMIC__PROVIDER = eINSTANCE.getAmountDeltaAtomic_Provider();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl <em>Slope Impulsion Atomic</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeDeltaAtomicImpl <em>Slope Delta Atomic</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl
-		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeImpulsionAtomic()
+		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeDeltaAtomicImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeDeltaAtomic()
 		 * @generated
 		 */
-		EClass SLOPE_IMPULSION_ATOMIC = eINSTANCE.getSlopeImpulsionAtomic();
+		EClass SLOPE_DELTA_ATOMIC = eINSTANCE.getSlopeDeltaAtomic();
 
 		/**
 		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
@@ -9999,7 +9999,7 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SLOPE_IMPULSION_ATOMIC__PROVIDER = eINSTANCE.getSlopeImpulsionAtomic_Provider();
+		EReference SLOPE_DELTA_ATOMIC__PROVIDER = eINSTANCE.getSlopeDeltaAtomic_Provider();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteAtomicImpl <em>Amount Absolute Atomic</em>}' class.
@@ -10208,14 +10208,14 @@ public interface TimeContinuousPackage extends EPackage {
 		EAttribute EVENT_PROVIDER__MOMENT = eINSTANCE.getEventProvider_Moment();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl <em>Slope Impulsion Provider</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeDeltaProviderImpl <em>Slope Delta Provider</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl
-		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeImpulsionProvider()
+		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeDeltaProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getSlopeDeltaProvider()
 		 * @generated
 		 */
-		EClass SLOPE_IMPULSION_PROVIDER = eINSTANCE.getSlopeImpulsionProvider();
+		EClass SLOPE_DELTA_PROVIDER = eINSTANCE.getSlopeDeltaProvider();
 
 		/**
 		 * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
@@ -10223,15 +10223,15 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SLOPE_IMPULSION_PROVIDER__EVENT = eINSTANCE.getSlopeImpulsionProvider_Event();
+		EReference SLOPE_DELTA_PROVIDER__EVENT = eINSTANCE.getSlopeDeltaProvider_Event();
 
 		/**
-		 * The meta object literal for the '<em><b>Slope Impulsion</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Slope Delta</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION = eINSTANCE.getSlopeImpulsionProvider_SlopeImpulsion();
+		EAttribute SLOPE_DELTA_PROVIDER__SLOPE_DELTA = eINSTANCE.getSlopeDeltaProvider_SlopeDelta();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl <em>Slope Absolute Provider</em>}' class.
@@ -10260,14 +10260,14 @@ public interface TimeContinuousPackage extends EPackage {
 		EAttribute SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE = eINSTANCE.getSlopeAbsoluteProvider_SlopeAbsolute();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl <em>Amount Impulsion Provider</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountDeltaProviderImpl <em>Amount Delta Provider</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl
-		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountImpulsionProvider()
+		 * @see com.misc.common.moplaf.time.continuous.impl.AmountDeltaProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.TimeContinuousPackageImpl#getAmountDeltaProvider()
 		 * @generated
 		 */
-		EClass AMOUNT_IMPULSION_PROVIDER = eINSTANCE.getAmountImpulsionProvider();
+		EClass AMOUNT_DELTA_PROVIDER = eINSTANCE.getAmountDeltaProvider();
 
 		/**
 		 * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
@@ -10275,15 +10275,15 @@ public interface TimeContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AMOUNT_IMPULSION_PROVIDER__EVENT = eINSTANCE.getAmountImpulsionProvider_Event();
+		EReference AMOUNT_DELTA_PROVIDER__EVENT = eINSTANCE.getAmountDeltaProvider_Event();
 
 		/**
-		 * The meta object literal for the '<em><b>Amount Impulsion</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Amount Delta</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION = eINSTANCE.getAmountImpulsionProvider_AmountImpulsion();
+		EAttribute AMOUNT_DELTA_PROVIDER__AMOUNT_DELTA = eINSTANCE.getAmountDeltaProvider_AmountDelta();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteProviderImpl <em>Amount Absolute Provider</em>}' class.

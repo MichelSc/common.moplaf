@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChangeEnd {
+public class StockChangeEndImpl extends SlopeDeltaImpl implements StockChangeEnd {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,9 +207,9 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public void refreshSlopeImpulsion() {
-		float amount = -this.getProvider().getSlope();
-		this.setSlopeImpulsion(amount);
+	public void refreshSlopeDelta() {
+		double amount = -this.getProvider().getSlope();
+		this.setSlopeDelta(amount);
 	}
 
 	/**

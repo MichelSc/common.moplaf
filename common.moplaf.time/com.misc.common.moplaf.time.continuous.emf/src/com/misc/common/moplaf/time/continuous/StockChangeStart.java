@@ -29,7 +29,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model
  * @generated
  */
-public interface StockChangeStart extends SlopeImpulsion {
+public interface StockChangeStart extends SlopeDelta {
 	/**
 	 * Returns the value of the '<em><b>Provider</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChange#getStartEvent <em>Start Event</em>}'.

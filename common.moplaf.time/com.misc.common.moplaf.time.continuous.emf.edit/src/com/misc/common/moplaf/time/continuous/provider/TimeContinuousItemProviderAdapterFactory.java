@@ -267,49 +267,49 @@ public class TimeContinuousItemProviderAdapterFactory extends TimeContinuousAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountDeltaAtomic} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AmountImpulsionAtomicItemProvider amountImpulsionAtomicItemProvider;
+	protected AmountDeltaAtomicItemProvider amountDeltaAtomicItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountDeltaAtomic}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAmountImpulsionAtomicAdapter() {
-		if (amountImpulsionAtomicItemProvider == null) {
-			amountImpulsionAtomicItemProvider = new AmountImpulsionAtomicItemProvider(this);
+	public Adapter createAmountDeltaAtomicAdapter() {
+		if (amountDeltaAtomicItemProvider == null) {
+			amountDeltaAtomicItemProvider = new AmountDeltaAtomicItemProvider(this);
 		}
 
-		return amountImpulsionAtomicItemProvider;
+		return amountDeltaAtomicItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SlopeImpulsionAtomicItemProvider slopeImpulsionAtomicItemProvider;
+	protected SlopeDeltaAtomicItemProvider slopeDeltaAtomicItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSlopeImpulsionAtomicAdapter() {
-		if (slopeImpulsionAtomicItemProvider == null) {
-			slopeImpulsionAtomicItemProvider = new SlopeImpulsionAtomicItemProvider(this);
+	public Adapter createSlopeDeltaAtomicAdapter() {
+		if (slopeDeltaAtomicItemProvider == null) {
+			slopeDeltaAtomicItemProvider = new SlopeDeltaAtomicItemProvider(this);
 		}
 
-		return slopeImpulsionAtomicItemProvider;
+		return slopeDeltaAtomicItemProvider;
 	}
 
 	/**
@@ -405,26 +405,26 @@ public class TimeContinuousItemProviderAdapterFactory extends TimeContinuousAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeDeltaProvider} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SlopeImpulsionProviderItemProvider slopeImpulsionProviderItemProvider;
+	protected SlopeDeltaProviderItemProvider slopeDeltaProviderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeDeltaProvider}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSlopeImpulsionProviderAdapter() {
-		if (slopeImpulsionProviderItemProvider == null) {
-			slopeImpulsionProviderItemProvider = new SlopeImpulsionProviderItemProvider(this);
+	public Adapter createSlopeDeltaProviderAdapter() {
+		if (slopeDeltaProviderItemProvider == null) {
+			slopeDeltaProviderItemProvider = new SlopeDeltaProviderItemProvider(this);
 		}
 
-		return slopeImpulsionProviderItemProvider;
+		return slopeDeltaProviderItemProvider;
 	}
 
 	/**
@@ -451,26 +451,26 @@ public class TimeContinuousItemProviderAdapterFactory extends TimeContinuousAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountDeltaProvider} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AmountImpulsionProviderItemProvider amountImpulsionProviderItemProvider;
+	protected AmountDeltaProviderItemProvider amountDeltaProviderItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountDeltaProvider}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAmountImpulsionProviderAdapter() {
-		if (amountImpulsionProviderItemProvider == null) {
-			amountImpulsionProviderItemProvider = new AmountImpulsionProviderItemProvider(this);
+	public Adapter createAmountDeltaProviderAdapter() {
+		if (amountDeltaProviderItemProvider == null) {
+			amountDeltaProviderItemProvider = new AmountDeltaProviderItemProvider(this);
 		}
 
-		return amountImpulsionProviderItemProvider;
+		return amountDeltaProviderItemProvider;
 	}
 
 	/**
@@ -695,15 +695,15 @@ public class TimeContinuousItemProviderAdapterFactory extends TimeContinuousAdap
 		if (capacityChangeEndItemProvider != null) capacityChangeEndItemProvider.dispose();
 		if (stockChangeStartItemProvider != null) stockChangeStartItemProvider.dispose();
 		if (stockChangeEndItemProvider != null) stockChangeEndItemProvider.dispose();
-		if (amountImpulsionAtomicItemProvider != null) amountImpulsionAtomicItemProvider.dispose();
-		if (slopeImpulsionAtomicItemProvider != null) slopeImpulsionAtomicItemProvider.dispose();
+		if (amountDeltaAtomicItemProvider != null) amountDeltaAtomicItemProvider.dispose();
+		if (slopeDeltaAtomicItemProvider != null) slopeDeltaAtomicItemProvider.dispose();
 		if (amountAbsoluteAtomicItemProvider != null) amountAbsoluteAtomicItemProvider.dispose();
 		if (slopeAbsoluteAtomicItemProvider != null) slopeAbsoluteAtomicItemProvider.dispose();
 		if (stockChangeItemProvider != null) stockChangeItemProvider.dispose();
 		if (capacityChangeItemProvider != null) capacityChangeItemProvider.dispose();
-		if (slopeImpulsionProviderItemProvider != null) slopeImpulsionProviderItemProvider.dispose();
+		if (slopeDeltaProviderItemProvider != null) slopeDeltaProviderItemProvider.dispose();
 		if (slopeAbsoluteProviderItemProvider != null) slopeAbsoluteProviderItemProvider.dispose();
-		if (amountImpulsionProviderItemProvider != null) amountImpulsionProviderItemProvider.dispose();
+		if (amountDeltaProviderItemProvider != null) amountDeltaProviderItemProvider.dispose();
 		if (amountAbsoluteProviderItemProvider != null) amountAbsoluteProviderItemProvider.dispose();
 		if (propagatorFunctionDistributionItemProvider != null) propagatorFunctionDistributionItemProvider.dispose();
 		if (propagatorFunctionDistributionEventItemProvider != null) propagatorFunctionDistributionEventItemProvider.dispose();

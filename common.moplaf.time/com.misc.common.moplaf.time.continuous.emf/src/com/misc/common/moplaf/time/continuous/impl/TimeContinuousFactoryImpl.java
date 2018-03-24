@@ -75,15 +75,15 @@ public class TimeContinuousFactoryImpl extends EFactoryImpl implements TimeConti
 			case TimeContinuousPackage.CAPACITY_CHANGE_END: return createCapacityChangeEnd();
 			case TimeContinuousPackage.STOCK_CHANGE_START: return createStockChangeStart();
 			case TimeContinuousPackage.STOCK_CHANGE_END: return createStockChangeEnd();
-			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC: return createAmountImpulsionAtomic();
-			case TimeContinuousPackage.SLOPE_IMPULSION_ATOMIC: return createSlopeImpulsionAtomic();
+			case TimeContinuousPackage.AMOUNT_DELTA_ATOMIC: return createAmountDeltaAtomic();
+			case TimeContinuousPackage.SLOPE_DELTA_ATOMIC: return createSlopeDeltaAtomic();
 			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC: return createAmountAbsoluteAtomic();
 			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC: return createSlopeAbsoluteAtomic();
 			case TimeContinuousPackage.STOCK_CHANGE: return createStockChange();
 			case TimeContinuousPackage.CAPACITY_CHANGE: return createCapacityChange();
-			case TimeContinuousPackage.SLOPE_IMPULSION_PROVIDER: return createSlopeImpulsionProvider();
+			case TimeContinuousPackage.SLOPE_DELTA_PROVIDER: return createSlopeDeltaProvider();
 			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER: return createSlopeAbsoluteProvider();
-			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER: return createAmountImpulsionProvider();
+			case TimeContinuousPackage.AMOUNT_DELTA_PROVIDER: return createAmountDeltaProvider();
 			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER: return createAmountAbsoluteProvider();
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION: return createPropagatorFunctionDistribution();
 			case TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT: return createPropagatorFunctionDistributionEvent();
@@ -213,9 +213,9 @@ public class TimeContinuousFactoryImpl extends EFactoryImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AmountImpulsionAtomic createAmountImpulsionAtomic() {
-		AmountImpulsionAtomicImpl amountImpulsionAtomic = new AmountImpulsionAtomicImpl();
-		return amountImpulsionAtomic;
+	public AmountDeltaAtomic createAmountDeltaAtomic() {
+		AmountDeltaAtomicImpl amountDeltaAtomic = new AmountDeltaAtomicImpl();
+		return amountDeltaAtomic;
 	}
 
 	/**
@@ -223,9 +223,9 @@ public class TimeContinuousFactoryImpl extends EFactoryImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SlopeImpulsionAtomic createSlopeImpulsionAtomic() {
-		SlopeImpulsionAtomicImpl slopeImpulsionAtomic = new SlopeImpulsionAtomicImpl();
-		return slopeImpulsionAtomic;
+	public SlopeDeltaAtomic createSlopeDeltaAtomic() {
+		SlopeDeltaAtomicImpl slopeDeltaAtomic = new SlopeDeltaAtomicImpl();
+		return slopeDeltaAtomic;
 	}
 
 	/**
@@ -273,9 +273,9 @@ public class TimeContinuousFactoryImpl extends EFactoryImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SlopeImpulsionProvider createSlopeImpulsionProvider() {
-		SlopeImpulsionProviderImpl slopeImpulsionProvider = new SlopeImpulsionProviderImpl();
-		return slopeImpulsionProvider;
+	public SlopeDeltaProvider createSlopeDeltaProvider() {
+		SlopeDeltaProviderImpl slopeDeltaProvider = new SlopeDeltaProviderImpl();
+		return slopeDeltaProvider;
 	}
 
 	/**
@@ -293,9 +293,9 @@ public class TimeContinuousFactoryImpl extends EFactoryImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AmountImpulsionProvider createAmountImpulsionProvider() {
-		AmountImpulsionProviderImpl amountImpulsionProvider = new AmountImpulsionProviderImpl();
-		return amountImpulsionProvider;
+	public AmountDeltaProvider createAmountDeltaProvider() {
+		AmountDeltaProviderImpl amountDeltaProvider = new AmountDeltaProviderImpl();
+		return amountDeltaProvider;
 	}
 
 	/**

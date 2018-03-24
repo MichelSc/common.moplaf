@@ -14,7 +14,7 @@ package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.propagator2.impl.ObjectWithPropagatorFunctionsImpl;
 import com.misc.common.moplaf.time.continuous.AmountAbsolute;
-import com.misc.common.moplaf.time.continuous.AmountImpulsion;
+import com.misc.common.moplaf.time.continuous.AmountDelta;
 import com.misc.common.moplaf.time.continuous.ChildEvent;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
@@ -24,7 +24,7 @@ import com.misc.common.moplaf.time.continuous.EventProvider;
 import com.misc.common.moplaf.time.continuous.EventsProvider;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
-import com.misc.common.moplaf.time.continuous.SlopeImpulsion;
+import com.misc.common.moplaf.time.continuous.SlopeDelta;
 import com.misc.common.moplaf.time.continuous.StartEvent;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
@@ -506,9 +506,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * @param millis
 	 * @return
 	 */
-	private float toDuration(long millis){
+	private double toDuration(long millis){
 		long millisOneUnit = this.getTimeUnit().toMillis();
-		float duration = (float)millis/(float)millisOneUnit;
+		double duration = (double)millis/(double)millisOneUnit;
 		return duration;
 	}
 	
@@ -517,7 +517,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * @param duration
 	 * @return
 	 */
-	private long toMillis(float duration){
+	private long toMillis(double duration){
 		long millisOneUnit = this.getTimeUnit().toMillis();
 		long toMillis = (long) (duration * millisOneUnit);
 		return toMillis;
@@ -527,8 +527,8 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getDuration(Date from, Date to) {
-		float duration = 0.0f;
+	public double getDuration(Date from, Date to) {
+		double duration = 0.0f;
 		long fromTime = from.getTime();
 		long toTime   = to.getTime();
 		if ( fromTime!=toTime){
@@ -541,7 +541,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Date getMoment(Date from, float duration) {
+	public Date getMoment(Date from, double duration) {
 		Date moment = from;
 		if ( duration != 0.0f){
 			long time = from.getTime()+this.toMillis(duration);
@@ -614,9 +614,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getAmountBefore(Date time) {
+	public double getAmountBefore(Date time) {
 		DistributionEvent eventAfter = this.getEventAfter(time);
-		float amountBefore = eventAfter.getAmountBefore(time);
+		double amountBefore = eventAfter.getAmountBefore(time);
 		return amountBefore;
 	}
 
@@ -624,9 +624,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getAmountAfter(Date time) {
+	public double getAmountAfter(Date time) {
 		DistributionEvent eventBefore = this.getEventBefore(time);
-		float amountAfter = eventBefore.getAmountAfter(time);
+		double amountAfter = eventBefore.getAmountAfter(time);
 		return amountAfter;
 	}
 
@@ -634,7 +634,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getAmount(Date time) {
+	public double getAmount(Date time) {
 		DistributionEvent eventAfter = this.getEventAfter(time);
 		if ( eventAfter.getMoment().compareTo(time)!=0){
 			return eventAfter.getAmountBefore(time);
@@ -646,9 +646,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSlopeBefore(Date time) {
+	public double getSlopeBefore(Date time) {
 		DistributionEvent eventAfter = this.getEventAfter(time);
-		float slopeAtBefore = eventAfter.getSlopeBefore();
+		double slopeAtBefore = eventAfter.getSlopeBefore();
 		return slopeAtBefore;
 	}
 
@@ -656,19 +656,19 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSlopeAfter(Date time) {
+	public double getSlopeAfter(Date time) {
 		DistributionEvent eventBefore = this.getEventBefore(time);
-		float slopeAfter = eventBefore.getSlopeAfter();
+		double slopeAfter = eventBefore.getSlopeAfter();
 		return slopeAfter;
 	}
 	
 	private class MinAmountVisitor implements DistributionVisitor {
-		private float minimum = Float.MAX_VALUE;
-		public float getMinimum(){
+		private double minimum = Double.MAX_VALUE;
+		public double getMinimum(){
 			return this.minimum;
 		}
 		@Override
-		public boolean visit(Date moment, float amount) {
+		public boolean visit(Date moment, double amount) {
 			if ( amount<this.minimum){
 				this.minimum = amount;
 			}
@@ -680,19 +680,19 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getMinAmount(Date from, Date to) {
+	public double getMinAmount(Date from, Date to) {
 		MinAmountVisitor visitor = new MinAmountVisitor();
 		this.accept(from, to, visitor);
 		return visitor.getMinimum();
 	}
 
 	private class MaxAmountVisitor implements DistributionVisitor {
-		private float maximum = Float.MIN_VALUE;
-		public float getMaximum(){
+		private double maximum = Double.MIN_VALUE;
+		public double getMaximum(){
 			return this.maximum;
 		}
 		@Override
-		public boolean visit(Date moment, float amount) {
+		public boolean visit(Date moment, double amount) {
 			if ( amount>this.maximum){
 				this.maximum = amount;
 			}
@@ -705,7 +705,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getMaxAmount(Date from, Date to) {
+	public double getMaxAmount(Date from, Date to) {
 		MaxAmountVisitor visitor = new MaxAmountVisitor();
 		this.accept(from, to, visitor);
 		return visitor.getMaximum();
@@ -715,11 +715,11 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getAverageAmount(Date from, Date to) {
-		float cumulated = this.getCumulatedAmount(from, to);
-		float average = 0.0f;
+	public double getAverageAmount(Date from, Date to) {
+		double cumulated = this.getCumulatedAmount(from, to);
+		double average = 0.0f;
 		if( cumulated != 0.0f){
-			float duration = this.getDuration(from, to);
+			double duration = this.getDuration(from, to);
 			average = cumulated/duration;
 		}
 		return average; 
@@ -727,17 +727,17 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	
 	private class CumulatedAmountVisitor implements DistributionVisitor{
 		private Date previousMoment = null;
-		private float previousAmount;
-		private float cumulatedAmount = 0.0f;
-		public float getCumulatedAmount() {
+		private double previousAmount;
+		private double cumulatedAmount = 0.0f;
+		public double getCumulatedAmount() {
 			return this.cumulatedAmount;
 		}
 		@Override
-		public boolean visit(Date moment, float amount) {
+		public boolean visit(Date moment, double amount) {
 			if ( this.previousMoment!=null){
-				float startAmount = this.previousAmount;
-				float endAmount = amount;
-				float duration = DistributionImpl.this.getDuration(this.previousMoment, moment);
+				double startAmount = this.previousAmount;
+				double endAmount = amount;
+				double duration = DistributionImpl.this.getDuration(this.previousMoment, moment);
 				this.cumulatedAmount += (startAmount+endAmount)/2.0f*duration;
 			}
 			this.previousAmount = amount;
@@ -750,23 +750,56 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getCumulatedAmount(Date from, Date to) {
+	public double getCumulatedAmount(Date from, Date to) {
 		CumulatedAmountVisitor visitor = new CumulatedAmountVisitor();
 		this.accept(from, to, visitor);
-		float cumulated = visitor.getCumulatedAmount();
+		double cumulated = visitor.getCumulatedAmount();
 		return cumulated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getLatestBelow(Date before, double duration, double amount) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getEarliestAbove(Date after, double duration, double amount) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getLatestAbove(Date before, double duration, double amount) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	private class EarliestBelowVisitor implements DistributionVisitor{
 		private Date previousMoment;
-		private float previousAmount;
+		private double previousAmount;
 		private boolean previousBelow;
-		private float maxAmount;
-		private float minDuration;
+		private double maxAmount;
+		private double minDuration;
 		private Date belowAsFrom = null;
 		private Date belowUntil = null;
 		private Date earliestBelow = null;
-		public EarliestBelowVisitor(float maxAmount, float minDuration){
+		public EarliestBelowVisitor(double maxAmount, double minDuration){
 			this.maxAmount = maxAmount;
 			this.minDuration = minDuration;
 		}
@@ -774,7 +807,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 			return this.earliestBelow;
 		}
 		@Override
-		public boolean visit(Date moment, float amount) {
+		public boolean visit(Date moment, double amount) {
 			boolean currentBelow = this.maxAmount <= amount;
 			if ( currentBelow){
 				this.belowUntil = moment;
@@ -784,7 +817,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 					// case below before and above now
 					Date crossOver = moment;
 					if ( this.previousMoment!=null){
-						float duration = DistributionImpl.this.getDuration(this.previousMoment, moment)
+						double duration = DistributionImpl.this.getDuration(this.previousMoment, moment)
 								       * (maxAmount-this.previousAmount) / (amount-this.previousAmount);
 						crossOver = DistributionImpl.this.getMoment(this.previousMoment, duration);
 					}
@@ -795,7 +828,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 //				this.belowUntil = null;
 				if ( this.previousBelow){
 					// case below before and above now
-					float duration = DistributionImpl.this.getDuration(this.previousMoment, moment)
+					double duration = DistributionImpl.this.getDuration(this.previousMoment, moment)
 							       * (maxAmount-this.previousAmount) / (amount-this.previousAmount);
 					this.belowUntil = DistributionImpl.this.getMoment(this.previousMoment, duration);
 				} else {
@@ -803,7 +836,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				}
 			}
 			if ( this.belowAsFrom!=null && this.belowUntil!=null){
-				float durationUnder = DistributionImpl.this.getDuration(this. belowAsFrom, this.belowUntil);
+				double durationUnder = DistributionImpl.this.getDuration(this. belowAsFrom, this.belowUntil);
 				if ( durationUnder>=this.minDuration) {
 					this.earliestBelow = this.belowAsFrom;
 					return true;
@@ -820,54 +853,21 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Date getEarliestBelow(Date after, float duration, float amount) {
+	public Date getEarliestBelow(Date after, double duration, double amount) {
 		EarliestBelowVisitor visitor = new EarliestBelowVisitor(amount, duration);
 		this.accept(after, this.getHorizonEnd(), visitor);
 		return visitor.getEarliestBelow();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getLatestBelow(Date before, float duration, float amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getEarliestAbove(Date after, float duration, float amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getLatestAbove(Date before, float duration, float amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
 	private class EarliestOutputVisitor implements DistributionVisitor{
 		private Date  previousMoment = null;
-		private float previousAmount;
-		private float previousOutput;
-		private float outputPossible;
-		private float durationPossible;
-		private float ratePossible;
+		private double previousAmount;
+		private double previousOutput;
+		private double outputPossible;
+		private double durationPossible;
+		private double ratePossible;
 		private Date earliestOutput = null;
-		public EarliestOutputVisitor(float above, float amount, float duration){
+		public EarliestOutputVisitor(double above, double amount, double duration){
 			this.previousOutput   = above;
 			this.outputPossible   = amount;
 			this.durationPossible = duration;
@@ -877,23 +877,23 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 			return this.earliestOutput;
 		}
 		@Override
-		public boolean visit(Date moment, float amount) {
-			float previousDuration = 0.0f;
+		public boolean visit(Date moment, double amount) {
+			double previousDuration = 0.0f;
 			if ( this.previousMoment!=null && this.previousMoment.compareTo(moment)<0){
 				previousDuration = DistributionImpl.this.getDuration(this.previousMoment, moment);
 			}
-			float deltaOutput = this.ratePossible*previousDuration;
-			float currentOutput = this.previousOutput+deltaOutput;
+			double deltaOutput = this.ratePossible*previousDuration;
+			double currentOutput = this.previousOutput+deltaOutput;
 			if ( currentOutput>amount){
 				currentOutput = amount;
 			}
 			if ( currentOutput>=this.outputPossible){
 				// amount perspective
-				float previousRate = (amount-this.previousAmount)/previousDuration;
-				float amountDurationOffset = (amount-this.outputPossible)/previousRate;
+				double previousRate = (amount-this.previousAmount)/previousDuration;
+				double amountDurationOffset = (amount-this.outputPossible)/previousRate;
 				Date amountPoint = DistributionImpl.this.getMoment(moment, -amountDurationOffset);
 				// output perspective
-			    float durationOutput = (this.outputPossible-this.previousOutput)/this.ratePossible; 
+				double durationOutput = (this.outputPossible-this.previousOutput)/this.ratePossible; 
 				Date outputPoint = DistributionImpl.this.getMoment(this.previousMoment, durationOutput);
 				// take the farthest
 				Date earliestEnd = outputPoint.compareTo(amountPoint)>0 ? outputPoint : amountPoint;
@@ -911,7 +911,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Date getEarliestOutputPossible(float above, Date after, float duration, float amount) {
+	public Date getEarliestOutputPossible(double above, Date after, double duration, double amount) {
 		EarliestOutputVisitor visitor = new EarliestOutputVisitor(above, amount, duration);
 		this.accept(after, this.getHorizonEnd(), visitor);
 		return visitor.getEarliestOutput();
@@ -1030,12 +1030,12 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 			// forward visit
 			DistributionEvent firstEvent = this.getEventStrictAfter(from);
 			DistributionEvent lastEvent = this.getEventStrictBefore(to);
-			float firstAmount = firstEvent.getAmountBefore(from);
+			double firstAmount = firstEvent.getAmountBefore(from);
 			visitor.visit(from, firstAmount);
 			DistributionEvent currentEvent = firstEvent;
 			while (currentEvent.isBefore(lastEvent)){
-				float amountBefore = currentEvent.getAmountBefore();
-				float amountAfter = currentEvent.getAmountAfter();
+				double amountBefore = currentEvent.getAmountBefore();
+				double amountAfter = currentEvent.getAmountAfter();
 				Date moment = currentEvent.getMoment();
 				visitor.visit(moment, amountBefore);
 				if ( amountBefore!=amountAfter){
@@ -1043,18 +1043,18 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				}
 				currentEvent = currentEvent.getNext();
 			}
-			float lastAmount = lastEvent.getAmountAfter(to);
+			double lastAmount = lastEvent.getAmountAfter(to);
 			visitor.visit(to, lastAmount);
 		} else {
 			// backward visit
 			DistributionEvent firstEvent = this.getEventStrictAfter(from);
 			DistributionEvent lastEvent = this.getEventStrictBefore(to);
-			float lastAmount = lastEvent.getAmountAfter(to);
+			double lastAmount = lastEvent.getAmountAfter(to);
 			visitor.visit(to, lastAmount);
 			DistributionEvent currentEvent = lastEvent;
 			while (firstEvent.isBefore(currentEvent)){
-				float amountBefore = currentEvent.getAmountBefore();
-				float amountAfter = currentEvent.getAmountAfter();
+				double amountBefore = currentEvent.getAmountBefore();
+				double amountAfter = currentEvent.getAmountAfter();
 				Date moment = currentEvent.getMoment();
 				visitor.visit(moment, amountBefore);
 				if ( amountBefore!=amountAfter){
@@ -1062,7 +1062,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				}
 				currentEvent = currentEvent.getPrevious();
 			}
-			float firstAmount = firstEvent.getAmountBefore(from);
+			double firstAmount = firstEvent.getAmountBefore(from);
 			visitor.visit(from, firstAmount);
 		}
 	}
@@ -1099,9 +1099,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 			if ( event instanceof SlopeAbsolute ) {
 				SlopeAbsolute slope_absolute = (SlopeAbsolute)event;
 				slope_absolute.refreshSlopeAbsolute();
-			} else if ( event instanceof SlopeImpulsion ) {
-				SlopeImpulsion slope_impulsion = (SlopeImpulsion)event;
-				slope_impulsion.refreshSlopeImpulsion();
+			} else if ( event instanceof SlopeDelta) {
+				SlopeDelta slope_delta = (SlopeDelta)event;
+				slope_delta.refreshSlopeDelta();
 			}
 			event.refreshSlopeBefore();
 			event.refreshSlopeAfter();
@@ -1112,9 +1112,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 			if ( event instanceof AmountAbsolute ) {
 				AmountAbsolute amount_absolute = (AmountAbsolute)event;
 				amount_absolute.refreshAmountAbsolute();
-			} else if ( event instanceof AmountImpulsion ) {
-				AmountImpulsion amount_impulsion = (AmountImpulsion)event;
-				amount_impulsion.refreshAmountImpulsion();
+			} else if ( event instanceof AmountDelta) {
+				AmountDelta amount_delta = (AmountDelta)event;
+				amount_delta.refreshAmountDelta();
 			}
 			event.refreshAmountBefore();
 			event.refreshAmountAfter();
@@ -1420,8 +1420,8 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 		switch (operationID) {
 			case TimeContinuousPackage.DISTRIBUTION___GET_DURATION__DATE_DATE:
 				return getDuration((Date)arguments.get(0), (Date)arguments.get(1));
-			case TimeContinuousPackage.DISTRIBUTION___GET_MOMENT__DATE_FLOAT:
-				return getMoment((Date)arguments.get(0), (Float)arguments.get(1));
+			case TimeContinuousPackage.DISTRIBUTION___GET_MOMENT__DATE_DOUBLE:
+				return getMoment((Date)arguments.get(0), (Double)arguments.get(1));
 			case TimeContinuousPackage.DISTRIBUTION___GET_EVENT_BEFORE__DATE:
 				return getEventBefore((Date)arguments.get(0));
 			case TimeContinuousPackage.DISTRIBUTION___GET_EVENT_STRICT_BEFORE__DATE:
@@ -1448,16 +1448,16 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				return getAverageAmount((Date)arguments.get(0), (Date)arguments.get(1));
 			case TimeContinuousPackage.DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE:
 				return getCumulatedAmount((Date)arguments.get(0), (Date)arguments.get(1));
-			case TimeContinuousPackage.DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT:
-				return getEarliestBelow((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
-			case TimeContinuousPackage.DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT:
-				return getLatestBelow((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
-			case TimeContinuousPackage.DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT:
-				return getEarliestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
-			case TimeContinuousPackage.DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT:
-				return getLatestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
-			case TimeContinuousPackage.DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT:
-				return getEarliestOutputPossible((Float)arguments.get(0), (Date)arguments.get(1), (Float)arguments.get(2), (Float)arguments.get(3));
+			case TimeContinuousPackage.DISTRIBUTION___GET_EARLIEST_BELOW__DATE_DOUBLE_DOUBLE:
+				return getEarliestBelow((Date)arguments.get(0), (Double)arguments.get(1), (Double)arguments.get(2));
+			case TimeContinuousPackage.DISTRIBUTION___GET_LATEST_BELOW__DATE_DOUBLE_DOUBLE:
+				return getLatestBelow((Date)arguments.get(0), (Double)arguments.get(1), (Double)arguments.get(2));
+			case TimeContinuousPackage.DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_DOUBLE_DOUBLE:
+				return getEarliestAbove((Date)arguments.get(0), (Double)arguments.get(1), (Double)arguments.get(2));
+			case TimeContinuousPackage.DISTRIBUTION___GET_LATEST_ABOVE__DATE_DOUBLE_DOUBLE:
+				return getLatestAbove((Date)arguments.get(0), (Double)arguments.get(1), (Double)arguments.get(2));
+			case TimeContinuousPackage.DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DOUBLE_DATE_DOUBLE_DOUBLE:
+				return getEarliestOutputPossible((Double)arguments.get(0), (Date)arguments.get(1), (Double)arguments.get(2), (Double)arguments.get(3));
 			case TimeContinuousPackage.DISTRIBUTION___REFRESH_INIT:
 				refreshInit();
 				return null;

@@ -29,7 +29,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model
  * @generated
  */
-public interface CapacityChangeEnd extends AmountImpulsion {
+public interface CapacityChangeEnd extends AmountDelta {
 	/**
 	 * Returns the value of the '<em><b>Provider</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getEndEvent <em>End Event</em>}'.

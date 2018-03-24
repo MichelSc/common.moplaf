@@ -84,524 +84,524 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TimeContinuousCalcPackage.PROPAGATOR_SCOPE_DISTRIBUTION: {
-				PropagatorScopeDistribution propagatorScopeDistribution = (PropagatorScopeDistribution)theEObject;
-				T result = casePropagatorScopeDistribution(propagatorScopeDistribution);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorScopeDistribution);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorScopeDistribution);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorScopeDistribution);
-				if (result == null) result = casePropagatorFunction(propagatorScopeDistribution);
+			case TimeContinuousCalcPackage.SCOPE_DISTRIBUTION: {
+				ScopeDistribution scopeDistribution = (ScopeDistribution)theEObject;
+				T result = caseScopeDistribution(scopeDistribution);
+				if (result == null) result = casePropagatorFunctionDistribution(scopeDistribution);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(scopeDistribution);
+				if (result == null) result = casePropagatorFunctionBindings(scopeDistribution);
+				if (result == null) result = casePropagatorFunction(scopeDistribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION: {
-				PropagatorCalcDistributionInitialization propagatorCalcDistributionInitialization = (PropagatorCalcDistributionInitialization)theEObject;
-				T result = casePropagatorCalcDistributionInitialization(propagatorCalcDistributionInitialization);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionInitialization);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionInitialization);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionInitialization);
-				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionInitialization);
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_INITIALIZATION: {
+				CalcDistributionInitialization calcDistributionInitialization = (CalcDistributionInitialization)theEObject;
+				T result = caseCalcDistributionInitialization(calcDistributionInitialization);
+				if (result == null) result = casePropagatorFunctionDistribution(calcDistributionInitialization);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcDistributionInitialization);
+				if (result == null) result = casePropagatorFunctionBindings(calcDistributionInitialization);
+				if (result == null) result = casePropagatorFunction(calcDistributionInitialization);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH: {
-				PropagatorLayerCompositeEventRefresh propagatorLayerCompositeEventRefresh = (PropagatorLayerCompositeEventRefresh)theEObject;
-				T result = casePropagatorLayerCompositeEventRefresh(propagatorLayerCompositeEventRefresh);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorLayerCompositeEventRefresh);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorLayerCompositeEventRefresh);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorLayerCompositeEventRefresh);
-				if (result == null) result = casePropagatorFunction(propagatorLayerCompositeEventRefresh);
+			case TimeContinuousCalcPackage.LAYER_COMPOSITE_EVENT_REFRESH: {
+				LayerCompositeEventRefresh layerCompositeEventRefresh = (LayerCompositeEventRefresh)theEObject;
+				T result = caseLayerCompositeEventRefresh(layerCompositeEventRefresh);
+				if (result == null) result = casePropagatorFunctionDistribution(layerCompositeEventRefresh);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(layerCompositeEventRefresh);
+				if (result == null) result = casePropagatorFunctionBindings(layerCompositeEventRefresh);
+				if (result == null) result = casePropagatorFunction(layerCompositeEventRefresh);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS: {
-				PropagatorCalcDistributionChildEvents propagatorCalcDistributionChildEvents = (PropagatorCalcDistributionChildEvents)theEObject;
-				T result = casePropagatorCalcDistributionChildEvents(propagatorCalcDistributionChildEvents);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionChildEvents);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionChildEvents);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionChildEvents);
-				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionChildEvents);
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_CHILD_EVENTS: {
+				CalcDistributionChildEvents calcDistributionChildEvents = (CalcDistributionChildEvents)theEObject;
+				T result = caseCalcDistributionChildEvents(calcDistributionChildEvents);
+				if (result == null) result = casePropagatorFunctionDistribution(calcDistributionChildEvents);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcDistributionChildEvents);
+				if (result == null) result = casePropagatorFunctionBindings(calcDistributionChildEvents);
+				if (result == null) result = casePropagatorFunction(calcDistributionChildEvents);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS: {
-				PropagatorCalcDistributionProvidedEvents propagatorCalcDistributionProvidedEvents = (PropagatorCalcDistributionProvidedEvents)theEObject;
-				T result = casePropagatorCalcDistributionProvidedEvents(propagatorCalcDistributionProvidedEvents);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionProvidedEvents);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionProvidedEvents);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionProvidedEvents);
-				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionProvidedEvents);
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_PROVIDED_EVENTS: {
+				CalcDistributionProvidedEvents calcDistributionProvidedEvents = (CalcDistributionProvidedEvents)theEObject;
+				T result = caseCalcDistributionProvidedEvents(calcDistributionProvidedEvents);
+				if (result == null) result = casePropagatorFunctionDistribution(calcDistributionProvidedEvents);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcDistributionProvidedEvents);
+				if (result == null) result = casePropagatorFunctionBindings(calcDistributionProvidedEvents);
+				if (result == null) result = casePropagatorFunction(calcDistributionProvidedEvents);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE: {
-				PropagatorCalcDistributionSequence propagatorCalcDistributionSequence = (PropagatorCalcDistributionSequence)theEObject;
-				T result = casePropagatorCalcDistributionSequence(propagatorCalcDistributionSequence);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorCalcDistributionSequence);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcDistributionSequence);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcDistributionSequence);
-				if (result == null) result = casePropagatorFunction(propagatorCalcDistributionSequence);
+			case TimeContinuousCalcPackage.CALC_DISTRIBUTION_SEQUENCE: {
+				CalcDistributionSequence calcDistributionSequence = (CalcDistributionSequence)theEObject;
+				T result = caseCalcDistributionSequence(calcDistributionSequence);
+				if (result == null) result = casePropagatorFunctionDistribution(calcDistributionSequence);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcDistributionSequence);
+				if (result == null) result = casePropagatorFunctionBindings(calcDistributionSequence);
+				if (result == null) result = casePropagatorFunction(calcDistributionSequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_SLOPES: {
-				PropagatorLayerDistributionSlopes propagatorLayerDistributionSlopes = (PropagatorLayerDistributionSlopes)theEObject;
-				T result = casePropagatorLayerDistributionSlopes(propagatorLayerDistributionSlopes);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorLayerDistributionSlopes);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorLayerDistributionSlopes);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorLayerDistributionSlopes);
-				if (result == null) result = casePropagatorFunction(propagatorLayerDistributionSlopes);
+			case TimeContinuousCalcPackage.LAYER_DISTRIBUTION_SLOPES: {
+				LayerDistributionSlopes layerDistributionSlopes = (LayerDistributionSlopes)theEObject;
+				T result = caseLayerDistributionSlopes(layerDistributionSlopes);
+				if (result == null) result = casePropagatorFunctionDistribution(layerDistributionSlopes);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(layerDistributionSlopes);
+				if (result == null) result = casePropagatorFunctionBindings(layerDistributionSlopes);
+				if (result == null) result = casePropagatorFunction(layerDistributionSlopes);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS: {
-				PropagatorLayerDistributionAmounts propagatorLayerDistributionAmounts = (PropagatorLayerDistributionAmounts)theEObject;
-				T result = casePropagatorLayerDistributionAmounts(propagatorLayerDistributionAmounts);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorLayerDistributionAmounts);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorLayerDistributionAmounts);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorLayerDistributionAmounts);
-				if (result == null) result = casePropagatorFunction(propagatorLayerDistributionAmounts);
+			case TimeContinuousCalcPackage.LAYER_DISTRIBUTION_AMOUNTS: {
+				LayerDistributionAmounts layerDistributionAmounts = (LayerDistributionAmounts)theEObject;
+				T result = caseLayerDistributionAmounts(layerDistributionAmounts);
+				if (result == null) result = casePropagatorFunctionDistribution(layerDistributionAmounts);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(layerDistributionAmounts);
+				if (result == null) result = casePropagatorFunctionBindings(layerDistributionAmounts);
+				if (result == null) result = casePropagatorFunction(layerDistributionAmounts);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE: {
-				PropagatorCalcAmountAbsoluteAmountAbsolute propagatorCalcAmountAbsoluteAmountAbsolute = (PropagatorCalcAmountAbsoluteAmountAbsolute)theEObject;
-				T result = casePropagatorCalcAmountAbsoluteAmountAbsolute(propagatorCalcAmountAbsoluteAmountAbsolute);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountAbsoluteAmountAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAmountAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAmountAbsolute);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAmountAbsolute);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAmountAbsolute);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE: {
+				CalcAmountAbsoluteAmountAbsolute calcAmountAbsoluteAmountAbsolute = (CalcAmountAbsoluteAmountAbsolute)theEObject;
+				T result = caseCalcAmountAbsoluteAmountAbsolute(calcAmountAbsoluteAmountAbsolute);
+				if (result == null) result = caseCalcEventAmount(calcAmountAbsoluteAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountAbsoluteAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountAbsoluteAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountAbsoluteAmountAbsolute);
+				if (result == null) result = casePropagatorFunction(calcAmountAbsoluteAmountAbsolute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER: {
-				PropagatorCalcAmountAbsoluteAmountAfter propagatorCalcAmountAbsoluteAmountAfter = (PropagatorCalcAmountAbsoluteAmountAfter)theEObject;
-				T result = casePropagatorCalcAmountAbsoluteAmountAfter(propagatorCalcAmountAbsoluteAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcAmountAbsoluteAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountAbsoluteAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAmountAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAmountAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAmountAfter);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER: {
+				CalcAmountAbsoluteAmountAfter calcAmountAbsoluteAmountAfter = (CalcAmountAbsoluteAmountAfter)theEObject;
+				T result = caseCalcAmountAbsoluteAmountAfter(calcAmountAbsoluteAmountAfter);
+				if (result == null) result = caseCalcEventAmountAfter(calcAmountAbsoluteAmountAfter);
+				if (result == null) result = caseCalcEventAmount(calcAmountAbsoluteAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountAbsoluteAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountAbsoluteAmountAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountAbsoluteAmountAfter);
+				if (result == null) result = casePropagatorFunction(calcAmountAbsoluteAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE: {
-				PropagatorCalcAmountAbsoluteAtomicAmountAbsolute propagatorCalcAmountAbsoluteAtomicAmountAbsolute = (PropagatorCalcAmountAbsoluteAtomicAmountAbsolute)theEObject;
-				T result = casePropagatorCalcAmountAbsoluteAtomicAmountAbsolute(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
-				if (result == null) result = casePropagatorCalcAmountAbsoluteAmountAbsolute(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAtomicAmountAbsolute);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE: {
+				CalcAmountAbsoluteAtomicAmountAbsolute calcAmountAbsoluteAtomicAmountAbsolute = (CalcAmountAbsoluteAtomicAmountAbsolute)theEObject;
+				T result = caseCalcAmountAbsoluteAtomicAmountAbsolute(calcAmountAbsoluteAtomicAmountAbsolute);
+				if (result == null) result = caseCalcAmountAbsoluteAmountAbsolute(calcAmountAbsoluteAtomicAmountAbsolute);
+				if (result == null) result = caseCalcEventAmount(calcAmountAbsoluteAtomicAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountAbsoluteAtomicAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountAbsoluteAtomicAmountAbsolute);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountAbsoluteAtomicAmountAbsolute);
+				if (result == null) result = casePropagatorFunction(calcAmountAbsoluteAtomicAmountAbsolute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT: {
-				PropagatorCalcAmountAbsoluteAtomicMoment propagatorCalcAmountAbsoluteAtomicMoment = (PropagatorCalcAmountAbsoluteAtomicMoment)theEObject;
-				T result = casePropagatorCalcAmountAbsoluteAtomicMoment(propagatorCalcAmountAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcAmountAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountAbsoluteAtomicMoment);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT: {
+				CalcAmountAbsoluteAtomicMoment calcAmountAbsoluteAtomicMoment = (CalcAmountAbsoluteAtomicMoment)theEObject;
+				T result = caseCalcAmountAbsoluteAtomicMoment(calcAmountAbsoluteAtomicMoment);
+				if (result == null) result = caseCalcEventMoment(calcAmountAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunction(calcAmountAbsoluteAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER: {
-				PropagatorCalcAmountImpulsionAmountAfter propagatorCalcAmountImpulsionAmountAfter = (PropagatorCalcAmountImpulsionAmountAfter)theEObject;
-				T result = casePropagatorCalcAmountImpulsionAmountAfter(propagatorCalcAmountImpulsionAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcAmountImpulsionAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountImpulsionAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAmountAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAmountAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAmountAfter);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_AMOUNT_AFTER: {
+				CalcAmountDeltaAmountAfter calcAmountDeltaAmountAfter = (CalcAmountDeltaAmountAfter)theEObject;
+				T result = caseCalcAmountDeltaAmountAfter(calcAmountDeltaAmountAfter);
+				if (result == null) result = caseCalcEventAmountAfter(calcAmountDeltaAmountAfter);
+				if (result == null) result = caseCalcEventAmount(calcAmountDeltaAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountDeltaAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountDeltaAmountAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountDeltaAmountAfter);
+				if (result == null) result = casePropagatorFunction(calcAmountDeltaAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION: {
-				PropagatorCalcAmountImpulsionAmountImpulsion propagatorCalcAmountImpulsionAmountImpulsion = (PropagatorCalcAmountImpulsionAmountImpulsion)theEObject;
-				T result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcAmountImpulsionAmountImpulsion);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountImpulsionAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAmountImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAmountImpulsion);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_AMOUNT_DELTA: {
+				CalcAmountDeltaAmountDelta calcAmountDeltaAmountDelta = (CalcAmountDeltaAmountDelta)theEObject;
+				T result = caseCalcAmountDeltaAmountDelta(calcAmountDeltaAmountDelta);
+				if (result == null) result = caseCalcEventAmount(calcAmountDeltaAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountDeltaAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountDeltaAmountDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountDeltaAmountDelta);
+				if (result == null) result = casePropagatorFunction(calcAmountDeltaAmountDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION: {
-				PropagatorCalcAmountImpulsionAtomicAmountImpulsion propagatorCalcAmountImpulsionAtomicAmountImpulsion = (PropagatorCalcAmountImpulsionAtomicAmountImpulsion)theEObject;
-				T result = casePropagatorCalcAmountImpulsionAtomicAmountImpulsion(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
-				if (result == null) result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAtomicAmountImpulsion);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_ATOMIC_AMOUNT_DELTA: {
+				CalcAmountDeltaAtomicAmountDelta calcAmountDeltaAtomicAmountDelta = (CalcAmountDeltaAtomicAmountDelta)theEObject;
+				T result = caseCalcAmountDeltaAtomicAmountDelta(calcAmountDeltaAtomicAmountDelta);
+				if (result == null) result = caseCalcAmountDeltaAmountDelta(calcAmountDeltaAtomicAmountDelta);
+				if (result == null) result = caseCalcEventAmount(calcAmountDeltaAtomicAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountDeltaAtomicAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountDeltaAtomicAmountDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountDeltaAtomicAmountDelta);
+				if (result == null) result = casePropagatorFunction(calcAmountDeltaAtomicAmountDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT: {
-				PropagatorCalcAmountImpulsionAtomicMoment propagatorCalcAmountImpulsionAtomicMoment = (PropagatorCalcAmountImpulsionAtomicMoment)theEObject;
-				T result = casePropagatorCalcAmountImpulsionAtomicMoment(propagatorCalcAmountImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcAmountImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcAmountImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcAmountImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcAmountImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcAmountImpulsionAtomicMoment);
+			case TimeContinuousCalcPackage.CALC_AMOUNT_DELTA_ATOMIC_MOMENT: {
+				CalcAmountDeltaAtomicMoment calcAmountDeltaAtomicMoment = (CalcAmountDeltaAtomicMoment)theEObject;
+				T result = caseCalcAmountDeltaAtomicMoment(calcAmountDeltaAtomicMoment);
+				if (result == null) result = caseCalcEventMoment(calcAmountDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcAmountDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcAmountDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcAmountDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunction(calcAmountDeltaAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION: {
-				PropagatorCalcCapacityChangeEndAmountImpulsion propagatorCalcCapacityChangeEndAmountImpulsion = (PropagatorCalcCapacityChangeEndAmountImpulsion)theEObject;
-				T result = casePropagatorCalcCapacityChangeEndAmountImpulsion(propagatorCalcCapacityChangeEndAmountImpulsion);
-				if (result == null) result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcCapacityChangeEndAmountImpulsion);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcCapacityChangeEndAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeEndAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeEndAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeEndAmountImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeEndAmountImpulsion);
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_END_AMOUNT_DELTA: {
+				CalcCapacityChangeEndAmountDelta calcCapacityChangeEndAmountDelta = (CalcCapacityChangeEndAmountDelta)theEObject;
+				T result = caseCalcCapacityChangeEndAmountDelta(calcCapacityChangeEndAmountDelta);
+				if (result == null) result = caseCalcAmountDeltaAmountDelta(calcCapacityChangeEndAmountDelta);
+				if (result == null) result = caseCalcEventAmount(calcCapacityChangeEndAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcCapacityChangeEndAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcCapacityChangeEndAmountDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcCapacityChangeEndAmountDelta);
+				if (result == null) result = casePropagatorFunction(calcCapacityChangeEndAmountDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT: {
-				PropagatorCalcCapacityChangeEndMoment propagatorCalcCapacityChangeEndMoment = (PropagatorCalcCapacityChangeEndMoment)theEObject;
-				T result = casePropagatorCalcCapacityChangeEndMoment(propagatorCalcCapacityChangeEndMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcCapacityChangeEndMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeEndMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeEndMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeEndMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeEndMoment);
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_END_MOMENT: {
+				CalcCapacityChangeEndMoment calcCapacityChangeEndMoment = (CalcCapacityChangeEndMoment)theEObject;
+				T result = caseCalcCapacityChangeEndMoment(calcCapacityChangeEndMoment);
+				if (result == null) result = caseCalcEventMoment(calcCapacityChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcCapacityChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcCapacityChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcCapacityChangeEndMoment);
+				if (result == null) result = casePropagatorFunction(calcCapacityChangeEndMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION: {
-				PropagatorCalcCapacityChangeStartAmountImpulsion propagatorCalcCapacityChangeStartAmountImpulsion = (PropagatorCalcCapacityChangeStartAmountImpulsion)theEObject;
-				T result = casePropagatorCalcCapacityChangeStartAmountImpulsion(propagatorCalcCapacityChangeStartAmountImpulsion);
-				if (result == null) result = casePropagatorCalcAmountImpulsionAmountImpulsion(propagatorCalcCapacityChangeStartAmountImpulsion);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcCapacityChangeStartAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeStartAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeStartAmountImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeStartAmountImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeStartAmountImpulsion);
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_START_AMOUNT_DELTA: {
+				CalcCapacityChangeStartAmountDelta calcCapacityChangeStartAmountDelta = (CalcCapacityChangeStartAmountDelta)theEObject;
+				T result = caseCalcCapacityChangeStartAmountDelta(calcCapacityChangeStartAmountDelta);
+				if (result == null) result = caseCalcAmountDeltaAmountDelta(calcCapacityChangeStartAmountDelta);
+				if (result == null) result = caseCalcEventAmount(calcCapacityChangeStartAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcCapacityChangeStartAmountDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcCapacityChangeStartAmountDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcCapacityChangeStartAmountDelta);
+				if (result == null) result = casePropagatorFunction(calcCapacityChangeStartAmountDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT: {
-				PropagatorCalcCapacityChangeStartMoment propagatorCalcCapacityChangeStartMoment = (PropagatorCalcCapacityChangeStartMoment)theEObject;
-				T result = casePropagatorCalcCapacityChangeStartMoment(propagatorCalcCapacityChangeStartMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcCapacityChangeStartMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcCapacityChangeStartMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcCapacityChangeStartMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcCapacityChangeStartMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcCapacityChangeStartMoment);
+			case TimeContinuousCalcPackage.CALC_CAPACITY_CHANGE_START_MOMENT: {
+				CalcCapacityChangeStartMoment calcCapacityChangeStartMoment = (CalcCapacityChangeStartMoment)theEObject;
+				T result = caseCalcCapacityChangeStartMoment(calcCapacityChangeStartMoment);
+				if (result == null) result = caseCalcEventMoment(calcCapacityChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcCapacityChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcCapacityChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcCapacityChangeStartMoment);
+				if (result == null) result = casePropagatorFunction(calcCapacityChangeStartMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER: {
-				PropagatorCalcChildEventAmountAfter propagatorCalcChildEventAmountAfter = (PropagatorCalcChildEventAmountAfter)theEObject;
-				T result = casePropagatorCalcChildEventAmountAfter(propagatorCalcChildEventAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcChildEventAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcChildEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcChildEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcChildEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcChildEventAmountAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcChildEventAmountAfter);
+			case TimeContinuousCalcPackage.CALC_CHILD_EVENT_AMOUNT_AFTER: {
+				CalcChildEventAmountAfter calcChildEventAmountAfter = (CalcChildEventAmountAfter)theEObject;
+				T result = caseCalcChildEventAmountAfter(calcChildEventAmountAfter);
+				if (result == null) result = caseCalcEventAmountAfter(calcChildEventAmountAfter);
+				if (result == null) result = caseCalcEventAmount(calcChildEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcChildEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcChildEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcChildEventAmountAfter);
+				if (result == null) result = casePropagatorFunction(calcChildEventAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CHILD_EVENT_MOMENT: {
-				PropagatorCalcChildEventMoment propagatorCalcChildEventMoment = (PropagatorCalcChildEventMoment)theEObject;
-				T result = casePropagatorCalcChildEventMoment(propagatorCalcChildEventMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcChildEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcChildEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcChildEventMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcChildEventMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcChildEventMoment);
+			case TimeContinuousCalcPackage.CALC_CHILD_EVENT_MOMENT: {
+				CalcChildEventMoment calcChildEventMoment = (CalcChildEventMoment)theEObject;
+				T result = caseCalcChildEventMoment(calcChildEventMoment);
+				if (result == null) result = caseCalcEventMoment(calcChildEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcChildEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcChildEventMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcChildEventMoment);
+				if (result == null) result = casePropagatorFunction(calcChildEventMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER: {
-				PropagatorCalcChildEventSlopeAfter propagatorCalcChildEventSlopeAfter = (PropagatorCalcChildEventSlopeAfter)theEObject;
-				T result = casePropagatorCalcChildEventSlopeAfter(propagatorCalcChildEventSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcChildEventSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcChildEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcChildEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcChildEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcChildEventSlopeAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcChildEventSlopeAfter);
+			case TimeContinuousCalcPackage.CALC_CHILD_EVENT_SLOPE_AFTER: {
+				CalcChildEventSlopeAfter calcChildEventSlopeAfter = (CalcChildEventSlopeAfter)theEObject;
+				T result = caseCalcChildEventSlopeAfter(calcChildEventSlopeAfter);
+				if (result == null) result = caseCalcEventSlopeAfter(calcChildEventSlopeAfter);
+				if (result == null) result = caseCalcEventSlope(calcChildEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcChildEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcChildEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcChildEventSlopeAfter);
+				if (result == null) result = casePropagatorFunction(calcChildEventSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_END_EVENT_MOMENT: {
-				PropagatorCalcEndEventMoment propagatorCalcEndEventMoment = (PropagatorCalcEndEventMoment)theEObject;
-				T result = casePropagatorCalcEndEventMoment(propagatorCalcEndEventMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcEndEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEndEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEndEventMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEndEventMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEndEventMoment);
+			case TimeContinuousCalcPackage.CALC_END_EVENT_MOMENT: {
+				CalcEndEventMoment calcEndEventMoment = (CalcEndEventMoment)theEObject;
+				T result = caseCalcEndEventMoment(calcEndEventMoment);
+				if (result == null) result = caseCalcEventMoment(calcEndEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEndEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEndEventMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcEndEventMoment);
+				if (result == null) result = casePropagatorFunction(calcEndEventMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT_AFTER: {
-				PropagatorCalcEventAmountAfter propagatorCalcEventAmountAfter = (PropagatorCalcEventAmountAfter)theEObject;
-				T result = casePropagatorCalcEventAmountAfter(propagatorCalcEventAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventAmountAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventAmountAfter);
+			case TimeContinuousCalcPackage.CALC_EVENT_AMOUNT_AFTER: {
+				CalcEventAmountAfter calcEventAmountAfter = (CalcEventAmountAfter)theEObject;
+				T result = caseCalcEventAmountAfter(calcEventAmountAfter);
+				if (result == null) result = caseCalcEventAmount(calcEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventAmountAfter);
+				if (result == null) result = casePropagatorFunction(calcEventAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE: {
-				PropagatorCalcEventAmountBefore propagatorCalcEventAmountBefore = (PropagatorCalcEventAmountBefore)theEObject;
-				T result = casePropagatorCalcEventAmountBefore(propagatorCalcEventAmountBefore);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcEventAmountBefore);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventAmountBefore);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventAmountBefore);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventAmountBefore);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventAmountBefore);
+			case TimeContinuousCalcPackage.CALC_EVENT_AMOUNT_BEFORE: {
+				CalcEventAmountBefore calcEventAmountBefore = (CalcEventAmountBefore)theEObject;
+				T result = caseCalcEventAmountBefore(calcEventAmountBefore);
+				if (result == null) result = caseCalcEventAmount(calcEventAmountBefore);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEventAmountBefore);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventAmountBefore);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventAmountBefore);
+				if (result == null) result = casePropagatorFunction(calcEventAmountBefore);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_MOMENT: {
-				PropagatorCalcEventMoment propagatorCalcEventMoment = (PropagatorCalcEventMoment)theEObject;
-				T result = casePropagatorCalcEventMoment(propagatorCalcEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventMoment);
+			case TimeContinuousCalcPackage.CALC_EVENT_MOMENT: {
+				CalcEventMoment calcEventMoment = (CalcEventMoment)theEObject;
+				T result = caseCalcEventMoment(calcEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventMoment);
+				if (result == null) result = casePropagatorFunction(calcEventMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE_AFTER: {
-				PropagatorCalcEventSlopeAfter propagatorCalcEventSlopeAfter = (PropagatorCalcEventSlopeAfter)theEObject;
-				T result = casePropagatorCalcEventSlopeAfter(propagatorCalcEventSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventSlopeAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventSlopeAfter);
+			case TimeContinuousCalcPackage.CALC_EVENT_SLOPE_AFTER: {
+				CalcEventSlopeAfter calcEventSlopeAfter = (CalcEventSlopeAfter)theEObject;
+				T result = caseCalcEventSlopeAfter(calcEventSlopeAfter);
+				if (result == null) result = caseCalcEventSlope(calcEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventSlopeAfter);
+				if (result == null) result = casePropagatorFunction(calcEventSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE_BEFORE: {
-				PropagatorCalcEventSlopeBefore propagatorCalcEventSlopeBefore = (PropagatorCalcEventSlopeBefore)theEObject;
-				T result = casePropagatorCalcEventSlopeBefore(propagatorCalcEventSlopeBefore);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcEventSlopeBefore);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventSlopeBefore);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventSlopeBefore);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventSlopeBefore);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventSlopeBefore);
+			case TimeContinuousCalcPackage.CALC_EVENT_SLOPE_BEFORE: {
+				CalcEventSlopeBefore calcEventSlopeBefore = (CalcEventSlopeBefore)theEObject;
+				T result = caseCalcEventSlopeBefore(calcEventSlopeBefore);
+				if (result == null) result = caseCalcEventSlope(calcEventSlopeBefore);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEventSlopeBefore);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventSlopeBefore);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventSlopeBefore);
+				if (result == null) result = casePropagatorFunction(calcEventSlopeBefore);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS: {
-				PropagatorCalcEventsProviderRefreshEvents propagatorCalcEventsProviderRefreshEvents = (PropagatorCalcEventsProviderRefreshEvents)theEObject;
-				T result = casePropagatorCalcEventsProviderRefreshEvents(propagatorCalcEventsProviderRefreshEvents);
-				if (result == null) result = casePropagatorFunctionEventsProvider(propagatorCalcEventsProviderRefreshEvents);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventsProviderRefreshEvents);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventsProviderRefreshEvents);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventsProviderRefreshEvents);
+			case TimeContinuousCalcPackage.CALC_EVENTS_PROVIDER_REFRESH_EVENTS: {
+				CalcEventsProviderRefreshEvents calcEventsProviderRefreshEvents = (CalcEventsProviderRefreshEvents)theEObject;
+				T result = caseCalcEventsProviderRefreshEvents(calcEventsProviderRefreshEvents);
+				if (result == null) result = casePropagatorFunctionEventsProvider(calcEventsProviderRefreshEvents);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventsProviderRefreshEvents);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventsProviderRefreshEvents);
+				if (result == null) result = casePropagatorFunction(calcEventsProviderRefreshEvents);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT: {
-				PropagatorCalcSlopeAbsoluteAtomicMoment propagatorCalcSlopeAbsoluteAtomicMoment = (PropagatorCalcSlopeAbsoluteAtomicMoment)theEObject;
-				T result = casePropagatorCalcSlopeAbsoluteAtomicMoment(propagatorCalcSlopeAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcSlopeAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteAtomicMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteAtomicMoment);
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT: {
+				CalcSlopeAbsoluteAtomicMoment calcSlopeAbsoluteAtomicMoment = (CalcSlopeAbsoluteAtomicMoment)theEObject;
+				T result = caseCalcSlopeAbsoluteAtomicMoment(calcSlopeAbsoluteAtomicMoment);
+				if (result == null) result = caseCalcEventMoment(calcSlopeAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeAbsoluteAtomicMoment);
+				if (result == null) result = casePropagatorFunction(calcSlopeAbsoluteAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE: {
-				PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute = (PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute)theEObject;
-				T result = casePropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
-				if (result == null) result = casePropagatorCalcSlopeAbsoluteSlopeAbsolute(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteAtomicSlopeAbsolute);
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE: {
+				CalcSlopeAbsoluteAtomicSlopeAbsolute calcSlopeAbsoluteAtomicSlopeAbsolute = (CalcSlopeAbsoluteAtomicSlopeAbsolute)theEObject;
+				T result = caseCalcSlopeAbsoluteAtomicSlopeAbsolute(calcSlopeAbsoluteAtomicSlopeAbsolute);
+				if (result == null) result = caseCalcSlopeAbsoluteSlopeAbsolute(calcSlopeAbsoluteAtomicSlopeAbsolute);
+				if (result == null) result = caseCalcEventSlope(calcSlopeAbsoluteAtomicSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeAbsoluteAtomicSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeAbsoluteAtomicSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeAbsoluteAtomicSlopeAbsolute);
+				if (result == null) result = casePropagatorFunction(calcSlopeAbsoluteAtomicSlopeAbsolute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE: {
-				PropagatorCalcSlopeAbsoluteSlopeAbsolute propagatorCalcSlopeAbsoluteSlopeAbsolute = (PropagatorCalcSlopeAbsoluteSlopeAbsolute)theEObject;
-				T result = casePropagatorCalcSlopeAbsoluteSlopeAbsolute(propagatorCalcSlopeAbsoluteSlopeAbsolute);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeAbsoluteSlopeAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteSlopeAbsolute);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteSlopeAbsolute);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteSlopeAbsolute);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteSlopeAbsolute);
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE: {
+				CalcSlopeAbsoluteSlopeAbsolute calcSlopeAbsoluteSlopeAbsolute = (CalcSlopeAbsoluteSlopeAbsolute)theEObject;
+				T result = caseCalcSlopeAbsoluteSlopeAbsolute(calcSlopeAbsoluteSlopeAbsolute);
+				if (result == null) result = caseCalcEventSlope(calcSlopeAbsoluteSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeAbsoluteSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeAbsoluteSlopeAbsolute);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeAbsoluteSlopeAbsolute);
+				if (result == null) result = casePropagatorFunction(calcSlopeAbsoluteSlopeAbsolute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER: {
-				PropagatorCalcSlopeAbsoluteSlopeAfter propagatorCalcSlopeAbsoluteSlopeAfter = (PropagatorCalcSlopeAbsoluteSlopeAfter)theEObject;
-				T result = casePropagatorCalcSlopeAbsoluteSlopeAfter(propagatorCalcSlopeAbsoluteSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcSlopeAbsoluteSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeAbsoluteSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeAbsoluteSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeAbsoluteSlopeAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeAbsoluteSlopeAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeAbsoluteSlopeAfter);
+			case TimeContinuousCalcPackage.CALC_SLOPE_ABSOLUTE_SLOPE_AFTER: {
+				CalcSlopeAbsoluteSlopeAfter calcSlopeAbsoluteSlopeAfter = (CalcSlopeAbsoluteSlopeAfter)theEObject;
+				T result = caseCalcSlopeAbsoluteSlopeAfter(calcSlopeAbsoluteSlopeAfter);
+				if (result == null) result = caseCalcEventSlopeAfter(calcSlopeAbsoluteSlopeAfter);
+				if (result == null) result = caseCalcEventSlope(calcSlopeAbsoluteSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeAbsoluteSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeAbsoluteSlopeAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeAbsoluteSlopeAfter);
+				if (result == null) result = casePropagatorFunction(calcSlopeAbsoluteSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT: {
-				PropagatorCalcSlopeImpulsionAtomicMoment propagatorCalcSlopeImpulsionAtomicMoment = (PropagatorCalcSlopeImpulsionAtomicMoment)theEObject;
-				T result = casePropagatorCalcSlopeImpulsionAtomicMoment(propagatorCalcSlopeImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcSlopeImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionAtomicMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionAtomicMoment);
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_ATOMIC_MOMENT: {
+				CalcSlopeDeltaAtomicMoment calcSlopeDeltaAtomicMoment = (CalcSlopeDeltaAtomicMoment)theEObject;
+				T result = caseCalcSlopeDeltaAtomicMoment(calcSlopeDeltaAtomicMoment);
+				if (result == null) result = caseCalcEventMoment(calcSlopeDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeDeltaAtomicMoment);
+				if (result == null) result = casePropagatorFunction(calcSlopeDeltaAtomicMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION: {
-				PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion propagatorCalcSlopeImpulsionAtomicSlopeImpulsion = (PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion)theEObject;
-				T result = casePropagatorCalcSlopeImpulsionAtomicSlopeImpulsion(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
-				if (result == null) result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionAtomicSlopeImpulsion);
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_ATOMIC_SLOPE_DELTA: {
+				CalcSlopeDeltaAtomicSlopeDelta calcSlopeDeltaAtomicSlopeDelta = (CalcSlopeDeltaAtomicSlopeDelta)theEObject;
+				T result = caseCalcSlopeDeltaAtomicSlopeDelta(calcSlopeDeltaAtomicSlopeDelta);
+				if (result == null) result = caseCalcSlopeDeltaSlopeDelta(calcSlopeDeltaAtomicSlopeDelta);
+				if (result == null) result = caseCalcEventSlope(calcSlopeDeltaAtomicSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeDeltaAtomicSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeDeltaAtomicSlopeDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeDeltaAtomicSlopeDelta);
+				if (result == null) result = casePropagatorFunction(calcSlopeDeltaAtomicSlopeDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER: {
-				PropagatorCalcSlopeImpulsionSlopeAfter propagatorCalcSlopeImpulsionSlopeAfter = (PropagatorCalcSlopeImpulsionSlopeAfter)theEObject;
-				T result = casePropagatorCalcSlopeImpulsionSlopeAfter(propagatorCalcSlopeImpulsionSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcSlopeImpulsionSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeImpulsionSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionSlopeAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionSlopeAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionSlopeAfter);
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_SLOPE_AFTER: {
+				CalcSlopeDeltaSlopeAfter calcSlopeDeltaSlopeAfter = (CalcSlopeDeltaSlopeAfter)theEObject;
+				T result = caseCalcSlopeDeltaSlopeAfter(calcSlopeDeltaSlopeAfter);
+				if (result == null) result = caseCalcEventSlopeAfter(calcSlopeDeltaSlopeAfter);
+				if (result == null) result = caseCalcEventSlope(calcSlopeDeltaSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeDeltaSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeDeltaSlopeAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeDeltaSlopeAfter);
+				if (result == null) result = casePropagatorFunction(calcSlopeDeltaSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION: {
-				PropagatorCalcSlopeImpulsionSlopeImpulsion propagatorCalcSlopeImpulsionSlopeImpulsion = (PropagatorCalcSlopeImpulsionSlopeImpulsion)theEObject;
-				T result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcSlopeImpulsionSlopeImpulsion);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcSlopeImpulsionSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcSlopeImpulsionSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcSlopeImpulsionSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcSlopeImpulsionSlopeImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcSlopeImpulsionSlopeImpulsion);
+			case TimeContinuousCalcPackage.CALC_SLOPE_DELTA_SLOPE_DELTA: {
+				CalcSlopeDeltaSlopeDelta calcSlopeDeltaSlopeDelta = (CalcSlopeDeltaSlopeDelta)theEObject;
+				T result = caseCalcSlopeDeltaSlopeDelta(calcSlopeDeltaSlopeDelta);
+				if (result == null) result = caseCalcEventSlope(calcSlopeDeltaSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcSlopeDeltaSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcSlopeDeltaSlopeDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcSlopeDeltaSlopeDelta);
+				if (result == null) result = casePropagatorFunction(calcSlopeDeltaSlopeDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER: {
-				PropagatorCalcStartEventAmountAfter propagatorCalcStartEventAmountAfter = (PropagatorCalcStartEventAmountAfter)theEObject;
-				T result = casePropagatorCalcStartEventAmountAfter(propagatorCalcStartEventAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmountAfter(propagatorCalcStartEventAmountAfter);
-				if (result == null) result = casePropagatorCalcEventAmount(propagatorCalcStartEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStartEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStartEventAmountAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStartEventAmountAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcStartEventAmountAfter);
+			case TimeContinuousCalcPackage.CALC_START_EVENT_AMOUNT_AFTER: {
+				CalcStartEventAmountAfter calcStartEventAmountAfter = (CalcStartEventAmountAfter)theEObject;
+				T result = caseCalcStartEventAmountAfter(calcStartEventAmountAfter);
+				if (result == null) result = caseCalcEventAmountAfter(calcStartEventAmountAfter);
+				if (result == null) result = caseCalcEventAmount(calcStartEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcStartEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcStartEventAmountAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcStartEventAmountAfter);
+				if (result == null) result = casePropagatorFunction(calcStartEventAmountAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_START_EVENT_MOMENT: {
-				PropagatorCalcStartEventMoment propagatorCalcStartEventMoment = (PropagatorCalcStartEventMoment)theEObject;
-				T result = casePropagatorCalcStartEventMoment(propagatorCalcStartEventMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcStartEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStartEventMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStartEventMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStartEventMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcStartEventMoment);
+			case TimeContinuousCalcPackage.CALC_START_EVENT_MOMENT: {
+				CalcStartEventMoment calcStartEventMoment = (CalcStartEventMoment)theEObject;
+				T result = caseCalcStartEventMoment(calcStartEventMoment);
+				if (result == null) result = caseCalcEventMoment(calcStartEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcStartEventMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcStartEventMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcStartEventMoment);
+				if (result == null) result = casePropagatorFunction(calcStartEventMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER: {
-				PropagatorCalcStartEventSlopeAfter propagatorCalcStartEventSlopeAfter = (PropagatorCalcStartEventSlopeAfter)theEObject;
-				T result = casePropagatorCalcStartEventSlopeAfter(propagatorCalcStartEventSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlopeAfter(propagatorCalcStartEventSlopeAfter);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcStartEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStartEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStartEventSlopeAfter);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStartEventSlopeAfter);
-				if (result == null) result = casePropagatorFunction(propagatorCalcStartEventSlopeAfter);
+			case TimeContinuousCalcPackage.CALC_START_EVENT_SLOPE_AFTER: {
+				CalcStartEventSlopeAfter calcStartEventSlopeAfter = (CalcStartEventSlopeAfter)theEObject;
+				T result = caseCalcStartEventSlopeAfter(calcStartEventSlopeAfter);
+				if (result == null) result = caseCalcEventSlopeAfter(calcStartEventSlopeAfter);
+				if (result == null) result = caseCalcEventSlope(calcStartEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcStartEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcStartEventSlopeAfter);
+				if (result == null) result = casePropagatorFunctionBindings(calcStartEventSlopeAfter);
+				if (result == null) result = casePropagatorFunction(calcStartEventSlopeAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT: {
-				PropagatorCalcStockChangeEndMoment propagatorCalcStockChangeEndMoment = (PropagatorCalcStockChangeEndMoment)theEObject;
-				T result = casePropagatorCalcStockChangeEndMoment(propagatorCalcStockChangeEndMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcStockChangeEndMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeEndMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeEndMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeEndMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeEndMoment);
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_END_MOMENT: {
+				CalcStockChangeEndMoment calcStockChangeEndMoment = (CalcStockChangeEndMoment)theEObject;
+				T result = caseCalcStockChangeEndMoment(calcStockChangeEndMoment);
+				if (result == null) result = caseCalcEventMoment(calcStockChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcStockChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcStockChangeEndMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcStockChangeEndMoment);
+				if (result == null) result = casePropagatorFunction(calcStockChangeEndMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION: {
-				PropagatorCalcStockChangeEndSlopeImpulsion propagatorCalcStockChangeEndSlopeImpulsion = (PropagatorCalcStockChangeEndSlopeImpulsion)theEObject;
-				T result = casePropagatorCalcStockChangeEndSlopeImpulsion(propagatorCalcStockChangeEndSlopeImpulsion);
-				if (result == null) result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcStockChangeEndSlopeImpulsion);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcStockChangeEndSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeEndSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeEndSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeEndSlopeImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeEndSlopeImpulsion);
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_END_SLOPE_DELTA: {
+				CalcStockChangeEndSlopeDelta calcStockChangeEndSlopeDelta = (CalcStockChangeEndSlopeDelta)theEObject;
+				T result = caseCalcStockChangeEndSlopeDelta(calcStockChangeEndSlopeDelta);
+				if (result == null) result = caseCalcSlopeDeltaSlopeDelta(calcStockChangeEndSlopeDelta);
+				if (result == null) result = caseCalcEventSlope(calcStockChangeEndSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcStockChangeEndSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcStockChangeEndSlopeDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcStockChangeEndSlopeDelta);
+				if (result == null) result = casePropagatorFunction(calcStockChangeEndSlopeDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT: {
-				PropagatorCalcStockChangeStartMoment propagatorCalcStockChangeStartMoment = (PropagatorCalcStockChangeStartMoment)theEObject;
-				T result = casePropagatorCalcStockChangeStartMoment(propagatorCalcStockChangeStartMoment);
-				if (result == null) result = casePropagatorCalcEventMoment(propagatorCalcStockChangeStartMoment);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeStartMoment);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeStartMoment);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeStartMoment);
-				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeStartMoment);
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_START_MOMENT: {
+				CalcStockChangeStartMoment calcStockChangeStartMoment = (CalcStockChangeStartMoment)theEObject;
+				T result = caseCalcStockChangeStartMoment(calcStockChangeStartMoment);
+				if (result == null) result = caseCalcEventMoment(calcStockChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcStockChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcStockChangeStartMoment);
+				if (result == null) result = casePropagatorFunctionBindings(calcStockChangeStartMoment);
+				if (result == null) result = casePropagatorFunction(calcStockChangeStartMoment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION: {
-				PropagatorCalcStockChangeStartSlopeImpulsion propagatorCalcStockChangeStartSlopeImpulsion = (PropagatorCalcStockChangeStartSlopeImpulsion)theEObject;
-				T result = casePropagatorCalcStockChangeStartSlopeImpulsion(propagatorCalcStockChangeStartSlopeImpulsion);
-				if (result == null) result = casePropagatorCalcSlopeImpulsionSlopeImpulsion(propagatorCalcStockChangeStartSlopeImpulsion);
-				if (result == null) result = casePropagatorCalcEventSlope(propagatorCalcStockChangeStartSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcStockChangeStartSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcStockChangeStartSlopeImpulsion);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcStockChangeStartSlopeImpulsion);
-				if (result == null) result = casePropagatorFunction(propagatorCalcStockChangeStartSlopeImpulsion);
+			case TimeContinuousCalcPackage.CALC_STOCK_CHANGE_START_SLOPE_DELTA: {
+				CalcStockChangeStartSlopeDelta calcStockChangeStartSlopeDelta = (CalcStockChangeStartSlopeDelta)theEObject;
+				T result = caseCalcStockChangeStartSlopeDelta(calcStockChangeStartSlopeDelta);
+				if (result == null) result = caseCalcSlopeDeltaSlopeDelta(calcStockChangeStartSlopeDelta);
+				if (result == null) result = caseCalcEventSlope(calcStockChangeStartSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcStockChangeStartSlopeDelta);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcStockChangeStartSlopeDelta);
+				if (result == null) result = casePropagatorFunctionBindings(calcStockChangeStartSlopeDelta);
+				if (result == null) result = casePropagatorFunction(calcStockChangeStartSlopeDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE: {
-				PropagatorCalcEventSlope propagatorCalcEventSlope = (PropagatorCalcEventSlope)theEObject;
-				T result = casePropagatorCalcEventSlope(propagatorCalcEventSlope);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventSlope);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventSlope);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventSlope);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventSlope);
+			case TimeContinuousCalcPackage.CALC_EVENT_SLOPE: {
+				CalcEventSlope calcEventSlope = (CalcEventSlope)theEObject;
+				T result = caseCalcEventSlope(calcEventSlope);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEventSlope);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventSlope);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventSlope);
+				if (result == null) result = casePropagatorFunction(calcEventSlope);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT: {
-				PropagatorCalcEventAmount propagatorCalcEventAmount = (PropagatorCalcEventAmount)theEObject;
-				T result = casePropagatorCalcEventAmount(propagatorCalcEventAmount);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventAmount);
-				if (result == null) result = casePropagatorFunctionDistributionAbstract(propagatorCalcEventAmount);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventAmount);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventAmount);
+			case TimeContinuousCalcPackage.CALC_EVENT_AMOUNT: {
+				CalcEventAmount calcEventAmount = (CalcEventAmount)theEObject;
+				T result = caseCalcEventAmount(calcEventAmount);
+				if (result == null) result = casePropagatorFunctionDistributionEvent(calcEventAmount);
+				if (result == null) result = casePropagatorFunctionDistributionAbstract(calcEventAmount);
+				if (result == null) result = casePropagatorFunctionBindings(calcEventAmount);
+				if (result == null) result = casePropagatorFunction(calcEventAmount);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -610,707 +610,707 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Amount Absolute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Scope Distribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Amount Absolute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Scope Distribution</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountAbsoluteAmountAbsolute(PropagatorCalcAmountAbsoluteAmountAbsolute object) {
+	public T caseScopeDistribution(ScopeDistribution object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Amount After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Distribution Initialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Amount After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Distribution Initialization</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountAbsoluteAmountAfter(PropagatorCalcAmountAbsoluteAmountAfter object) {
+	public T caseCalcDistributionInitialization(CalcDistributionInitialization object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Layer Composite Event Refresh</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Layer Composite Event Refresh</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountAbsoluteAtomicAmountAbsolute(PropagatorCalcAmountAbsoluteAtomicAmountAbsolute object) {
+	public T caseLayerCompositeEventRefresh(LayerCompositeEventRefresh object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Atomic Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Distribution Child Events</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Absolute Atomic Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Distribution Child Events</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountAbsoluteAtomicMoment(PropagatorCalcAmountAbsoluteAtomicMoment object) {
+	public T caseCalcDistributionChildEvents(CalcDistributionChildEvents object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Amount After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Distribution Provided Events</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Amount After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Distribution Provided Events</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountImpulsionAmountAfter(PropagatorCalcAmountImpulsionAmountAfter object) {
+	public T caseCalcDistributionProvidedEvents(CalcDistributionProvidedEvents object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Amount Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Distribution Sequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Amount Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Distribution Sequence</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountImpulsionAmountImpulsion(PropagatorCalcAmountImpulsionAmountImpulsion object) {
+	public T caseCalcDistributionSequence(CalcDistributionSequence object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Layer Distribution Slopes</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Layer Distribution Slopes</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountImpulsionAtomicAmountImpulsion(PropagatorCalcAmountImpulsionAtomicAmountImpulsion object) {
+	public T caseLayerDistributionSlopes(LayerDistributionSlopes object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Atomic Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Layer Distribution Amounts</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount Impulsion Atomic Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Layer Distribution Amounts</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcAmountImpulsionAtomicMoment(PropagatorCalcAmountImpulsionAtomicMoment object) {
+	public T caseLayerDistributionAmounts(LayerDistributionAmounts object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change End Amount Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Absolute Amount Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change End Amount Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Absolute Amount Absolute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcCapacityChangeEndAmountImpulsion(PropagatorCalcCapacityChangeEndAmountImpulsion object) {
+	public T caseCalcAmountAbsoluteAmountAbsolute(CalcAmountAbsoluteAmountAbsolute object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change End Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Absolute Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change End Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Absolute Amount After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcCapacityChangeEndMoment(PropagatorCalcCapacityChangeEndMoment object) {
+	public T caseCalcAmountAbsoluteAmountAfter(CalcAmountAbsoluteAmountAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change Start Amount Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Absolute Atomic Amount Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change Start Amount Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Absolute Atomic Amount Absolute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcCapacityChangeStartAmountImpulsion(PropagatorCalcCapacityChangeStartAmountImpulsion object) {
+	public T caseCalcAmountAbsoluteAtomicAmountAbsolute(CalcAmountAbsoluteAtomicAmountAbsolute object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change Start Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Absolute Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Capacity Change Start Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Absolute Atomic Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcCapacityChangeStartMoment(PropagatorCalcCapacityChangeStartMoment object) {
+	public T caseCalcAmountAbsoluteAtomicMoment(CalcAmountAbsoluteAtomicMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Child Event Amount After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Delta Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Child Event Amount After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Delta Amount After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcChildEventAmountAfter(PropagatorCalcChildEventAmountAfter object) {
+	public T caseCalcAmountDeltaAmountAfter(CalcAmountDeltaAmountAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Child Event Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Delta Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Child Event Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Delta Amount Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcChildEventMoment(PropagatorCalcChildEventMoment object) {
+	public T caseCalcAmountDeltaAmountDelta(CalcAmountDeltaAmountDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Child Event Slope After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Delta Atomic Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Child Event Slope After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Delta Atomic Amount Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcChildEventSlopeAfter(PropagatorCalcChildEventSlopeAfter object) {
+	public T caseCalcAmountDeltaAtomicAmountDelta(CalcAmountDeltaAtomicAmountDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Child Events</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Amount Delta Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Child Events</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Amount Delta Atomic Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcDistributionChildEvents(PropagatorCalcDistributionChildEvents object) {
+	public T caseCalcAmountDeltaAtomicMoment(CalcAmountDeltaAtomicMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Initialization</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Capacity Change End Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Initialization</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Capacity Change End Amount Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcDistributionInitialization(PropagatorCalcDistributionInitialization object) {
+	public T caseCalcCapacityChangeEndAmountDelta(CalcCapacityChangeEndAmountDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Provided Events</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Capacity Change End Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Provided Events</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Capacity Change End Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcDistributionProvidedEvents(PropagatorCalcDistributionProvidedEvents object) {
+	public T caseCalcCapacityChangeEndMoment(CalcCapacityChangeEndMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Sequence</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Capacity Change Start Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Distribution Sequence</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Capacity Change Start Amount Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcDistributionSequence(PropagatorCalcDistributionSequence object) {
+	public T caseCalcCapacityChangeStartAmountDelta(CalcCapacityChangeStartAmountDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc End Event Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Capacity Change Start Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc End Event Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Capacity Change Start Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEndEventMoment(PropagatorCalcEndEventMoment object) {
+	public T caseCalcCapacityChangeStartMoment(CalcCapacityChangeStartMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Amount After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Child Event Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Amount After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Child Event Amount After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventAmountAfter(PropagatorCalcEventAmountAfter object) {
+	public T caseCalcChildEventAmountAfter(CalcChildEventAmountAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Amount Before</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Child Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Amount Before</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Child Event Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventAmountBefore(PropagatorCalcEventAmountBefore object) {
+	public T caseCalcChildEventMoment(CalcChildEventMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Child Event Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Child Event Slope After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventMoment(PropagatorCalcEventMoment object) {
+	public T caseCalcChildEventSlopeAfter(CalcChildEventSlopeAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Slope After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc End Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Slope After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc End Event Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventSlopeAfter(PropagatorCalcEventSlopeAfter object) {
+	public T caseCalcEndEventMoment(CalcEndEventMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Slope Before</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Event Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Slope Before</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Event Amount After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventSlopeBefore(PropagatorCalcEventSlopeBefore object) {
+	public T caseCalcEventAmountAfter(CalcEventAmountAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Events Provider Refresh Events</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Event Amount Before</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Events Provider Refresh Events</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Event Amount Before</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventsProviderRefreshEvents(PropagatorCalcEventsProviderRefreshEvents object) {
+	public T caseCalcEventAmountBefore(CalcEventAmountBefore object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Atomic Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Atomic Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Event Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeAbsoluteAtomicMoment(PropagatorCalcSlopeAbsoluteAtomicMoment object) {
+	public T caseCalcEventMoment(CalcEventMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Event Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Event Slope After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute(PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute object) {
+	public T caseCalcEventSlopeAfter(CalcEventSlopeAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Slope Absolute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Event Slope Before</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Slope Absolute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Event Slope Before</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeAbsoluteSlopeAbsolute(PropagatorCalcSlopeAbsoluteSlopeAbsolute object) {
+	public T caseCalcEventSlopeBefore(CalcEventSlopeBefore object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Slope After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Events Provider Refresh Events</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Absolute Slope After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Events Provider Refresh Events</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeAbsoluteSlopeAfter(PropagatorCalcSlopeAbsoluteSlopeAfter object) {
+	public T caseCalcEventsProviderRefreshEvents(CalcEventsProviderRefreshEvents object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Atomic Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Absolute Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Atomic Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Absolute Atomic Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeImpulsionAtomicMoment(PropagatorCalcSlopeImpulsionAtomicMoment object) {
+	public T caseCalcSlopeAbsoluteAtomicMoment(CalcSlopeAbsoluteAtomicMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Absolute Atomic Slope Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Absolute Atomic Slope Absolute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeImpulsionAtomicSlopeImpulsion(PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion object) {
+	public T caseCalcSlopeAbsoluteAtomicSlopeAbsolute(CalcSlopeAbsoluteAtomicSlopeAbsolute object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Slope After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Absolute Slope Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Slope After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Absolute Slope Absolute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeImpulsionSlopeAfter(PropagatorCalcSlopeImpulsionSlopeAfter object) {
+	public T caseCalcSlopeAbsoluteSlopeAbsolute(CalcSlopeAbsoluteSlopeAbsolute object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Slope Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Absolute Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Slope Impulsion Slope Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Absolute Slope After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcSlopeImpulsionSlopeImpulsion(PropagatorCalcSlopeImpulsionSlopeImpulsion object) {
+	public T caseCalcSlopeAbsoluteSlopeAfter(CalcSlopeAbsoluteSlopeAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Start Event Amount After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Delta Atomic Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Start Event Amount After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Delta Atomic Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcStartEventAmountAfter(PropagatorCalcStartEventAmountAfter object) {
+	public T caseCalcSlopeDeltaAtomicMoment(CalcSlopeDeltaAtomicMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Start Event Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Delta Atomic Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Start Event Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Delta Atomic Slope Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcStartEventMoment(PropagatorCalcStartEventMoment object) {
+	public T caseCalcSlopeDeltaAtomicSlopeDelta(CalcSlopeDeltaAtomicSlopeDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Start Event Slope After</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Delta Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Start Event Slope After</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Delta Slope After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcStartEventSlopeAfter(PropagatorCalcStartEventSlopeAfter object) {
+	public T caseCalcSlopeDeltaSlopeAfter(CalcSlopeDeltaSlopeAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change End Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Slope Delta Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change End Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Slope Delta Slope Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcStockChangeEndMoment(PropagatorCalcStockChangeEndMoment object) {
+	public T caseCalcSlopeDeltaSlopeDelta(CalcSlopeDeltaSlopeDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change End Slope Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Start Event Amount After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change End Slope Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Start Event Amount After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcStockChangeEndSlopeImpulsion(PropagatorCalcStockChangeEndSlopeImpulsion object) {
+	public T caseCalcStartEventAmountAfter(CalcStartEventAmountAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change Start Moment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Start Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change Start Moment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Start Event Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcStockChangeStartMoment(PropagatorCalcStockChangeStartMoment object) {
+	public T caseCalcStartEventMoment(CalcStartEventMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change Start Slope Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Start Event Slope After</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Stock Change Start Slope Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Start Event Slope After</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcStockChangeStartSlopeImpulsion(PropagatorCalcStockChangeStartSlopeImpulsion object) {
+	public T caseCalcStartEventSlopeAfter(CalcStartEventSlopeAfter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Slope</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Stock Change End Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Slope</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Stock Change End Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventSlope(PropagatorCalcEventSlope object) {
+	public T caseCalcStockChangeEndMoment(CalcStockChangeEndMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Amount</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Stock Change End Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Amount</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Stock Change End Slope Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorCalcEventAmount(PropagatorCalcEventAmount object) {
+	public T caseCalcStockChangeEndSlopeDelta(CalcStockChangeEndSlopeDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Layer Composite Event Refresh</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Stock Change Start Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Layer Composite Event Refresh</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Stock Change Start Moment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorLayerCompositeEventRefresh(PropagatorLayerCompositeEventRefresh object) {
+	public T caseCalcStockChangeStartMoment(CalcStockChangeStartMoment object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Layer Distribution Amounts</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Stock Change Start Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Layer Distribution Amounts</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Stock Change Start Slope Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorLayerDistributionAmounts(PropagatorLayerDistributionAmounts object) {
+	public T caseCalcStockChangeStartSlopeDelta(CalcStockChangeStartSlopeDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Layer Distribution Slopes</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Event Slope</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Layer Distribution Slopes</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Event Slope</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorLayerDistributionSlopes(PropagatorLayerDistributionSlopes object) {
+	public T caseCalcEventSlope(CalcEventSlope object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Scope Distribution</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Calc Event Amount</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Scope Distribution</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Calc Event Amount</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropagatorScopeDistribution(PropagatorScopeDistribution object) {
+	public T caseCalcEventAmount(CalcEventAmount object) {
 		return null;
 	}
 

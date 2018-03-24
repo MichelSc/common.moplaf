@@ -30,6 +30,6 @@ public interface DistributionVisitor  {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	boolean visit(Date moment, float amount);
+	boolean visit(Date moment, double amount);
 
 } // DistributionVisitor

@@ -40,12 +40,12 @@ public interface StartEvent extends OwnedEvent {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount At Start</em>' attribute.
-	 * @see #setAmountAtStart(float)
+	 * @see #setAmountAtStart(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStartEvent_AmountAtStart()
 	 * @model
 	 * @generated
 	 */
-	float getAmountAtStart();
+	double getAmountAtStart();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StartEvent#getAmountAtStart <em>Amount At Start</em>}' attribute.
@@ -55,7 +55,7 @@ public interface StartEvent extends OwnedEvent {
 	 * @see #getAmountAtStart()
 	 * @generated
 	 */
-	void setAmountAtStart(float value);
+	void setAmountAtStart(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Slope At Start</b></em>' attribute.
@@ -66,12 +66,12 @@ public interface StartEvent extends OwnedEvent {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope At Start</em>' attribute.
-	 * @see #setSlopeAtStart(float)
+	 * @see #setSlopeAtStart(double)
 	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStartEvent_SlopeAtStart()
 	 * @model
 	 * @generated
 	 */
-	float getSlopeAtStart();
+	double getSlopeAtStart();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StartEvent#getSlopeAtStart <em>Slope At Start</em>}' attribute.
@@ -81,6 +81,6 @@ public interface StartEvent extends OwnedEvent {
 	 * @see #getSlopeAtStart()
 	 * @generated
 	 */
-	void setSlopeAtStart(float value);
+	void setSlopeAtStart(double value);
 
 } // StartEvent

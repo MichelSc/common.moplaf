@@ -44,7 +44,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SLOPE_ABSOLUTE_EDEFAULT = 0.0F;
+	protected static final double SLOPE_ABSOLUTE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getSlopeAbsolute() <em>Slope Absolute</em>}' attribute.
@@ -54,7 +54,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	 * @generated
 	 * @ordered
 	 */
-	protected float slopeAbsolute = SLOPE_ABSOLUTE_EDEFAULT;
+	protected double slopeAbsolute = SLOPE_ABSOLUTE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,7 +80,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSlopeAbsolute() {
+	public double getSlopeAbsolute() {
 		return slopeAbsolute;
 	}
 
@@ -89,8 +89,8 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSlopeAbsolute(float newSlopeAbsolute) {
-		float oldSlopeAbsolute = slopeAbsolute;
+	public void setSlopeAbsolute(double newSlopeAbsolute) {
+		double oldSlopeAbsolute = slopeAbsolute;
 		slopeAbsolute = newSlopeAbsolute;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE, oldSlopeAbsolute, slopeAbsolute));
@@ -130,7 +130,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
-				setSlopeAbsolute((Float)newValue);
+				setSlopeAbsolute((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,7 +201,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	 */
 	@Override
 	public void refreshSlopeAfter() {
-		float slopeAfter = this.getSlopeAbsolute();
+		double slopeAfter = this.getSlopeAbsolute();
 		this.setSlopeAfter(slopeAfter);
 	}
 	

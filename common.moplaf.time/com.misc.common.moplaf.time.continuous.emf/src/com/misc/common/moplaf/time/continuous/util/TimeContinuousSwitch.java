@@ -121,21 +121,21 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousPackage.AMOUNT_IMPULSION: {
-				AmountImpulsion amountImpulsion = (AmountImpulsion)theEObject;
-				T result = caseAmountImpulsion(amountImpulsion);
-				if (result == null) result = caseProvidedEvent(amountImpulsion);
-				if (result == null) result = caseDistributionEvent(amountImpulsion);
-				if (result == null) result = caseObjectWithPropagatorFunctions(amountImpulsion);
+			case TimeContinuousPackage.AMOUNT_DELTA: {
+				AmountDelta amountDelta = (AmountDelta)theEObject;
+				T result = caseAmountDelta(amountDelta);
+				if (result == null) result = caseProvidedEvent(amountDelta);
+				if (result == null) result = caseDistributionEvent(amountDelta);
+				if (result == null) result = caseObjectWithPropagatorFunctions(amountDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousPackage.SLOPE_IMPULSION: {
-				SlopeImpulsion slopeImpulsion = (SlopeImpulsion)theEObject;
-				T result = caseSlopeImpulsion(slopeImpulsion);
-				if (result == null) result = caseProvidedEvent(slopeImpulsion);
-				if (result == null) result = caseDistributionEvent(slopeImpulsion);
-				if (result == null) result = caseObjectWithPropagatorFunctions(slopeImpulsion);
+			case TimeContinuousPackage.SLOPE_DELTA: {
+				SlopeDelta slopeDelta = (SlopeDelta)theEObject;
+				T result = caseSlopeDelta(slopeDelta);
+				if (result == null) result = caseProvidedEvent(slopeDelta);
+				if (result == null) result = caseDistributionEvent(slopeDelta);
+				if (result == null) result = caseObjectWithPropagatorFunctions(slopeDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -160,7 +160,7 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 			case TimeContinuousPackage.CAPACITY_CHANGE_START: {
 				CapacityChangeStart capacityChangeStart = (CapacityChangeStart)theEObject;
 				T result = caseCapacityChangeStart(capacityChangeStart);
-				if (result == null) result = caseAmountImpulsion(capacityChangeStart);
+				if (result == null) result = caseAmountDelta(capacityChangeStart);
 				if (result == null) result = caseProvidedEvent(capacityChangeStart);
 				if (result == null) result = caseDistributionEvent(capacityChangeStart);
 				if (result == null) result = caseObjectWithPropagatorFunctions(capacityChangeStart);
@@ -170,7 +170,7 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 			case TimeContinuousPackage.CAPACITY_CHANGE_END: {
 				CapacityChangeEnd capacityChangeEnd = (CapacityChangeEnd)theEObject;
 				T result = caseCapacityChangeEnd(capacityChangeEnd);
-				if (result == null) result = caseAmountImpulsion(capacityChangeEnd);
+				if (result == null) result = caseAmountDelta(capacityChangeEnd);
 				if (result == null) result = caseProvidedEvent(capacityChangeEnd);
 				if (result == null) result = caseDistributionEvent(capacityChangeEnd);
 				if (result == null) result = caseObjectWithPropagatorFunctions(capacityChangeEnd);
@@ -180,7 +180,7 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 			case TimeContinuousPackage.STOCK_CHANGE_START: {
 				StockChangeStart stockChangeStart = (StockChangeStart)theEObject;
 				T result = caseStockChangeStart(stockChangeStart);
-				if (result == null) result = caseSlopeImpulsion(stockChangeStart);
+				if (result == null) result = caseSlopeDelta(stockChangeStart);
 				if (result == null) result = caseProvidedEvent(stockChangeStart);
 				if (result == null) result = caseDistributionEvent(stockChangeStart);
 				if (result == null) result = caseObjectWithPropagatorFunctions(stockChangeStart);
@@ -190,30 +190,30 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 			case TimeContinuousPackage.STOCK_CHANGE_END: {
 				StockChangeEnd stockChangeEnd = (StockChangeEnd)theEObject;
 				T result = caseStockChangeEnd(stockChangeEnd);
-				if (result == null) result = caseSlopeImpulsion(stockChangeEnd);
+				if (result == null) result = caseSlopeDelta(stockChangeEnd);
 				if (result == null) result = caseProvidedEvent(stockChangeEnd);
 				if (result == null) result = caseDistributionEvent(stockChangeEnd);
 				if (result == null) result = caseObjectWithPropagatorFunctions(stockChangeEnd);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC: {
-				AmountImpulsionAtomic amountImpulsionAtomic = (AmountImpulsionAtomic)theEObject;
-				T result = caseAmountImpulsionAtomic(amountImpulsionAtomic);
-				if (result == null) result = caseAmountImpulsion(amountImpulsionAtomic);
-				if (result == null) result = caseProvidedEvent(amountImpulsionAtomic);
-				if (result == null) result = caseDistributionEvent(amountImpulsionAtomic);
-				if (result == null) result = caseObjectWithPropagatorFunctions(amountImpulsionAtomic);
+			case TimeContinuousPackage.AMOUNT_DELTA_ATOMIC: {
+				AmountDeltaAtomic amountDeltaAtomic = (AmountDeltaAtomic)theEObject;
+				T result = caseAmountDeltaAtomic(amountDeltaAtomic);
+				if (result == null) result = caseAmountDelta(amountDeltaAtomic);
+				if (result == null) result = caseProvidedEvent(amountDeltaAtomic);
+				if (result == null) result = caseDistributionEvent(amountDeltaAtomic);
+				if (result == null) result = caseObjectWithPropagatorFunctions(amountDeltaAtomic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousPackage.SLOPE_IMPULSION_ATOMIC: {
-				SlopeImpulsionAtomic slopeImpulsionAtomic = (SlopeImpulsionAtomic)theEObject;
-				T result = caseSlopeImpulsionAtomic(slopeImpulsionAtomic);
-				if (result == null) result = caseSlopeImpulsion(slopeImpulsionAtomic);
-				if (result == null) result = caseProvidedEvent(slopeImpulsionAtomic);
-				if (result == null) result = caseDistributionEvent(slopeImpulsionAtomic);
-				if (result == null) result = caseObjectWithPropagatorFunctions(slopeImpulsionAtomic);
+			case TimeContinuousPackage.SLOPE_DELTA_ATOMIC: {
+				SlopeDeltaAtomic slopeDeltaAtomic = (SlopeDeltaAtomic)theEObject;
+				T result = caseSlopeDeltaAtomic(slopeDeltaAtomic);
+				if (result == null) result = caseSlopeDelta(slopeDeltaAtomic);
+				if (result == null) result = caseProvidedEvent(slopeDeltaAtomic);
+				if (result == null) result = caseDistributionEvent(slopeDeltaAtomic);
+				if (result == null) result = caseObjectWithPropagatorFunctions(slopeDeltaAtomic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -278,12 +278,12 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousPackage.SLOPE_IMPULSION_PROVIDER: {
-				SlopeImpulsionProvider slopeImpulsionProvider = (SlopeImpulsionProvider)theEObject;
-				T result = caseSlopeImpulsionProvider(slopeImpulsionProvider);
-				if (result == null) result = caseEventProvider(slopeImpulsionProvider);
-				if (result == null) result = caseEventsProviderAbstract(slopeImpulsionProvider);
-				if (result == null) result = caseObjectWithPropagatorFunctions(slopeImpulsionProvider);
+			case TimeContinuousPackage.SLOPE_DELTA_PROVIDER: {
+				SlopeDeltaProvider slopeDeltaProvider = (SlopeDeltaProvider)theEObject;
+				T result = caseSlopeDeltaProvider(slopeDeltaProvider);
+				if (result == null) result = caseEventProvider(slopeDeltaProvider);
+				if (result == null) result = caseEventsProviderAbstract(slopeDeltaProvider);
+				if (result == null) result = caseObjectWithPropagatorFunctions(slopeDeltaProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -296,12 +296,12 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER: {
-				AmountImpulsionProvider amountImpulsionProvider = (AmountImpulsionProvider)theEObject;
-				T result = caseAmountImpulsionProvider(amountImpulsionProvider);
-				if (result == null) result = caseEventProvider(amountImpulsionProvider);
-				if (result == null) result = caseEventsProviderAbstract(amountImpulsionProvider);
-				if (result == null) result = caseObjectWithPropagatorFunctions(amountImpulsionProvider);
+			case TimeContinuousPackage.AMOUNT_DELTA_PROVIDER: {
+				AmountDeltaProvider amountDeltaProvider = (AmountDeltaProvider)theEObject;
+				T result = caseAmountDeltaProvider(amountDeltaProvider);
+				if (result == null) result = caseEventProvider(amountDeltaProvider);
+				if (result == null) result = caseEventsProviderAbstract(amountDeltaProvider);
+				if (result == null) result = caseObjectWithPropagatorFunctions(amountDeltaProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -445,32 +445,32 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Amount Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Amount Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Amount Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Amount Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAmountImpulsion(AmountImpulsion object) {
+	public T caseAmountDelta(AmountDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Slope Impulsion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Slope Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Slope Impulsion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Slope Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSlopeImpulsion(SlopeImpulsion object) {
+	public T caseSlopeDelta(SlopeDelta object) {
 		return null;
 	}
 
@@ -565,32 +565,32 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Amount Impulsion Atomic</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Amount Delta Atomic</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Amount Impulsion Atomic</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Amount Delta Atomic</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAmountImpulsionAtomic(AmountImpulsionAtomic object) {
+	public T caseAmountDeltaAtomic(AmountDeltaAtomic object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Slope Impulsion Atomic</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Slope Delta Atomic</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Slope Impulsion Atomic</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Slope Delta Atomic</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSlopeImpulsionAtomic(SlopeImpulsionAtomic object) {
+	public T caseSlopeDeltaAtomic(SlopeDeltaAtomic object) {
 		return null;
 	}
 
@@ -700,17 +700,17 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Slope Impulsion Provider</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Slope Delta Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Slope Impulsion Provider</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Slope Delta Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSlopeImpulsionProvider(SlopeImpulsionProvider object) {
+	public T caseSlopeDeltaProvider(SlopeDeltaProvider object) {
 		return null;
 	}
 
@@ -730,17 +730,17 @@ public class TimeContinuousSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Amount Impulsion Provider</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Amount Delta Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Amount Impulsion Provider</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Amount Delta Provider</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAmountImpulsionProvider(AmountImpulsionProvider object) {
+	public T caseAmountDeltaProvider(AmountDeltaProvider object) {
 		return null;
 	}
 
