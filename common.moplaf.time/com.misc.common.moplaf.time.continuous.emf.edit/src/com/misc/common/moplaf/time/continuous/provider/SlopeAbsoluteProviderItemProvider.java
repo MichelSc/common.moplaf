@@ -18,7 +18,6 @@ import com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -115,16 +114,15 @@ public class SlopeAbsoluteProviderItemProvider extends EventProviderItemProvider
 	}
 
 	/**
-	 * This returns SlopeAbsoluteProvider.gif.
+	 * This returns SlopeDeltaProvider.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SlopeAbsoluteProvider"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/event_slope_abs.png"));
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
@@ -133,11 +131,8 @@ public class SlopeAbsoluteProviderItemProvider extends EventProviderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((SlopeAbsoluteProvider)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SlopeAbsoluteProvider_type") :
-			getString("_UI_SlopeAbsoluteProvider_type") + " " + label;
+		SlopeAbsoluteProvider slopeAbsoluteProvider = (SlopeAbsoluteProvider)object;
+		return getString("_UI_SlopeAbsoluteProvider_type") + " " + slopeAbsoluteProvider.getSlopeAbsolute();
 	}
 	
 

@@ -104,14 +104,13 @@ public class StartEventItemProvider
 	}
 
 	/**
-	 * This returns StartEvent.gif.
+	 * This returns EndEvent.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StartEvent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/event_start.png"));
 	}
 
 	/**

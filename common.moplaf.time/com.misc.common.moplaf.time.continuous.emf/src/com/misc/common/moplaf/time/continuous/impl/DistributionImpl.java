@@ -56,6 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getTimeUnit <em>Time Unit</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getHorizonStart <em>Horizon Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getHorizonEnd <em>Horizon End</em>}</li>
@@ -72,6 +73,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implements Distribution {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -230,6 +251,27 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	@Override
 	protected EClass eStaticClass() {
 		return TimeContinuousPackage.Literals.DISTRIBUTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION__NAME, oldName, name));
 	}
 
 	/**
@@ -1253,6 +1295,8 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case TimeContinuousPackage.DISTRIBUTION__NAME:
+				return getName();
 			case TimeContinuousPackage.DISTRIBUTION__TIME_UNIT:
 				return getTimeUnit();
 			case TimeContinuousPackage.DISTRIBUTION__HORIZON_START:
@@ -1289,6 +1333,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case TimeContinuousPackage.DISTRIBUTION__NAME:
+				setName((String)newValue);
+				return;
 			case TimeContinuousPackage.DISTRIBUTION__TIME_UNIT:
 				setTimeUnit((TimeUnit)newValue);
 				return;
@@ -1339,6 +1386,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case TimeContinuousPackage.DISTRIBUTION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case TimeContinuousPackage.DISTRIBUTION__TIME_UNIT:
 				setTimeUnit(TIME_UNIT_EDEFAULT);
 				return;
@@ -1384,6 +1434,8 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case TimeContinuousPackage.DISTRIBUTION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TimeContinuousPackage.DISTRIBUTION__TIME_UNIT:
 				return timeUnit != TIME_UNIT_EDEFAULT;
 			case TimeContinuousPackage.DISTRIBUTION__HORIZON_START:
@@ -1490,7 +1542,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (TimeUnit: ");
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(", TimeUnit: ");
 		result.append(timeUnit);
 		result.append(", HorizonStart: ");
 		result.append(horizonStart);

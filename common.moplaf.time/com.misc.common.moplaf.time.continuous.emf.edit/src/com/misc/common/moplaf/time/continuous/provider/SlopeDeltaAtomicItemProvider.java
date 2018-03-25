@@ -6,7 +6,6 @@ package com.misc.common.moplaf.time.continuous.provider;
 import com.misc.common.moplaf.time.continuous.SlopeDeltaAtomic;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -47,17 +46,6 @@ public class SlopeDeltaAtomicItemProvider extends SlopeDeltaItemProvider {
 	}
 
 	/**
-	 * This returns SlopeDeltaAtomic.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SlopeDeltaAtomic"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,8 +53,7 @@ public class SlopeDeltaAtomicItemProvider extends SlopeDeltaItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((SlopeDeltaAtomic)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((SlopeDeltaAtomic)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SlopeDeltaAtomic_type") :
 			getString("_UI_SlopeDeltaAtomic_type") + " " + label;

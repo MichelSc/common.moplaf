@@ -110,11 +110,10 @@ public class SlopeDeltaProviderItemProvider extends EventProviderItemProvider {
 	 * This returns SlopeDeltaProvider.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SlopeDeltaProvider"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/event_slope_delta.png"));
 	}
 
 	/**

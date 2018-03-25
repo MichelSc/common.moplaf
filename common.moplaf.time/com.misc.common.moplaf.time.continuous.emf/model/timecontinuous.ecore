@@ -147,6 +147,7 @@
       <eParameters name="visitor" eType="#//DistributionVisitor"/>
     </eOperations>
     <eOperations name="refresh"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimeUnit" eType="#//TimeUnit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
         defaultValueLiteral="2000-01-01"/>

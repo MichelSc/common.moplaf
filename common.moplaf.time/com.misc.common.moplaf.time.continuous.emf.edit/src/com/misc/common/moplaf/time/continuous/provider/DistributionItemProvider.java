@@ -19,7 +19,6 @@ import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
-import com.misc.common.moplaf.time.continuous.TimeUnit;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 import java.util.ArrayList;
@@ -68,6 +67,7 @@ public class DistributionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addTimeUnitPropertyDescriptor(object);
 			addHorizonStartPropertyDescriptor(object);
 			addHorizonEndPropertyDescriptor(object);
@@ -257,6 +257,28 @@ public class DistributionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Distribution_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_Name_feature", "_UI_Distribution_type"),
+				 TimeContinuousPackage.Literals.DISTRIBUTION__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10DistributioninPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -291,11 +313,10 @@ public class DistributionItemProvider
 	 * This returns Distribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Distribution"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/distribution.png"));
 	}
 
 	/**
@@ -306,8 +327,7 @@ public class DistributionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		TimeUnit labelValue = ((Distribution)object).getTimeUnit();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Distribution)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Distribution_type") :
 			getString("_UI_Distribution_type") + " " + label;
@@ -325,6 +345,7 @@ public class DistributionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Distribution.class)) {
+			case TimeContinuousPackage.DISTRIBUTION__NAME:
 			case TimeContinuousPackage.DISTRIBUTION__TIME_UNIT:
 			case TimeContinuousPackage.DISTRIBUTION__HORIZON_START:
 			case TimeContinuousPackage.DISTRIBUTION__HORIZON_END:

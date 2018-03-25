@@ -91,13 +91,22 @@ public interface TimeContinuousPackage extends EPackage {
 	int DISTRIBUTION__PROPAGATOR_FUNCTIONS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION__NAME = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Time Unit</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__TIME_UNIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 0;
+	int DISTRIBUTION__TIME_UNIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Horizon Start</b></em>' attribute.
@@ -106,7 +115,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__HORIZON_START = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 1;
+	int DISTRIBUTION__HORIZON_START = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Horizon End</b></em>' attribute.
@@ -115,7 +124,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__HORIZON_END = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 2;
+	int DISTRIBUTION__HORIZON_END = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Child Events</b></em>' containment reference list.
@@ -124,7 +133,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__CHILD_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 3;
+	int DISTRIBUTION__CHILD_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Events</b></em>' reference list.
@@ -133,7 +142,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__SEQUENCE_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 4;
+	int DISTRIBUTION__SEQUENCE_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -142,7 +151,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__START = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 5;
+	int DISTRIBUTION__START = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
@@ -151,7 +160,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__END = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 6;
+	int DISTRIBUTION__END = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Events Providers</b></em>' containment reference list.
@@ -160,7 +169,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__EVENTS_PROVIDERS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 7;
+	int DISTRIBUTION__EVENTS_PROVIDERS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Parent Distribution</b></em>' reference.
@@ -169,7 +178,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__PARENT_DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 8;
+	int DISTRIBUTION__PARENT_DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Child Distribution</b></em>' reference list.
@@ -178,7 +187,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__CHILD_DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 9;
+	int DISTRIBUTION__CHILD_DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
@@ -187,7 +196,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION__PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 10;
+	int DISTRIBUTION__PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Distribution</em>' class.
@@ -196,7 +205,7 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 11;
+	int DISTRIBUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -7794,6 +7803,17 @@ public interface TimeContinuousPackage extends EPackage {
 	EClass getDistribution();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.Distribution#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getName()
+	 * @see #getDistribution()
+	 * @generated
+	 */
+	EAttribute getDistribution_Name();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.Distribution#getTimeUnit <em>Time Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9260,6 +9280,14 @@ public interface TimeContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DISTRIBUTION = eINSTANCE.getDistribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISTRIBUTION__NAME = eINSTANCE.getDistribution_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Time Unit</b></em>' attribute feature.

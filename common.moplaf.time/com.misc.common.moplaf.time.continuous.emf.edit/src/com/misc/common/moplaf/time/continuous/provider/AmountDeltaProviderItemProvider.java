@@ -110,11 +110,10 @@ public class AmountDeltaProviderItemProvider extends EventProviderItemProvider {
 	 * This returns AmountDeltaProvider.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AmountDeltaProvider"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/event_amount_delta.png"));
 	}
 
 	/**

@@ -57,11 +57,10 @@ public class EndEventItemProvider
 	 * This returns EndEvent.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EndEvent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/event_end.png"));
 	}
 
 	/**

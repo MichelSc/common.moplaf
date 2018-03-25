@@ -17,7 +17,6 @@ import com.misc.common.moplaf.time.continuous.CapacityChange;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -164,11 +163,10 @@ public class CapacityChangeItemProvider
 	 * This returns CapacityChange.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CapacityChange"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/capacity_change.png"));
 	}
 
 	/**
@@ -179,11 +177,8 @@ public class CapacityChangeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((CapacityChange)object).getStart();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CapacityChange_type") :
-			getString("_UI_CapacityChange_type") + " " + label;
+		CapacityChange capacityChange = (CapacityChange)object;
+		return getString("_UI_CapacityChange_type") + " " + capacityChange.getAmount();
 	}
 
 	/**

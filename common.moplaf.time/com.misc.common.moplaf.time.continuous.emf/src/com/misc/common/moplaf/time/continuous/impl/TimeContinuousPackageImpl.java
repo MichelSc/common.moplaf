@@ -384,7 +384,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDistribution_TimeUnit() {
+	public EAttribute getDistribution_Name() {
 		return (EAttribute)distributionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -393,7 +393,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDistribution_HorizonStart() {
+	public EAttribute getDistribution_TimeUnit() {
 		return (EAttribute)distributionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -402,7 +402,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDistribution_HorizonEnd() {
+	public EAttribute getDistribution_HorizonStart() {
 		return (EAttribute)distributionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -411,8 +411,8 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_ChildEvents() {
-		return (EReference)distributionEClass.getEStructuralFeatures().get(3);
+	public EAttribute getDistribution_HorizonEnd() {
+		return (EAttribute)distributionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -420,7 +420,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_SequenceEvents() {
+	public EReference getDistribution_ChildEvents() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -429,7 +429,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_Start() {
+	public EReference getDistribution_SequenceEvents() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -438,7 +438,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_End() {
+	public EReference getDistribution_Start() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -447,7 +447,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_EventsProviders() {
+	public EReference getDistribution_End() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -456,7 +456,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_ParentDistribution() {
+	public EReference getDistribution_EventsProviders() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -465,7 +465,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_ChildDistribution() {
+	public EReference getDistribution_ParentDistribution() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -474,8 +474,17 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_ProvidedEvents() {
+	public EReference getDistribution_ChildDistribution() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDistribution_ProvidedEvents() {
+		return (EReference)distributionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1641,6 +1650,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 
 		// Create classes and their features
 		distributionEClass = createEClass(DISTRIBUTION);
+		createEAttribute(distributionEClass, DISTRIBUTION__NAME);
 		createEAttribute(distributionEClass, DISTRIBUTION__TIME_UNIT);
 		createEAttribute(distributionEClass, DISTRIBUTION__HORIZON_START);
 		createEAttribute(distributionEClass, DISTRIBUTION__HORIZON_END);
@@ -1881,6 +1891,7 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDistribution_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistribution_TimeUnit(), this.getTimeUnit(), "TimeUnit", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistribution_HorizonStart(), ecorePackage.getEDate(), "HorizonStart", "2000-01-01", 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistribution_HorizonEnd(), ecorePackage.getEDate(), "HorizonEnd", "2099-12-31", 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

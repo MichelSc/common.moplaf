@@ -17,7 +17,6 @@ import com.misc.common.moplaf.time.continuous.StockChange;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -161,14 +160,13 @@ public class StockChangeItemProvider
 	}
 
 	/**
-	 * This returns StockChange.gif.
+	 * This returns CapacityChange.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StockChange"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/stock_change.png"));
 	}
 
 	/**
@@ -179,11 +177,8 @@ public class StockChangeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((StockChange)object).getStart();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StockChange_type") :
-			getString("_UI_StockChange_type") + " " + label;
+		StockChange stockChange = (StockChange)object;
+		return getString("_UI_StockChange_type") + " " + stockChange.getSlope();
 	}
 
 	/**
