@@ -62,23 +62,29 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 	}
 	
 	private class JobEngineRunContext implements RunContext{
+		
+		private JobScheduled job_scheduled;
+		
+		public JobEngineRunContext(JobScheduled job_scheduled) {
+			super();
+			this.job_scheduled = job_scheduled;
+		}
 
 		@Override
 		public boolean onProgress(Run run, ProgressFeedback progress) {
-			JobScheduled job = JobEngineInProcessImpl.this.getJobsScheduled().stream()
-					.filter(js -> js.getRun()==run)
-					.findFirst()
-					.orElse(null);
-
 			boolean goOn = true;
-			if ( run.isReturned()) {
-				// the run is finished
-				ReturnFeedback feedback = run.getReturn();
-				job.setReturn(feedback);
-			} else {
-				// report the progress
-				job.setRunning();
+			if ( this.job_scheduled.getRun()==run ) {
+				// progress about this very run
+				if ( run.isReturned()) {
+					// the run is finished
+					ReturnFeedback feedback = run.getReturn();
+					this.job_scheduled.setReturn(feedback);
+				} else {
+					// report the progress
+					this.job_scheduled.setRunning();
+				}
 			}
+
 			return goOn;
 		}
 	}
@@ -90,7 +96,7 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 	protected int executeJobImpl(JobScheduled job) {
 		Run run = job.getRun();
 		boolean run_in_background = true; // no dialog to cancel
-		run.runAsynch(new JobEngineRunContext(), run_in_background);
+		run.runAsynch(new JobEngineRunContext(job), run_in_background);
 		return job.getScheduleNr();
 	}
 
