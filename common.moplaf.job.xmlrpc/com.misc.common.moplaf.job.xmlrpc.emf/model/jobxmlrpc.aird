@@ -135,10 +135,6 @@
         <children xmi:type="notation:Node" xmi:id="_2luVoCUbEeiAb97WlsxG4A" type="2003" element="_2lVUECUbEeiAb97WlsxG4A">
           <children xmi:type="notation:Node" xmi:id="_2mDFwCUbEeiAb97WlsxG4A" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_2mET4CUbEeiAb97WlsxG4A" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_2mH-QyUbEeiAb97WlsxG4A" type="3010" element="_2lg6QyUbEeiAb97WlsxG4A">
-              <styles xmi:type="notation:FontStyle" xmi:id="_2mH-RCUbEeiAb97WlsxG4A" fontName="Oxygen-Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_2mH-RSUbEeiAb97WlsxG4A"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_2mIlUCUbEeiAb97WlsxG4A" type="3010" element="_2lhhUSUbEeiAb97WlsxG4A">
               <styles xmi:type="notation:FontStyle" xmi:id="_2mIlUSUbEeiAb97WlsxG4A" fontColor="7490599" fontName="Oxygen-Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_2mIlUiUbEeiAb97WlsxG4A"/>
@@ -418,14 +414,6 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2lg6QyUbEeiAb97WlsxG4A" name="Name : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobSchedulerService/Name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobSchedulerService/Name"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2lhhUCUbEeiAb97WlsxG4A" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2lhhUSUbEeiAb97WlsxG4A" name="/Description : EString" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobSchedulerService/Description"/>
         <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobSchedulerService/Description"/>
