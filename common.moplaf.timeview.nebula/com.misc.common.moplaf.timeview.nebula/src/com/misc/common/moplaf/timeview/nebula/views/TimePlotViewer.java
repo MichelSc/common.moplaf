@@ -209,7 +209,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 
 		// create a new XY Graph.
 		this.xyGraph = new XYGraph();
-		this.xyGraph.setTitle("Simple Example");
+//		this.xyGraph.setTitle("Simple Example");
 		Date today = new Date();
 		this.toolbarArmedXYGraph = new ToolbarArmedXYGraph(this.xyGraph);
 		
@@ -347,7 +347,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 			}
 		}
 		
-		if ( allRemoved && !somethingAdded){
+		if ( allRemoved && !somethingAdded && false){
 			// selection is empty
 			// nothing was added
 			// keep the current selection

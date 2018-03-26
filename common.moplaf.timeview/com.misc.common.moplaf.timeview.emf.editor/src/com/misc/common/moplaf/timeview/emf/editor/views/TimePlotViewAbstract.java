@@ -52,6 +52,9 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
 					TimePlotViewAbstract.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
+				else {
+					TimePlotViewAbstract.this.viewer.setInput(null);
+				}
 			} // there is a viewer
 		}
 	}
