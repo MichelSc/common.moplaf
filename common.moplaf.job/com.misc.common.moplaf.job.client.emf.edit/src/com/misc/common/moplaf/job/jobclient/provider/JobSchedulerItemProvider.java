@@ -498,7 +498,7 @@ public class JobSchedulerItemProvider
 		JobScheduler this_scheduler = (JobScheduler) owner;
 		if ( droppedObject instanceof Run){
   	   		Run dropped_run= (Run) droppedObject;
-  	   	JobSchedulerSubmitRunCommand cmd = new JobSchedulerSubmitRunCommand(this_scheduler, dropped_run);
+  	   		JobSchedulerSubmitRunCommand cmd = new JobSchedulerSubmitRunCommand(this_scheduler, dropped_run);
 		   	return cmd;
 		} 
 		return null;
