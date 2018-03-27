@@ -12,8 +12,9 @@
  */
 package com.misc.common.moplaf.job.util;
 
+import com.misc.common.moplaf.file.FileHandler;
+import com.misc.common.moplaf.file.FileOwner;
 import com.misc.common.moplaf.job.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -153,6 +154,23 @@ public class JobSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JobPackage.JOB_FILE_HANDLER: {
+				JobFileHandler jobFileHandler = (JobFileHandler)theEObject;
+				T result = caseJobFileHandler(jobFileHandler);
+				if (result == null) result = caseJob(jobFileHandler);
+				if (result == null) result = caseFileHandler(jobFileHandler);
+				if (result == null) result = caseRun(jobFileHandler);
+				if (result == null) result = caseFileOwner(jobFileHandler);
+				if (result == null) result = caseRunParams(jobFileHandler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.RUNS: {
+				Runs runs = (Runs)theEObject;
+				T result = caseRuns(runs);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -229,6 +247,66 @@ public class JobSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobConsole(JobConsole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJobFileHandler(JobFileHandler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Runs</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Runs</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRuns(Runs object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileOwner(FileOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileHandler(FileHandler object) {
 		return null;
 	}
 

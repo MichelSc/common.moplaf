@@ -156,4 +156,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="RunsParams" upperBound="-1"
         eType="#//RunParams" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobFileHandler" abstract="true" eSuperTypes="#//Job ../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileHandler"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Runs">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Runs" upperBound="-1" eType="#//Run"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

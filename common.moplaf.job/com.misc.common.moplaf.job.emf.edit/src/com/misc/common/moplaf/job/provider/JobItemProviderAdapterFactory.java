@@ -105,6 +105,29 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Runs} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RunsItemProvider runsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.Runs}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRunsAdapter() {
+		if (runsItemProvider == null) {
+			runsItemProvider = new RunsItemProvider(this);
+		}
+
+		return runsItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.RunParams} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -319,6 +342,7 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	 */
 	public void dispose() {
 		if (jobParameterItemProvider != null) jobParameterItemProvider.dispose();
+		if (runsItemProvider != null) runsItemProvider.dispose();
 		if (runParamsItemProvider != null) runParamsItemProvider.dispose();
 		if (setterItemProvider != null) setterItemProvider.dispose();
 		if (setterAttributeIntItemProvider != null) setterAttributeIntItemProvider.dispose();

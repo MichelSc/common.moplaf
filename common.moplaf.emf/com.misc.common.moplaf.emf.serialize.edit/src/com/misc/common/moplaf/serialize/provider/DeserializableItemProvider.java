@@ -219,6 +219,11 @@ public class DeserializableItemProvider
 			(createChildParameter
 				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
 				 FileFactory.eINSTANCE.createFileInMemory()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
+				 FileFactory.eINSTANCE.createFiles()));
 	}
 
 	/**
@@ -233,7 +238,7 @@ public class DeserializableItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == FilePackage.Literals.FILE_READER_WRITER__FILES ||
+			childFeature == FilePackage.Literals.FILE_OWNER__FILES ||
 			childFeature == SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS;
 
 		if (qualify) {

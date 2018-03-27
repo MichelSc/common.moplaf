@@ -3,8 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.job.emf/src" modelPluginID="com.misc.common.moplaf.job.emf"
     modelName="Job" modelPluginClass="com.misc.common.moplaf.job.Plugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
-    importOrganizing="true">
+    usedGenPackages="../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>job.ecore</foreignModel>
   <genPackages prefix="Job" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="job.ecore#/">
@@ -25,6 +25,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//JobParameter/Type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference job.ecore#//JobParameter/JobAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//JobParameter/Description"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//Runs">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Runs/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Runs/Runs"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//RunParams">
       <genOperations ecoreOperation="job.ecore#//RunParams/copyParams">
@@ -153,5 +157,6 @@
         <genParameters ecoreParameter="job.ecore#//ParamsHolder/constructParams/run"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="job.ecore#//JobFileHandler"/>
   </genPackages>
 </genmodel:GenModel>

@@ -234,6 +234,98 @@ public interface FilePackage extends EPackage {
 	int FILE_IN_MEMORY_OPERATION_COUNT = FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FileOwnerImpl <em>Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.file.impl.FileOwnerImpl
+	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileOwner()
+	 * @generated
+	 */
+	int FILE_OWNER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OWNER__FILES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OWNER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OWNER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FileHandlerImpl <em>Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.file.impl.FileHandlerImpl
+	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileHandler()
+	 * @generated
+	 */
+	int FILE_HANDLER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_HANDLER__FILES = FILE_OWNER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Selected File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_HANDLER__SELECTED_FILE = FILE_OWNER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Handled File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_HANDLER__HANDLED_FILE = FILE_OWNER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_HANDLER_FEATURE_COUNT = FILE_OWNER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_HANDLER_OPERATION_COUNT = FILE_OWNER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl <em>Reader Writer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,7 +342,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER__FILES = 0;
+	int FILE_READER_WRITER__FILES = FILE_HANDLER__FILES;
 
 	/**
 	 * The feature id for the '<em><b>Selected File</b></em>' reference.
@@ -259,7 +351,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER__SELECTED_FILE = 1;
+	int FILE_READER_WRITER__SELECTED_FILE = FILE_HANDLER__SELECTED_FILE;
 
 	/**
 	 * The feature id for the '<em><b>Handled File</b></em>' reference.
@@ -268,7 +360,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER__HANDLED_FILE = 2;
+	int FILE_READER_WRITER__HANDLED_FILE = FILE_HANDLER__HANDLED_FILE;
 
 	/**
 	 * The feature id for the '<em><b>Read Feedback</b></em>' attribute.
@@ -277,7 +369,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER__READ_FEEDBACK = 3;
+	int FILE_READER_WRITER__READ_FEEDBACK = FILE_HANDLER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Write Feedback</b></em>' attribute.
@@ -286,7 +378,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER__WRITE_FEEDBACK = 4;
+	int FILE_READER_WRITER__WRITE_FEEDBACK = FILE_HANDLER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Reader Writer</em>' class.
@@ -295,7 +387,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER_FEATURE_COUNT = 5;
+	int FILE_READER_WRITER_FEATURE_COUNT = FILE_HANDLER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Read Feedback</em>' operation.
@@ -304,7 +396,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___GET_READ_FEEDBACK__FILE = 0;
+	int FILE_READER_WRITER___GET_READ_FEEDBACK__FILE = FILE_HANDLER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Write Feedback</em>' operation.
@@ -313,7 +405,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE = 1;
+	int FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE = FILE_HANDLER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -322,7 +414,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___READ_FILE = 2;
+	int FILE_READER_WRITER___READ_FILE = FILE_HANDLER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Write File</em>' operation.
@@ -331,7 +423,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___WRITE_FILE = 3;
+	int FILE_READER_WRITER___WRITE_FILE = FILE_HANDLER_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -340,7 +432,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___READ_FILE__FILE = 4;
+	int FILE_READER_WRITER___READ_FILE__FILE = FILE_HANDLER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Write File</em>' operation.
@@ -349,7 +441,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___WRITE_FILE__FILE = 5;
+	int FILE_READER_WRITER___WRITE_FILE__FILE = FILE_HANDLER_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Reader Writer</em>' class.
@@ -358,7 +450,53 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER_OPERATION_COUNT = 6;
+	int FILE_READER_WRITER_OPERATION_COUNT = FILE_HANDLER_OPERATION_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FilesImpl <em>Files</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.file.impl.FilesImpl
+	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFiles()
+	 * @generated
+	 */
+	int FILES = 7;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILES__FILES = FILE_OWNER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILES__NAME = FILE_OWNER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Files</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILES_FEATURE_COUNT = FILE_OWNER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Files</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILES_OPERATION_COUNT = FILE_OWNER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -368,7 +506,7 @@ public interface FilePackage extends EPackage {
 	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 5;
+	int ENABLED_FEEDBACK = 8;
 
 
 	/**
@@ -466,39 +604,6 @@ public interface FilePackage extends EPackage {
 	EClass getFileReaderWriter();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.file.FileReaderWriter#getFiles <em>Files</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Files</em>'.
-	 * @see com.misc.common.moplaf.file.FileReaderWriter#getFiles()
-	 * @see #getFileReaderWriter()
-	 * @generated
-	 */
-	EReference getFileReaderWriter_Files();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.file.FileReaderWriter#getSelectedFile <em>Selected File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Selected File</em>'.
-	 * @see com.misc.common.moplaf.file.FileReaderWriter#getSelectedFile()
-	 * @see #getFileReaderWriter()
-	 * @generated
-	 */
-	EReference getFileReaderWriter_SelectedFile();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.file.FileReaderWriter#getHandledFile <em>Handled File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Handled File</em>'.
-	 * @see com.misc.common.moplaf.file.FileReaderWriter#getHandledFile()
-	 * @see #getFileReaderWriter()
-	 * @generated
-	 */
-	EReference getFileReaderWriter_HandledFile();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.file.FileReaderWriter#getReadFeedback <em>Read Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -579,6 +684,80 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getFileReaderWriter__WriteFile__File();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.file.FileHandler <em>Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Handler</em>'.
+	 * @see com.misc.common.moplaf.file.FileHandler
+	 * @generated
+	 */
+	EClass getFileHandler();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.file.FileHandler#getSelectedFile <em>Selected File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Selected File</em>'.
+	 * @see com.misc.common.moplaf.file.FileHandler#getSelectedFile()
+	 * @see #getFileHandler()
+	 * @generated
+	 */
+	EReference getFileHandler_SelectedFile();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.file.FileHandler#getHandledFile <em>Handled File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Handled File</em>'.
+	 * @see com.misc.common.moplaf.file.FileHandler#getHandledFile()
+	 * @see #getFileHandler()
+	 * @generated
+	 */
+	EReference getFileHandler_HandledFile();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.file.FileOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Owner</em>'.
+	 * @see com.misc.common.moplaf.file.FileOwner
+	 * @generated
+	 */
+	EClass getFileOwner();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.file.FileOwner#getFiles <em>Files</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Files</em>'.
+	 * @see com.misc.common.moplaf.file.FileOwner#getFiles()
+	 * @see #getFileOwner()
+	 * @generated
+	 */
+	EReference getFileOwner_Files();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.file.Files <em>Files</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Files</em>'.
+	 * @see com.misc.common.moplaf.file.Files
+	 * @generated
+	 */
+	EClass getFiles();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.file.Files#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.file.Files#getName()
+	 * @see #getFiles()
+	 * @generated
+	 */
+	EAttribute getFiles_Name();
 
 	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.EnabledFeedback <em>Enabled Feedback</em>}'.
@@ -697,30 +876,6 @@ public interface FilePackage extends EPackage {
 		EClass FILE_READER_WRITER = eINSTANCE.getFileReaderWriter();
 
 		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FILE_READER_WRITER__FILES = eINSTANCE.getFileReaderWriter_Files();
-
-		/**
-		 * The meta object literal for the '<em><b>Selected File</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FILE_READER_WRITER__SELECTED_FILE = eINSTANCE.getFileReaderWriter_SelectedFile();
-
-		/**
-		 * The meta object literal for the '<em><b>Handled File</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FILE_READER_WRITER__HANDLED_FILE = eINSTANCE.getFileReaderWriter_HandledFile();
-
-		/**
 		 * The meta object literal for the '<em><b>Read Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -783,6 +938,68 @@ public interface FilePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FILE_READER_WRITER___WRITE_FILE__FILE = eINSTANCE.getFileReaderWriter__WriteFile__File();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.file.impl.FileHandlerImpl <em>Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.file.impl.FileHandlerImpl
+		 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileHandler()
+		 * @generated
+		 */
+		EClass FILE_HANDLER = eINSTANCE.getFileHandler();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected File</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_HANDLER__SELECTED_FILE = eINSTANCE.getFileHandler_SelectedFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Handled File</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_HANDLER__HANDLED_FILE = eINSTANCE.getFileHandler_HandledFile();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.file.impl.FileOwnerImpl <em>Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.file.impl.FileOwnerImpl
+		 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileOwner()
+		 * @generated
+		 */
+		EClass FILE_OWNER = eINSTANCE.getFileOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_OWNER__FILES = eINSTANCE.getFileOwner_Files();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.file.impl.FilesImpl <em>Files</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.file.impl.FilesImpl
+		 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFiles()
+		 * @generated
+		 */
+		EClass FILES = eINSTANCE.getFiles();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILES__NAME = eINSTANCE.getFiles_Name();
 
 		/**
 		 * The meta object literal for the '<em>Enabled Feedback</em>' data type.

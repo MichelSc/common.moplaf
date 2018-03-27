@@ -12,11 +12,10 @@
  */
 package com.misc.common.moplaf.job.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Job edit plugin.
@@ -50,7 +49,7 @@ public final class JobEditPlugin extends EMFPlugin {
 	public JobEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     EcoreEditPlugin.INSTANCE,
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

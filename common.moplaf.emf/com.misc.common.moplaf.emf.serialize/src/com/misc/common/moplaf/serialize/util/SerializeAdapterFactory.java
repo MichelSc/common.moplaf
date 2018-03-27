@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.serialize.util;
 
+import com.misc.common.moplaf.file.FileHandler;
+import com.misc.common.moplaf.file.FileOwner;
 import com.misc.common.moplaf.file.FileReaderWriter;
 import com.misc.common.moplaf.serialize.*;
 
@@ -77,6 +79,14 @@ public class SerializeAdapterFactory extends AdapterFactoryImpl {
 				return createDeserializableAdapter();
 			}
 			@Override
+			public Adapter caseFileOwner(FileOwner object) {
+				return createFileOwnerAdapter();
+			}
+			@Override
+			public Adapter caseFileHandler(FileHandler object) {
+				return createFileHandlerAdapter();
+			}
+			@Override
 			public Adapter caseFileReaderWriter(FileReaderWriter object) {
 				return createFileReaderWriterAdapter();
 			}
@@ -125,6 +135,34 @@ public class SerializeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeserializableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileOwner
+	 * @generated
+	 */
+	public Adapter createFileOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileHandler <em>Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileHandler
+	 * @generated
+	 */
+	public Adapter createFileHandlerAdapter() {
 		return null;
 	}
 

@@ -88,6 +88,18 @@ public class FileAdapterFactory extends AdapterFactoryImpl {
 				return createFileReaderWriterAdapter();
 			}
 			@Override
+			public Adapter caseFileHandler(FileHandler object) {
+				return createFileHandlerAdapter();
+			}
+			@Override
+			public Adapter caseFileOwner(FileOwner object) {
+				return createFileOwnerAdapter();
+			}
+			@Override
+			public Adapter caseFiles(Files object) {
+				return createFilesAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -174,6 +186,48 @@ public class FileAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFileReaderWriterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileHandler <em>Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileHandler
+	 * @generated
+	 */
+	public Adapter createFileHandlerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileOwner
+	 * @generated
+	 */
+	public Adapter createFileOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.Files <em>Files</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.Files
+	 * @generated
+	 */
+	public Adapter createFilesAdapter() {
 		return null;
 	}
 

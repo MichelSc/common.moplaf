@@ -141,6 +141,29 @@ public class FileItemProviderAdapterFactory extends FileAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.file.Files} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilesItemProvider filesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.file.Files}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilesAdapter() {
+		if (filesItemProvider == null) {
+			filesItemProvider = new FilesItemProvider(this);
+		}
+
+		return filesItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class FileItemProviderAdapterFactory extends FileAdapterFactory implement
 		if (fileLocalItemProvider != null) fileLocalItemProvider.dispose();
 		if (fileRemoteItemProvider != null) fileRemoteItemProvider.dispose();
 		if (fileInMemoryItemProvider != null) fileInMemoryItemProvider.dispose();
+		if (filesItemProvider != null) filesItemProvider.dispose();
 	}
 
 }

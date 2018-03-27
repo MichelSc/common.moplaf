@@ -96,6 +96,28 @@ public class FileSwitch<T> extends Switch<T> {
 			case FilePackage.FILE_READER_WRITER: {
 				FileReaderWriter fileReaderWriter = (FileReaderWriter)theEObject;
 				T result = caseFileReaderWriter(fileReaderWriter);
+				if (result == null) result = caseFileHandler(fileReaderWriter);
+				if (result == null) result = caseFileOwner(fileReaderWriter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FilePackage.FILE_HANDLER: {
+				FileHandler fileHandler = (FileHandler)theEObject;
+				T result = caseFileHandler(fileHandler);
+				if (result == null) result = caseFileOwner(fileHandler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FilePackage.FILE_OWNER: {
+				FileOwner fileOwner = (FileOwner)theEObject;
+				T result = caseFileOwner(fileOwner);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FilePackage.FILES: {
+				Files files = (Files)theEObject;
+				T result = caseFiles(files);
+				if (result == null) result = caseFileOwner(files);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -175,6 +197,51 @@ public class FileSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFileReaderWriter(FileReaderWriter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileHandler(FileHandler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileOwner(FileOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Files</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Files</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFiles(Files object) {
 		return null;
 	}
 

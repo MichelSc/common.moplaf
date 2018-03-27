@@ -15,9 +15,11 @@ package com.misc.common.moplaf.job.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.Job;
 import com.misc.common.moplaf.job.JobConsole;
 import com.misc.common.moplaf.job.JobFactory;
+import com.misc.common.moplaf.job.JobFileHandler;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.JobParameter;
 import com.misc.common.moplaf.job.JobParameterType;
@@ -27,6 +29,7 @@ import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
 
 import com.misc.common.moplaf.job.RunParams;
+import com.misc.common.moplaf.job.Runs;
 import com.misc.common.moplaf.job.Setter;
 import com.misc.common.moplaf.job.SetterAttribute;
 import com.misc.common.moplaf.job.SetterAttributeFloat;
@@ -39,8 +42,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -84,6 +85,20 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	private EClass jobConsoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jobFileHandlerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass runsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,7 +231,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJobPackage.createPackageContents();
@@ -679,6 +694,42 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJobFileHandler() {
+		return jobFileHandlerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRuns() {
+		return runsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRuns_Name() {
+		return (EAttribute)runsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuns_Runs() {
+		return (EReference)runsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSetter() {
 		return setterEClass;
 	}
@@ -1026,6 +1077,12 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEReference(paramsHolderEClass, PARAMS_HOLDER__RUNS_PARAMS);
 		createEOperation(paramsHolderEClass, PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN);
 
+		jobFileHandlerEClass = createEClass(JOB_FILE_HANDLER);
+
+		runsEClass = createEClass(RUNS);
+		createEAttribute(runsEClass, RUNS__NAME);
+		createEReference(runsEClass, RUNS__RUNS);
+
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
 
@@ -1060,6 +1117,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		FilePackage theFilePackage = (FilePackage)EPackage.Registry.INSTANCE.getEPackage(FilePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -1071,6 +1131,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		setterAttributeEClass.getESuperTypes().add(this.getSetterStructuralFeature());
 		setterAttributeIntEClass.getESuperTypes().add(this.getSetterAttribute());
 		setterAttributeFloatEClass.getESuperTypes().add(this.getSetterAttribute());
+		jobFileHandlerEClass.getESuperTypes().add(this.getJob());
+		jobFileHandlerEClass.getESuperTypes().add(theFilePackage.getFileHandler());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1206,6 +1268,12 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		op = initEOperation(getParamsHolder__ConstructParams__Run(), this.getRunParams(), "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRun(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(jobFileHandlerEClass, JobFileHandler.class, "JobFileHandler", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(runsEClass, Runs.class, "Runs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRuns_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Runs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuns_Runs(), this.getRun(), null, "Runs", null, 0, -1, Runs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");

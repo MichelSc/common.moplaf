@@ -9,22 +9,9 @@ import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.FileReaderWriter;
 
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,36 +21,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getFiles <em>Files</em>}</li>
- *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getSelectedFile <em>Selected File</em>}</li>
- *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getHandledFile <em>Handled File</em>}</li>
  *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getReadFeedback <em>Read Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getWriteFeedback <em>Write Feedback</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class FileReaderWriterImpl extends MinimalEObjectImpl.Container implements FileReaderWriter {
-	/**
-	 * The cached value of the '{@link #getFiles() <em>Files</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFiles()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<File> files;
-
-	/**
-	 * The cached value of the '{@link #getSelectedFile() <em>Selected File</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelectedFile()
-	 * @generated
-	 * @ordered
-	 */
-	protected File selectedFile;
-
+public abstract class FileReaderWriterImpl extends FileHandlerImpl implements FileReaderWriter {
 	/**
 	 * The default value of the '{@link #getReadFeedback() <em>Read Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -101,81 +65,6 @@ public abstract class FileReaderWriterImpl extends MinimalEObjectImpl.Container 
 	@Override
 	protected EClass eStaticClass() {
 		return FilePackage.Literals.FILE_READER_WRITER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<File> getFiles() {
-		if (files == null) {
-			files = new EObjectContainmentEList<File>(File.class, this, FilePackage.FILE_READER_WRITER__FILES);
-		}
-		return files;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public File getSelectedFile() {
-		if (selectedFile != null && selectedFile.eIsProxy()) {
-			InternalEObject oldSelectedFile = (InternalEObject)selectedFile;
-			selectedFile = (File)eResolveProxy(oldSelectedFile);
-			if (selectedFile != oldSelectedFile) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FilePackage.FILE_READER_WRITER__SELECTED_FILE, oldSelectedFile, selectedFile));
-			}
-		}
-		return selectedFile;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public File basicGetSelectedFile() {
-		return selectedFile;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSelectedFile(File newSelectedFile) {
-		File oldSelectedFile = selectedFile;
-		selectedFile = newSelectedFile;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FilePackage.FILE_READER_WRITER__SELECTED_FILE, oldSelectedFile, selectedFile));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public File getHandledFile() {
-		File handledFile = basicGetHandledFile();
-		return handledFile != null && handledFile.eIsProxy() ? (File)eResolveProxy((InternalEObject)handledFile) : handledFile;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public File basicGetHandledFile() {
-		File selected = this.getSelectedFile();
-		if ( selected!=null ) {
-			return selected;
-		}
-		if ( this.getFiles().size()==1 ) {
-			return this.getFiles().get(0);
-		}
-		return null;
 	}
 
 	/**
@@ -268,30 +157,8 @@ public abstract class FileReaderWriterImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FilePackage.FILE_READER_WRITER__FILES:
-				return ((InternalEList<?>)getFiles()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FilePackage.FILE_READER_WRITER__FILES:
-				return getFiles();
-			case FilePackage.FILE_READER_WRITER__SELECTED_FILE:
-				if (resolve) return getSelectedFile();
-				return basicGetSelectedFile();
-			case FilePackage.FILE_READER_WRITER__HANDLED_FILE:
-				if (resolve) return getHandledFile();
-				return basicGetHandledFile();
 			case FilePackage.FILE_READER_WRITER__READ_FEEDBACK:
 				return getReadFeedback();
 			case FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK:
@@ -305,53 +172,9 @@ public abstract class FileReaderWriterImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case FilePackage.FILE_READER_WRITER__FILES:
-				getFiles().clear();
-				getFiles().addAll((Collection<? extends File>)newValue);
-				return;
-			case FilePackage.FILE_READER_WRITER__SELECTED_FILE:
-				setSelectedFile((File)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case FilePackage.FILE_READER_WRITER__FILES:
-				getFiles().clear();
-				return;
-			case FilePackage.FILE_READER_WRITER__SELECTED_FILE:
-				setSelectedFile((File)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FilePackage.FILE_READER_WRITER__FILES:
-				return files != null && !files.isEmpty();
-			case FilePackage.FILE_READER_WRITER__SELECTED_FILE:
-				return selectedFile != null;
-			case FilePackage.FILE_READER_WRITER__HANDLED_FILE:
-				return basicGetHandledFile() != null;
 			case FilePackage.FILE_READER_WRITER__READ_FEEDBACK:
 				return READ_FEEDBACK_EDEFAULT == null ? getReadFeedback() != null : !READ_FEEDBACK_EDEFAULT.equals(getReadFeedback());
 			case FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK:

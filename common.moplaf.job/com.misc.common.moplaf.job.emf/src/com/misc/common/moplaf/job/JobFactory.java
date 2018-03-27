@@ -86,6 +86,15 @@ public interface JobFactory extends EFactory {
 	ParamsHolder createParamsHolder();
 
 	/**
+	 * Returns a new object of class '<em>Runs</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Runs</em>'.
+	 * @generated
+	 */
+	Runs createRuns();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

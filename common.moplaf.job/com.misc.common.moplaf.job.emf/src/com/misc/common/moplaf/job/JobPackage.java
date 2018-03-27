@@ -1065,6 +1065,16 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE_OPERATION_COUNT = JOB_OPERATION_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.JobFileHandlerImpl <em>File Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.JobFileHandlerImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobFileHandler()
+	 * @generated
+	 */
+	int JOB_FILE_HANDLER = 11;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.SetterImpl <em>Setter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1494,6 +1504,358 @@ public interface JobPackage extends EPackage {
 	int PARAMS_HOLDER_OPERATION_COUNT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__RUN_FEEDBACK = JOB__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__CANCEL_FEEDBACK = JOB__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__RESET_FEEDBACK = JOB__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__LABEL = JOB__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__CANCELLED = JOB__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__RETURNED = JOB__RETURNED;
+
+	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__RETURN_SUCCESS = JOB__RETURN_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__RETURN_FEEDBACK = JOB__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__RETURN_INFORMATION = JOB__RETURN_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__STATUS = JOB__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__DESCRIPTION = JOB__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__START_TIME = JOB__START_TIME;
+
+	/**
+	 * The feature id for the '<em><b>End Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__END_TIME = JOB__END_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__DURATION = JOB__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__STARTED = JOB__STARTED;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__FINISHED = JOB__FINISHED;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__NAME = JOB__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__FILES = JOB_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selected File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__SELECTED_FILE = JOB_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Handled File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__HANDLED_FILE = JOB_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>File Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER_FEATURE_COUNT = JOB_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___COPY_PARAMS__RUNPARAMS = JOB___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___RESET = JOB___RESET;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___RUN = JOB___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___RUN__RUNCONTEXT = JOB___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___RUN_ASYNCH__RUNCONTEXT = JOB___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = JOB___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___CANCEL = JOB___CANCEL;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___SET_PROGRESS__STRING_FLOAT = JOB___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___SET_PROGRESS__PROGRESSFEEDBACK = JOB___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___SET_RETURN__RETURNFEEDBACK = JOB___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___GET_RETURN = JOB___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER___CONSTRUCT_PARAMS = JOB___CONSTRUCT_PARAMS;
+
+	/**
+	 * The number of operations of the '<em>File Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER_OPERATION_COUNT = JOB_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.RunsImpl <em>Runs</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.RunsImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRuns()
+	 * @generated
+	 */
+	int RUNS = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNS__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Runs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNS__RUNS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Runs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNS_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Runs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1501,7 +1863,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobParameterType()
 	 * @generated
 	 */
-	int JOB_PARAMETER_TYPE = 11;
+	int JOB_PARAMETER_TYPE = 13;
 
 	/**
 	 * The meta object id for the '<em>Progress Feedback</em>' data type.
@@ -1511,7 +1873,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getProgressFeedback()
 	 * @generated
 	 */
-	int PROGRESS_FEEDBACK = 12;
+	int PROGRESS_FEEDBACK = 14;
 
 	/**
 	 * The meta object id for the '<em>Run Context</em>' data type.
@@ -1521,7 +1883,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunContext()
 	 * @generated
 	 */
-	int RUN_CONTEXT = 13;
+	int RUN_CONTEXT = 15;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1531,7 +1893,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 14;
+	int EXCEPTION = 16;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -1541,7 +1903,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 15;
+	int RETURN_FEEDBACK = 17;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -1551,7 +1913,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 16;
+	int ENABLED_FEEDBACK = 18;
 
 
 	/**
@@ -2067,6 +2429,48 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJobConsole__SetArgs();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.JobFileHandler <em>File Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Handler</em>'.
+	 * @see com.misc.common.moplaf.job.JobFileHandler
+	 * @generated
+	 */
+	EClass getJobFileHandler();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Runs <em>Runs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Runs</em>'.
+	 * @see com.misc.common.moplaf.job.Runs
+	 * @generated
+	 */
+	EClass getRuns();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Runs#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.Runs#getName()
+	 * @see #getRuns()
+	 * @generated
+	 */
+	EAttribute getRuns_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Runs#getRuns <em>Runs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Runs</em>'.
+	 * @see com.misc.common.moplaf.job.Runs#getRuns()
+	 * @see #getRuns()
+	 * @generated
+	 */
+	EReference getRuns_Runs();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Setter <em>Setter</em>}'.
@@ -2778,6 +3182,42 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_CONSOLE___SET_ARGS = eINSTANCE.getJobConsole__SetArgs();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.JobFileHandlerImpl <em>File Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.JobFileHandlerImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobFileHandler()
+		 * @generated
+		 */
+		EClass JOB_FILE_HANDLER = eINSTANCE.getJobFileHandler();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.RunsImpl <em>Runs</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.RunsImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRuns()
+		 * @generated
+		 */
+		EClass RUNS = eINSTANCE.getRuns();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUNS__NAME = eINSTANCE.getRuns_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Runs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RUNS__RUNS = eINSTANCE.getRuns_Runs();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterImpl <em>Setter</em>}' class.

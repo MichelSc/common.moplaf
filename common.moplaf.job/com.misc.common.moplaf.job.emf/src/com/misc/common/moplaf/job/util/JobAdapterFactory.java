@@ -12,8 +12,9 @@
  */
 package com.misc.common.moplaf.job.util;
 
+import com.misc.common.moplaf.file.FileHandler;
+import com.misc.common.moplaf.file.FileOwner;
 import com.misc.common.moplaf.job.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -122,6 +123,22 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 				return createParamsHolderAdapter();
 			}
 			@Override
+			public Adapter caseJobFileHandler(JobFileHandler object) {
+				return createJobFileHandlerAdapter();
+			}
+			@Override
+			public Adapter caseRuns(Runs object) {
+				return createRunsAdapter();
+			}
+			@Override
+			public Adapter caseFileOwner(FileOwner object) {
+				return createFileOwnerAdapter();
+			}
+			@Override
+			public Adapter caseFileHandler(FileHandler object) {
+				return createFileHandlerAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -212,6 +229,34 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.JobFileHandler <em>File Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.JobFileHandler
+	 * @generated
+	 */
+	public Adapter createJobFileHandlerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Runs <em>Runs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.Runs
+	 * @generated
+	 */
+	public Adapter createRunsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Setter <em>Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -292,6 +337,34 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParamsHolderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileOwner
+	 * @generated
+	 */
+	public Adapter createFileOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileHandler <em>Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileHandler
+	 * @generated
+	 */
+	public Adapter createFileHandlerAdapter() {
 		return null;
 	}
 

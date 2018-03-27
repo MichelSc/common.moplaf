@@ -49,6 +49,15 @@ public interface FileFactory extends EFactory {
 	FileInMemory createFileInMemory();
 
 	/**
+	 * Returns a new object of class '<em>Files</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Files</em>'.
+	 * @generated
+	 */
+	Files createFiles();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

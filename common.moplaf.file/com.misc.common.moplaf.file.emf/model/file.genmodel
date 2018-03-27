@@ -21,9 +21,6 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute file.ecore#//FileInMemory/Content"/>
     </genClasses>
     <genClasses ecoreClass="file.ecore#//FileReaderWriter">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference file.ecore#//FileReaderWriter/Files"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference file.ecore#//FileReaderWriter/SelectedFile"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference file.ecore#//FileReaderWriter/HandledFile"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/ReadFeedback"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/WriteFeedback"/>
       <genOperations ecoreOperation="file.ecore#//FileReaderWriter/getReadFeedback">
@@ -40,6 +37,18 @@
       <genOperations ecoreOperation="file.ecore#//FileReaderWriter/writeFile.1">
         <genParameters ecoreParameter="file.ecore#//FileReaderWriter/writeFile.1/file"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="file.ecore#//FileHandler">
+      <genFeatures notify="false" createChild="false" propertyCategory="10 File" propertySortChoices="true"
+          ecoreFeature="ecore:EReference file.ecore#//FileHandler/SelectedFile"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 File"
+          ecoreFeature="ecore:EReference file.ecore#//FileHandler/HandledFile"/>
+    </genClasses>
+    <genClasses ecoreClass="file.ecore#//FileOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference file.ecore#//FileOwner/Files"/>
+    </genClasses>
+    <genClasses ecoreClass="file.ecore#//Files">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//Files/Name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

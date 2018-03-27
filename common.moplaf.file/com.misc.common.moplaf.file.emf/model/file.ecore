@@ -17,7 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileReaderWriter" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="FileReaderWriter" abstract="true" eSuperTypes="#//FileHandler">
     <eOperations name="getReadFeedback" eType="#//EnabledFeedback">
       <eParameters name="file" eType="#//File"/>
     </eOperations>
@@ -32,15 +32,22 @@
     <eOperations name="writeFile">
       <eParameters name="file" eType="#//File"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
-        eType="#//File" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedFile" eType="#//File"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="HandledFile" eType="#//File"
-        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReadFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="WriteFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FileHandler" abstract="true" eSuperTypes="#//FileOwner">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedFile" eType="#//File"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HandledFile" eType="#//File"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileOwner" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Files" upperBound="-1"
+        eType="#//File" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Files" eSuperTypes="#//FileOwner">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>
