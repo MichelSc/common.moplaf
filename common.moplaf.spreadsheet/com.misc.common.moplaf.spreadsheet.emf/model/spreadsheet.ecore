@@ -9,6 +9,13 @@
     <eOperations name="getSheet" eType="#//Sheet">
       <eParameters name="sheetindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="createSheet" eType="#//Sheet">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getOrCreateSheet" eType="#//Sheet">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="addSheet" eType="#//Sheet"/>
     <eOperations name="flush"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" lowerBound="1"
         upperBound="-1" eType="#//Sheet" containment="true" eOpposite="#//Sheet/Spreadsheet"/>
@@ -17,14 +24,37 @@
         eType="#//SpreadsheetReaderWriter" containment="true" eOpposite="#//SpreadsheetReaderWriter/Spreadsheet"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sheet">
+    <eOperations name="getRow" eType="#//Row">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="createRow" eType="#//Row">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getOrCreateRow" eType="#//Row">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="addRow" eType="#//Row"/>
     <eOperations name="getColumn" eType="#//Column">
-      <eParameters name="columnindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="createColumn" eType="#//Column">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="getOrCreateColumn" eType="#//Column">
-      <eParameters name="columnindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations name="getRow" eType="#//Row">
-      <eParameters name="rowindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="addColumn" eType="#//Column"/>
+    <eOperations name="getCell" eType="#//Cell">
+      <eParameters name="row" eType="#//Row"/>
+      <eParameters name="column" eType="#//Column"/>
+    </eOperations>
+    <eOperations name="createCell" eType="#//Cell">
+      <eParameters name="row" eType="#//Row"/>
+      <eParameters name="column" eType="#//Column"/>
+    </eOperations>
+    <eOperations name="getOrCreateCell" eType="#//Cell">
+      <eParameters name="row" eType="#//Row"/>
+      <eParameters name="column" eType="#//Column"/>
     </eOperations>
     <eOperations name="flush"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Rows" upperBound="-1" eType="#//Row"

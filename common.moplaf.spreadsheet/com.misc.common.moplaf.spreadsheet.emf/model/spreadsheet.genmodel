@@ -2,7 +2,7 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.spreadsheet.emf/src" modelPluginID="com.misc.common.moplaf.spreadsheet.emf"
     modelName="Spreadsheet" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     usedGenPackages="../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
     operationReflection="true" importOrganizing="true">
   <foreignModel>spreadsheet.ecore</foreignModel>
@@ -25,6 +25,14 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getSheet.1">
         <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getSheet.1/sheetindex"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/createSheet">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/createSheet/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/addSheet"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/flush"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Sheet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Rows"/>
@@ -38,15 +46,39 @@
           ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/BottomRowsFrozen"/>
       <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/LeftColumnsFrozen"/>
       <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/RightColumnsFrozen"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getRow">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getRow/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/createRow">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/createRow/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getOrCreateRow">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateRow/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/addRow"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getColumn">
-        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getColumn/columnindex"/>
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getColumn/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/createColumn">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/createColumn/index"/>
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getOrCreateColumn">
-        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateColumn/columnindex"/>
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateColumn/index"/>
       </genOperations>
-      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getRow">
-        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getRow/rowindex"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/addColumn"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getCell">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getCell/row"/>
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getCell/column"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/createCell">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/createCell/row"/>
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/createCell/column"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getOrCreateCell">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateCell/row"/>
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateCell/column"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/flush"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Row">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Cells"/>
@@ -58,6 +90,9 @@
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell.1">
         <genParameters ecoreParameter="spreadsheet.ecore#//Row/getCell.1/column"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Row/lookUp">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Row/lookUp/value"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Column">
@@ -72,6 +107,9 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Column/getCell.1">
         <genParameters ecoreParameter="spreadsheet.ecore#//Column/getCell.1/row"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Column/lookUp">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Column/lookUp/value"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Cell" labelFeature="#//spreadsheet/Cell/Description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Cell/Row"/>
@@ -81,7 +119,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/CellType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/DoubleValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/StringValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/BooleanValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/BooleanValueSet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/DateValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="spreadsheet.ecore#//SpreadsheetReaderWriter">

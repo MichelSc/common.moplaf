@@ -267,7 +267,7 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Column getColumn(int columnindex);
+	Column getColumn(int index);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,7 +275,7 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Column getOrCreateColumn(int columnindex);
+	Column createColumn(int index);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -283,7 +283,71 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Row getRow(int rowindex);
+	Column getOrCreateColumn(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Column addColumn();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Row getRow(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Row createRow(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Row getOrCreateRow(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Row addRow();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Cell getCell(Row row, Column column);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Cell createCell(Row row, Column column);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Cell getOrCreateCell(Row row, Column column);
 
 	/**
 	 * <!-- begin-user-doc -->

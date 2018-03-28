@@ -12,6 +12,8 @@
  */
 package com.misc.common.moplaf.spreadsheet.util;
 
+import com.misc.common.moplaf.file.FileHandler;
+import com.misc.common.moplaf.file.FileOwner;
 import com.misc.common.moplaf.file.FileReaderWriter;
 import com.misc.common.moplaf.spreadsheet.*;
 
@@ -111,6 +113,8 @@ public class SpreadsheetSwitch<T> extends Switch<T> {
 				SpreadsheetReaderWriter spreadsheetReaderWriter = (SpreadsheetReaderWriter)theEObject;
 				T result = caseSpreadsheetReaderWriter(spreadsheetReaderWriter);
 				if (result == null) result = caseFileReaderWriter(spreadsheetReaderWriter);
+				if (result == null) result = caseFileHandler(spreadsheetReaderWriter);
+				if (result == null) result = caseFileOwner(spreadsheetReaderWriter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -205,6 +209,36 @@ public class SpreadsheetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSpreadsheetReaderWriter(SpreadsheetReaderWriter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileOwner(FileOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileHandler(FileHandler object) {
 		return null;
 	}
 

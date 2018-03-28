@@ -134,13 +134,40 @@ public interface SpreadsheetPackage extends EPackage {
 	int SPREADSHEET___GET_SHEET__INT = 1;
 
 	/**
+	 * The operation id for the '<em>Create Sheet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___CREATE_SHEET__INT = 2;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Sheet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___GET_OR_CREATE_SHEET__INT = 3;
+
+	/**
+	 * The operation id for the '<em>Add Sheet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___ADD_SHEET = 4;
+
+	/**
 	 * The operation id for the '<em>Flush</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET___FLUSH = 2;
+	int SPREADSHEET___FLUSH = 5;
 
 	/**
 	 * The number of operations of the '<em>Spreadsheet</em>' class.
@@ -149,7 +176,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_OPERATION_COUNT = 3;
+	int SPREADSHEET_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
@@ -252,13 +279,58 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET_FEATURE_COUNT = 9;
 
 	/**
+	 * The operation id for the '<em>Get Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___GET_ROW__INT = 0;
+
+	/**
+	 * The operation id for the '<em>Create Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___CREATE_ROW__INT = 1;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___GET_OR_CREATE_ROW__INT = 2;
+
+	/**
+	 * The operation id for the '<em>Add Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___ADD_ROW = 3;
+
+	/**
 	 * The operation id for the '<em>Get Column</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___GET_COLUMN__INT = 0;
+	int SHEET___GET_COLUMN__INT = 4;
+
+	/**
+	 * The operation id for the '<em>Create Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___CREATE_COLUMN__INT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Or Create Column</em>' operation.
@@ -267,16 +339,43 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___GET_OR_CREATE_COLUMN__INT = 1;
+	int SHEET___GET_OR_CREATE_COLUMN__INT = 6;
 
 	/**
-	 * The operation id for the '<em>Get Row</em>' operation.
+	 * The operation id for the '<em>Add Column</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___GET_ROW__INT = 2;
+	int SHEET___ADD_COLUMN = 7;
+
+	/**
+	 * The operation id for the '<em>Get Cell</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___GET_CELL__ROW_COLUMN = 8;
+
+	/**
+	 * The operation id for the '<em>Create Cell</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___CREATE_CELL__ROW_COLUMN = 9;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Cell</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___GET_OR_CREATE_CELL__ROW_COLUMN = 10;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -285,7 +384,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___FLUSH = 3;
+	int SHEET___FLUSH = 11;
 
 	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
@@ -294,7 +393,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_OPERATION_COUNT = 4;
+	int SHEET_OPERATION_COUNT = 12;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
@@ -798,6 +897,36 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSpreadsheet__GetSheet__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#createSheet(int) <em>Create Sheet</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Sheet</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#createSheet(int)
+	 * @generated
+	 */
+	EOperation getSpreadsheet__CreateSheet__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getOrCreateSheet(int) <em>Get Or Create Sheet</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Or Create Sheet</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getOrCreateSheet(int)
+	 * @generated
+	 */
+	EOperation getSpreadsheet__GetOrCreateSheet__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#addSheet() <em>Add Sheet</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Sheet</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#addSheet()
+	 * @generated
+	 */
+	EOperation getSpreadsheet__AddSheet();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#flush() <em>Flush</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -927,6 +1056,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSheet__GetColumn__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#createColumn(int) <em>Create Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Column</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#createColumn(int)
+	 * @generated
+	 */
+	EOperation getSheet__CreateColumn__int();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateColumn(int) <em>Get Or Create Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -937,6 +1076,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSheet__GetOrCreateColumn__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#addColumn() <em>Add Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Column</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#addColumn()
+	 * @generated
+	 */
+	EOperation getSheet__AddColumn();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRow(int) <em>Get Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -945,6 +1094,66 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSheet__GetRow__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#createRow(int) <em>Create Row</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Row</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#createRow(int)
+	 * @generated
+	 */
+	EOperation getSheet__CreateRow__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateRow(int) <em>Get Or Create Row</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Or Create Row</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateRow(int)
+	 * @generated
+	 */
+	EOperation getSheet__GetOrCreateRow__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#addRow() <em>Add Row</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Row</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#addRow()
+	 * @generated
+	 */
+	EOperation getSheet__AddRow();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getCell(com.misc.common.moplaf.spreadsheet.Row, com.misc.common.moplaf.spreadsheet.Column) <em>Get Cell</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cell</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getCell(com.misc.common.moplaf.spreadsheet.Row, com.misc.common.moplaf.spreadsheet.Column)
+	 * @generated
+	 */
+	EOperation getSheet__GetCell__Row_Column();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#createCell(com.misc.common.moplaf.spreadsheet.Row, com.misc.common.moplaf.spreadsheet.Column) <em>Create Cell</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Cell</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#createCell(com.misc.common.moplaf.spreadsheet.Row, com.misc.common.moplaf.spreadsheet.Column)
+	 * @generated
+	 */
+	EOperation getSheet__CreateCell__Row_Column();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateCell(com.misc.common.moplaf.spreadsheet.Row, com.misc.common.moplaf.spreadsheet.Column) <em>Get Or Create Cell</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Or Create Cell</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateCell(com.misc.common.moplaf.spreadsheet.Row, com.misc.common.moplaf.spreadsheet.Column)
+	 * @generated
+	 */
+	EOperation getSheet__GetOrCreateCell__Row_Column();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#flush() <em>Flush</em>}' operation.
@@ -1338,6 +1547,30 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SPREADSHEET___GET_SHEET__INT = eINSTANCE.getSpreadsheet__GetSheet__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Sheet</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___CREATE_SHEET__INT = eINSTANCE.getSpreadsheet__CreateSheet__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Or Create Sheet</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___GET_OR_CREATE_SHEET__INT = eINSTANCE.getSpreadsheet__GetOrCreateSheet__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Sheet</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___ADD_SHEET = eINSTANCE.getSpreadsheet__AddSheet();
+
+		/**
 		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1436,6 +1669,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SHEET___GET_COLUMN__INT = eINSTANCE.getSheet__GetColumn__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___CREATE_COLUMN__INT = eINSTANCE.getSheet__CreateColumn__int();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Or Create Column</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1444,12 +1685,68 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SHEET___GET_OR_CREATE_COLUMN__INT = eINSTANCE.getSheet__GetOrCreateColumn__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___ADD_COLUMN = eINSTANCE.getSheet__AddColumn();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Row</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation SHEET___GET_ROW__INT = eINSTANCE.getSheet__GetRow__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Row</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___CREATE_ROW__INT = eINSTANCE.getSheet__CreateRow__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Or Create Row</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___GET_OR_CREATE_ROW__INT = eINSTANCE.getSheet__GetOrCreateRow__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Row</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___ADD_ROW = eINSTANCE.getSheet__AddRow();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___GET_CELL__ROW_COLUMN = eINSTANCE.getSheet__GetCell__Row_Column();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Cell</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___CREATE_CELL__ROW_COLUMN = eINSTANCE.getSheet__CreateCell__Row_Column();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Or Create Cell</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___GET_OR_CREATE_CELL__ROW_COLUMN = eINSTANCE.getSheet__GetOrCreateCell__Row_Column();
 
 		/**
 		 * The meta object literal for the '<em><b>Flush</b></em>' operation.

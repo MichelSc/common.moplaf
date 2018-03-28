@@ -14,12 +14,15 @@ package com.misc.common.moplaf.spreadsheet.impl;
 
 import com.misc.common.moplaf.spreadsheet.Sheet;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
+import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
 import com.misc.common.moplaf.spreadsheet.SpreadsheetReaderWriter;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -184,6 +187,42 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public Sheet createSheet(int index) {
+		Sheet sheet = SpreadsheetFactory.eINSTANCE.createSheet();
+		sheet.setSheetIndex(index);
+		this.getSheets().add(sheet);
+		return sheet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Sheet getOrCreateSheet(int index) {
+		Sheet sheet = this.getSheet(index);
+		if ( sheet==null ){
+			sheet = this.createSheet(index);
+		}
+		return sheet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Sheet addSheet() {
+		Optional<Integer> max_index = this.getSheets().stream()
+				.map(c -> c.getSheetIndex())
+				.max(Comparator.naturalOrder());
+		int new_index = max_index.isPresent() ? max_index.get()+1 : 0;
+		Sheet new_sheet = this.createSheet(new_index);
+		return new_sheet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void flush() {
 		this.getSheets().clear();
 	}
@@ -314,6 +353,12 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 				return getSheet((String)arguments.get(0));
 			case SpreadsheetPackage.SPREADSHEET___GET_SHEET__INT:
 				return getSheet((Integer)arguments.get(0));
+			case SpreadsheetPackage.SPREADSHEET___CREATE_SHEET__INT:
+				return createSheet((Integer)arguments.get(0));
+			case SpreadsheetPackage.SPREADSHEET___GET_OR_CREATE_SHEET__INT:
+				return getOrCreateSheet((Integer)arguments.get(0));
+			case SpreadsheetPackage.SPREADSHEET___ADD_SHEET:
+				return addSheet();
 			case SpreadsheetPackage.SPREADSHEET___FLUSH:
 				flush();
 				return null;

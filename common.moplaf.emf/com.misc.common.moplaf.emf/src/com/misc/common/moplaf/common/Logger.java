@@ -98,7 +98,7 @@ public class Logger {
 	}
 	
 	public void log(Level level, String message){
-		if ( this.getLogOnLevel(level) || true){
+		if ( this.getLogOnLevel(level) ){
 			String fullMessage = String.format("%s, %s: %s", this.module, level.asString, message);
 			Logger.log(fullMessage);
 		}

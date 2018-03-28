@@ -23,6 +23,7 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.poi.ss.util.WorkbookUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -176,32 +177,38 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 		XSSFWorkbook wb = new XSSFWorkbook();
 
 		// fill in the wb
-		Spreadsheet spreadsheet = this.getSpreadsheet();
-		for ( Sheet from_sheet : spreadsheet.getSheets()) {
-			XSSFSheet to_sheet = wb.createSheet(from_sheet.getSheetName());
-			for( Row from_row : from_sheet.getRows()) {
-				XSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
-				for( Cell from_cell : from_row.getCells()){
-					XSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
-					switch ( from_cell.getCellType()) {
-					case CELL_TYPE_DATE:
-						to_cell.setCellValue(from_cell.getDateValue());
-						break;
-					case CELL_TYPE_BOOLEAN:
-						to_cell.setCellValue(from_cell.isBooleanValueSet());
-						break;
-					case CELL_TYPE_NUMERIC:
-						to_cell.setCellValue(from_cell.getDoubleValue());
-						break;
-					case CELL_TYPE_STRING:
-						to_cell.setCellValue(from_cell.getStringValue());
-						break;
-					default:
-						// ignore the cell
+		try {
+			Spreadsheet spreadsheet = this.getSpreadsheet();
+			for ( Sheet from_sheet : spreadsheet.getSheets()) {
+				String safe_name = WorkbookUtil.createSafeSheetName(from_sheet.getSheetName());
+				XSSFSheet to_sheet = wb.createSheet(safe_name);
+				for( Row from_row : from_sheet.getRows()) {
+					XSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
+					for( Cell from_cell : from_row.getCells()){
+						XSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
+						switch ( from_cell.getCellType()) {
+						case CELL_TYPE_DATE:
+							to_cell.setCellValue(from_cell.getDateValue());
+							break;
+						case CELL_TYPE_BOOLEAN:
+							to_cell.setCellValue(from_cell.isBooleanValueSet());
+							break;
+						case CELL_TYPE_NUMERIC:
+							to_cell.setCellValue(from_cell.getDoubleValue());
+							break;
+						case CELL_TYPE_STRING:
+							to_cell.setCellValue(from_cell.getStringValue());
+							break;
+						default:
+							// ignore the cell
+						}
 					}
 				}
 			}
-		}
+		} catch(Exception e) {
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: exception while filling XSSFWorkbook "+e.getMessage());
+			return;
+		};
 		
 		// write the file
 		try {

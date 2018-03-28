@@ -118,6 +118,30 @@ public interface Spreadsheet extends EObject {
 	 * @model
 	 * @generated
 	 */
+	Sheet createSheet(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Sheet getOrCreateSheet(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Sheet addSheet();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void flush();
 
 } // Spreadsheet

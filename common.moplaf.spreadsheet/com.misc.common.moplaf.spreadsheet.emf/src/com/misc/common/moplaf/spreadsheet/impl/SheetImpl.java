@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.impl;
 
+import com.misc.common.moplaf.spreadsheet.Cell;
 import com.misc.common.moplaf.spreadsheet.Column;
 import com.misc.common.moplaf.spreadsheet.Row;
 import com.misc.common.moplaf.spreadsheet.Sheet;
@@ -21,6 +22,8 @@ import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -422,12 +425,21 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Column getOrCreateColumn(int columnindex) {
-		Column column = this.getColumn(columnindex);
+	public Column createColumn(int index) {
+		Column column = SpreadsheetFactory.eINSTANCE.createColumn();
+		column.setColumnIndex(index);
+		this.getColumns().add(column);
+		return column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Column getOrCreateColumn(int index) {
+		Column column = this.getColumn(index);
 		if ( column == null ){
-			column = SpreadsheetFactory.eINSTANCE.createColumn();
-			column.setColumnIndex(columnindex);
-			column.setSheet(this);
+			column = this.createColumn(index);
 		}
 		return column;
 	}
@@ -436,13 +448,93 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Row getRow(int rowindex) {
+	public Column addColumn() {
+		Optional<Integer> max_index = this.getColumns().stream()
+				.map(c -> c.getColumnIndex())
+				.max(Comparator.naturalOrder());
+		int new_index = max_index.isPresent() ? max_index.get()+1 : 0;
+		Column new_column = this.createColumn(new_index);
+		return new_column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Row getRow(int index) {
 		for ( Row row : this.getRows()){
-			if ( row.getRowIndex()==rowindex){
+			if ( row.getRowIndex()==index){
 				return row;
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Row createRow(int index) {
+		Row row = SpreadsheetFactory.eINSTANCE.createRow();
+		row.setRowIndex(index);
+		this.getRows().add(row);
+		return row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Row getOrCreateRow(int index) {
+		Row row = this.getRow(index);
+		if ( row != null ) {
+			row = this.createRow(index);
+		}
+		return row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Row addRow() {
+		Optional<Integer> max_index = this.getRows().stream()
+				.map(c -> c.getRowIndex())
+				.max(Comparator.naturalOrder());
+		int new_index = max_index.isPresent() ? max_index.get()+1 : 0;
+		Row new_row = this.createRow(new_index);
+		return new_row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Cell getCell(Row row, Column column) {
+		return row.getCell(column);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Cell createCell(Row row, Column column) {
+		Cell cell = SpreadsheetFactory.eINSTANCE.createCell();
+		cell.setRow(row);
+		cell.setColumn(column);
+		return cell;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Cell getOrCreateCell(Row row, Column column) {
+		Cell cell = this.getCell(row,  column);
+		if ( cell == null ) {
+			cell = this.createCell(row, column);
+		}
+		return cell;
 	}
 
 	/**
@@ -656,12 +748,28 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case SpreadsheetPackage.SHEET___GET_COLUMN__INT:
-				return getColumn((Integer)arguments.get(0));
-			case SpreadsheetPackage.SHEET___GET_OR_CREATE_COLUMN__INT:
-				return getOrCreateColumn((Integer)arguments.get(0));
 			case SpreadsheetPackage.SHEET___GET_ROW__INT:
 				return getRow((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___CREATE_ROW__INT:
+				return createRow((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___GET_OR_CREATE_ROW__INT:
+				return getOrCreateRow((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___ADD_ROW:
+				return addRow();
+			case SpreadsheetPackage.SHEET___GET_COLUMN__INT:
+				return getColumn((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___CREATE_COLUMN__INT:
+				return createColumn((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___GET_OR_CREATE_COLUMN__INT:
+				return getOrCreateColumn((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___ADD_COLUMN:
+				return addColumn();
+			case SpreadsheetPackage.SHEET___GET_CELL__ROW_COLUMN:
+				return getCell((Row)arguments.get(0), (Column)arguments.get(1));
+			case SpreadsheetPackage.SHEET___CREATE_CELL__ROW_COLUMN:
+				return createCell((Row)arguments.get(0), (Column)arguments.get(1));
+			case SpreadsheetPackage.SHEET___GET_OR_CREATE_CELL__ROW_COLUMN:
+				return getOrCreateCell((Row)arguments.get(0), (Column)arguments.get(1));
 			case SpreadsheetPackage.SHEET___FLUSH:
 				flush();
 				return null;
