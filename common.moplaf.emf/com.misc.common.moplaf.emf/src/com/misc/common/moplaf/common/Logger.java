@@ -18,9 +18,9 @@ public class Logger {
 		this.module = module;
 	}
 	
-	private boolean logOnTouch   = false;
-	private boolean logOnCalc    = false;
-	private boolean logOnInfo    = false;
+	private boolean logOnTouch   = true;
+	private boolean logOnCalc    = true;
+	private boolean logOnInfo    = true;
 	private boolean logOnWarning = true;
 	private boolean logOnError   = true;
 	
