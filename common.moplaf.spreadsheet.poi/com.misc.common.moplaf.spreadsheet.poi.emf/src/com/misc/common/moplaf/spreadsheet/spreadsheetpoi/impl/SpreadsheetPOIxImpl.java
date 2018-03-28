@@ -177,10 +177,15 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 		XSSFWorkbook wb = new XSSFWorkbook();
 
 		// fill in the wb
+		boolean success = true;
 		try {
 			Spreadsheet spreadsheet = this.getSpreadsheet();
 			for ( Sheet from_sheet : spreadsheet.getSheets()) {
-				String safe_name = WorkbookUtil.createSafeSheetName(from_sheet.getSheetName());
+				String sheet_name = from_sheet.getSheetName();
+				String safe_name = WorkbookUtil.createSafeSheetName(sheet_name);
+				if ( !safe_name.equals(sheet_name)) {
+					Plugin.INSTANCE.logWarning(String.format("SpreadsheetPOIx.writeFile: sheet name %s was reduced to %s", sheet_name, safe_name));
+				}
 				XSSFSheet to_sheet = wb.createSheet(safe_name);
 				for( Row from_row : from_sheet.getRows()) {
 					XSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
@@ -207,19 +212,20 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 			}
 		} catch(Exception e) {
 			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: exception while filling XSSFWorkbook "+e.getMessage());
-			return;
+			success = false;
 		};
 		
 		// write the file
 		try {
 			OutputStream outputStream = file.getOutputStream();
-			if ( outputStream==null) {
+			if ( outputStream!=null && success ) {
+				wb.write(outputStream);
+				outputStream.close();
+			} else {
 				Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: file NOT opened");
-				return;
-			}
-			wb.write(outputStream);
+				success = false;
+			} 
 			wb.close();
-			outputStream.close();
 		} catch (IOException e) {
 			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: sheet NOT written, exeption "+e.getMessage());
 			return;
