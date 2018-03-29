@@ -7,5 +7,5 @@ public interface HttpServiceProvider {
 	
 	public String getServiceID();
 	
-	public String getObjectID();
+	public String getServiceData();
 }

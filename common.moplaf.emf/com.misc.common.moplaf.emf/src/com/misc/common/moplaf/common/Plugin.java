@@ -15,6 +15,16 @@ public class Plugin extends org.eclipse.core.runtime.Plugin implements BundleAct
 	public static final Plugin INSTANCE = new Plugin();
 
 	private Logger logger = new Logger("Moplaf");
+	
+	private String temporaryFolder = "";
+
+	public String getTemporaryFolder() {
+		return temporaryFolder;
+	}
+
+	public void setTemporaryFolder(String temporaryFolder) {
+		this.temporaryFolder = temporaryFolder;
+	}
 
 	public Logger getLogger(){
 		return this.logger;

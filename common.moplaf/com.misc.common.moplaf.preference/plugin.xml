@@ -8,6 +8,24 @@
             id="com.misc.common.moplaf.preference.pageMain"
             name="Moplaf">
       </page>
+      <page
+            category="com.misc.common.moplaf.preference.pageMain"
+            class="com.misc.common.moplaf.preference.PreferencePage"
+            id="com.misc.common.moplaf.preference.page"
+            name="Application">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.misc.common.moplaf.preference.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.misc.common.moplaf.preference.Startup">
+      </startup>
    </extension>
 
 </plugin>
