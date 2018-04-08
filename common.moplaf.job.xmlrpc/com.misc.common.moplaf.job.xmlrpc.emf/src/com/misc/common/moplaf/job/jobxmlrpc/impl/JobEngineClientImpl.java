@@ -439,6 +439,4 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	    this.xmlRpcClient = null;
 	}
 
-
-
 } //JobEngineClientImpl

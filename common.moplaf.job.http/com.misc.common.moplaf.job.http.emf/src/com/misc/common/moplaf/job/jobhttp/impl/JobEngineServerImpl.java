@@ -2,16 +2,31 @@
  */
 package com.misc.common.moplaf.job.jobhttp.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.Plugin;
+import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.RunContext;
+import com.misc.common.moplaf.job.jobclient.JobScheduled;
+import com.misc.common.moplaf.job.jobclient.JobScheduler;
+import com.misc.common.moplaf.job.jobclient.JobStatus;
 import com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl;
 
 import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
 import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 import com.misc.common.moplaf.job.jobhttp.JobServer;
+import com.misc.common.moplaf.serialize.util.Util;
+import com.misc.common.moplaf.serialize.xmi.XMIScheme;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -413,4 +428,156 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		return result.toString();
 	}
 
+	
+	/**
+	 * The interface called by a remote client.
+	 * @author michel
+	 *
+	 */
+	public interface ServerCallInterface {
+		public int runJob(String serializeSchemeID, String jobAsString);
+		public int runJob(String jobAsString);
+		public int getJobStatus(int jobExecuteNr);
+		public String getJobResult(int jobExecuteNr);
+		public String getJobResult(String serializeSchemeID, int jobExecuteNr);
+	}
+	
+	/**
+	 * The handler instance for this {@link JobEngineServerImpl}
+	 * 
+	 */
+	private ServerCallInterface runJobHandler = new ServerCallInterfaceImpl(); // TODO call this somehow
+	
+	
+	/**
+	 * @author michel
+	 *
+	 */
+	public class ServerCallInterfaceImpl implements ServerCallInterface {
+		
+		public ServerCallInterfaceImpl() {};
+
+		/**
+		 * Run this job
+		 * <p>
+		 * Deserialize the job as string, execute is by calling the method {@link Run#run(RunContext)}.
+		 * Its result is then serialized and returned as String.
+		 */
+		@Override
+		public int runJob(String serializeSchemeID, String jobAsString) {
+			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
+
+			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+			JobScheduler scheduler = jobEngineServer.getScheduler();
+
+			StringReader inputStream = new StringReader(jobAsString);
+	    	EList<EObject> objects = new BasicEList<EObject>();
+	    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, inputStream);
+
+		    int result =-1;
+		    if ( deserialized ) {
+				for (EObject object : objects){
+			    	if ( object instanceof Run) {
+			    		Run job = (Run) object;
+			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job received");
+			    		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
+			    		result = submittedJob.getScheduleNr();
+			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
+			    	}
+				}
+		    } else {
+				Plugin.INSTANCE.logError("ServerCallInterface.runJob: job not deserialized");
+		    }
+			
+			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: call done ");
+			return result;
+		}
+
+		@Override
+		public int runJob(String jobAsString) {
+			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
+			return this.runJob(XMIScheme.SCHEME_ID, jobAsString);
+		}
+		
+		/**
+		 * 
+		 */
+		@Override
+		public int getJobStatus(int jobExecuteNr) {
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d", jobExecuteNr));
+			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
+			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
+			if ( job == null ) {
+				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d, job not found", jobExecuteNr));
+				return JobStatus.UNKNOWN_VALUE;
+			}
+
+			int status = job.getStatus().getValue();
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: status= %d", status));
+			return status;
+		}
+
+		@Override
+		public String getJobResult(String serializeSchemeID, int jobExecuteNr) {
+			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d", jobExecuteNr));
+			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
+			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
+			if ( job == null ) {
+				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
+				return "";
+			}
+		    StringWriter stringWriter = new StringWriter();
+		    boolean serialized = Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
+			if ( !serialized ) {
+				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: result not serialized"));
+				return "";
+			}
+		    String jobAsString = stringWriter.toString();
+		    return jobAsString;
+		}
+		
+		@Override
+		public String getJobResult(int jobExecuteNr) {
+			return getJobResult(XMIScheme.SCHEME_ID, jobExecuteNr);
+		}
+	};
+
+	protected JobScheduled getJobScheduled(int job_execute_nr) {
+		JobScheduled job = this.getJobsScheduled()
+				.stream()
+				.filter(j -> j.getExecuteNr()==job_execute_nr)
+				.findFirst()
+				.orElse(null);
+		return job;
+	}
+
+	/**
+	 * Specified by JobSource
+	 */
+	@Override
+	public void refresh() {
+		super.refresh();
+	}
+
+	/**
+	 * Specified by JobSource
+	 */
+	@Override
+	public void onJobRunning(JobScheduled job) {
+		super.onJobRunning(job);
+	}
+
+	/**
+	 * Specified by JobSource
+	 */
+	@Override
+	public void onJobReturned(JobScheduled job, ReturnFeedback feedback) {
+		super.onJobReturned(job, feedback);
+		Plugin.INSTANCE.logInfo("JobEngineServer.onJobReturned: called");
+		//job.setRun(null); // release the run, as it is contained in no resource
+	}
+	
+	
+	
+	
 } //JobEngineServerImpl

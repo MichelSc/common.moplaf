@@ -52,6 +52,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 			addHostPropertyDescriptor(object);
 			addPortPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
+			addSchemePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,6 +124,28 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Scheme feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSchemePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobEngineClient_Scheme_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineClient_Scheme_feature", "_UI_JobEngineClient_type"),
+				 JobHttpPackage.Literals.JOB_ENGINE_CLIENT__SCHEME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns JobEngineClient.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,6 +186,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 			case JobHttpPackage.JOB_ENGINE_CLIENT__HOST:
 			case JobHttpPackage.JOB_ENGINE_CLIENT__PORT:
 			case JobHttpPackage.JOB_ENGINE_CLIENT__PATH:
+			case JobHttpPackage.JOB_ENGINE_CLIENT__SCHEME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

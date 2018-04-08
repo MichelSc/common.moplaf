@@ -186,13 +186,22 @@ public interface JobHttpPackage extends EPackage {
 	int JOB_ENGINE_CLIENT__PATH = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Scheme</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_CLIENT__SCHEME = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Job Engine Client</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_CLIENT_FEATURE_COUNT = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 3;
+	int JOB_ENGINE_CLIENT_FEATURE_COUNT = JobClientPackage.JOB_ENGINE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -610,6 +619,17 @@ public interface JobHttpPackage extends EPackage {
 	EAttribute getJobEngineClient_Path();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobhttp.JobEngineClient#getScheme <em>Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scheme</em>'.
+	 * @see com.misc.common.moplaf.job.jobhttp.JobEngineClient#getScheme()
+	 * @see #getJobEngineClient()
+	 * @generated
+	 */
+	EAttribute getJobEngineClient_Scheme();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer <em>Job Engine Server</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -773,6 +793,14 @@ public interface JobHttpPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_ENGINE_CLIENT__PATH = eINSTANCE.getJobEngineClient_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Scheme</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_ENGINE_CLIENT__SCHEME = eINSTANCE.getJobEngineClient_Scheme();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobhttp.impl.JobEngineServerImpl <em>Job Engine Server</em>}' class.
