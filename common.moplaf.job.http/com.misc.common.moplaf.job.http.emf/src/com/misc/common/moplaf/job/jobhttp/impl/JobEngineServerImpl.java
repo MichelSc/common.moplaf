@@ -428,119 +428,85 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		return result.toString();
 	}
 
-	
+
 	/**
-	 * The interface called by a remote client.
-	 * @author michel
-	 *
+	 * Run this job
+	 * <p>
+	 * Deserialize the job as string, execute is by calling the method {@link Run#run(RunContext)}.
+	 * Its result is then serialized and returned as String.
 	 */
-	public interface ServerCallInterface {
-		public int runJob(String serializeSchemeID, String jobAsString);
-		public int runJob(String jobAsString);
-		public int getJobStatus(int jobExecuteNr);
-		public String getJobResult(int jobExecuteNr);
-		public String getJobResult(String serializeSchemeID, int jobExecuteNr);
+	private int runJob(String serializeSchemeID, String jobAsString) {
+		Plugin.INSTANCE.logInfo("Server.runJob: called ");
+
+		JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+		JobScheduler scheduler = jobEngineServer.getScheduler();
+
+		StringReader inputStream = new StringReader(jobAsString);
+    	EList<EObject> objects = new BasicEList<EObject>();
+    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, inputStream);
+
+	    int result =-1;
+	    if ( deserialized ) {
+			for (EObject object : objects){
+		    	if ( object instanceof Run) {
+		    		Run job = (Run) object;
+		    		Plugin.INSTANCE.logInfo("Server.runJob: job received");
+		    		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
+		    		result = submittedJob.getScheduleNr();
+		    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
+		    	}
+			}
+	    } else {
+			Plugin.INSTANCE.logError("ServerCallInterface.runJob: job not deserialized");
+	    }
+		
+		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: call done ");
+		return result;
 	}
-	
+
+	private int runJob(String jobAsString) {
+		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
+		return this.runJob(XMIScheme.SCHEME_ID, jobAsString);
+	}
+		
 	/**
-	 * The handler instance for this {@link JobEngineServerImpl}
 	 * 
 	 */
-	private ServerCallInterface runJobHandler = new ServerCallInterfaceImpl(); // TODO call this somehow
-	
-	
-	/**
-	 * @author michel
-	 *
-	 */
-	public class ServerCallInterfaceImpl implements ServerCallInterface {
+	private int getJobStatus(int jobExecuteNr) {
+		Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d", jobExecuteNr));
+		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
+		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
+		if ( job == null ) {
+			Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d, job not found", jobExecuteNr));
+			return JobStatus.UNKNOWN_VALUE;
+		}
+
+		int status = job.getStatus().getValue();
+		Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: status= %d", status));
+		return status;
+	}
+
+	private String getJobResult(String serializeSchemeID, int jobExecuteNr) {
+		Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d", jobExecuteNr));
+		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
+		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
+		if ( job == null ) {
+			Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
+			return "";
+		}
+	    StringWriter stringWriter = new StringWriter();
+	    boolean serialized = Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
+		if ( !serialized ) {
+			Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: result not serialized"));
+			return "";
+		}
+	    String jobAsString = stringWriter.toString();
+	    return jobAsString;
+	}
 		
-		public ServerCallInterfaceImpl() {};
-
-		/**
-		 * Run this job
-		 * <p>
-		 * Deserialize the job as string, execute is by calling the method {@link Run#run(RunContext)}.
-		 * Its result is then serialized and returned as String.
-		 */
-		@Override
-		public int runJob(String serializeSchemeID, String jobAsString) {
-			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
-
-			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
-			JobScheduler scheduler = jobEngineServer.getScheduler();
-
-			StringReader inputStream = new StringReader(jobAsString);
-	    	EList<EObject> objects = new BasicEList<EObject>();
-	    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, inputStream);
-
-		    int result =-1;
-		    if ( deserialized ) {
-				for (EObject object : objects){
-			    	if ( object instanceof Run) {
-			    		Run job = (Run) object;
-			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job received");
-			    		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
-			    		result = submittedJob.getScheduleNr();
-			    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
-			    	}
-				}
-		    } else {
-				Plugin.INSTANCE.logError("ServerCallInterface.runJob: job not deserialized");
-		    }
-			
-			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: call done ");
-			return result;
-		}
-
-		@Override
-		public int runJob(String jobAsString) {
-			Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
-			return this.runJob(XMIScheme.SCHEME_ID, jobAsString);
-		}
-		
-		/**
-		 * 
-		 */
-		@Override
-		public int getJobStatus(int jobExecuteNr) {
-			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d", jobExecuteNr));
-			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
-			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
-			if ( job == null ) {
-				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d, job not found", jobExecuteNr));
-				return JobStatus.UNKNOWN_VALUE;
-			}
-
-			int status = job.getStatus().getValue();
-			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: status= %d", status));
-			return status;
-		}
-
-		@Override
-		public String getJobResult(String serializeSchemeID, int jobExecuteNr) {
-			Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d", jobExecuteNr));
-			JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
-			JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
-			if ( job == null ) {
-				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
-				return "";
-			}
-		    StringWriter stringWriter = new StringWriter();
-		    boolean serialized = Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
-			if ( !serialized ) {
-				Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: result not serialized"));
-				return "";
-			}
-		    String jobAsString = stringWriter.toString();
-		    return jobAsString;
-		}
-		
-		@Override
-		public String getJobResult(int jobExecuteNr) {
-			return getJobResult(XMIScheme.SCHEME_ID, jobExecuteNr);
-		}
-	};
+	private String getJobResult(int jobExecuteNr) {
+		return getJobResult(XMIScheme.SCHEME_ID, jobExecuteNr);
+	}
 
 	protected JobScheduled getJobScheduled(int job_execute_nr) {
 		JobScheduled job = this.getJobsScheduled()
