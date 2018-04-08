@@ -30,6 +30,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_K8PSU03BEeexsos4UuDRjA"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9dIDY2zWEeS8xaqIEkJGCQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_EAtccDsHEei5DshyO5UCMQ" type="3010" element="_D__qwDsHEei5DshyO5UCMQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_EAtccTsHEei5DshyO5UCMQ" fontName="Oxygen-Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_EAtccjsHEei5DshyO5UCMQ"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_Dutt0DJREeieUNKJyPKJgQ" type="3010" element="_DuiHoDJREeieUNKJyPKJgQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_Dutt0TJREeieUNKJyPKJgQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Dutt0jJREeieUNKJyPKJgQ"/>
@@ -509,6 +513,15 @@
         <semanticElements xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Spreadsheet/getSheet.1"/>
         <semanticElements xmi:type="ecore:EParameter" href="spreadsheet.ecore#//Spreadsheet/getSheet.1/sheetindex"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_9dAuoGzWEeS8xaqIEkJGCQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_D__qwDsHEei5DshyO5UCMQ" name="createSheet(index EInt) : Sheet" tooltipText="createSheet(index) : Sheet">
+        <target xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Spreadsheet/createSheet"/>
+        <semanticElements xmi:type="ecore:EOperation" href="spreadsheet.ecore#//Spreadsheet/createSheet"/>
+        <semanticElements xmi:type="ecore:EParameter" href="spreadsheet.ecore#//Spreadsheet/createSheet/index"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_EAA44DsHEei5DshyO5UCMQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
@@ -1140,7 +1153,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_o1IEoCneEeijzehspRmWRQ" sourceNode="_9cqwYGzWEeS8xaqIEkJGCQ" targetNode="_b0EpICneEeijzehspRmWRQ" beginLabel="[0..1] Spreadsheet" endLabel="[0..*] Files">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_o1IEoCneEeijzehspRmWRQ" sourceNode="_9cqwYGzWEeS8xaqIEkJGCQ" targetNode="_b0EpICneEeijzehspRmWRQ" beginLabel="[1..1] Spreadsheet" endLabel="[0..*] Files">
       <target xmi:type="ecore:EReference" href="spreadsheet.ecore#//Spreadsheet/Files"/>
       <semanticElements xmi:type="ecore:EReference" href="spreadsheet.ecore#//Spreadsheet/Files"/>
       <semanticElements xmi:type="ecore:EReference" href="spreadsheet.ecore#//SpreadsheetReaderWriter/Spreadsheet"/>

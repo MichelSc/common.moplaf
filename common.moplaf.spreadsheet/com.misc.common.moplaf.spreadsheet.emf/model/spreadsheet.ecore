@@ -130,7 +130,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpreadsheetReaderWriter" abstract="true"
       eSuperTypes="../../com.misc.common.moplaf.file.emf/model/file.ecore#//FileReaderWriter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Spreadsheet" eType="#//Spreadsheet"
-        eOpposite="#//Spreadsheet/Files"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Spreadsheet" lowerBound="1"
+        eType="#//Spreadsheet" eOpposite="#//Spreadsheet/Files"/>
   </eClassifiers>
 </ecore:EPackage>
