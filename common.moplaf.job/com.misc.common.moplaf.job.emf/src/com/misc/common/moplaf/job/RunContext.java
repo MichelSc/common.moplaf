@@ -21,6 +21,8 @@ package com.misc.common.moplaf.job;
 		 * 
 		 * @return true if the run may continue, false if the run must abort
 		 */
-		boolean onProgress(Run run, ProgressFeedback progress);
+		default boolean onProgress(Run run, ProgressFeedback progress) {
+			return true; // goon
+		}
 	
 	} // RunContext

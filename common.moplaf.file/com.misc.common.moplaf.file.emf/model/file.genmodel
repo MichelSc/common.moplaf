@@ -21,8 +21,10 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute file.ecore#//FileInMemory/Content"/>
     </genClasses>
     <genClasses ecoreClass="file.ecore#//FileReaderWriter">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/ReadFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/WriteFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/ReadFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/WriteFeedback"/>
       <genOperations ecoreOperation="file.ecore#//FileReaderWriter/getReadFeedback">
         <genParameters ecoreParameter="file.ecore#//FileReaderWriter/getReadFeedback/file"/>
       </genOperations>

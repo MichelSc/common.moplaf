@@ -18,6 +18,7 @@ import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Job;
 import com.misc.common.moplaf.job.JobPackage;
@@ -408,7 +409,7 @@ public abstract class JobImpl extends RunImpl implements Job {
 		
 		return feedback;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

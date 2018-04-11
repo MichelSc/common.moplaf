@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.file.FileHandler;
 import com.misc.common.moplaf.file.FileOwner;
@@ -281,6 +282,18 @@ public abstract class JobFileHandlerImpl extends JobImpl implements JobFileHandl
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+	
+	@Override
+	public EnabledFeedback getRunFeedback() {
+		EnabledFeedback feedback =  super.getRunFeedback();
+		if ( !feedback.isEnabled()) {
+			return feedback;
+		}
+		if ( this.getHandledFile()==null ) {
+			return new EnabledFeedback(false, "No file to handle");
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 } //JobFileHandlerImpl

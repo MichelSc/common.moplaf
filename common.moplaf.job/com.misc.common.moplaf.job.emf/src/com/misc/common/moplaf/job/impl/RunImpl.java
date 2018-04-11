@@ -246,6 +246,8 @@ public abstract class RunImpl extends RunParamsImpl implements Run {
 	public EnabledFeedback getRunFeedback() {
 		if ( this.isReturned()) {
 			return new EnabledFeedback(false, "Run finished");
+		} else if ( this.runContext!=null ) {
+			return new EnabledFeedback(false, "Run running");
 		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
@@ -408,7 +410,7 @@ public abstract class RunImpl extends RunParamsImpl implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public ReturnFeedback run() {
-		return this.run(null);
+		return this.run(new RunContext() {});
 	}
 
 	/**
