@@ -9,6 +9,10 @@ import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
 import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 import com.misc.common.moplaf.job.jobhttp.JobServer;
 
+import com.sun.net.httpserver.HttpServer;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -333,5 +337,31 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 		result.append(')');
 		return result.toString();
 	}
+
+    private HttpServer server = null;
+    
+	@Override
+	protected void startImpl() {
+   		super.startImpl();
+		try {
+			this.server = HttpServer.create(new InetSocketAddress(this.getPort()), 0);
+			// for every handler, add the context
+			// ...
+			this.server.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	protected void stopImpl() {
+		int delay = 5; // seconds
+		this.server.stop(delay);
+		this.server = null;
+		super.stopImpl();
+	}
+	
+	
 
 } //JobServerImpl

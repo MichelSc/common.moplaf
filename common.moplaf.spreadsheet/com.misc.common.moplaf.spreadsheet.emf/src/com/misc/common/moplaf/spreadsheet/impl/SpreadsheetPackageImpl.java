@@ -943,7 +943,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEAttribute(getCell_DateValue(), ecorePackage.getEDate(), "DateValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(spreadsheetReaderWriterEClass, SpreadsheetReaderWriter.class, "SpreadsheetReaderWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpreadsheetReaderWriter_Spreadsheet(), this.getSpreadsheet(), this.getSpreadsheet_Files(), "Spreadsheet", null, 0, 1, SpreadsheetReaderWriter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpreadsheetReaderWriter_Spreadsheet(), this.getSpreadsheet(), this.getSpreadsheet_Files(), "Spreadsheet", null, 1, 1, SpreadsheetReaderWriter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(cellTypeEEnum, CellType.class, "CellType");

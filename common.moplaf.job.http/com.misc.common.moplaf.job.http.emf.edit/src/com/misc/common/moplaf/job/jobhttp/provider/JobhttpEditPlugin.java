@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobhttp.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import com.misc.common.moplaf.job.jobclient.provider.JobclientEditPlugin;
 
 import com.misc.common.moplaf.job.provider.JobEditPlugin;
@@ -44,6 +45,7 @@ public final class JobhttpEditPlugin extends EMFPlugin {
 		  (new ResourceLocator [] {
 		     JobEditPlugin.INSTANCE,
 		     JobclientEditPlugin.INSTANCE,
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

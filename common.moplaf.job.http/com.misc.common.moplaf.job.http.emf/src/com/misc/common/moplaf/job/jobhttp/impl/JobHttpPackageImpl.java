@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobhttp.impl;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 
 import com.misc.common.moplaf.job.jobclient.JobClientPackage;
@@ -96,6 +97,7 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 		// Initialize simple dependencies
 		JobPackage.eINSTANCE.eClass();
 		JobClientPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJobHttpPackage.createPackageContents();
@@ -146,6 +148,15 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 	 */
 	public EAttribute getJobEngineClient_Path() {
 		return (EAttribute)jobEngineClientEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobEngineClient_Scheme() {
+		return (EAttribute)jobEngineClientEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -270,6 +281,7 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 		createEAttribute(jobEngineClientEClass, JOB_ENGINE_CLIENT__HOST);
 		createEAttribute(jobEngineClientEClass, JOB_ENGINE_CLIENT__PORT);
 		createEAttribute(jobEngineClientEClass, JOB_ENGINE_CLIENT__PATH);
+		createEAttribute(jobEngineClientEClass, JOB_ENGINE_CLIENT__SCHEME);
 
 		jobEngineServerEClass = createEClass(JOB_ENGINE_SERVER);
 		createEAttribute(jobEngineServerEClass, JOB_ENGINE_SERVER__PATH);
@@ -323,7 +335,8 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 		initEClass(jobEngineClientEClass, JobEngineClient.class, "JobEngineClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobEngineClient_Host(), ecorePackage.getEString(), "Host", "localhost", 0, 1, JobEngineClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngineClient_Port(), ecorePackage.getEInt(), "Port", "8080", 0, 1, JobEngineClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJobEngineClient_Path(), ecorePackage.getEString(), "Path", "xmlrpc", 0, 1, JobEngineClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngineClient_Path(), ecorePackage.getEString(), "Path", "default_path", 0, 1, JobEngineClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngineClient_Scheme(), ecorePackage.getEString(), "Scheme", null, 0, 1, JobEngineClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobEngineServerEClass, JobEngineServer.class, "JobEngineServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobEngineServer_Path(), ecorePackage.getEString(), "Path", "default_path", 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

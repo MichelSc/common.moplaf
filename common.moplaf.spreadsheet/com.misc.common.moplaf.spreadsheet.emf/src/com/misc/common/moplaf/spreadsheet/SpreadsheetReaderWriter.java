@@ -34,7 +34,7 @@ public interface SpreadsheetReaderWriter extends FileReaderWriter {
 	 * @see #setSpreadsheet(Spreadsheet)
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSpreadsheetReaderWriter_Spreadsheet()
 	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getFiles
-	 * @model opposite="Files" transient="false"
+	 * @model opposite="Files" required="true" transient="false"
 	 * @generated
 	 */
 	Spreadsheet getSpreadsheet();
