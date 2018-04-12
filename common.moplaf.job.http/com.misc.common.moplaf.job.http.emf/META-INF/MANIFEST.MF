@@ -16,5 +16,10 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.job.client.emf;visibility:=reexport,
  com.misc.common.moplaf.file.emf;visibility:=reexport,
  com.misc.common.moplaf.emf.serialize;bundle-version="0.1.0",
- com.misc.common.moplaf.emf.serialize.xmi;bundle-version="0.1.0"
+ com.misc.common.moplaf.emf.serialize.xmi;bundle-version="0.1.0",
+ org.eclipse.jetty.server;bundle-version="9.4.5",
+ org.eclipse.jetty.io;bundle-version="9.4.5",
+ org.eclipse.jetty.servlet;bundle-version="9.4.5",
+ org.eclipse.jetty.util;bundle-version="9.4.5",
+ javax.servlet;bundle-version="3.1.0"
 Bundle-ActivationPolicy: lazy

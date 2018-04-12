@@ -3,16 +3,15 @@
 package com.misc.common.moplaf.job.jobhttp.impl;
 
 import com.misc.common.moplaf.common.util.EObjectListDerived;
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.jobclient.impl.ServiceImpl;
 
 import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
 import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 import com.misc.common.moplaf.job.jobhttp.JobServer;
 
-import com.sun.net.httpserver.HttpServer;
-
 import java.io.IOException;
-import java.net.InetSocketAddress;
+import java.io.PrintWriter;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +27,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.server.handler.ContextHandler;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * <!-- begin-user-doc -->
@@ -338,30 +347,86 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 		return result.toString();
 	}
 
-    private HttpServer server = null;
-    
+//    private HttpServer server = null;
+
+    private Server server = null;
+
 	@Override
 	protected void startImpl() {
    		super.startImpl();
-		try {
-			this.server = HttpServer.create(new InetSocketAddress(this.getPort()), 0);
-			// for every handler, add the context
-			// ...
+//		try {
+///		this.server = HttpServer.create(new InetSocketAddress(this.getPort()), 0);
+//			// for every handler, add the context
+//			// ...
+//			this.server.start();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+   		
+        try {
+        	// create the server
+            this.server = new Server(this.getPort());
+            
+            // create the handlers
+            ContextHandlerCollection collection_handler = new ContextHandlerCollection();
+            for ( JobEngineServer handler : this.getHandlers()) {
+            	String path = handler.getPath();
+            	String submit_path = path+"/submit";
+            	ContextHandler context = new ContextHandler(submit_path);
+            	context.setHandler(new SubmitContextHandler());
+                context.setResourceBase(".");
+                context.setClassLoader(Thread.currentThread().getContextClassLoader());
+            	collection_handler.addHandler(context);
+            }
+            this.server.setHandler(collection_handler);
+            
+            // start the server
 			this.server.start();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
+			Plugin.INSTANCE.logError("jetty.JobServer: could not start");
 			e.printStackTrace();
 		}
+        server.dumpStdErr();
+        //server.join();
+
 	}
+	
+	private class SubmitContextHandler extends AbstractHandler
+ {
+		
+		@Override
+	    public void handle( String target,
+	                        Request baseRequest,
+	                        HttpServletRequest request,
+	                        HttpServletResponse response ) throws IOException,
+	                                                      ServletException
+	    {
+			Plugin.INSTANCE.logError("jetty.JobServer.submit: called");
+	        response.setContentType("text/html; charset=utf-8");
+	        response.setStatus(HttpServletResponse.SC_OK);
+
+	        PrintWriter out = response.getWriter();
+	        
+	        ServletInputStream reader = request.getInputStream();
+
+	        baseRequest.setHandled(true);
+	    }
+
+		
+	};
 
 	@Override
 	protected void stopImpl() {
-		int delay = 5; // seconds
-		this.server.stop(delay);
-		this.server = null;
+//		int delay = 5; // seconds
+//		this.server.stop(delay);
+//		this.server = null;
+		try {
+			this.server.stop();
+		} catch (Exception e) {
+			Plugin.INSTANCE.logError("jetty.JobServer: could not stop");
+			e.printStackTrace();
+		}
 		super.stopImpl();
 	}
-	
-	
-
 } //JobServerImpl
