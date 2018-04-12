@@ -10,8 +10,6 @@ import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
 import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 import com.misc.common.moplaf.job.jobhttp.JobServer;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,16 +25,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * <!-- begin-user-doc -->
@@ -374,7 +365,7 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
             	String path = handler.getPath();
             	String submit_path = path+"/submit";
             	ContextHandler context = new ContextHandler(submit_path);
-            	context.setHandler(new SubmitContextHandler());
+            	context.setHandler(handler.constructSubmitHandler());
                 context.setResourceBase(".");
                 context.setClassLoader(Thread.currentThread().getContextClassLoader());
             	collection_handler.addHandler(context);
@@ -392,29 +383,6 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 
 	}
 	
-	private class SubmitContextHandler extends AbstractHandler
- {
-		
-		@Override
-	    public void handle( String target,
-	                        Request baseRequest,
-	                        HttpServletRequest request,
-	                        HttpServletResponse response ) throws IOException,
-	                                                      ServletException
-	    {
-			Plugin.INSTANCE.logError("jetty.JobServer.submit: called");
-	        response.setContentType("text/html; charset=utf-8");
-	        response.setStatus(HttpServletResponse.SC_OK);
-
-	        PrintWriter out = response.getWriter();
-	        
-	        ServletInputStream reader = request.getInputStream();
-
-	        baseRequest.setHandled(true);
-	    }
-
-		
-	};
 
 	@Override
 	protected void stopImpl() {

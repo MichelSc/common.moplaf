@@ -1,0 +1,23 @@
+sumbitjob
+
+ url: <baseurl>/enginepath/submitjob?scheme=<scheme>
+ receives: the serialized job
+ returns: the id of the submission
+ 
+getjobstatus
+ url: <baseurl>/enginepath/getjobstatus?submitid=<submit_id>
+ returns the status as a code, possible values
+ o	0: UNKNOWN
+ o	1: NOT_READY
+ o	2: WAITING
+ o	3: SCHEDULED
+ o	4: RUNNING
+ o	5: COMPLETE
+ o	6: FAILED
+ 
+getjobresult
+ url: <baseurl>/enginepath/getjobresult?submitid=<submit_id>
+ returns the executed job
+ 
+ 
+ 

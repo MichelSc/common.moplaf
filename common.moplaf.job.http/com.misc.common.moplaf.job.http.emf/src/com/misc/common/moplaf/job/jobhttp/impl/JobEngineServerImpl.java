@@ -17,10 +17,17 @@ import com.misc.common.moplaf.job.jobhttp.JobServer;
 import com.misc.common.moplaf.serialize.util.Util;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.StringReader;
+import java.io.PrintWriter;
+import java.io.Reader;
 import java.io.StringWriter;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -30,6 +37,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.handler.AbstractHandler;
 
 /**
  * <!-- begin-user-doc -->
@@ -427,23 +436,78 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override
+	public AbstractHandler constructSubmitHandler() {
+		return new SubmitHandler();
+	}
 
+	private class SubmitHandler extends AbstractHandler {
+		
+		@Override
+	    public void handle( String target,
+	                        Request baseRequest,
+	                        HttpServletRequest request,
+	                        HttpServletResponse response ) throws IOException,
+	                                                      ServletException
+	    {
+			Plugin.INSTANCE.logError("jetty.JobServer.submit: called");
+	        response.setContentType("text/html; charset=utf-8");
+	        response.setStatus(HttpServletResponse.SC_OK);
+	        
+	        String scheme = request.getParameter("scheme");
+			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: scheme="+ scheme);
 
+			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content length="+ request.getContentLength());
+			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content encoding="+ request.getCharacterEncoding());
+			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content content type="+ request.getContentType());
+	        
+	        BufferedReader in = request.getReader();
+	        int sumbmit_nr = scheme==null 
+     		       ? JobEngineServerImpl.this.runJob(in)
+       		       : JobEngineServerImpl.this.runJob(scheme, in);
+
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: submitted, nr="+ sumbmit_nr);
+     		       
+     		PrintWriter out = response.getWriter();
+     		out.format("%s", sumbmit_nr);
+     		out.close();
+
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: output written");
+
+	        baseRequest.setHandled(true);
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: request handled");
+	    }
+
+		
+	};
+
+	
 	/**
 	 * Run this job
 	 * <p>
 	 * Deserialize the job as string, execute is by calling the method {@link Run#run(RunContext)}.
 	 * Its result is then serialized and returned as String.
 	 */
-	private int runJob(String serializeSchemeID, String jobAsString) {
+	private int runJob(String serializeSchemeID, Reader reader) {
 		Plugin.INSTANCE.logInfo("Server.runJob: called ");
 
 		JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 		JobScheduler scheduler = jobEngineServer.getScheduler();
+		
+		StringWriter writer = new StringWriter();
+		
+		try {
+			IOUtils.copy(reader, writer);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String content = writer.toString();
+		Plugin.INSTANCE.logInfo("Server.runJob: content '"+content+"'");
 
-		StringReader inputStream = new StringReader(jobAsString);
     	EList<EObject> objects = new BasicEList<EObject>();
-    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, inputStream);
+    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, reader);
 
 	    int result =-1;
 	    if ( deserialized ) {
@@ -464,9 +528,9 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		return result;
 	}
 
-	private int runJob(String jobAsString) {
+	private int runJob(Reader reader) {
 		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
-		return this.runJob(XMIScheme.SCHEME_ID, jobAsString);
+		return this.runJob(XMIScheme.SCHEME_ID, reader);
 	}
 		
 	/**

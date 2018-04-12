@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.job.jobhttp;
 
+import org.eclipse.jetty.server.handler.AbstractHandler;
+
 import com.misc.common.moplaf.job.jobclient.JobSource;
 
 /**
@@ -121,5 +123,12 @@ public interface JobEngineServer extends JobSource {
 	 * @generated
 	 */
 	JobServer getServer();
+	
+	/**
+	 * Construct a submit handler
+	 * @return
+	 */
+	public AbstractHandler constructSubmitHandler();
+
 
 } // JobEngineServer
