@@ -18,6 +18,7 @@ import com.misc.common.moplaf.serialize.util.Util;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
@@ -458,11 +459,17 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	        String scheme = request.getParameter("scheme");
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: scheme="+ scheme);
 
+	        String filename = request.getParameter("filename");
+	        String filepath = String.format("C:\\git\\touse.jobsched\\touse.moplaf.job\\utils\\win\\%s", filename);
+			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filename="+ filename);
+			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filepath="+ filepath);
+
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content length="+ request.getContentLength());
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content encoding="+ request.getCharacterEncoding());
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content content type="+ request.getContentType());
 	        
-	        BufferedReader in = request.getReader();
+//	        BufferedReader in = request.getReader();
+			FileReader in = new FileReader(filepath);
 	        int sumbmit_nr = scheme==null 
      		       ? JobEngineServerImpl.this.runJob(in)
        		       : JobEngineServerImpl.this.runJob(scheme, in);
