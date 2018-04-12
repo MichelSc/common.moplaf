@@ -3,18 +3,22 @@
 package com.misc.common.moplaf.job.provider;
 
 
+import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobFileHandler;
 import com.misc.common.moplaf.job.JobPackage;
+
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -187,5 +191,17 @@ public class JobFileHandlerItemProvider extends JobItemProvider {
 				(FilePackage.Literals.FILE_OWNER__FILES,
 				 FileFactory.eINSTANCE.createFileInMemory()));
 	}
+
+	@Override
+	protected Command createDropCommand(EditingDomain domain, Object owner, Object droppedObject) {
+		JobFileHandler thisRun = (JobFileHandler) owner;
+		if ( droppedObject instanceof File){
+  	   		SetCommand cmd = new SetCommand(domain, thisRun, FilePackage.Literals.FILE_HANDLER__SELECTED_FILE, droppedObject);
+		   	return cmd;
+		} 
+		return null;
+	}
+	
+	
 
 }
