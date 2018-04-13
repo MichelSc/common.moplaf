@@ -20,17 +20,14 @@ import com.misc.common.moplaf.job.jobhttp.util.Util;
 import com.misc.common.moplaf.job.util.RunFactory;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.io.Writer;
 import java.util.Date;
 import java.util.Map;
 
@@ -510,6 +507,11 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		return new SubmitFileHandler();
 	}
 
+	@Override
+	public AbstractHandler constructGetJobStatusHandler() {
+		return new GetJobStatusHandler();
+	}
+
 	/**
 	 * 
 	 * @author MiSc
@@ -526,7 +528,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	    {
 			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
 			
-			Plugin.INSTANCE.logError(String.format("jetty.JobServer.submit: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submit: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
 			Map<String, String> params = Util.getQueryParams(request.getQueryString());
 
 			// get the scheme
@@ -586,7 +588,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	    {
 			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
 			
-			Plugin.INSTANCE.logError(String.format("jetty.JobServer.submitFile: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submitFile: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
 			Map<String, String> params = Util.getQueryParams(request.getQueryString());
 
 			// get the scheme
@@ -631,13 +633,64 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 
 
 	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	private class GetJobStatusHandler extends AbstractHandler {
+		
+		@Override
+	    public void handle( String target,
+	                        Request baseRequest,
+	                        HttpServletRequest request,
+	                        HttpServletResponse response ) throws IOException,
+	                                                      ServletException
+	    {
+			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
+			
+			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.getjobstatus: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Map<String, String> params = Util.getQueryParams(request.getQueryString());
+
+			// get the submit id
+			int execution_nr = -1;
+			try {
+		        String submtid = params.get("submitid");
+				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: submtid="+ submtid);
+				execution_nr = Integer.parseInt(submtid);
+			} catch(NumberFormatException e) {
+				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: invalid submtid");
+			}
+
+			if ( execution_nr>=0 ) {
+		        // get the status
+		        int status = outer_this.getJobStatus(execution_nr);
+
+	     		Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: status="+ status);
+
+	     		// make the response
+		        response.setContentType("text/html; charset=utf-8");
+		        response.setStatus(HttpServletResponse.SC_OK);
+	     		PrintWriter out = response.getWriter();
+	     		out.format("%s", status);
+	     		out.close();
+
+	     		Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: output written");
+
+		        baseRequest.setHandled(true);
+	     		Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: request handled");
+			}
+	    }
+	};
+
+
+	/**
 	 * Run a job
 	 * <p>
 	 * Deserialize the job as string with the given scheme, and submit it to the scheduler.
 	 * Returns the submit id
 	 */
 	private int runJob(String serializeSchemeID, Reader reader) {
-		Plugin.INSTANCE.logInfo("Server.runJob: called ");
+		Plugin.INSTANCE.logInfo("JobEngineServer.runJob: called ");
 
 		JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 		JobScheduler scheduler = jobEngineServer.getScheduler();
@@ -645,18 +698,18 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
     	EObject object = com.misc.common.moplaf.serialize.util.Util.deserialize(serializeSchemeID, reader);
 
 	    if ( object==null ) {
-			Plugin.INSTANCE.logError("ServerCallInterface.runJob: job not deserialized");
+			Plugin.INSTANCE.logError("JobEngineServer.runJob: job not deserialized");
 			return -1;
 	    } else if ( object instanceof Run) {
     		Run job = (Run) object;
-    		Plugin.INSTANCE.logInfo("Server.runJob: job received");
+    		Plugin.INSTANCE.logInfo("JobEngineServer.runJob: job received");
     		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
     		int result = submittedJob.getScheduleNr();
-    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted, nr="+result);
+    		Plugin.INSTANCE.logInfo("JobEngineServer.runJob: job submitted, nr="+result);
     		return result;
     		
     	} else {
-			Plugin.INSTANCE.logError("ServerCallInterface.runJob: deserialized object is not a Run");
+			Plugin.INSTANCE.logError("JobEngineServer.runJob: deserialized object is not a Run");
 			return -1;
     	}
 	}
@@ -667,7 +720,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * Returns the submit id.
 	 */
 	private int runFile(String job_type_id, String filepath) {
-		Plugin.INSTANCE.logInfo(String.format("Server.runFile: called, type=%s, file=+s ", job_type_id, filepath));
+		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.runFile: called, type=%s, file=+s ", job_type_id, filepath));
 
 		JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 		JobScheduler scheduler = jobEngineServer.getScheduler();
@@ -675,14 +728,14 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		// get the job factory
 		RunFactory factory = com.misc.common.moplaf.job.util.Util.getRunFactory(job_type_id);
 		if ( factory == null ) {
-			Plugin.INSTANCE.logError(String.format("Server.runFile: unknown job type %s ", job_type_id));
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.runFile: unknown job type %s ", job_type_id));
 			return -1;
 		}
 		
 		// get the job
 		Run job = factory.createRun();
 		if ( !(job instanceof JobFileHandler)) {
-			Plugin.INSTANCE.logError(String.format("Server.runFile: job must be of type JobFileHandler, and not of type %s ", job.eClass().getName()));
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.runFile: job must be of type JobFileHandler, and not of type %s ", job.eClass().getName()));
 			return -1;
 		}
 		JobFileHandler file_handler = (JobFileHandler)job;
@@ -695,7 +748,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		// schedule the job
 		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
 		int result = submittedJob.getScheduleNr();
-		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted, nr="+result);
+		Plugin.INSTANCE.logInfo("JobEngineServer.runJob: job submitted, nr="+result);
 		
 		return result;
 	}
@@ -708,7 +761,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * Deserialize the job as string with the given scheme, and submit it to the scheduler.
 	 */
 	private int runJob(Reader reader) {
-		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
+		Plugin.INSTANCE.logInfo("JobEngineServer.runJob: called ");
 		return this.runJob(XMIScheme.SCHEME_ID, reader);
 	}
 		
@@ -716,31 +769,31 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * 
 	 */
 	private int getJobStatus(int jobExecuteNr) {
-		Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d", jobExecuteNr));
+		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobStatus: jobExecutenr= %d", jobExecuteNr));
 		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
 		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 		if ( job == null ) {
-			Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobStatus: jobExecutenr= %d, job not found", jobExecuteNr));
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.getJobStatus: jobExecutenr= %d, job not found", jobExecuteNr));
 			return JobStatus.UNKNOWN_VALUE;
 		}
 
 		int status = job.getStatus().getValue();
-		Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobStatus: status= %d", status));
+		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobStatus: status= %d", status));
 		return status;
 	}
 
 	private String getJobResult(String serializeSchemeID, int jobExecuteNr) {
-		Plugin.INSTANCE.logInfo(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d", jobExecuteNr));
+		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobResult: jobExecutenr= %d", jobExecuteNr));
 		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
 		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 		if ( job == null ) {
-			Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.getJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
 			return "";
 		}
 	    StringWriter stringWriter = new StringWriter();
 	    boolean serialized = com.misc.common.moplaf.serialize.util.Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
 		if ( !serialized ) {
-			Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: result not serialized"));
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.getJobResult: result not serialized"));
 			return "";
 		}
 	    String jobAsString = stringWriter.toString();
