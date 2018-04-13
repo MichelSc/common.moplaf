@@ -153,10 +153,16 @@ public interface JobEngineServer extends JobSource {
 	void setTmpFolder(String value);
 
 	/**
-	 * Construct a submit handler
+	 * Construct a submitjob handler
 	 * @return
 	 */
-	public AbstractHandler constructSubmitHandler();
+	public AbstractHandler constructSubmitJobHandler();
+
+	/**
+	 * Construct a submitfile handler
+	 * @return
+	 */
+	public AbstractHandler constructSubmitFileHandler();
 
 
 } // JobEngineServer

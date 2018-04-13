@@ -3,13 +3,11 @@
 package com.misc.common.moplaf.job.jobhttp.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
-import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.file.FileLocal;
 import com.misc.common.moplaf.job.JobFileHandler;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
-import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobScheduled;
 import com.misc.common.moplaf.job.jobclient.JobScheduler;
 import com.misc.common.moplaf.job.jobclient.JobStatus;
@@ -21,25 +19,28 @@ import com.misc.common.moplaf.job.jobhttp.JobServer;
 import com.misc.common.moplaf.job.jobhttp.util.Util;
 import com.misc.common.moplaf.job.util.RunFactory;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
-import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.Writer;
+import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -500,10 +501,20 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	}
 	
 	@Override
-	public AbstractHandler constructSubmitHandler() {
+	public AbstractHandler constructSubmitJobHandler() {
 		return new SubmitJobHandler();
 	}
 
+	@Override
+	public AbstractHandler constructSubmitFileHandler() {
+		return new SubmitFileHandler();
+	}
+
+	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
 	private class SubmitJobHandler extends AbstractHandler {
 		
 		@Override
@@ -514,18 +525,15 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	                                                      ServletException
 	    {
 			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
-			HttpServletRequest r = request;
-//			HttpServletRequest r = baseRequest;
 			
-			Plugin.INSTANCE.logError("jetty.JobServer.submit: called");
-			Plugin.INSTANCE.logError("jetty.JobServer.submit: method "+r.getMethod());
-			Plugin.INSTANCE.logError("jetty.JobServer.submit: query string "+r.getQueryString());
-			Map<String, String> params = Util.getQueryParams(r.getQueryString());
-			
-	        
+			Plugin.INSTANCE.logError(String.format("jetty.JobServer.submit: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Map<String, String> params = Util.getQueryParams(request.getQueryString());
+
+			// get the scheme
 	        String scheme = params.get("scheme");
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: scheme="+ scheme);
 
+			// get the serialized job
 	        Reader in = null;
 	        String filename = params.get("filename");
 	        if ( filename!=null ) {
@@ -534,34 +542,24 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				in = new FileReader(filepath);
 	        } else {
 				Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submit: content l=%d, encoding=%s, type=%s",
-						r.getContentLength(), 
-						r.getCharacterEncoding(),
-						r.getContentType()));
-				in = r.getReader();
-				
-//				StringWriter writer = new StringWriter();
-//				try {
-//					IOUtils.copy(in, writer);
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content "+ writer.toString());
-//				in = new StringReader(writer.toString());
+						request.getContentLength(), 
+						request.getCharacterEncoding(),
+						request.getContentType()));
+				in = request.getReader();
 	        }
 
 	        // do the submit
-	        int sumbmit_nr = scheme==null 
-     		       ? JobEngineServerImpl.this.runJob(in)
-       		       : JobEngineServerImpl.this.runJob(scheme, in);
+	        int submit_nr = scheme==null 
+     		       ? outer_this.runJob(in)
+       		       : outer_this.runJob(scheme, in);
 
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: submitted, nr="+ sumbmit_nr);
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: submitted, nr="+ submit_nr);
 
      		// make the response
 	        response.setContentType("text/html; charset=utf-8");
 	        response.setStatus(HttpServletResponse.SC_OK);
      		PrintWriter out = response.getWriter();
-     		out.format("%s", sumbmit_nr);
+     		out.format("%s", submit_nr);
      		out.close();
 
      		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: output written");
@@ -569,11 +567,69 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	        baseRequest.setHandled(true);
      		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: request handled");
 	    }
-
-		
 	};
 
 	
+	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	private class SubmitFileHandler extends AbstractHandler {
+		
+		@Override
+	    public void handle( String target,
+	                        Request baseRequest,
+	                        HttpServletRequest request,
+	                        HttpServletResponse response ) throws IOException,
+	                                                      ServletException
+	    {
+			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
+			
+			Plugin.INSTANCE.logError(String.format("jetty.JobServer.submitFile: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Map<String, String> params = Util.getQueryParams(request.getQueryString());
+
+			// get the scheme
+	        String job_type = params.get("jobtype");
+			Plugin.INSTANCE.logInfo("jetty.JobServer.submitFile: jobtype="+ job_type);
+
+			// get the file
+			String filepath = null;
+	        String filename = params.get("filename");
+	        if ( filename!=null ) {
+		        filepath = String.format("%s\\%s", outer_this.getTmpFolder(), filename);
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submitFile: filepath="+ filepath);
+	        } else {
+				Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submitFile: content l=%d, encoding=%s, type=%s",
+						request.getContentLength(), 
+						request.getCharacterEncoding(),
+						request.getContentType()));
+		        filepath = String.format("%s\\file_%tQ", outer_this.getTmpFolder(), new Date());
+		        OutputStream file = new FileOutputStream(filepath);
+		        InputStream in = request.getInputStream();
+		        IOUtils.copy(in, file);
+	        }
+
+	        // do the submit
+	        int submit_nr = outer_this.runFile(job_type, filepath);
+
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submitFile: submitted, nr="+ submit_nr);
+
+     		// make the response
+	        response.setContentType("text/html; charset=utf-8");
+	        response.setStatus(HttpServletResponse.SC_OK);
+     		PrintWriter out = response.getWriter();
+     		out.format("%s", submit_nr);
+     		out.close();
+
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: output written");
+
+	        baseRequest.setHandled(true);
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: request handled");
+	    }
+	};
+
+
 	/**
 	 * Run a job
 	 * <p>

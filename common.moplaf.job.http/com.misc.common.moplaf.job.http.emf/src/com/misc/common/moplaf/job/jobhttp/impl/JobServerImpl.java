@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 
@@ -341,20 +342,21 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
 //    private HttpServer server = null;
 
     private Server server = null;
+    
+    static private void helperAddContextHandler(ContextHandlerCollection collection_handler, String path, AbstractHandler handler) {
+    	ContextHandler context = new ContextHandler(path);
+    	context.setHandler(handler);
+        context.setResourceBase(".");
+        context.setClassLoader(Thread.currentThread().getContextClassLoader());
+        // otherwise the POST becomes a GET
+        // By default a Jetty ContextHandler with a context of "/app" will actually redirect any request to "/app" to "/app/", have a look at setAllowNullPathInfo.
+        context.setAllowNullPathInfo(true); 
+    	collection_handler.addHandler(context);
+    }
 
 	@Override
 	protected void startImpl() {
    		super.startImpl();
-//		try {
-///		this.server = HttpServer.create(new InetSocketAddress(this.getPort()), 0);
-//			// for every handler, add the context
-//			// ...
-//			this.server.start();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-   		
         try {
         	// create the server
             this.server = new Server(this.getPort());
@@ -363,17 +365,17 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
             ContextHandlerCollection collection_handler = new ContextHandlerCollection();
             for ( JobEngineServer handler : this.getHandlers()) {
             	String path = handler.getPath();
-            	String submit_path = path+"/submitjob";
-            	ContextHandler context = new ContextHandler(submit_path);
-            	context.setHandler(handler.constructSubmitHandler());
-                context.setResourceBase(".");
-                context.setClassLoader(Thread.currentThread().getContextClassLoader());
-//                    context.setMaxFormContentSize(1000000);
-//                    context.setMaxFormKeys(1000);
-                // otherwise the POST becomes a GET
-                // By default a Jetty ContextHandler with a context of "/app" will actually redirect any request to "/app" to "/app/", have a look at setAllowNullPathInfo.
-                context.setAllowNullPathInfo(true); 
-            	collection_handler.addHandler(context);
+            	
+            	// submit job
+            	String submitjob_path = path+"/submitjob";
+            	AbstractHandler submitjob_handler = handler.constructSubmitJobHandler();
+            	helperAddContextHandler(collection_handler, submitjob_path, submitjob_handler);
+            	
+            	// submit file
+            	String submitfile_path = path+"/submitfile";
+            	AbstractHandler submitfile_handler = handler.constructSubmitFileHandler();
+            	helperAddContextHandler(collection_handler, submitfile_path, submitfile_handler);
+            	
                 this.server.setHandler(collection_handler);
             }
             // start the server
