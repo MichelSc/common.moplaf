@@ -11,7 +11,7 @@ public class Util {
 	static public RunFactory getRunFactory(String factory_id) {
 		
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.scheme.run_factory");
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.run_factory");
 		for ( IConfigurationElement element : elements){
 			// check the extension id 
 			String extension_id = element.getDeclaringExtension().getUniqueIdentifier();
