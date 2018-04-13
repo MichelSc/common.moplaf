@@ -170,5 +170,17 @@ public interface JobEngineServer extends JobSource {
 	 */
 	public AbstractHandler constructGetJobStatusHandler();
 
+	/**
+	 * Construct a getjobresult handler
+	 * @return
+	 */
+	public AbstractHandler constructGetJobResultHandler();
+	
+	/**
+	 * Construct a getfileresult handler
+	 * @return
+	 */
+	public AbstractHandler constructGetFileResultHandler();
+
 
 } // JobEngineServer

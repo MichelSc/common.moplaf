@@ -28,6 +28,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.util.Date;
 import java.util.Map;
 
@@ -512,6 +513,16 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		return new GetJobStatusHandler();
 	}
 
+	@Override
+	public AbstractHandler constructGetJobResultHandler() {
+		return new GetJobResultHandler();
+	}
+
+	@Override
+	public AbstractHandler constructGetFileResultHandler() {
+		return null; // TODO return new GetFileResultHandler();
+	}
+
 	/**
 	 * 
 	 * @author MiSc
@@ -684,6 +695,59 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 
 
 	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	private class GetJobResultHandler extends AbstractHandler {
+		
+		@Override
+	    public void handle( String target,
+	                        Request baseRequest,
+	                        HttpServletRequest request,
+	                        HttpServletResponse response ) throws IOException,
+	                                                      ServletException
+	    {
+			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
+			
+			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.getjobresult: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Map<String, String> params = Util.getQueryParams(request.getQueryString());
+
+			// get the scheme
+	        String scheme = params.get("scheme");
+			Plugin.INSTANCE.logInfo("jetty.JobServer.getjobresult: scheme="+ scheme);
+
+			// get the submit id
+			int execution_nr = -1;
+			try {
+		        String submtid = params.get("submitid");
+				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobresult: submtid="+ submtid);
+				execution_nr = Integer.parseInt(submtid);
+			} catch(NumberFormatException e) {
+				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobresult: invalid submtid");
+			}
+
+     		// make the response
+	        response.setContentType("text/html; charset=utf-8");
+	        response.setStatus(HttpServletResponse.SC_OK);
+     		PrintWriter out = response.getWriter();
+     		boolean written = false;
+     		if ( scheme == null ) {
+         		written = outer_this.writeJobResult(execution_nr, out);
+     		} else {
+         		written = outer_this.writeJobResult(scheme, execution_nr, out);
+     		}
+     		out.close();
+
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: output written");
+
+	        baseRequest.setHandled(written);
+     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: request handled");
+	    }
+	};
+
+
+	/**
 	 * Run a job
 	 * <p>
 	 * Deserialize the job as string with the given scheme, and submit it to the scheduler.
@@ -782,26 +846,24 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		return status;
 	}
 
-	private String getJobResult(String serializeSchemeID, int jobExecuteNr) {
-		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobResult: jobExecutenr= %d", jobExecuteNr));
+	private boolean writeJobResult(String serializeSchemeID, int jobExecuteNr, Writer writer) {
+		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.writeJobResult: jobExecutenr= %d", jobExecuteNr));
 		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
 		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 		if ( job == null ) {
-			Plugin.INSTANCE.logError(String.format("JobEngineServer.getJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
-			return "";
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
+			return false;
 		}
-	    StringWriter stringWriter = new StringWriter();
-	    boolean serialized = com.misc.common.moplaf.serialize.util.Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
+	    boolean serialized = com.misc.common.moplaf.serialize.util.Util.serialize(serializeSchemeID, job.getRun(), writer);
 		if ( !serialized ) {
-			Plugin.INSTANCE.logError(String.format("JobEngineServer.getJobResult: result not serialized"));
-			return "";
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeJobResult: result not serialized"));
+			return false;
 		}
-	    String jobAsString = stringWriter.toString();
-	    return jobAsString;
+	    return true;
 	}
 		
-	private String getJobResult(int jobExecuteNr) {
-		return getJobResult(XMIScheme.SCHEME_ID, jobExecuteNr);
+	private boolean writeJobResult(int jobExecuteNr, Writer writer) {
+		return writeJobResult(XMIScheme.SCHEME_ID, jobExecuteNr, writer);
 	}
 
 	protected JobScheduled getJobScheduled(int job_execute_nr) {
