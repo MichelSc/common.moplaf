@@ -3,6 +3,10 @@
 package com.misc.common.moplaf.job.jobhttp.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.file.File;
+import com.misc.common.moplaf.file.FileFactory;
+import com.misc.common.moplaf.file.FileLocal;
+import com.misc.common.moplaf.job.JobFileHandler;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
@@ -15,9 +19,8 @@ import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
 import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 import com.misc.common.moplaf.job.jobhttp.JobServer;
 import com.misc.common.moplaf.job.jobhttp.util.Util;
+import com.misc.common.moplaf.job.util.RunFactory;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
-
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,7 +32,6 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -58,6 +60,7 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobEngineServerImpl#getSelectedServer <em>Selected Server</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobEngineServerImpl#getOwnerServer <em>Owner Server</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobEngineServerImpl#getServer <em>Server</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobhttp.impl.JobEngineServerImpl#getTmpFolder <em>Tmp Folder</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +105,26 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * @ordered
 	 */
 	protected JobServer ownerServer;
+
+	/**
+	 * The default value of the '{@link #getTmpFolder() <em>Tmp Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTmpFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TMP_FOLDER_EDEFAULT = "C:\\tmp";
+
+	/**
+	 * The cached value of the '{@link #getTmpFolder() <em>Tmp Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTmpFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected String tmpFolder = TMP_FOLDER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,6 +293,27 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	
 	
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTmpFolder() {
+		return tmpFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTmpFolder(String newTmpFolder) {
+		String oldTmpFolder = tmpFolder;
+		tmpFolder = newTmpFolder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobHttpPackage.JOB_ENGINE_SERVER__TMP_FOLDER, oldTmpFolder, tmpFolder));
+	}
+
 	@Override
 	protected void startImpl() {
 		
@@ -361,6 +405,8 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			case JobHttpPackage.JOB_ENGINE_SERVER__SERVER:
 				if (resolve) return getServer();
 				return basicGetServer();
+			case JobHttpPackage.JOB_ENGINE_SERVER__TMP_FOLDER:
+				return getTmpFolder();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,6 +427,9 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				return;
 			case JobHttpPackage.JOB_ENGINE_SERVER__OWNER_SERVER:
 				setOwnerServer((JobServer)newValue);
+				return;
+			case JobHttpPackage.JOB_ENGINE_SERVER__TMP_FOLDER:
+				setTmpFolder((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -403,6 +452,9 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			case JobHttpPackage.JOB_ENGINE_SERVER__OWNER_SERVER:
 				setOwnerServer((JobServer)null);
 				return;
+			case JobHttpPackage.JOB_ENGINE_SERVER__TMP_FOLDER:
+				setTmpFolder(TMP_FOLDER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -423,6 +475,8 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				return ownerServer != null;
 			case JobHttpPackage.JOB_ENGINE_SERVER__SERVER:
 				return basicGetServer() != null;
+			case JobHttpPackage.JOB_ENGINE_SERVER__TMP_FOLDER:
+				return TMP_FOLDER_EDEFAULT == null ? tmpFolder != null : !TMP_FOLDER_EDEFAULT.equals(tmpFolder);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -439,16 +493,18 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Path: ");
 		result.append(path);
+		result.append(", TmpFolder: ");
+		result.append(tmpFolder);
 		result.append(')');
 		return result.toString();
 	}
 	
 	@Override
 	public AbstractHandler constructSubmitHandler() {
-		return new SubmitHandler();
+		return new SubmitJobHandler();
 	}
 
-	private class SubmitHandler extends AbstractHandler {
+	private class SubmitJobHandler extends AbstractHandler {
 		
 		@Override
 	    public void handle( String target,
@@ -457,8 +513,9 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	                        HttpServletResponse response ) throws IOException,
 	                                                      ServletException
 	    {
-//			HttpServletRequest r = request;
-			HttpServletRequest r = baseRequest;
+			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
+			HttpServletRequest r = request;
+//			HttpServletRequest r = baseRequest;
 			
 			Plugin.INSTANCE.logError("jetty.JobServer.submit: called");
 			Plugin.INSTANCE.logError("jetty.JobServer.submit: method "+r.getMethod());
@@ -468,37 +525,32 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	        
 	        String scheme = params.get("scheme");
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: scheme="+ scheme);
-			
 
 	        Reader in = null;
 	        String filename = params.get("filename");
 	        if ( filename!=null ) {
-		        String filepath = String.format("C:\\git\\touse.jobsched\\touse.moplaf.job\\utils\\win\\%s", filename);
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filename="+ filename);
+		        String filepath = String.format("%s\\%s", outer_this.getTmpFolder(), filename);
 				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filepath="+ filepath);
 				in = new FileReader(filepath);
 	        } else {
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content length="+ r.getContentLength());
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content encoding="+ r.getCharacterEncoding());
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content content type="+ r.getContentType());
-				if ( false ) {
-					ServletInputStream inputstream = r.getInputStream();
-			        in = new InputStreamReader(inputstream); //request.getReader();
-				} else {
-					in = r.getReader();
-				}
+				Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submit: content l=%d, encoding=%s, type=%s",
+						r.getContentLength(), 
+						r.getCharacterEncoding(),
+						r.getContentType()));
+				in = r.getReader();
 				
-				StringWriter writer = new StringWriter();
-				try {
-					IOUtils.copy(in, writer);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content "+ writer.toString());
-				in = new StringReader(writer.toString());
+//				StringWriter writer = new StringWriter();
+//				try {
+//					IOUtils.copy(in, writer);
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content "+ writer.toString());
+//				in = new StringReader(writer.toString());
 	        }
-	        
+
+	        // do the submit
 	        int sumbmit_nr = scheme==null 
      		       ? JobEngineServerImpl.this.runJob(in)
        		       : JobEngineServerImpl.this.runJob(scheme, in);
@@ -523,10 +575,10 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 
 	
 	/**
-	 * Run this job
+	 * Run a job
 	 * <p>
-	 * Deserialize the job as string, execute is by calling the method {@link Run#run(RunContext)}.
-	 * Its result is then serialized and returned as String.
+	 * Deserialize the job as string with the given scheme, and submit it to the scheduler.
+	 * Returns the submit id
 	 */
 	private int runJob(String serializeSchemeID, Reader reader) {
 		Plugin.INSTANCE.logInfo("Server.runJob: called ");
@@ -534,39 +586,71 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 		JobScheduler scheduler = jobEngineServer.getScheduler();
 		
-//		StringWriter writer = new StringWriter();
-//		
-//		try {
-//			IOUtils.copy(reader, writer);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		String content = writer.toString();
-//		Plugin.INSTANCE.logInfo("Server.runJob: content '"+content+"'");
+    	EObject object = com.misc.common.moplaf.serialize.util.Util.deserialize(serializeSchemeID, reader);
 
-    	EList<EObject> objects = new BasicEList<EObject>();
-    	boolean deserialized = com.misc.common.moplaf.serialize.util.Util.deserialize(serializeSchemeID, objects, reader);
-
-	    int result =-1;
-	    if ( deserialized ) {
-			for (EObject object : objects){
-		    	if ( object instanceof Run) {
-		    		Run job = (Run) object;
-		    		Plugin.INSTANCE.logInfo("Server.runJob: job received");
-		    		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
-		    		result = submittedJob.getScheduleNr();
-		    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted");
-		    	}
-			}
-	    } else {
+	    if ( object==null ) {
 			Plugin.INSTANCE.logError("ServerCallInterface.runJob: job not deserialized");
-	    }
+			return -1;
+	    } else if ( object instanceof Run) {
+    		Run job = (Run) object;
+    		Plugin.INSTANCE.logInfo("Server.runJob: job received");
+    		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
+    		int result = submittedJob.getScheduleNr();
+    		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted, nr="+result);
+    		return result;
+    		
+    	} else {
+			Plugin.INSTANCE.logError("ServerCallInterface.runJob: deserialized object is not a Run");
+			return -1;
+    	}
+	}
+
+	/**
+	 * Create a job for the given type. The job type must be a JobFileHandler.
+	 * Attach the file to the job and submit the job to the scheduler.
+	 * Returns the submit id.
+	 */
+	private int runFile(String job_type_id, String filepath) {
+		Plugin.INSTANCE.logInfo(String.format("Server.runFile: called, type=%s, file=+s ", job_type_id, filepath));
+
+		JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+		JobScheduler scheduler = jobEngineServer.getScheduler();
+
+		// get the job factory
+		RunFactory factory = com.misc.common.moplaf.job.util.Util.getRunFactory(job_type_id);
+		if ( factory == null ) {
+			Plugin.INSTANCE.logError(String.format("Server.runFile: unknown job type %s ", job_type_id));
+			return -1;
+		}
 		
-		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: call done ");
+		// get the job
+		Run job = factory.createRun();
+		if ( !(job instanceof JobFileHandler)) {
+			Plugin.INSTANCE.logError(String.format("Server.runFile: job must be of type JobFileHandler, and not of type %s ", job.eClass().getName()));
+			return -1;
+		}
+		JobFileHandler file_handler = (JobFileHandler)job;
+
+		// make the file
+		FileLocal file = FileFactory.eINSTANCE.createFileLocal();
+		file.setFilePath(filepath);
+		file_handler.getFiles().add(file); // owning
+		
+		// schedule the job
+		JobScheduled submittedJob = scheduler.submitRun(jobEngineServer, job, true);  // takes ownership
+		int result = submittedJob.getScheduleNr();
+		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: job submitted, nr="+result);
+		
 		return result;
 	}
 
+
+	
+	/**
+	 * Run a job
+	 * <p>
+	 * Deserialize the job as string with the given scheme, and submit it to the scheduler.
+	 */
 	private int runJob(Reader reader) {
 		Plugin.INSTANCE.logInfo("ServerCallInterface.runJob: called ");
 		return this.runJob(XMIScheme.SCHEME_ID, reader);

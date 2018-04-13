@@ -54,6 +54,7 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 			addPathPropertyDescriptor(object);
 			addSelectedServerPropertyDescriptor(object);
 			addServerPropertyDescriptor(object);
+			addTmpFolderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -121,6 +122,28 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 				 true,
 				 null,
 				 getString("_UI__30ServerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tmp Folder feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTmpFolderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobEngineServer_TmpFolder_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngineServer_TmpFolder_feature", "_UI_JobEngineServer_type"),
+				 JobHttpPackage.Literals.JOB_ENGINE_SERVER__TMP_FOLDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -194,6 +217,7 @@ public class JobEngineServerItemProvider extends JobSourceItemProvider {
 		switch (notification.getFeatureID(JobEngineServer.class)) {
 			case JobHttpPackage.JOB_ENGINE_SERVER__PATH:
 			case JobHttpPackage.JOB_ENGINE_SERVER__OWNER_SERVER:
+			case JobHttpPackage.JOB_ENGINE_SERVER__TMP_FOLDER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

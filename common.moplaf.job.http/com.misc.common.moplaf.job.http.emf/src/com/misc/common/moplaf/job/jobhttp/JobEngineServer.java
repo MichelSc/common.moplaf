@@ -19,6 +19,7 @@ import com.misc.common.moplaf.job.jobclient.JobSource;
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getSelectedServer <em>Selected Server</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getOwnerServer <em>Owner Server</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getServer <em>Server</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getTmpFolder <em>Tmp Folder</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobhttp.JobHttpPackage#getJobEngineServer()
@@ -124,6 +125,33 @@ public interface JobEngineServer extends JobSource {
 	 */
 	JobServer getServer();
 	
+	/**
+	 * Returns the value of the '<em><b>Tmp Folder</b></em>' attribute.
+	 * The default value is <code>"C:\\tmp"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tmp Folder</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tmp Folder</em>' attribute.
+	 * @see #setTmpFolder(String)
+	 * @see com.misc.common.moplaf.job.jobhttp.JobHttpPackage#getJobEngineServer_TmpFolder()
+	 * @model default="C:\\tmp"
+	 * @generated
+	 */
+	String getTmpFolder();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getTmpFolder <em>Tmp Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tmp Folder</em>' attribute.
+	 * @see #getTmpFolder()
+	 * @generated
+	 */
+	void setTmpFolder(String value);
+
 	/**
 	 * Construct a submit handler
 	 * @return

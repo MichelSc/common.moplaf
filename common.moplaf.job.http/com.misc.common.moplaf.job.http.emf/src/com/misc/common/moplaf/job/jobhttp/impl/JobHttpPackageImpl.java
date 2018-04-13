@@ -209,6 +209,15 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJobEngineServer_TmpFolder() {
+		return (EAttribute)jobEngineServerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJobServer() {
 		return jobServerEClass;
 	}
@@ -288,6 +297,7 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 		createEReference(jobEngineServerEClass, JOB_ENGINE_SERVER__SELECTED_SERVER);
 		createEReference(jobEngineServerEClass, JOB_ENGINE_SERVER__OWNER_SERVER);
 		createEReference(jobEngineServerEClass, JOB_ENGINE_SERVER__SERVER);
+		createEAttribute(jobEngineServerEClass, JOB_ENGINE_SERVER__TMP_FOLDER);
 
 		jobServerEClass = createEClass(JOB_SERVER);
 		createEAttribute(jobServerEClass, JOB_SERVER__PORT);
@@ -343,6 +353,7 @@ public class JobHttpPackageImpl extends EPackageImpl implements JobHttpPackage {
 		initEReference(getJobEngineServer_SelectedServer(), this.getJobServer(), this.getJobServer_HandlersAsSelected(), "SelectedServer", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobEngineServer_OwnerServer(), this.getJobServer(), this.getJobServer_HandlerAsOwned(), "OwnerServer", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobEngineServer_Server(), this.getJobServer(), null, "Server", null, 1, 1, JobEngineServer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngineServer_TmpFolder(), ecorePackage.getEString(), "TmpFolder", "C:\\tmp", 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobServerEClass, JobServer.class, "JobServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobServer_Port(), ecorePackage.getEInt(), "Port", "8080", 0, 1, JobServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

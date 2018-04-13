@@ -376,13 +376,22 @@ public interface JobHttpPackage extends EPackage {
 	int JOB_ENGINE_SERVER__SERVER = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Tmp Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__TMP_FOLDER = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Job Engine Server</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_SERVER_FEATURE_COUNT = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 4;
+	int JOB_ENGINE_SERVER_FEATURE_COUNT = JobClientPackage.JOB_SOURCE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -684,6 +693,17 @@ public interface JobHttpPackage extends EPackage {
 	EReference getJobEngineServer_Server();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobhttp.JobEngineServer#getTmpFolder <em>Tmp Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tmp Folder</em>'.
+	 * @see com.misc.common.moplaf.job.jobhttp.JobEngineServer#getTmpFolder()
+	 * @see #getJobEngineServer()
+	 * @generated
+	 */
+	EAttribute getJobEngineServer_TmpFolder();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobhttp.JobServer <em>Job Server</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -843,6 +863,14 @@ public interface JobHttpPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOB_ENGINE_SERVER__SERVER = eINSTANCE.getJobEngineServer_Server();
+
+		/**
+		 * The meta object literal for the '<em><b>Tmp Folder</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_ENGINE_SERVER__TMP_FOLDER = eINSTANCE.getJobEngineServer_TmpFolder();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobhttp.impl.JobServerImpl <em>Job Server</em>}' class.
