@@ -14,17 +14,21 @@ import com.misc.common.moplaf.job.jobclient.impl.JobSourceImpl;
 import com.misc.common.moplaf.job.jobhttp.JobEngineServer;
 import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 import com.misc.common.moplaf.job.jobhttp.JobServer;
-import com.misc.common.moplaf.serialize.util.Util;
+import com.misc.common.moplaf.job.jobhttp.util.Util;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -453,29 +457,51 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	                                                      ServletException
 	    {
 			Plugin.INSTANCE.logError("jetty.JobServer.submit: called");
-	        response.setContentType("text/html; charset=utf-8");
-	        response.setStatus(HttpServletResponse.SC_OK);
+			Plugin.INSTANCE.logError("jetty.JobServer.submit: query string "+request.getQueryString());
+			Map<String, String> params = Util.getQueryParams(request.getQueryString());
+			
 	        
-	        String scheme = request.getParameter("scheme");
+	        String scheme = params.get("scheme");
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: scheme="+ scheme);
 
-	        String filename = request.getParameter("filename");
-	        String filepath = String.format("C:\\git\\touse.jobsched\\touse.moplaf.job\\utils\\win\\%s", filename);
-			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filename="+ filename);
-			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filepath="+ filepath);
-
-			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content length="+ request.getContentLength());
-			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content encoding="+ request.getCharacterEncoding());
-			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content content type="+ request.getContentType());
+	        Reader in = null;
+	        String filename = params.get("filename");
+	        if ( filename!=null ) {
+		        String filepath = String.format("C:\\git\\touse.jobsched\\touse.moplaf.job\\utils\\win\\%s", filename);
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filename="+ filename);
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filepath="+ filepath);
+				in = new FileReader(filepath);
+	        } else {
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content length="+ request.getContentLength());
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content encoding="+ request.getCharacterEncoding());
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content content type="+ request.getContentType());
+				if ( false ) {
+					ServletInputStream inputstream = request.getInputStream();
+			        in = new InputStreamReader(inputstream); //request.getReader();
+				} else {
+					in = request.getReader();
+				}
+				
+				StringWriter writer = new StringWriter();
+				try {
+					IOUtils.copy(in, writer);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content "+ writer.toString());
+				in = new StringReader(writer.toString());
+	        }
 	        
-//	        BufferedReader in = request.getReader();
-			FileReader in = new FileReader(filepath);
 	        int sumbmit_nr = scheme==null 
      		       ? JobEngineServerImpl.this.runJob(in)
        		       : JobEngineServerImpl.this.runJob(scheme, in);
 
      		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: submitted, nr="+ sumbmit_nr);
-     		       
+
+     		// make the response
+	        response.setContentType("text/html; charset=utf-8");
+	        response.setStatus(HttpServletResponse.SC_OK);
      		PrintWriter out = response.getWriter();
      		out.format("%s", sumbmit_nr);
      		out.close();
@@ -502,19 +528,19 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 		JobScheduler scheduler = jobEngineServer.getScheduler();
 		
-		StringWriter writer = new StringWriter();
-		
-		try {
-			IOUtils.copy(reader, writer);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String content = writer.toString();
-		Plugin.INSTANCE.logInfo("Server.runJob: content '"+content+"'");
+//		StringWriter writer = new StringWriter();
+//		
+//		try {
+//			IOUtils.copy(reader, writer);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		String content = writer.toString();
+//		Plugin.INSTANCE.logInfo("Server.runJob: content '"+content+"'");
 
     	EList<EObject> objects = new BasicEList<EObject>();
-    	boolean deserialized = Util.deserialize(serializeSchemeID, objects, reader);
+    	boolean deserialized = com.misc.common.moplaf.serialize.util.Util.deserialize(serializeSchemeID, objects, reader);
 
 	    int result =-1;
 	    if ( deserialized ) {
@@ -566,7 +592,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			return "";
 		}
 	    StringWriter stringWriter = new StringWriter();
-	    boolean serialized = Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
+	    boolean serialized = com.misc.common.moplaf.serialize.util.Util.serialize(serializeSchemeID, job.getRun(), stringWriter);
 		if ( !serialized ) {
 			Plugin.INSTANCE.logError(String.format("ServerCallInterface.getJobResult: result not serialized"));
 			return "";

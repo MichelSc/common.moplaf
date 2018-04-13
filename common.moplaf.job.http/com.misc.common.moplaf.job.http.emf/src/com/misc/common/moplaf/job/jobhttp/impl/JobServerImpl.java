@@ -360,17 +360,22 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
             this.server = new Server(this.getPort());
             
             // create the handlers
-            ContextHandlerCollection collection_handler = new ContextHandlerCollection();
-            for ( JobEngineServer handler : this.getHandlers()) {
-            	String path = handler.getPath();
-            	String submit_path = path+"/submit";
-            	ContextHandler context = new ContextHandler(submit_path);
-            	context.setHandler(handler.constructSubmitHandler());
-                context.setResourceBase(".");
-                context.setClassLoader(Thread.currentThread().getContextClassLoader());
-            	collection_handler.addHandler(context);
+            if (false ) {
+                ContextHandlerCollection collection_handler = new ContextHandlerCollection();
+                for ( JobEngineServer handler : this.getHandlers()) {
+                	String path = handler.getPath();
+                	String submit_path = path+"/submitjob";
+                	ContextHandler context = new ContextHandler(submit_path);
+                	context.setHandler(handler.constructSubmitHandler());
+                    context.setResourceBase(".");
+                    context.setClassLoader(Thread.currentThread().getContextClassLoader());
+                	collection_handler.addHandler(context);
+                    this.server.setHandler(collection_handler);
+                }
+            } else {
+            	this.server.setHandler(this.getHandlers().get(0).constructSubmitHandler());
+            	
             }
-            this.server.setHandler(collection_handler);
             
             // start the server
 			this.server.start();

@@ -1,0 +1,72 @@
+This is the api supported by job server.
+
+There are 5 services
+  sumbitjob
+  submitfile
+  getjobstatus
+  getjobresult
+  getfileresult
+
+-------------------------------------------------------------------------------
+sumbitjob
+-------------------------------------------------------------------------------
+
+url: <baseurl>/<enginepath>/submitjob?scheme=<scheme>&filename=<filename>
+receives: the serialized job
+returns: the id of the submission
+params: 
+  filename: the name of the job file, available in a well known directory
+           optional, if missing, the file is in the body of the request
+  scheme: the id of the serialization scheme
+           optional, if missing, the standard xmi
+
+-------------------------------------------------------------------------------
+submitfile
+-------------------------------------------------------------------------------
+
+url: <baseurl>/<enginepath>/submitfile?jobtype=<type>&filename=<filename>
+receives: the to process file
+returns: the id of the submission
+params: 
+  filename: the name of the file, available in a well known directory
+           optional, if missing, the file is in the body of the request
+  jobtype: the id of the job factory to use to process the job
+ 
+-------------------------------------------------------------------------------
+getjobstatus
+-------------------------------------------------------------------------------
+
+url: <baseurl>/<enginepath>/getjobstatus?submitid=<submit_id>
+returns the status as a code, possible values
+	0: UNKNOWN
+	1: NOT_READY
+ 	2: WAITING
+ 	3: SCHEDULED
+ 	4: RUNNING
+ 	5: COMPLETE
+ 	6: FAILED
+params:
+  submit_id: the id returned by submit service 
+ 
+-------------------------------------------------------------------------------
+getjobresult
+-------------------------------------------------------------------------------
+
+url: <baseurl>/<enginepath>/getjobresult?submitid=<submit_id>&scheme=<scheme>
+returns the executed job, serialized
+params: 
+  scheme: the id of the serialization scheme
+          optional, if missing, the standard xmi
+  submit_id: the id returned by submit service 
+
+-------------------------------------------------------------------------------
+getfileresult
+-------------------------------------------------------------------------------
+ 
+url: <baseurl>/<enginepath>/getfileresult?submitid=<submit_id>
+returns the output file of thejob
+params: 
+  submit_id: the id returned by submit service 
+ 
+ 
+ 
