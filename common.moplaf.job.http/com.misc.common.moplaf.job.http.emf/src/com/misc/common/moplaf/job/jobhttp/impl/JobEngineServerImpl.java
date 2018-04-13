@@ -29,6 +29,7 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -456,13 +457,18 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	                        HttpServletResponse response ) throws IOException,
 	                                                      ServletException
 	    {
+//			HttpServletRequest r = request;
+			HttpServletRequest r = baseRequest;
+			
 			Plugin.INSTANCE.logError("jetty.JobServer.submit: called");
-			Plugin.INSTANCE.logError("jetty.JobServer.submit: query string "+request.getQueryString());
-			Map<String, String> params = Util.getQueryParams(request.getQueryString());
+			Plugin.INSTANCE.logError("jetty.JobServer.submit: method "+r.getMethod());
+			Plugin.INSTANCE.logError("jetty.JobServer.submit: query string "+r.getQueryString());
+			Map<String, String> params = Util.getQueryParams(r.getQueryString());
 			
 	        
 	        String scheme = params.get("scheme");
 			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: scheme="+ scheme);
+			
 
 	        Reader in = null;
 	        String filename = params.get("filename");
@@ -472,14 +478,14 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filepath="+ filepath);
 				in = new FileReader(filepath);
 	        } else {
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content length="+ request.getContentLength());
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content encoding="+ request.getCharacterEncoding());
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content content type="+ request.getContentType());
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content length="+ r.getContentLength());
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content encoding="+ r.getCharacterEncoding());
+				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: content content type="+ r.getContentType());
 				if ( false ) {
-					ServletInputStream inputstream = request.getInputStream();
+					ServletInputStream inputstream = r.getInputStream();
 			        in = new InputStreamReader(inputstream); //request.getReader();
 				} else {
-					in = request.getReader();
+					in = r.getReader();
 				}
 				
 				StringWriter writer = new StringWriter();

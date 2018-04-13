@@ -360,23 +360,22 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
             this.server = new Server(this.getPort());
             
             // create the handlers
-            if (false ) {
-                ContextHandlerCollection collection_handler = new ContextHandlerCollection();
-                for ( JobEngineServer handler : this.getHandlers()) {
-                	String path = handler.getPath();
-                	String submit_path = path+"/submitjob";
-                	ContextHandler context = new ContextHandler(submit_path);
-                	context.setHandler(handler.constructSubmitHandler());
-                    context.setResourceBase(".");
-                    context.setClassLoader(Thread.currentThread().getContextClassLoader());
-                	collection_handler.addHandler(context);
-                    this.server.setHandler(collection_handler);
-                }
-            } else {
-            	this.server.setHandler(this.getHandlers().get(0).constructSubmitHandler());
-            	
+            ContextHandlerCollection collection_handler = new ContextHandlerCollection();
+            for ( JobEngineServer handler : this.getHandlers()) {
+            	String path = handler.getPath();
+            	String submit_path = path+"/submitjob";
+            	ContextHandler context = new ContextHandler(submit_path);
+            	context.setHandler(handler.constructSubmitHandler());
+                context.setResourceBase(".");
+                context.setClassLoader(Thread.currentThread().getContextClassLoader());
+//                    context.setMaxFormContentSize(1000000);
+//                    context.setMaxFormKeys(1000);
+                // otherwise the POST becomes a GET
+                // By default a Jetty ContextHandler with a context of "/app" will actually redirect any request to "/app" to "/app/", have a look at setAllowNullPathInfo.
+                context.setAllowNullPathInfo(true); 
+            	collection_handler.addHandler(context);
+                this.server.setHandler(collection_handler);
             }
-            
             // start the server
 			this.server.start();
 		} catch (Exception e) {
