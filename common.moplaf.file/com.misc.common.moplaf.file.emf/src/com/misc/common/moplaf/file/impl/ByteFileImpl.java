@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.file.impl;
 
 import com.misc.common.moplaf.file.ByteFile;
+import com.misc.common.moplaf.file.FileEncoding;
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.Plugin;
 
@@ -45,7 +46,7 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ENCODING_EDEFAULT = "UTF-8";
+	protected static final FileEncoding ENCODING_EDEFAULT = FileEncoding.UTF_8;
 
 	/**
 	 * The cached value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
@@ -55,7 +56,7 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	 * @generated
 	 * @ordered
 	 */
-	protected String encoding = ENCODING_EDEFAULT;
+	protected FileEncoding encoding = ENCODING_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,7 +82,7 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEncoding() {
+	public FileEncoding getEncoding() {
 		return encoding;
 	}
 
@@ -90,9 +91,9 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEncoding(String newEncoding) {
-		String oldEncoding = encoding;
-		encoding = newEncoding;
+	public void setEncoding(FileEncoding newEncoding) {
+		FileEncoding oldEncoding = encoding;
+		encoding = newEncoding == null ? ENCODING_EDEFAULT : newEncoding;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FilePackage.BYTE_FILE__ENCODING, oldEncoding, encoding));
 	}
@@ -120,7 +121,7 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FilePackage.BYTE_FILE__ENCODING:
-				setEncoding((String)newValue);
+				setEncoding((FileEncoding)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -150,7 +151,7 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FilePackage.BYTE_FILE__ENCODING:
-				return ENCODING_EDEFAULT == null ? encoding != null : !ENCODING_EDEFAULT.equals(encoding);
+				return encoding != ENCODING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -181,7 +182,7 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	@Override
 	public Reader getReader() {
 		try {
-			return new InputStreamReader(this.getInputStream(), getEncoding());
+			return new InputStreamReader(this.getInputStream(), getEncoding().getLiteral());
 		} catch (UnsupportedEncodingException e) {
 			Plugin.INSTANCE.logError("ByteFile.getReader: file NOT found");
 			return null;
@@ -203,7 +204,7 @@ public class ByteFileImpl extends FileImpl implements ByteFile {
 	@Override
 	public Writer getWriter() {
 		try {
-			return new OutputStreamWriter(this.getOutputStream(), this.getEncoding());
+			return new OutputStreamWriter(this.getOutputStream(), this.getEncoding().getLiteral());
 		} catch (UnsupportedEncodingException e) {
 			Plugin.INSTANCE.logError("ByteFile.getWriter: file NOT found");
 			return null;

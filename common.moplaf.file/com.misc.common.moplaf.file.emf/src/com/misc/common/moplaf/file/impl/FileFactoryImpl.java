@@ -76,6 +76,8 @@ public class FileFactoryImpl extends EFactoryImpl implements FileFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case FilePackage.FILE_ENCODING:
+				return createFileEncodingFromString(eDataType, initialValue);
 			case FilePackage.ENABLED_FEEDBACK:
 				return createEnabledFeedbackFromString(eDataType, initialValue);
 			default:
@@ -91,6 +93,8 @@ public class FileFactoryImpl extends EFactoryImpl implements FileFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case FilePackage.FILE_ENCODING:
+				return convertFileEncodingToString(eDataType, instanceValue);
 			case FilePackage.ENABLED_FEEDBACK:
 				return convertEnabledFeedbackToString(eDataType, instanceValue);
 			default:
@@ -146,6 +150,26 @@ public class FileFactoryImpl extends EFactoryImpl implements FileFactory {
 	public ByteFile createByteFile() {
 		ByteFileImpl byteFile = new ByteFileImpl();
 		return byteFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileEncoding createFileEncodingFromString(EDataType eDataType, String initialValue) {
+		FileEncoding result = FileEncoding.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFileEncodingToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

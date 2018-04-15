@@ -23,6 +23,7 @@ public interface ByteFile extends File {
 	/**
 	 * Returns the value of the '<em><b>Encoding</b></em>' attribute.
 	 * The default value is <code>"UTF-8"</code>.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.file.FileEncoding}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Encoding</em>' attribute isn't clear,
@@ -30,21 +31,23 @@ public interface ByteFile extends File {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Encoding</em>' attribute.
-	 * @see #setEncoding(String)
+	 * @see com.misc.common.moplaf.file.FileEncoding
+	 * @see #setEncoding(FileEncoding)
 	 * @see com.misc.common.moplaf.file.FilePackage#getByteFile_Encoding()
 	 * @model default="UTF-8"
 	 * @generated
 	 */
-	String getEncoding();
+	FileEncoding getEncoding();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.file.ByteFile#getEncoding <em>Encoding</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Encoding</em>' attribute.
+	 * @see com.misc.common.moplaf.file.FileEncoding
 	 * @see #getEncoding()
 	 * @generated
 	 */
-	void setEncoding(String value);
+	void setEncoding(FileEncoding value);
 
 } // ByteFile

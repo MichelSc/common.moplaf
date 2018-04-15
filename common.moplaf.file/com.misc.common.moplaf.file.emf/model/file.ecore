@@ -51,11 +51,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ByteFile" eSuperTypes="#//File">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Encoding" eType="#//FileEncoding"
         defaultValueLiteral="UTF-8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileOutput" abstract="true" eSuperTypes="#//FileOwner">
     <eStructuralFeatures xsi:type="ecore:EReference" name="OutputFile" eType="#//File"
         changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FileEncoding">
+    <eLiterals name="US_ASCII" value="1" literal="US-ASCII"/>
+    <eLiterals name="ISO_8859_1" value="2" literal="ISO-8859-1"/>
+    <eLiterals name="UTF_8" value="3" literal="UTF-8"/>
+    <eLiterals name="UTF_16" value="4" literal="UTF-16"/>
+    <eLiterals name="UTF_16BE" value="5" literal="UTF-16BE"/>
+    <eLiterals name="UTF_16LE" value="6" literal="UTF-16LE"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -5,6 +5,7 @@ package com.misc.common.moplaf.file;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -609,6 +610,16 @@ public interface FilePackage extends EPackage {
 	int FILE_OUTPUT_OPERATION_COUNT = FILE_OWNER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.file.FileEncoding <em>Encoding</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.file.FileEncoding
+	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileEncoding()
+	 * @generated
+	 */
+	int FILE_ENCODING = 10;
+
+	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -616,7 +627,7 @@ public interface FilePackage extends EPackage {
 	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 10;
+	int ENABLED_FEEDBACK = 11;
 
 
 	/**
@@ -912,6 +923,16 @@ public interface FilePackage extends EPackage {
 	EReference getFileOutput_OutputFile();
 
 	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.file.FileEncoding <em>Encoding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Encoding</em>'.
+	 * @see com.misc.common.moplaf.file.FileEncoding
+	 * @generated
+	 */
+	EEnum getFileEncoding();
+
+	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.EnabledFeedback <em>Enabled Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1188,6 +1209,16 @@ public interface FilePackage extends EPackage {
 		 * @generated
 		 */
 		EReference FILE_OUTPUT__OUTPUT_FILE = eINSTANCE.getFileOutput_OutputFile();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.file.FileEncoding <em>Encoding</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.file.FileEncoding
+		 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileEncoding()
+		 * @generated
+		 */
+		EEnum FILE_ENCODING = eINSTANCE.getFileEncoding();
 
 		/**
 		 * The meta object literal for the '<em>Enabled Feedback</em>' data type.

@@ -5,6 +5,7 @@ package com.misc.common.moplaf.file.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.file.ByteFile;
 import com.misc.common.moplaf.file.File;
+import com.misc.common.moplaf.file.FileEncoding;
 import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.file.FileHandler;
 import com.misc.common.moplaf.file.FileInMemory;
@@ -18,6 +19,7 @@ import com.misc.common.moplaf.file.Files;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -100,6 +102,13 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * @generated
 	 */
 	private EClass fileOutputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum fileEncodingEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -426,6 +435,15 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getFileEncoding() {
+		return fileEncodingEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getEnabledFeedback() {
 		return enabledFeedbackEDataType;
 	}
@@ -495,6 +513,9 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 
 		fileOutputEClass = createEClass(FILE_OUTPUT);
 		createEReference(fileOutputEClass, FILE_OUTPUT__OUTPUT_FILE);
+
+		// Create enums
+		fileEncodingEEnum = createEEnum(FILE_ENCODING);
 
 		// Create data types
 		enabledFeedbackEDataType = createEDataType(ENABLED_FEEDBACK);
@@ -581,10 +602,19 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		initEAttribute(getFiles_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Files.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(byteFileEClass, ByteFile.class, "ByteFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getByteFile_Encoding(), ecorePackage.getEString(), "Encoding", "UTF-8", 0, 1, ByteFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getByteFile_Encoding(), this.getFileEncoding(), "Encoding", "UTF-8", 0, 1, ByteFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileOutputEClass, FileOutput.class, "FileOutput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFileOutput_OutputFile(), this.getFile(), null, "OutputFile", null, 0, 1, FileOutput.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(fileEncodingEEnum, FileEncoding.class, "FileEncoding");
+		addEEnumLiteral(fileEncodingEEnum, FileEncoding.US_ASCII);
+		addEEnumLiteral(fileEncodingEEnum, FileEncoding.ISO_8859_1);
+		addEEnumLiteral(fileEncodingEEnum, FileEncoding.UTF_8);
+		addEEnumLiteral(fileEncodingEEnum, FileEncoding.UTF_16);
+		addEEnumLiteral(fileEncodingEEnum, FileEncoding.UTF_16BE);
+		addEEnumLiteral(fileEncodingEEnum, FileEncoding.UTF_16LE);
 
 		// Initialize data types
 		initEDataType(enabledFeedbackEDataType, EnabledFeedback.class, "EnabledFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
