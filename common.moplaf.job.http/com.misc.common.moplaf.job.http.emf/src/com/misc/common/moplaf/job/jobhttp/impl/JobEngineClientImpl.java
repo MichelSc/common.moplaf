@@ -26,9 +26,7 @@ import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.util.LinkedList;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -441,11 +439,67 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	}
 	
 	private JobStatus callGetStatus(int executeNr) {
-		JobStatus status = JobStatus.UNKNOWN;
-		// TODO: do the call getStatus(executeNr: int):int 
-	    return status;
+		Plugin.INSTANCE.logInfo("JobEngineClient: getjobstatus: called");
+		
+		// params
+		String query = String.format("submitid=%d",  executeNr);
+
+		// the the http post
+		try {
+			// URI
+			String path = this.getPath()+"/getjobstatus"; 
+			URI requesturi = new URI(
+					"http", // scheme 
+					null, // user info
+					this.getHost(), 
+					this.getPort(), 
+					path, 
+					query, 
+					null);    // fragment
+			URL url2 = requesturi.toURL();
+			Plugin.INSTANCE.logInfo("JobEngineClient.getjobstatus: url2: "+url2.toString());
+			HttpURLConnection connection = (HttpURLConnection)url2.openConnection();
+	
+			// connection 
+			//connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded"); // default is ISO-8859-1
+			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"); // default is ISO-8859-1
+			//connection.setRequestProperty("Content-Length", "" + Integer.toString(wr.size()));
+			connection.setUseCaches(false);
+			connection.setDoInput(true);
+			connection.setDoOutput(false);
+			
+			// call
+			connection.connect();
+		
+			// get the result
+	    	InputStream resultContentIS = connection.getInputStream();
+	        BufferedReader reader = new BufferedReader(new InputStreamReader(resultContentIS, connection.getContentEncoding()));
+	        StringBuilder sb = new StringBuilder();
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            sb.append(line);
+	        }
+		    String resultContent = sb.toString();
+			Plugin.INSTANCE.logInfo("JobEngineClient.getjobstatus: response="+ resultContent);
+			int status_asint = -1;
+			try {
+				status_asint = Integer.parseInt(resultContent);
+		    	JobStatus status = JobStatus.get(status_asint);
+		    	return status;
+			} catch(NumberFormatException e) {
+				Plugin.INSTANCE.logError("JobEngineClient.getjobstatus: invalid execution nr");
+				return JobStatus.UNKNOWN;
+			}
+		} catch(Exception e) {
+			Plugin.INSTANCE.logError("JobEngineClient.getjobstatus: exception caught: "+e.getMessage());
+			return JobStatus.UNKNOWN;
+		}
 	}
 	
+	private String callGetJobResult(int executeNr) {
+		return null;
+	}
+
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -458,7 +512,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			switch (status) {
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
-				String result = ""; // TODO do the call getResult(executeNr: int):String
+				String result = this.callGetJobResult(job.getExecuteNr());
 				String scheme = this.getScheme();
 				StringReader inputStream = new StringReader(result);
 				EObject result_as_object = Util.deserialize(scheme == null ? XMIScheme.SCHEME_ID : scheme, inputStream);
@@ -473,6 +527,9 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 				break;
 			case RUNNING:
 				job.setRunning();
+				break;
+			default:
+				// do nothing
 				break;
 			}
 		}
