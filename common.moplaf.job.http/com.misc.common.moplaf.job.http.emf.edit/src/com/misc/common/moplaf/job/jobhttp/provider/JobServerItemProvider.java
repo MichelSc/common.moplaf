@@ -15,9 +15,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -52,8 +49,6 @@ public class JobServerItemProvider extends ServiceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPortPropertyDescriptor(object);
-			addHandlersAsSelectedPropertyDescriptor(object);
-			addHandlersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,88 +76,13 @@ public class JobServerItemProvider extends ServiceItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Handlers As Selected feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHandlersAsSelectedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobServer_HandlersAsSelected_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobServer_HandlersAsSelected_feature", "_UI_JobServer_type"),
-				 JobHttpPackage.Literals.JOB_SERVER__HANDLERS_AS_SELECTED,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Handlers feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHandlersPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobServer_Handlers_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobServer_Handlers_feature", "_UI_JobServer_type"),
-				 JobHttpPackage.Literals.JOB_SERVER__HANDLERS,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobHttpPackage.Literals.JOB_SERVER__HANDLERS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns JobServer.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/JobServer"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/server_run_16.png"));
 	}
 
 	/**

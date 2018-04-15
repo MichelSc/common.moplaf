@@ -149,11 +149,10 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 	 * This returns JobEngineClient.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/JobEngineClient"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/server_accept.png"));
 	}
 
 	/**
