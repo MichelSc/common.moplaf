@@ -22,5 +22,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jetty.servlet;bundle-version="9.4.5",
  org.eclipse.jetty.util;bundle-version="9.4.5",
  javax.servlet;bundle-version="3.1.0",
- org.apache.commons.io;bundle-version="2.2.0"
+ org.apache.commons.io;bundle-version="2.2.0",
+ org.apache.commons.lang;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy

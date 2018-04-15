@@ -96,6 +96,52 @@ public interface FilePackage extends EPackage {
 	int FILE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.ByteFileImpl <em>Byte File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.file.impl.ByteFileImpl
+	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getByteFile()
+	 * @generated
+	 */
+	int BYTE_FILE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BYTE_FILE__NAME = FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BYTE_FILE__ENCODING = FILE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Byte File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BYTE_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Byte File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BYTE_FILE_OPERATION_COUNT = FILE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FileLocalImpl <em>Local</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,7 +158,16 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_LOCAL__NAME = FILE__NAME;
+	int FILE_LOCAL__NAME = BYTE_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_LOCAL__ENCODING = BYTE_FILE__ENCODING;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -121,7 +176,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_LOCAL__FILE_PATH = FILE_FEATURE_COUNT + 0;
+	int FILE_LOCAL__FILE_PATH = BYTE_FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Local</em>' class.
@@ -130,7 +185,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_LOCAL_FEATURE_COUNT = FILE_FEATURE_COUNT + 1;
+	int FILE_LOCAL_FEATURE_COUNT = BYTE_FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Local</em>' class.
@@ -139,7 +194,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_LOCAL_OPERATION_COUNT = FILE_OPERATION_COUNT + 0;
+	int FILE_LOCAL_OPERATION_COUNT = BYTE_FILE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FileRemoteImpl <em>Remote</em>}' class.
@@ -158,7 +213,16 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_REMOTE__NAME = FILE__NAME;
+	int FILE_REMOTE__NAME = BYTE_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Encoding</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_REMOTE__ENCODING = BYTE_FILE__ENCODING;
 
 	/**
 	 * The feature id for the '<em><b>URI</b></em>' attribute.
@@ -167,7 +231,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_REMOTE__URI = FILE_FEATURE_COUNT + 0;
+	int FILE_REMOTE__URI = BYTE_FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Remote</em>' class.
@@ -176,7 +240,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_REMOTE_FEATURE_COUNT = FILE_FEATURE_COUNT + 1;
+	int FILE_REMOTE_FEATURE_COUNT = BYTE_FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Remote</em>' class.
@@ -185,7 +249,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_REMOTE_OPERATION_COUNT = FILE_OPERATION_COUNT + 0;
+	int FILE_REMOTE_OPERATION_COUNT = BYTE_FILE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FileInMemoryImpl <em>In Memory</em>}' class.
@@ -499,6 +563,52 @@ public interface FilePackage extends EPackage {
 	int FILES_OPERATION_COUNT = FILE_OWNER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FileOutputImpl <em>Output</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.file.impl.FileOutputImpl
+	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileOutput()
+	 * @generated
+	 */
+	int FILE_OUTPUT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OUTPUT__FILES = FILE_OWNER__FILES;
+
+	/**
+	 * The feature id for the '<em><b>Output File</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OUTPUT__OUTPUT_FILE = FILE_OWNER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OUTPUT_FEATURE_COUNT = FILE_OWNER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OUTPUT_OPERATION_COUNT = FILE_OWNER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,7 +616,7 @@ public interface FilePackage extends EPackage {
 	 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 8;
+	int ENABLED_FEEDBACK = 10;
 
 
 	/**
@@ -760,6 +870,48 @@ public interface FilePackage extends EPackage {
 	EAttribute getFiles_Name();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.file.ByteFile <em>Byte File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Byte File</em>'.
+	 * @see com.misc.common.moplaf.file.ByteFile
+	 * @generated
+	 */
+	EClass getByteFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.file.ByteFile#getEncoding <em>Encoding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Encoding</em>'.
+	 * @see com.misc.common.moplaf.file.ByteFile#getEncoding()
+	 * @see #getByteFile()
+	 * @generated
+	 */
+	EAttribute getByteFile_Encoding();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.file.FileOutput <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output</em>'.
+	 * @see com.misc.common.moplaf.file.FileOutput
+	 * @generated
+	 */
+	EClass getFileOutput();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.file.FileOutput#getOutputFile <em>Output File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Output File</em>'.
+	 * @see com.misc.common.moplaf.file.FileOutput#getOutputFile()
+	 * @see #getFileOutput()
+	 * @generated
+	 */
+	EReference getFileOutput_OutputFile();
+
+	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.EnabledFeedback <em>Enabled Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1000,6 +1152,42 @@ public interface FilePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILES__NAME = eINSTANCE.getFiles_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.file.impl.ByteFileImpl <em>Byte File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.file.impl.ByteFileImpl
+		 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getByteFile()
+		 * @generated
+		 */
+		EClass BYTE_FILE = eINSTANCE.getByteFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Encoding</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BYTE_FILE__ENCODING = eINSTANCE.getByteFile_Encoding();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.file.impl.FileOutputImpl <em>Output</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.file.impl.FileOutputImpl
+		 * @see com.misc.common.moplaf.file.impl.FilePackageImpl#getFileOutput()
+		 * @generated
+		 */
+		EClass FILE_OUTPUT = eINSTANCE.getFileOutput();
+
+		/**
+		 * The meta object literal for the '<em><b>Output File</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_OUTPUT__OUTPUT_FILE = eINSTANCE.getFileOutput_OutputFile();
 
 		/**
 		 * The meta object literal for the '<em>Enabled Feedback</em>' data type.

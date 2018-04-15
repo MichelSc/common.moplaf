@@ -164,6 +164,29 @@ public class FileItemProviderAdapterFactory extends FileAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.file.ByteFile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ByteFileItemProvider byteFileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.file.ByteFile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createByteFileAdapter() {
+		if (byteFileItemProvider == null) {
+			byteFileItemProvider = new ByteFileItemProvider(this);
+		}
+
+		return byteFileItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +289,7 @@ public class FileItemProviderAdapterFactory extends FileAdapterFactory implement
 		if (fileRemoteItemProvider != null) fileRemoteItemProvider.dispose();
 		if (fileInMemoryItemProvider != null) fileInMemoryItemProvider.dispose();
 		if (filesItemProvider != null) filesItemProvider.dispose();
+		if (byteFileItemProvider != null) byteFileItemProvider.dispose();
 	}
 
 }

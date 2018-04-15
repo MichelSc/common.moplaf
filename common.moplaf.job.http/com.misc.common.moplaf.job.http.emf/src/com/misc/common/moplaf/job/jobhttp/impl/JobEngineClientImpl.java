@@ -15,8 +15,20 @@ import com.misc.common.moplaf.job.jobhttp.JobHttpPackage;
 import com.misc.common.moplaf.serialize.util.Util;
 import com.misc.common.moplaf.serialize.xmi.XMIScheme;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+import java.util.LinkedList;
+
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -349,16 +361,78 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	protected int executeJobImpl(JobScheduled job) {
-	    int executeNr = -1;
+		Plugin.INSTANCE.logInfo("JobEngineClient: submitjob: called");
+		
+		// serialize the job
 	    StringWriter stringWriter = new StringWriter();
 	    String scheme = this.getScheme();
 	    boolean serialized = Util.serialize(scheme == null ? XMIScheme.SCHEME_ID : scheme, job.getRun(), stringWriter);
+	    String jobAsString = null;
 		if ( serialized ) {
-		    String jobAsString = stringWriter.toString();
-		    executeNr = 0; // TODO do the call submit(scheme: String, job: String): int
+		    jobAsString = stringWriter.toString();
+		} else {
+			Plugin.INSTANCE.logError("JobEngineClient: submitjob: job not serialized");
+			return -1;
 		}
-		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
-		return executeNr;
+		Plugin.INSTANCE.logInfo("JobEngineClient: submitjob: job serialized");
+		
+		// params
+		LinkedList<String> parameters = new LinkedList<String>();
+		if ( this.getScheme()!=null && this.getScheme().length()>0 ) {
+			parameters.add("scheme="+this.getScheme());
+		} 
+		String query = StringUtils.join(parameters, "&");
+
+		// the the http post
+		try {
+			// URI
+			String userInfo = null;
+			String host = this.getHost();
+			String path = String.format("%s/%s/%s", this.getPath()+"/submitjob", null, null); 
+			String fragment = "";
+			URI requesturi = new URI(scheme, userInfo, host, this.getPort(), path, query, fragment);
+			URL url2 = requesturi.toURL();
+			Plugin.INSTANCE.logInfo("JobEngineClient: url2: "+url2.toString());
+			HttpURLConnection connection = (HttpURLConnection)url2.openConnection();
+	
+			// body
+			DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(wr, "UTF-8"));
+			writer.write(jobAsString);
+			writer.close();
+			wr.close();
+			
+			// call
+			connection.setRequestMethod("POST");
+			//connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded"); // default is ISO-8859-1
+			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"); // default is ISO-8859-1
+			connection.setRequestProperty("Content-Length", "" + Integer.toString(wr.size()));
+			connection.setUseCaches(false);
+			connection.setDoInput(true);
+			connection.setDoOutput(true);
+			connection.connect();
+		
+			// get the result
+	    	InputStream resultContentIS = connection.getInputStream();
+	        BufferedReader reader = new BufferedReader(new InputStreamReader(resultContentIS, connection.getContentEncoding()));
+	        StringBuilder sb = new StringBuilder();
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            sb.append(line);
+	        }
+		    String resultContent = sb.toString();
+			Plugin.INSTANCE.logInfo("JobEngineClient.submitjob: response="+ resultContent);
+			int execution_nr = -1;
+			try {
+				execution_nr = Integer.parseInt(resultContent);
+			} catch(NumberFormatException e) {
+				Plugin.INSTANCE.logError("JobEngineClient.submitjob: invalid execution nr");
+			}
+			return execution_nr;
+		} catch(Exception e) {
+			Plugin.INSTANCE.logError("JobEngineClient.submitjob: exception caught: "+e.getMessage());
+			return -1;
+		}
 	}
 	
 	private JobStatus callGetStatus(int executeNr) {
@@ -401,20 +475,12 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	
 	@Override
 	protected void startImpl() {
-		
-		// the server connection
-		String host        = this.getHost();
-		int    port        = this.getPort();
-		String path        = this.getPath();
-		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
-		Plugin.INSTANCE.logInfo("JobEngineClient, url="+urlAsString);
-		// TODO
+		super.startImpl();
 	}
 
 	@Override
 	protected void stopImpl() {
 		super.stopImpl();
-		// TODO
 	}
 
 } //JobEngineClientImpl

@@ -19,7 +19,7 @@ package com.misc.common.moplaf.file;
  * @model
  * @generated
  */
-public interface FileLocal extends File {
+public interface FileLocal extends ByteFile {
 	/**
 	 * Returns the value of the '<em><b>File Path</b></em>' attribute.
 	 * The default value is <code>""</code>.

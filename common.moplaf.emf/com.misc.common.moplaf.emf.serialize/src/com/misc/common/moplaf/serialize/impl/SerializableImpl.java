@@ -166,9 +166,9 @@ public class SerializableImpl extends FileReaderWriterImpl implements Serializab
 	 * <!-- end-user-doc -->
 	 */
 	public void writeFile(File file) {
-		Writer writer = file.getWriter();
-		Util.serialize(this.getScheme(), this.getSelectedObjects(), writer);
 		try {
+			Writer writer = file.getWriter();
+			Util.serialize(this.getScheme(), this.getSelectedObjects(), writer);
 			writer.close();
 		} catch (IOException e) {
 			Plugin.INSTANCE.logError("Deserialize.writeFile, exception "+e.getMessage());

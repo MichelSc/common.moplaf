@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobclient.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import com.misc.common.moplaf.job.provider.JobEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
@@ -41,6 +42,7 @@ public final class JobclientEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     JobEditPlugin.INSTANCE,
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

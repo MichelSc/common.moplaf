@@ -3,11 +3,13 @@
 package com.misc.common.moplaf.file.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.file.ByteFile;
 import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.file.FileHandler;
 import com.misc.common.moplaf.file.FileInMemory;
 import com.misc.common.moplaf.file.FileLocal;
+import com.misc.common.moplaf.file.FileOutput;
 import com.misc.common.moplaf.file.FileOwner;
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.FileReaderWriter;
@@ -84,6 +86,20 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * @generated
 	 */
 	private EClass filesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass byteFileEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fileOutputEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -374,6 +390,42 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getByteFile() {
+		return byteFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getByteFile_Encoding() {
+		return (EAttribute)byteFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFileOutput() {
+		return fileOutputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFileOutput_OutputFile() {
+		return (EReference)fileOutputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getEnabledFeedback() {
 		return enabledFeedbackEDataType;
 	}
@@ -438,6 +490,12 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		filesEClass = createEClass(FILES);
 		createEAttribute(filesEClass, FILES__NAME);
 
+		byteFileEClass = createEClass(BYTE_FILE);
+		createEAttribute(byteFileEClass, BYTE_FILE__ENCODING);
+
+		fileOutputEClass = createEClass(FILE_OUTPUT);
+		createEReference(fileOutputEClass, FILE_OUTPUT__OUTPUT_FILE);
+
 		// Create data types
 		enabledFeedbackEDataType = createEDataType(ENABLED_FEEDBACK);
 	}
@@ -470,12 +528,14 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		fileLocalEClass.getESuperTypes().add(this.getFile());
-		fileRemoteEClass.getESuperTypes().add(this.getFile());
+		fileLocalEClass.getESuperTypes().add(this.getByteFile());
+		fileRemoteEClass.getESuperTypes().add(this.getByteFile());
 		fileInMemoryEClass.getESuperTypes().add(this.getFile());
 		fileReaderWriterEClass.getESuperTypes().add(this.getFileHandler());
 		fileHandlerEClass.getESuperTypes().add(this.getFileOwner());
 		filesEClass.getESuperTypes().add(this.getFileOwner());
+		byteFileEClass.getESuperTypes().add(this.getFile());
+		fileOutputEClass.getESuperTypes().add(this.getFileOwner());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(fileEClass, File.class, "File", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -519,6 +579,12 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 
 		initEClass(filesEClass, Files.class, "Files", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFiles_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Files.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(byteFileEClass, ByteFile.class, "ByteFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getByteFile_Encoding(), ecorePackage.getEString(), "Encoding", "UTF-8", 0, 1, ByteFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(fileOutputEClass, FileOutput.class, "FileOutput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFileOutput_OutputFile(), this.getFile(), null, "OutputFile", null, 0, 1, FileOutput.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(enabledFeedbackEDataType, EnabledFeedback.class, "EnabledFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

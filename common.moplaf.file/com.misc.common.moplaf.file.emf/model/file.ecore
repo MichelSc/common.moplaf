@@ -5,11 +5,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="File" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileLocal" eSuperTypes="#//File">
+  <eClassifiers xsi:type="ecore:EClass" name="FileLocal" eSuperTypes="#//ByteFile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FilePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileRemote" eSuperTypes="#//File">
+  <eClassifiers xsi:type="ecore:EClass" name="FileRemote" eSuperTypes="#//ByteFile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
   </eClassifiers>
@@ -49,5 +49,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Files" eSuperTypes="#//FileOwner">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ByteFile" eSuperTypes="#//File">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="UTF-8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileOutput" abstract="true" eSuperTypes="#//FileOwner">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OutputFile" eType="#//File"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

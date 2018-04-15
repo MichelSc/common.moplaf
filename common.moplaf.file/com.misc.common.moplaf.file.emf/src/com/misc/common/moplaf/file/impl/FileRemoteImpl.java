@@ -4,15 +4,6 @@ package com.misc.common.moplaf.file.impl;
 
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.FileRemote;
-import com.misc.common.moplaf.file.Plugin;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -35,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FileRemoteImpl extends FileImpl implements FileRemote {
+public class FileRemoteImpl extends ByteFileImpl implements FileRemote {
 	/**
 	 * The default value of the '{@link #getURI() <em>URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -180,7 +171,8 @@ public class FileRemoteImpl extends FileImpl implements FileRemote {
 		}
 	}
 
-	private java.io.File getFile_private() {
+	@Override
+	protected java.io.File getFile() {
 		URI uri = this.getURI_private();
 		if ( uri == null ) {
 			return null;
@@ -188,54 +180,5 @@ public class FileRemoteImpl extends FileImpl implements FileRemote {
 		java.io.File file = new java.io.File(uri);
 		return file;
 	}
-
-	@Override
-	public Reader getReader() {
-		java.io.File file = this.getFile_private();
-		if ( file == null) {
-			Plugin.INSTANCE.logError("FileRemote.getReader: file NOT found");
-			return null;
-		}
-		Reader reader;
-		try {
-			reader = new FileReader(file);
-		} catch (FileNotFoundException e) {
-			Plugin.INSTANCE.logError("FileRemote.getReader: Reader NOT created");
-			return null;
-		}
-		
-		return reader;
-	}
-
-	@Override
-	public InputStream getInputStream() {
-		java.io.File file = this.getFile_private();
-		if ( file == null) {
-			Plugin.INSTANCE.logError("FileRemote.getInputStream: file NOT found");
-			return null;
-		}
-		FileInputStream inputstream = null;
-		try {
-			inputstream = new FileInputStream(file);
-		} catch (FileNotFoundException e) {
-			Plugin.INSTANCE.logError("FileRemote.getInputStream: stream NOT created");
-			return null;
-		} 
-		return inputstream;
-	}
-
-	@Override
-	public Writer getWriter() {
-		// TODO Auto-generated method stub
-		return super.getWriter();
-	}
-
-	@Override
-	public OutputStream getOutputStream() {
-		// TODO Auto-generated method stub
-		return super.getOutputStream();
-	}
-	
-	
 
 } //FileRemoteImpl

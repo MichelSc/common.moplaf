@@ -342,12 +342,12 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	 */
 	public void dispose() {
 		if (jobParameterItemProvider != null) jobParameterItemProvider.dispose();
-		if (runsItemProvider != null) runsItemProvider.dispose();
 		if (runParamsItemProvider != null) runParamsItemProvider.dispose();
 		if (setterItemProvider != null) setterItemProvider.dispose();
 		if (setterAttributeIntItemProvider != null) setterAttributeIntItemProvider.dispose();
 		if (setterAttributeFloatItemProvider != null) setterAttributeFloatItemProvider.dispose();
 		if (paramsHolderItemProvider != null) paramsHolderItemProvider.dispose();
+		if (runsItemProvider != null) runsItemProvider.dispose();
 	}
 
 }

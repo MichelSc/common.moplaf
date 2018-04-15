@@ -3,8 +3,10 @@
 package com.misc.common.moplaf.job.jobhttp.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.file.FileLocal;
+import com.misc.common.moplaf.file.FileOutput;
 import com.misc.common.moplaf.job.JobFileHandler;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
@@ -27,12 +29,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
-import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -520,7 +522,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 
 	@Override
 	public AbstractHandler constructGetFileResultHandler() {
-		return null; // TODO return new GetFileResultHandler();
+		return new GetFileResultHandler();
 	}
 
 	/**
@@ -539,22 +541,22 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	    {
 			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
 			
-			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submit: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Plugin.INSTANCE.logInfo(String.format("SubmitJobHandler.handle: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
 			Map<String, String> params = Util.getQueryParams(request.getQueryString());
 
 			// get the scheme
 	        String scheme = params.get("scheme");
-			Plugin.INSTANCE.logInfo("jetty.JobServer.submit: scheme="+ scheme);
+			Plugin.INSTANCE.logInfo("SubmitJobHandler.handle: scheme="+ scheme);
 
 			// get the serialized job
 	        Reader in = null;
 	        String filename = params.get("filename");
 	        if ( filename!=null ) {
 		        String filepath = String.format("%s\\%s", outer_this.getTmpFolder(), filename);
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submit: filepath="+ filepath);
+				Plugin.INSTANCE.logInfo("SubmitJobHandler.handle: filepath="+ filepath);
 				in = new FileReader(filepath);
 	        } else {
-				Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submit: content l=%d, encoding=%s, type=%s",
+				Plugin.INSTANCE.logInfo(String.format("SubmitJobHandler.handle: content l=%d, encoding=%s, type=%s",
 						request.getContentLength(), 
 						request.getCharacterEncoding(),
 						request.getContentType()));
@@ -566,7 +568,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		       ? outer_this.runJob(in)
        		       : outer_this.runJob(scheme, in);
 
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: submitted, nr="+ submit_nr);
+     		Plugin.INSTANCE.logInfo("SubmitJobHandler.handle: submitted, nr="+ submit_nr);
 
      		// make the response
 	        response.setContentType("text/html; charset=utf-8");
@@ -575,10 +577,10 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		out.format("%s", submit_nr);
      		out.close();
 
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: output written");
+     		Plugin.INSTANCE.logInfo("SubmitJobHandler.handle: output written");
 
 	        baseRequest.setHandled(true);
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: request handled");
+     		Plugin.INSTANCE.logInfo("SubmitJobHandler.handle: request handled");
 	    }
 	};
 
@@ -599,21 +601,21 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	    {
 			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
 			
-			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submitFile: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Plugin.INSTANCE.logInfo(String.format("SubmitFileHandler.handle: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
 			Map<String, String> params = Util.getQueryParams(request.getQueryString());
 
 			// get the scheme
 	        String job_type = params.get("jobtype");
-			Plugin.INSTANCE.logInfo("jetty.JobServer.submitFile: jobtype="+ job_type);
+			Plugin.INSTANCE.logInfo("SubmitFileHandler.handle: jobtype="+ job_type);
 
 			// get the file
 			String filepath = null;
 	        String filename = params.get("filename");
 	        if ( filename!=null ) {
 		        filepath = String.format("%s\\%s", outer_this.getTmpFolder(), filename);
-				Plugin.INSTANCE.logInfo("jetty.JobServer.submitFile: filepath="+ filepath);
+				Plugin.INSTANCE.logInfo("SubmitFileHandler.handle: filepath="+ filepath);
 	        } else {
-				Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.submitFile: content l=%d, encoding=%s, type=%s",
+				Plugin.INSTANCE.logInfo(String.format("SubmitFileHandler.handle: content l=%d, encoding=%s, type=%s",
 						request.getContentLength(), 
 						request.getCharacterEncoding(),
 						request.getContentType()));
@@ -626,7 +628,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	        // do the submit
 	        int submit_nr = outer_this.runFile(job_type, filepath);
 
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submitFile: submitted, nr="+ submit_nr);
+     		Plugin.INSTANCE.logInfo("SubmitFileHandler.handle: submitted, nr="+ submit_nr);
 
      		// make the response
 	        response.setContentType("text/html; charset=utf-8");
@@ -635,10 +637,10 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		out.format("%s", submit_nr);
      		out.close();
 
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: output written");
+     		Plugin.INSTANCE.logInfo("SubmitFileHandler.handle: output written");
 
 	        baseRequest.setHandled(true);
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: request handled");
+     		Plugin.INSTANCE.logInfo("SubmitFileHandler.handle: request handled");
 	    }
 	};
 
@@ -659,24 +661,24 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	    {
 			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
 			
-			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.getjobstatus: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Plugin.INSTANCE.logInfo(String.format("GetJobStatusHandler.handle: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
 			Map<String, String> params = Util.getQueryParams(request.getQueryString());
 
 			// get the submit id
 			int execution_nr = -1;
 			try {
 		        String submtid = params.get("submitid");
-				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: submtid="+ submtid);
+				Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: submtid="+ submtid);
 				execution_nr = Integer.parseInt(submtid);
 			} catch(NumberFormatException e) {
-				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: invalid submtid");
+				Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: invalid submtid");
 			}
 
 			if ( execution_nr>=0 ) {
 		        // get the status
-		        int status = outer_this.getJobStatus(execution_nr);
+		        int status = outer_this.getJobStatus(execution_nr).getValue();
 
-	     		Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: status="+ status);
+	     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: status="+ status);
 
 	     		// make the response
 		        response.setContentType("text/html; charset=utf-8");
@@ -685,10 +687,10 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	     		out.format("%s", status);
 	     		out.close();
 
-	     		Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: output written");
+	     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: output written");
 
 		        baseRequest.setHandled(true);
-	     		Plugin.INSTANCE.logInfo("jetty.JobServer.getjobstatus: request handled");
+	     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: request handled");
 			}
 	    }
 	};
@@ -710,21 +712,21 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	    {
 			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
 			
-			Plugin.INSTANCE.logInfo(String.format("jetty.JobServer.getjobresult: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Plugin.INSTANCE.logInfo(String.format("GetJobResultHandler.handle: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
 			Map<String, String> params = Util.getQueryParams(request.getQueryString());
 
 			// get the scheme
 	        String scheme = params.get("scheme");
-			Plugin.INSTANCE.logInfo("jetty.JobServer.getjobresult: scheme="+ scheme);
+			Plugin.INSTANCE.logInfo("GetJobResultHandler: scheme="+ scheme);
 
 			// get the submit id
 			int execution_nr = -1;
 			try {
 		        String submtid = params.get("submitid");
-				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobresult: submtid="+ submtid);
+				Plugin.INSTANCE.logInfo("GetJobResultHandler.handle: submtid="+ submtid);
 				execution_nr = Integer.parseInt(submtid);
 			} catch(NumberFormatException e) {
-				Plugin.INSTANCE.logInfo("jetty.JobServer.getjobresult: invalid submtid");
+				Plugin.INSTANCE.logInfo("GetJobResultHandler.handle: invalid submtid");
 			}
 
      		// make the response
@@ -737,15 +739,55 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		} else {
          		written = outer_this.writeJobResult(scheme, execution_nr, out);
      		}
-     		out.close();
 
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: output written");
+     		Plugin.INSTANCE.logInfo("GetJobResultHandler.handle: output written");
 
 	        baseRequest.setHandled(written);
-     		Plugin.INSTANCE.logInfo("jetty.JobServer.submit: request handled");
+     		Plugin.INSTANCE.logInfo("GetJobResultHandler.handle: request handled");
 	    }
 	};
 
+	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	private class GetFileResultHandler extends AbstractHandler {
+		
+		@Override
+	    public void handle( String target,
+	                        Request baseRequest,
+	                        HttpServletRequest request,
+	                        HttpServletResponse response ) throws IOException,
+	                                                      ServletException
+	    {
+			JobEngineServerImpl outer_this = JobEngineServerImpl.this;
+			
+			Plugin.INSTANCE.logInfo(String.format("GetFileResultHandler.handle: called, method=%s, query=%s", request.getMethod(), request.getQueryString()));
+			Map<String, String> params = Util.getQueryParams(request.getQueryString());
+
+			// get the submit id
+			int execution_nr = -1;
+			try {
+		        String submtid = params.get("submitid");
+				Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: submtid="+ submtid);
+				execution_nr = Integer.parseInt(submtid);
+			} catch(NumberFormatException e) {
+				Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: invalid submtid");
+			}
+
+     		// make the response
+	        response.setContentType("text/html; charset=utf-8");
+	        response.setStatus(HttpServletResponse.SC_OK);
+     		ServletOutputStream out = response.getOutputStream();
+     		boolean written = outer_this.writeFileResult(execution_nr, out);
+
+     		Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: output written: "+written);
+
+	        baseRequest.setHandled(written);
+     		Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: request handled");
+	    }
+	};
 
 	/**
 	 * Run a job
@@ -832,16 +874,16 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	/**
 	 * 
 	 */
-	private int getJobStatus(int jobExecuteNr) {
+	private JobStatus getJobStatus(int jobExecuteNr) {
 		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobStatus: jobExecutenr= %d", jobExecuteNr));
 		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
 		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 		if ( job == null ) {
 			Plugin.INSTANCE.logError(String.format("JobEngineServer.getJobStatus: jobExecutenr= %d, job not found", jobExecuteNr));
-			return JobStatus.UNKNOWN_VALUE;
+			return JobStatus.UNKNOWN;
 		}
 
-		int status = job.getStatus().getValue();
+		JobStatus status = job.getStatus();
 		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobStatus: status= %d", status));
 		return status;
 	}
@@ -852,6 +894,10 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 		if ( job == null ) {
 			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeJobResult: jobExecutenr= %d, job not found", jobExecuteNr));
+			return false;
+		}
+		if ( job.getStatus()!=JobStatus.COMPLETE ) {
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeJobResult: job not completed"));
 			return false;
 		}
 	    boolean serialized = com.misc.common.moplaf.serialize.util.Util.serialize(serializeSchemeID, job.getRun(), writer);
@@ -865,6 +911,41 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	private boolean writeJobResult(int jobExecuteNr, Writer writer) {
 		return writeJobResult(XMIScheme.SCHEME_ID, jobExecuteNr, writer);
 	}
+
+	private boolean writeFileResult(int jobExecuteNr, OutputStream out) {
+		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.writeFileResult: jobExecutenr= %d", jobExecuteNr));
+		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
+		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
+		if ( job == null ) {
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: jobExecutenr= %d, job not found", jobExecuteNr));
+			return false;
+		}
+		if ( job.getStatus()!=JobStatus.COMPLETE ) {
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: job not completed"));
+			return false;
+		}
+		if ( !(job.getRun() instanceof FileOutput) ) {
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: job is no outputfile"));
+			return false;
+		}
+		File out_file = ((FileOutput)job.getRun()).getOutputFile();
+		if ( out_file==null ) {
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: job has no outputfile"));
+			return false;
+		}
+		
+		// write the file
+        try {
+            InputStream in = out_file.getInputStream();
+			IOUtils.copy(in, out);
+		} catch (IOException e) {
+			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: exception in writing the file: "+e.getMessage()));
+			return false;
+		}
+        
+	    return true;
+	}
+		
 
 	protected JobScheduled getJobScheduled(int job_execute_nr) {
 		JobScheduled job = this.getJobsScheduled()

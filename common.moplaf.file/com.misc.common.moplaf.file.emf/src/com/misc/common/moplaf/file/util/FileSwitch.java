@@ -75,6 +75,7 @@ public class FileSwitch<T> extends Switch<T> {
 			case FilePackage.FILE_LOCAL: {
 				FileLocal fileLocal = (FileLocal)theEObject;
 				T result = caseFileLocal(fileLocal);
+				if (result == null) result = caseByteFile(fileLocal);
 				if (result == null) result = caseFile(fileLocal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -82,6 +83,7 @@ public class FileSwitch<T> extends Switch<T> {
 			case FilePackage.FILE_REMOTE: {
 				FileRemote fileRemote = (FileRemote)theEObject;
 				T result = caseFileRemote(fileRemote);
+				if (result == null) result = caseByteFile(fileRemote);
 				if (result == null) result = caseFile(fileRemote);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -118,6 +120,20 @@ public class FileSwitch<T> extends Switch<T> {
 				Files files = (Files)theEObject;
 				T result = caseFiles(files);
 				if (result == null) result = caseFileOwner(files);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FilePackage.BYTE_FILE: {
+				ByteFile byteFile = (ByteFile)theEObject;
+				T result = caseByteFile(byteFile);
+				if (result == null) result = caseFile(byteFile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FilePackage.FILE_OUTPUT: {
+				FileOutput fileOutput = (FileOutput)theEObject;
+				T result = caseFileOutput(fileOutput);
+				if (result == null) result = caseFileOwner(fileOutput);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -242,6 +258,36 @@ public class FileSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFiles(Files object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Byte File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Byte File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseByteFile(ByteFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFileOutput(FileOutput object) {
 		return null;
 	}
 

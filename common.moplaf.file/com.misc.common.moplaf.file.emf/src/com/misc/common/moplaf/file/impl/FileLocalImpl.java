@@ -4,19 +4,8 @@ package com.misc.common.moplaf.file.impl;
 
 import com.misc.common.moplaf.file.FileLocal;
 import com.misc.common.moplaf.file.FilePackage;
-import com.misc.common.moplaf.file.Plugin;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
-
+import java.io.File;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -36,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FileLocalImpl extends FileImpl implements FileLocal {
+public class FileLocalImpl extends ByteFileImpl implements FileLocal {
 	/**
 	 * The default value of the '{@link #getFilePath() <em>File Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -170,67 +159,13 @@ public class FileLocalImpl extends FileImpl implements FileLocal {
 		result.append(')');
 		return result.toString();
 	}
-
-	/**
-	 * 
-	 */
-	@Override
-	public Reader getReader() {
-		// open the file
-		FileReader reader = null;
-		try {
-			reader = new FileReader(this.getFilePath());
-		} catch (FileNotFoundException e) {
-			Plugin.INSTANCE.logError("FileLocal.getReader: file NOT found");
-			return null;
-		} 
-		return reader;
-	}
 	
 	/**
 	 * 
 	 */
 	@Override
-	public InputStream getInputStream() {
-		FileInputStream inputstream = null;
-		try {
-			inputstream = new FileInputStream(this.getFilePath());
-		} catch (FileNotFoundException e) {
-			Plugin.INSTANCE.logError("FileLocal.getInputStream: file NOT found");
-			return null;
-		} 
-		return inputstream;
+	protected File getFile() {
+		return new File(this.getFilePath());
 	}
-
-	/**
-	 * For writing characters files
-	 */
-	@Override
-	public Writer getWriter() {
-		FileWriter writer = null;
-		try {
-			writer = new FileWriter(this.getFilePath());
-		} catch (IOException e) {
-			Plugin.INSTANCE.logError("FileLocal.getWriter: file NOT found");
-		} 
-		return writer;
-	}
-	
-	/**
-	 * For writing raw data files
-	 */
-	@Override
-	public OutputStream getOutputStream() {
-		FileOutputStream outputstream = null;
-		try {
-			outputstream = new FileOutputStream(this.getFilePath());
-		} catch (FileNotFoundException e) {
-			Plugin.INSTANCE.logError("FileLocal.getOutputStream: file NOT found");
-			return null;
-		} 
-		return outputstream;
-	}
-
-
 
 } //FileLocalImpl

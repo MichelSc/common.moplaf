@@ -100,6 +100,14 @@ public class FileAdapterFactory extends AdapterFactoryImpl {
 				return createFilesAdapter();
 			}
 			@Override
+			public Adapter caseByteFile(ByteFile object) {
+				return createByteFileAdapter();
+			}
+			@Override
+			public Adapter caseFileOutput(FileOutput object) {
+				return createFileOutputAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -228,6 +236,34 @@ public class FileAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFilesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.ByteFile <em>Byte File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.ByteFile
+	 * @generated
+	 */
+	public Adapter createByteFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.file.FileOutput <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.file.FileOutput
+	 * @generated
+	 */
+	public Adapter createFileOutputAdapter() {
 		return null;
 	}
 

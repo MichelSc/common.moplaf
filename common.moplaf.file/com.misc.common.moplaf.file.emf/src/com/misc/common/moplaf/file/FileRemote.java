@@ -19,7 +19,7 @@ package com.misc.common.moplaf.file;
  * @model
  * @generated
  */
-public interface FileRemote extends File {
+public interface FileRemote extends ByteFile {
 	/**
 	 * Returns the value of the '<em><b>URI</b></em>' attribute.
 	 * The default value is <code>""</code>.

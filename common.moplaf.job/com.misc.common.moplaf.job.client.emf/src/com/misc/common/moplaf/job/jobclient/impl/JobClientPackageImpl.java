@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.jobclient.impl;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 
 import com.misc.common.moplaf.job.jobclient.JobClientFactory;
@@ -134,6 +135,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 
 		// Initialize simple dependencies
 		JobPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJobClientPackage.createPackageContents();
