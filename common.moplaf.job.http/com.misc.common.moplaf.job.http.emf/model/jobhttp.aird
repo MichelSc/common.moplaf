@@ -543,7 +543,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_I9HjsSUcEeiAb97WlsxG4A" name="Path : EString = default_path" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_I9HjsSUcEeiAb97WlsxG4A" name="Path : EString = /default_path" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="jobhttp.ecore#//JobEngineClient/Path"/>
         <semanticElements xmi:type="ecore:EAttribute" href="jobhttp.ecore#//JobEngineClient/Path"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_I9HjsiUcEeiAb97WlsxG4A" labelAlignment="LEFT">
@@ -570,7 +570,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_I9IKwCUcEeiAb97WlsxG4A" name="Path : EString = default_path" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_I9IKwCUcEeiAb97WlsxG4A" name="Path : EString = /default_path" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="jobhttp.ecore#//JobEngineServer/Path"/>
         <semanticElements xmi:type="ecore:EAttribute" href="jobhttp.ecore#//JobEngineServer/Path"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_I9IKwSUcEeiAb97WlsxG4A" labelAlignment="LEFT">

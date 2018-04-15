@@ -101,7 +101,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PATH_EDEFAULT = "default_path";
+	protected static final String PATH_EDEFAULT = "/default_path";
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -377,24 +377,36 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		Plugin.INSTANCE.logInfo("JobEngineClient: submitjob: job serialized");
 		
 		// params
-		LinkedList<String> parameters = new LinkedList<String>();
+		String query = null;
 		if ( this.getScheme()!=null && this.getScheme().length()>0 ) {
-			parameters.add("scheme="+this.getScheme());
+			query = "scheme="+this.getScheme();
 		} 
-		String query = StringUtils.join(parameters, "&");
 
 		// the the http post
 		try {
 			// URI
-			String userInfo = null;
-			String host = this.getHost();
-			String path = String.format("%s/%s/%s", this.getPath()+"/submitjob", null, null); 
-			String fragment = "";
-			URI requesturi = new URI(scheme, userInfo, host, this.getPort(), path, query, fragment);
+			String path = this.getPath()+"/submitjob"; 
+			URI requesturi = new URI(
+					"http", // scheme 
+					null, // user info
+					this.getHost(), 
+					this.getPort(), 
+					path, 
+					query, 
+					null);    // fragment
 			URL url2 = requesturi.toURL();
 			Plugin.INSTANCE.logInfo("JobEngineClient: url2: "+url2.toString());
 			HttpURLConnection connection = (HttpURLConnection)url2.openConnection();
 	
+			// connection 
+			//connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded"); // default is ISO-8859-1
+			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"); // default is ISO-8859-1
+			//connection.setRequestProperty("Content-Length", "" + Integer.toString(wr.size()));
+			connection.setUseCaches(false);
+			connection.setDoInput(true);
+			connection.setDoOutput(true);
+			connection.setRequestMethod("POST");
+			
 			// body
 			DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
 			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(wr, "UTF-8"));
@@ -403,13 +415,6 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			wr.close();
 			
 			// call
-			connection.setRequestMethod("POST");
-			//connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded"); // default is ISO-8859-1
-			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"); // default is ISO-8859-1
-			connection.setRequestProperty("Content-Length", "" + Integer.toString(wr.size()));
-			connection.setUseCaches(false);
-			connection.setDoInput(true);
-			connection.setDoOutput(true);
 			connection.connect();
 		
 			// get the result
