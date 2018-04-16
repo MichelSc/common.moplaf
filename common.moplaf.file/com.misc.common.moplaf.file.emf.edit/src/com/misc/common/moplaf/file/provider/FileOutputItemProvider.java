@@ -65,7 +65,7 @@ public class FileOutputItemProvider extends FileOwnerItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10FilePropertyCategory"),
 				 null));
 	}
 

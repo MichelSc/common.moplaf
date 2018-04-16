@@ -7,6 +7,14 @@
   <foreignModel>file.ecore</foreignModel>
   <genPackages prefix="File" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="file.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="file.ecore#//FileEncoding">
+      <genEnumLiterals ecoreEnumLiteral="file.ecore#//FileEncoding/US_ASCII"/>
+      <genEnumLiterals ecoreEnumLiteral="file.ecore#//FileEncoding/ISO_8859_1"/>
+      <genEnumLiterals ecoreEnumLiteral="file.ecore#//FileEncoding/UTF_8"/>
+      <genEnumLiterals ecoreEnumLiteral="file.ecore#//FileEncoding/UTF_16"/>
+      <genEnumLiterals ecoreEnumLiteral="file.ecore#//FileEncoding/UTF_16BE"/>
+      <genEnumLiterals ecoreEnumLiteral="file.ecore#//FileEncoding/UTF_16LE"/>
+    </genEnums>
     <genDataTypes ecoreDataType="file.ecore#//EnabledFeedback"/>
     <genClasses ecoreClass="file.ecore#//File">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//File/Name"/>
@@ -40,7 +48,7 @@
         <genParameters ecoreParameter="file.ecore#//FileReaderWriter/writeFile.1/file"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="file.ecore#//FileHandler">
+    <genClasses image="false" ecoreClass="file.ecore#//FileHandler">
       <genFeatures notify="false" createChild="false" propertyCategory="10 File" propertySortChoices="true"
           ecoreFeature="ecore:EReference file.ecore#//FileHandler/SelectedFile"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 File"
@@ -51,6 +59,13 @@
     </genClasses>
     <genClasses ecoreClass="file.ecore#//Files">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//Files/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="file.ecore#//ByteFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//ByteFile/Encoding"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="file.ecore#//FileOutput">
+      <genFeatures notify="false" createChild="false" propertyCategory="10 File" propertySortChoices="true"
+          ecoreFeature="ecore:EReference file.ecore#//FileOutput/OutputFile"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
