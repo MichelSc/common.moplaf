@@ -29,10 +29,21 @@ public interface FileOutput extends FileOwner {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output File</em>' reference.
+	 * @see #setOutputFile(File)
 	 * @see com.misc.common.moplaf.file.FilePackage#getFileOutput_OutputFile()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model
 	 * @generated
 	 */
 	File getOutputFile();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.file.FileOutput#getOutputFile <em>Output File</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output File</em>' reference.
+	 * @see #getOutputFile()
+	 * @generated
+	 */
+	void setOutputFile(File value);
 
 } // FileOutput

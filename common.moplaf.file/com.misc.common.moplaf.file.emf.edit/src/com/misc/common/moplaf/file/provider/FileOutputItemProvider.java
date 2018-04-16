@@ -61,9 +61,9 @@ public class FileOutputItemProvider extends FileOwnerItemProvider {
 				 getString("_UI_FileOutput_OutputFile_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_FileOutput_OutputFile_feature", "_UI_FileOutput_type"),
 				 FilePackage.Literals.FILE_OUTPUT__OUTPUT_FILE,
+				 true,
 				 false,
-				 false,
-				 false,
+				 true,
 				 null,
 				 null,
 				 null));

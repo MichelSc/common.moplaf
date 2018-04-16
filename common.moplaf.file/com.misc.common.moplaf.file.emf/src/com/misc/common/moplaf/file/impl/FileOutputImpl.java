@@ -6,8 +6,10 @@ import com.misc.common.moplaf.file.File;
 import com.misc.common.moplaf.file.FileOutput;
 import com.misc.common.moplaf.file.FilePackage;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +25,16 @@ import org.eclipse.emf.ecore.InternalEObject;
  * @generated
  */
 public abstract class FileOutputImpl extends FileOwnerImpl implements FileOutput {
+	/**
+	 * The cached value of the '{@link #getOutputFile() <em>Output File</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputFile()
+	 * @generated
+	 * @ordered
+	 */
+	protected File outputFile;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,8 +60,15 @@ public abstract class FileOutputImpl extends FileOwnerImpl implements FileOutput
 	 * @generated
 	 */
 	public File getOutputFile() {
-		File outputFile = basicGetOutputFile();
-		return outputFile != null && outputFile.eIsProxy() ? (File)eResolveProxy((InternalEObject)outputFile) : outputFile;
+		if (outputFile != null && outputFile.eIsProxy()) {
+			InternalEObject oldOutputFile = (InternalEObject)outputFile;
+			outputFile = (File)eResolveProxy(oldOutputFile);
+			if (outputFile != oldOutputFile) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FilePackage.FILE_OUTPUT__OUTPUT_FILE, oldOutputFile, outputFile));
+			}
+		}
+		return outputFile;
 	}
 
 	/**
@@ -58,10 +77,19 @@ public abstract class FileOutputImpl extends FileOwnerImpl implements FileOutput
 	 * @generated
 	 */
 	public File basicGetOutputFile() {
-		// TODO: implement this method to return the 'Output File' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return outputFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputFile(File newOutputFile) {
+		File oldOutputFile = outputFile;
+		outputFile = newOutputFile;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FilePackage.FILE_OUTPUT__OUTPUT_FILE, oldOutputFile, outputFile));
 	}
 
 	/**
@@ -85,10 +113,40 @@ public abstract class FileOutputImpl extends FileOwnerImpl implements FileOutput
 	 * @generated
 	 */
 	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case FilePackage.FILE_OUTPUT__OUTPUT_FILE:
+				setOutputFile((File)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case FilePackage.FILE_OUTPUT__OUTPUT_FILE:
+				setOutputFile((File)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case FilePackage.FILE_OUTPUT__OUTPUT_FILE:
-				return basicGetOutputFile() != null;
+				return outputFile != null;
 		}
 		return super.eIsSet(featureID);
 	}

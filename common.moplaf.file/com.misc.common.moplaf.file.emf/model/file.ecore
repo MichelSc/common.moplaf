@@ -55,8 +55,7 @@
         defaultValueLiteral="UTF-8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileOutput" abstract="true" eSuperTypes="#//FileOwner">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="OutputFile" eType="#//File"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OutputFile" eType="#//File"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FileEncoding">
     <eLiterals name="US_ASCII" value="1" literal="US-ASCII"/>

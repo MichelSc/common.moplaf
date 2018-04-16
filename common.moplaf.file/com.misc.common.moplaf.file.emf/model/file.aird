@@ -785,17 +785,14 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_NRiIwEADEeivqa-ErTIHaw" name="[0..1] /OutputFile" sourceNode="_JYL4oEADEeivqa-ErTIHaw" targetNode="_Cmjg8PYOEeesU-ShemDjnw">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_NRiIwEADEeivqa-ErTIHaw" name="[0..1] OutputFile" sourceNode="_JYL4oEADEeivqa-ErTIHaw" targetNode="_Cmjg8PYOEeesU-ShemDjnw">
       <target xmi:type="ecore:EReference" href="file.ecore#//FileOutput/OutputFile"/>
       <semanticElements xmi:type="ecore:EReference" href="file.ecore#//FileOutput/OutputFile"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_NRiIwUADEeivqa-ErTIHaw" description="_poSsICnMEeiBbPrIgjuIVQ" strokeColor="114,159,207">
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_Me2xUEFFEeiNz9ZD_nQl4Q" strokeColor="0,0,0">
         <customFeatures>routingStyle</customFeatures>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_NRiIwkADEeivqa-ErTIHaw" showIcon="false" labelColor="39,76,114">
-          <customFeatures>labelSize</customFeatures>
-        </centerLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_NRiIw0ADEeivqa-ErTIHaw" showIcon="false" labelColor="39,76,114">
-          <customFeatures>labelSize</customFeatures>
-        </endLabelStyle>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_Me2xUUFFEeiNz9ZD_nQl4Q" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_Me2xUkFFEeiNz9ZD_nQl4Q" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>

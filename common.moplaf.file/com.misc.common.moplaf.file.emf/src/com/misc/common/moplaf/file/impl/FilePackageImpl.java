@@ -605,7 +605,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		initEAttribute(getByteFile_Encoding(), this.getFileEncoding(), "Encoding", "UTF-8", 0, 1, ByteFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileOutputEClass, FileOutput.class, "FileOutput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFileOutput_OutputFile(), this.getFile(), null, "OutputFile", null, 0, 1, FileOutput.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getFileOutput_OutputFile(), this.getFile(), null, "OutputFile", null, 0, 1, FileOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(fileEncodingEEnum, FileEncoding.class, "FileEncoding");
