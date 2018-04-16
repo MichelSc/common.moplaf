@@ -777,8 +777,12 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			}
 
      		// make the response
-	        response.setContentType("text/html; charset=utf-8");
+			String outputfilename = "myfile.xlsx";
+//			response.setContentType( "application/x-download");
+		    response.setContentType( "application/octet-stream" );
+	        response.setHeader("Content-disposition", "attachment; filename=\"" + outputfilename +"\"");
 	        response.setStatus(HttpServletResponse.SC_OK);
+	        
      		ServletOutputStream out = response.getOutputStream();
      		boolean written = outer_this.writeFileResult(execution_nr, out);
 
