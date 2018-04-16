@@ -30,6 +30,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.util.Date;
 import java.util.Map;
 
@@ -776,16 +778,39 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: invalid submtid");
 			}
 
-     		// make the response
-			String outputfilename = "myfile.xlsx";
-//			response.setContentType( "application/x-download");
-		    response.setContentType( "application/octet-stream" );
-	        response.setHeader("Content-disposition", "attachment; filename=\"" + outputfilename +"\"");
-	        response.setStatus(HttpServletResponse.SC_OK);
-	        
-     		ServletOutputStream out = response.getOutputStream();
-     		boolean written = outer_this.writeFileResult(execution_nr, out);
+			// get the result file
+			boolean written = false;
+			File out_file = outer_this.getFileResult(execution_nr);
+			if ( out_file!=null ) {
+				
+				// get the file name
+				String outputfilename = "resultfile";
+				if ( out_file instanceof FileLocal ) {
+					FileLocal local_file = (FileLocal)out_file;
+			        Path path = FileSystems.getDefault().getPath(local_file.getFilePath());
+			        outputfilename = path.getFileName().toString();
+				} else if ( out_file.getName()!=null ) {
+					outputfilename = out_file.getName();
+				}
+				Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: result file: "+outputfilename));
 
+				// make the response
+			    response.setContentType( "application/octet-stream" );
+		        response.setHeader("Content-disposition", "attachment; filename=\"" + outputfilename +"\"");
+		        response.setStatus(HttpServletResponse.SC_OK);
+		        
+				// write the file
+	     		ServletOutputStream out = response.getOutputStream();
+				if ( out_file!=null) {
+			        try {
+			            InputStream in = out_file.getInputStream();
+						IOUtils.copy(in, out);
+						written = true;
+					} catch (IOException e) {
+						Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: exception in writing the file: "+e.getMessage()));
+					}
+				}
+			}
      		Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: output written: "+written);
 
 	        baseRequest.setHandled(written);
@@ -916,38 +941,29 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		return writeJobResult(XMIScheme.SCHEME_ID, jobExecuteNr, writer);
 	}
 
-	private boolean writeFileResult(int jobExecuteNr, OutputStream out) {
+	private File getFileResult(int jobExecuteNr) {
 		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.writeFileResult: jobExecutenr= %d", jobExecuteNr));
 		JobEngineServerImpl jobEngineServer = JobEngineServerImpl.this;
 		JobScheduled job = jobEngineServer.getJobScheduled(jobExecuteNr);
 		if ( job == null ) {
 			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: jobExecutenr= %d, job not found", jobExecuteNr));
-			return false;
+			return null;
 		}
 		if ( job.getStatus()!=JobStatus.COMPLETE ) {
 			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: job not completed"));
-			return false;
+			return null;
 		}
 		if ( !(job.getRun() instanceof FileOutput) ) {
 			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: job is no outputfile"));
-			return false;
+			return null;
 		}
 		File out_file = ((FileOutput)job.getRun()).getOutputFile();
 		if ( out_file==null ) {
 			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: job has no outputfile"));
-			return false;
+			return null;
 		}
 		
-		// write the file
-        try {
-            InputStream in = out_file.getInputStream();
-			IOUtils.copy(in, out);
-		} catch (IOException e) {
-			Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: exception in writing the file: "+e.getMessage()));
-			return false;
-		}
-        
-	    return true;
+		return out_file;
 	}
 		
 
