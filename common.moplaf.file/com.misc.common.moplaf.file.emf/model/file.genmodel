@@ -28,7 +28,7 @@
     <genClasses image="false" ecoreClass="file.ecore#//FileInMemory">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute file.ecore#//FileInMemory/Content"/>
     </genClasses>
-    <genClasses ecoreClass="file.ecore#//FileReaderWriter">
+    <genClasses image="false" ecoreClass="file.ecore#//FileReaderWriter">
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/ReadFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
@@ -54,13 +54,13 @@
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 File"
           ecoreFeature="ecore:EReference file.ecore#//FileHandler/HandledFile"/>
     </genClasses>
-    <genClasses ecoreClass="file.ecore#//FileOwner">
+    <genClasses image="false" ecoreClass="file.ecore#//FileOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference file.ecore#//FileOwner/Files"/>
     </genClasses>
     <genClasses ecoreClass="file.ecore#//Files">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//Files/Name"/>
     </genClasses>
-    <genClasses ecoreClass="file.ecore#//ByteFile">
+    <genClasses image="false" ecoreClass="file.ecore#//ByteFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//ByteFile/Encoding"/>
     </genClasses>
     <genClasses image="false" ecoreClass="file.ecore#//FileOutput">
