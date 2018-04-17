@@ -78,7 +78,6 @@ public class JobScheduledItemProvider
 			addCancelEnabledFeedbackPropertyDescriptor(object);
 			addScheduleNrPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
-			addExecuteNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -282,28 +281,6 @@ public class JobScheduledItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Execute Nr feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExecuteNrPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JobScheduled_ExecuteNr_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_ExecuteNr_feature", "_UI_JobScheduled_type"),
-				 JobClientPackage.Literals.JOB_SCHEDULED__EXECUTE_NR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -474,7 +451,6 @@ public class JobScheduledItemProvider
 			case JobClientPackage.JOB_SCHEDULED__STATUS:
 			case JobClientPackage.JOB_SCHEDULED__CANCEL_ENABLED_FEEDBACK:
 			case JobClientPackage.JOB_SCHEDULED__SCHEDULE_NR:
-			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:

@@ -54,7 +54,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getScheduleNr <em>Schedule Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getSource <em>Source</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getExecuteNr <em>Execute Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getOwnedRun <em>Owned Run</em>}</li>
  * </ul>
  *
@@ -340,26 +339,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * @ordered
 	 */
 	protected JobSource source;
-
-	/**
-	 * The default value of the '{@link #getExecuteNr() <em>Execute Nr</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExecuteNr()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int EXECUTE_NR_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getExecuteNr() <em>Execute Nr</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExecuteNr()
-	 * @generated
-	 * @ordered
-	 */
-	protected int executeNr = EXECUTE_NR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOwnedRun() <em>Owned Run</em>}' containment reference.
@@ -728,27 +707,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getExecuteNr() {
-		return executeNr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExecuteNr(int newExecuteNr) {
-		int oldExecuteNr = executeNr;
-		executeNr = newExecuteNr;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULED__EXECUTE_NR, oldExecuteNr, executeNr));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Run getOwnedRun() {
 		return ownedRun;
 	}
@@ -1095,8 +1053,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULED__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
-			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
-				return getExecuteNr();
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				return getOwnedRun();
 		}
@@ -1152,9 +1108,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return;
 			case JobClientPackage.JOB_SCHEDULED__SOURCE:
 				setSource((JobSource)newValue);
-				return;
-			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
-				setExecuteNr((Integer)newValue);
 				return;
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				setOwnedRun((Run)newValue);
@@ -1213,9 +1166,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULED__SOURCE:
 				setSource((JobSource)null);
 				return;
-			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
-				setExecuteNr(EXECUTE_NR_EDEFAULT);
-				return;
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				setOwnedRun((Run)null);
 				return;
@@ -1269,8 +1219,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return scheduleNr != SCHEDULE_NR_EDEFAULT;
 			case JobClientPackage.JOB_SCHEDULED__SOURCE:
 				return source != null;
-			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
-				return executeNr != EXECUTE_NR_EDEFAULT;
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				return ownedRun != null;
 		}
@@ -1328,8 +1276,6 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		result.append(cancelTime);
 		result.append(", ScheduleNr: ");
 		result.append(scheduleNr);
-		result.append(", ExecuteNr: ");
-		result.append(executeNr);
 		result.append(')');
 		return result.toString();
 	}

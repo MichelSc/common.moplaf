@@ -1037,22 +1037,13 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULED__SOURCE = 18;
 
 	/**
-	 * The feature id for the '<em><b>Execute Nr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_SCHEDULED__EXECUTE_NR = 19;
-
-	/**
 	 * The feature id for the '<em><b>Owned Run</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED__OWNED_RUN = 20;
+	int JOB_SCHEDULED__OWNED_RUN = 19;
 
 	/**
 	 * The number of structural features of the '<em>Job Scheduled</em>' class.
@@ -1061,7 +1052,7 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED_FEATURE_COUNT = 21;
+	int JOB_SCHEDULED_FEATURE_COUNT = 20;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -1652,17 +1643,6 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJobScheduled_Status();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getExecuteNr <em>Execute Nr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Execute Nr</em>'.
-	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getExecuteNr()
-	 * @see #getJobScheduled()
-	 * @generated
-	 */
-	EAttribute getJobScheduled_ExecuteNr();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getOwnedRun <em>Owned Run</em>}'.
@@ -2317,14 +2297,6 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_SCHEDULED__STATUS = eINSTANCE.getJobScheduled_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>Execute Nr</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB_SCHEDULED__EXECUTE_NR = eINSTANCE.getJobScheduled_ExecuteNr();
 
 		/**
 		 * The meta object literal for the '<em><b>Owned Run</b></em>' containment reference feature.

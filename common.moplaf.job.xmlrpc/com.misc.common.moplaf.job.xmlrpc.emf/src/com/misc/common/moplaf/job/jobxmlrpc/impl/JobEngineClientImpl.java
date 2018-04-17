@@ -384,12 +384,12 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	public void refreshJobStatus(JobScheduled job) {
-		JobStatus status = this.callGetStatus(job.getExecuteNr());
+		JobStatus status = this.callGetStatus(job.getScheduleNr());
 		if ( status!=null) {
 			switch (status) {
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
-				String result = this.callGetResult(XMIScheme.SCHEME_ID, job.getExecuteNr());
+				String result = this.callGetResult(XMIScheme.SCHEME_ID, job.getScheduleNr());
 				StringReader inputStream = new StringReader(result);
 				EObject result_as_object = Util.deserialize(XMIScheme.SCHEME_ID, inputStream);
 				if ( result_as_object instanceof Run ) {

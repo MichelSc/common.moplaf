@@ -515,12 +515,12 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	public void refreshJobStatus(JobScheduled job) {
-		JobStatus status = this.callGetStatus(job.getExecuteNr());
+		JobStatus status = this.callGetStatus(job.getScheduleNr());
 		if ( status!=null) {
 			switch (status) {
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
-				String result = this.callGetJobResult(job.getExecuteNr());
+				String result = this.callGetJobResult(job.getScheduleNr());
 				if ( result==null ) {
 					Plugin.INSTANCE.logError("JobEngineClient.refreshJobStatus: no result received, job not updated");
 				} else {
