@@ -306,16 +306,18 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 * 
 	 */
 	@Override
-	protected int executeJobImpl(JobScheduled job) {
-	    int executeNr = -1;
+	protected boolean executeJobImpl(JobScheduled job) {
+	    boolean done = false;
 	    StringWriter stringWriter = new StringWriter();
 	    boolean serialized = Util.serialize(XMIScheme.SCHEME_ID, job.getRun(), stringWriter);
 		if ( serialized ) {
 		    String jobAsString = stringWriter.toString();
-		    executeNr = this.callHandleJobRunJob(XMIScheme.SCHEME_ID, jobAsString);
+		    int executeNr = this.callHandleJobRunJob(XMIScheme.SCHEME_ID, jobAsString);
+		    job.setScheduleNr(executeNr);
+		    done = true;
 		}
-		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished");
-		return executeNr;
+		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished, done="+done);
+		return done;
 	}
 	
 	private Object call(String method, Object[] params) {

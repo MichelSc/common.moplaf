@@ -93,11 +93,11 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 	 * 
 	 */
 	@Override
-	protected int executeJobImpl(JobScheduled job) {
+	protected boolean executeJobImpl(JobScheduled job) {
 		Run run = job.getRun();
 		boolean run_in_background = true; // no dialog to cancel
 		run.runAsynch(new JobEngineRunContext(job), run_in_background);
-		return job.getScheduleNr();
+		return true;
 	}
 
 } //JobEngineInProcessImpl

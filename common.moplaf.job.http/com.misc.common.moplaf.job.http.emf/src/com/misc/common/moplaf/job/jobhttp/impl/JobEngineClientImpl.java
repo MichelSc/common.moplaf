@@ -358,7 +358,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 * 
 	 */
 	@Override
-	protected int executeJobImpl(JobScheduled job) {
+	protected boolean executeJobImpl(JobScheduled job) {
 		Plugin.INSTANCE.logInfo("JobEngineClient: submitjob: called");
 		
 		// serialize the job
@@ -370,7 +370,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		    jobAsString = stringWriter.toString();
 		} else {
 			Plugin.INSTANCE.logError("JobEngineClient: submitjob: job not serialized");
-			return -1;
+			return false;
 		}
 		Plugin.INSTANCE.logInfo("JobEngineClient: submitjob: job serialized");
 		
@@ -417,7 +417,10 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		
 			// get the result
 	    	InputStream resultContentIS = connection.getInputStream();
-	        BufferedReader reader = new BufferedReader(new InputStreamReader(resultContentIS, connection.getContentEncoding()));
+	    	String encoding = connection.getContentEncoding();
+	        BufferedReader reader = encoding == null 
+	        		             ? new BufferedReader(new InputStreamReader(resultContentIS))
+	        		            : new BufferedReader(new InputStreamReader(resultContentIS, encoding));
 	        StringBuilder sb = new StringBuilder();
 	        String line;
 	        while ((line = reader.readLine()) != null) {
@@ -428,13 +431,15 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			int execution_nr = -1;
 			try {
 				execution_nr = Integer.parseInt(resultContent);
+				job.setScheduleNr(execution_nr);
 			} catch(NumberFormatException e) {
 				Plugin.INSTANCE.logError("JobEngineClient.submitjob: invalid execution nr");
+				return false;
 			}
-			return execution_nr;
+			return true;
 		} catch(Exception e) {
 			Plugin.INSTANCE.logError("JobEngineClient.submitjob: exception caught: "+e.getMessage());
-			return -1;
+			return false;
 		}
 	}
 	
@@ -473,7 +478,10 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		
 			// get the result
 	    	InputStream resultContentIS = connection.getInputStream();
-	        BufferedReader reader = new BufferedReader(new InputStreamReader(resultContentIS, connection.getContentEncoding()));
+	    	String encoding = connection.getContentEncoding();
+	        BufferedReader reader = encoding == null 
+	        		             ? new BufferedReader(new InputStreamReader(resultContentIS))
+	        		            : new BufferedReader(new InputStreamReader(resultContentIS, encoding));
 	        StringBuilder sb = new StringBuilder();
 	        String line;
 	        while ((line = reader.readLine()) != null) {
@@ -513,13 +521,19 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
 				String result = this.callGetJobResult(job.getExecuteNr());
-				String scheme = this.getScheme();
-				StringReader inputStream = new StringReader(result);
-				EObject result_as_object = Util.deserialize(scheme == null ? XMIScheme.SCHEME_ID : scheme, inputStream);
-				if ( result_as_object instanceof Run ) {
-					Run result_run = (Run) result_as_object;
-					EcoreUtil.replace(job.getRun(), result_run);
-					job.setRun(result_run);
+				if ( result==null ) {
+					Plugin.INSTANCE.logError("JobEngineClient.refreshJobStatus: no result received, job not updated");
+				} else {
+					String scheme = this.getScheme();
+					StringReader inputStream = new StringReader(result);
+					EObject result_as_object = Util.deserialize(scheme == null ? XMIScheme.SCHEME_ID : scheme, inputStream);
+					if ( result_as_object instanceof Run ) {
+						Run result_run = (Run) result_as_object;
+						EcoreUtil.replace(job.getRun(), result_run);
+						job.setRun(result_run);
+					} else {
+						Plugin.INSTANCE.logError("JobEngineClient.refreshJobStatus: result is no instance of Run, job not updated");
+					}
 				}
 				break;
 			case FAILED:

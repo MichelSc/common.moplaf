@@ -913,7 +913,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 		}
 
 		JobStatus status = job.getStatus();
-		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobStatus: status= %d", status));
+		Plugin.INSTANCE.logInfo(String.format("JobEngineServer.getJobStatus: status= %d", status.getValue()));
 		return status;
 	}
 

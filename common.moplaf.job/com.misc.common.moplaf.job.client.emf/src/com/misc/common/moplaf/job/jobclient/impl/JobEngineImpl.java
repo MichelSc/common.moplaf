@@ -113,12 +113,12 @@ public abstract class JobEngineImpl extends JobSchedulerServiceImpl implements J
 	 */
 	public void executeJob(JobScheduled job) {
 		Plugin.INSTANCE.logInfo("JobEngine.executeJob");
-		int executeNr = this.executeJobImpl(job);
-		if ( executeNr>0 ) {
+		boolean executed = this.executeJobImpl(job);
+		if ( executed ) {
 			this.getJobsScheduled().add(job);
-			job.setExecuteNr(executeNr);
 		} else {
-			Plugin.INSTANCE.logError("JobEngine.executeJob failed");
+			Plugin.INSTANCE.logError("JobEngine.executeJob failed: stop the engine");
+			this.stop();
 		}
 	}
 	
@@ -144,7 +144,17 @@ public abstract class JobEngineImpl extends JobSchedulerServiceImpl implements J
 		// default does nothing
 	}
 
-	protected int executeJobImpl(JobScheduled job) {
+	/**
+	 * Execute the job.
+	 * Called when the engine is ready to process and the job is ready to be processed.
+	 * So this is expected to succeed.
+	 * Take in charge the execution of the job.
+	 * Set the SchedulerNr, in case of success.
+	 * Return whether succeeded or not. 
+	 * @param job
+	 * @return
+	 */
+	protected boolean executeJobImpl(JobScheduled job) {
 		throw new UnsupportedOperationException();
 	}
 
