@@ -490,6 +490,15 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJobScheduled_ExecuteNr() {
+		return (EAttribute)jobScheduledEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getJobScheduled_CancelTime() {
 		return (EAttribute)jobScheduledEClass.getEStructuralFeatures().get(12);
 	}
@@ -836,6 +845,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		createEAttribute(jobScheduledEClass, JOB_SCHEDULED__SCHEDULE_NR);
 		createEReference(jobScheduledEClass, JOB_SCHEDULED__SOURCE);
 		createEReference(jobScheduledEClass, JOB_SCHEDULED__OWNED_RUN);
+		createEAttribute(jobScheduledEClass, JOB_SCHEDULED__EXECUTE_NR);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___CANCEL);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___SET_RUNNING);
 		createEOperation(jobScheduledEClass, JOB_SCHEDULED___SET_RETURN__RETURNFEEDBACK);
@@ -960,6 +970,7 @@ public class JobClientPackageImpl extends EPackageImpl implements JobClientPacka
 		initEAttribute(getJobScheduled_ScheduleNr(), ecorePackage.getEInt(), "ScheduleNr", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobScheduled_Source(), this.getJobSource(), this.getJobSource_JobsScheduled(), "Source", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobScheduled_OwnedRun(), theJobPackage.getRun(), null, "OwnedRun", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobScheduled_ExecuteNr(), ecorePackage.getEInt(), "ExecuteNr", null, 0, 1, JobScheduled.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getJobScheduled__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);
 

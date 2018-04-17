@@ -71,11 +71,20 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
         eType="#//JobScheduler" eOpposite="#//JobScheduler/Jobs"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ScheduleNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ScheduleNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Give by the Scheduler and identifying a Scheduled job in the context of its Scheduler"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Source" eType="#//JobSource"
         eOpposite="#//JobSource/JobsScheduled"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedRun" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecuteNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Given by the execution engine and identifies the execution of a Job.&#xA;For a remote job, the ExecuteNr identifies the submission in the remote engine and allows the client ot query the Job status or result"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true" eSuperTypes="#//JobSchedulerService">
     <eOperations name="executeJob">

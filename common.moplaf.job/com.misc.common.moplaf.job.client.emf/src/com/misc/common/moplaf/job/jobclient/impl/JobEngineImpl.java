@@ -149,7 +149,7 @@ public abstract class JobEngineImpl extends JobSchedulerServiceImpl implements J
 	 * Called when the engine is ready to process and the job is ready to be processed.
 	 * So this is expected to succeed.
 	 * Take in charge the execution of the job.
-	 * Set the SchedulerNr, in case of success.
+	 * Set the ExecuteNr, in case of success.
 	 * Return whether succeeded or not. 
 	 * @param job
 	 * @return

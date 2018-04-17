@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.job.client.emf/src" modelPluginID="com.misc.common.moplaf.job.client.emf"
     modelName="Jobclient" modelPluginClass="com.misc.common.moplaf.job.jobclient.Plugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
     operationReflection="true" importOrganizing="true">
   <foreignModel>jobclient.ecore</foreignModel>
   <genPackages prefix="JobClient" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
@@ -80,11 +80,12 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/CancelEnabledFeedback"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduled/Scheduler"/>
-      <genFeatures createChild="false" propertyCategory="20 Status" propertyDescription=""
-          ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/ScheduleNr"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+          propertyDescription="" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/ScheduleNr"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduled/Source"/>
-      <genFeatures createChild="false" propertyCategory="20 Status" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/ExecuteNr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jobclient.ecore#//JobScheduled/OwnedRun"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+          ecoreFeature="ecore:EAttribute jobclient.ecore#//JobScheduled/ExecuteNr"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/cancel"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/setRunning"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobScheduled/setReturn">

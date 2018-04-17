@@ -1046,13 +1046,22 @@ public interface JobClientPackage extends EPackage {
 	int JOB_SCHEDULED__OWNED_RUN = 19;
 
 	/**
+	 * The feature id for the '<em><b>Execute Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_SCHEDULED__EXECUTE_NR = 20;
+
+	/**
 	 * The number of structural features of the '<em>Job Scheduled</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_SCHEDULED_FEATURE_COUNT = 20;
+	int JOB_SCHEDULED_FEATURE_COUNT = 21;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -1654,6 +1663,17 @@ public interface JobClientPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getJobScheduled_OwnedRun();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getExecuteNr <em>Execute Nr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Execute Nr</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobScheduled#getExecuteNr()
+	 * @see #getJobScheduled()
+	 * @generated
+	 */
+	EAttribute getJobScheduled_ExecuteNr();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getCancelTime <em>Cancel Time</em>}'.
@@ -2305,6 +2325,14 @@ public interface JobClientPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOB_SCHEDULED__OWNED_RUN = eINSTANCE.getJobScheduled_OwnedRun();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute Nr</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_SCHEDULED__EXECUTE_NR = eINSTANCE.getJobScheduled_ExecuteNr();
 
 		/**
 		 * The meta object literal for the '<em><b>Cancel Time</b></em>' attribute feature.

@@ -313,7 +313,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 		if ( serialized ) {
 		    String jobAsString = stringWriter.toString();
 		    int executeNr = this.callHandleJobRunJob(XMIScheme.SCHEME_ID, jobAsString);
-		    job.setScheduleNr(executeNr);
+		    job.setExecuteNr(executeNr);
 		    done = true;
 		}
 		Plugin.INSTANCE.logInfo("HandleJob.runJob: call finished, done="+done);
@@ -384,12 +384,12 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	public void refreshJobStatus(JobScheduled job) {
-		JobStatus status = this.callGetStatus(job.getScheduleNr());
+		JobStatus status = this.callGetStatus(job.getExecuteNr());
 		if ( status!=null) {
 			switch (status) {
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
-				String result = this.callGetResult(XMIScheme.SCHEME_ID, job.getScheduleNr());
+				String result = this.callGetResult(XMIScheme.SCHEME_ID, job.getExecuteNr());
 				StringReader inputStream = new StringReader(result);
 				EObject result_as_object = Util.deserialize(XMIScheme.SCHEME_ID, inputStream);
 				if ( result_as_object instanceof Run ) {

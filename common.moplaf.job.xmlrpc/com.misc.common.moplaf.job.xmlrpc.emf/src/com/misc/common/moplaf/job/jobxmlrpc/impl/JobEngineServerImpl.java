@@ -390,7 +390,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	protected JobScheduled getJobScheduled(int job_execute_nr) {
 		JobScheduled job = this.getJobsScheduled()
 				.stream()
-				.filter(j -> j.getScheduleNr()==job_execute_nr)
+				.filter(j -> j.getExecuteNr()==job_execute_nr)
 				.findFirst()
 				.orElse(null);
 		return job;

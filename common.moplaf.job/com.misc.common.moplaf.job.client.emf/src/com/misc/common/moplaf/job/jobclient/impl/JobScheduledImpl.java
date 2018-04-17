@@ -55,6 +55,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getScheduleNr <em>Schedule Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getSource <em>Source</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getOwnedRun <em>Owned Run</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobScheduledImpl#getExecuteNr <em>Execute Nr</em>}</li>
  * </ul>
  *
  * @generated
@@ -349,6 +350,26 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * @ordered
 	 */
 	protected Run ownedRun;
+
+	/**
+	 * The default value of the '{@link #getExecuteNr() <em>Execute Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExecuteNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int EXECUTE_NR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getExecuteNr() <em>Execute Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExecuteNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int executeNr = EXECUTE_NR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -750,6 +771,27 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getExecuteNr() {
+		return executeNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExecuteNr(int newExecuteNr) {
+		int oldExecuteNr = executeNr;
+		executeNr = newExecuteNr;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobClientPackage.JOB_SCHEDULED__EXECUTE_NR, oldExecuteNr, executeNr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Date getCancelTime() {
 		return cancelTime;
 	}
@@ -1055,6 +1097,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return basicGetSource();
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				return getOwnedRun();
+			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
+				return getExecuteNr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1111,6 +1155,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return;
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				setOwnedRun((Run)newValue);
+				return;
+			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
+				setExecuteNr((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1169,6 +1216,9 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				setOwnedRun((Run)null);
 				return;
+			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
+				setExecuteNr(EXECUTE_NR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1221,6 +1271,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 				return source != null;
 			case JobClientPackage.JOB_SCHEDULED__OWNED_RUN:
 				return ownedRun != null;
+			case JobClientPackage.JOB_SCHEDULED__EXECUTE_NR:
+				return executeNr != EXECUTE_NR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1276,6 +1328,8 @@ public class JobScheduledImpl extends MinimalEObjectImpl.Container implements Jo
 		result.append(cancelTime);
 		result.append(", ScheduleNr: ");
 		result.append(scheduleNr);
+		result.append(", ExecuteNr: ");
+		result.append(executeNr);
 		result.append(')');
 		return result.toString();
 	}

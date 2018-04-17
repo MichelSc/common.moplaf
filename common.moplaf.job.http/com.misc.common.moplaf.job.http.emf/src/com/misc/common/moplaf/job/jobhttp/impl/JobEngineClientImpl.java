@@ -431,7 +431,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 			int execution_nr = -1;
 			try {
 				execution_nr = Integer.parseInt(resultContent);
-				job.setScheduleNr(execution_nr);
+				job.setExecuteNr(execution_nr);
 			} catch(NumberFormatException e) {
 				Plugin.INSTANCE.logError("JobEngineClient.submitjob: invalid execution nr");
 				return false;
@@ -515,12 +515,12 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	 */
 	@Override
 	public void refreshJobStatus(JobScheduled job) {
-		JobStatus status = this.callGetStatus(job.getScheduleNr());
+		JobStatus status = this.callGetStatus(job.getExecuteNr());
 		if ( status!=null) {
 			switch (status) {
 			case COMPLETE:
 				job.setReturn(ReturnFeedback.SUCCESS);
-				String result = this.callGetJobResult(job.getScheduleNr());
+				String result = this.callGetJobResult(job.getExecuteNr());
 				if ( result==null ) {
 					Plugin.INSTANCE.logError("JobEngineClient.refreshJobStatus: no result received, job not updated");
 				} else {

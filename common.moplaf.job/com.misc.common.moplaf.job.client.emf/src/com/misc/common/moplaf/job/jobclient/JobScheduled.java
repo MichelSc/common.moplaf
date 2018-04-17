@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getScheduleNr <em>Schedule Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getSource <em>Source</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getOwnedRun <em>Owned Run</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getExecuteNr <em>Execute Nr</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled()
@@ -393,6 +394,32 @@ public interface JobScheduled extends EObject {
 	 * @generated
 	 */
 	void setOwnedRun(Run value);
+
+	/**
+	 * Returns the value of the '<em><b>Execute Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Execute Nr</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Execute Nr</em>' attribute.
+	 * @see #setExecuteNr(int)
+	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_ExecuteNr()
+	 * @model
+	 * @generated
+	 */
+	int getExecuteNr();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobScheduled#getExecuteNr <em>Execute Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Execute Nr</em>' attribute.
+	 * @see #getExecuteNr()
+	 * @generated
+	 */
+	void setExecuteNr(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Cancel Time</b></em>' attribute.
