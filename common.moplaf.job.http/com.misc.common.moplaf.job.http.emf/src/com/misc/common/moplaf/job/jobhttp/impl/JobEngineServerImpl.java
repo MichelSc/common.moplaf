@@ -676,24 +676,24 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: invalid submtid");
 			}
 
+			JobStatus status = JobStatus.UNKNOWN;
 			if ( execution_nr>=0 ) {
 		        // get the status
-		        int status = outer_this.getJobStatus(execution_nr).getValue();
-
-	     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: status="+ status);
-
-	     		// make the response
-		        response.setContentType("text/html; charset=utf-8");
-		        response.setStatus(HttpServletResponse.SC_OK);
-	     		PrintWriter out = response.getWriter();
-	     		out.format("%s", status);
-	     		out.close();
-
-	     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: output written");
-
-		        baseRequest.setHandled(true);
-	     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: request handled");
+		        status = outer_this.getJobStatus(execution_nr);
 			}
+
+     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: status="+ status.getValue());
+     		// make the response
+	        response.setContentType("text/html; charset=utf-8");
+	        response.setStatus(HttpServletResponse.SC_OK);
+     		PrintWriter out = response.getWriter();
+     		out.format("%d", status.getValue());
+     		out.close();
+
+     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: output written");
+
+	        baseRequest.setHandled(true);
+     		Plugin.INSTANCE.logInfo("GetJobStatusHandler.handle: request handled");
 	    }
 	};
 
@@ -792,7 +792,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				} else if ( out_file.getName()!=null ) {
 					outputfilename = out_file.getName();
 				}
-				Plugin.INSTANCE.logError(String.format("JobEngineServer.writeFileResult: result file: "+outputfilename));
+				Plugin.INSTANCE.logInfo(String.format("JobEngineServer.writeFileResult: result file: "+outputfilename));
 
 				// make the response
 			    response.setContentType( "application/octet-stream" );
@@ -813,7 +813,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 			}
      		Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: output written: "+written);
 
-	        baseRequest.setHandled(written);
+	        baseRequest.setHandled(true);
      		Plugin.INSTANCE.logInfo("GetFileResultHandler.handle: request handled");
 	    }
 	};
