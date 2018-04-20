@@ -345,6 +345,7 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
     
     static private void helperAddContextHandler(ContextHandlerCollection collection_handler, String path, AbstractHandler handler) {
     	ContextHandler context = new ContextHandler(path);
+    	context.setInitParameter("", "");
     	context.setHandler(handler);
         context.setResourceBase(".");
         context.setClassLoader(Thread.currentThread().getContextClassLoader());
@@ -352,6 +353,11 @@ public class JobServerImpl extends ServiceImpl implements JobServer {
         // By default a Jetty ContextHandler with a context of "/app" will actually redirect any request to "/app" to "/app/", have a look at setAllowNullPathInfo.
         context.setAllowNullPathInfo(true); 
     	collection_handler.addHandler(context);
+    	
+//    	FilterHolder filterHolder = new FilterHolder(CrossOriginFilter.class);
+//        filterHolder.setInitParameter("allowedOrigins", "*");
+//        filterHolder.setInitParameter("allowedMethods", "GET, POST");
+
     }
 
 	@Override

@@ -480,7 +480,7 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	    	InputStream resultContentIS = connection.getInputStream();
 	    	String encoding = connection.getContentEncoding();
 	        BufferedReader reader = encoding == null 
-	        		             ? new BufferedReader(new InputStreamReader(resultContentIS))
+	        		            ? new BufferedReader(new InputStreamReader(resultContentIS))
 	        		            : new BufferedReader(new InputStreamReader(resultContentIS, encoding));
 	        StringBuilder sb = new StringBuilder();
 	        String line;
@@ -505,7 +505,53 @@ public class JobEngineClientImpl extends JobEngineImpl implements JobEngineClien
 	}
 	
 	private String callGetJobResult(int executeNr) {
-		return null;
+		Plugin.INSTANCE.logInfo("JobEngineClient.callGetJobResult: called");
+		
+		// params
+		String query = String.format("submitid=%d",  executeNr);
+
+		// the the http post
+		try {
+			// URI
+			String path = this.getPath()+"/getjobresult"; 
+			URI requesturi = new URI(
+					"http", // scheme 
+					null, // user info
+					this.getHost(), 
+					this.getPort(), 
+					path, 
+					query, 
+					null);    // fragment
+			URL url2 = requesturi.toURL();
+			Plugin.INSTANCE.logInfo("JobEngineClient.callGetJobResult: url2: "+url2.toString());
+			HttpURLConnection connection = (HttpURLConnection)url2.openConnection();
+	
+			// connection 
+			connection.setUseCaches(false);
+			connection.setDoInput(true);
+			connection.setDoOutput(false);
+			
+			// call
+			connection.connect();
+		
+			// get the result
+	    	InputStream resultContentIS = connection.getInputStream();
+	    	String encoding = connection.getContentEncoding();
+	        BufferedReader reader = encoding == null 
+	        		            ? new BufferedReader(new InputStreamReader(resultContentIS))
+	        		            : new BufferedReader(new InputStreamReader(resultContentIS, encoding));
+	        StringBuilder sb = new StringBuilder();
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            sb.append(line);
+	        }
+		    String resultContent = sb.toString();
+			Plugin.INSTANCE.logInfo("JobEngineClient.callGetJobResult: response="+ resultContent);
+			return resultContent;
+		} catch(Exception e) {
+			Plugin.INSTANCE.logError("JobEngineClient.callGetJobResult: exception caught: "+e.getMessage());
+			return "";
+		}
 	}
 
 	

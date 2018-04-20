@@ -526,13 +526,27 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	public AbstractHandler constructGetFileResultHandler() {
 		return new GetFileResultHandler();
 	}
+	
+	private abstract class JobEngineServerHandler extends AbstractHandler {
+		
+		//  this filter might be necessary org.eclipse.jetty.servlets.CrossOriginFilter
+		//  but we need a ServletContextHandler
+		//  and to call context.setInitParameter("org.eclipse.jetty.servlets.CrossOriginFilter", "/*");
+
+		public void addCORSHeaders(HttpServletResponse response){
+		        response.addHeader("Access-Control-Allow-Origin", "*");
+//		        response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+//		        response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
+//		        response.addHeader("Access-Control-Max-Age", "1728000");
+	    };
+	}
 
 	/**
 	 * 
 	 * @author MiSc
 	 *
 	 */
-	private class SubmitJobHandler extends AbstractHandler {
+	private class SubmitJobHandler extends JobEngineServerHandler {
 		
 		@Override
 	    public void handle( String target,
@@ -575,6 +589,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		// make the response
 	        response.setContentType("text/html; charset=utf-8");
 	        response.setStatus(HttpServletResponse.SC_OK);
+	        this.addCORSHeaders(response);
      		PrintWriter out = response.getWriter();
      		out.format("%s", submit_nr);
      		out.close();
@@ -592,7 +607,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * @author MiSc
 	 *
 	 */
-	private class SubmitFileHandler extends AbstractHandler {
+	private class SubmitFileHandler extends JobEngineServerHandler {
 		
 		@Override
 	    public void handle( String target,
@@ -635,6 +650,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		// make the response
 	        response.setContentType("text/html; charset=utf-8");
 	        response.setStatus(HttpServletResponse.SC_OK);
+	        this.addCORSHeaders(response);
      		PrintWriter out = response.getWriter();
      		out.format("%s", submit_nr);
      		out.close();
@@ -652,7 +668,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * @author MiSc
 	 *
 	 */
-	private class GetJobStatusHandler extends AbstractHandler {
+	private class GetJobStatusHandler extends JobEngineServerHandler {
 		
 		@Override
 	    public void handle( String target,
@@ -686,6 +702,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		// make the response
 	        response.setContentType("text/html; charset=utf-8");
 	        response.setStatus(HttpServletResponse.SC_OK);
+	        this.addCORSHeaders(response);
      		PrintWriter out = response.getWriter();
      		out.format("%d", status.getValue());
      		out.close();
@@ -703,7 +720,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * @author MiSc
 	 *
 	 */
-	private class GetJobResultHandler extends AbstractHandler {
+	private class GetJobResultHandler extends JobEngineServerHandler {
 		
 		@Override
 	    public void handle( String target,
@@ -734,6 +751,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
      		// make the response
 	        response.setContentType("text/html; charset=utf-8");
 	        response.setStatus(HttpServletResponse.SC_OK);
+	        this.addCORSHeaders(response);
      		PrintWriter out = response.getWriter();
      		boolean written = false;
      		if ( scheme == null ) {
@@ -754,7 +772,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 	 * @author MiSc
 	 *
 	 */
-	private class GetFileResultHandler extends AbstractHandler {
+	private class GetFileResultHandler extends JobEngineServerHandler {
 		
 		@Override
 	    public void handle( String target,
@@ -797,6 +815,7 @@ public class JobEngineServerImpl extends JobSourceImpl implements JobEngineServe
 				// make the response
 			    response.setContentType( "application/octet-stream" );
 		        response.setHeader("Content-disposition", "attachment; filename=\"" + outputfilename +"\"");
+		        this.addCORSHeaders(response);
 		        response.setStatus(HttpServletResponse.SC_OK);
 		        
 				// write the file
