@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ByteFileImpl extends FileImpl implements ByteFile {
+public abstract class ByteFileImpl extends FileImpl implements ByteFile {
 	/**
 	 * The default value of the '{@link #getEncoding() <em>Encoding</em>}' attribute.
 	 * <!-- begin-user-doc -->

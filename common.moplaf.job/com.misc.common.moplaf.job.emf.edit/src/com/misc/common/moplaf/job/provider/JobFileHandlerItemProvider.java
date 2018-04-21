@@ -179,11 +179,6 @@ public class JobFileHandlerItemProvider extends JobItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(FilePackage.Literals.FILE_OWNER__FILES,
-				 FileFactory.eINSTANCE.createByteFile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FilePackage.Literals.FILE_OWNER__FILES,
 				 FileFactory.eINSTANCE.createFileLocal()));
 
 		newChildDescriptors.add

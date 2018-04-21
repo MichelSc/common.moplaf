@@ -58,15 +58,6 @@ public interface FileFactory extends EFactory {
 	Files createFiles();
 
 	/**
-	 * Returns a new object of class '<em>Byte File</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Byte File</em>'.
-	 * @generated
-	 */
-	ByteFile createByteFile();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

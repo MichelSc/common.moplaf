@@ -73,7 +73,7 @@ public class SerializableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30SerializePropertyCategory"),
 				 null));
 	}
 
@@ -95,7 +95,7 @@ public class SerializableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30SerializePropertyCategory"),
 				 null));
 	}
 
@@ -117,19 +117,8 @@ public class SerializableItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__30SerializePropertyCategory"),
 				 null));
-	}
-
-	/**
-	 * This returns Serializable.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Serializable"));
 	}
 
 	/**

@@ -94,6 +94,17 @@ public class FileOwnerItemProvider
 	}
 
 	/**
+	 * This returns FileOwner.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/folder.png"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,11 +145,6 @@ public class FileOwnerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FilePackage.Literals.FILE_OWNER__FILES,
-				 FileFactory.eINSTANCE.createByteFile()));
 
 		newChildDescriptors.add
 			(createChildParameter

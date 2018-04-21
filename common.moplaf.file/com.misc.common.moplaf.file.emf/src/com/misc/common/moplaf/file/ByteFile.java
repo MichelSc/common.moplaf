@@ -16,7 +16,7 @@ package com.misc.common.moplaf.file;
  * </ul>
  *
  * @see com.misc.common.moplaf.file.FilePackage#getByteFile()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ByteFile extends File {

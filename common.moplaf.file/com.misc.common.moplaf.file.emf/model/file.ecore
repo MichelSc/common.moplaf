@@ -50,7 +50,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Files" eSuperTypes="#//FileOwner">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ByteFile" eSuperTypes="#//File">
+  <eClassifiers xsi:type="ecore:EClass" name="ByteFile" abstract="true" eSuperTypes="#//File">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Encoding" eType="#//FileEncoding"
         defaultValueLiteral="UTF-8"/>
   </eClassifiers>

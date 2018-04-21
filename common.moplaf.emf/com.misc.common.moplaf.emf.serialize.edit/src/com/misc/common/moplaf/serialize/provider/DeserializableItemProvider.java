@@ -3,12 +3,8 @@
 package com.misc.common.moplaf.serialize.provider;
 
 
-import com.misc.common.moplaf.file.FileFactory;
-
-import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.provider.FileReaderWriterItemProvider;
 import com.misc.common.moplaf.serialize.Deserializable;
-import com.misc.common.moplaf.serialize.SerializeFactory;
 import com.misc.common.moplaf.serialize.SerializePackage;
 
 import java.util.Collection;
@@ -79,7 +75,7 @@ public class DeserializableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30SerializePropertyCategory"),
 				 null));
 	}
 
@@ -101,7 +97,7 @@ public class DeserializableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30SerializePropertyCategory"),
 				 null));
 	}
 
@@ -133,17 +129,6 @@ public class DeserializableItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Deserializable.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Deserializable"));
 	}
 
 	/**
@@ -194,59 +179,6 @@ public class DeserializableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
-				 SerializeFactory.eINSTANCE.createSerializable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
-				 SerializeFactory.eINSTANCE.createDeserializable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
-				 FileFactory.eINSTANCE.createFileLocal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
-				 FileFactory.eINSTANCE.createFileRemote()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
-				 FileFactory.eINSTANCE.createFileInMemory()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS,
-				 FileFactory.eINSTANCE.createFiles()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == FilePackage.Literals.FILE_OWNER__FILES ||
-			childFeature == SerializePackage.Literals.DESERIALIZABLE__OWNED_OBJECTS;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

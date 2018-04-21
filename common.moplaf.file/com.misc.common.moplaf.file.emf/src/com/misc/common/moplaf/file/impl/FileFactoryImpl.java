@@ -62,7 +62,6 @@ public class FileFactoryImpl extends EFactoryImpl implements FileFactory {
 			case FilePackage.FILE_REMOTE: return createFileRemote();
 			case FilePackage.FILE_IN_MEMORY: return createFileInMemory();
 			case FilePackage.FILES: return createFiles();
-			case FilePackage.BYTE_FILE: return createByteFile();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -140,16 +139,6 @@ public class FileFactoryImpl extends EFactoryImpl implements FileFactory {
 	public Files createFiles() {
 		FilesImpl files = new FilesImpl();
 		return files;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ByteFile createByteFile() {
-		ByteFileImpl byteFile = new ByteFileImpl();
-		return byteFile;
 	}
 
 	/**
