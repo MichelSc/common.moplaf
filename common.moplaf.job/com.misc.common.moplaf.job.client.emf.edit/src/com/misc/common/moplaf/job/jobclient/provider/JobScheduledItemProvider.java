@@ -107,7 +107,7 @@ public class JobScheduledItemProvider
 				 getString("_UI_JobScheduled_Run_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Run_feature", "_UI_JobScheduled_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULED__RUN,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -129,7 +129,7 @@ public class JobScheduledItemProvider
 				 getString("_UI_JobScheduled_ScheduledOn_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_ScheduledOn_feature", "_UI_JobScheduled_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULED__SCHEDULED_ON,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -401,11 +401,11 @@ public class JobScheduledItemProvider
 				 getString("_UI_JobScheduled_Source_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobScheduled_Source_feature", "_UI_JobScheduled_type"),
 				 JobClientPackage.Literals.JOB_SCHEDULED__SOURCE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__70ReferencesPropertyCategory"),
 				 null));
 	}
 

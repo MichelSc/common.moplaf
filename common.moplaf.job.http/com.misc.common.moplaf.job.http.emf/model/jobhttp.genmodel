@@ -9,10 +9,12 @@
   <genPackages prefix="JobHttp" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
       ecorePackage="jobhttp.ecore#/">
     <genClasses ecoreClass="jobhttp.ecore#//JobEngineClient">
-      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Host"/>
-      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Port"/>
-      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Path"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Scheme"/>
+      <genFeatures createChild="false" propertyCategory="30 Client" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Host"/>
+      <genFeatures createChild="false" propertyCategory="30 Client" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Port"/>
+      <genFeatures createChild="false" propertyCategory="30 Client" propertyDescription=""
+          ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Path"/>
+      <genFeatures createChild="false" propertyCategory="30 Client" propertyDescription=""
+          ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineClient/Scheme"/>
     </genClasses>
     <genClasses ecoreClass="jobhttp.ecore#//JobEngineServer">
       <genFeatures createChild="false" propertyCategory="30 Server" ecoreFeature="ecore:EAttribute jobhttp.ecore#//JobEngineServer/Path"/>

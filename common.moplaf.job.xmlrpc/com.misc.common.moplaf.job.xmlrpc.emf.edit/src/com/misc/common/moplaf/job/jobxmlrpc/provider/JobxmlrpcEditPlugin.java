@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.job.jobxmlrpc.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import com.misc.common.moplaf.job.jobclient.provider.JobclientEditPlugin;
 
 import com.misc.common.moplaf.job.provider.JobEditPlugin;
@@ -54,6 +55,7 @@ public final class JobxmlrpcEditPlugin extends EMFPlugin {
 		  (new ResourceLocator [] {
 		     JobEditPlugin.INSTANCE,
 		     JobclientEditPlugin.INSTANCE,
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

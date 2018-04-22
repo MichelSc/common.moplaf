@@ -3,15 +3,16 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.job.xmlrpc.emf/src" modelPluginID="com.misc.common.moplaf.job.xmlrpc.emf"
     modelName="Jobxmlrpc" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient"
+    usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient ../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
     operationReflection="true" importOrganizing="true">
   <foreignModel>jobxmlrpc.ecore</foreignModel>
   <genPackages prefix="JobXmlRpc" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
       ecorePackage="jobxmlrpc.ecore#/">
     <genClasses ecoreClass="jobxmlrpc.ecore#//JobEngineClient" labelFeature="../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient/JobSchedulerService/Description">
-      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Host"/>
-      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Port"/>
-      <genFeatures createChild="false" propertyCategory="30 Engine" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Path"/>
+      <genFeatures createChild="false" propertyCategory="30 Client" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Host"/>
+      <genFeatures createChild="false" propertyCategory="30 Client" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Port"/>
+      <genFeatures createChild="false" propertyCategory="30 Client" propertyDescription=""
+          ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineClient/Path"/>
     </genClasses>
     <genClasses ecoreClass="jobxmlrpc.ecore#//JobEngineServer" labelFeature="../../com.misc.common.moplaf.job.client.emf/model/jobclient.genmodel#//jobclient/JobSchedulerService/Description">
       <genFeatures createChild="false" propertyCategory="30 Server" ecoreFeature="ecore:EAttribute jobxmlrpc.ecore#//JobEngineServer/Port"/>

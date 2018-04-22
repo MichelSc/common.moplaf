@@ -413,6 +413,10 @@ public interface JobScheduled extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Given by the execution engine and identifies the execution of a Job.
+	 * For a remote job, the ExecuteNr identifies the submission in the remote engine and allows the client ot query the Job status or result
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Execute Nr</em>' attribute.
 	 * @see #setExecuteNr(int)
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_ExecuteNr()
@@ -508,6 +512,9 @@ public interface JobScheduled extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Give by the Scheduler and identifying a Scheduled job in the context of its Scheduler
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Schedule Nr</em>' attribute.
 	 * @see #setScheduleNr(int)
 	 * @see com.misc.common.moplaf.job.jobclient.JobClientPackage#getJobScheduled_ScheduleNr()

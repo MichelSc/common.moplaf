@@ -74,11 +74,11 @@ public class JobEngineItemProvider
 				 getString("_UI_JobEngine_JobsScheduled_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_JobsScheduled_feature", "_UI_JobEngine_type"),
 				 JobClientPackage.Literals.JOB_ENGINE__JOBS_SCHEDULED,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__30EnginePropertyCategory"),
 				 null));
 	}
 

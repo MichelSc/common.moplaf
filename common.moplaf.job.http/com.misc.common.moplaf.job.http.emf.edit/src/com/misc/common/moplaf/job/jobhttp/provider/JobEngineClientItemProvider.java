@@ -85,7 +85,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__30EnginePropertyCategory"),
+				 getString("_UI__30ClientPropertyCategory"),
 				 null));
 	}
 
@@ -107,7 +107,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__30EnginePropertyCategory"),
+				 getString("_UI__30ClientPropertyCategory"),
 				 null));
 	}
 
@@ -129,7 +129,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__30EnginePropertyCategory"),
+				 getString("_UI__30ClientPropertyCategory"),
 				 null));
 	}
 
@@ -151,7 +151,7 @@ public class JobEngineClientItemProvider extends JobEngineItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30ClientPropertyCategory"),
 				 null));
 	}
 
