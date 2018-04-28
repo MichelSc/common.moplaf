@@ -67,7 +67,7 @@ public class ActionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCurrentMovePropertyDescriptor(object);
+			addCurrentDeltaPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
@@ -77,24 +77,24 @@ public class ActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Current Move feature.
+	 * This adds a property descriptor for the Current Delta feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCurrentMovePropertyDescriptor(Object object) {
+	protected void addCurrentDeltaPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Action_CurrentMove_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_CurrentMove_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__CURRENT_MOVE,
-				 false,
+				 getString("_UI_Action_CurrentDelta_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_CurrentDelta_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__CURRENT_DELTA,
+				 true,
 				 false,
 				 true,
 				 null,
-				 getString("_UI__10ActionPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -198,7 +198,7 @@ public class ActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.ACTION__START_MOVES);
+			childrenFeatures.add(LocalSearchPackage.Literals.ACTION__START_DELTAS);
 		}
 		return childrenFeatures;
 	}
@@ -260,7 +260,7 @@ public class ActionItemProvider
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case LocalSearchPackage.ACTION__START_MOVES:
+			case LocalSearchPackage.ACTION__START_DELTAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

@@ -14,7 +14,7 @@ package com.misc.common.moplaf.scheduler.util;
 
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunParams;
-import com.misc.common.moplaf.localsearch.Move;
+import com.misc.common.moplaf.localsearch.Delta;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
@@ -116,7 +116,7 @@ public class SchedulerSwitch<T> extends Switch<T> {
 			case SchedulerPackage.MOVE_SCHEDULE: {
 				MoveSchedule moveSchedule = (MoveSchedule)theEObject;
 				T result = caseMoveSchedule(moveSchedule);
-				if (result == null) result = caseMove(moveSchedule);
+				if (result == null) result = caseDelta(moveSchedule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,7 +124,7 @@ public class SchedulerSwitch<T> extends Switch<T> {
 				MoveTask moveTask = (MoveTask)theEObject;
 				T result = caseMoveTask(moveTask);
 				if (result == null) result = caseMoveSchedule(moveTask);
-				if (result == null) result = caseMove(moveTask);
+				if (result == null) result = caseDelta(moveTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -133,7 +133,7 @@ public class SchedulerSwitch<T> extends Switch<T> {
 				T result = caseScheduleAfter(scheduleAfter);
 				if (result == null) result = caseMoveTask(scheduleAfter);
 				if (result == null) result = caseMoveSchedule(scheduleAfter);
-				if (result == null) result = caseMove(scheduleAfter);
+				if (result == null) result = caseDelta(scheduleAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,7 +142,7 @@ public class SchedulerSwitch<T> extends Switch<T> {
 				T result = caseScheduleBefore(scheduleBefore);
 				if (result == null) result = caseMoveTask(scheduleBefore);
 				if (result == null) result = caseMoveSchedule(scheduleBefore);
-				if (result == null) result = caseMove(scheduleBefore);
+				if (result == null) result = caseDelta(scheduleBefore);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,7 +150,7 @@ public class SchedulerSwitch<T> extends Switch<T> {
 				Unschedule unschedule = (Unschedule)theEObject;
 				T result = caseUnschedule(unschedule);
 				if (result == null) result = caseMoveSchedule(unschedule);
-				if (result == null) result = caseMove(unschedule);
+				if (result == null) result = caseDelta(unschedule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,17 +264,17 @@ public class SchedulerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Move</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Move</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMove(Move object) {
+	public T caseDelta(Delta object) {
 		return null;
 	}
 

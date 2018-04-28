@@ -28,11 +28,11 @@
     </eOperations>
     <eOperations name="finalize"/>
     <eOperations name="select">
-      <eParameters name="target_move" eType="#//Move"/>
+      <eParameters name="target_move" eType="#//Delta"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StartMoves" upperBound="-1"
-        eType="#//Move" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentMove" eType="#//Move"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartDeltas" upperBound="-1"
+        eType="#//Delta" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentDelta" eType="#//Delta"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -43,9 +43,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Step" lowerBound="1" eType="#//Step"
         eOpposite="#//Step/Actions"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Move" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Delta" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A move is a small change to the solution, composed of  a limited (constant) number of deltas with respect to the solution &#xA; &#xA;So the score of a  move must be calculated in a limited time (with respect to the size of the solution).&#xA;&#xA;A Move is part of a tree structure, where the parent is the previous move executed, and the children are alternative next moves to be executed after this move..&#xA;&#xA;A move supports an undo operation. All the changes in the current solution that are carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.&#xA;&#xA;A Move is specific to a given implementation (to a specific Action). The implementation must only provide logic for the do operation. The framework will iterate on the Moves, and for every Move, do the Move, trigger the Score calculation, compare it to the best Score so far, and finally undo the Move."/>
+      <details key="documentation" value="A delta is an elementary change to the solution, composed of  a limited (constant) number of modifications with respect to the solution &#xA; &#xA;So the score of a  move must be calculated in a limited time (with respect to the size of the solution).&#xA;&#xA;A Delta is part of a tree structure, where the parent is the previous delta executed, and the children are alternative next moves to be executed after this delta..&#xA;&#xA;A delta supports an undo operation. All the changes in the current solution that are carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.&#xA;&#xA;A Delta is specific to a given implementation (to a specific Action). The implementation must only provide logic for the do operation. The framework will iterate on the Deltas, and for every Delta, do the Delta, trigger the Score calculation, compare it to the best Score so far, and finally undo the Delta."/>
     </eAnnotations>
     <eOperations name="do">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -61,10 +61,10 @@
         eType="#//Action" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//Move"
-        eOpposite="#//Move/NextMoves"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="NextMoves" upperBound="-1"
-        eType="#//Move" containment="true" eOpposite="#//Move/Previous"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousDelta" eType="#//Delta"
+        eOpposite="#//Delta/NextDeltas"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NextDeltas" upperBound="-1"
+        eType="#//Delta" containment="true" eOpposite="#//Delta/PreviousDelta"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"

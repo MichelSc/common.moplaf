@@ -33,8 +33,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#getStartMoves <em>Start Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentMove <em>Current Move</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getStartDeltas <em>Start Deltas</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentDelta <em>Current Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}</li>
@@ -48,46 +48,46 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Action extends SolutionChange {
 	/**
-	 * Returns the value of the '<em><b>Start Moves</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Move}.
+	 * Returns the value of the '<em><b>Start Deltas</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Delta}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Start Moves</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Start Deltas</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Start Moves</em>' containment reference list.
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_StartMoves()
+	 * @return the value of the '<em>Start Deltas</em>' containment reference list.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_StartDeltas()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Move> getStartMoves();
+	EList<Delta> getStartDeltas();
 
 	/**
-	 * Returns the value of the '<em><b>Current Move</b></em>' reference.
+	 * Returns the value of the '<em><b>Current Delta</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current Move</em>' reference isn't clear,
+	 * If the meaning of the '<em>Current Delta</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Move</em>' reference.
-	 * @see #setCurrentMove(Move)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_CurrentMove()
+	 * @return the value of the '<em>Current Delta</em>' reference.
+	 * @see #setCurrentDelta(Delta)
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_CurrentDelta()
 	 * @model
 	 * @generated
 	 */
-	Move getCurrentMove();
+	Delta getCurrentDelta();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getCurrentMove <em>Current Move</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Action#getCurrentDelta <em>Current Delta</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Move</em>' reference.
-	 * @see #getCurrentMove()
+	 * @param value the new value of the '<em>Current Delta</em>' reference.
+	 * @see #getCurrentDelta()
 	 * @generated
 	 */
-	void setCurrentMove(Move value);
+	void setCurrentDelta(Delta value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -225,6 +225,6 @@ public interface Action extends SolutionChange {
 	 * @model
 	 * @generated
 	 */
-	void select(Move target_move);
+	void select(Delta target_move);
 
 } // Action

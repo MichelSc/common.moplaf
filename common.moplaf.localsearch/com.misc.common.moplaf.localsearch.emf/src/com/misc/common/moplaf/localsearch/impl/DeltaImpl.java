@@ -1,25 +1,16 @@
-/*******************************************************************************
- * Copyright (c) 2017, 2018 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
-import com.misc.common.moplaf.localsearch.Action;
-import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-import com.misc.common.moplaf.localsearch.Move;
 
+import com.misc.common.moplaf.localsearch.Action;
+import com.misc.common.moplaf.localsearch.Delta;
+import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
-import com.misc.common.moplaf.localsearch.Plugin;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -32,40 +23,44 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.ecore.change.ChangeDescription;
+import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Move</b></em>'.
+ * An implementation of the model object '<em><b>Delta</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getAction <em>Action</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getScore <em>Score</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getPrevious <em>Previous</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getNextMoves <em>Next Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isValid <em>Valid</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getValidFeedback <em>Valid Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isCurrent <em>Current</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.MoveImpl#isSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getScore <em>Score</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getPreviousDelta <em>Previous Delta</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getNextDeltas <em>Next Deltas</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getValidFeedback <em>Valid Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#isCurrent <em>Current</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#isSolution <em>Solution</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class MoveImpl extends MinimalEObjectImpl.Container implements Move {
+public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements Delta {
+
+	private ChangeDescription  changes = null;
+
+	
 	/**
 	 * The cached value of the '{@link #getScore() <em>Score</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -77,14 +72,14 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	protected Score score;
 
 	/**
-	 * The cached value of the '{@link #getNextMoves() <em>Next Moves</em>}' containment reference list.
+	 * The cached value of the '{@link #getNextDeltas() <em>Next Deltas</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNextMoves()
+	 * @see #getNextDeltas()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Move> nextMoves;
+	protected EList<Delta> nextDeltas;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -181,7 +176,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected MoveImpl() {
+	protected DeltaImpl() {
 		super();
 	}
 
@@ -192,7 +187,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LocalSearchPackage.Literals.MOVE;
+		return LocalSearchPackage.Literals.DELTA;
 	}
 
 	/**
@@ -200,11 +195,130 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Move> getNextMoves() {
-		if (nextMoves == null) {
-			nextMoves = new EObjectContainmentWithInverseEList<Move>(Move.class, this, LocalSearchPackage.MOVE__NEXT_MOVES, LocalSearchPackage.MOVE__PREVIOUS);
+	public Action getAction() {
+		Action action = basicGetAction();
+		return action != null && action.eIsProxy() ? (Action)eResolveProxy((InternalEObject)action) : action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Action basicGetAction() {
+		Delta previous = this.getPreviousDelta();
+		if ( previous!=null) {
+			// non root move
+			return previous.getAction();
 		}
-		return nextMoves;
+		
+		// root move
+		EObject container = this.eContainer;
+		if ( container instanceof Action){
+			return (Action) container;
+		}
+
+		String logMessage = String.format("The owner of the Move %s must be a Action or another Move and not %s",
+                this.getClass().getName(),
+                container == null ? "null" : container.getClass().getName());
+		Plugin.INSTANCE.logError(logMessage);
+
+		return null;	
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Score getScore() {
+		return score;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetScore(Score newScore, NotificationChain msgs) {
+		Score oldScore = score;
+		score = newScore;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.DELTA__SCORE, oldScore, newScore);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScore(Score newScore) {
+		if (newScore != score) {
+			NotificationChain msgs = null;
+			if (score != null)
+				msgs = ((InternalEObject)score).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.DELTA__SCORE, null, msgs);
+			if (newScore != null)
+				msgs = ((InternalEObject)newScore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.DELTA__SCORE, null, msgs);
+			msgs = basicSetScore(newScore, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.DELTA__SCORE, newScore, newScore));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delta getPreviousDelta() {
+		if (eContainerFeatureID() != LocalSearchPackage.DELTA__PREVIOUS_DELTA) return null;
+		return (Delta)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPreviousDelta(Delta newPreviousDelta, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPreviousDelta, LocalSearchPackage.DELTA__PREVIOUS_DELTA, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPreviousDelta(Delta newPreviousDelta) {
+		if (newPreviousDelta != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.DELTA__PREVIOUS_DELTA && newPreviousDelta != null)) {
+			if (EcoreUtil.isAncestor(this, newPreviousDelta))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPreviousDelta != null)
+				msgs = ((InternalEObject)newPreviousDelta).eInverseAdd(this, LocalSearchPackage.DELTA__NEXT_DELTAS, Delta.class, msgs);
+			msgs = basicSetPreviousDelta(newPreviousDelta, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.DELTA__PREVIOUS_DELTA, newPreviousDelta, newPreviousDelta));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Delta> getNextDeltas() {
+		if (nextDeltas == null) {
+			nextDeltas = new EObjectContainmentWithInverseEList<Delta>(Delta.class, this, LocalSearchPackage.DELTA__NEXT_DELTAS, LocalSearchPackage.DELTA__PREVIOUS_DELTA);
+		}
+		return nextDeltas;
 	}
 
 	/**
@@ -222,59 +336,18 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public String getValidFeedback() {
-		// by default valid
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Move getPrevious() {
-		if (eContainerFeatureID() != LocalSearchPackage.MOVE__PREVIOUS) return null;
-		return (Move)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPrevious(Move newPrevious, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newPrevious, LocalSearchPackage.MOVE__PREVIOUS, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPrevious(Move newPrevious) {
-		if (newPrevious != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.MOVE__PREVIOUS && newPrevious != null)) {
-			if (EcoreUtil.isAncestor(this, newPrevious))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newPrevious != null)
-				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, LocalSearchPackage.MOVE__NEXT_MOVES, Move.class, msgs);
-			msgs = basicSetPrevious(newPrevious, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__PREVIOUS, newPrevious, newPrevious));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public boolean isValid() {
 		boolean valid = this.getValidFeedback()==null;
 		return valid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getValidFeedback() {
+		// by default valid
+		return null;
 	}
 
 	/**
@@ -285,21 +358,21 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		if ( !this.isValid()) {
 			return new EnabledFeedback(false, this.getValidFeedback());
 		}
-		Move previous = this.getPrevious();
+		Delta previous = this.getPreviousDelta();
 		Action action = this.basicGetAction();
 		if ( previous==null) {
 			// root move
-			if ( action.getCurrentMove()==null) {
+			if ( action.getCurrentDelta()==null) {
 				return EnabledFeedback.NOFEEDBACK;
 			} else {
-				return new EnabledFeedback(false, "Other move is already current");
+				return new EnabledFeedback(false, "Other delta is already current");
 			}
 		} else {
 			// non root move
 			if ( previous.isCurrent()) {
 				return EnabledFeedback.NOFEEDBACK;
 			} else {
-				return new EnabledFeedback(false, "Other move than the previous is already current");
+				return new EnabledFeedback(false, "Other delta than the previous is already current");
 			}
 		}
 	}
@@ -329,91 +402,13 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Score getScore() {
-		return score;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetScore(Score newScore, NotificationChain msgs) {
-		Score oldScore = score;
-		score = newScore;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__SCORE, oldScore, newScore);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setScore(Score newScore) {
-		if (newScore != score) {
-			NotificationChain msgs = null;
-			if (score != null)
-				msgs = ((InternalEObject)score).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.MOVE__SCORE, null, msgs);
-			if (newScore != null)
-				msgs = ((InternalEObject)newScore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LocalSearchPackage.MOVE__SCORE, null, msgs);
-			msgs = basicSetScore(newScore, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__SCORE, newScore, newScore));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Action getAction() {
-		Action action = basicGetAction();
-		return action != null && action.eIsProxy() ? (Action)eResolveProxy((InternalEObject)action) : action;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Action basicGetAction() {
-		Move previous = this.getPrevious();
-		if ( previous!=null) {
-			// non root move
-			return previous.getAction();
-		}
-		
-		// root move
-		EObject container = this.eContainer;
-		if ( container instanceof Action){
-			return (Action) container;
-		}
-
-		String logMessage = String.format("The owner of the Move %s must be a Action or another Move and not %s",
-                this.getClass().getName(),
-                container == null ? "null" : container.getClass().getName());
-		Plugin.INSTANCE.logError(logMessage);
-
-		return null;	
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public boolean isCurrent() {
 		Action action = this.basicGetAction();
-		boolean current = action.getCurrentMove()==this;
+		boolean current = action.getCurrentDelta()==this;
 		return current;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -432,10 +427,8 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		boolean oldSolution = solution;
 		solution = newSolution;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.MOVE__SOLUTION, oldSolution, solution));
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.DELTA__SOLUTION, oldSolution, solution));
 	}
-
-	private ChangeDescription  changes = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -455,7 +448,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		this.changes = recorder.endRecording();
 		
 		// this is the current move
-		action.setCurrentMove(this);
+		action.setCurrentDelta(this);
 		
 		// keep the core for this move
 		Score new_score = currentSolution.getScore().clone();
@@ -465,6 +458,7 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	protected void doImpl() {
 		// default implementation does nothing
 	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,19 +467,10 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		this.changes.apply();
 		this.changes = null;
 		Action action = this.getAction();
-		action.setCurrentMove(this.getPrevious());
-		// we keep the score; that is all the point of the Move!
+		action.setCurrentDelta(this.getPreviousDelta());
+		// we keep the score; that is all the point of this functionality!
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void select() {
-		Action action = this.getAction();
-		action.select(this);
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,12 +480,12 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__PREVIOUS:
+			case LocalSearchPackage.DELTA__PREVIOUS_DELTA:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetPrevious((Move)otherEnd, msgs);
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNextMoves()).basicAdd(otherEnd, msgs);
+				return basicSetPreviousDelta((Delta)otherEnd, msgs);
+			case LocalSearchPackage.DELTA__NEXT_DELTAS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNextDeltas()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -513,12 +498,12 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__SCORE:
+			case LocalSearchPackage.DELTA__SCORE:
 				return basicSetScore(null, msgs);
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				return basicSetPrevious(null, msgs);
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return ((InternalEList<?>)getNextMoves()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.DELTA__PREVIOUS_DELTA:
+				return basicSetPreviousDelta(null, msgs);
+			case LocalSearchPackage.DELTA__NEXT_DELTAS:
+				return ((InternalEList<?>)getNextDeltas()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -531,8 +516,8 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.MOVE__NEXT_MOVES, Move.class, msgs);
+			case LocalSearchPackage.DELTA__PREVIOUS_DELTA:
+				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.DELTA__NEXT_DELTAS, Delta.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -545,30 +530,30 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__ACTION:
+			case LocalSearchPackage.DELTA__ACTION:
 				if (resolve) return getAction();
 				return basicGetAction();
-			case LocalSearchPackage.MOVE__SCORE:
+			case LocalSearchPackage.DELTA__SCORE:
 				return getScore();
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				return getPrevious();
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return getNextMoves();
-			case LocalSearchPackage.MOVE__DESCRIPTION:
+			case LocalSearchPackage.DELTA__PREVIOUS_DELTA:
+				return getPreviousDelta();
+			case LocalSearchPackage.DELTA__NEXT_DELTAS:
+				return getNextDeltas();
+			case LocalSearchPackage.DELTA__DESCRIPTION:
 				return getDescription();
-			case LocalSearchPackage.MOVE__VALID:
+			case LocalSearchPackage.DELTA__VALID:
 				return isValid();
-			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
+			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
 				return getValidFeedback();
-			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK:
 				return getDoEnabledFeedback();
-			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK:
 				return getUndoEnabledFeedback();
-			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK:
 				return getSelectEnabledFeedback();
-			case LocalSearchPackage.MOVE__CURRENT:
+			case LocalSearchPackage.DELTA__CURRENT:
 				return isCurrent();
-			case LocalSearchPackage.MOVE__SOLUTION:
+			case LocalSearchPackage.DELTA__SOLUTION:
 				return isSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -583,17 +568,17 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__SCORE:
+			case LocalSearchPackage.DELTA__SCORE:
 				setScore((Score)newValue);
 				return;
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				setPrevious((Move)newValue);
+			case LocalSearchPackage.DELTA__PREVIOUS_DELTA:
+				setPreviousDelta((Delta)newValue);
 				return;
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				getNextMoves().clear();
-				getNextMoves().addAll((Collection<? extends Move>)newValue);
+			case LocalSearchPackage.DELTA__NEXT_DELTAS:
+				getNextDeltas().clear();
+				getNextDeltas().addAll((Collection<? extends Delta>)newValue);
 				return;
-			case LocalSearchPackage.MOVE__SOLUTION:
+			case LocalSearchPackage.DELTA__SOLUTION:
 				setSolution((Boolean)newValue);
 				return;
 		}
@@ -608,16 +593,16 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__SCORE:
+			case LocalSearchPackage.DELTA__SCORE:
 				setScore((Score)null);
 				return;
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				setPrevious((Move)null);
+			case LocalSearchPackage.DELTA__PREVIOUS_DELTA:
+				setPreviousDelta((Delta)null);
 				return;
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				getNextMoves().clear();
+			case LocalSearchPackage.DELTA__NEXT_DELTAS:
+				getNextDeltas().clear();
 				return;
-			case LocalSearchPackage.MOVE__SOLUTION:
+			case LocalSearchPackage.DELTA__SOLUTION:
 				setSolution(SOLUTION_EDEFAULT);
 				return;
 		}
@@ -632,29 +617,29 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.MOVE__ACTION:
+			case LocalSearchPackage.DELTA__ACTION:
 				return basicGetAction() != null;
-			case LocalSearchPackage.MOVE__SCORE:
+			case LocalSearchPackage.DELTA__SCORE:
 				return score != null;
-			case LocalSearchPackage.MOVE__PREVIOUS:
-				return getPrevious() != null;
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
-				return nextMoves != null && !nextMoves.isEmpty();
-			case LocalSearchPackage.MOVE__DESCRIPTION:
+			case LocalSearchPackage.DELTA__PREVIOUS_DELTA:
+				return getPreviousDelta() != null;
+			case LocalSearchPackage.DELTA__NEXT_DELTAS:
+				return nextDeltas != null && !nextDeltas.isEmpty();
+			case LocalSearchPackage.DELTA__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case LocalSearchPackage.MOVE__VALID:
+			case LocalSearchPackage.DELTA__VALID:
 				return isValid() != VALID_EDEFAULT;
-			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
+			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
 				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
-			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK:
 				return DO_ENABLED_FEEDBACK_EDEFAULT == null ? getDoEnabledFeedback() != null : !DO_ENABLED_FEEDBACK_EDEFAULT.equals(getDoEnabledFeedback());
-			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK:
 				return UNDO_ENABLED_FEEDBACK_EDEFAULT == null ? getUndoEnabledFeedback() != null : !UNDO_ENABLED_FEEDBACK_EDEFAULT.equals(getUndoEnabledFeedback());
-			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK:
 				return SELECT_ENABLED_FEEDBACK_EDEFAULT == null ? getSelectEnabledFeedback() != null : !SELECT_ENABLED_FEEDBACK_EDEFAULT.equals(getSelectEnabledFeedback());
-			case LocalSearchPackage.MOVE__CURRENT:
+			case LocalSearchPackage.DELTA__CURRENT:
 				return isCurrent() != CURRENT_EDEFAULT;
-			case LocalSearchPackage.MOVE__SOLUTION:
+			case LocalSearchPackage.DELTA__SOLUTION:
 				return solution != SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -668,10 +653,10 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.MOVE___DO_:
+			case LocalSearchPackage.DELTA___DO_:
 				do_();
 				return null;
-			case LocalSearchPackage.MOVE___UNDO:
+			case LocalSearchPackage.DELTA___UNDO:
 				undo();
 				return null;
 		}
@@ -694,4 +679,4 @@ public abstract class MoveImpl extends MinimalEObjectImpl.Container implements M
 		return result.toString();
 	}
 
-} //MoveImpl
+} //DeltaImpl

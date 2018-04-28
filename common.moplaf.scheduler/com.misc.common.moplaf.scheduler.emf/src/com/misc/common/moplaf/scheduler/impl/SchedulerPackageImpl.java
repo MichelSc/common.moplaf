@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.scheduler.impl;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
@@ -154,6 +155,7 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		LocalSearchPackage.eINSTANCE.eClass();
 		PropagatorPackage.eINSTANCE.eClass();
 		JobPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSchedulerPackage.createPackageContents();
@@ -594,7 +596,7 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		scheduleEClass.getESuperTypes().add(theLocalSearchPackage.getSolution());
 		resourceEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctions());
 		taskEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctions());
-		moveScheduleEClass.getESuperTypes().add(theLocalSearchPackage.getMove());
+		moveScheduleEClass.getESuperTypes().add(theLocalSearchPackage.getDelta());
 		moveTaskEClass.getESuperTypes().add(this.getMoveSchedule());
 		scheduleAfterEClass.getESuperTypes().add(this.getMoveTask());
 		scheduleBeforeEClass.getESuperTypes().add(this.getMoveTask());

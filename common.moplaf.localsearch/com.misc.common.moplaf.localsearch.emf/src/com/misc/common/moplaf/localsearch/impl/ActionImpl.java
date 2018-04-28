@@ -14,8 +14,8 @@ package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Action;
+import com.misc.common.moplaf.localsearch.Delta;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-import com.misc.common.moplaf.localsearch.Move;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
@@ -49,8 +49,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getStartMoves <em>Start Moves</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentMove <em>Current Move</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getStartDeltas <em>Start Deltas</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentDelta <em>Current Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
@@ -62,24 +62,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	/**
-	 * The cached value of the '{@link #getStartMoves() <em>Start Moves</em>}' containment reference list.
+	 * The cached value of the '{@link #getStartDeltas() <em>Start Deltas</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStartMoves()
+	 * @see #getStartDeltas()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Move> startMoves;
+	protected EList<Delta> startDeltas;
 
 	/**
-	 * The cached value of the '{@link #getCurrentMove() <em>Current Move</em>}' reference.
+	 * The cached value of the '{@link #getCurrentDelta() <em>Current Delta</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentMove()
+	 * @see #getCurrentDelta()
 	 * @generated
 	 * @ordered
 	 */
-	protected Move currentMove;
+	protected Delta currentDelta;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -155,11 +155,49 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Move> getStartMoves() {
-		if (startMoves == null) {
-			startMoves = new EObjectContainmentEList<Move>(Move.class, this, LocalSearchPackage.ACTION__START_MOVES);
+	public EList<Delta> getStartDeltas() {
+		if (startDeltas == null) {
+			startDeltas = new EObjectContainmentEList<Delta>(Delta.class, this, LocalSearchPackage.ACTION__START_DELTAS);
 		}
-		return startMoves;
+		return startDeltas;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delta getCurrentDelta() {
+		if (currentDelta != null && currentDelta.eIsProxy()) {
+			InternalEObject oldCurrentDelta = (InternalEObject)currentDelta;
+			currentDelta = (Delta)eResolveProxy(oldCurrentDelta);
+			if (currentDelta != oldCurrentDelta) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__CURRENT_DELTA, oldCurrentDelta, currentDelta));
+			}
+		}
+		return currentDelta;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delta basicGetCurrentDelta() {
+		return currentDelta;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentDelta(Delta newCurrentDelta) {
+		Delta oldCurrentDelta = currentDelta;
+		currentDelta = newCurrentDelta;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__CURRENT_DELTA, oldCurrentDelta, currentDelta));
 	}
 
 	@Override
@@ -193,44 +231,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		return this.getStep().getPhase().getKeepLevel().getValue()>=this.getLevel().getValue();
 	}
 
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Move getCurrentMove() {
-		if (currentMove != null && currentMove.eIsProxy()) {
-			InternalEObject oldCurrentMove = (InternalEObject)currentMove;
-			currentMove = (Move)eResolveProxy(oldCurrentMove);
-			if (currentMove != oldCurrentMove) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LocalSearchPackage.ACTION__CURRENT_MOVE, oldCurrentMove, currentMove));
-			}
-		}
-		return currentMove;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Move basicGetCurrentMove() {
-		return currentMove;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentMove(Move newCurrentMove) {
-		Move oldCurrentMove = currentMove;
-		currentMove = newCurrentMove;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.ACTION__CURRENT_MOVE, oldCurrentMove, currentMove));
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -354,22 +354,22 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 */
 	public void run() {
 		Plugin.INSTANCE.logInfo(String.format("Action run: %s", this.getDescription()));
-		for (Move startMove : this.getStartMoves()) {
-			this.runDoMove(startMove);
+		for (Delta startDelta : this.getStartDeltas()) {
+			this.runDoDelta(startDelta);
 		}
 	}
 	
-	private void runDoMove(Move move) {
+	private void runDoDelta(Delta delta) {
 		// do the move
-		move.do_();
+		delta.do_();
 		
 		// do the next moves
-		for ( Move nextMove : move.getNextMoves()) {
-			this.runDoMove(nextMove);
+		for ( Delta nextDelta : delta.getNextDeltas()) {
+			this.runDoDelta(nextDelta);
 		}
 		
 		// undo the move
-		move.undo();
+		delta.undo();
 	}
 
 	/**
@@ -377,46 +377,46 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void finalize() {
-		Move best_move = null;
-		for (Move startMove : this.getStartMoves()) {
-			best_move = this.finalizeMove(best_move, startMove); 
+		Delta best_delta = null;
+		for (Delta startDelta : this.getStartDeltas()) {
+			best_delta = this.finalizeDelta(best_delta, startDelta); 
 		}
-		this.select(best_move);
+		this.select(best_delta);
 	}
 
-	private Move finalizeMove(Move best_move, Move current_move) {
-		Move new_best_move = best_move;
-		if ( current_move.isSolution()) {
-			Score current_score = current_move.getScore();
-			if ( current_move.getScore().isFeasible() ) {
-				if ( best_move == null ){
-					new_best_move = current_move;
+	private Delta finalizeDelta(Delta best_delta, Delta current_delta) {
+		Delta new_best_delta = best_delta;
+		if ( current_delta.isSolution()) {
+			Score current_score = current_delta.getScore();
+			if ( current_delta.getScore().isFeasible() ) {
+				if ( best_delta == null ){
+					new_best_delta = current_delta;
 				} else {
-					Score best_score = best_move.getScore();
+					Score best_score = best_delta.getScore();
 					if ( current_score.isBetter(best_score)) {
-						new_best_move = current_move;
+						new_best_delta = current_delta;
 					}
 				}
 			}
 		}
-		for ( Move child_move : current_move.getNextMoves()) {
-			new_best_move = this.finalizeMove(new_best_move, child_move);
+		for ( Delta child_move : current_delta.getNextDeltas()) {
+			new_best_delta = this.finalizeDelta(new_best_delta, child_move);
 		}
-		return new_best_move;
+		return new_best_delta;
 	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void select(Move target_move) {
-		Move next_move = this.getNextMove(target_move);
-		while ( next_move==null && this.getCurrentMove()!=target_move) {
-			this.getCurrentMove().undo();
-			next_move = this.getNextMove(target_move);
+	public void select(Delta target_delta) {
+		Delta next_move = this.getNextDelta(target_delta);
+		while ( next_move==null && this.getCurrentDelta()!=target_delta) {
+			this.getCurrentDelta().undo();
+			next_move = this.getNextDelta(target_delta);
 		}
-		while ( this.getCurrentMove()!=target_move ) {
+		while ( this.getCurrentDelta()!=target_delta ) {
 			next_move.do_();
-			next_move = this.getNextMove(target_move);
+			next_move = this.getNextDelta(target_delta);
 		}
 	}
 
@@ -440,21 +440,21 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * Return the next move with respect to the current move on the path to the target move
 	 * Return null if target_move is not accessible from the current move
 	 * Return null if target_move is the current node
-	 * @param target_move
+	 * @param target_delta
 	 * @return
 	 */
-	private Move getNextMove(Move target_move) {
-		if ( target_move == null || target_move == this.getCurrentMove()) {
+	private Delta getNextDelta(Delta target_delta) {
+		if ( target_delta == null || target_delta == this.getCurrentDelta()) {
 			return null;
 		}
 			
-		Move previous_move = target_move.getPrevious();
-		if ( previous_move == this.getCurrentMove()) {
-			return target_move;
-		} else if ( previous_move == null) {
+		Delta previous_delta = target_delta.getPreviousDelta();
+		if ( previous_delta == this.getCurrentDelta()) {
+			return target_delta;
+		} else if ( previous_delta == null) {
 			return null;
 		} else {
-			return this.getNextMove(previous_move);
+			return this.getNextDelta(previous_delta);
 		}
 	}
 
@@ -467,8 +467,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__START_MOVES:
-				return ((InternalEList<?>)getStartMoves()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.ACTION__START_DELTAS:
+				return ((InternalEList<?>)getStartDeltas()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.ACTION__STEP:
 				return basicSetStep(null, msgs);
 		}
@@ -497,11 +497,11 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__START_MOVES:
-				return getStartMoves();
-			case LocalSearchPackage.ACTION__CURRENT_MOVE:
-				if (resolve) return getCurrentMove();
-				return basicGetCurrentMove();
+			case LocalSearchPackage.ACTION__START_DELTAS:
+				return getStartDeltas();
+			case LocalSearchPackage.ACTION__CURRENT_DELTA:
+				if (resolve) return getCurrentDelta();
+				return basicGetCurrentDelta();
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 				return getDescription();
 			case LocalSearchPackage.ACTION__VALID:
@@ -525,12 +525,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__START_MOVES:
-				getStartMoves().clear();
-				getStartMoves().addAll((Collection<? extends Move>)newValue);
+			case LocalSearchPackage.ACTION__START_DELTAS:
+				getStartDeltas().clear();
+				getStartDeltas().addAll((Collection<? extends Delta>)newValue);
 				return;
-			case LocalSearchPackage.ACTION__CURRENT_MOVE:
-				setCurrentMove((Move)newValue);
+			case LocalSearchPackage.ACTION__CURRENT_DELTA:
+				setCurrentDelta((Delta)newValue);
 				return;
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				setActionNr((Integer)newValue);
@@ -550,11 +550,11 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__START_MOVES:
-				getStartMoves().clear();
+			case LocalSearchPackage.ACTION__START_DELTAS:
+				getStartDeltas().clear();
 				return;
-			case LocalSearchPackage.ACTION__CURRENT_MOVE:
-				setCurrentMove((Move)null);
+			case LocalSearchPackage.ACTION__CURRENT_DELTA:
+				setCurrentDelta((Delta)null);
 				return;
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				setActionNr(ACTION_NR_EDEFAULT);
@@ -574,10 +574,10 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LocalSearchPackage.ACTION__START_MOVES:
-				return startMoves != null && !startMoves.isEmpty();
-			case LocalSearchPackage.ACTION__CURRENT_MOVE:
-				return currentMove != null;
+			case LocalSearchPackage.ACTION__START_DELTAS:
+				return startDeltas != null && !startDeltas.isEmpty();
+			case LocalSearchPackage.ACTION__CURRENT_DELTA:
+				return currentDelta != null;
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case LocalSearchPackage.ACTION__VALID:
@@ -609,8 +609,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 			case LocalSearchPackage.ACTION___FINALIZE:
 				finalize();
 				return null;
-			case LocalSearchPackage.ACTION___SELECT__MOVE:
-				select((Move)arguments.get(0));
+			case LocalSearchPackage.ACTION___SELECT__DELTA:
+				select((Delta)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -16,6 +16,8 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.job.emf.edit;visibility:=reexport,
  com.misc.common.moplaf.propagator2;visibility:=reexport,
  com.misc.common.moplaf.propagator2.edit;visibility:=reexport,
+ com.misc.common.moplaf.file.emf;visibility:=reexport,
+ com.misc.common.moplaf.file.emf.edit;visibility:=reexport,
  com.misc.common.moplaf.emf.edit;bundle-version="1.0.0",
  com.misc.common.moplaf.gridview.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

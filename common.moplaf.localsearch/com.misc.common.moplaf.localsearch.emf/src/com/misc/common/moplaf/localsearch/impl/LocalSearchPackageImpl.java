@@ -13,11 +13,12 @@
 package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.localsearch.Action;
+import com.misc.common.moplaf.localsearch.Delta;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-import com.misc.common.moplaf.localsearch.Move;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
@@ -63,7 +64,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass moveEClass = null;
+	private EClass deltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,6 +164,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		// Initialize simple dependencies
 		JobPackage.eINSTANCE.eClass();
 		PropagatorPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theLocalSearchPackage.createPackageContents();
@@ -256,7 +258,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_StartMoves() {
+	public EReference getAction_StartDeltas() {
 		return (EReference)actionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -265,7 +267,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_CurrentMove() {
+	public EReference getAction_CurrentDelta() {
 		return (EReference)actionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -346,7 +348,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAction__Select__Move() {
+	public EOperation getAction__Select__Delta() {
 		return actionEClass.getEOperations().get(3);
 	}
 
@@ -355,8 +357,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMove() {
-		return moveEClass;
+	public EClass getDelta() {
+		return deltaEClass;
 	}
 
 	/**
@@ -364,8 +366,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMove_NextMoves() {
-		return (EReference)moveEClass.getEStructuralFeatures().get(3);
+	public EReference getDelta_Action() {
+		return (EReference)deltaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -373,8 +375,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_Description() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(4);
+	public EReference getDelta_Score() {
+		return (EReference)deltaEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -382,8 +384,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_ValidFeedback() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(6);
+	public EReference getDelta_PreviousDelta() {
+		return (EReference)deltaEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -391,8 +393,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMove_Previous() {
-		return (EReference)moveEClass.getEStructuralFeatures().get(2);
+	public EReference getDelta_NextDeltas() {
+		return (EReference)deltaEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -400,8 +402,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_Valid() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(5);
+	public EAttribute getDelta_Description() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -409,8 +411,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_DoEnabledFeedback() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(7);
+	public EAttribute getDelta_Valid() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -418,8 +420,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_UndoEnabledFeedback() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(8);
+	public EAttribute getDelta_ValidFeedback() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -427,8 +429,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_SelectEnabledFeedback() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(9);
+	public EAttribute getDelta_DoEnabledFeedback() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -436,8 +438,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMove_Score() {
-		return (EReference)moveEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDelta_UndoEnabledFeedback() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -445,8 +447,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMove_Action() {
-		return (EReference)moveEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDelta_SelectEnabledFeedback() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -454,8 +456,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_Current() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(10);
+	public EAttribute getDelta_Current() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -463,8 +465,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMove_Solution() {
-		return (EAttribute)moveEClass.getEStructuralFeatures().get(11);
+	public EAttribute getDelta_Solution() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -472,8 +474,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMove__Do_() {
-		return moveEClass.getEOperations().get(0);
+	public EOperation getDelta__Do_() {
+		return deltaEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -481,8 +483,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMove__Undo() {
-		return moveEClass.getEOperations().get(1);
+	public EOperation getDelta__Undo() {
+		return deltaEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -999,8 +1001,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(solutionEClass, SOLUTION___REFRESH);
 
 		actionEClass = createEClass(ACTION);
-		createEReference(actionEClass, ACTION__START_MOVES);
-		createEReference(actionEClass, ACTION__CURRENT_MOVE);
+		createEReference(actionEClass, ACTION__START_DELTAS);
+		createEReference(actionEClass, ACTION__CURRENT_DELTA);
 		createEAttribute(actionEClass, ACTION__DESCRIPTION);
 		createEAttribute(actionEClass, ACTION__VALID);
 		createEAttribute(actionEClass, ACTION__VALID_FEEDBACK);
@@ -1009,23 +1011,23 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(actionEClass, ACTION___INITIALIZE);
 		createEOperation(actionEClass, ACTION___RUN);
 		createEOperation(actionEClass, ACTION___FINALIZE);
-		createEOperation(actionEClass, ACTION___SELECT__MOVE);
+		createEOperation(actionEClass, ACTION___SELECT__DELTA);
 
-		moveEClass = createEClass(MOVE);
-		createEReference(moveEClass, MOVE__ACTION);
-		createEReference(moveEClass, MOVE__SCORE);
-		createEReference(moveEClass, MOVE__PREVIOUS);
-		createEReference(moveEClass, MOVE__NEXT_MOVES);
-		createEAttribute(moveEClass, MOVE__DESCRIPTION);
-		createEAttribute(moveEClass, MOVE__VALID);
-		createEAttribute(moveEClass, MOVE__VALID_FEEDBACK);
-		createEAttribute(moveEClass, MOVE__DO_ENABLED_FEEDBACK);
-		createEAttribute(moveEClass, MOVE__UNDO_ENABLED_FEEDBACK);
-		createEAttribute(moveEClass, MOVE__SELECT_ENABLED_FEEDBACK);
-		createEAttribute(moveEClass, MOVE__CURRENT);
-		createEAttribute(moveEClass, MOVE__SOLUTION);
-		createEOperation(moveEClass, MOVE___DO_);
-		createEOperation(moveEClass, MOVE___UNDO);
+		deltaEClass = createEClass(DELTA);
+		createEReference(deltaEClass, DELTA__ACTION);
+		createEReference(deltaEClass, DELTA__SCORE);
+		createEReference(deltaEClass, DELTA__PREVIOUS_DELTA);
+		createEReference(deltaEClass, DELTA__NEXT_DELTAS);
+		createEAttribute(deltaEClass, DELTA__DESCRIPTION);
+		createEAttribute(deltaEClass, DELTA__VALID);
+		createEAttribute(deltaEClass, DELTA__VALID_FEEDBACK);
+		createEAttribute(deltaEClass, DELTA__DO_ENABLED_FEEDBACK);
+		createEAttribute(deltaEClass, DELTA__UNDO_ENABLED_FEEDBACK);
+		createEAttribute(deltaEClass, DELTA__SELECT_ENABLED_FEEDBACK);
+		createEAttribute(deltaEClass, DELTA__CURRENT);
+		createEAttribute(deltaEClass, DELTA__SOLUTION);
+		createEOperation(deltaEClass, DELTA___DO_);
+		createEOperation(deltaEClass, DELTA___UNDO);
 
 		scoreEClass = createEClass(SCORE);
 		createEAttribute(scoreEClass, SCORE__FEASIBLE);
@@ -1139,8 +1141,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEOperation(getSolution__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAction_StartMoves(), this.getMove(), null, "StartMoves", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAction_CurrentMove(), this.getMove(), null, "CurrentMove", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_StartDeltas(), this.getDelta(), null, "StartDeltas", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_CurrentDelta(), this.getDelta(), null, "CurrentDelta", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1153,26 +1155,26 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		initEOperation(getAction__Finalize(), null, "finalize", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getAction__Select__Move(), null, "select", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getMove(), "target_move", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getAction__Select__Delta(), null, "select", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDelta(), "target_move", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(moveEClass, Move.class, "Move", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMove_Action(), this.getAction(), null, "Action", null, 1, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getMove_Score(), this.getScore(), null, "Score", null, 1, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMove_Previous(), this.getMove(), this.getMove_NextMoves(), "Previous", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMove_NextMoves(), this.getMove(), this.getMove_Previous(), "NextMoves", null, 0, -1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_DoEnabledFeedback(), this.getEnabledFeedback(), "DoEnabledFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_UndoEnabledFeedback(), this.getEnabledFeedback(), "UndoEnabledFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_SelectEnabledFeedback(), this.getEnabledFeedback(), "SelectEnabledFeedback", null, 0, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_Current(), ecorePackage.getEBoolean(), "Current", null, 1, 1, Move.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMove_Solution(), ecorePackage.getEBoolean(), "Solution", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(deltaEClass, Delta.class, "Delta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDelta_Action(), this.getAction(), null, "Action", null, 1, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDelta_Score(), this.getScore(), null, "Score", null, 1, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelta_PreviousDelta(), this.getDelta(), this.getDelta_NextDeltas(), "PreviousDelta", null, 0, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelta_NextDeltas(), this.getDelta(), this.getDelta_PreviousDelta(), "NextDeltas", null, 0, -1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_DoEnabledFeedback(), this.getEnabledFeedback(), "DoEnabledFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_UndoEnabledFeedback(), this.getEnabledFeedback(), "UndoEnabledFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_SelectEnabledFeedback(), this.getEnabledFeedback(), "SelectEnabledFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_Current(), ecorePackage.getEBoolean(), "Current", null, 1, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_Solution(), ecorePackage.getEBoolean(), "Solution", null, 0, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getMove__Do_(), null, "do_", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDelta__Do_(), null, "do_", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getMove__Undo(), null, "undo", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDelta__Undo(), null, "undo", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(scoreEClass, Score.class, "Score", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScore_Feasible(), ecorePackage.getEBoolean(), "Feasible", null, 0, 1, Score.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

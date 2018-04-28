@@ -57,7 +57,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scheduled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MoveSchedule" abstract="true" eSuperTypes="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.ecore#//Move">
+  <eClassifiers xsi:type="ecore:EClass" name="MoveSchedule" abstract="true" eSuperTypes="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.ecore#//Delta">
     <eStructuralFeatures xsi:type="ecore:EReference" name="TaskToSchedule" lowerBound="1"
         eType="#//Task"/>
   </eClassifiers>

@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.localsearch.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import com.misc.common.moplaf.job.provider.JobEditPlugin;
 import com.misc.common.moplaf.propagator2.provider.PropagatorEditPlugin;
 
@@ -53,6 +54,7 @@ public final class LocalsearchEditPlugin extends EMFPlugin {
 		  (new ResourceLocator [] {
 		     JobEditPlugin.INSTANCE,
 		     PropagatorEditPlugin.INSTANCE,
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

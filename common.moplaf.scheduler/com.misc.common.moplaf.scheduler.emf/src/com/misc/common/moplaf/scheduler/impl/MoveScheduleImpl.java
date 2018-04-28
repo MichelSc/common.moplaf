@@ -12,7 +12,7 @@
  */
 package com.misc.common.moplaf.scheduler.impl;
 
-import com.misc.common.moplaf.localsearch.impl.MoveImpl;
+import com.misc.common.moplaf.localsearch.impl.DeltaImpl;
 import com.misc.common.moplaf.scheduler.MoveSchedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class MoveScheduleImpl extends MoveImpl implements MoveSchedule {
+public abstract class MoveScheduleImpl extends DeltaImpl implements MoveSchedule {
 	/**
 	 * The cached value of the '{@link #getTaskToSchedule() <em>Task To Schedule</em>}' reference.
 	 * <!-- begin-user-doc -->

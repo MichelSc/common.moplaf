@@ -849,7 +849,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__ACTION = LocalSearchPackage.MOVE__ACTION;
+	int MOVE_SCHEDULE__ACTION = LocalSearchPackage.DELTA__ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -858,25 +858,25 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__SCORE = LocalSearchPackage.MOVE__SCORE;
+	int MOVE_SCHEDULE__SCORE = LocalSearchPackage.DELTA__SCORE;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__PREVIOUS = LocalSearchPackage.MOVE__PREVIOUS;
+	int MOVE_SCHEDULE__PREVIOUS_DELTA = LocalSearchPackage.DELTA__PREVIOUS_DELTA;
 
 	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__NEXT_MOVES = LocalSearchPackage.MOVE__NEXT_MOVES;
+	int MOVE_SCHEDULE__NEXT_DELTAS = LocalSearchPackage.DELTA__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -885,7 +885,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__DESCRIPTION = LocalSearchPackage.MOVE__DESCRIPTION;
+	int MOVE_SCHEDULE__DESCRIPTION = LocalSearchPackage.DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -894,7 +894,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__VALID = LocalSearchPackage.MOVE__VALID;
+	int MOVE_SCHEDULE__VALID = LocalSearchPackage.DELTA__VALID;
 
 	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
@@ -903,7 +903,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__VALID_FEEDBACK = LocalSearchPackage.MOVE__VALID_FEEDBACK;
+	int MOVE_SCHEDULE__VALID_FEEDBACK = LocalSearchPackage.DELTA__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -912,7 +912,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__DO_ENABLED_FEEDBACK = LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK;
+	int MOVE_SCHEDULE__DO_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -921,7 +921,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__UNDO_ENABLED_FEEDBACK = LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK;
+	int MOVE_SCHEDULE__UNDO_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -930,7 +930,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__SELECT_ENABLED_FEEDBACK = LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK;
+	int MOVE_SCHEDULE__SELECT_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -939,7 +939,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__CURRENT = LocalSearchPackage.MOVE__CURRENT;
+	int MOVE_SCHEDULE__CURRENT = LocalSearchPackage.DELTA__CURRENT;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -948,7 +948,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__SOLUTION = LocalSearchPackage.MOVE__SOLUTION;
+	int MOVE_SCHEDULE__SOLUTION = LocalSearchPackage.DELTA__SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Task To Schedule</b></em>' reference.
@@ -957,7 +957,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__TASK_TO_SCHEDULE = LocalSearchPackage.MOVE_FEATURE_COUNT + 0;
+	int MOVE_SCHEDULE__TASK_TO_SCHEDULE = LocalSearchPackage.DELTA_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Move Schedule</em>' class.
@@ -966,7 +966,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE_FEATURE_COUNT = LocalSearchPackage.MOVE_FEATURE_COUNT + 1;
+	int MOVE_SCHEDULE_FEATURE_COUNT = LocalSearchPackage.DELTA_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -975,7 +975,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE___DO_ = LocalSearchPackage.MOVE___DO_;
+	int MOVE_SCHEDULE___DO_ = LocalSearchPackage.DELTA___DO_;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -984,7 +984,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE___UNDO = LocalSearchPackage.MOVE___UNDO;
+	int MOVE_SCHEDULE___UNDO = LocalSearchPackage.DELTA___UNDO;
 
 	/**
 	 * The number of operations of the '<em>Move Schedule</em>' class.
@@ -993,7 +993,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE_OPERATION_COUNT = LocalSearchPackage.MOVE_OPERATION_COUNT + 0;
+	int MOVE_SCHEDULE_OPERATION_COUNT = LocalSearchPackage.DELTA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.MoveTaskImpl <em>Move Task</em>}' class.
@@ -1024,22 +1024,22 @@ public interface SchedulerPackage extends EPackage {
 	int MOVE_TASK__SCORE = MOVE_SCHEDULE__SCORE;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__PREVIOUS = MOVE_SCHEDULE__PREVIOUS;
+	int MOVE_TASK__PREVIOUS_DELTA = MOVE_SCHEDULE__PREVIOUS_DELTA;
 
 	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__NEXT_MOVES = MOVE_SCHEDULE__NEXT_MOVES;
+	int MOVE_TASK__NEXT_DELTAS = MOVE_SCHEDULE__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1205,22 +1205,22 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE_AFTER__SCORE = MOVE_TASK__SCORE;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__PREVIOUS = MOVE_TASK__PREVIOUS;
+	int SCHEDULE_AFTER__PREVIOUS_DELTA = MOVE_TASK__PREVIOUS_DELTA;
 
 	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__NEXT_MOVES = MOVE_TASK__NEXT_MOVES;
+	int SCHEDULE_AFTER__NEXT_DELTAS = MOVE_TASK__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1386,22 +1386,22 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE_BEFORE__SCORE = MOVE_TASK__SCORE;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__PREVIOUS = MOVE_TASK__PREVIOUS;
+	int SCHEDULE_BEFORE__PREVIOUS_DELTA = MOVE_TASK__PREVIOUS_DELTA;
 
 	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__NEXT_MOVES = MOVE_TASK__NEXT_MOVES;
+	int SCHEDULE_BEFORE__NEXT_DELTAS = MOVE_TASK__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1567,22 +1567,22 @@ public interface SchedulerPackage extends EPackage {
 	int UNSCHEDULE__SCORE = MOVE_SCHEDULE__SCORE;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__PREVIOUS = MOVE_SCHEDULE__PREVIOUS;
+	int UNSCHEDULE__PREVIOUS_DELTA = MOVE_SCHEDULE__PREVIOUS_DELTA;
 
 	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__NEXT_MOVES = MOVE_SCHEDULE__NEXT_MOVES;
+	int UNSCHEDULE__NEXT_DELTAS = MOVE_SCHEDULE__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.

@@ -93,9 +93,9 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LocalSearchPackage.MOVE: {
-				Move move = (Move)theEObject;
-				T result = caseMove(move);
+			case LocalSearchPackage.DELTA: {
+				Delta delta = (Delta)theEObject;
+				T result = caseDelta(delta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -167,17 +167,17 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Move</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Move</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMove(Move object) {
+	public T caseDelta(Delta object) {
 		return null;
 	}
 

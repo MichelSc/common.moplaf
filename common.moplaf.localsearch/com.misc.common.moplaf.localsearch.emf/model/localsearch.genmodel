@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.localsearch.emf/src" modelPluginID="com.misc.common.moplaf.localsearch.emf"
     modelName="Localsearch" modelPluginClass="com.misc.common.moplaf.localsearch.Plugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2 ../../com.misc.common.moplaf.file.emf/model/file.genmodel#//file"
     operationReflection="true" importOrganizing="true">
   <foreignModel>localsearch.ecore</foreignModel>
   <genPackages prefix="LocalSearch" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
@@ -24,9 +24,8 @@
       <genOperations ecoreOperation="localsearch.ecore#//Solution/refresh"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Action">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/StartMoves"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Action"
-          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentMove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/StartDeltas"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentDelta"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Description"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
@@ -43,31 +42,21 @@
         <genParameters ecoreParameter="localsearch.ecore#//Action/select/target_move"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="localsearch.ecore#//Move">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Move/Action"/>
-      <genFeatures property="None" children="true" createChild="false" propertyDescription=""
-          ecoreFeature="ecore:EReference localsearch.ecore#//Move/Score"/>
-      <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
-          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Move/Previous"/>
-      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
-          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Move/NextMoves"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Description"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Valid"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/ValidFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/DoEnabledFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/UndoEnabledFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/SelectEnabledFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Move"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Current"/>
-      <genFeatures createChild="false" propertyCategory="10 Move" ecoreFeature="ecore:EAttribute localsearch.ecore#//Move/Solution"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Move/do"/>
-      <genOperations ecoreOperation="localsearch.ecore#//Move/undo"/>
+    <genClasses ecoreClass="localsearch.ecore#//Delta">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/Action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/Score"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/PreviousDelta"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/NextDeltas"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Description"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Valid"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/ValidFeedback"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/DoEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/UndoEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/SelectEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Current"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Solution"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Delta/do"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Delta/undo"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Score" labelFeature="#//localsearch/Score/Description">
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Score"

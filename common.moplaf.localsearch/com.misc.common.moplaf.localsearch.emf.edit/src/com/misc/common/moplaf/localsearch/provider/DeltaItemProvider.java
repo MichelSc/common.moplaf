@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017, 2018 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.localsearch.provider;
@@ -17,9 +7,8 @@ import com.misc.common.moplaf.emf.edit.command.DoCommand;
 import com.misc.common.moplaf.emf.edit.command.SelectCommand;
 import com.misc.common.moplaf.emf.edit.command.UndoCommand;
 import com.misc.common.moplaf.localsearch.Action;
+import com.misc.common.moplaf.localsearch.Delta;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-
-import com.misc.common.moplaf.localsearch.Move;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,6 +18,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -44,19 +34,26 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.localsearch.Move} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.localsearch.Delta} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MoveItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DeltaItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MoveItemProvider(AdapterFactory adapterFactory) {
+	public DeltaItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -71,6 +68,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addActionPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
@@ -84,6 +82,28 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	}
 
 	/**
+	 * This adds a property descriptor for the Action feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Delta_Action_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_Action_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__ACTION,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,80 +114,14 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Move_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Description_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__DESCRIPTION,
+				 getString("_UI_Delta_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_Description_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__DESCRIPTION,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Valid Feedback feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValidFeedbackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Move_ValidFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_ValidFeedback_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__VALID_FEEDBACK,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Current feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCurrentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Move_Current_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Current_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__CURRENT,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Move_Solution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Solution_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__SOLUTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -182,14 +136,36 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Move_Valid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_Valid_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__VALID,
+				 getString("_UI_Delta_Valid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_Valid_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__VALID,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Valid Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Delta_ValidFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_ValidFeedback_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__VALID_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -204,14 +180,14 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Move_DoEnabledFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_DoEnabledFeedback_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__DO_ENABLED_FEEDBACK,
+				 getString("_UI_Delta_DoEnabledFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_DoEnabledFeedback_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__DO_ENABLED_FEEDBACK,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -226,14 +202,14 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Move_UndoEnabledFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_UndoEnabledFeedback_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__UNDO_ENABLED_FEEDBACK,
+				 getString("_UI_Delta_UndoEnabledFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_UndoEnabledFeedback_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__UNDO_ENABLED_FEEDBACK,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -248,14 +224,58 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Move_SelectEnabledFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Move_SelectEnabledFeedback_feature", "_UI_Move_type"),
-				 LocalSearchPackage.Literals.MOVE__SELECT_ENABLED_FEEDBACK,
+				 getString("_UI_Delta_SelectEnabledFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_SelectEnabledFeedback_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__SELECT_ENABLED_FEEDBACK,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10MovePropertyCategory"),
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Current feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCurrentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Delta_Current_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_Current_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__CURRENT,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Delta_Solution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_Solution_feature", "_UI_Delta_type"),
+				 LocalSearchPackage.Literals.DELTA__SOLUTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -271,8 +291,8 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(LocalSearchPackage.Literals.MOVE__SCORE);
-			childrenFeatures.add(LocalSearchPackage.Literals.MOVE__NEXT_MOVES);
+			childrenFeatures.add(LocalSearchPackage.Literals.DELTA__SCORE);
+			childrenFeatures.add(LocalSearchPackage.Literals.DELTA__NEXT_DELTAS);
 		}
 		return childrenFeatures;
 	}
@@ -291,7 +311,7 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	}
 
 	/**
-	 * This returns Move.gif.
+	 * This returns Delta.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
@@ -308,10 +328,10 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Move)object).getDescription();
+		String label = ((Delta)object).getDescription();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Move_type") :
-			getString("_UI_Move_type") + " " + label;
+			getString("_UI_Delta_type") :
+			getString("_UI_Delta_type") + " " + label;
 	}
 	
 
@@ -326,19 +346,19 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Move.class)) {
-			case LocalSearchPackage.MOVE__DESCRIPTION:
-			case LocalSearchPackage.MOVE__VALID:
-			case LocalSearchPackage.MOVE__VALID_FEEDBACK:
-			case LocalSearchPackage.MOVE__DO_ENABLED_FEEDBACK:
-			case LocalSearchPackage.MOVE__UNDO_ENABLED_FEEDBACK:
-			case LocalSearchPackage.MOVE__SELECT_ENABLED_FEEDBACK:
-			case LocalSearchPackage.MOVE__CURRENT:
-			case LocalSearchPackage.MOVE__SOLUTION:
+		switch (notification.getFeatureID(Delta.class)) {
+			case LocalSearchPackage.DELTA__DESCRIPTION:
+			case LocalSearchPackage.DELTA__VALID:
+			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
+			case LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__CURRENT:
+			case LocalSearchPackage.DELTA__SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case LocalSearchPackage.MOVE__SCORE:
-			case LocalSearchPackage.MOVE__NEXT_MOVES:
+			case LocalSearchPackage.DELTA__SCORE:
+			case LocalSearchPackage.DELTA__NEXT_DELTAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -367,54 +387,54 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	public ResourceLocator getResourceLocator() {
 		return LocalsearchEditPlugin.INSTANCE;
 	}
+	
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class DeltaDoCommand extends DoCommand{
+		private Delta delta;
+		
+		public DeltaDoCommand(Delta aDelta)	{
+			super();
+			this.delta = aDelta;
+		}
+		
+		@Override
+		public boolean canExecute() {
+			return this.delta.getDoEnabledFeedback().isEnabled();
+		}
+
+		@Override
+		public void execute() {
+			this.delta.do_();;
+		}
+	} // DeltaDoCommand
 
 	/**
 	 * 
 	 * @author michel
 	 *
 	 */
-	public class MoveDoCommand extends DoCommand{
-		private Move move;
+	public class DeltaUndoCommand extends UndoCommand{
+		private Delta delta;
 		
-		public MoveDoCommand(Move aMove)	{
+		public DeltaUndoCommand(Delta aDelta)	{
 			super();
-			this.move = aMove;
-		}
-		
-		@Override
-		public boolean canExecute() {
-			return this.move.getDoEnabledFeedback().isEnabled();
-		}
-
-		@Override
-		public void execute() {
-			this.move.do_();;
-		}
-	} // MoveDoCommand
-
-	/**
-	 * 
-	 * @author michel
-	 *
-	 */
-	public class MoveUndoCommand extends UndoCommand{
-		private Move move;
-		
-		public MoveUndoCommand(Move aMove)	{
-			super();
-			this.move = aMove;
+			this.delta = aDelta;
 		}
 
 		@Override
 		public boolean canExecute() {
-			return this.move.getUndoEnabledFeedback().isEnabled();
+			return this.delta.getUndoEnabledFeedback().isEnabled();
 		}
 
 		@Override
 		public void execute() {
-			this.move.undo();
+			this.delta.undo();
 		}
-	} // class MoveUndoCommand
+	} // class DeltaUndoCommand
 
 
 	/**
@@ -422,25 +442,25 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 	 * @author michel
 	 *
 	 */
-	public class MoveSelectCommand extends SelectCommand{
-		private Move move;
+	public class DeltaSelectCommand extends SelectCommand{
+		private Delta delta;
 		
-		public MoveSelectCommand(Move aMove)	{
+		public DeltaSelectCommand(Delta aDelta)	{
 			super();
-			this.move = aMove;
+			this.delta = aDelta;
 		}
 
 		@Override
 		public boolean canExecute() {
-			return this.move.getSelectEnabledFeedback().isEnabled();
+			return this.delta.getSelectEnabledFeedback().isEnabled();
 		}
 
 		@Override
 		public void execute() {
-			Action action = this.move.getAction();
-			action.select(this.move);
+			Action action = this.delta.getAction();
+			action.select(this.delta);
 		}
-	} // class MoveUndoCommand
+	} // class DeltaUndoCommand
 
 
 	/**
@@ -451,13 +471,15 @@ public class MoveItemProvider extends ItemProviderAdapter implements IEditingDom
 			Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if ( commandClass == DoCommand.class){
-			return new MoveDoCommand((Move) object); 
+			return new DeltaDoCommand((Delta) object); 
 		} else 	if ( commandClass == UndoCommand.class){
-			return new MoveUndoCommand((Move) object); 
+			return new DeltaUndoCommand((Delta) object); 
 		} else 	if ( commandClass == SelectCommand.class){
-			return new MoveSelectCommand((Move) object); 
+			return new DeltaSelectCommand((Delta) object); 
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+
+	
 
 }

@@ -766,7 +766,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		action.finalize();
 
 		// new solution
-		if ( action.getCurrentMove()!=null) {
+		if ( action.getCurrentDelta()!=null) {
 			int new_solution_nr = strategy.makeNewSolutionNr();
 			solution.setSolutionNr(new_solution_nr);
 			step.setNewSolution(true);

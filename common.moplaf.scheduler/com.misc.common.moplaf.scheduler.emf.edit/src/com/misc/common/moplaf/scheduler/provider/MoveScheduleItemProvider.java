@@ -14,7 +14,7 @@ package com.misc.common.moplaf.scheduler.provider;
 
 
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-import com.misc.common.moplaf.localsearch.provider.MoveItemProvider;
+import com.misc.common.moplaf.localsearch.provider.DeltaItemProvider;
 import com.misc.common.moplaf.scheduler.MoveSchedule;
 import com.misc.common.moplaf.scheduler.SchedulerFactory;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
@@ -37,7 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MoveScheduleItemProvider extends MoveItemProvider {
+public class MoveScheduleItemProvider extends DeltaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -133,17 +133,17 @@ public class MoveScheduleItemProvider extends MoveItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(LocalSearchPackage.Literals.MOVE__NEXT_MOVES,
+				(LocalSearchPackage.Literals.DELTA__NEXT_DELTAS,
 				 SchedulerFactory.eINSTANCE.createScheduleAfter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(LocalSearchPackage.Literals.MOVE__NEXT_MOVES,
+				(LocalSearchPackage.Literals.DELTA__NEXT_DELTAS,
 				 SchedulerFactory.eINSTANCE.createScheduleBefore()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(LocalSearchPackage.Literals.MOVE__NEXT_MOVES,
+				(LocalSearchPackage.Literals.DELTA__NEXT_DELTAS,
 				 SchedulerFactory.eINSTANCE.createUnschedule()));
 	}
 

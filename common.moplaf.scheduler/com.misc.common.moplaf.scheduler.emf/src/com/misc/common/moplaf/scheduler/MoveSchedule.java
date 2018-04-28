@@ -12,7 +12,7 @@
  */
 package com.misc.common.moplaf.scheduler;
 
-import com.misc.common.moplaf.localsearch.Move;
+import com.misc.common.moplaf.localsearch.Delta;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import com.misc.common.moplaf.localsearch.Move;
  * @model abstract="true"
  * @generated
  */
-public interface MoveSchedule extends Move {
+public interface MoveSchedule extends Delta {
 	/**
 	 * Returns the value of the '<em><b>Task To Schedule</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.localsearch.emf;visibility:=reexport,
  com.misc.common.moplaf.propagator2;visibility:=reexport,
  com.misc.common.moplaf.job.emf;visibility:=reexport,
+ com.misc.common.moplaf.file.emf;visibility:=reexport,
  com.misc.common.moplaf.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy

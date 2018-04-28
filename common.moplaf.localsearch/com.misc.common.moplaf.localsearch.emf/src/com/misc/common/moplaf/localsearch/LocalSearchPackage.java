@@ -426,22 +426,22 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__NEW_SOLUTION = SOLUTION_CHANGE__NEW_SOLUTION;
 
 	/**
-	 * The feature id for the '<em><b>Start Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Start Deltas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__START_MOVES = SOLUTION_CHANGE_FEATURE_COUNT + 0;
+	int ACTION__START_DELTAS = SOLUTION_CHANGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Current Move</b></em>' reference.
+	 * The feature id for the '<em><b>Current Delta</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__CURRENT_MOVE = SOLUTION_CHANGE_FEATURE_COUNT + 1;
+	int ACTION__CURRENT_DELTA = SOLUTION_CHANGE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -531,7 +531,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION___SELECT__MOVE = SOLUTION_CHANGE_OPERATION_COUNT + 3;
+	int ACTION___SELECT__DELTA = SOLUTION_CHANGE_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -543,24 +543,14 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl <em>Delta</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.localsearch.impl.ScoreImpl
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getScore()
+	 * @see com.misc.common.moplaf.localsearch.impl.DeltaImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getDelta()
 	 * @generated
 	 */
-	int SCORE = 3;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.MoveImpl <em>Move</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.localsearch.impl.MoveImpl
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getMove()
-	 * @generated
-	 */
-	int MOVE = 2;
+	int DELTA = 2;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
@@ -569,7 +559,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__ACTION = 0;
+	int DELTA__ACTION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -578,25 +568,25 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__SCORE = 1;
+	int DELTA__SCORE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__PREVIOUS = 2;
+	int DELTA__PREVIOUS_DELTA = 2;
 
 	/**
-	 * The feature id for the '<em><b>Next Moves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__NEXT_MOVES = 3;
+	int DELTA__NEXT_DELTAS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -605,7 +595,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__DESCRIPTION = 4;
+	int DELTA__DESCRIPTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -614,7 +604,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__VALID = 5;
+	int DELTA__VALID = 5;
 
 	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
@@ -623,7 +613,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__VALID_FEEDBACK = 6;
+	int DELTA__VALID_FEEDBACK = 6;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -632,7 +622,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__DO_ENABLED_FEEDBACK = 7;
+	int DELTA__DO_ENABLED_FEEDBACK = 7;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -641,7 +631,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__UNDO_ENABLED_FEEDBACK = 8;
+	int DELTA__UNDO_ENABLED_FEEDBACK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -650,7 +640,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__SELECT_ENABLED_FEEDBACK = 9;
+	int DELTA__SELECT_ENABLED_FEEDBACK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -659,7 +649,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__CURRENT = 10;
+	int DELTA__CURRENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -668,16 +658,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE__SOLUTION = 11;
+	int DELTA__SOLUTION = 11;
 
 	/**
-	 * The number of structural features of the '<em>Move</em>' class.
+	 * The number of structural features of the '<em>Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_FEATURE_COUNT = 12;
+	int DELTA_FEATURE_COUNT = 12;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -686,7 +676,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE___DO_ = 0;
+	int DELTA___DO_ = 0;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -695,16 +685,26 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE___UNDO = 1;
+	int DELTA___UNDO = 1;
 
 	/**
-	 * The number of operations of the '<em>Move</em>' class.
+	 * The number of operations of the '<em>Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_OPERATION_COUNT = 2;
+	int DELTA_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.localsearch.impl.ScoreImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getScore()
+	 * @generated
+	 */
+	int SCORE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Feasible</b></em>' attribute.
@@ -1517,26 +1517,26 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getAction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Action#getStartMoves <em>Start Moves</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Action#getStartDeltas <em>Start Deltas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Start Moves</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Action#getStartMoves()
+	 * @return the meta object for the containment reference list '<em>Start Deltas</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getStartDeltas()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EReference getAction_StartMoves();
+	EReference getAction_StartDeltas();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getCurrentMove <em>Current Move</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Action#getCurrentDelta <em>Current Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Move</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Action#getCurrentMove()
+	 * @return the meta object for the reference '<em>Current Delta</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getCurrentDelta()
 	 * @see #getAction()
 	 * @generated
 	 */
-	EReference getAction_CurrentMove();
+	EReference getAction_CurrentDelta();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}'.
@@ -1624,176 +1624,176 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getAction__Finalize();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#select(com.misc.common.moplaf.localsearch.Move) <em>Select</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#select(com.misc.common.moplaf.localsearch.Delta) <em>Select</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Select</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Action#select(com.misc.common.moplaf.localsearch.Move)
+	 * @see com.misc.common.moplaf.localsearch.Action#select(com.misc.common.moplaf.localsearch.Delta)
 	 * @generated
 	 */
-	EOperation getAction__Select__Move();
+	EOperation getAction__Select__Delta();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Move <em>Move</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Delta <em>Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Move</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move
+	 * @return the meta object for class '<em>Delta</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta
 	 * @generated
 	 */
-	EClass getMove();
+	EClass getDelta();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Move#getNextMoves <em>Next Moves</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next Moves</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getNextMoves()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EReference getMove_NextMoves();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getDescription()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EAttribute getMove_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getValidFeedback <em>Valid Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Valid Feedback</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getValidFeedback()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EAttribute getMove_ValidFeedback();
-
-	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.localsearch.Move#getPrevious <em>Previous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Previous</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getPrevious()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EReference getMove_Previous();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#isValid <em>Valid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Valid</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#isValid()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EAttribute getMove_Valid();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getDoEnabledFeedback <em>Do Enabled Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Do Enabled Feedback</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getDoEnabledFeedback()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EAttribute getMove_DoEnabledFeedback();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Undo Enabled Feedback</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getUndoEnabledFeedback()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EAttribute getMove_UndoEnabledFeedback();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Select Enabled Feedback</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getSelectEnabledFeedback()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EAttribute getMove_SelectEnabledFeedback();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.Move#getScore <em>Score</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Score</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getScore()
-	 * @see #getMove()
-	 * @generated
-	 */
-	EReference getMove_Score();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Move#getAction <em>Action</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Delta#getAction <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Action</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#getAction()
-	 * @see #getMove()
+	 * @see com.misc.common.moplaf.localsearch.Delta#getAction()
+	 * @see #getDelta()
 	 * @generated
 	 */
-	EReference getMove_Action();
+	EReference getDelta_Action();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#isCurrent <em>Current</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.Delta#getScore <em>Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Score</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getScore()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EReference getDelta_Score();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.localsearch.Delta#getPreviousDelta <em>Previous Delta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Previous Delta</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getPreviousDelta()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EReference getDelta_PreviousDelta();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Delta#getNextDeltas <em>Next Deltas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Next Deltas</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getNextDeltas()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EReference getDelta_NextDeltas();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getDescription()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EAttribute getDelta_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#isValid <em>Valid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Valid</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#isValid()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EAttribute getDelta_Valid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#getValidFeedback <em>Valid Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Valid Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getValidFeedback()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EAttribute getDelta_ValidFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#getDoEnabledFeedback <em>Do Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Do Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getDoEnabledFeedback()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EAttribute getDelta_DoEnabledFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Undo Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getUndoEnabledFeedback()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EAttribute getDelta_UndoEnabledFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Select Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Delta#getSelectEnabledFeedback()
+	 * @see #getDelta()
+	 * @generated
+	 */
+	EAttribute getDelta_SelectEnabledFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#isCurrent <em>Current</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Current</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#isCurrent()
-	 * @see #getMove()
+	 * @see com.misc.common.moplaf.localsearch.Delta#isCurrent()
+	 * @see #getDelta()
 	 * @generated
 	 */
-	EAttribute getMove_Current();
+	EAttribute getDelta_Current();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Move#isSolution <em>Solution</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#isSolution <em>Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Solution</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Move#isSolution()
-	 * @see #getMove()
+	 * @see com.misc.common.moplaf.localsearch.Delta#isSolution()
+	 * @see #getDelta()
 	 * @generated
 	 */
-	EAttribute getMove_Solution();
+	EAttribute getDelta_Solution();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#do_() <em>Do </em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Delta#do_() <em>Do </em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Do </em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Move#do_()
+	 * @see com.misc.common.moplaf.localsearch.Delta#do_()
 	 * @generated
 	 */
-	EOperation getMove__Do_();
+	EOperation getDelta__Do_();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Move#undo() <em>Undo</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Delta#undo() <em>Undo</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Undo</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Move#undo()
+	 * @see com.misc.common.moplaf.localsearch.Delta#undo()
 	 * @generated
 	 */
-	EOperation getMove__Undo();
+	EOperation getDelta__Undo();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Score <em>Score</em>}'.
@@ -2453,20 +2453,20 @@ public interface LocalSearchPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Start Moves</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Start Deltas</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__START_MOVES = eINSTANCE.getAction_StartMoves();
+		EReference ACTION__START_DELTAS = eINSTANCE.getAction_StartDeltas();
 
 		/**
-		 * The meta object literal for the '<em><b>Current Move</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Current Delta</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__CURRENT_MOVE = eINSTANCE.getAction_CurrentMove();
+		EReference ACTION__CURRENT_DELTA = eINSTANCE.getAction_CurrentDelta();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -2538,89 +2538,17 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ACTION___SELECT__MOVE = eINSTANCE.getAction__Select__Move();
+		EOperation ACTION___SELECT__DELTA = eINSTANCE.getAction__Select__Delta();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.MoveImpl <em>Move</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl <em>Delta</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.localsearch.impl.MoveImpl
-		 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getMove()
+		 * @see com.misc.common.moplaf.localsearch.impl.DeltaImpl
+		 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getDelta()
 		 * @generated
 		 */
-		EClass MOVE = eINSTANCE.getMove();
-
-		/**
-		 * The meta object literal for the '<em><b>Next Moves</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MOVE__NEXT_MOVES = eINSTANCE.getMove_NextMoves();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MOVE__DESCRIPTION = eINSTANCE.getMove_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MOVE__VALID_FEEDBACK = eINSTANCE.getMove_ValidFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Previous</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MOVE__PREVIOUS = eINSTANCE.getMove_Previous();
-
-		/**
-		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MOVE__VALID = eINSTANCE.getMove_Valid();
-
-		/**
-		 * The meta object literal for the '<em><b>Do Enabled Feedback</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MOVE__DO_ENABLED_FEEDBACK = eINSTANCE.getMove_DoEnabledFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Undo Enabled Feedback</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MOVE__UNDO_ENABLED_FEEDBACK = eINSTANCE.getMove_UndoEnabledFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Select Enabled Feedback</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MOVE__SELECT_ENABLED_FEEDBACK = eINSTANCE.getMove_SelectEnabledFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Score</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MOVE__SCORE = eINSTANCE.getMove_Score();
+		EClass DELTA = eINSTANCE.getDelta();
 
 		/**
 		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
@@ -2628,7 +2556,79 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MOVE__ACTION = eINSTANCE.getMove_Action();
+		EReference DELTA__ACTION = eINSTANCE.getDelta_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Score</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELTA__SCORE = eINSTANCE.getDelta_Score();
+
+		/**
+		 * The meta object literal for the '<em><b>Previous Delta</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELTA__PREVIOUS_DELTA = eINSTANCE.getDelta_PreviousDelta();
+
+		/**
+		 * The meta object literal for the '<em><b>Next Deltas</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELTA__NEXT_DELTAS = eINSTANCE.getDelta_NextDeltas();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELTA__DESCRIPTION = eINSTANCE.getDelta_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELTA__VALID = eINSTANCE.getDelta_Valid();
+
+		/**
+		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELTA__VALID_FEEDBACK = eINSTANCE.getDelta_ValidFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Do Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELTA__DO_ENABLED_FEEDBACK = eINSTANCE.getDelta_DoEnabledFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Undo Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELTA__UNDO_ENABLED_FEEDBACK = eINSTANCE.getDelta_UndoEnabledFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Select Enabled Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELTA__SELECT_ENABLED_FEEDBACK = eINSTANCE.getDelta_SelectEnabledFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Current</b></em>' attribute feature.
@@ -2636,7 +2636,7 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MOVE__CURRENT = eINSTANCE.getMove_Current();
+		EAttribute DELTA__CURRENT = eINSTANCE.getDelta_Current();
 
 		/**
 		 * The meta object literal for the '<em><b>Solution</b></em>' attribute feature.
@@ -2644,7 +2644,7 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MOVE__SOLUTION = eINSTANCE.getMove_Solution();
+		EAttribute DELTA__SOLUTION = eINSTANCE.getDelta_Solution();
 
 		/**
 		 * The meta object literal for the '<em><b>Do </b></em>' operation.
@@ -2652,7 +2652,7 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MOVE___DO_ = eINSTANCE.getMove__Do_();
+		EOperation DELTA___DO_ = eINSTANCE.getDelta__Do_();
 
 		/**
 		 * The meta object literal for the '<em><b>Undo</b></em>' operation.
@@ -2660,7 +2660,7 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MOVE___UNDO = eINSTANCE.getMove__Undo();
+		EOperation DELTA___UNDO = eINSTANCE.getDelta__Undo();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.

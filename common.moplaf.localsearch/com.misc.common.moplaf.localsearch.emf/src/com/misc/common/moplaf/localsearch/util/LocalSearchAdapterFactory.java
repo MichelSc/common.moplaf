@@ -89,8 +89,8 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 				return createActionAdapter();
 			}
 			@Override
-			public Adapter caseMove(Move object) {
-				return createMoveAdapter();
+			public Adapter caseDelta(Delta object) {
+				return createDeltaAdapter();
 			}
 			@Override
 			public Adapter caseScore(Score object) {
@@ -173,16 +173,16 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.Move <em>Move</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.Delta <em>Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.localsearch.Move
+	 * @see com.misc.common.moplaf.localsearch.Delta
 	 * @generated
 	 */
-	public Adapter createMoveAdapter() {
+	public Adapter createDeltaAdapter() {
 		return null;
 	}
 
