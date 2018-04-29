@@ -30,6 +30,10 @@
     <eOperations name="select">
       <eParameters name="target_move" eType="#//Delta"/>
     </eOperations>
+    <eOperations name="doAction">
+      <eParameters name="phase" eType="#//Phase"/>
+      <eParameters name="step" eType="#//Step"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="StartDeltas" upperBound="-1"
         eType="#//Delta" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentDelta" eType="#//Delta"/>
@@ -125,13 +129,6 @@
       <details key="documentation" value="A Phase is the main loop of the resolution process, while a Step is an iteration of this Loop. A Step is supposed to improve a solution.&#xA;&#xA;The phase will keep iterating up to a max number of iterations or to a max durations.&#xA;&#xA;The execution flow of a Step is 1) to select a solution in the pool as a function of the attribute SelectBestChance, 2) to improve the selected solution by performing Actions, 3) to put the resulting Solution in the pool and 4) to prune the pool of Solution as a function of the attribute SelectWorstChance.&#xA;&#xA;The Actions to be performed in a Step are provided by the concrete class, in the method doStempImpl, that must 1) create the Actions, 2) execute them by calling doAction.&#xA;&#xA;The KeepLevel attribute controls the level of Data to be kept for debugging purposes.&#xA;&#xA;"/>
     </eAnnotations>
     <eOperations name="doPhase"/>
-    <eOperations name="doStep">
-      <eParameters name="step" eType="#//Step"/>
-    </eOperations>
-    <eOperations name="doAction">
-      <eParameters name="step" eType="#//Step"/>
-      <eParameters name="action" eType="#//Action"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeepLevel" eType="#//StrategyLevel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxSteps" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -153,7 +150,10 @@
         defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Step" eSuperTypes="#//SolutionChange">
+  <eClassifiers xsi:type="ecore:EClass" name="Step" abstract="true" eSuperTypes="#//SolutionChange">
+    <eOperations name="doStep">
+      <eParameters name="phase" eType="#//Phase"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
         eType="#//Action" containment="true" eOpposite="#//Action/Step"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StepNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

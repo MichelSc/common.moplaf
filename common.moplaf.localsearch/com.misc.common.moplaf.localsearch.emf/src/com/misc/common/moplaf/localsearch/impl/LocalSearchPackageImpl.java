@@ -357,6 +357,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getAction__DoAction__Phase_Step() {
+		return actionEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDelta() {
 		return deltaEClass;
 	}
@@ -780,24 +789,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPhase__DoStep__Step() {
-		return phaseEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPhase__DoAction__Step_Action() {
-		return phaseEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStep() {
 		return stepEClass;
 	}
@@ -836,6 +827,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 */
 	public EAttribute getStep_Step() {
 		return (EAttribute)stepEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getStep__DoStep__Phase() {
+		return stepEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1012,6 +1012,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(actionEClass, ACTION___RUN);
 		createEOperation(actionEClass, ACTION___FINALIZE);
 		createEOperation(actionEClass, ACTION___SELECT__DELTA);
+		createEOperation(actionEClass, ACTION___DO_ACTION__PHASE_STEP);
 
 		deltaEClass = createEClass(DELTA);
 		createEReference(deltaEClass, DELTA__ACTION);
@@ -1063,14 +1064,13 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(phaseEClass, PHASE__SELECT_BEST_CHANCE);
 		createEAttribute(phaseEClass, PHASE__SELECT_WORST_CHANCE);
 		createEOperation(phaseEClass, PHASE___DO_PHASE);
-		createEOperation(phaseEClass, PHASE___DO_STEP__STEP);
-		createEOperation(phaseEClass, PHASE___DO_ACTION__STEP_ACTION);
 
 		stepEClass = createEClass(STEP);
 		createEReference(stepEClass, STEP__ACTIONS);
 		createEAttribute(stepEClass, STEP__STEP_NR);
 		createEReference(stepEClass, STEP__PHASE);
 		createEAttribute(stepEClass, STEP__STEP);
+		createEOperation(stepEClass, STEP___DO_STEP__PHASE);
 
 		solutionChangeEClass = createEClass(SOLUTION_CHANGE);
 		createEReference(solutionChangeEClass, SOLUTION_CHANGE__START_SOLUTION_OWNED);
@@ -1158,6 +1158,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		EOperation op = initEOperation(getAction__Select__Delta(), null, "select", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDelta(), "target_move", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getAction__DoAction__Phase_Step(), null, "doAction", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPhase(), "phase", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getStep(), "step", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(deltaEClass, Delta.class, "Delta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDelta_Action(), this.getAction(), null, "Action", null, 1, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDelta_Score(), this.getScore(), null, "Score", null, 1, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1225,18 +1229,14 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 
 		initEOperation(getPhase__DoPhase(), null, "doPhase", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPhase__DoStep__Step(), null, "doStep", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getStep(), "step", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getPhase__DoAction__Step_Action(), null, "doAction", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getStep(), "step", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getAction(), "action", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(stepEClass, Step.class, "Step", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStep_Actions(), this.getAction(), this.getAction_Step(), "Actions", null, 0, -1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStep_StepNr(), ecorePackage.getEInt(), "StepNr", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStep_Phase(), this.getPhase(), this.getPhase_Steps(), "Phase", null, 1, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStep_Step(), ecorePackage.getEString(), "Step", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getStep__DoStep__Phase(), null, "doStep", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPhase(), "phase", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(solutionChangeEClass, SolutionChange.class, "SolutionChange", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolutionChange_StartSolutionOwned(), this.getSolution(), null, "StartSolutionOwned", null, 0, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

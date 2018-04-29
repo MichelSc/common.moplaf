@@ -12,8 +12,6 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
-import com.misc.common.moplaf.localsearch.Action;
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Plugin;
@@ -642,7 +640,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			Solution solution = solution_inpool.clone();
 
 			// create the step
-			Step step = LocalSearchFactory.eINSTANCE.createStep();
+			Step step = this.constructStep();
 			String step_name = String.format("%s:%04d", this.getName(), nr_iterations);
 			step.setStep(step_name);
 			step.setStepNr(nr_iterations);
@@ -650,7 +648,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			
 			// do the step
 			step.setCurrentSolution(solution);
-			phase.doStep(step);
+			step.doStep(phase);
 			solution = step.getCurrentSolution();
 			step.setCurrentSolution(null);
 
@@ -708,87 +706,12 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		phase.setDurationAverage(nr_iterations==0 ? 0.0f: elapsed_millis/1000/nr_iterations);
 		phase.setNrSteps(nr_iterations);
 	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void doStep(Step step) {
-		boolean keep_step = this.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
-
-		String message1 = String.format("Phase %s step %d started", this.getName(), this.getNrSteps());
-		Plugin.INSTANCE.logInfo(message1);
-
-
-		// keep or not keep
-		Solution solution = step.getCurrentSolution();
-		solution.setStep(step.getStep());
-		if ( keep_step ) {
-			this.getSteps().add(step);
-			Solution start_solution_kept = solution.clone();
-			step.setStartSolutionOwned(start_solution_kept); // owning
-		}
-		
-		// do the step
-		this.doStepImpl(step);
 	
-		// keep or not keep
-		if ( keep_step ) {
-			// end solution
-			Solution end_solution_kept = solution.clone();
-			step.setEndSolutionOwned(end_solution_kept);
-		}
-		
-		String message2 = String.format("Phase %s step %d finished", this.getName(), this.getNrSteps());
-		Plugin.INSTANCE.logInfo(message2);
+	protected Step constructStep() {
+		throw new UnsupportedOperationException();
 	}
+
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void doAction(Step step, Action action) {
-		Strategy strategy = this.getStrategy();
-		Solution solution = step.getCurrentSolution();
-		boolean keep_action = this.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
-
-		// keep or not keep
-		if ( keep_action) {
-			Solution start_solution = solution.clone();
-			action.setStartSolutionOwned(start_solution);
-		}
-
-		// do the action
-		action.setCurrentSolution(solution);
-		action.initialize();
-		action.run();
-		action.finalize();
-
-		// new solution
-		if ( action.getCurrentDelta()!=null) {
-			int new_solution_nr = strategy.makeNewSolutionNr();
-			solution.setSolutionNr(new_solution_nr);
-			step.setNewSolution(true);
-			action.setNewSolution(true);
-		}
-		
-		// keep or not keep
-		Solution next_solution = solution;
-		if ( keep_action) {
-			action.setActionNr(step.getActions().size());
-			step.getActions().add(action); // owning
-			next_solution = solution.clone();
-			action.setEndSolutionOwned(solution); // take ownership
-		}
-		step.setCurrentSolution(next_solution);
-	}
-
-
-	protected void doStepImpl(Step step) {
-		
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1028,12 +951,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		switch (operationID) {
 			case LocalSearchPackage.PHASE___DO_PHASE:
 				doPhase();
-				return null;
-			case LocalSearchPackage.PHASE___DO_STEP__STEP:
-				doStep((Step)arguments.get(0));
-				return null;
-			case LocalSearchPackage.PHASE___DO_ACTION__STEP_ACTION:
-				doAction((Step)arguments.get(0), (Action)arguments.get(1));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

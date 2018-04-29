@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Step extends SolutionChange {
@@ -131,5 +131,13 @@ public interface Step extends SolutionChange {
 	 * @generated
 	 */
 	void setStep(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void doStep(Phase phase);
 
 } // Step

@@ -15,9 +15,12 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
+import com.misc.common.moplaf.localsearch.Plugin;
+import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.ListIterator;
 
@@ -51,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class StepImpl extends SolutionChangeImpl implements Step {
+public abstract class StepImpl extends SolutionChangeImpl implements Step {
 	/**
 	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -255,6 +258,45 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void doStep(Phase phase) {
+		boolean keep_step = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
+
+		String message1 = String.format("Phase %s step %d started", phase.getName(), phase.getNrSteps());
+		Plugin.INSTANCE.logInfo(message1);
+
+
+		// keep or not keep
+		Solution solution = this.getCurrentSolution();
+		solution.setStep(this.getStep());
+		if ( keep_step ) {
+			phase.getSteps().add(this);
+			Solution start_solution_kept = solution.clone();
+			this.setStartSolutionOwned(start_solution_kept); // owning
+		}
+		
+		// do the step
+		this.doStepImpl(phase);
+	
+		// keep or not keep
+		if ( keep_step ) {
+			// end solution
+			Solution end_solution_kept = solution.clone();
+			this.setEndSolutionOwned(end_solution_kept);
+		}
+		
+		String message2 = String.format("Phase %s step %d finished", phase.getName(), phase.getNrSteps());
+		Plugin.INSTANCE.logInfo(message2);
+	}
+	
+	protected void doStepImpl(Phase phase) {
+		throw new UnsupportedOperationException();
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -389,6 +431,21 @@ public class StepImpl extends SolutionChangeImpl implements Step {
 				return STEP_EDEFAULT == null ? step != null : !STEP_EDEFAULT.equals(step);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case LocalSearchPackage.STEP___DO_STEP__PHASE:
+				doStep((Phase)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

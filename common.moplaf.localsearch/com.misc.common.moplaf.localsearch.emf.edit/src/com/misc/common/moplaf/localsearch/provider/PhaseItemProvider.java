@@ -15,7 +15,6 @@ package com.misc.common.moplaf.localsearch.provider;
 
 import com.misc.common.moplaf.emf.edit.command.DoCommand;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Step;
@@ -424,11 +423,6 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(LocalSearchPackage.Literals.PHASE__STEPS,
-				 LocalSearchFactory.eINSTANCE.createStep()));
 	}
 
 	/**

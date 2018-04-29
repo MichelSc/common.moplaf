@@ -16,11 +16,13 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.Delta;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.Step;
+import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
 
 import java.lang.reflect.InvocationTargetException;
@@ -420,6 +422,47 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		}
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void doAction(Phase phase, Step step) {
+		Strategy strategy = phase.getStrategy();
+		Solution solution = step.getCurrentSolution();
+		boolean keep_action = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
+
+		// keep or not keep
+		if ( keep_action) {
+			Solution start_solution = solution.clone();
+			this.setStartSolutionOwned(start_solution);
+		}
+
+		// do the action
+		this.setCurrentSolution(solution);
+		this.initialize();
+		this.run();
+		this.finalize();
+
+		// new solution
+		if ( this.getCurrentDelta()!=null) {
+			int new_solution_nr = strategy.makeNewSolutionNr();
+			solution.setSolutionNr(new_solution_nr);
+			step.setNewSolution(true);
+			this.setNewSolution(true);
+		}
+		
+		// keep or not keep
+		Solution next_solution = solution;
+		if ( keep_action) {
+			this.setActionNr(step.getActions().size());
+			step.getActions().add(this); // owning
+			next_solution = solution.clone();
+			this.setEndSolutionOwned(solution); // take ownership
+		}
+		step.setCurrentSolution(next_solution);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -611,6 +654,9 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 				return null;
 			case LocalSearchPackage.ACTION___SELECT__DELTA:
 				select((Delta)arguments.get(0));
+				return null;
+			case LocalSearchPackage.ACTION___DO_ACTION__PHASE_STEP:
+				doAction((Phase)arguments.get(0), (Step)arguments.get(1));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

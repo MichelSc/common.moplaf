@@ -387,7 +387,7 @@ public class ActionItemProvider
 		public void execute() {
 			Step step = this.action.getStep();
 			Phase phase = step.getPhase();
-			phase.doAction(step, this.action);
+			this.action.doAction(phase, step);
 		}
 	} // class ActionDoCommand
 

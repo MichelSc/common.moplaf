@@ -217,7 +217,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 		@Override
 		public void execute() {
 			Phase phase = this.step.getPhase();
-			phase.doStep(step);
+			this.step.doStep(phase);
 		}
 	} // class StepDoCommand
 

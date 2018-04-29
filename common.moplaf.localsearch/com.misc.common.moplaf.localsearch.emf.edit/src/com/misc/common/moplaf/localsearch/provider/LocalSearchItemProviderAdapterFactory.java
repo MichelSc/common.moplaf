@@ -83,29 +83,6 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.Step} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StepItemProvider stepItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.Step}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStepAdapter() {
-		if (stepItemProvider == null) {
-			stepItemProvider = new StepItemProvider(this);
-		}
-
-		return stepItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,7 +181,6 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	 * @generated
 	 */
 	public void dispose() {
-		if (stepItemProvider != null) stepItemProvider.dispose();
 	}
 
 }

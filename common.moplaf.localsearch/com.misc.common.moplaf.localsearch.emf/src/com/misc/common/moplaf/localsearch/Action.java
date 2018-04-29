@@ -227,4 +227,12 @@ public interface Action extends SolutionChange {
 	 */
 	void select(Delta target_move);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void doAction(Phase phase, Step step);
+
 } // Action
