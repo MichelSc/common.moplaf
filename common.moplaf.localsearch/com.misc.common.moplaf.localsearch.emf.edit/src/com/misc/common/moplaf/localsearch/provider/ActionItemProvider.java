@@ -69,7 +69,6 @@ public class ActionItemProvider
 
 			addCurrentDeltaPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addValidPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
 			addActionNrPropertyDescriptor(object);
 		}
@@ -121,28 +120,6 @@ public class ActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Valid feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValidPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Action_Valid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Action_Valid_feature", "_UI_Action_type"),
-				 LocalSearchPackage.Literals.ACTION__VALID,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10ActionPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Action Nr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,7 +159,7 @@ public class ActionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10ActionPropertyCategory"),
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -255,7 +232,6 @@ public class ActionItemProvider
 
 		switch (notification.getFeatureID(Action.class)) {
 			case LocalSearchPackage.ACTION__DESCRIPTION:
-			case LocalSearchPackage.ACTION__VALID:
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -294,7 +270,7 @@ public class ActionItemProvider
 
 		@Override
 		public boolean canExecute() {
-			return this.action.isValid();
+			return this.action.getValidFeedback().isEnabled();
 		}
 
 		@Override
@@ -319,7 +295,7 @@ public class ActionItemProvider
 
 		@Override
 		public boolean canExecute() {
-			return this.action.isValid();
+			return this.action.getValidFeedback().isEnabled();
 		}
 
 		@Override
@@ -344,7 +320,7 @@ public class ActionItemProvider
 
 		@Override
 		public boolean canExecute() {
-			return this.action.isValid();
+			return this.action.getValidFeedback().isEnabled();
 		}
 
 		@Override

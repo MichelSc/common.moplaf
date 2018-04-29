@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.localsearch;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -27,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getStepNr <em>Step Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getPhase <em>Phase</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getStep <em>Step</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Step#getValidFeedback <em>Valid Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep()
@@ -131,6 +133,21 @@ public interface Step extends SolutionChange {
 	 * @generated
 	 */
 	void setStep(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Valid Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Valid Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep_ValidFeedback()
+	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getValidFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->

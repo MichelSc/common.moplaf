@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.localsearch;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -36,7 +37,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getStartDeltas <em>Start Deltas</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentDelta <em>Current Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getActionNr <em>Action Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}</li>
@@ -105,21 +105,6 @@ public interface Action extends SolutionChange {
 	String getDescription();
 
 	/**
-	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Valid</em>' attribute.
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_Valid()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	boolean isValid();
-
-	/**
 	 * Returns the value of the '<em><b>Action Nr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -183,10 +168,10 @@ public interface Action extends SolutionChange {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_ValidFeedback()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	String getValidFeedback();
+	EnabledFeedback getValidFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->

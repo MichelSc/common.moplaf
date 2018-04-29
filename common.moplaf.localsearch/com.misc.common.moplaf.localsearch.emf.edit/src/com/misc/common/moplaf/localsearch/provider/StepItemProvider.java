@@ -65,6 +65,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 
 			addStepNrPropertyDescriptor(object);
 			addStepPropertyDescriptor(object);
+			addValidFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,7 +88,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10SolutionChangePropertyCategory"),
+				 getString("_UI__20StepPropertyCategory"),
 				 null));
 	}
 
@@ -109,7 +110,29 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10SolutionChangePropertyCategory"),
+				 getString("_UI__20StepPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Valid Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValidFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Step_ValidFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Step_ValidFeedback_feature", "_UI_Step_type"),
+				 LocalSearchPackage.Literals.STEP__VALID_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -180,6 +203,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 		switch (notification.getFeatureID(Step.class)) {
 			case LocalSearchPackage.STEP__STEP_NR:
 			case LocalSearchPackage.STEP__STEP:
+			case LocalSearchPackage.STEP__VALID_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STEP__ACTIONS:
@@ -213,6 +237,12 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 			super();
 			this.step= aStep;
 		}
+		
+		@Override
+		public boolean canExecute() {
+			return this.step.getValidFeedback().isEnabled();
+		}
+
 
 		@Override
 		public void execute() {

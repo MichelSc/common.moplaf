@@ -453,22 +453,13 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__DESCRIPTION = SOLUTION_CHANGE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__VALID = SOLUTION_CHANGE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__VALID_FEEDBACK = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+	int ACTION__VALID_FEEDBACK = SOLUTION_CHANGE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Action Nr</b></em>' attribute.
@@ -477,7 +468,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ACTION_NR = SOLUTION_CHANGE_FEATURE_COUNT + 5;
+	int ACTION__ACTION_NR = SOLUTION_CHANGE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Step</b></em>' container reference.
@@ -486,7 +477,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 6;
+	int ACTION__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -495,7 +486,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 7;
+	int ACTION_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Initialize</em>' operation.
@@ -1385,13 +1376,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP__VALID_FEEDBACK = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+	int STEP_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Do Step</em>' operation.
@@ -1548,17 +1548,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAction_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#isValid <em>Valid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Valid</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Action#isValid()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Valid();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getActionNr <em>Action Nr</em>}'.
@@ -2200,6 +2189,17 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getStep_Step();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Step#getValidFeedback <em>Valid Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Valid Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Step#getValidFeedback()
+	 * @see #getStep()
+	 * @generated
+	 */
+	EAttribute getStep_ValidFeedback();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Step#doStep(com.misc.common.moplaf.localsearch.Phase) <em>Do Step</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2475,14 +2475,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION__DESCRIPTION = eINSTANCE.getAction_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__VALID = eINSTANCE.getAction_Valid();
 
 		/**
 		 * The meta object literal for the '<em><b>Action Nr</b></em>' attribute feature.
@@ -2974,6 +2966,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STEP__STEP = eINSTANCE.getStep_Step();
+
+		/**
+		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STEP__VALID_FEEDBACK = eINSTANCE.getStep_ValidFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Do Step</b></em>' operation.

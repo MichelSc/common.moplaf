@@ -39,9 +39,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentDelta" eType="#//Delta"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Step" lowerBound="1" eType="#//Step"
@@ -160,6 +158,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Phase" lowerBound="1" eType="#//Phase"
         eOpposite="#//Phase/Steps"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionChange" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolutionOwned" eType="#//Solution"

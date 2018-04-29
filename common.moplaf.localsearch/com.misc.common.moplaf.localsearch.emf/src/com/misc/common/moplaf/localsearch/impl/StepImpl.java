@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
@@ -50,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStepNr <em>Step Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getPhase <em>Phase</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStep <em>Step</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,6 +106,16 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 	 * @ordered
 	 */
 	protected String step = STEP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback VALID_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,6 +271,17 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public EnabledFeedback getValidFeedback() {
+		if ( this.getCurrentSolution()==null ) {
+			return new EnabledFeedback(false, "No current solution");
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void doStep(Phase phase) {
 		boolean keep_step = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
 
@@ -359,6 +382,8 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 				return getPhase();
 			case LocalSearchPackage.STEP__STEP:
 				return getStep();
+			case LocalSearchPackage.STEP__VALID_FEEDBACK:
+				return getValidFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -429,6 +454,8 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 				return getPhase() != null;
 			case LocalSearchPackage.STEP__STEP:
 				return STEP_EDEFAULT == null ? step != null : !STEP_EDEFAULT.equals(step);
+			case LocalSearchPackage.STEP__VALID_FEEDBACK:
+				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 		}
 		return super.eIsSet(featureID);
 	}

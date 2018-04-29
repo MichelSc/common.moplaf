@@ -285,17 +285,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Valid() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAction_ActionNr() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -304,7 +295,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getAction_Step() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(6);
+		return (EReference)actionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -313,7 +304,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getAction_ValidFeedback() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -834,6 +825,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStep_ValidFeedback() {
+		return (EAttribute)stepEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getStep__DoStep__Phase() {
 		return stepEClass.getEOperations().get(0);
 	}
@@ -1004,7 +1004,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(actionEClass, ACTION__START_DELTAS);
 		createEReference(actionEClass, ACTION__CURRENT_DELTA);
 		createEAttribute(actionEClass, ACTION__DESCRIPTION);
-		createEAttribute(actionEClass, ACTION__VALID);
 		createEAttribute(actionEClass, ACTION__VALID_FEEDBACK);
 		createEAttribute(actionEClass, ACTION__ACTION_NR);
 		createEReference(actionEClass, ACTION__STEP);
@@ -1070,6 +1069,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(stepEClass, STEP__STEP_NR);
 		createEReference(stepEClass, STEP__PHASE);
 		createEAttribute(stepEClass, STEP__STEP);
+		createEAttribute(stepEClass, STEP__VALID_FEEDBACK);
 		createEOperation(stepEClass, STEP___DO_STEP__PHASE);
 
 		solutionChangeEClass = createEClass(SOLUTION_CHANGE);
@@ -1144,8 +1144,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getAction_StartDeltas(), this.getDelta(), null, "StartDeltas", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAction_CurrentDelta(), this.getDelta(), null, "CurrentDelta", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_ValidFeedback(), this.getEnabledFeedback(), "ValidFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ActionNr(), ecorePackage.getEInt(), "ActionNr", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAction_Step(), this.getStep(), this.getStep_Actions(), "Step", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1234,6 +1233,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getStep_StepNr(), ecorePackage.getEInt(), "StepNr", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStep_Phase(), this.getPhase(), this.getPhase_Steps(), "Phase", null, 1, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStep_Step(), ecorePackage.getEString(), "Step", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStep_ValidFeedback(), this.getEnabledFeedback(), "ValidFeedback", null, 0, 1, Step.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getStep__DoStep__Phase(), null, "doStep", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPhase(), "phase", 0, 1, IS_UNIQUE, IS_ORDERED);

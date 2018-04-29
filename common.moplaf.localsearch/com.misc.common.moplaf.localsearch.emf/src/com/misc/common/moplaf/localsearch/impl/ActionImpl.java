@@ -54,7 +54,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getStartDeltas <em>Start Deltas</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentDelta <em>Current Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getActionNr <em>Action Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getStep <em>Step</em>}</li>
@@ -94,16 +93,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean VALID_EDEFAULT = false;
-
-	/**
 	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,7 +100,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALID_FEEDBACK_EDEFAULT = null;
+	protected static final EnabledFeedback VALID_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getActionNr() <em>Action Nr</em>}' attribute.
@@ -327,12 +316,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public String getValidFeedback() {
+	public EnabledFeedback getValidFeedback() {
 		Solution solution = this.getCurrentSolution();
 		if ( solution==null) {
-			return "No current solution associated with the action";
+			return new EnabledFeedback(false, "No current solution associated with the action");
 		}
-		return null;
+		return EnabledFeedback.NOFEEDBACK;
 	}
 	
 	/*
@@ -547,8 +536,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 				return basicGetCurrentDelta();
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 				return getDescription();
-			case LocalSearchPackage.ACTION__VALID:
-				return isValid();
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
 				return getValidFeedback();
 			case LocalSearchPackage.ACTION__ACTION_NR:
@@ -623,8 +610,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 				return currentDelta != null;
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case LocalSearchPackage.ACTION__VALID:
-				return isValid() != VALID_EDEFAULT;
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
 				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.ACTION__ACTION_NR:
