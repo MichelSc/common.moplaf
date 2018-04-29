@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ScheduleAfterImpl extends MoveTaskImpl implements ScheduleAfter {
+public class ScheduleAfterImpl extends ScheduleTaskImpl implements ScheduleAfter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

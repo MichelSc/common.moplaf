@@ -113,26 +113,26 @@ public class SchedulerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SchedulerPackage.MOVE_SCHEDULE: {
-				MoveSchedule moveSchedule = (MoveSchedule)theEObject;
-				T result = caseMoveSchedule(moveSchedule);
-				if (result == null) result = caseDelta(moveSchedule);
+			case SchedulerPackage.SCHEDULE_DELTA: {
+				ScheduleDelta scheduleDelta = (ScheduleDelta)theEObject;
+				T result = caseScheduleDelta(scheduleDelta);
+				if (result == null) result = caseDelta(scheduleDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SchedulerPackage.MOVE_TASK: {
-				MoveTask moveTask = (MoveTask)theEObject;
-				T result = caseMoveTask(moveTask);
-				if (result == null) result = caseMoveSchedule(moveTask);
-				if (result == null) result = caseDelta(moveTask);
+			case SchedulerPackage.SCHEDULE_TASK: {
+				ScheduleTask scheduleTask = (ScheduleTask)theEObject;
+				T result = caseScheduleTask(scheduleTask);
+				if (result == null) result = caseScheduleDelta(scheduleTask);
+				if (result == null) result = caseDelta(scheduleTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SchedulerPackage.SCHEDULE_AFTER: {
 				ScheduleAfter scheduleAfter = (ScheduleAfter)theEObject;
 				T result = caseScheduleAfter(scheduleAfter);
-				if (result == null) result = caseMoveTask(scheduleAfter);
-				if (result == null) result = caseMoveSchedule(scheduleAfter);
+				if (result == null) result = caseScheduleTask(scheduleAfter);
+				if (result == null) result = caseScheduleDelta(scheduleAfter);
 				if (result == null) result = caseDelta(scheduleAfter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -140,8 +140,8 @@ public class SchedulerSwitch<T> extends Switch<T> {
 			case SchedulerPackage.SCHEDULE_BEFORE: {
 				ScheduleBefore scheduleBefore = (ScheduleBefore)theEObject;
 				T result = caseScheduleBefore(scheduleBefore);
-				if (result == null) result = caseMoveTask(scheduleBefore);
-				if (result == null) result = caseMoveSchedule(scheduleBefore);
+				if (result == null) result = caseScheduleTask(scheduleBefore);
+				if (result == null) result = caseScheduleDelta(scheduleBefore);
 				if (result == null) result = caseDelta(scheduleBefore);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -149,7 +149,7 @@ public class SchedulerSwitch<T> extends Switch<T> {
 			case SchedulerPackage.UNSCHEDULE: {
 				Unschedule unschedule = (Unschedule)theEObject;
 				T result = caseUnschedule(unschedule);
-				if (result == null) result = caseMoveSchedule(unschedule);
+				if (result == null) result = caseScheduleDelta(unschedule);
 				if (result == null) result = caseDelta(unschedule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -219,32 +219,32 @@ public class SchedulerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Move Schedule</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Schedule Delta</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Move Schedule</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Schedule Delta</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMoveSchedule(MoveSchedule object) {
+	public T caseScheduleDelta(ScheduleDelta object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Move Task</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Schedule Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Move Task</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Schedule Task</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMoveTask(MoveTask object) {
+	public T caseScheduleTask(ScheduleTask object) {
 		return null;
 	}
 

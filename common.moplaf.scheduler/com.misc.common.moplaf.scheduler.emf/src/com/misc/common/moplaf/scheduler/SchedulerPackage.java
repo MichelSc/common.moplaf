@@ -208,22 +208,13 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER__NAME = LocalSearchPackage.STRATEGY__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Schedules</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER__SCHEDULES = LocalSearchPackage.STRATEGY_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER_FEATURE_COUNT = LocalSearchPackage.STRATEGY_FEATURE_COUNT + 1;
+	int SCHEDULER_FEATURE_COUNT = LocalSearchPackage.STRATEGY_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -833,14 +824,14 @@ public interface SchedulerPackage extends EPackage {
 	int TASK_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.MoveScheduleImpl <em>Move Schedule</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleDeltaImpl <em>Schedule Delta</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.scheduler.impl.MoveScheduleImpl
-	 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getMoveSchedule()
+	 * @see com.misc.common.moplaf.scheduler.impl.ScheduleDeltaImpl
+	 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getScheduleDelta()
 	 * @generated
 	 */
-	int MOVE_SCHEDULE = 4;
+	int SCHEDULE_DELTA = 4;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
@@ -849,7 +840,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__ACTION = LocalSearchPackage.DELTA__ACTION;
+	int SCHEDULE_DELTA__ACTION = LocalSearchPackage.DELTA__ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -858,7 +849,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__SCORE = LocalSearchPackage.DELTA__SCORE;
+	int SCHEDULE_DELTA__SCORE = LocalSearchPackage.DELTA__SCORE;
 
 	/**
 	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
@@ -867,7 +858,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__PREVIOUS_DELTA = LocalSearchPackage.DELTA__PREVIOUS_DELTA;
+	int SCHEDULE_DELTA__PREVIOUS_DELTA = LocalSearchPackage.DELTA__PREVIOUS_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
@@ -876,7 +867,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__NEXT_DELTAS = LocalSearchPackage.DELTA__NEXT_DELTAS;
+	int SCHEDULE_DELTA__NEXT_DELTAS = LocalSearchPackage.DELTA__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -885,7 +876,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__DESCRIPTION = LocalSearchPackage.DELTA__DESCRIPTION;
+	int SCHEDULE_DELTA__DESCRIPTION = LocalSearchPackage.DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -894,7 +885,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__VALID = LocalSearchPackage.DELTA__VALID;
+	int SCHEDULE_DELTA__VALID = LocalSearchPackage.DELTA__VALID;
 
 	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
@@ -903,7 +894,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__VALID_FEEDBACK = LocalSearchPackage.DELTA__VALID_FEEDBACK;
+	int SCHEDULE_DELTA__VALID_FEEDBACK = LocalSearchPackage.DELTA__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -912,7 +903,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__DO_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK;
+	int SCHEDULE_DELTA__DO_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -921,7 +912,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__UNDO_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK;
+	int SCHEDULE_DELTA__UNDO_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -930,7 +921,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__SELECT_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK;
+	int SCHEDULE_DELTA__SELECT_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -939,7 +930,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__CURRENT = LocalSearchPackage.DELTA__CURRENT;
+	int SCHEDULE_DELTA__CURRENT = LocalSearchPackage.DELTA__CURRENT;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -948,7 +939,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__SOLUTION = LocalSearchPackage.DELTA__SOLUTION;
+	int SCHEDULE_DELTA__SOLUTION = LocalSearchPackage.DELTA__SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Task To Schedule</b></em>' reference.
@@ -957,16 +948,16 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE__TASK_TO_SCHEDULE = LocalSearchPackage.DELTA_FEATURE_COUNT + 0;
+	int SCHEDULE_DELTA__TASK_TO_SCHEDULE = LocalSearchPackage.DELTA_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Move Schedule</em>' class.
+	 * The number of structural features of the '<em>Schedule Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE_FEATURE_COUNT = LocalSearchPackage.DELTA_FEATURE_COUNT + 1;
+	int SCHEDULE_DELTA_FEATURE_COUNT = LocalSearchPackage.DELTA_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -975,7 +966,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE___DO_ = LocalSearchPackage.DELTA___DO_;
+	int SCHEDULE_DELTA___DO_ = LocalSearchPackage.DELTA___DO_;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -984,26 +975,26 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE___UNDO = LocalSearchPackage.DELTA___UNDO;
+	int SCHEDULE_DELTA___UNDO = LocalSearchPackage.DELTA___UNDO;
 
 	/**
-	 * The number of operations of the '<em>Move Schedule</em>' class.
+	 * The number of operations of the '<em>Schedule Delta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_SCHEDULE_OPERATION_COUNT = LocalSearchPackage.DELTA_OPERATION_COUNT + 0;
+	int SCHEDULE_DELTA_OPERATION_COUNT = LocalSearchPackage.DELTA_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.MoveTaskImpl <em>Move Task</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleTaskImpl <em>Schedule Task</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.scheduler.impl.MoveTaskImpl
-	 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getMoveTask()
+	 * @see com.misc.common.moplaf.scheduler.impl.ScheduleTaskImpl
+	 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getScheduleTask()
 	 * @generated
 	 */
-	int MOVE_TASK = 5;
+	int SCHEDULE_TASK = 5;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
@@ -1012,7 +1003,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__ACTION = MOVE_SCHEDULE__ACTION;
+	int SCHEDULE_TASK__ACTION = SCHEDULE_DELTA__ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -1021,7 +1012,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__SCORE = MOVE_SCHEDULE__SCORE;
+	int SCHEDULE_TASK__SCORE = SCHEDULE_DELTA__SCORE;
 
 	/**
 	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
@@ -1030,7 +1021,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__PREVIOUS_DELTA = MOVE_SCHEDULE__PREVIOUS_DELTA;
+	int SCHEDULE_TASK__PREVIOUS_DELTA = SCHEDULE_DELTA__PREVIOUS_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
@@ -1039,7 +1030,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__NEXT_DELTAS = MOVE_SCHEDULE__NEXT_DELTAS;
+	int SCHEDULE_TASK__NEXT_DELTAS = SCHEDULE_DELTA__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1048,7 +1039,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__DESCRIPTION = MOVE_SCHEDULE__DESCRIPTION;
+	int SCHEDULE_TASK__DESCRIPTION = SCHEDULE_DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -1057,7 +1048,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__VALID = MOVE_SCHEDULE__VALID;
+	int SCHEDULE_TASK__VALID = SCHEDULE_DELTA__VALID;
 
 	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
@@ -1066,7 +1057,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__VALID_FEEDBACK = MOVE_SCHEDULE__VALID_FEEDBACK;
+	int SCHEDULE_TASK__VALID_FEEDBACK = SCHEDULE_DELTA__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -1075,7 +1066,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__DO_ENABLED_FEEDBACK = MOVE_SCHEDULE__DO_ENABLED_FEEDBACK;
+	int SCHEDULE_TASK__DO_ENABLED_FEEDBACK = SCHEDULE_DELTA__DO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -1084,7 +1075,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__UNDO_ENABLED_FEEDBACK = MOVE_SCHEDULE__UNDO_ENABLED_FEEDBACK;
+	int SCHEDULE_TASK__UNDO_ENABLED_FEEDBACK = SCHEDULE_DELTA__UNDO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -1093,7 +1084,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__SELECT_ENABLED_FEEDBACK = MOVE_SCHEDULE__SELECT_ENABLED_FEEDBACK;
+	int SCHEDULE_TASK__SELECT_ENABLED_FEEDBACK = SCHEDULE_DELTA__SELECT_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1102,7 +1093,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__CURRENT = MOVE_SCHEDULE__CURRENT;
+	int SCHEDULE_TASK__CURRENT = SCHEDULE_DELTA__CURRENT;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -1111,7 +1102,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__SOLUTION = MOVE_SCHEDULE__SOLUTION;
+	int SCHEDULE_TASK__SOLUTION = SCHEDULE_DELTA__SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Task To Schedule</b></em>' reference.
@@ -1120,7 +1111,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__TASK_TO_SCHEDULE = MOVE_SCHEDULE__TASK_TO_SCHEDULE;
+	int SCHEDULE_TASK__TASK_TO_SCHEDULE = SCHEDULE_DELTA__TASK_TO_SCHEDULE;
 
 	/**
 	 * The feature id for the '<em><b>Insertion Point</b></em>' reference.
@@ -1129,7 +1120,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__INSERTION_POINT = MOVE_SCHEDULE_FEATURE_COUNT + 0;
+	int SCHEDULE_TASK__INSERTION_POINT = SCHEDULE_DELTA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' reference.
@@ -1138,16 +1129,16 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK__RESOURCE = MOVE_SCHEDULE_FEATURE_COUNT + 1;
+	int SCHEDULE_TASK__RESOURCE = SCHEDULE_DELTA_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Move Task</em>' class.
+	 * The number of structural features of the '<em>Schedule Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK_FEATURE_COUNT = MOVE_SCHEDULE_FEATURE_COUNT + 2;
+	int SCHEDULE_TASK_FEATURE_COUNT = SCHEDULE_DELTA_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -1156,7 +1147,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK___DO_ = MOVE_SCHEDULE___DO_;
+	int SCHEDULE_TASK___DO_ = SCHEDULE_DELTA___DO_;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -1165,16 +1156,16 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK___UNDO = MOVE_SCHEDULE___UNDO;
+	int SCHEDULE_TASK___UNDO = SCHEDULE_DELTA___UNDO;
 
 	/**
-	 * The number of operations of the '<em>Move Task</em>' class.
+	 * The number of operations of the '<em>Schedule Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_TASK_OPERATION_COUNT = MOVE_SCHEDULE_OPERATION_COUNT + 0;
+	int SCHEDULE_TASK_OPERATION_COUNT = SCHEDULE_DELTA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleAfterImpl <em>Schedule After</em>}' class.
@@ -1193,7 +1184,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__ACTION = MOVE_TASK__ACTION;
+	int SCHEDULE_AFTER__ACTION = SCHEDULE_TASK__ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -1202,7 +1193,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__SCORE = MOVE_TASK__SCORE;
+	int SCHEDULE_AFTER__SCORE = SCHEDULE_TASK__SCORE;
 
 	/**
 	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
@@ -1211,7 +1202,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__PREVIOUS_DELTA = MOVE_TASK__PREVIOUS_DELTA;
+	int SCHEDULE_AFTER__PREVIOUS_DELTA = SCHEDULE_TASK__PREVIOUS_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
@@ -1220,7 +1211,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__NEXT_DELTAS = MOVE_TASK__NEXT_DELTAS;
+	int SCHEDULE_AFTER__NEXT_DELTAS = SCHEDULE_TASK__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1229,7 +1220,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__DESCRIPTION = MOVE_TASK__DESCRIPTION;
+	int SCHEDULE_AFTER__DESCRIPTION = SCHEDULE_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -1238,7 +1229,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__VALID = MOVE_TASK__VALID;
+	int SCHEDULE_AFTER__VALID = SCHEDULE_TASK__VALID;
 
 	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
@@ -1247,7 +1238,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__VALID_FEEDBACK = MOVE_TASK__VALID_FEEDBACK;
+	int SCHEDULE_AFTER__VALID_FEEDBACK = SCHEDULE_TASK__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -1256,7 +1247,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__DO_ENABLED_FEEDBACK = MOVE_TASK__DO_ENABLED_FEEDBACK;
+	int SCHEDULE_AFTER__DO_ENABLED_FEEDBACK = SCHEDULE_TASK__DO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -1265,7 +1256,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__UNDO_ENABLED_FEEDBACK = MOVE_TASK__UNDO_ENABLED_FEEDBACK;
+	int SCHEDULE_AFTER__UNDO_ENABLED_FEEDBACK = SCHEDULE_TASK__UNDO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -1274,7 +1265,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__SELECT_ENABLED_FEEDBACK = MOVE_TASK__SELECT_ENABLED_FEEDBACK;
+	int SCHEDULE_AFTER__SELECT_ENABLED_FEEDBACK = SCHEDULE_TASK__SELECT_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1283,7 +1274,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__CURRENT = MOVE_TASK__CURRENT;
+	int SCHEDULE_AFTER__CURRENT = SCHEDULE_TASK__CURRENT;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -1292,7 +1283,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__SOLUTION = MOVE_TASK__SOLUTION;
+	int SCHEDULE_AFTER__SOLUTION = SCHEDULE_TASK__SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Task To Schedule</b></em>' reference.
@@ -1301,7 +1292,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__TASK_TO_SCHEDULE = MOVE_TASK__TASK_TO_SCHEDULE;
+	int SCHEDULE_AFTER__TASK_TO_SCHEDULE = SCHEDULE_TASK__TASK_TO_SCHEDULE;
 
 	/**
 	 * The feature id for the '<em><b>Insertion Point</b></em>' reference.
@@ -1310,7 +1301,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__INSERTION_POINT = MOVE_TASK__INSERTION_POINT;
+	int SCHEDULE_AFTER__INSERTION_POINT = SCHEDULE_TASK__INSERTION_POINT;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' reference.
@@ -1319,7 +1310,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER__RESOURCE = MOVE_TASK__RESOURCE;
+	int SCHEDULE_AFTER__RESOURCE = SCHEDULE_TASK__RESOURCE;
 
 	/**
 	 * The number of structural features of the '<em>Schedule After</em>' class.
@@ -1328,7 +1319,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER_FEATURE_COUNT = MOVE_TASK_FEATURE_COUNT + 0;
+	int SCHEDULE_AFTER_FEATURE_COUNT = SCHEDULE_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -1337,7 +1328,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER___DO_ = MOVE_TASK___DO_;
+	int SCHEDULE_AFTER___DO_ = SCHEDULE_TASK___DO_;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -1346,7 +1337,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER___UNDO = MOVE_TASK___UNDO;
+	int SCHEDULE_AFTER___UNDO = SCHEDULE_TASK___UNDO;
 
 	/**
 	 * The number of operations of the '<em>Schedule After</em>' class.
@@ -1355,7 +1346,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_AFTER_OPERATION_COUNT = MOVE_TASK_OPERATION_COUNT + 0;
+	int SCHEDULE_AFTER_OPERATION_COUNT = SCHEDULE_TASK_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleBeforeImpl <em>Schedule Before</em>}' class.
@@ -1374,7 +1365,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__ACTION = MOVE_TASK__ACTION;
+	int SCHEDULE_BEFORE__ACTION = SCHEDULE_TASK__ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -1383,7 +1374,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__SCORE = MOVE_TASK__SCORE;
+	int SCHEDULE_BEFORE__SCORE = SCHEDULE_TASK__SCORE;
 
 	/**
 	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
@@ -1392,7 +1383,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__PREVIOUS_DELTA = MOVE_TASK__PREVIOUS_DELTA;
+	int SCHEDULE_BEFORE__PREVIOUS_DELTA = SCHEDULE_TASK__PREVIOUS_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
@@ -1401,7 +1392,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__NEXT_DELTAS = MOVE_TASK__NEXT_DELTAS;
+	int SCHEDULE_BEFORE__NEXT_DELTAS = SCHEDULE_TASK__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1410,7 +1401,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__DESCRIPTION = MOVE_TASK__DESCRIPTION;
+	int SCHEDULE_BEFORE__DESCRIPTION = SCHEDULE_TASK__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -1419,7 +1410,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__VALID = MOVE_TASK__VALID;
+	int SCHEDULE_BEFORE__VALID = SCHEDULE_TASK__VALID;
 
 	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
@@ -1428,7 +1419,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__VALID_FEEDBACK = MOVE_TASK__VALID_FEEDBACK;
+	int SCHEDULE_BEFORE__VALID_FEEDBACK = SCHEDULE_TASK__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -1437,7 +1428,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__DO_ENABLED_FEEDBACK = MOVE_TASK__DO_ENABLED_FEEDBACK;
+	int SCHEDULE_BEFORE__DO_ENABLED_FEEDBACK = SCHEDULE_TASK__DO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -1446,7 +1437,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__UNDO_ENABLED_FEEDBACK = MOVE_TASK__UNDO_ENABLED_FEEDBACK;
+	int SCHEDULE_BEFORE__UNDO_ENABLED_FEEDBACK = SCHEDULE_TASK__UNDO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -1455,7 +1446,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__SELECT_ENABLED_FEEDBACK = MOVE_TASK__SELECT_ENABLED_FEEDBACK;
+	int SCHEDULE_BEFORE__SELECT_ENABLED_FEEDBACK = SCHEDULE_TASK__SELECT_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1464,7 +1455,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__CURRENT = MOVE_TASK__CURRENT;
+	int SCHEDULE_BEFORE__CURRENT = SCHEDULE_TASK__CURRENT;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -1473,7 +1464,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__SOLUTION = MOVE_TASK__SOLUTION;
+	int SCHEDULE_BEFORE__SOLUTION = SCHEDULE_TASK__SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Task To Schedule</b></em>' reference.
@@ -1482,7 +1473,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__TASK_TO_SCHEDULE = MOVE_TASK__TASK_TO_SCHEDULE;
+	int SCHEDULE_BEFORE__TASK_TO_SCHEDULE = SCHEDULE_TASK__TASK_TO_SCHEDULE;
 
 	/**
 	 * The feature id for the '<em><b>Insertion Point</b></em>' reference.
@@ -1491,7 +1482,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__INSERTION_POINT = MOVE_TASK__INSERTION_POINT;
+	int SCHEDULE_BEFORE__INSERTION_POINT = SCHEDULE_TASK__INSERTION_POINT;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' reference.
@@ -1500,7 +1491,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE__RESOURCE = MOVE_TASK__RESOURCE;
+	int SCHEDULE_BEFORE__RESOURCE = SCHEDULE_TASK__RESOURCE;
 
 	/**
 	 * The number of structural features of the '<em>Schedule Before</em>' class.
@@ -1509,7 +1500,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE_FEATURE_COUNT = MOVE_TASK_FEATURE_COUNT + 0;
+	int SCHEDULE_BEFORE_FEATURE_COUNT = SCHEDULE_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -1518,7 +1509,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE___DO_ = MOVE_TASK___DO_;
+	int SCHEDULE_BEFORE___DO_ = SCHEDULE_TASK___DO_;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -1527,7 +1518,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE___UNDO = MOVE_TASK___UNDO;
+	int SCHEDULE_BEFORE___UNDO = SCHEDULE_TASK___UNDO;
 
 	/**
 	 * The number of operations of the '<em>Schedule Before</em>' class.
@@ -1536,7 +1527,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_BEFORE_OPERATION_COUNT = MOVE_TASK_OPERATION_COUNT + 0;
+	int SCHEDULE_BEFORE_OPERATION_COUNT = SCHEDULE_TASK_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.UnscheduleImpl <em>Unschedule</em>}' class.
@@ -1555,7 +1546,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__ACTION = MOVE_SCHEDULE__ACTION;
+	int UNSCHEDULE__ACTION = SCHEDULE_DELTA__ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Score</b></em>' containment reference.
@@ -1564,7 +1555,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__SCORE = MOVE_SCHEDULE__SCORE;
+	int UNSCHEDULE__SCORE = SCHEDULE_DELTA__SCORE;
 
 	/**
 	 * The feature id for the '<em><b>Previous Delta</b></em>' container reference.
@@ -1573,7 +1564,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__PREVIOUS_DELTA = MOVE_SCHEDULE__PREVIOUS_DELTA;
+	int UNSCHEDULE__PREVIOUS_DELTA = SCHEDULE_DELTA__PREVIOUS_DELTA;
 
 	/**
 	 * The feature id for the '<em><b>Next Deltas</b></em>' containment reference list.
@@ -1582,7 +1573,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__NEXT_DELTAS = MOVE_SCHEDULE__NEXT_DELTAS;
+	int UNSCHEDULE__NEXT_DELTAS = SCHEDULE_DELTA__NEXT_DELTAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1591,7 +1582,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__DESCRIPTION = MOVE_SCHEDULE__DESCRIPTION;
+	int UNSCHEDULE__DESCRIPTION = SCHEDULE_DELTA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Valid</b></em>' attribute.
@@ -1600,7 +1591,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__VALID = MOVE_SCHEDULE__VALID;
+	int UNSCHEDULE__VALID = SCHEDULE_DELTA__VALID;
 
 	/**
 	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
@@ -1609,7 +1600,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__VALID_FEEDBACK = MOVE_SCHEDULE__VALID_FEEDBACK;
+	int UNSCHEDULE__VALID_FEEDBACK = SCHEDULE_DELTA__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
@@ -1618,7 +1609,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__DO_ENABLED_FEEDBACK = MOVE_SCHEDULE__DO_ENABLED_FEEDBACK;
+	int UNSCHEDULE__DO_ENABLED_FEEDBACK = SCHEDULE_DELTA__DO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -1627,7 +1618,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__UNDO_ENABLED_FEEDBACK = MOVE_SCHEDULE__UNDO_ENABLED_FEEDBACK;
+	int UNSCHEDULE__UNDO_ENABLED_FEEDBACK = SCHEDULE_DELTA__UNDO_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -1636,7 +1627,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__SELECT_ENABLED_FEEDBACK = MOVE_SCHEDULE__SELECT_ENABLED_FEEDBACK;
+	int UNSCHEDULE__SELECT_ENABLED_FEEDBACK = SCHEDULE_DELTA__SELECT_ENABLED_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1645,7 +1636,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__CURRENT = MOVE_SCHEDULE__CURRENT;
+	int UNSCHEDULE__CURRENT = SCHEDULE_DELTA__CURRENT;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -1654,7 +1645,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__SOLUTION = MOVE_SCHEDULE__SOLUTION;
+	int UNSCHEDULE__SOLUTION = SCHEDULE_DELTA__SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Task To Schedule</b></em>' reference.
@@ -1663,7 +1654,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE__TASK_TO_SCHEDULE = MOVE_SCHEDULE__TASK_TO_SCHEDULE;
+	int UNSCHEDULE__TASK_TO_SCHEDULE = SCHEDULE_DELTA__TASK_TO_SCHEDULE;
 
 	/**
 	 * The number of structural features of the '<em>Unschedule</em>' class.
@@ -1672,7 +1663,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE_FEATURE_COUNT = MOVE_SCHEDULE_FEATURE_COUNT + 0;
+	int UNSCHEDULE_FEATURE_COUNT = SCHEDULE_DELTA_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -1681,7 +1672,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE___DO_ = MOVE_SCHEDULE___DO_;
+	int UNSCHEDULE___DO_ = SCHEDULE_DELTA___DO_;
 
 	/**
 	 * The operation id for the '<em>Undo</em>' operation.
@@ -1690,7 +1681,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE___UNDO = MOVE_SCHEDULE___UNDO;
+	int UNSCHEDULE___UNDO = SCHEDULE_DELTA___UNDO;
 
 	/**
 	 * The number of operations of the '<em>Unschedule</em>' class.
@@ -1699,7 +1690,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNSCHEDULE_OPERATION_COUNT = MOVE_SCHEDULE_OPERATION_COUNT + 0;
+	int UNSCHEDULE_OPERATION_COUNT = SCHEDULE_DELTA_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.Scheduler <em>Scheduler</em>}'.
@@ -1710,17 +1701,6 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getScheduler();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.scheduler.Scheduler#getSchedules <em>Schedules</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Schedules</em>'.
-	 * @see com.misc.common.moplaf.scheduler.Scheduler#getSchedules()
-	 * @see #getScheduler()
-	 * @generated
-	 */
-	EReference getScheduler_Schedules();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Scheduler#constructScore() <em>Construct Score</em>}' operation.
@@ -1991,57 +1971,57 @@ public interface SchedulerPackage extends EPackage {
 	EOperation getTask__Unschedule();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.MoveSchedule <em>Move Schedule</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.ScheduleDelta <em>Schedule Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Move Schedule</em>'.
-	 * @see com.misc.common.moplaf.scheduler.MoveSchedule
+	 * @return the meta object for class '<em>Schedule Delta</em>'.
+	 * @see com.misc.common.moplaf.scheduler.ScheduleDelta
 	 * @generated
 	 */
-	EClass getMoveSchedule();
+	EClass getScheduleDelta();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.MoveSchedule#getTaskToSchedule <em>Task To Schedule</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.ScheduleDelta#getTaskToSchedule <em>Task To Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Task To Schedule</em>'.
-	 * @see com.misc.common.moplaf.scheduler.MoveSchedule#getTaskToSchedule()
-	 * @see #getMoveSchedule()
+	 * @see com.misc.common.moplaf.scheduler.ScheduleDelta#getTaskToSchedule()
+	 * @see #getScheduleDelta()
 	 * @generated
 	 */
-	EReference getMoveSchedule_TaskToSchedule();
+	EReference getScheduleDelta_TaskToSchedule();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.MoveTask <em>Move Task</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.ScheduleTask <em>Schedule Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Move Task</em>'.
-	 * @see com.misc.common.moplaf.scheduler.MoveTask
+	 * @return the meta object for class '<em>Schedule Task</em>'.
+	 * @see com.misc.common.moplaf.scheduler.ScheduleTask
 	 * @generated
 	 */
-	EClass getMoveTask();
+	EClass getScheduleTask();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.MoveTask#getInsertionPoint <em>Insertion Point</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.ScheduleTask#getInsertionPoint <em>Insertion Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Insertion Point</em>'.
-	 * @see com.misc.common.moplaf.scheduler.MoveTask#getInsertionPoint()
-	 * @see #getMoveTask()
+	 * @see com.misc.common.moplaf.scheduler.ScheduleTask#getInsertionPoint()
+	 * @see #getScheduleTask()
 	 * @generated
 	 */
-	EReference getMoveTask_InsertionPoint();
+	EReference getScheduleTask_InsertionPoint();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.MoveTask#getResource <em>Resource</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.ScheduleTask#getResource <em>Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Resource</em>'.
-	 * @see com.misc.common.moplaf.scheduler.MoveTask#getResource()
-	 * @see #getMoveTask()
+	 * @see com.misc.common.moplaf.scheduler.ScheduleTask#getResource()
+	 * @see #getScheduleTask()
 	 * @generated
 	 */
-	EReference getMoveTask_Resource();
+	EReference getScheduleTask_Resource();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.ScheduleAfter <em>Schedule After</em>}'.
@@ -2105,14 +2085,6 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCHEDULER = eINSTANCE.getScheduler();
-
-		/**
-		 * The meta object literal for the '<em><b>Schedules</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHEDULER__SCHEDULES = eINSTANCE.getScheduler_Schedules();
 
 		/**
 		 * The meta object literal for the '<em><b>Construct Score</b></em>' operation.
@@ -2321,14 +2293,14 @@ public interface SchedulerPackage extends EPackage {
 		EOperation TASK___UNSCHEDULE = eINSTANCE.getTask__Unschedule();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.MoveScheduleImpl <em>Move Schedule</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleDeltaImpl <em>Schedule Delta</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.scheduler.impl.MoveScheduleImpl
-		 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getMoveSchedule()
+		 * @see com.misc.common.moplaf.scheduler.impl.ScheduleDeltaImpl
+		 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getScheduleDelta()
 		 * @generated
 		 */
-		EClass MOVE_SCHEDULE = eINSTANCE.getMoveSchedule();
+		EClass SCHEDULE_DELTA = eINSTANCE.getScheduleDelta();
 
 		/**
 		 * The meta object literal for the '<em><b>Task To Schedule</b></em>' reference feature.
@@ -2336,17 +2308,17 @@ public interface SchedulerPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MOVE_SCHEDULE__TASK_TO_SCHEDULE = eINSTANCE.getMoveSchedule_TaskToSchedule();
+		EReference SCHEDULE_DELTA__TASK_TO_SCHEDULE = eINSTANCE.getScheduleDelta_TaskToSchedule();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.MoveTaskImpl <em>Move Task</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleTaskImpl <em>Schedule Task</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.scheduler.impl.MoveTaskImpl
-		 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getMoveTask()
+		 * @see com.misc.common.moplaf.scheduler.impl.ScheduleTaskImpl
+		 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getScheduleTask()
 		 * @generated
 		 */
-		EClass MOVE_TASK = eINSTANCE.getMoveTask();
+		EClass SCHEDULE_TASK = eINSTANCE.getScheduleTask();
 
 		/**
 		 * The meta object literal for the '<em><b>Insertion Point</b></em>' reference feature.
@@ -2354,7 +2326,7 @@ public interface SchedulerPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MOVE_TASK__INSERTION_POINT = eINSTANCE.getMoveTask_InsertionPoint();
+		EReference SCHEDULE_TASK__INSERTION_POINT = eINSTANCE.getScheduleTask_InsertionPoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
@@ -2362,7 +2334,7 @@ public interface SchedulerPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MOVE_TASK__RESOURCE = eINSTANCE.getMoveTask_Resource();
+		EReference SCHEDULE_TASK__RESOURCE = eINSTANCE.getScheduleTask_Resource();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleAfterImpl <em>Schedule After</em>}' class.

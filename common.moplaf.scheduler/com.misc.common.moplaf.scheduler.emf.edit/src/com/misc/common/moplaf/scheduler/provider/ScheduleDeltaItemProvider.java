@@ -1,19 +1,16 @@
-/*******************************************************************************
- * Copyright (c) 2017, 2018 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.scheduler.provider;
 
-import com.misc.common.moplaf.localsearch.provider.StrategyItemProvider;
-import com.misc.common.moplaf.scheduler.Scheduler;
+
+import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+
+import com.misc.common.moplaf.localsearch.provider.DeltaItemProvider;
+
+import com.misc.common.moplaf.scheduler.ScheduleDelta;
+import com.misc.common.moplaf.scheduler.SchedulerFactory;
+import com.misc.common.moplaf.scheduler.SchedulerPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -21,23 +18,24 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.scheduler.Scheduler} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.scheduler.ScheduleDelta} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SchedulerItemProvider 
-	extends StrategyItemProvider {
+public class ScheduleDeltaItemProvider extends DeltaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchedulerItemProvider(AdapterFactory adapterFactory) {
+	public ScheduleDeltaItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -52,8 +50,31 @@ public class SchedulerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTaskToSchedulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Task To Schedule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTaskToSchedulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ScheduleDelta_TaskToSchedule_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ScheduleDelta_TaskToSchedule_feature", "_UI_ScheduleDelta_type"),
+				 SchedulerPackage.Literals.SCHEDULE_DELTA__TASK_TO_SCHEDULE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -64,10 +85,10 @@ public class SchedulerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Scheduler)object).getName();
+		String label = ((ScheduleDelta)object).getDescription();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Scheduler_type") :
-			getString("_UI_Scheduler_type") + " " + label;
+			getString("_UI_ScheduleDelta_type") :
+			getString("_UI_ScheduleDelta_type") + " " + label;
 	}
 	
 
@@ -94,6 +115,21 @@ public class SchedulerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LocalSearchPackage.Literals.DELTA__NEXT_DELTAS,
+				 SchedulerFactory.eINSTANCE.createScheduleAfter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LocalSearchPackage.Literals.DELTA__NEXT_DELTAS,
+				 SchedulerFactory.eINSTANCE.createScheduleBefore()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LocalSearchPackage.Literals.DELTA__NEXT_DELTAS,
+				 SchedulerFactory.eINSTANCE.createUnschedule()));
 	}
 
 	/**

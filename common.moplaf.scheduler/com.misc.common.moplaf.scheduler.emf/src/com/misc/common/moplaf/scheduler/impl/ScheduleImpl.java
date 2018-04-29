@@ -155,12 +155,14 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	 */
 	public Scheduler basicGetScheduler() {
 		EObject container = this.eContainer();
-		if ( container instanceof Scheduler ) {
-			return (Scheduler)container;
+		while ( container != null ) {
+			if ( container instanceof Scheduler ) {
+				return (Scheduler)container;
+			} 
+			container = container.eContainer();
 		}
-		String logMessage = String.format("The owner of the Scheduler %s must be a Scheduler and not %s",
-                this.getClass().getName(),
-                container == null ? "null" : container.getClass().getName());
+		String logMessage = String.format("The owner of the Schedule %s must be a Scheduler",
+                this.getClass().getName());
 		Plugin.INSTANCE.logError(logMessage);
 		return null;
 	}

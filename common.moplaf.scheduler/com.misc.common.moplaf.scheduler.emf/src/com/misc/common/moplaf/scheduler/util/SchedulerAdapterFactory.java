@@ -100,12 +100,12 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 				return createTaskAdapter();
 			}
 			@Override
-			public Adapter caseMoveSchedule(MoveSchedule object) {
-				return createMoveScheduleAdapter();
+			public Adapter caseScheduleDelta(ScheduleDelta object) {
+				return createScheduleDeltaAdapter();
 			}
 			@Override
-			public Adapter caseMoveTask(MoveTask object) {
-				return createMoveTaskAdapter();
+			public Adapter caseScheduleTask(ScheduleTask object) {
+				return createScheduleTaskAdapter();
 			}
 			@Override
 			public Adapter caseScheduleAfter(ScheduleAfter object) {
@@ -220,30 +220,30 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.scheduler.MoveSchedule <em>Move Schedule</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.scheduler.ScheduleDelta <em>Schedule Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.scheduler.MoveSchedule
+	 * @see com.misc.common.moplaf.scheduler.ScheduleDelta
 	 * @generated
 	 */
-	public Adapter createMoveScheduleAdapter() {
+	public Adapter createScheduleDeltaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.scheduler.MoveTask <em>Move Task</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.scheduler.ScheduleTask <em>Schedule Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.scheduler.MoveTask
+	 * @see com.misc.common.moplaf.scheduler.ScheduleTask
 	 * @generated
 	 */
-	public Adapter createMoveTaskAdapter() {
+	public Adapter createScheduleTaskAdapter() {
 		return null;
 	}
 

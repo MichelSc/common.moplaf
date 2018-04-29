@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnscheduleItemProvider extends MoveScheduleItemProvider {
+public class UnscheduleItemProvider extends ScheduleDeltaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

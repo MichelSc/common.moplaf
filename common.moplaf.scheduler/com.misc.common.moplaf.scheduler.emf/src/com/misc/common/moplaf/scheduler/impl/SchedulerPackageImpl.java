@@ -16,12 +16,12 @@ import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
-import com.misc.common.moplaf.scheduler.MoveSchedule;
-import com.misc.common.moplaf.scheduler.MoveTask;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.ScheduleAfter;
 import com.misc.common.moplaf.scheduler.ScheduleBefore;
+import com.misc.common.moplaf.scheduler.ScheduleDelta;
+import com.misc.common.moplaf.scheduler.ScheduleTask;
 import com.misc.common.moplaf.scheduler.Scheduler;
 import com.misc.common.moplaf.scheduler.SchedulerFactory;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
@@ -75,14 +75,14 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass moveScheduleEClass = null;
+	private EClass scheduleDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass moveTaskEClass = null;
+	private EClass scheduleTaskEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,15 +179,6 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 */
 	public EClass getScheduler() {
 		return schedulerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getScheduler_Schedules() {
-		return (EReference)schedulerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -420,8 +411,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMoveSchedule() {
-		return moveScheduleEClass;
+	public EClass getScheduleDelta() {
+		return scheduleDeltaEClass;
 	}
 
 	/**
@@ -429,8 +420,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMoveSchedule_TaskToSchedule() {
-		return (EReference)moveScheduleEClass.getEStructuralFeatures().get(0);
+	public EReference getScheduleDelta_TaskToSchedule() {
+		return (EReference)scheduleDeltaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -438,8 +429,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMoveTask() {
-		return moveTaskEClass;
+	public EClass getScheduleTask() {
+		return scheduleTaskEClass;
 	}
 
 	/**
@@ -447,8 +438,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMoveTask_InsertionPoint() {
-		return (EReference)moveTaskEClass.getEStructuralFeatures().get(0);
+	public EReference getScheduleTask_InsertionPoint() {
+		return (EReference)scheduleTaskEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -456,8 +447,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMoveTask_Resource() {
-		return (EReference)moveTaskEClass.getEStructuralFeatures().get(1);
+	public EReference getScheduleTask_Resource() {
+		return (EReference)scheduleTaskEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -516,7 +507,6 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 
 		// Create classes and their features
 		schedulerEClass = createEClass(SCHEDULER);
-		createEReference(schedulerEClass, SCHEDULER__SCHEDULES);
 		createEOperation(schedulerEClass, SCHEDULER___CONSTRUCT_SCORE);
 
 		scheduleEClass = createEClass(SCHEDULE);
@@ -546,12 +536,12 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		createEOperation(taskEClass, TASK___SCHEDULE__RESOURCE_TASK_TASK);
 		createEOperation(taskEClass, TASK___UNSCHEDULE);
 
-		moveScheduleEClass = createEClass(MOVE_SCHEDULE);
-		createEReference(moveScheduleEClass, MOVE_SCHEDULE__TASK_TO_SCHEDULE);
+		scheduleDeltaEClass = createEClass(SCHEDULE_DELTA);
+		createEReference(scheduleDeltaEClass, SCHEDULE_DELTA__TASK_TO_SCHEDULE);
 
-		moveTaskEClass = createEClass(MOVE_TASK);
-		createEReference(moveTaskEClass, MOVE_TASK__INSERTION_POINT);
-		createEReference(moveTaskEClass, MOVE_TASK__RESOURCE);
+		scheduleTaskEClass = createEClass(SCHEDULE_TASK);
+		createEReference(scheduleTaskEClass, SCHEDULE_TASK__INSERTION_POINT);
+		createEReference(scheduleTaskEClass, SCHEDULE_TASK__RESOURCE);
 
 		scheduleAfterEClass = createEClass(SCHEDULE_AFTER);
 
@@ -596,15 +586,14 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		scheduleEClass.getESuperTypes().add(theLocalSearchPackage.getSolution());
 		resourceEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctions());
 		taskEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctions());
-		moveScheduleEClass.getESuperTypes().add(theLocalSearchPackage.getDelta());
-		moveTaskEClass.getESuperTypes().add(this.getMoveSchedule());
-		scheduleAfterEClass.getESuperTypes().add(this.getMoveTask());
-		scheduleBeforeEClass.getESuperTypes().add(this.getMoveTask());
-		unscheduleEClass.getESuperTypes().add(this.getMoveSchedule());
+		scheduleDeltaEClass.getESuperTypes().add(theLocalSearchPackage.getDelta());
+		scheduleTaskEClass.getESuperTypes().add(this.getScheduleDelta());
+		scheduleAfterEClass.getESuperTypes().add(this.getScheduleTask());
+		scheduleBeforeEClass.getESuperTypes().add(this.getScheduleTask());
+		unscheduleEClass.getESuperTypes().add(this.getScheduleDelta());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(schedulerEClass, Scheduler.class, "Scheduler", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getScheduler_Schedules(), this.getSchedule(), null, "Schedules", null, 0, -1, Scheduler.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getScheduler__ConstructScore(), theLocalSearchPackage.getScore(), "constructScore", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -641,12 +630,12 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 
 		initEOperation(getTask__Unschedule(), null, "unschedule", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(moveScheduleEClass, MoveSchedule.class, "MoveSchedule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMoveSchedule_TaskToSchedule(), this.getTask(), null, "TaskToSchedule", null, 1, 1, MoveSchedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(scheduleDeltaEClass, ScheduleDelta.class, "ScheduleDelta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getScheduleDelta_TaskToSchedule(), this.getTask(), null, "TaskToSchedule", null, 1, 1, ScheduleDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(moveTaskEClass, MoveTask.class, "MoveTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMoveTask_InsertionPoint(), this.getTask(), null, "InsertionPoint", null, 1, 1, MoveTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMoveTask_Resource(), this.getResource(), null, "Resource", null, 1, 1, MoveTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(scheduleTaskEClass, ScheduleTask.class, "ScheduleTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getScheduleTask_InsertionPoint(), this.getTask(), null, "InsertionPoint", null, 1, 1, ScheduleTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScheduleTask_Resource(), this.getResource(), null, "Resource", null, 1, 1, ScheduleTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(scheduleAfterEClass, ScheduleAfter.class, "ScheduleAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

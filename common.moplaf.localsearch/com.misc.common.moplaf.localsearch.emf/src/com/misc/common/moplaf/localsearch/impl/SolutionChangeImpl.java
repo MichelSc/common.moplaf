@@ -250,8 +250,11 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 			if ( subchanges>0 ){
 				return this.getSubChanges().get(0).getStartSolution();
 			} else {
-				// no change, so this is the start solutions
-				return this.getStartSolution();
+				SolutionChange previous = this.getPreviousChange();
+				if ( previous!=null ) {
+					previous.getEndSolution();
+				}
+				return null;
 			}
 		}
 	}

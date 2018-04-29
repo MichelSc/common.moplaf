@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class UnscheduleImpl extends MoveScheduleImpl implements Unschedule {
+public class UnscheduleImpl extends ScheduleDeltaImpl implements Unschedule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

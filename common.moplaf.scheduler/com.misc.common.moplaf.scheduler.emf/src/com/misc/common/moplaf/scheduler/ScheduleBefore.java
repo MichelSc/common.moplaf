@@ -23,5 +23,5 @@ package com.misc.common.moplaf.scheduler;
  * @model
  * @generated
  */
-public interface ScheduleBefore extends MoveTask {
+public interface ScheduleBefore extends ScheduleTask {
 } // ScheduleBefore
