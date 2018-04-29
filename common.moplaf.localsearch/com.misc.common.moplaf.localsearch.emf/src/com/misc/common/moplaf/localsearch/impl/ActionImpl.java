@@ -237,14 +237,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public boolean isValid() {
-		return this.getValidFeedback()==null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getActionNr() {
