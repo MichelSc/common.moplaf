@@ -34,11 +34,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getPreviousDelta <em>Previous Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getNextDeltas <em>Next Deltas</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Delta#isValid <em>Valid</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Delta#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#isCurrent <em>Current</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Delta#isSolution <em>Solution</em>}</li>
  * </ul>
@@ -151,21 +150,6 @@ public interface Delta extends EObject {
 	String getDescription();
 
 	/**
-	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Valid</em>' attribute.
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getDelta_Valid()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	boolean isValid();
-
-	/**
 	 * Returns the value of the '<em><b>Valid Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -175,10 +159,10 @@ public interface Delta extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getDelta_ValidFeedback()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	String getValidFeedback();
+	EnabledFeedback getValidFeedback();
 
 	/**
 	 * Returns the value of the '<em><b>Do Enabled Feedback</b></em>' attribute.

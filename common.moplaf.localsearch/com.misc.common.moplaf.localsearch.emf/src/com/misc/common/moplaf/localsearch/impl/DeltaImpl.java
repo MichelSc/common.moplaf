@@ -45,11 +45,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getPreviousDelta <em>Previous Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getNextDeltas <em>Next Deltas</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#isValid <em>Valid</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getDoEnabledFeedback <em>Do Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getUndoEnabledFeedback <em>Undo Enabled Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getSelectEnabledFeedback <em>Select Enabled Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#getValidFeedback <em>Valid Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#isCurrent <em>Current</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl#isSolution <em>Solution</em>}</li>
  * </ul>
@@ -92,26 +91,6 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean VALID_EDEFAULT = false;
-
-	/**
-	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidFeedback()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VALID_FEEDBACK_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #getDoEnabledFeedback() <em>Do Enabled Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,6 +119,17 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected static final EnabledFeedback SELECT_ENABLED_FEEDBACK_EDEFAULT = null;
+
+
+	/**
+	 * The default value of the '{@link #getValidFeedback() <em>Valid Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback VALID_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isCurrent() <em>Current</em>}' attribute.
@@ -336,27 +326,10 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean isValid() {
-		boolean valid = this.getValidFeedback()==null;
-		return valid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public String getValidFeedback() {
-		// by default valid
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public EnabledFeedback getDoEnabledFeedback() {
-		if ( !this.isValid()) {
-			return new EnabledFeedback(false, this.getValidFeedback());
+		EnabledFeedback validFeedback = this.getValidFeedback();
+		if ( !validFeedback.isEnabled() ) {
+			return validFeedback;
 		}
 		Delta previous = this.getPreviousDelta();
 		Action action = this.basicGetAction();
@@ -396,6 +369,14 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getSelectEnabledFeedback() {
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback getValidFeedback() {
 		return EnabledFeedback.NOFEEDBACK;
 	}
 
@@ -541,16 +522,14 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 				return getNextDeltas();
 			case LocalSearchPackage.DELTA__DESCRIPTION:
 				return getDescription();
-			case LocalSearchPackage.DELTA__VALID:
-				return isValid();
-			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
-				return getValidFeedback();
 			case LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK:
 				return getDoEnabledFeedback();
 			case LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK:
 				return getUndoEnabledFeedback();
 			case LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK:
 				return getSelectEnabledFeedback();
+			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
+				return getValidFeedback();
 			case LocalSearchPackage.DELTA__CURRENT:
 				return isCurrent();
 			case LocalSearchPackage.DELTA__SOLUTION:
@@ -627,16 +606,14 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 				return nextDeltas != null && !nextDeltas.isEmpty();
 			case LocalSearchPackage.DELTA__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case LocalSearchPackage.DELTA__VALID:
-				return isValid() != VALID_EDEFAULT;
-			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
-				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK:
 				return DO_ENABLED_FEEDBACK_EDEFAULT == null ? getDoEnabledFeedback() != null : !DO_ENABLED_FEEDBACK_EDEFAULT.equals(getDoEnabledFeedback());
 			case LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK:
 				return UNDO_ENABLED_FEEDBACK_EDEFAULT == null ? getUndoEnabledFeedback() != null : !UNDO_ENABLED_FEEDBACK_EDEFAULT.equals(getUndoEnabledFeedback());
 			case LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK:
 				return SELECT_ENABLED_FEEDBACK_EDEFAULT == null ? getSelectEnabledFeedback() != null : !SELECT_ENABLED_FEEDBACK_EDEFAULT.equals(getSelectEnabledFeedback());
+			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
+				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
 			case LocalSearchPackage.DELTA__CURRENT:
 				return isCurrent() != CURRENT_EDEFAULT;
 			case LocalSearchPackage.DELTA__SOLUTION:

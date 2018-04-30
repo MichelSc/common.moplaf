@@ -879,24 +879,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE_DELTA__DESCRIPTION = LocalSearchPackage.DELTA__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_DELTA__VALID = LocalSearchPackage.DELTA__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_DELTA__VALID_FEEDBACK = LocalSearchPackage.DELTA__VALID_FEEDBACK;
-
-	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -922,6 +904,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE_DELTA__SELECT_ENABLED_FEEDBACK = LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE_DELTA__VALID_FEEDBACK = LocalSearchPackage.DELTA__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1042,24 +1033,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE_TASK__DESCRIPTION = SCHEDULE_DELTA__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_TASK__VALID = SCHEDULE_DELTA__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_TASK__VALID_FEEDBACK = SCHEDULE_DELTA__VALID_FEEDBACK;
-
-	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1085,6 +1058,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE_TASK__SELECT_ENABLED_FEEDBACK = SCHEDULE_DELTA__SELECT_ENABLED_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE_TASK__VALID_FEEDBACK = SCHEDULE_DELTA__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1223,24 +1205,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE_AFTER__DESCRIPTION = SCHEDULE_TASK__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_AFTER__VALID = SCHEDULE_TASK__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_AFTER__VALID_FEEDBACK = SCHEDULE_TASK__VALID_FEEDBACK;
-
-	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1266,6 +1230,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE_AFTER__SELECT_ENABLED_FEEDBACK = SCHEDULE_TASK__SELECT_ENABLED_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE_AFTER__VALID_FEEDBACK = SCHEDULE_TASK__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1404,24 +1377,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE_BEFORE__DESCRIPTION = SCHEDULE_TASK__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_BEFORE__VALID = SCHEDULE_TASK__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE_BEFORE__VALID_FEEDBACK = SCHEDULE_TASK__VALID_FEEDBACK;
-
-	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1447,6 +1402,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE_BEFORE__SELECT_ENABLED_FEEDBACK = SCHEDULE_TASK__SELECT_ENABLED_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE_BEFORE__VALID_FEEDBACK = SCHEDULE_TASK__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -1585,24 +1549,6 @@ public interface SchedulerPackage extends EPackage {
 	int UNSCHEDULE__DESCRIPTION = SCHEDULE_DELTA__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNSCHEDULE__VALID = SCHEDULE_DELTA__VALID;
-
-	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNSCHEDULE__VALID_FEEDBACK = SCHEDULE_DELTA__VALID_FEEDBACK;
-
-	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1628,6 +1574,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNSCHEDULE__SELECT_ENABLED_FEEDBACK = SCHEDULE_DELTA__SELECT_ENABLED_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNSCHEDULE__VALID_FEEDBACK = SCHEDULE_DELTA__VALID_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.

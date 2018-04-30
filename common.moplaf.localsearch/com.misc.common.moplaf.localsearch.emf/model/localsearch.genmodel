@@ -25,12 +25,13 @@
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Action">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/StartDeltas"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentDelta"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Action"
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Action"
+          propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Action/CurrentDelta"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Action"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Description"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ValidFeedback"/>
-      <genFeatures createChild="false" propertyCategory="10 Action" ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ActionNr"/>
+      <genFeatures createChild="false" propertyCategory="20 Action" ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ActionNr"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference localsearch.ecore#//Action/Step"/>
       <genOperations ecoreOperation="localsearch.ecore#//Action/initialize"/>
@@ -45,18 +46,23 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Delta">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/Action"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/Action"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/Score"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/PreviousDelta"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Delta/NextDeltas"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Description"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Delta"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Description"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Valid"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/ValidFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/DoEnabledFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/UndoEnabledFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/SelectEnabledFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Current"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Solution"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/DoEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/UndoEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/SelectEnabledFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Delta"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Current"/>
+      <genFeatures createChild="false" propertyCategory="20 Delta" ecoreFeature="ecore:EAttribute localsearch.ecore#//Delta/Solution"/>
       <genOperations ecoreOperation="localsearch.ecore#//Delta/do"/>
       <genOperations ecoreOperation="localsearch.ecore#//Delta/undo"/>
     </genClasses>

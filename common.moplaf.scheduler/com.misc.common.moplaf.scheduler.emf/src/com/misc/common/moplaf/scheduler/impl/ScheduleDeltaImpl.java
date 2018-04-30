@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.scheduler.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.impl.DeltaImpl;
 
 import com.misc.common.moplaf.scheduler.ScheduleDelta;
@@ -159,13 +160,13 @@ public abstract class ScheduleDeltaImpl extends DeltaImpl implements ScheduleDel
 	 * 
 	 */
 	@Override
-	public String getValidFeedback() {
-		String feedback = super.getValidFeedback();
-		if ( feedback!=null) {
+	public EnabledFeedback getValidFeedback() {
+		EnabledFeedback feedback = super.getValidFeedback();
+		if ( !feedback.isEnabled() ) {
 			return feedback;
 		} else if ( this.getTaskToSchedule()==null) {
-			return "No task to schedule";
+			return new EnabledFeedback(false, "No task to schedule");
 		}
-		return null;
+		return EnabledFeedback.NOFEEDBACK;
 	}
 } //ScheduleDeltaImpl

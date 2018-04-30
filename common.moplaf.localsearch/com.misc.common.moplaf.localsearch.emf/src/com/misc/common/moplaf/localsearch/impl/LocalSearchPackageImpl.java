@@ -357,6 +357,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getAction__DoAction() {
+		return actionEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDelta() {
 		return deltaEClass;
 	}
@@ -411,34 +420,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDelta_Valid() {
-		return (EAttribute)deltaEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDelta_ValidFeedback() {
-		return (EAttribute)deltaEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelta_DoEnabledFeedback() {
-		return (EAttribute)deltaEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDelta_UndoEnabledFeedback() {
 		return (EAttribute)deltaEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -447,8 +429,26 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDelta_DoEnabledFeedback() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDelta_UndoEnabledFeedback() {
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getDelta_SelectEnabledFeedback() {
-		return (EAttribute)deltaEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -457,7 +457,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getDelta_Current() {
-		return (EAttribute)deltaEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -466,7 +466,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getDelta_Solution() {
-		return (EAttribute)deltaEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)deltaEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1012,6 +1012,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(actionEClass, ACTION___FINALIZE);
 		createEOperation(actionEClass, ACTION___SELECT__DELTA);
 		createEOperation(actionEClass, ACTION___DO_ACTION__PHASE_STEP);
+		createEOperation(actionEClass, ACTION___DO_ACTION);
 
 		deltaEClass = createEClass(DELTA);
 		createEReference(deltaEClass, DELTA__ACTION);
@@ -1019,11 +1020,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(deltaEClass, DELTA__PREVIOUS_DELTA);
 		createEReference(deltaEClass, DELTA__NEXT_DELTAS);
 		createEAttribute(deltaEClass, DELTA__DESCRIPTION);
-		createEAttribute(deltaEClass, DELTA__VALID);
-		createEAttribute(deltaEClass, DELTA__VALID_FEEDBACK);
 		createEAttribute(deltaEClass, DELTA__DO_ENABLED_FEEDBACK);
 		createEAttribute(deltaEClass, DELTA__UNDO_ENABLED_FEEDBACK);
 		createEAttribute(deltaEClass, DELTA__SELECT_ENABLED_FEEDBACK);
+		createEAttribute(deltaEClass, DELTA__VALID_FEEDBACK);
 		createEAttribute(deltaEClass, DELTA__CURRENT);
 		createEAttribute(deltaEClass, DELTA__SOLUTION);
 		createEOperation(deltaEClass, DELTA___DO_);
@@ -1161,17 +1161,18 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		addEParameter(op, this.getPhase(), "phase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getStep(), "step", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getAction__DoAction(), null, "doAction", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(deltaEClass, Delta.class, "Delta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDelta_Action(), this.getAction(), null, "Action", null, 1, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDelta_Score(), this.getScore(), null, "Score", null, 1, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelta_PreviousDelta(), this.getDelta(), this.getDelta_NextDeltas(), "PreviousDelta", null, 0, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelta_NextDeltas(), this.getDelta(), this.getDelta_PreviousDelta(), "NextDeltas", null, 0, -1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelta_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDelta_Valid(), ecorePackage.getEBoolean(), "Valid", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDelta_ValidFeedback(), ecorePackage.getEString(), "ValidFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelta_DoEnabledFeedback(), this.getEnabledFeedback(), "DoEnabledFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelta_UndoEnabledFeedback(), this.getEnabledFeedback(), "UndoEnabledFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelta_SelectEnabledFeedback(), this.getEnabledFeedback(), "SelectEnabledFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelta_ValidFeedback(), this.getEnabledFeedback(), "ValidFeedback", null, 0, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelta_Current(), ecorePackage.getEBoolean(), "Current", null, 1, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDelta_Solution(), ecorePackage.getEBoolean(), "Solution", null, 0, 1, Delta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

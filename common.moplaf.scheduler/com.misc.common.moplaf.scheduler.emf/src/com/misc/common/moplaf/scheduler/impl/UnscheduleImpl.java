@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.scheduler.impl;
 
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Task;
 import com.misc.common.moplaf.scheduler.Unschedule;
@@ -61,12 +62,12 @@ public class UnscheduleImpl extends ScheduleDeltaImpl implements Unschedule {
 	 * 
 	 */
 	@Override
-	public String getValidFeedback() {
-		String feedback = super.getValidFeedback();
-		if ( feedback!=null) {
+	public EnabledFeedback getValidFeedback() {
+		EnabledFeedback feedback = super.getValidFeedback();
+		if ( !feedback.isEnabled() ) {
 			return feedback;
 		} else if ( this.getTaskToSchedule().getScheduledResource()==null) {
-			return "Task not scheduled";
+			return new EnabledFeedback(false, "Task not scheduled");
 		}
 		return null;
 	}

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.scheduler.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.ScheduleTask;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
@@ -215,15 +216,15 @@ public abstract class ScheduleTaskImpl extends ScheduleDeltaImpl implements Sche
 	}
 	
 	@Override
-	public String getValidFeedback() {
-		String feedback = super.getValidFeedback();
+	public EnabledFeedback getValidFeedback() {
+		EnabledFeedback feedback = super.getValidFeedback();
 		if ( feedback!=null) {
 			return feedback;
 		} else if ( this.getInsertionPoint()==null && this.getResource()==null) {
-			return "No insertion point task and not Resource";
+			return new EnabledFeedback(false, "No insertion point task and not Resource");
 
 		} else if ( this.getTaskToSchedule()==this.getInsertionPoint()) {
-			return "Insertion point equal to task to schedule";
+			return new EnabledFeedback(false, "Insertion point equal to task to schedule");
 		}
 		return null;
 	}

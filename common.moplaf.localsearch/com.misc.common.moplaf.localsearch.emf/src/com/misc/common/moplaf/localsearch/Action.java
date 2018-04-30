@@ -220,4 +220,12 @@ public interface Action extends SolutionChange {
 	 */
 	void doAction(Phase phase, Step step);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void doAction();
+
 } // Action

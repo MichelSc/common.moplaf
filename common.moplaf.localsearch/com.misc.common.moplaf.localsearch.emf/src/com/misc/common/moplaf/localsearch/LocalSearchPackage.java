@@ -534,13 +534,22 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION___DO_ACTION__PHASE_STEP = SOLUTION_CHANGE_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Do Action</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___DO_ACTION = SOLUTION_CHANGE_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 5;
+	int ACTION_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl <em>Delta</em>}' class.
@@ -598,31 +607,13 @@ public interface LocalSearchPackage extends EPackage {
 	int DELTA__DESCRIPTION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELTA__VALID = 5;
-
-	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELTA__VALID_FEEDBACK = 6;
-
-	/**
 	 * The feature id for the '<em><b>Do Enabled Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA__DO_ENABLED_FEEDBACK = 7;
+	int DELTA__DO_ENABLED_FEEDBACK = 5;
 
 	/**
 	 * The feature id for the '<em><b>Undo Enabled Feedback</b></em>' attribute.
@@ -631,7 +622,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA__UNDO_ENABLED_FEEDBACK = 8;
+	int DELTA__UNDO_ENABLED_FEEDBACK = 6;
 
 	/**
 	 * The feature id for the '<em><b>Select Enabled Feedback</b></em>' attribute.
@@ -640,7 +631,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA__SELECT_ENABLED_FEEDBACK = 9;
+	int DELTA__SELECT_ENABLED_FEEDBACK = 7;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELTA__VALID_FEEDBACK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Current</b></em>' attribute.
@@ -649,7 +649,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA__CURRENT = 10;
+	int DELTA__CURRENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' attribute.
@@ -658,7 +658,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA__SOLUTION = 11;
+	int DELTA__SOLUTION = 10;
 
 	/**
 	 * The number of structural features of the '<em>Delta</em>' class.
@@ -667,7 +667,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA_FEATURE_COUNT = 12;
+	int DELTA_FEATURE_COUNT = 11;
 
 	/**
 	 * The operation id for the '<em>Do </em>' operation.
@@ -1633,6 +1633,16 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getAction__DoAction__Phase_Step();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#doAction() <em>Do Action</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Action</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Action#doAction()
+	 * @generated
+	 */
+	EOperation getAction__DoAction();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Delta <em>Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1696,17 +1706,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDelta_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#isValid <em>Valid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Valid</em>'.
-	 * @see com.misc.common.moplaf.localsearch.Delta#isValid()
-	 * @see #getDelta()
-	 * @generated
-	 */
-	EAttribute getDelta_Valid();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Delta#getValidFeedback <em>Valid Feedback</em>}'.
@@ -2541,6 +2540,14 @@ public interface LocalSearchPackage extends EPackage {
 		EOperation ACTION___DO_ACTION__PHASE_STEP = eINSTANCE.getAction__DoAction__Phase_Step();
 
 		/**
+		 * The meta object literal for the '<em><b>Do Action</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ACTION___DO_ACTION = eINSTANCE.getAction__DoAction();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl <em>Delta</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2589,14 +2596,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DELTA__DESCRIPTION = eINSTANCE.getDelta_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DELTA__VALID = eINSTANCE.getDelta_Valid();
 
 		/**
 		 * The meta object literal for the '<em><b>Valid Feedback</b></em>' attribute feature.

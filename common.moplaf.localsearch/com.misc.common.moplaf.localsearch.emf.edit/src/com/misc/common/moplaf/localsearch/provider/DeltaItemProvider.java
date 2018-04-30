@@ -68,39 +68,15 @@ public class DeltaItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addActionPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addValidPropertyDescriptor(object);
-			addValidFeedbackPropertyDescriptor(object);
 			addDoEnabledFeedbackPropertyDescriptor(object);
 			addUndoEnabledFeedbackPropertyDescriptor(object);
 			addSelectEnabledFeedbackPropertyDescriptor(object);
+			addValidFeedbackPropertyDescriptor(object);
 			addCurrentPropertyDescriptor(object);
 			addSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Action feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addActionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Delta_Action_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_Action_feature", "_UI_Delta_type"),
-				 LocalSearchPackage.Literals.DELTA__ACTION,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -121,29 +97,7 @@ public class DeltaItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Valid feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValidPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Delta_Valid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Delta_Valid_feature", "_UI_Delta_type"),
-				 LocalSearchPackage.Literals.DELTA__VALID,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20DeltaPropertyCategory"),
 				 null));
 	}
 
@@ -187,7 +141,7 @@ public class DeltaItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -209,7 +163,7 @@ public class DeltaItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -231,7 +185,7 @@ public class DeltaItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -253,7 +207,7 @@ public class DeltaItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20DeltaPropertyCategory"),
 				 null));
 	}
 
@@ -275,7 +229,7 @@ public class DeltaItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20DeltaPropertyCategory"),
 				 null));
 	}
 
@@ -348,11 +302,10 @@ public class DeltaItemProvider
 
 		switch (notification.getFeatureID(Delta.class)) {
 			case LocalSearchPackage.DELTA__DESCRIPTION:
-			case LocalSearchPackage.DELTA__VALID:
-			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
 			case LocalSearchPackage.DELTA__DO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.DELTA__UNDO_ENABLED_FEEDBACK:
 			case LocalSearchPackage.DELTA__SELECT_ENABLED_FEEDBACK:
+			case LocalSearchPackage.DELTA__VALID_FEEDBACK:
 			case LocalSearchPackage.DELTA__CURRENT:
 			case LocalSearchPackage.DELTA__SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

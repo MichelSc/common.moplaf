@@ -409,8 +409,28 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void doAction(Phase phase, Step step) {
-		Strategy strategy = phase.getStrategy();
 		Solution solution = step.getCurrentSolution();
+		this.setCurrentSolution(solution);
+		this.doActionHelper(phase, step);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void doAction() {
+		Step step = this.getStep();
+		Phase phase = step.getPhase();
+		this.doActionHelper(phase,  step);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	private void doActionHelper(Phase phase, Step step) {
+		Strategy strategy = phase.getStrategy();
+		Solution solution = this.getCurrentSolution();
 		boolean keep_action = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
 
 		// keep or not keep
@@ -420,7 +440,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		}
 
 		// do the action
-		this.setCurrentSolution(solution);
 		this.initialize();
 		this.run();
 		this.finalize();
@@ -632,6 +651,9 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 				return null;
 			case LocalSearchPackage.ACTION___DO_ACTION__PHASE_STEP:
 				doAction((Phase)arguments.get(0), (Step)arguments.get(1));
+				return null;
+			case LocalSearchPackage.ACTION___DO_ACTION:
+				doAction();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

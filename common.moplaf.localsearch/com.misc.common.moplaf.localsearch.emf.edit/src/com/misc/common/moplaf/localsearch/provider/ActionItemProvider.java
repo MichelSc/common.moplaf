@@ -93,7 +93,7 @@ public class ActionItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ActionPropertyCategory"),
 				 null));
 	}
 
@@ -115,7 +115,7 @@ public class ActionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10ActionPropertyCategory"),
+				 getString("_UI__20ActionPropertyCategory"),
 				 null));
 	}
 
@@ -137,7 +137,7 @@ public class ActionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10ActionPropertyCategory"),
+				 getString("_UI__20ActionPropertyCategory"),
 				 null));
 	}
 
@@ -361,9 +361,7 @@ public class ActionItemProvider
 
 		@Override
 		public void execute() {
-			Step step = this.action.getStep();
-			Phase phase = step.getPhase();
-			this.action.doAction(phase, step);
+			this.action.doAction();
 		}
 	} // class ActionDoCommand
 
