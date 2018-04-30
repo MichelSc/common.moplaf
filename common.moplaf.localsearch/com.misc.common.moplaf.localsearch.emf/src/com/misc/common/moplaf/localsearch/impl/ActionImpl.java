@@ -434,14 +434,12 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		}
 		
 		// keep or not keep
-		Solution next_solution = solution;
 		if ( keep_action) {
 			this.setActionNr(step.getActions().size());
 			step.getActions().add(this); // owning
-			next_solution = solution.clone();
-			this.setEndSolutionOwned(solution); // take ownership
+			Solution end_solution = solution.clone();
+			this.setEndSolutionOwned(end_solution); // take ownership
 		}
-		step.setCurrentSolution(next_solution);
 	}
 
 	/**
