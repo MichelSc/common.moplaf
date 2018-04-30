@@ -9,7 +9,6 @@
   <genPackages prefix="Scheduler" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="scheduler.ecore#/">
     <genClasses image="false" ecoreClass="scheduler.ecore#//Scheduler">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Scheduler/Schedules"/>
       <genOperations ecoreOperation="scheduler.ecore#//Scheduler/constructScore"/>
     </genClasses>
     <genClasses image="false" ecoreClass="scheduler.ecore#//Schedule">
@@ -51,15 +50,15 @@
       </genOperations>
       <genOperations ecoreOperation="scheduler.ecore#//Task/unschedule"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="scheduler.ecore#//MoveSchedule" labelFeature="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch/Delta/Description">
-      <genFeatures createChild="false" propertyCategory="20 Scheduler" propertySortChoices="true"
-          ecoreFeature="ecore:EReference scheduler.ecore#//MoveSchedule/TaskToSchedule"/>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//ScheduleDelta">
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Delta"
+          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleDelta/TaskToSchedule"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="scheduler.ecore#//MoveTask" labelFeature="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch/Delta/Description">
-      <genFeatures createChild="false" propertyCategory="20 Scheduler" propertySortChoices="true"
-          ecoreFeature="ecore:EReference scheduler.ecore#//MoveTask/InsertionPoint"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="20 Scheduler"
-          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//MoveTask/Resource"/>
+    <genClasses image="false" ecoreClass="scheduler.ecore#//ScheduleTask">
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Delta"
+          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleTask/InsertionPoint"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Delta"
+          propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//ScheduleTask/Resource"/>
     </genClasses>
     <genClasses image="false" ecoreClass="scheduler.ecore#//ScheduleAfter" labelFeature="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.genmodel#//localsearch/Delta/Description"/>
     <genClasses image="false" ecoreClass="scheduler.ecore#//ScheduleBefore"/>

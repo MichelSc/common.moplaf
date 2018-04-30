@@ -73,7 +73,7 @@ public class ScheduleDeltaItemProvider extends DeltaItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DeltaPropertyCategory"),
 				 null));
 	}
 

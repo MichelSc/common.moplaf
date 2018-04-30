@@ -67,7 +67,7 @@ public class ScheduleTaskItemProvider extends ScheduleDeltaItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DeltaPropertyCategory"),
 				 null));
 	}
 
@@ -89,7 +89,7 @@ public class ScheduleTaskItemProvider extends ScheduleDeltaItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DeltaPropertyCategory"),
 				 null));
 	}
 

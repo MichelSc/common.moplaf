@@ -20,8 +20,6 @@ import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.localsearch.Action;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
-import com.misc.common.moplaf.localsearch.Phase;
-import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
 
 import java.util.Collection;
