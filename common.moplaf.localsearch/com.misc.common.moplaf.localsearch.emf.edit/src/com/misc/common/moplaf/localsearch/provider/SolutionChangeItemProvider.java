@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
@@ -71,105 +72,12 @@ public class SolutionChangeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addStartSolutionOwnedPropertyDescriptor(object);
-			addEndSolutionOwnedPropertyDescriptor(object);
-			addCurrentSolutionPropertyDescriptor(object);
-			addStartSolutionPropertyDescriptor(object);
-			addEndSolutionPropertyDescriptor(object);
 			addPreviousChangePropertyDescriptor(object);
 			addLevelPropertyDescriptor(object);
 			addKeepSolutionsPropertyDescriptor(object);
 			addNewSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Start Solution Owned feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStartSolutionOwnedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_StartSolutionOwned_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_StartSolutionOwned_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION_OWNED,
-				 false,
-				 false,
-				 false,
-				 null,
-				 getString("_UI__10SolutionChangePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the End Solution Owned feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEndSolutionOwnedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_EndSolutionOwned_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_EndSolutionOwned_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION_OWNED,
-				 false,
-				 false,
-				 false,
-				 null,
-				 getString("_UI__10SolutionChangePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Start Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStartSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_StartSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_StartSolution_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION,
-				 false,
-				 false,
-				 false,
-				 null,
-				 getString("_UI__10SolutionChangePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the End Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEndSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_EndSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_EndSolution_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION,
-				 false,
-				 false,
-				 false,
-				 null,
-				 getString("_UI__10SolutionChangePropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -216,29 +124,6 @@ public class SolutionChangeItemProvider
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Current Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCurrentSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolutionChange_CurrentSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionChange_CurrentSolution_feature", "_UI_SolutionChange_type"),
-				 LocalSearchPackage.Literals.SOLUTION_CHANGE__CURRENT_SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10SolutionChangePropertyCategory"),
-				 null));
-	}
-
-	
 	/**
 	 * This adds a property descriptor for the Keep Solutions feature.
 	 * <!-- begin-user-doc -->
@@ -297,6 +182,7 @@ public class SolutionChangeItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION);
 			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION);
+			childrenFeatures.add(LocalSearchPackage.Literals.SOLUTION_CHANGE__CURRENT_SOLUTION);
 		}
 		return childrenFeatures;
 	}
@@ -342,12 +228,15 @@ public class SolutionChangeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolutionChange.class)) {
-			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION_OWNED:
-			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION_OWNED:
 			case LocalSearchPackage.SOLUTION_CHANGE__LEVEL:
 			case LocalSearchPackage.SOLUTION_CHANGE__KEEP_SOLUTIONS:
 			case LocalSearchPackage.SOLUTION_CHANGE__NEW_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case LocalSearchPackage.SOLUTION_CHANGE__START_SOLUTION:
+			case LocalSearchPackage.SOLUTION_CHANGE__END_SOLUTION:
+			case LocalSearchPackage.SOLUTION_CHANGE__CURRENT_SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -363,6 +252,45 @@ public class SolutionChangeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION,
+				 LocalSearchFactory.eINSTANCE.createSolutionRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION,
+				 LocalSearchFactory.eINSTANCE.createSolutionRef()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LocalSearchPackage.Literals.SOLUTION_CHANGE__CURRENT_SOLUTION,
+				 LocalSearchFactory.eINSTANCE.createSolutionRef()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == LocalSearchPackage.Literals.SOLUTION_CHANGE__START_SOLUTION ||
+			childFeature == LocalSearchPackage.Literals.SOLUTION_CHANGE__END_SOLUTION ||
+			childFeature == LocalSearchPackage.Literals.SOLUTION_CHANGE__CURRENT_SOLUTION;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

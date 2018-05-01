@@ -12,14 +12,17 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
+import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
+import com.misc.common.moplaf.localsearch.SolutionRef;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.impl.ObjectWithPropagatorFunctionsImpl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -28,7 +31,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,8 +45,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getScore <em>Score</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getSolutionNr <em>Solution Nr</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getStrategy <em>Strategy</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getStep <em>Step</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.SolutionImpl#getStrategy <em>Strategy</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,6 +100,16 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @ordered
 	 */
 	protected String step = STEP_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SolutionRef> references;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,8 +200,39 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * @generated
 	 */
 	public Strategy getStrategy() {
-		Strategy strategy = basicGetStrategy();
-		return strategy != null && strategy.eIsProxy() ? (Strategy)eResolveProxy((InternalEObject)strategy) : strategy;
+		if (eContainerFeatureID() != LocalSearchPackage.SOLUTION__STRATEGY) return null;
+		return (Strategy)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStrategy(Strategy newStrategy, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newStrategy, LocalSearchPackage.SOLUTION__STRATEGY, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStrategy(Strategy newStrategy) {
+		if (newStrategy != eInternalContainer() || (eContainerFeatureID() != LocalSearchPackage.SOLUTION__STRATEGY && newStrategy != null)) {
+			if (EcoreUtil.isAncestor(this, newStrategy))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newStrategy != null)
+				msgs = ((InternalEObject)newStrategy).eInverseAdd(this, LocalSearchPackage.STRATEGY__SOLUTIONS, Strategy.class, msgs);
+			msgs = basicSetStrategy(newStrategy, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LocalSearchPackage.SOLUTION__STRATEGY, newStrategy, newStrategy));
 	}
 
 	/**
@@ -226,12 +273,32 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public Solution clone() {
+	public EList<SolutionRef> getReferences() {
+		if (references == null) {
+			references = new EObjectWithInverseResolvingEList<SolutionRef>(SolutionRef.class, this, LocalSearchPackage.SOLUTION__REFERENCES, LocalSearchPackage.SOLUTION_REF__SOLUTION);
+		}
+		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public SolutionRef clone() {
+		Strategy strategy = this.getStrategy();
+
+		// clone the solution
 		Plugin.INSTANCE.logInfo("Solution clone: called");
 		Solution new_solution = this.cloneImpl();
+		strategy.getSolutions().add(new_solution); // owning
 		Plugin.INSTANCE.logInfo("Solution clone: done");
-		return new_solution;
+		
+		// create the SolutionRef
+		SolutionRef new_ref = new_solution.constructSolutionRef();
+
+		return new_ref;
 	}
 	
 	/**
@@ -258,6 +325,35 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public SolutionRef constructSolutionRef() {
+		SolutionRef new_ref = LocalSearchFactory.eINSTANCE.createSolutionRef();
+		new_ref.setSolution(this);
+		return new_ref;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case LocalSearchPackage.SOLUTION__REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetStrategy((Strategy)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -265,8 +361,26 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		switch (featureID) {
 			case LocalSearchPackage.SOLUTION__SCORE:
 				return basicSetScore(null, msgs);
+			case LocalSearchPackage.SOLUTION__REFERENCES:
+				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return basicSetStrategy(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return eInternalContainer().eInverseRemove(this, LocalSearchPackage.STRATEGY__SOLUTIONS, Strategy.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -281,11 +395,12 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				return getScore();
 			case LocalSearchPackage.SOLUTION__SOLUTION_NR:
 				return getSolutionNr();
-			case LocalSearchPackage.SOLUTION__STRATEGY:
-				if (resolve) return getStrategy();
-				return basicGetStrategy();
 			case LocalSearchPackage.SOLUTION__STEP:
 				return getStep();
+			case LocalSearchPackage.SOLUTION__REFERENCES:
+				return getReferences();
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return getStrategy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,6 +423,13 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__STEP:
 				setStep((String)newValue);
 				return;
+			case LocalSearchPackage.SOLUTION__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends SolutionRef>)newValue);
+				return;
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				setStrategy((Strategy)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -329,6 +451,12 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION__STEP:
 				setStep(STEP_EDEFAULT);
 				return;
+			case LocalSearchPackage.SOLUTION__REFERENCES:
+				getReferences().clear();
+				return;
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				setStrategy((Strategy)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -345,10 +473,12 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 				return score != null;
 			case LocalSearchPackage.SOLUTION__SOLUTION_NR:
 				return solutionNr != SOLUTION_NR_EDEFAULT;
-			case LocalSearchPackage.SOLUTION__STRATEGY:
-				return basicGetStrategy() != null;
 			case LocalSearchPackage.SOLUTION__STEP:
 				return STEP_EDEFAULT == null ? step != null : !STEP_EDEFAULT.equals(step);
+			case LocalSearchPackage.SOLUTION__REFERENCES:
+				return references != null && !references.isEmpty();
+			case LocalSearchPackage.SOLUTION__STRATEGY:
+				return getStrategy() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -366,6 +496,8 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION___REFRESH:
 				refresh();
 				return null;
+			case LocalSearchPackage.SOLUTION___CONSTRUCT_SOLUTION_REF:
+				return constructSolutionRef();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -83,6 +83,29 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.localsearch.SolutionRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolutionRefItemProvider solutionRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.localsearch.SolutionRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolutionRefAdapter() {
+		if (solutionRefItemProvider == null) {
+			solutionRefItemProvider = new SolutionRefItemProvider(this);
+		}
+
+		return solutionRefItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,6 +204,7 @@ public class LocalSearchItemProviderAdapterFactory extends LocalSearchAdapterFac
 	 * @generated
 	 */
 	public void dispose() {
+		if (solutionRefItemProvider != null) solutionRefItemProvider.dispose();
 	}
 
 }

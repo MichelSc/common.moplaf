@@ -3,48 +3,17 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="localsearch" nsURI="http://www.misc.com/common/moplaf/localsearch/model/0.1"
     nsPrefix="ls">
   <eClassifiers xsi:type="ecore:EClass" name="Solution" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
-    <eOperations name="clone" eType="#//Solution"/>
+    <eOperations name="clone" eType="#//SolutionRef"/>
     <eOperations name="refresh"/>
+    <eOperations name="constructSolutionRef" eType="#//SolutionRef"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Strategy" lowerBound="1"
-        eType="#//Strategy" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//SolutionChange">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An Action receives a Solution and modifies it in order to achieve some specific goal. For this, it considers a number of Moves, and retain the Move giving the best Solution.&#xA;&#xA;The specific logic of the Action is provided by the Action specialization, in the method createMovesImpl, that must create the Moves to be considered while executing the Action.&#xA;&#xA;The flow of an Action is thus 1) to receive a Solution in the reference CurrentSolution, 2) to create all the Moves to be considered, 3) to select the Move giving the best Score, 3) to leave the CurrentSolution as the solution corresponding to the best Move.&#xA;&#xA;Note that the system will select a Move, even if all of them result in worst Solution. If it is desired to consider the received solution as a candidate for the resulting Solution, it is then necessary to provides a Move doing nothing (a no-op Move)."/>
-    </eAnnotations>
-    <eOperations name="initialize">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Exectue all the moves and retain their scores&#xD;&#xA;"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="run">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Select one of the move, and aligne the solution to it"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="finalize"/>
-    <eOperations name="select">
-      <eParameters name="target_move" eType="#//Delta"/>
-    </eOperations>
-    <eOperations name="doAction">
-      <eParameters name="phase" eType="#//Phase"/>
-      <eParameters name="step" eType="#//Step"/>
-    </eOperations>
-    <eOperations name="doAction"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StartDeltas" upperBound="-1"
-        eType="#//Delta" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentDelta" eType="#//Delta"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="#//EnabledFeedback"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Step" lowerBound="1" eType="#//Step"
-        eOpposite="#//Step/Actions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="References" upperBound="-1"
+        eType="#//SolutionRef" eOpposite="#//SolutionRef/Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Strategy" lowerBound="1"
+        eType="#//Strategy" eOpposite="#//Strategy/Solutions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Delta" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -70,14 +39,14 @@
         eType="#//Delta" containment="true" eOpposite="#//Delta/PreviousDelta"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DoEnabledFeedback" eType="#//EnabledFeedback"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DoEnabledFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UndoEnabledFeedback" eType="#//EnabledFeedback"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UndoEnabledFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectEnabledFeedback"
-        eType="#//EnabledFeedback" changeable="false" volatile="true" transient="true"
-        derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="#//EnabledFeedback"
+        eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
@@ -112,14 +81,17 @@
     <eOperations name="prune">
       <eParameters name="chance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
+    <eOperations name="garbageCollect"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Phases" upperBound="-1"
         eType="#//Phase" containment="true" eOpposite="#//Phase/Strategy"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
-        eType="#//Solution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PoolSolutions" upperBound="-1"
+        eType="#//SolutionRef" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentSolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxNrSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="10"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solutions" upperBound="-1"
+        eType="#//Solution" containment="true" eOpposite="#//Solution/Strategy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Phase" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -146,7 +118,40 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectWorstChance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//SolutionChange">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An Action receives a Solution and modifies it in order to achieve some specific goal. For this, it considers a number of Moves, and retain the Move giving the best Solution.&#xA;&#xA;The specific logic of the Action is provided by the Action specialization, in the method createMovesImpl, that must create the Moves to be considered while executing the Action.&#xA;&#xA;The flow of an Action is thus 1) to receive a Solution in the reference CurrentSolution, 2) to create all the Moves to be considered, 3) to select the Move giving the best Score, 3) to leave the CurrentSolution as the solution corresponding to the best Move.&#xA;&#xA;Note that the system will select a Move, even if all of them result in worst Solution. If it is desired to consider the received solution as a candidate for the resulting Solution, it is then necessary to provides a Move doing nothing (a no-op Move)."/>
+    </eAnnotations>
+    <eOperations name="initialize">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Exectue all the moves and retain their scores&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="run">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Select one of the move, and aligne the solution to it"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="finalize"/>
+    <eOperations name="select">
+      <eParameters name="target_move" eType="#//Delta"/>
+    </eOperations>
+    <eOperations name="doAction">
+      <eParameters name="phase" eType="#//Phase"/>
+      <eParameters name="step" eType="#//Step"/>
+    </eOperations>
+    <eOperations name="doAction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartDeltas" upperBound="-1"
+        eType="#//Delta" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentDelta" eType="#//Delta"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Step" lowerBound="1" eType="#//Step"
+        eOpposite="#//Step/Actions"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Step" abstract="true" eSuperTypes="#//SolutionChange">
     <eOperations name="doStep">
       <eParameters name="phase" eType="#//Phase"/>
@@ -157,19 +162,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Phase" lowerBound="1" eType="#//Phase"
         eOpposite="#//Phase/Steps"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="#//EnabledFeedback"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionChange" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolutionOwned" eType="#//Solution"
+    <eOperations name="setCurrentSolution" eType="#//Solution"/>
+    <eOperations name="setStartSolution"/>
+    <eOperations name="setEndSolution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolution" eType="#//SolutionRef"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolutionOwned" eType="#//Solution"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolution" eType="#//SolutionRef"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//Solution"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolution" lowerBound="1"
-        eType="#//Solution" changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EndSolution" lowerBound="1"
-        eType="#//Solution" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentSolution" eType="#//SolutionRef"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousChange" eType="#//SolutionChange"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubChanges" upperBound="-1"
@@ -179,8 +184,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Level" eType="#//StrategyLevel"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeepSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeepSolutions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NewSolution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StrategyLevel">
@@ -188,5 +192,12 @@
     <eLiterals name="LevelPhase" value="1" literal="LevelPhase"/>
     <eLiterals name="LevelStep" value="2"/>
     <eLiterals name="LevelAction" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionRef">
+    <eOperations name="release"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
+        eType="#//Solution" eOpposite="#//Solution/References"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -36,10 +36,11 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getPhases <em>Phases</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getPoolSolutions <em>Pool Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy()
@@ -66,8 +67,25 @@ public interface Strategy extends Run {
 	EList<Phase> getPhases();
 
 	/**
+	 * Returns the value of the '<em><b>Pool Solutions</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.SolutionRef}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pool Solutions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pool Solutions</em>' containment reference list.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_PoolSolutions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SolutionRef> getPoolSolutions();
+
+	/**
 	 * Returns the value of the '<em><b>Solutions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.Solution}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Solutions</em>' containment reference list isn't clear,
@@ -76,7 +94,8 @@ public interface Strategy extends Run {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Solutions</em>' containment reference list.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStrategy_Solutions()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.localsearch.Solution#getStrategy
+	 * @model opposite="Strategy" containment="true"
 	 * @generated
 	 */
 	EList<Solution> getSolutions();
@@ -199,5 +218,13 @@ public interface Strategy extends Run {
 	 * @generated
 	 */
 	void prune(double chance);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void garbageCollect();
 
 } // Strategy

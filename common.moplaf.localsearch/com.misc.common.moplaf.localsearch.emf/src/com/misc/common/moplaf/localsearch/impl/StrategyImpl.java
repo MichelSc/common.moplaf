@@ -19,10 +19,12 @@ import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
+import com.misc.common.moplaf.localsearch.SolutionRef;
 import com.misc.common.moplaf.localsearch.Strategy;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Random;
 import org.eclipse.emf.common.notify.Notification;
@@ -47,10 +49,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getPhases <em>Phases</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getSolutions <em>Solutions</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getPoolSolutions <em>Pool Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getMaxNrSolutions <em>Max Nr Solutions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl#getSolutions <em>Solutions</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,14 +70,14 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	protected EList<Phase> phases;
 
 	/**
-	 * The cached value of the '{@link #getSolutions() <em>Solutions</em>}' containment reference list.
+	 * The cached value of the '{@link #getPoolSolutions() <em>Pool Solutions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSolutions()
+	 * @see #getPoolSolutions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Solution> solutions;
+	protected EList<SolutionRef> poolSolutions;
 
 	/**
 	 * The default value of the '{@link #getCurrentSolutionNr() <em>Current Solution Nr</em>}' attribute.
@@ -137,6 +140,16 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getSolutions() <em>Solutions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolutions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Solution> solutions;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -172,9 +185,21 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SolutionRef> getPoolSolutions() {
+		if (poolSolutions == null) {
+			poolSolutions = new EObjectContainmentEList<SolutionRef>(SolutionRef.class, this, LocalSearchPackage.STRATEGY__POOL_SOLUTIONS);
+		}
+		return poolSolutions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Solution> getSolutions() {
 		if (solutions == null) {
-			solutions = new EObjectContainmentEList<Solution>(Solution.class, this, LocalSearchPackage.STRATEGY__SOLUTIONS);
+			solutions = new EObjectContainmentWithInverseEList<Solution>(Solution.class, this, LocalSearchPackage.STRATEGY__SOLUTIONS, LocalSearchPackage.SOLUTION__STRATEGY);
 		}
 		return solutions;
 	}
@@ -269,8 +294,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- end-user-doc -->
 	 */
 	public void sortSolutions() {
-		EList<Solution> list = this.getSolutions();
-		ECollections.sort(list, (sol1, sol2)->sol1.getScore().isBetter(sol2.getScore())? -1 : +1);
+		EList<SolutionRef> list = this.getPoolSolutions();
+		ECollections.sort(list, (sol1, sol2)->sol1.getSolution().getScore().isBetter(sol2.getSolution().getScore())? -1 : +1);
 	}
 
 	/**
@@ -298,12 +323,26 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void garbageCollect() {
+		Iterator<Solution> iterator = this.getSolutions().iterator();
+		while ( iterator.hasNext() ) {
+			Solution solution = iterator.next();
+			if ( solution.getReferences().size()==0 ) {
+				iterator.remove();
+			}
+		}
+	}
+
 	private static Random random = new Random();
 	
 	private Solution select(double chanceFirst, boolean reverse) {
 		double threshold = random.nextDouble();
 		// traverse the solutions from first to last
-		EList<Solution> list_solutions = this.getSolutions();
+		EList<SolutionRef> list_solutions = this.getPoolSolutions();
 		int nof_solutions = list_solutions.size();
 //		String message = String.format("select, nofsolutions=%d, random=%f",
 //				                       nof_solutions,
@@ -314,9 +353,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				            : 1-Math.pow(1-chanceFirst, nof_solutions);
 		double cumulated_chance = 0.0d; // chance to select one of the previous solutions
 
-		ListIterator<Solution> iterator = list_solutions.listIterator(reverse ? nof_solutions : 0);
+		ListIterator<SolutionRef> iterator = list_solutions.listIterator(reverse ? nof_solutions : 0);
         while ( reverse ? iterator.hasPrevious() : iterator.hasNext()) {
-			Solution current_solution = reverse ? iterator.previous() : iterator.next();
+			SolutionRef current_solution = reverse ? iterator.previous() : iterator.next();
 			double current_chance = chanceFirst == 0.0d
 					              ? 1.0d / nof_solutions
 					              : (1-cumulated_chance)*chanceFirst;
@@ -330,7 +369,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 //					selected);
 //			Plugin.INSTANCE.log(message);
 			if ( cumulated_chance/total_chance>threshold) {
-				return current_solution;
+				return current_solution.getSolution();
 			} 
 		}
 		// assert should never come here
@@ -367,6 +406,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		switch (featureID) {
 			case LocalSearchPackage.STRATEGY__PHASES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPhases()).basicAdd(otherEnd, msgs);
+			case LocalSearchPackage.STRATEGY__SOLUTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSolutions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -381,6 +422,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		switch (featureID) {
 			case LocalSearchPackage.STRATEGY__PHASES:
 				return ((InternalEList<?>)getPhases()).basicRemove(otherEnd, msgs);
+			case LocalSearchPackage.STRATEGY__POOL_SOLUTIONS:
+				return ((InternalEList<?>)getPoolSolutions()).basicRemove(otherEnd, msgs);
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				return ((InternalEList<?>)getSolutions()).basicRemove(otherEnd, msgs);
 		}
@@ -397,14 +440,16 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		switch (featureID) {
 			case LocalSearchPackage.STRATEGY__PHASES:
 				return getPhases();
-			case LocalSearchPackage.STRATEGY__SOLUTIONS:
-				return getSolutions();
+			case LocalSearchPackage.STRATEGY__POOL_SOLUTIONS:
+				return getPoolSolutions();
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
 				return getCurrentSolutionNr();
 			case LocalSearchPackage.STRATEGY__MAX_NR_SOLUTIONS:
 				return getMaxNrSolutions();
 			case LocalSearchPackage.STRATEGY__NAME:
 				return getName();
+			case LocalSearchPackage.STRATEGY__SOLUTIONS:
+				return getSolutions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -422,9 +467,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				getPhases().clear();
 				getPhases().addAll((Collection<? extends Phase>)newValue);
 				return;
-			case LocalSearchPackage.STRATEGY__SOLUTIONS:
-				getSolutions().clear();
-				getSolutions().addAll((Collection<? extends Solution>)newValue);
+			case LocalSearchPackage.STRATEGY__POOL_SOLUTIONS:
+				getPoolSolutions().clear();
+				getPoolSolutions().addAll((Collection<? extends SolutionRef>)newValue);
 				return;
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
 				setCurrentSolutionNr((Integer)newValue);
@@ -434,6 +479,10 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return;
 			case LocalSearchPackage.STRATEGY__NAME:
 				setName((String)newValue);
+				return;
+			case LocalSearchPackage.STRATEGY__SOLUTIONS:
+				getSolutions().clear();
+				getSolutions().addAll((Collection<? extends Solution>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -450,8 +499,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			case LocalSearchPackage.STRATEGY__PHASES:
 				getPhases().clear();
 				return;
-			case LocalSearchPackage.STRATEGY__SOLUTIONS:
-				getSolutions().clear();
+			case LocalSearchPackage.STRATEGY__POOL_SOLUTIONS:
+				getPoolSolutions().clear();
 				return;
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
 				setCurrentSolutionNr(CURRENT_SOLUTION_NR_EDEFAULT);
@@ -461,6 +510,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return;
 			case LocalSearchPackage.STRATEGY__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case LocalSearchPackage.STRATEGY__SOLUTIONS:
+				getSolutions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -476,14 +528,16 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		switch (featureID) {
 			case LocalSearchPackage.STRATEGY__PHASES:
 				return phases != null && !phases.isEmpty();
-			case LocalSearchPackage.STRATEGY__SOLUTIONS:
-				return solutions != null && !solutions.isEmpty();
+			case LocalSearchPackage.STRATEGY__POOL_SOLUTIONS:
+				return poolSolutions != null && !poolSolutions.isEmpty();
 			case LocalSearchPackage.STRATEGY__CURRENT_SOLUTION_NR:
 				return currentSolutionNr != CURRENT_SOLUTION_NR_EDEFAULT;
 			case LocalSearchPackage.STRATEGY__MAX_NR_SOLUTIONS:
 				return maxNrSolutions != MAX_NR_SOLUTIONS_EDEFAULT;
 			case LocalSearchPackage.STRATEGY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case LocalSearchPackage.STRATEGY__SOLUTIONS:
+				return solutions != null && !solutions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -507,6 +561,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return makeNewSolutionNr();
 			case LocalSearchPackage.STRATEGY___PRUNE__DOUBLE:
 				prune((Double)arguments.get(0));
+				return null;
+			case LocalSearchPackage.STRATEGY___GARBAGE_COLLECT:
+				garbageCollect();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -13,8 +13,10 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.GarbageCollectCommand;
 import com.misc.common.moplaf.emf.edit.command.SortCommand;
 import com.misc.common.moplaf.job.provider.RunItemProvider;
+import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Strategy;
 
@@ -89,7 +91,7 @@ public class StrategyItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__24RunParamsPropertyCategory"),
 				 null));
 	}
 
@@ -111,7 +113,7 @@ public class StrategyItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__24RunParamsPropertyCategory"),
 				 null));
 	}
 
@@ -133,7 +135,7 @@ public class StrategyItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__20StrategyPropertyCategory"),
 				 null));
 	}
 
@@ -150,6 +152,7 @@ public class StrategyItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__PHASES);
+			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__POOL_SOLUTIONS);
 			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__SOLUTIONS);
 		}
 		return childrenFeatures;
@@ -211,6 +214,7 @@ public class StrategyItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STRATEGY__PHASES:
+			case LocalSearchPackage.STRATEGY__POOL_SOLUTIONS:
 			case LocalSearchPackage.STRATEGY__SOLUTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -228,6 +232,11 @@ public class StrategyItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LocalSearchPackage.Literals.STRATEGY__POOL_SOLUTIONS,
+				 LocalSearchFactory.eINSTANCE.createSolutionRef()));
 	}
 
 	/**
@@ -262,6 +271,25 @@ public class StrategyItemProvider
 
 	/**
 	 * 
+	 * @author michel
+	 *
+	 */
+	public class StrategyGarbageCollectCommand extends GarbageCollectCommand{
+		private Strategy strategy;
+		
+		public StrategyGarbageCollectCommand(Strategy aStrategy)	{
+			super();
+			this.strategy = aStrategy;
+		}
+
+		@Override
+		public void execute() {
+			this.strategy.garbageCollect();
+		}
+	} // class StrategyGarbageCollectCommand
+
+	/**
+	 * 
 	 */
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
@@ -269,6 +297,8 @@ public class StrategyItemProvider
 			CommandParameter commandParameter) {
 		if ( commandClass == SortCommand.class){
 			return new StrategySortCommand((Strategy) object); 
+		} else if ( commandClass == GarbageCollectCommand.class){
+			return new StrategyGarbageCollectCommand((Strategy) object); 
 		} 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand

@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.localsearch;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,8 +26,9 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getScore <em>Score</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getSolutionNr <em>Solution Nr</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getStep <em>Step</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getReferences <em>References</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution()
@@ -87,19 +89,32 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	void setSolutionNr(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Strategy</b></em>' reference.
+	 * Returns the value of the '<em><b>Strategy</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Strategy</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Strategy</em>' reference.
+	 * @return the value of the '<em>Strategy</em>' container reference.
+	 * @see #setStrategy(Strategy)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution_Strategy()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getSolutions
+	 * @model opposite="Solutions" required="true" transient="false"
 	 * @generated
 	 */
 	Strategy getStrategy();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Strategy</em>' container reference.
+	 * @see #getStrategy()
+	 * @generated
+	 */
+	void setStrategy(Strategy value);
 
 	/**
 	 * Returns the value of the '<em><b>Step</b></em>' attribute.
@@ -128,12 +143,30 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	void setStep(String value);
 
 	/**
+	 * Returns the value of the '<em><b>References</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.localsearch.SolutionRef}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.localsearch.SolutionRef#getSolution <em>Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>References</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>References</em>' reference list.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolution_References()
+	 * @see com.misc.common.moplaf.localsearch.SolutionRef#getSolution
+	 * @model opposite="Solution"
+	 * @generated
+	 */
+	EList<SolutionRef> getReferences();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	Solution clone();
+	SolutionRef clone();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,5 +175,13 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	 * @generated
 	 */
 	void refresh();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SolutionRef constructSolutionRef();
 
 } // Solution

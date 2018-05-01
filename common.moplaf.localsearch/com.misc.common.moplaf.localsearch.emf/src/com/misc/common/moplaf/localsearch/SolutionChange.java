@@ -25,11 +25,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getStartSolutionOwned <em>Start Solution Owned</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolutionOwned <em>End Solution Owned</em>}</li>
- *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution <em>Current Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getStartSolution <em>Start Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolution <em>End Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution <em>Current Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getPreviousChange <em>Previous Change</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getSubChanges <em>Sub Changes</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.SolutionChange#getSuperChange <em>Super Change</em>}</li>
@@ -44,86 +42,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SolutionChange extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Start Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Start Solution Owned</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Start Solution Owned</em>' containment reference.
-	 * @see #setStartSolutionOwned(Solution)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange_StartSolutionOwned()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Solution getStartSolutionOwned();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.SolutionChange#getStartSolutionOwned <em>Start Solution Owned</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Start Solution Owned</em>' containment reference.
-	 * @see #getStartSolutionOwned()
-	 * @generated
-	 */
-	void setStartSolutionOwned(Solution value);
-
-	/**
-	 * Returns the value of the '<em><b>End Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>End Solution Owned</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>End Solution Owned</em>' containment reference.
-	 * @see #setEndSolutionOwned(Solution)
-	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange_EndSolutionOwned()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Solution getEndSolutionOwned();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolutionOwned <em>End Solution Owned</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>End Solution Owned</em>' containment reference.
-	 * @see #getEndSolutionOwned()
-	 * @generated
-	 */
-	void setEndSolutionOwned(Solution value);
-
-	/**
-	 * Returns the value of the '<em><b>Start Solution</b></em>' reference.
+	 * Returns the value of the '<em><b>Start Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Start Solution</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Start Solution</em>' reference.
+	 * @return the value of the '<em>Start Solution</em>' containment reference.
+	 * @see #setStartSolution(SolutionRef)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange_StartSolution()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Solution getStartSolution();
+	SolutionRef getStartSolution();
 
 	/**
-	 * Returns the value of the '<em><b>End Solution</b></em>' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.SolutionChange#getStartSolution <em>Start Solution</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Solution</em>' containment reference.
+	 * @see #getStartSolution()
+	 * @generated
+	 */
+	void setStartSolution(SolutionRef value);
+
+	/**
+	 * Returns the value of the '<em><b>End Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>End Solution</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>End Solution</em>' reference.
+	 * @return the value of the '<em>End Solution</em>' containment reference.
+	 * @see #setEndSolution(SolutionRef)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange_EndSolution()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Solution getEndSolution();
+	SolutionRef getEndSolution();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolution <em>End Solution</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>End Solution</em>' containment reference.
+	 * @see #getEndSolution()
+	 * @generated
+	 */
+	void setEndSolution(SolutionRef value);
 
 	/**
 	 * Returns the value of the '<em><b>Previous Change</b></em>' reference.
@@ -174,30 +142,30 @@ public interface SolutionChange extends EObject {
 	EList<SolutionChange> getSubChanges();
 
 	/**
-	 * Returns the value of the '<em><b>Current Solution</b></em>' reference.
+	 * Returns the value of the '<em><b>Current Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Current Solution</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Solution</em>' reference.
-	 * @see #setCurrentSolution(Solution)
+	 * @return the value of the '<em>Current Solution</em>' containment reference.
+	 * @see #setCurrentSolution(SolutionRef)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange_CurrentSolution()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Solution getCurrentSolution();
+	SolutionRef getCurrentSolution();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution <em>Current Solution</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution <em>Current Solution</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Solution</em>' reference.
+	 * @param value the new value of the '<em>Current Solution</em>' containment reference.
 	 * @see #getCurrentSolution()
 	 * @generated
 	 */
-	void setCurrentSolution(Solution value);
+	void setCurrentSolution(SolutionRef value);
 
 	/**
 	 * Returns the value of the '<em><b>Keep Solutions</b></em>' attribute.
@@ -208,11 +176,22 @@ public interface SolutionChange extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Keep Solutions</em>' attribute.
+	 * @see #setKeepSolutions(boolean)
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getSolutionChange_KeepSolutions()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model
 	 * @generated
 	 */
 	boolean isKeepSolutions();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.localsearch.SolutionChange#isKeepSolutions <em>Keep Solutions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Keep Solutions</em>' attribute.
+	 * @see #isKeepSolutions()
+	 * @generated
+	 */
+	void setKeepSolutions(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>New Solution</b></em>' attribute.
@@ -239,6 +218,30 @@ public interface SolutionChange extends EObject {
 	 * @generated
 	 */
 	void setNewSolution(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Solution setCurrentSolution();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setStartSolution();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setEndSolution();
 
 	/**
 	 * Returns the value of the '<em><b>Super Change</b></em>' reference.

@@ -172,13 +172,13 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER__PHASES = LocalSearchPackage.STRATEGY__PHASES;
 
 	/**
-	 * The feature id for the '<em><b>Solutions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Pool Solutions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER__SOLUTIONS = LocalSearchPackage.STRATEGY__SOLUTIONS;
+	int SCHEDULER__POOL_SOLUTIONS = LocalSearchPackage.STRATEGY__POOL_SOLUTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
@@ -206,6 +206,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULER__NAME = LocalSearchPackage.STRATEGY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Solutions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER__SOLUTIONS = LocalSearchPackage.STRATEGY__SOLUTIONS;
 
 	/**
 	 * The number of structural features of the '<em>Scheduler</em>' class.
@@ -371,6 +380,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___PRUNE__DOUBLE = LocalSearchPackage.STRATEGY___PRUNE__DOUBLE;
 
 	/**
+	 * The operation id for the '<em>Garbage Collect</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___GARBAGE_COLLECT = LocalSearchPackage.STRATEGY___GARBAGE_COLLECT;
+
+	/**
 	 * The operation id for the '<em>Construct Score</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -426,15 +444,6 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE__SOLUTION_NR = LocalSearchPackage.SOLUTION__SOLUTION_NR;
 
 	/**
-	 * The feature id for the '<em><b>Strategy</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE__STRATEGY = LocalSearchPackage.SOLUTION__STRATEGY;
-
-	/**
 	 * The feature id for the '<em><b>Step</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,6 +451,24 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE__STEP = LocalSearchPackage.SOLUTION__STEP;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__REFERENCES = LocalSearchPackage.SOLUTION__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Strategy</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__STRATEGY = LocalSearchPackage.SOLUTION__STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -532,6 +559,15 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE___REFRESH = LocalSearchPackage.SOLUTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Construct Solution Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE___CONSTRUCT_SOLUTION_REF = LocalSearchPackage.SOLUTION___CONSTRUCT_SOLUTION_REF;
 
 	/**
 	 * The operation id for the '<em>Initialize</em>' operation.

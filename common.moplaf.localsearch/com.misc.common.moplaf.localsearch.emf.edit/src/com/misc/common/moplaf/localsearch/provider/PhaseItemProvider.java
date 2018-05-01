@@ -102,7 +102,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__20PhasePropertyCategory"),
 				 null));
 	}
 
@@ -124,7 +124,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__24RunParamsPropertyCategory"),
 				 null));
 	}
 
@@ -146,7 +146,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__24RunParamsPropertyCategory"),
 				 null));
 	}
 
@@ -168,7 +168,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__24RunParamsPropertyCategory"),
 				 null));
 	}
 
@@ -190,7 +190,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20ExecutionPropertyCategory"),
+				 getString("_UI__30ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -212,7 +212,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20ExecutionPropertyCategory"),
+				 getString("_UI__30ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -234,7 +234,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__20ExecutionPropertyCategory"),
+				 getString("_UI__30ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -256,7 +256,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20ExecutionPropertyCategory"),
+				 getString("_UI__30ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -278,7 +278,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20ExecutionPropertyCategory"),
+				 getString("_UI__30ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -300,7 +300,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__22SearchParamsPropertyCategory"),
 				 null));
 	}
 
@@ -322,7 +322,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__10StrategyPropertyCategory"),
+				 getString("_UI__22SearchParamsPropertyCategory"),
 				 null));
 	}
 
@@ -505,7 +505,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 					return 40;
 				}
 				public Object getValue(Step step) {
-					return step.getEndSolution().getSolutionNr();
+					return step.getEndSolution().getSolution().getSolutionNr();
 				}
 			}, 
 			new Column() {
@@ -516,7 +516,7 @@ public class PhaseItemProvider extends ItemProviderAdapter implements IEditingDo
 					return 200;
 				}
 				public Object getValue(Step step) {
-					return step.getEndSolution().getScore().getDescription();
+					return step.getEndSolution().getSolution().getScore().getDescription();
 				}
 			}
 	};

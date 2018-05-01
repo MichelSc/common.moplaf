@@ -85,10 +85,6 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 				return createSolutionAdapter();
 			}
 			@Override
-			public Adapter caseAction(Action object) {
-				return createActionAdapter();
-			}
-			@Override
 			public Adapter caseDelta(Delta object) {
 				return createDeltaAdapter();
 			}
@@ -105,12 +101,20 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 				return createPhaseAdapter();
 			}
 			@Override
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
+			}
+			@Override
 			public Adapter caseStep(Step object) {
 				return createStepAdapter();
 			}
 			@Override
 			public Adapter caseSolutionChange(SolutionChange object) {
 				return createSolutionChangeAdapter();
+			}
+			@Override
+			public Adapter caseSolutionRef(SolutionRef object) {
+				return createSolutionRefAdapter();
 			}
 			@Override
 			public Adapter caseObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions object) {
@@ -253,6 +257,20 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolutionChangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.localsearch.SolutionRef <em>Solution Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.localsearch.SolutionRef
+	 * @generated
+	 */
+	public Adapter createSolutionRefAdapter() {
 		return null;
 	}
 

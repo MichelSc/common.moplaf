@@ -16,6 +16,7 @@ import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
+import com.misc.common.moplaf.localsearch.SolutionRef;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
@@ -637,33 +638,41 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				finished = true;
 				break;
 			}
-			Solution solution = solution_inpool.clone();
+			SolutionRef solution = solution_inpool.clone();
+			
+			boolean keep_step          = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
+			boolean keep_step_solution = phase.getKeepLevel().getValue()==StrategyLevel.LEVEL_STEP_VALUE; 
 
 			// create the step
 			Step step = this.constructStep();
+			if ( keep_step ) {
+				this.getSteps().add(step);
+			}
 			String step_name = String.format("%s:%04d", this.getName(), nr_iterations);
 			step.setStep(step_name);
 			step.setStepNr(nr_iterations);
+			step.setKeepSolutions(keep_step_solution);
 			this.setNrSteps(nr_iterations);
 			
 			// do the step
-			step.setCurrentSolution(solution);
+			step.setCurrentSolution(solution); // owning
 			step.doStep(phase);
-			solution = step.getCurrentSolution();
-			step.setCurrentSolution(null);
+			Solution end_solution = step.getCurrentSolution().getSolution();
+			step.getCurrentSolution().release();
 
 			// put solution in pool
 			if ( step.isNewSolution() ) {
 				// maintain the list of solutions, insert the solution after the next best
-				ListIterator<Solution> iterator = strategy.getSolutions().listIterator();
+				ListIterator<SolutionRef> iterator = strategy.getPoolSolutions().listIterator();
 				while ( iterator.hasNext()) {
-					Solution next_solution = iterator.next();
-					if ( solution.getScore().isBetter(next_solution.getScore())) {
+					SolutionRef next_solution = iterator.next();
+					if ( end_solution.getScore().isBetter(next_solution.getSolution().getScore())) {
 						iterator.previous();
 						break;
 					}
 				}
-				iterator.add(solution);// owning
+				SolutionRef new_ref = end_solution.constructSolutionRef();
+				iterator.add(new_ref);// owning
 			}
 			
 			// loop control
@@ -678,7 +687,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 					phase.getMaxSteps(),
 					elapsed_millis/1000.0f,
 					phase.getMaxSeconds(),
-					solution.getScore().getDescription());
+					end_solution.getScore().getDescription());
 			Plugin.INSTANCE.logInfo(message3);
 			strategy.setProgress(message3, ++iterations_total);
 

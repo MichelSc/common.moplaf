@@ -417,7 +417,7 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void do_() {
 		Action action = this.getAction();
-		Solution currentSolution = action.getCurrentSolution();
+		Solution currentSolution = action.getCurrentSolution().getSolution();
 		ChangeRecorder recorder = new ChangeRecorder(currentSolution); // begin recording
 
 		// procedural changes

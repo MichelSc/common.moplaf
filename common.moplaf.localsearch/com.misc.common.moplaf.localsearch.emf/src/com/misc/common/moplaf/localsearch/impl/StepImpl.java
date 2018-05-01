@@ -150,11 +150,6 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 		return StrategyLevel.LEVEL_STEP;
 	}
 	
-	@Override
-	public boolean isKeepSolutions() {
-		return this.getPhase().getKeepLevel().getValue()>=this.getLevel().getValue();
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,30 +278,19 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 	 * <!-- end-user-doc -->
 	 */
 	public void doStep(Phase phase) {
-		boolean keep_step = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
-
 		String message1 = String.format("Phase %s step %d started", phase.getName(), phase.getNrSteps());
 		Plugin.INSTANCE.logInfo(message1);
 
-
 		// keep or not keep
-		Solution solution = this.getCurrentSolution();
-		solution.setStep(this.getStep());
-		if ( keep_step ) {
-			phase.getSteps().add(this);
-			Solution start_solution_kept = solution.clone();
-			this.setStartSolutionOwned(start_solution_kept); // owning
-		}
+		Solution current = this.getCurrentSolution().getSolution();
+		current.setStep(this.getStep());
+		this.setStartSolution();
 		
 		// do the step
 		this.doStepImpl(phase);
 	
 		// keep or not keep
-		if ( keep_step ) {
-			// end solution
-			Solution end_solution_kept = solution.clone();
-			this.setEndSolutionOwned(end_solution_kept);
-		}
+		this.setEndSolution();
 		
 		String message2 = String.format("Phase %s step %d finished", phase.getName(), phase.getNrSteps());
 		Plugin.INSTANCE.logInfo(message2);

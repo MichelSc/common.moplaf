@@ -17,6 +17,7 @@ package com.misc.common.moplaf.localsearch.provider;
 import com.misc.common.moplaf.emf.edit.command.CloneCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Solution;
+import com.misc.common.moplaf.localsearch.SolutionRef;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
 
@@ -67,6 +68,7 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 
 			addSolutionNrPropertyDescriptor(object);
 			addStepPropertyDescriptor(object);
+			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +113,28 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10SolutionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solution_References_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_References_feature", "_UI_Solution_type"),
+				 LocalSearchPackage.Literals.SOLUTION__REFERENCES,
+				 false,
+				 false,
+				 true,
+				 null,
 				 getString("_UI__10SolutionPropertyCategory"),
 				 null));
 	}
@@ -231,9 +255,9 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 		public void execute(){
 			Solution this_solution = this.solution;
 			Strategy strategy = this_solution.getStrategy();
-			int this_solution_index = strategy.getSolutions().indexOf(this_solution);
-			Solution new_solution = this.solution.clone();
-			strategy.getSolutions().add(this_solution_index, new_solution); // insert next to the original
+//			int this_solution_index = strategy.getPoolSolutions().indexOf(this_solution);
+			SolutionRef new_ref = this.solution.clone();
+			strategy.getPoolSolutions().add(new_ref); // insert next to the original
 		}
 	} // class SolutionCloneCommand
 

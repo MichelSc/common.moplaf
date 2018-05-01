@@ -21,6 +21,7 @@ import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
+import com.misc.common.moplaf.localsearch.SolutionRef;
 import com.misc.common.moplaf.localsearch.Step;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
@@ -217,12 +218,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		return StrategyLevel.LEVEL_ACTION;
 	}
 
-	@Override
-	public boolean isKeepSolutions() {
-		return this.getStep().getPhase().getKeepLevel().getValue()>=this.getLevel().getValue();
-	}
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,7 +304,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getValidFeedback() {
-		Solution solution = this.getCurrentSolution();
+		SolutionRef solution = this.getCurrentSolution();
 		if ( solution==null) {
 			return new EnabledFeedback(false, "No current solution associated with the action");
 		}
@@ -406,16 +401,34 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This version of doAction retrieve the current solution from the parent Step
+	 * and initializes the {@link #isKeepSolutions()}
 	 * <!-- end-user-doc -->
 	 */
 	public void doAction(Phase phase, Step step) {
-		Solution solution = step.getCurrentSolution();
-		this.setCurrentSolution(solution);
+		// initializes the current solution
+		SolutionRef new_ref = step.getCurrentSolution().getSolution().constructSolutionRef();
+		this.setCurrentSolution(new_ref); // owning
+		
+		// initializes the keep or not keep
+		boolean keep = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
+		this.setKeepSolutions(keep);
+		if ( keep ) {
+			this.setActionNr(step.getActions().size());
+			step.getActions().add(this); // owning
+		}
+		
 		this.doActionHelper(phase, step);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This version of doAction assumes that the Action is 
+	 * <ul>
+	 * <li> is owned by a step, itself owned by a phase </li>
+	 * <li> the current solution is set </li>
+	 * <li> that {@link #isKeepSolutions()} is set </li>
+	 * </ul>
 	 * <!-- end-user-doc -->
 	 */
 	public void doAction() {
@@ -430,14 +443,10 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 */
 	private void doActionHelper(Phase phase, Step step) {
 		Strategy strategy = phase.getStrategy();
-		Solution solution = this.getCurrentSolution();
-		boolean keep_action = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
+		Solution solution = this.getCurrentSolution().getSolution();
 
 		// keep or not keep
-		if ( keep_action) {
-			Solution start_solution = solution.clone();
-			this.setStartSolutionOwned(start_solution);
-		}
+		this.setStartSolution();
 
 		// do the action
 		this.initialize();
@@ -445,7 +454,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		this.finalize();
 
 		// new solution
-		if ( this.getCurrentDelta()!=null) {
+		boolean new_solution = this.getCurrentDelta()!=null;
+		if ( new_solution ) {
 			int new_solution_nr = strategy.makeNewSolutionNr();
 			solution.setSolutionNr(new_solution_nr);
 			step.setNewSolution(true);
@@ -453,12 +463,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		}
 		
 		// keep or not keep
-		if ( keep_action) {
-			this.setActionNr(step.getActions().size());
-			step.getActions().add(this); // owning
-			Solution end_solution = solution.clone();
-			this.setEndSolutionOwned(end_solution); // take ownership
-		}
+		this.setEndSolution();
 	}
 
 	/**

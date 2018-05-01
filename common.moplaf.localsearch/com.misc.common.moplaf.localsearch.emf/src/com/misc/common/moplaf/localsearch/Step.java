@@ -144,7 +144,7 @@ public interface Step extends SolutionChange {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep_ValidFeedback()
-	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EnabledFeedback getValidFeedback();

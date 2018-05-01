@@ -16,7 +16,6 @@ import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -109,22 +108,31 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION__SOLUTION_NR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Strategy</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION__STRATEGY = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Step</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION__STEP = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 3;
+	int SOLUTION__STEP = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__REFERENCES = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Strategy</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__STRATEGY = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Solution</em>' class.
@@ -133,7 +141,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 4;
+	int SOLUTION_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -181,13 +189,22 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Construct Solution Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION___CONSTRUCT_SOLUTION_REF = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
+	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl <em>Solution Change</em>}' class.
@@ -200,123 +217,6 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION_CHANGE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Start Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__START_SOLUTION_OWNED = 0;
-
-	/**
-	 * The feature id for the '<em><b>End Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__END_SOLUTION_OWNED = 1;
-
-	/**
-	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__CURRENT_SOLUTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Start Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__START_SOLUTION = 3;
-
-	/**
-	 * The feature id for the '<em><b>End Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__END_SOLUTION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__PREVIOUS_CHANGE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Sub Changes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__SUB_CHANGES = 6;
-
-	/**
-	 * The feature id for the '<em><b>Super Change</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__SUPER_CHANGE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__LEVEL = 8;
-
-	/**
-	 * The feature id for the '<em><b>Keep Solutions</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__KEEP_SOLUTIONS = 9;
-
-	/**
-	 * The feature id for the '<em><b>New Solution</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE__NEW_SOLUTION = 10;
-
-	/**
-	 * The number of structural features of the '<em>Solution Change</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE_FEATURE_COUNT = 11;
-
-	/**
-	 * The number of operations of the '<em>Solution Change</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_CHANGE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,232 +224,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Start Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__START_SOLUTION_OWNED = SOLUTION_CHANGE__START_SOLUTION_OWNED;
-
-	/**
-	 * The feature id for the '<em><b>End Solution Owned</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__END_SOLUTION_OWNED = SOLUTION_CHANGE__END_SOLUTION_OWNED;
-
-	/**
-	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CURRENT_SOLUTION = SOLUTION_CHANGE__CURRENT_SOLUTION;
-
-	/**
-	 * The feature id for the '<em><b>Start Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__START_SOLUTION = SOLUTION_CHANGE__START_SOLUTION;
-
-	/**
-	 * The feature id for the '<em><b>End Solution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
-
-	/**
-	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__PREVIOUS_CHANGE = SOLUTION_CHANGE__PREVIOUS_CHANGE;
-
-	/**
-	 * The feature id for the '<em><b>Sub Changes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__SUB_CHANGES = SOLUTION_CHANGE__SUB_CHANGES;
-
-	/**
-	 * The feature id for the '<em><b>Super Change</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__SUPER_CHANGE = SOLUTION_CHANGE__SUPER_CHANGE;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__LEVEL = SOLUTION_CHANGE__LEVEL;
-
-	/**
-	 * The feature id for the '<em><b>Keep Solutions</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__KEEP_SOLUTIONS = SOLUTION_CHANGE__KEEP_SOLUTIONS;
-
-	/**
-	 * The feature id for the '<em><b>New Solution</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__NEW_SOLUTION = SOLUTION_CHANGE__NEW_SOLUTION;
-
-	/**
-	 * The feature id for the '<em><b>Start Deltas</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__START_DELTAS = SOLUTION_CHANGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Current Delta</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__CURRENT_DELTA = SOLUTION_CHANGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__DESCRIPTION = SOLUTION_CHANGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__VALID_FEEDBACK = SOLUTION_CHANGE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Action Nr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__ACTION_NR = SOLUTION_CHANGE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Step</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Initialize</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___INITIALIZE = SOLUTION_CHANGE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Run</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___RUN = SOLUTION_CHANGE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Finalize</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___FINALIZE = SOLUTION_CHANGE_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Select</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___SELECT__DELTA = SOLUTION_CHANGE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Do Action</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___DO_ACTION__PHASE_STEP = SOLUTION_CHANGE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Do Action</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___DO_ACTION = SOLUTION_CHANGE_OPERATION_COUNT + 5;
-
-	/**
-	 * The number of operations of the '<em>Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 6;
+	int ACTION = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.DeltaImpl <em>Delta</em>}' class.
@@ -559,7 +234,57 @@ public interface LocalSearchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getDelta()
 	 * @generated
 	 */
-	int DELTA = 2;
+	int DELTA = 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.localsearch.impl.ScoreImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getScore()
+	 * @generated
+	 */
+	int SCORE = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl <em>Strategy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.localsearch.impl.StrategyImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getStrategy()
+	 * @generated
+	 */
+	int STRATEGY = 3;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.localsearch.impl.PhaseImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getPhase()
+	 * @generated
+	 */
+	int PHASE = 4;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StepImpl <em>Step</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.localsearch.impl.StepImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getStep()
+	 * @generated
+	 */
+	int STEP = 6;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionRefImpl <em>Solution Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.localsearch.impl.SolutionRefImpl
+	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getSolutionRef()
+	 * @generated
+	 */
+	int SOLUTION_REF = 8;
 
 	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference.
@@ -697,16 +422,6 @@ public interface LocalSearchPackage extends EPackage {
 	int DELTA_OPERATION_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.ScoreImpl <em>Score</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.localsearch.impl.ScoreImpl
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getScore()
-	 * @generated
-	 */
-	int SCORE = 3;
-
-	/**
 	 * The feature id for the '<em><b>Feasible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -768,16 +483,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCORE_OPERATION_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StrategyImpl <em>Strategy</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.localsearch.impl.StrategyImpl
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getStrategy()
-	 * @generated
-	 */
-	int STRATEGY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -870,13 +575,13 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__PHASES = JobPackage.RUN_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Solutions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Pool Solutions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__SOLUTIONS = JobPackage.RUN_FEATURE_COUNT + 1;
+	int STRATEGY__POOL_SOLUTIONS = JobPackage.RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
@@ -906,13 +611,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY__NAME = JobPackage.RUN_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Solutions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__SOLUTIONS = JobPackage.RUN_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 5;
+	int STRATEGY_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -1068,23 +782,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___PRUNE__DOUBLE = JobPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Garbage Collect</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___GARBAGE_COLLECT = JobPackage.RUN_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.localsearch.impl.PhaseImpl
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getPhase()
-	 * @generated
-	 */
-	int PHASE = 5;
+	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1231,44 +944,367 @@ public interface LocalSearchPackage extends EPackage {
 	int PHASE_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.StepImpl <em>Step</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.localsearch.impl.StepImpl
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getStep()
-	 * @generated
-	 */
-	int STEP = 6;
-
-	/**
-	 * The feature id for the '<em><b>Start Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>Start Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP__START_SOLUTION_OWNED = SOLUTION_CHANGE__START_SOLUTION_OWNED;
+	int SOLUTION_CHANGE__START_SOLUTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>End Solution Owned</b></em>' containment reference.
+	 * The feature id for the '<em><b>End Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP__END_SOLUTION_OWNED = SOLUTION_CHANGE__END_SOLUTION_OWNED;
+	int SOLUTION_CHANGE__END_SOLUTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Current Solution</b></em>' reference.
+	 * The feature id for the '<em><b>Current Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP__CURRENT_SOLUTION = SOLUTION_CHANGE__CURRENT_SOLUTION;
+	int SOLUTION_CHANGE__CURRENT_SOLUTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Start Solution</b></em>' reference.
+	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__PREVIOUS_CHANGE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Sub Changes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__SUB_CHANGES = 4;
+
+	/**
+	 * The feature id for the '<em><b>Super Change</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__SUPER_CHANGE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__LEVEL = 6;
+
+	/**
+	 * The feature id for the '<em><b>Keep Solutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__KEEP_SOLUTIONS = 7;
+
+	/**
+	 * The feature id for the '<em><b>New Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE__NEW_SOLUTION = 8;
+
+	/**
+	 * The number of structural features of the '<em>Solution Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE_FEATURE_COUNT = 9;
+
+	/**
+	 * The operation id for the '<em>Set Current Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE___SET_CURRENT_SOLUTION = 0;
+
+	/**
+	 * The operation id for the '<em>Set Start Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE___SET_START_SOLUTION = 1;
+
+	/**
+	 * The operation id for the '<em>Set End Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE___SET_END_SOLUTION = 2;
+
+	/**
+	 * The number of operations of the '<em>Solution Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_CHANGE_OPERATION_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Start Solution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__START_SOLUTION = SOLUTION_CHANGE__START_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>End Solution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Current Solution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CURRENT_SOLUTION = SOLUTION_CHANGE__CURRENT_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__PREVIOUS_CHANGE = SOLUTION_CHANGE__PREVIOUS_CHANGE;
+
+	/**
+	 * The feature id for the '<em><b>Sub Changes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__SUB_CHANGES = SOLUTION_CHANGE__SUB_CHANGES;
+
+	/**
+	 * The feature id for the '<em><b>Super Change</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__SUPER_CHANGE = SOLUTION_CHANGE__SUPER_CHANGE;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__LEVEL = SOLUTION_CHANGE__LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>Keep Solutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__KEEP_SOLUTIONS = SOLUTION_CHANGE__KEEP_SOLUTIONS;
+
+	/**
+	 * The feature id for the '<em><b>New Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NEW_SOLUTION = SOLUTION_CHANGE__NEW_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Start Deltas</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__START_DELTAS = SOLUTION_CHANGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Current Delta</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CURRENT_DELTA = SOLUTION_CHANGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DESCRIPTION = SOLUTION_CHANGE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Valid Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__VALID_FEEDBACK = SOLUTION_CHANGE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Action Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ACTION_NR = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Step</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Set Current Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___SET_CURRENT_SOLUTION = SOLUTION_CHANGE___SET_CURRENT_SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Set Start Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___SET_START_SOLUTION = SOLUTION_CHANGE___SET_START_SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Set End Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___SET_END_SOLUTION = SOLUTION_CHANGE___SET_END_SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___INITIALIZE = SOLUTION_CHANGE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___RUN = SOLUTION_CHANGE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Finalize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___FINALIZE = SOLUTION_CHANGE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Select</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___SELECT__DELTA = SOLUTION_CHANGE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Do Action</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___DO_ACTION__PHASE_STEP = SOLUTION_CHANGE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Do Action</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION___DO_ACTION = SOLUTION_CHANGE_OPERATION_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Start Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1277,13 +1313,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP__START_SOLUTION = SOLUTION_CHANGE__START_SOLUTION;
 
 	/**
-	 * The feature id for the '<em><b>End Solution</b></em>' reference.
+	 * The feature id for the '<em><b>End Solution</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int STEP__END_SOLUTION = SOLUTION_CHANGE__END_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Current Solution</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP__CURRENT_SOLUTION = SOLUTION_CHANGE__CURRENT_SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Previous Change</b></em>' reference.
@@ -1394,6 +1439,33 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Set Current Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP___SET_CURRENT_SOLUTION = SOLUTION_CHANGE___SET_CURRENT_SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Set Start Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP___SET_START_SOLUTION = SOLUTION_CHANGE___SET_START_SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Set End Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STEP___SET_END_SOLUTION = SOLUTION_CHANGE___SET_END_SOLUTION;
+
+	/**
 	 * The operation id for the '<em>Do Step</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1412,6 +1484,51 @@ public interface LocalSearchPackage extends EPackage {
 	int STEP_OPERATION_COUNT = SOLUTION_CHANGE_OPERATION_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_REF__ROLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_REF__SOLUTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Solution Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_REF_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Release</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_REF___RELEASE = 0;
+
+	/**
+	 * The number of operations of the '<em>Solution Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_REF_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.StrategyLevel <em>Strategy Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1419,18 +1536,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getStrategyLevel()
 	 * @generated
 	 */
-	int STRATEGY_LEVEL = 8;
-
-	/**
-	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.common.EnabledFeedback
-	 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getEnabledFeedback()
-	 * @generated
-	 */
-	int ENABLED_FEEDBACK = 9;
-
+	int STRATEGY_LEVEL = 9;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Solution <em>Solution</em>}'.
@@ -1465,10 +1571,10 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getSolution_SolutionNr();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.localsearch.Solution#getStrategy <em>Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Strategy</em>'.
+	 * @return the meta object for the container reference '<em>Strategy</em>'.
 	 * @see com.misc.common.moplaf.localsearch.Solution#getStrategy()
 	 * @see #getSolution()
 	 * @generated
@@ -1485,6 +1591,17 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolution_Step();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.localsearch.Solution#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Solution#getReferences()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EReference getSolution_References();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#clone() <em>Clone</em>}' operation.
@@ -1505,6 +1622,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolution__Refresh();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#constructSolutionRef() <em>Construct Solution Ref</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Solution Ref</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Solution#constructSolutionRef()
+	 * @generated
+	 */
+	EOperation getSolution__ConstructSolutionRef();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Action <em>Action</em>}'.
@@ -1877,6 +2004,17 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getStrategy_Phases();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Strategy#getPoolSolutions <em>Pool Solutions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Pool Solutions</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#getPoolSolutions()
+	 * @see #getStrategy()
+	 * @generated
+	 */
+	EReference getStrategy_PoolSolutions();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.localsearch.Strategy#getSolutions <em>Solutions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1969,6 +2107,16 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getStrategy__Prune__double();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#garbageCollect() <em>Garbage Collect</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Garbage Collect</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#garbageCollect()
+	 * @generated
+	 */
+	EOperation getStrategy__GarbageCollect();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Phase <em>Phase</em>}'.
@@ -2219,32 +2367,10 @@ public interface LocalSearchPackage extends EPackage {
 	EClass getSolutionChange();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getStartSolutionOwned <em>Start Solution Owned</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getStartSolution <em>Start Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Start Solution Owned</em>'.
-	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getStartSolutionOwned()
-	 * @see #getSolutionChange()
-	 * @generated
-	 */
-	EReference getSolutionChange_StartSolutionOwned();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolutionOwned <em>End Solution Owned</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>End Solution Owned</em>'.
-	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getEndSolutionOwned()
-	 * @see #getSolutionChange()
-	 * @generated
-	 */
-	EReference getSolutionChange_EndSolutionOwned();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getStartSolution <em>Start Solution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start Solution</em>'.
+	 * @return the meta object for the containment reference '<em>Start Solution</em>'.
 	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getStartSolution()
 	 * @see #getSolutionChange()
 	 * @generated
@@ -2252,10 +2378,10 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolutionChange_StartSolution();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolution <em>End Solution</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getEndSolution <em>End Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>End Solution</em>'.
+	 * @return the meta object for the containment reference '<em>End Solution</em>'.
 	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getEndSolution()
 	 * @see #getSolutionChange()
 	 * @generated
@@ -2296,10 +2422,10 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolutionChange_SubChanges();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution <em>Current Solution</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution <em>Current Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Current Solution</em>'.
+	 * @return the meta object for the containment reference '<em>Current Solution</em>'.
 	 * @see com.misc.common.moplaf.localsearch.SolutionChange#getCurrentSolution()
 	 * @see #getSolutionChange()
 	 * @generated
@@ -2329,6 +2455,78 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getSolutionChange_NewSolution();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.SolutionChange#setCurrentSolution() <em>Set Current Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Current Solution</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#setCurrentSolution()
+	 * @generated
+	 */
+	EOperation getSolutionChange__SetCurrentSolution();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.SolutionChange#setStartSolution() <em>Set Start Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Start Solution</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#setStartSolution()
+	 * @generated
+	 */
+	EOperation getSolutionChange__SetStartSolution();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.SolutionChange#setEndSolution() <em>Set End Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set End Solution</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#setEndSolution()
+	 * @generated
+	 */
+	EOperation getSolutionChange__SetEndSolution();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.SolutionRef <em>Solution Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Solution Ref</em>'.
+	 * @see com.misc.common.moplaf.localsearch.SolutionRef
+	 * @generated
+	 */
+	EClass getSolutionRef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.SolutionRef#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Role</em>'.
+	 * @see com.misc.common.moplaf.localsearch.SolutionRef#getRole()
+	 * @see #getSolutionRef()
+	 * @generated
+	 */
+	EAttribute getSolutionRef_Role();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.SolutionRef#getSolution <em>Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Solution</em>'.
+	 * @see com.misc.common.moplaf.localsearch.SolutionRef#getSolution()
+	 * @see #getSolutionRef()
+	 * @generated
+	 */
+	EReference getSolutionRef_Solution();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.SolutionRef#release() <em>Release</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Release</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.SolutionRef#release()
+	 * @generated
+	 */
+	EOperation getSolutionRef__Release();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.localsearch.SolutionChange#getSuperChange <em>Super Change</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2348,17 +2546,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getStrategyLevel();
-
-	/**
-	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.EnabledFeedback <em>Enabled Feedback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Enabled Feedback</em>'.
-	 * @see com.misc.common.moplaf.common.EnabledFeedback
-	 * @model instanceClass="com.misc.common.moplaf.common.EnabledFeedback"
-	 * @generated
-	 */
-	EDataType getEnabledFeedback();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2410,7 +2597,7 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute SOLUTION__SOLUTION_NR = eINSTANCE.getSolution_SolutionNr();
 
 		/**
-		 * The meta object literal for the '<em><b>Strategy</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Strategy</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2424,6 +2611,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLUTION__STEP = eINSTANCE.getSolution_Step();
+
+		/**
+		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLUTION__REFERENCES = eINSTANCE.getSolution_References();
 
 		/**
 		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
@@ -2440,6 +2635,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLUTION___REFRESH = eINSTANCE.getSolution__Refresh();
+
+		/**
+		 * The meta object literal for the '<em><b>Construct Solution Ref</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION___CONSTRUCT_SOLUTION_REF = eINSTANCE.getSolution__ConstructSolutionRef();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
@@ -2731,6 +2934,14 @@ public interface LocalSearchPackage extends EPackage {
 		EReference STRATEGY__PHASES = eINSTANCE.getStrategy_Phases();
 
 		/**
+		 * The meta object literal for the '<em><b>Pool Solutions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRATEGY__POOL_SOLUTIONS = eINSTANCE.getStrategy_PoolSolutions();
+
+		/**
 		 * The meta object literal for the '<em><b>Solutions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2801,6 +3012,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation STRATEGY___PRUNE__DOUBLE = eINSTANCE.getStrategy__Prune__double();
+
+		/**
+		 * The meta object literal for the '<em><b>Garbage Collect</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___GARBAGE_COLLECT = eINSTANCE.getStrategy__GarbageCollect();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
@@ -2993,23 +3212,7 @@ public interface LocalSearchPackage extends EPackage {
 		EClass SOLUTION_CHANGE = eINSTANCE.getSolutionChange();
 
 		/**
-		 * The meta object literal for the '<em><b>Start Solution Owned</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOLUTION_CHANGE__START_SOLUTION_OWNED = eINSTANCE.getSolutionChange_StartSolutionOwned();
-
-		/**
-		 * The meta object literal for the '<em><b>End Solution Owned</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOLUTION_CHANGE__END_SOLUTION_OWNED = eINSTANCE.getSolutionChange_EndSolutionOwned();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Solution</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Start Solution</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3017,7 +3220,7 @@ public interface LocalSearchPackage extends EPackage {
 		EReference SOLUTION_CHANGE__START_SOLUTION = eINSTANCE.getSolutionChange_StartSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>End Solution</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>End Solution</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3049,7 +3252,7 @@ public interface LocalSearchPackage extends EPackage {
 		EReference SOLUTION_CHANGE__SUB_CHANGES = eINSTANCE.getSolutionChange_SubChanges();
 
 		/**
-		 * The meta object literal for the '<em><b>Current Solution</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Current Solution</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3073,6 +3276,64 @@ public interface LocalSearchPackage extends EPackage {
 		EAttribute SOLUTION_CHANGE__NEW_SOLUTION = eINSTANCE.getSolutionChange_NewSolution();
 
 		/**
+		 * The meta object literal for the '<em><b>Set Current Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION_CHANGE___SET_CURRENT_SOLUTION = eINSTANCE.getSolutionChange__SetCurrentSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Start Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION_CHANGE___SET_START_SOLUTION = eINSTANCE.getSolutionChange__SetStartSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Set End Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION_CHANGE___SET_END_SOLUTION = eINSTANCE.getSolutionChange__SetEndSolution();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionRefImpl <em>Solution Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.localsearch.impl.SolutionRefImpl
+		 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getSolutionRef()
+		 * @generated
+		 */
+		EClass SOLUTION_REF = eINSTANCE.getSolutionRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION_REF__ROLE = eINSTANCE.getSolutionRef_Role();
+
+		/**
+		 * The meta object literal for the '<em><b>Solution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLUTION_REF__SOLUTION = eINSTANCE.getSolutionRef_Solution();
+
+		/**
+		 * The meta object literal for the '<em><b>Release</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION_REF___RELEASE = eINSTANCE.getSolutionRef__Release();
+
+		/**
 		 * The meta object literal for the '<em><b>Super Change</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3089,16 +3350,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum STRATEGY_LEVEL = eINSTANCE.getStrategyLevel();
-
-		/**
-		 * The meta object literal for the '<em>Enabled Feedback</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.common.EnabledFeedback
-		 * @see com.misc.common.moplaf.localsearch.impl.LocalSearchPackageImpl#getEnabledFeedback()
-		 * @generated
-		 */
-		EDataType ENABLED_FEEDBACK = eINSTANCE.getEnabledFeedback();
 
 	}
 

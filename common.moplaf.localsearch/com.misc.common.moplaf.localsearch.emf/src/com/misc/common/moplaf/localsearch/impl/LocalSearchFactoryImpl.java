@@ -12,7 +12,6 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
-import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.*;
 
 import org.eclipse.emf.ecore.EClass;
@@ -68,6 +67,7 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case LocalSearchPackage.SOLUTION_REF: return createSolutionRef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -83,8 +83,6 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 		switch (eDataType.getClassifierID()) {
 			case LocalSearchPackage.STRATEGY_LEVEL:
 				return createStrategyLevelFromString(eDataType, initialValue);
-			case LocalSearchPackage.ENABLED_FEEDBACK:
-				return createEnabledFeedbackFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -100,11 +98,19 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 		switch (eDataType.getClassifierID()) {
 			case LocalSearchPackage.STRATEGY_LEVEL:
 				return convertStrategyLevelToString(eDataType, instanceValue);
-			case LocalSearchPackage.ENABLED_FEEDBACK:
-				return convertEnabledFeedbackToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionRef createSolutionRef() {
+		SolutionRefImpl solutionRef = new SolutionRefImpl();
+		return solutionRef;
 	}
 
 	/**
@@ -125,24 +131,6 @@ public class LocalSearchFactoryImpl extends EFactoryImpl implements LocalSearchF
 	 */
 	public String convertStrategyLevelToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnabledFeedback createEnabledFeedbackFromString(EDataType eDataType, String initialValue) {
-		return (EnabledFeedback)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEnabledFeedbackToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

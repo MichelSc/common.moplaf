@@ -86,13 +86,6 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LocalSearchPackage.ACTION: {
-				Action action = (Action)theEObject;
-				T result = caseAction(action);
-				if (result == null) result = caseSolutionChange(action);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case LocalSearchPackage.DELTA: {
 				Delta delta = (Delta)theEObject;
 				T result = caseDelta(delta);
@@ -119,6 +112,13 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case LocalSearchPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
+				if (result == null) result = caseSolutionChange(action);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case LocalSearchPackage.STEP: {
 				Step step = (Step)theEObject;
 				T result = caseStep(step);
@@ -129,6 +129,12 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 			case LocalSearchPackage.SOLUTION_CHANGE: {
 				SolutionChange solutionChange = (SolutionChange)theEObject;
 				T result = caseSolutionChange(solutionChange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LocalSearchPackage.SOLUTION_REF: {
+				SolutionRef solutionRef = (SolutionRef)theEObject;
+				T result = caseSolutionRef(solutionRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -253,6 +259,21 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolutionChange(SolutionChange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionRef(SolutionRef object) {
 		return null;
 	}
 

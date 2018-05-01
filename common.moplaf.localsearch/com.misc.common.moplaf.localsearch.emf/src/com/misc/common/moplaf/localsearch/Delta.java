@@ -159,7 +159,7 @@ public interface Delta extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getDelta_ValidFeedback()
-	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EnabledFeedback getValidFeedback();
@@ -174,7 +174,7 @@ public interface Delta extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Do Enabled Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getDelta_DoEnabledFeedback()
-	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EnabledFeedback getDoEnabledFeedback();
@@ -189,7 +189,7 @@ public interface Delta extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Undo Enabled Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getDelta_UndoEnabledFeedback()
-	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EnabledFeedback getUndoEnabledFeedback();
@@ -204,7 +204,7 @@ public interface Delta extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Select Enabled Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getDelta_SelectEnabledFeedback()
-	 * @model dataType="com.misc.common.moplaf.localsearch.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EnabledFeedback getSelectEnabledFeedback();
