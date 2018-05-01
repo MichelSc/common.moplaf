@@ -17,7 +17,6 @@ package com.misc.common.moplaf.localsearch.provider;
 import com.misc.common.moplaf.emf.edit.command.CloneCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Solution;
-import com.misc.common.moplaf.localsearch.SolutionRef;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
 
@@ -255,9 +254,7 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 		public void execute(){
 			Solution this_solution = this.solution;
 			Strategy strategy = this_solution.getStrategy();
-//			int this_solution_index = strategy.getPoolSolutions().indexOf(this_solution);
-			SolutionRef new_ref = this.solution.clone();
-			strategy.getPoolSolutions().add(new_ref); // insert next to the original
+			strategy.addPoolSolution(this_solution,  true);
 		}
 	} // class SolutionCloneCommand
 

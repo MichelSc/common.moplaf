@@ -389,6 +389,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___GARBAGE_COLLECT = LocalSearchPackage.STRATEGY___GARBAGE_COLLECT;
 
 	/**
+	 * The operation id for the '<em>Add Pool Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULER___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN = LocalSearchPackage.STRATEGY___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN;
+
+	/**
 	 * The operation id for the '<em>Construct Score</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -559,15 +568,6 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE___REFRESH = LocalSearchPackage.SOLUTION___REFRESH;
-
-	/**
-	 * The operation id for the '<em>Construct Solution Ref</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE___CONSTRUCT_SOLUTION_REF = LocalSearchPackage.SOLUTION___CONSTRUCT_SOLUTION_REF;
 
 	/**
 	 * The operation id for the '<em>Initialize</em>' operation.

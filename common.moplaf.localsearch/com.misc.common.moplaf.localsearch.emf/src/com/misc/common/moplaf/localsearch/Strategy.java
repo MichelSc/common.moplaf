@@ -185,7 +185,7 @@ public interface Strategy extends Run {
 	 * @model
 	 * @generated
 	 */
-	Solution selectGoodSolution(double chance);
+	SolutionRef selectGoodSolution(double chance);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,7 +193,7 @@ public interface Strategy extends Run {
 	 * @model
 	 * @generated
 	 */
-	Solution selectBadSolution(double chance);
+	SolutionRef selectBadSolution(double chance);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,5 +226,13 @@ public interface Strategy extends Run {
 	 * @generated
 	 */
 	void garbageCollect();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SolutionRef addPoolSolution(Solution solution, Boolean copy);
 
 } // Strategy

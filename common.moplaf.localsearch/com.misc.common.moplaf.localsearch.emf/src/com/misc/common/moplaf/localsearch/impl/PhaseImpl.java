@@ -25,8 +25,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.ListIterator;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -632,13 +630,13 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 		long elapsed_millis = 0;
 		do {
 			// select a solution to improve
-			Solution solution_inpool = strategy.selectGoodSolution(this.getSelectBestChance());
-			if ( solution_inpool==null ) {
+			SolutionRef pool_ref = strategy.selectGoodSolution(this.getSelectBestChance());
+			if ( pool_ref==null ) {
 				Plugin.INSTANCE.logError(String.format("Phase%s, step %04d: no start solution, break", phase.getName(), nr_iterations));
 				finished = true;
 				break;
 			}
-			SolutionRef solution = solution_inpool.clone();
+			Solution new_solution = pool_ref.getSolution().clone();
 			
 			boolean keep_step          = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
 			boolean keep_step_solution = phase.getKeepLevel().getValue()==StrategyLevel.LEVEL_STEP_VALUE; 
@@ -655,25 +653,11 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			this.setNrSteps(nr_iterations);
 			
 			// do the step
-			step.setCurrentSolution(solution); // owning
+			step.setCurrentSolution(new_solution); 
 			step.doStep(phase);
-			Solution end_solution = step.getCurrentSolution().getSolution();
-			step.getCurrentSolution().release();
 
 			// put solution in pool
-			if ( step.isNewSolution() ) {
-				// maintain the list of solutions, insert the solution after the next best
-				ListIterator<SolutionRef> iterator = strategy.getPoolSolutions().listIterator();
-				while ( iterator.hasNext()) {
-					SolutionRef next_solution = iterator.next();
-					if ( end_solution.getScore().isBetter(next_solution.getSolution().getScore())) {
-						iterator.previous();
-						break;
-					}
-				}
-				SolutionRef new_ref = end_solution.constructSolutionRef();
-				iterator.add(new_ref);// owning
-			}
+			strategy.addPoolSolution(new_solution, false);
 			
 			// loop control
 			nr_iterations++;
@@ -687,7 +671,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 					phase.getMaxSteps(),
 					elapsed_millis/1000.0f,
 					phase.getMaxSeconds(),
-					end_solution.getScore().getDescription());
+					new_solution.getScore().getDescription());
 			Plugin.INSTANCE.logInfo(message3);
 			strategy.setProgress(message3, ++iterations_total);
 

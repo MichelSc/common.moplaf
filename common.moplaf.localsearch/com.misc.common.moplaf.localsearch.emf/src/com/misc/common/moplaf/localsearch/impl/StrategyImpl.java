@@ -15,6 +15,7 @@ package com.misc.common.moplaf.localsearch.impl;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.impl.RunImpl;
+import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Phase;
 import com.misc.common.moplaf.localsearch.Plugin;
@@ -271,9 +272,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Solution selectGoodSolution(double chance) {
+	public SolutionRef selectGoodSolution(double chance) {
 		// sort the solution from the best to the worst, thus by descending score
-		Solution selected = this.select(chance, false);
+		SolutionRef selected = this.selectPoolSolution(chance, false);
 		return selected;
 	}
 
@@ -281,9 +282,9 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Solution selectBadSolution(double chance) {
+	public SolutionRef selectBadSolution(double chance) {
 		// sort the solution from the worst to the best, thus by ascending score
-		Solution selected = this.select(chance, true);
+		SolutionRef selected = this.selectPoolSolution(chance, true);
 		return selected;
 	}
 
@@ -314,12 +315,13 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 */
 	public void prune(double chance) {
 		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
-			Solution solution = this.selectBadSolution(chance);
+			SolutionRef ref = this.selectBadSolution(chance);
+			Solution sol = ref.getSolution();
 			Plugin.INSTANCE.logInfo(String.format("Strategy %s solution %s:%d pruned", 
 					this.getName(),
-					solution.getStep(),
-					solution.getSolutionNr()));
-			this.getSolutions().remove(solution);
+					sol.getStep(),
+					sol.getSolutionNr()));
+			this.getPoolSolutions().remove(ref);
 		}
 	}
 
@@ -337,9 +339,31 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public SolutionRef addPoolSolution(Solution solution, Boolean copy) {
+		// the solution
+		Solution to_add = solution;
+		if ( copy ) {
+			to_add = solution.clone();
+		}
+		
+		// the ref
+		SolutionRef pool_ref = LocalSearchFactory.eINSTANCE.createSolutionRef();
+		pool_ref.setSolution(to_add);
+		this.getPoolSolutions().add(pool_ref);
+		
+		// sort
+		this.sortSolutions();
+		
+		return pool_ref;
+	}
+
 	private static Random random = new Random();
 	
-	private Solution select(double chanceFirst, boolean reverse) {
+	private SolutionRef selectPoolSolution(double chanceFirst, boolean reverse) {
 		double threshold = random.nextDouble();
 		// traverse the solutions from first to last
 		EList<SolutionRef> list_solutions = this.getPoolSolutions();
@@ -369,7 +393,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 //					selected);
 //			Plugin.INSTANCE.log(message);
 			if ( cumulated_chance/total_chance>threshold) {
-				return current_solution.getSolution();
+				return current_solution;
 			} 
 		}
 		// assert should never come here
@@ -565,6 +589,8 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 			case LocalSearchPackage.STRATEGY___GARBAGE_COLLECT:
 				garbageCollect();
 				return null;
+			case LocalSearchPackage.STRATEGY___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN:
+				return addPoolSolution((Solution)arguments.get(0), (Boolean)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

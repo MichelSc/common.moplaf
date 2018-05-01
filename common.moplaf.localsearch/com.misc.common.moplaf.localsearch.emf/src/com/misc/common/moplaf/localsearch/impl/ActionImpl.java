@@ -407,8 +407,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 */
 	public void doAction(Phase phase, Step step) {
 		// initializes the current solution
-		SolutionRef new_ref = step.getCurrentSolution().getSolution().constructSolutionRef();
-		this.setCurrentSolution(new_ref); // owning
+		Solution solution = step.getCurrentSolution().getSolution();
+		this.setCurrentSolution(solution); 
 		
 		// initializes the keep or not keep
 		boolean keep = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
@@ -464,6 +464,10 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		
 		// keep or not keep
 		this.setEndSolution();
+		
+		if ( this.eContainer() == null) {
+			this.getCurrentSolution().release();
+		}
 	}
 
 	/**

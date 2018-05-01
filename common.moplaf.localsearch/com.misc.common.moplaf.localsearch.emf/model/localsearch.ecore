@@ -3,9 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="localsearch" nsURI="http://www.misc.com/common/moplaf/localsearch/model/0.1"
     nsPrefix="ls">
   <eClassifiers xsi:type="ecore:EClass" name="Solution" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
-    <eOperations name="clone" eType="#//SolutionRef"/>
+    <eOperations name="clone" eType="#//Solution"/>
     <eOperations name="refresh"/>
-    <eOperations name="constructSolutionRef" eType="#//SolutionRef"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Score" lowerBound="1" eType="#//Score"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -70,10 +69,10 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Conceptually, a Strategy is an engine for solving a given problem. It implements the execution of the resolution and knows the entire scenario to be solved, plus some complementary information about how to solve the problem.&#xA;&#xA;Functionally, a Strategy manages a pool of Solutions and executes a sequence of Phases, each Phase being an iteration of Steps.&#xA;&#xA;The Strategy implements logics for selecting a good/bad solution in the pool, as a function of a chance between 1.0 and 0.0. A value of 1.0 will return the most extreme Solution, while with a value of 0.0 every Solution has equal probability to be selected.&#xA;&#xA;A phase executes steps iteratively, up to a max number of iteration or a maximum duration. Each step 1) selects a solution in the pool, 2) improves it by executing Actions, 3) adds the new solution to the pool, and 4) prunes the pool.&#xA;"/>
     </eAnnotations>
-    <eOperations name="selectGoodSolution" eType="#//Solution">
+    <eOperations name="selectGoodSolution" eType="#//SolutionRef">
       <eParameters name="chance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
-    <eOperations name="selectBadSolution" eType="#//Solution">
+    <eOperations name="selectBadSolution" eType="#//SolutionRef">
       <eParameters name="chance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="sortSolutions"/>
@@ -82,6 +81,10 @@
       <eParameters name="chance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="garbageCollect"/>
+    <eOperations name="addPoolSolution" eType="#//SolutionRef">
+      <eParameters name="solution" eType="#//Solution"/>
+      <eParameters name="copy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Phases" upperBound="-1"
         eType="#//Phase" containment="true" eOpposite="#//Phase/Strategy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PoolSolutions" upperBound="-1"
@@ -166,7 +169,9 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionChange" abstract="true">
-    <eOperations name="setCurrentSolution" eType="#//Solution"/>
+    <eOperations name="setCurrentSolution">
+      <eParameters name="solution" eType="#//Solution"/>
+    </eOperations>
     <eOperations name="setStartSolution"/>
     <eOperations name="setEndSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="StartSolution" eType="#//SolutionRef"

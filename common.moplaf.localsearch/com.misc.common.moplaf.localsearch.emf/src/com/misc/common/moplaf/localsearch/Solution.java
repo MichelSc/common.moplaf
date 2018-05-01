@@ -166,7 +166,7 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	 * @model
 	 * @generated
 	 */
-	SolutionRef clone();
+	Solution clone();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,13 +175,5 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	 * @generated
 	 */
 	void refresh();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	SolutionRef constructSolutionRef();
 
 } // Solution

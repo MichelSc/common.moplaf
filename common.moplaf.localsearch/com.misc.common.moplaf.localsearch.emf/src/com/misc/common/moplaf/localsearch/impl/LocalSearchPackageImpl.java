@@ -257,15 +257,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolution__ConstructSolutionRef() {
-		return solutionEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -680,6 +671,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getStrategy__AddPoolSolution__Solution_Boolean() {
+		return strategyEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPhase() {
 		return phaseEClass;
 	}
@@ -959,7 +959,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolutionChange__SetCurrentSolution() {
+	public EOperation getSolutionChange__SetCurrentSolution__Solution() {
 		return solutionChangeEClass.getEOperations().get(0);
 	}
 
@@ -1071,7 +1071,6 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(solutionEClass, SOLUTION__STRATEGY);
 		createEOperation(solutionEClass, SOLUTION___CLONE);
 		createEOperation(solutionEClass, SOLUTION___REFRESH);
-		createEOperation(solutionEClass, SOLUTION___CONSTRUCT_SOLUTION_REF);
 
 		deltaEClass = createEClass(DELTA);
 		createEReference(deltaEClass, DELTA__ACTION);
@@ -1108,6 +1107,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEOperation(strategyEClass, STRATEGY___MAKE_NEW_SOLUTION_NR);
 		createEOperation(strategyEClass, STRATEGY___PRUNE__DOUBLE);
 		createEOperation(strategyEClass, STRATEGY___GARBAGE_COLLECT);
+		createEOperation(strategyEClass, STRATEGY___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN);
 
 		phaseEClass = createEClass(PHASE);
 		createEAttribute(phaseEClass, PHASE__NAME);
@@ -1157,7 +1157,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__LEVEL);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__KEEP_SOLUTIONS);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__NEW_SOLUTION);
-		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_CURRENT_SOLUTION);
+		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION);
 		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_START_SOLUTION);
 		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_END_SOLUTION);
 
@@ -1215,11 +1215,9 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getSolution_References(), this.getSolutionRef(), this.getSolutionRef_Solution(), "References", null, 0, -1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolution_Strategy(), this.getStrategy(), this.getStrategy_Solutions(), "Strategy", null, 1, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getSolution__Clone(), this.getSolutionRef(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSolution__Clone(), this.getSolution(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSolution__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getSolution__ConstructSolutionRef(), this.getSolutionRef(), "constructSolutionRef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(deltaEClass, Delta.class, "Delta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDelta_Action(), this.getAction(), null, "Action", null, 1, 1, Delta.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1258,10 +1256,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStrategy_Solutions(), this.getSolution(), this.getSolution_Strategy(), "Solutions", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getStrategy__SelectGoodSolution__double(), this.getSolution(), "selectGoodSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getStrategy__SelectGoodSolution__double(), this.getSolutionRef(), "selectGoodSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDouble(), "chance", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getStrategy__SelectBadSolution__double(), this.getSolution(), "selectBadSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getStrategy__SelectBadSolution__double(), this.getSolutionRef(), "selectBadSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDouble(), "chance", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getStrategy__SortSolutions(), null, "sortSolutions", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1272,6 +1270,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		addEParameter(op, ecorePackage.getEDouble(), "chance", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getStrategy__GarbageCollect(), null, "garbageCollect", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getStrategy__AddPoolSolution__Solution_Boolean(), this.getSolutionRef(), "addPoolSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSolution(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(phaseEClass, Phase.class, "Phase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPhase_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Phase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1334,7 +1336,8 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getSolutionChange_KeepSolutions(), ecorePackage.getEBoolean(), "KeepSolutions", null, 0, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionChange_NewSolution(), ecorePackage.getEBoolean(), "NewSolution", null, 0, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getSolutionChange__SetCurrentSolution(), this.getSolution(), "setCurrentSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSolutionChange__SetCurrentSolution__Solution(), null, "setCurrentSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSolution(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSolutionChange__SetStartSolution(), null, "setStartSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 

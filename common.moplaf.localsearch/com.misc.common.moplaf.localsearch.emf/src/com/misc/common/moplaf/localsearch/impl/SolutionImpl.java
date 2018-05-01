@@ -12,7 +12,6 @@
  */
 package com.misc.common.moplaf.localsearch.impl;
 
-import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Solution;
@@ -286,7 +285,7 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public SolutionRef clone() {
+	public Solution clone() {
 		Strategy strategy = this.getStrategy();
 
 		// clone the solution
@@ -295,10 +294,7 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		strategy.getSolutions().add(new_solution); // owning
 		Plugin.INSTANCE.logInfo("Solution clone: done");
 		
-		// create the SolutionRef
-		SolutionRef new_ref = new_solution.constructSolutionRef();
-
-		return new_ref;
+		return new_solution;
 	}
 	
 	/**
@@ -320,16 +316,6 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public SolutionRef constructSolutionRef() {
-		SolutionRef new_ref = LocalSearchFactory.eINSTANCE.createSolutionRef();
-		new_ref.setSolution(this);
-		return new_ref;
 	}
 
 	/**
@@ -496,8 +482,6 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 			case LocalSearchPackage.SOLUTION___REFRESH:
 				refresh();
 				return null;
-			case LocalSearchPackage.SOLUTION___CONSTRUCT_SOLUTION_REF:
-				return constructSolutionRef();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

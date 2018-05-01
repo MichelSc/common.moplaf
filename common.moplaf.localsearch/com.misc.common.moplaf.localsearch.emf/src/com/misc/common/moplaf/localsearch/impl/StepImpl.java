@@ -294,6 +294,10 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 		
 		String message2 = String.format("Phase %s step %d finished", phase.getName(), phase.getNrSteps());
 		Plugin.INSTANCE.logInfo(message2);
+		
+		if ( this.eContainer() == null) {
+			this.getCurrentSolution().release();
+		}
 	}
 	
 	protected void doStepImpl(Phase phase) {

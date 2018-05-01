@@ -189,22 +189,13 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Construct Solution Ref</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION___CONSTRUCT_SOLUTION_REF = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 3;
+	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl <em>Solution Change</em>}' class.
@@ -791,13 +782,22 @@ public interface LocalSearchPackage extends EPackage {
 	int STRATEGY___GARBAGE_COLLECT = JobPackage.RUN_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Add Pool Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN = JobPackage.RUN_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 6;
+	int STRATEGY_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1040,7 +1040,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_CHANGE___SET_CURRENT_SOLUTION = 0;
+	int SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION = 0;
 
 	/**
 	 * The operation id for the '<em>Set Start Solution</em>' operation.
@@ -1220,7 +1220,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION___SET_CURRENT_SOLUTION = SOLUTION_CHANGE___SET_CURRENT_SOLUTION;
+	int ACTION___SET_CURRENT_SOLUTION__SOLUTION = SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Set Start Solution</em>' operation.
@@ -1445,7 +1445,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STEP___SET_CURRENT_SOLUTION = SOLUTION_CHANGE___SET_CURRENT_SOLUTION;
+	int STEP___SET_CURRENT_SOLUTION__SOLUTION = SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Set Start Solution</em>' operation.
@@ -1622,16 +1622,6 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolution__Refresh();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#constructSolutionRef() <em>Construct Solution Ref</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Construct Solution Ref</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.Solution#constructSolutionRef()
-	 * @generated
-	 */
-	EOperation getSolution__ConstructSolutionRef();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Action <em>Action</em>}'.
@@ -2119,6 +2109,16 @@ public interface LocalSearchPackage extends EPackage {
 	EOperation getStrategy__GarbageCollect();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Strategy#addPoolSolution(com.misc.common.moplaf.localsearch.Solution, java.lang.Boolean) <em>Add Pool Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Pool Solution</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Strategy#addPoolSolution(com.misc.common.moplaf.localsearch.Solution, java.lang.Boolean)
+	 * @generated
+	 */
+	EOperation getStrategy__AddPoolSolution__Solution_Boolean();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.localsearch.Phase <em>Phase</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2455,14 +2455,14 @@ public interface LocalSearchPackage extends EPackage {
 	EAttribute getSolutionChange_NewSolution();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.SolutionChange#setCurrentSolution() <em>Set Current Solution</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.SolutionChange#setCurrentSolution(com.misc.common.moplaf.localsearch.Solution) <em>Set Current Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Current Solution</em>' operation.
-	 * @see com.misc.common.moplaf.localsearch.SolutionChange#setCurrentSolution()
+	 * @see com.misc.common.moplaf.localsearch.SolutionChange#setCurrentSolution(com.misc.common.moplaf.localsearch.Solution)
 	 * @generated
 	 */
-	EOperation getSolutionChange__SetCurrentSolution();
+	EOperation getSolutionChange__SetCurrentSolution__Solution();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.SolutionChange#setStartSolution() <em>Set Start Solution</em>}' operation.
@@ -2635,14 +2635,6 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLUTION___REFRESH = eINSTANCE.getSolution__Refresh();
-
-		/**
-		 * The meta object literal for the '<em><b>Construct Solution Ref</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SOLUTION___CONSTRUCT_SOLUTION_REF = eINSTANCE.getSolution__ConstructSolutionRef();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.ActionImpl <em>Action</em>}' class.
@@ -3022,6 +3014,14 @@ public interface LocalSearchPackage extends EPackage {
 		EOperation STRATEGY___GARBAGE_COLLECT = eINSTANCE.getStrategy__GarbageCollect();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Pool Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRATEGY___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN = eINSTANCE.getStrategy__AddPoolSolution__Solution_Boolean();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.localsearch.impl.PhaseImpl <em>Phase</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3281,7 +3281,7 @@ public interface LocalSearchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOLUTION_CHANGE___SET_CURRENT_SOLUTION = eINSTANCE.getSolutionChange__SetCurrentSolution();
+		EOperation SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION = eINSTANCE.getSolutionChange__SetCurrentSolution__Solution();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Start Solution</b></em>' operation.

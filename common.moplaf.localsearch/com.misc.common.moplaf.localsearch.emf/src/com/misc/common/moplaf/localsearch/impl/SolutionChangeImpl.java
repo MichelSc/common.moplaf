@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.localsearch.impl;
 
 import com.misc.common.moplaf.common.util.EObjectListDerived;
+import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
@@ -397,12 +398,15 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public Solution setCurrentSolution() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setCurrentSolution(Solution solution) {
+		SolutionRef ref = this.getCurrentSolution();
+		if ( ref==null ) {
+			ref = LocalSearchFactory.eINSTANCE.createSolutionRef();
+			this.setCurrentSolution(ref);
+			
+		}
+		ref.setSolution(solution);
 	}
 
 	/**
@@ -411,8 +415,15 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 */
 	public void setStartSolution() {
 		if ( this.isKeepSolutions()) {
-			SolutionRef start_ref = this.getCurrentSolution().getSolution().clone();
-			this.setStartSolution(start_ref); // owning
+			Solution new_solution = this.getCurrentSolution().getSolution().clone();
+
+			SolutionRef start_ref = this.getStartSolution();
+			if ( start_ref==null ) {
+				start_ref = LocalSearchFactory.eINSTANCE.createSolutionRef();
+				this.setStartSolution(start_ref); // owning
+			}
+
+			start_ref.setSolution(new_solution);
 		}
 	}
 
@@ -422,10 +433,17 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 */
 	public void setEndSolution() {
 		if ( this.isKeepSolutions()) {
-			SolutionRef end_ref = this.isNewSolution() 
-					            ? this.getCurrentSolution().getSolution().clone() 
-					            : this.getStartSolution().getSolution().constructSolutionRef();
-			this.setEndSolution(end_ref); //owning
+			SolutionRef end_ref = this.getEndSolution();
+			if ( end_ref==null ) {
+				end_ref = LocalSearchFactory.eINSTANCE.createSolutionRef();
+				this.setEndSolution(end_ref); // owning
+			}
+
+			Solution solution = this.isNewSolution() 
+					          ? this.getCurrentSolution().getSolution().clone() 
+					          : this.getStartSolution().getSolution();
+					          
+			end_ref.setSolution(solution);
 		}
 	}
 
@@ -589,8 +607,9 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.SOLUTION_CHANGE___SET_CURRENT_SOLUTION:
-				return setCurrentSolution();
+			case LocalSearchPackage.SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION:
+				setCurrentSolution((Solution)arguments.get(0));
+				return null;
 			case LocalSearchPackage.SOLUTION_CHANGE___SET_START_SOLUTION:
 				setStartSolution();
 				return null;
