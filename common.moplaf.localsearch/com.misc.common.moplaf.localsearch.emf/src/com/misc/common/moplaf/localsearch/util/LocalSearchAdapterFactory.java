@@ -101,16 +101,16 @@ public class LocalSearchAdapterFactory extends AdapterFactoryImpl {
 				return createPhaseAdapter();
 			}
 			@Override
+			public Adapter caseSolutionChange(SolutionChange object) {
+				return createSolutionChangeAdapter();
+			}
+			@Override
 			public Adapter caseAction(Action object) {
 				return createActionAdapter();
 			}
 			@Override
 			public Adapter caseStep(Step object) {
 				return createStepAdapter();
-			}
-			@Override
-			public Adapter caseSolutionChange(SolutionChange object) {
-				return createSolutionChangeAdapter();
 			}
 			@Override
 			public Adapter caseSolutionRef(SolutionRef object) {

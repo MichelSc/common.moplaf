@@ -1117,7 +1117,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TTUDUE1cEeiQZuWQW0yKLg" name="addPoolSolution(solution Solution, copy EBooleanObject) : SolutionRef" tooltipText="addPoolSolution(solution, copy) : SolutionRef">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TTUDUE1cEeiQZuWQW0yKLg" name="addPoolSolution(solution Solution, copy EBoolean) : SolutionRef" tooltipText="addPoolSolution(solution, copy) : SolutionRef">
         <target xmi:type="ecore:EOperation" href="localsearch.ecore#//Strategy/addPoolSolution"/>
         <semanticElements xmi:type="ecore:EOperation" href="localsearch.ecore#//Strategy/addPoolSolution"/>
         <semanticElements xmi:type="ecore:EParameter" href="localsearch.ecore#//Strategy/addPoolSolution/copy"/>
@@ -1440,7 +1440,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rTfS4E0cEeiQZuWQW0yKLg" name="setCurrentSolution(solution Solution, copy EBooleanObject)" tooltipText="setCurrentSolution(solution, copy)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_rTfS4E0cEeiQZuWQW0yKLg" name="setCurrentSolution(solution Solution, copy EBoolean)" tooltipText="setCurrentSolution(solution, copy)">
         <target xmi:type="ecore:EOperation" href="localsearch.ecore#//SolutionChange/setCurrentSolution"/>
         <semanticElements xmi:type="ecore:EOperation" href="localsearch.ecore#//SolutionChange/setCurrentSolution"/>
         <semanticElements xmi:type="ecore:EParameter" href="localsearch.ecore#//SolutionChange/setCurrentSolution/copy"/>

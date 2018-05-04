@@ -305,7 +305,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 */
 	public EnabledFeedback getValidFeedback() {
 		SolutionRef solution = this.getCurrentSolution();
-		if ( solution==null) {
+		if ( solution==null ) {
 			return new EnabledFeedback(false, "No current solution associated with the action");
 		}
 		return EnabledFeedback.NOFEEDBACK;

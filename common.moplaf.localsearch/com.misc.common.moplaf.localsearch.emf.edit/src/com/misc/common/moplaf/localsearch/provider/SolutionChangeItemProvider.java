@@ -18,6 +18,7 @@ import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
+import com.misc.common.moplaf.localsearch.SolutionRef;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
 
 import java.util.Collection;
@@ -341,7 +342,11 @@ public class SolutionChangeItemProvider
   	   		Solution dropped_solution = (Solution) droppedObject;
   	   		SolutionChangeSetCurrentSolutionCommand cmd = new SolutionChangeSetCurrentSolutionCommand(owner, dropped_solution);
 		   	return cmd;
-		} 
+		} else if ( droppedObject instanceof SolutionRef ) {
+  	   		SolutionRef dropped_ref = (SolutionRef) droppedObject;
+  	   		SolutionChangeSetCurrentSolutionCommand cmd = new SolutionChangeSetCurrentSolutionCommand(owner, dropped_ref.getSolution());
+		   	return cmd;
+		}
 		return null;
 	}
 	

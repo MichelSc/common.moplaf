@@ -343,7 +343,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public SolutionRef addPoolSolution(Solution solution, Boolean copy) {
+	public SolutionRef addPoolSolution(Solution solution, boolean copy) {
 		// the solution
 		Solution to_add = solution;
 		if ( copy ) {

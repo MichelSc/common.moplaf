@@ -382,6 +382,11 @@ public class ActionItemProvider
 		}
 
 		@Override
+		public boolean canExecute() {
+			return this.action.getValidFeedback().isEnabled();
+		}
+
+		@Override
 		public void execute() {
 			this.action.doAction();
 		}

@@ -399,7 +399,7 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void setCurrentSolution(Solution solution, Boolean copy) {
+	public void setCurrentSolution(Solution solution, boolean copy) {
 		// the solution
 		Solution to_set = solution;
 		if ( copy ) {

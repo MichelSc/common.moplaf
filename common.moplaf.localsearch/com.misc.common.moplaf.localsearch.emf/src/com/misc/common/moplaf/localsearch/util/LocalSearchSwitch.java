@@ -112,6 +112,12 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case LocalSearchPackage.SOLUTION_CHANGE: {
+				SolutionChange solutionChange = (SolutionChange)theEObject;
+				T result = caseSolutionChange(solutionChange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case LocalSearchPackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
@@ -123,12 +129,6 @@ public class LocalSearchSwitch<T> extends Switch<T> {
 				Step step = (Step)theEObject;
 				T result = caseStep(step);
 				if (result == null) result = caseSolutionChange(step);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case LocalSearchPackage.SOLUTION_CHANGE: {
-				SolutionChange solutionChange = (SolutionChange)theEObject;
-				T result = caseSolutionChange(solutionChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

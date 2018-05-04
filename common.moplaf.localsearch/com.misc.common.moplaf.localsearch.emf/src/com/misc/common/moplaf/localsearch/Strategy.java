@@ -233,6 +233,6 @@ public interface Strategy extends Run {
 	 * @model
 	 * @generated
 	 */
-	SolutionRef addPoolSolution(Solution solution, Boolean copy);
+	SolutionRef addPoolSolution(Solution solution, boolean copy);
 
 } // Strategy
