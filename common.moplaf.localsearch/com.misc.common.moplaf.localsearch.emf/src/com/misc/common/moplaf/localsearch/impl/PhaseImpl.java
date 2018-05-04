@@ -653,7 +653,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			this.setNrSteps(nr_iterations);
 			
 			// do the step
-			step.setCurrentSolution(new_solution); 
+			step.setCurrentSolution(new_solution, false); 
 			step.doStep(phase);
 
 			// put solution in pool

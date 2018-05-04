@@ -399,14 +399,23 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void setCurrentSolution(Solution solution) {
+	public void setCurrentSolution(Solution solution, Boolean copy) {
+		// the solution
+		Solution to_set = solution;
+		if ( copy ) {
+			to_set = solution.clone();
+		}
+		
+		// the ref
 		SolutionRef ref = this.getCurrentSolution();
 		if ( ref==null ) {
 			ref = LocalSearchFactory.eINSTANCE.createSolutionRef();
 			this.setCurrentSolution(ref);
 			
 		}
-		ref.setSolution(solution);
+		
+		// set
+		ref.setSolution(to_set);
 	}
 
 	/**
@@ -607,8 +616,8 @@ public abstract class SolutionChangeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LocalSearchPackage.SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION:
-				setCurrentSolution((Solution)arguments.get(0));
+			case LocalSearchPackage.SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION_BOOLEAN:
+				setCurrentSolution((Solution)arguments.get(0), (Boolean)arguments.get(1));
 				return null;
 			case LocalSearchPackage.SOLUTION_CHANGE___SET_START_SOLUTION:
 				setStartSolution();

@@ -408,7 +408,7 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	public void doAction(Phase phase, Step step) {
 		// initializes the current solution
 		Solution solution = step.getCurrentSolution().getSolution();
-		this.setCurrentSolution(solution); 
+		this.setCurrentSolution(solution, false); 
 		
 		// initializes the keep or not keep
 		boolean keep = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;

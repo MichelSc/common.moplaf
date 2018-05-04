@@ -959,7 +959,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolutionChange__SetCurrentSolution__Solution() {
+	public EOperation getSolutionChange__SetCurrentSolution__Solution_Boolean() {
 		return solutionChangeEClass.getEOperations().get(0);
 	}
 
@@ -1157,7 +1157,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__LEVEL);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__KEEP_SOLUTIONS);
 		createEAttribute(solutionChangeEClass, SOLUTION_CHANGE__NEW_SOLUTION);
-		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION);
+		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_CURRENT_SOLUTION__SOLUTION_BOOLEAN);
 		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_START_SOLUTION);
 		createEOperation(solutionChangeEClass, SOLUTION_CHANGE___SET_END_SOLUTION);
 
@@ -1336,8 +1336,9 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEAttribute(getSolutionChange_KeepSolutions(), ecorePackage.getEBoolean(), "KeepSolutions", null, 0, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionChange_NewSolution(), ecorePackage.getEBoolean(), "NewSolution", null, 0, 1, SolutionChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSolutionChange__SetCurrentSolution__Solution(), null, "setCurrentSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSolutionChange__SetCurrentSolution__Solution_Boolean(), null, "setCurrentSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolution(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSolutionChange__SetStartSolution(), null, "setStartSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 

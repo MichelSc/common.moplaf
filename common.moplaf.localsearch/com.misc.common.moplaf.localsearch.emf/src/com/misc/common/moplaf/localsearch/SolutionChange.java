@@ -225,7 +225,7 @@ public interface SolutionChange extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void setCurrentSolution(Solution solution);
+	void setCurrentSolution(Solution solution, Boolean copy);
 
 	/**
 	 * <!-- begin-user-doc -->

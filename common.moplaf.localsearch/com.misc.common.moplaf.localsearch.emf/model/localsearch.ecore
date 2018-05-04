@@ -171,6 +171,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SolutionChange" abstract="true">
     <eOperations name="setCurrentSolution">
       <eParameters name="solution" eType="#//Solution"/>
+      <eParameters name="copy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     </eOperations>
     <eOperations name="setStartSolution"/>
     <eOperations name="setEndSolution"/>

@@ -13,19 +13,25 @@
 package com.misc.common.moplaf.localsearch.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.SolutionChange;
 import com.misc.common.moplaf.localsearch.StrategyLevel;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -304,4 +310,75 @@ public class SolutionChangeItemProvider
 		return LocalsearchEditPlugin.INSTANCE;
 	}
 
-}
+	/*
+	 * SolutionChangeSetCurrentSolutionCommand
+	 */
+	public class SolutionChangeSetCurrentSolutionCommand extends BaseCommand{
+		private SolutionChange change;
+		private Solution solution;
+		
+		// constructor
+		public SolutionChangeSetCurrentSolutionCommand(SolutionChange a_change, Solution solution)	{
+			super("CopyParams", "Copy the Parmas");
+			this.change = a_change;
+			this.solution = solution;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.change.setCurrentSolution(this.solution, true);
+		}
+	} // class SolutionChangeSetCurrentSolutionCommand
+	
+	protected Command createDropCommand(EditingDomain domain, SolutionChange owner, Object droppedObject){ 
+		if ( droppedObject instanceof Solution){
+  	   		Solution dropped_solution = (Solution) droppedObject;
+  	   		SolutionChangeSetCurrentSolutionCommand cmd = new SolutionChangeSetCurrentSolutionCommand(owner, dropped_solution);
+		   	return cmd;
+		} 
+		return null;
+	}
+	
+	/**
+	 * Create a drag and drop command for this Run
+	 */
+	private class SolutionChangeDragAndDropCommand extends DragAndDropCommand {
+
+		public SolutionChangeDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			for (Object element : collection){
+				Command cmd = SolutionChangeItemProvider.this.createDropCommand(this.domain, (SolutionChange)this.owner, element);
+				if ( cmd != null ){
+					compound.append(cmd);
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new SolutionChangeDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}}
