@@ -379,6 +379,12 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__SELECTED, oldSelected, selected));
 	}
+	
+	
+	@Override
+	public String getLabel() {
+		return this.getCode();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

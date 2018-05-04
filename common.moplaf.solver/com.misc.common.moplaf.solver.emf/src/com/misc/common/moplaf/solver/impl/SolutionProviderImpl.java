@@ -157,6 +157,12 @@ public abstract class SolutionProviderImpl extends RunImpl implements SolutionPr
 		return code;
 	}
 
+	
+	@Override
+	public String getLabel() {
+		return this.getCode();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
