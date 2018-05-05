@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            category="com.misc.common.moplaf.preference.pageMain"
+            category="com.misc.common.moplaf.preference.pageLogic"
             class="com.misc.common.moplaf.gis.preference.PreferencePage"
             id="com.misc.common.moplaf.gis.preference.page"
             name="Gis">

@@ -30,11 +30,11 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 
 	@Override
 	protected void createFieldEditors() {
-		this.addField(new IntegerFieldEditor(PREF_MAP_MAX_DEPTH,        "Map Max Depth:"       , this.getFieldEditorParent()));
-		this.addField(new IntegerFieldEditor(PREF_MAP_LOCATION_SIZE,    "Map Location Size:"   , this.getFieldEditorParent()));
-		this.addField(new IntegerFieldEditor(PREF_MAP_PATH_WIDTH,       "Map Path Width:"      , this.getFieldEditorParent()));
-		this.addField(new StringFieldEditor (PREF_MAP_SERVER_URL,       "MapServer Url:"       , this.getFieldEditorParent()));
-		this.addField(new IntegerFieldEditor(PREF_MAP_SERVER_MAX_ZOOM,  "MapServer Max Zoom:"  , this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_MAP_MAX_DEPTH,        "Map Max Depth"       , this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_MAP_LOCATION_SIZE,    "Map Location Size"   , this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_MAP_PATH_WIDTH,       "Map Path Width"      , this.getFieldEditorParent()));
+		this.addField(new StringFieldEditor (PREF_MAP_SERVER_URL,       "MapServer Url"       , this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_MAP_SERVER_MAX_ZOOM,  "MapServer Max Zoom"  , this.getFieldEditorParent()));
 	}
 
 }

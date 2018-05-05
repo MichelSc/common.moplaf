@@ -28,10 +28,10 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 
 	@Override
 	protected void createFieldEditors() {
-		this.addField(new BooleanFieldEditor(PREF_LOG_ON_INFO   , "Log infos:"    , this.getFieldEditorParent()));
-		this.addField(new BooleanFieldEditor(PREF_LOG_ON_WARNING, "Log warnings:" , this.getFieldEditorParent()));
-		this.addField(new BooleanFieldEditor(PREF_LOG_ON_ERROR  , "Log errors:"   , this.getFieldEditorParent()));
-		this.addField(new BooleanFieldEditor(PREF_SHOW_METADATA , "Show metadata:", this.getFieldEditorParent()));
+		this.addField(new BooleanFieldEditor(PREF_LOG_ON_INFO   , "Log infos"    , this.getFieldEditorParent()));
+		this.addField(new BooleanFieldEditor(PREF_LOG_ON_WARNING, "Log warnings" , this.getFieldEditorParent()));
+		this.addField(new BooleanFieldEditor(PREF_LOG_ON_ERROR  , "Log errors"   , this.getFieldEditorParent()));
+		this.addField(new BooleanFieldEditor(PREF_SHOW_METADATA , "Show metadata", this.getFieldEditorParent()));
 	}
 
 }

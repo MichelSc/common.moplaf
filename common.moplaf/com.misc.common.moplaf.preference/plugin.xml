@@ -10,6 +10,18 @@
       </page>
       <page
             category="com.misc.common.moplaf.preference.pageMain"
+            class="com.misc.common.moplaf.preference.WorkbenchPreferencePageLogic"
+            id="com.misc.common.moplaf.preference.pageLogic"
+            name="Logic">
+      </page>
+      <page
+            category="com.misc.common.moplaf.preference.pageMain"
+            class="com.misc.common.moplaf.preference.WorkbenchPreferencePageViews"
+            id="com.misc.common.moplaf.preference.pageViews"
+            name="Views">
+      </page>
+      <page
+            category="com.misc.common.moplaf.preference.pageMain"
             class="com.misc.common.moplaf.preference.PreferencePage"
             id="com.misc.common.moplaf.preference.page"
             name="Application">

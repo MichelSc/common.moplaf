@@ -29,11 +29,11 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 
 	@Override
 	protected void createFieldEditors() {
-		this.addField(new IntegerFieldEditor(PREF_TILE_SIZE   ,        "Tile Sizes:"    ,       this.getFieldEditorParent()));
-		this.addField(new IntegerFieldEditor(PREF_GRID_HORIZONTAL_GAP, "Grid Horizontal Gap:" , this.getFieldEditorParent()));
-		this.addField(new IntegerFieldEditor(PREF_GRID_VERTICAL_GAP,   "Grid Vertical Gap:"   , this.getFieldEditorParent()));
-		this.addField(new ColorFieldEditor  (PREF_COLOR_BACKGROUND,    "Background:"   ,        this.getFieldEditorParent()));
-		this.addField(new ColorFieldEditor  (PREF_COLOR_TEXT,          "Text:"   ,              this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_TILE_SIZE   ,        "Tile Sizes"    ,       this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_GRID_HORIZONTAL_GAP, "Grid Horizontal Gap" , this.getFieldEditorParent()));
+		this.addField(new IntegerFieldEditor(PREF_GRID_VERTICAL_GAP,   "Grid Vertical Gap"   , this.getFieldEditorParent()));
+		this.addField(new ColorFieldEditor  (PREF_COLOR_BACKGROUND,    "Background"   ,        this.getFieldEditorParent()));
+		this.addField(new ColorFieldEditor  (PREF_COLOR_TEXT,          "Text"   ,              this.getFieldEditorParent()));
 	}
 
 }
