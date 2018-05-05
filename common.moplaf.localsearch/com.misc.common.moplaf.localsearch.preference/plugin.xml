@@ -7,7 +7,7 @@
             category="com.misc.common.moplaf.preference.pageMain"
             class="com.misc.common.moplaf.localsearch.preference.PreferencePage"
             id="com.misc.common.moplaf.localsearch.preference.page"
-            name="Job">
+            name="LocalSearch">
       </page>
    </extension>
    <extension
