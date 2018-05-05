@@ -657,7 +657,12 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			step.doStep(phase);
 
 			// put solution in pool
-			strategy.addPoolSolution(new_solution, false);
+			boolean is_better = step.isNewSolution();
+			if ( is_better ) {
+				strategy.addPoolSolution(new_solution, false);
+				// prune the solution pool
+				strategy.prune(this.getSelectWorstChance());
+			}
 			
 			// loop control
 			nr_iterations++;
@@ -665,13 +670,14 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			elapsed_millis = end.getTime()-start.getTime();
 			
 			// feedback
-			String message3 = String.format("phase=%s, iteration=%d/%d, seconds=%f/%f, score=%s", 
+			String message3 = String.format("phase=%s, iteration=%d/%d, seconds=%f/%f, score=%s, better=%b", 
 					phase.getName(),
 					nr_iterations,
 					phase.getMaxSteps(),
 					elapsed_millis/1000.0f,
 					phase.getMaxSeconds(),
-					new_solution.getScore().getDescription());
+					new_solution.getScore().getDescription(),
+					is_better);
 			Plugin.INSTANCE.logInfo(message3);
 			strategy.setProgress(message3, ++iterations_total);
 
@@ -686,9 +692,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				finished = true;
 				Plugin.INSTANCE.logInfo("Phase finished, cancelled");
 			} 
-			
-			// prune the solution pool
-			strategy.prune(this.getSelectWorstChance());
 
 		} while ( !finished); // loop on the steps
 		
