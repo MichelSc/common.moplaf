@@ -122,7 +122,7 @@
         defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionChange" abstract="true">
-    <eOperations name="setCurrentSolution" eType="#//Solution">
+    <eOperations name="setCurrentSolution">
       <eParameters name="solution" eType="#//Solution"/>
       <eParameters name="copy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
@@ -191,6 +191,8 @@
         eOpposite="#//Phase/Steps"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValidFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StrategyLevel">

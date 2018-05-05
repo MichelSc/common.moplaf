@@ -869,6 +869,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStep_Description() {
+		return (EAttribute)stepEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getStep__DoStep__Phase() {
 		return stepEClass.getEOperations().get(0);
 	}
@@ -1159,6 +1168,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(stepEClass, STEP__PHASE);
 		createEAttribute(stepEClass, STEP__STEP);
 		createEAttribute(stepEClass, STEP__VALID_FEEDBACK);
+		createEAttribute(stepEClass, STEP__DESCRIPTION);
 		createEOperation(stepEClass, STEP___DO_STEP__PHASE);
 
 		solutionRefEClass = createEClass(SOLUTION_REF);
@@ -1340,6 +1350,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getStep_Phase(), this.getPhase(), this.getPhase_Steps(), "Phase", null, 1, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStep_Step(), ecorePackage.getEString(), "Step", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStep_ValidFeedback(), theJobPackage.getEnabledFeedback(), "ValidFeedback", null, 0, 1, Step.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStep_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Step.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getStep__DoStep__Phase(), null, "doStep", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPhase(), "phase", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getPhase <em>Phase</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getStep <em>Step</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Step#getValidFeedback <em>Valid Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Step#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep()
@@ -148,6 +149,21 @@ public interface Step extends SolutionChange {
 	 * @generated
 	 */
 	EnabledFeedback getValidFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getStep_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 	/**
 	 * <!-- begin-user-doc -->

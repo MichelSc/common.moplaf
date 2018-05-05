@@ -52,6 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getPhase <em>Phase</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getStep <em>Step</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getValidFeedback <em>Valid Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.StepImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,6 +117,16 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 	 * @ordered
 	 */
 	protected static final EnabledFeedback VALID_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -277,6 +288,17 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public String getDescription() {
+		String description = String.format("%s %s", 
+				this.getStep(), 
+				this.isNewSolution() ? "*" : "");
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void doStep(Phase phase) {
 		String message1 = String.format("Phase %s step %d started", phase.getName(), phase.getNrSteps());
 		Plugin.INSTANCE.logInfo(message1);
@@ -372,6 +394,8 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 				return getStep();
 			case LocalSearchPackage.STEP__VALID_FEEDBACK:
 				return getValidFeedback();
+			case LocalSearchPackage.STEP__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -444,6 +468,8 @@ public abstract class StepImpl extends SolutionChangeImpl implements Step {
 				return STEP_EDEFAULT == null ? step != null : !STEP_EDEFAULT.equals(step);
 			case LocalSearchPackage.STEP__VALID_FEEDBACK:
 				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
+			case LocalSearchPackage.STEP__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}

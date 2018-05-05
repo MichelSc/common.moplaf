@@ -21,13 +21,13 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An Action receives a Solution and modifies it in order to achieve some specific goal. For this, it considers a number of Moves, and retain the Move giving the best Solution.
+ * An Action receives a Solution and modifies it in order to achieve some specific goal. For this, it considers a number of Deltas, and retain the Delta giving the best Solution.
  * 
- * The specific logic of the Action is provided by the Action specialization, in the method createMovesImpl, that must create the Moves to be considered while executing the Action.
+ * The specific logic of the Action is provided by the Action specialization, in the method createDeltaImpl, that must create the Deltas to be considered while executing the Action.
  * 
- * The flow of an Action is thus 1) to receive a Solution in the reference CurrentSolution, 2) to create all the Moves to be considered, 3) to select the Move giving the best Score, 3) to leave the CurrentSolution as the solution corresponding to the best Move.
+ * The flow of an Action is thus 1) to receive a Solution in the reference CurrentSolution, 2) to create all the Deltas to be considered, 3) to select the Delta giving the best Score, 3) to leave the CurrentSolution as the solution corresponding to the best Delta.
  * 
- * Note that the system will select a Move, even if all of them result in worst Solution. If it is desired to consider the received solution as a candidate for the resulting Solution, it is then necessary to provides a Move doing nothing (a no-op Move).
+ * Note that the system will select a Delta, even if all of them result in worst Solution. If it is desired to consider the received solution as a candidate for the resulting Solution, it is then necessary to provides a Delta doing nothing (a no-op Delta).
  * <!-- end-model-doc -->
  *
  * <p>

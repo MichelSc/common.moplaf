@@ -69,7 +69,7 @@ public class UnscheduleImpl extends ScheduleDeltaImpl implements Unschedule {
 		} else if ( this.getTaskToSchedule().getScheduledResource()==null) {
 			return new EnabledFeedback(false, "Task not scheduled");
 		}
-		return null;
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**

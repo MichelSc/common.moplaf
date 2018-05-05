@@ -66,6 +66,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 			addStepNrPropertyDescriptor(object);
 			addStepPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,6 +138,28 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Step_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Step_Description_feature", "_UI_Step_type"),
+				 LocalSearchPackage.Literals.STEP__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -184,8 +207,10 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 	 */
 	@Override
 	public String getText(Object object) {
-		Step step = (Step)object;
-		return getString("_UI_Step_type") + " " + step.getStepNr();
+		String label = ((Step)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Step_type") :
+			getString("_UI_Step_type") + " " + label;
 	}
 	
 
@@ -204,6 +229,7 @@ public class StepItemProvider extends SolutionChangeItemProvider implements IIte
 			case LocalSearchPackage.STEP__STEP_NR:
 			case LocalSearchPackage.STEP__STEP:
 			case LocalSearchPackage.STEP__VALID_FEEDBACK:
+			case LocalSearchPackage.STEP__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case LocalSearchPackage.STEP__ACTIONS:

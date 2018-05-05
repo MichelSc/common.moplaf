@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A delta is an elementary change to the solution, composed of  a limited (constant) number of modifications with respect to the solution 
+ * A Delta is an elementary change to the solution, composed of  a limited (constant) number of modifications with respect to the solution 
  *  
- * So the score of a  move must be calculated in a limited time (with respect to the size of the solution).
+ * So the score of a  Delta must be calculated in a limited time (with respect to the size of the solution).
  * 
- * A Delta is part of a tree structure, where the parent is the previous delta executed, and the children are alternative next moves to be executed after this delta..
+ * A Delta is part of a tree structure, where the parent is the previous delta executed, and the children are alternative next moves to be executed after this Delta..
  * 
- * A delta supports an undo operation. All the changes in the current solution that are carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.
+ * A Delta supports an undo operation. All the changes in the current solution that are carried out during the do are recorded and will be undone durring the undo. Note that the changes in the score of the current solution and the changes in the propagator functions will be undone as well, but the change in the score associated to this move will remain.
  * 
  * A Delta is specific to a given implementation (to a specific Action). The implementation must only provide logic for the do operation. The framework will iterate on the Deltas, and for every Delta, do the Delta, trigger the Score calculation, compare it to the best Score so far, and finally undo the Delta.
  * <!-- end-model-doc -->

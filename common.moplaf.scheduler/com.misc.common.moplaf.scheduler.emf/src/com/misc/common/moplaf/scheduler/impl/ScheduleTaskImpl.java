@@ -218,7 +218,7 @@ public abstract class ScheduleTaskImpl extends ScheduleDeltaImpl implements Sche
 	@Override
 	public EnabledFeedback getValidFeedback() {
 		EnabledFeedback feedback = super.getValidFeedback();
-		if ( feedback!=null) {
+		if ( !feedback.isEnabled()) {
 			return feedback;
 		} else if ( this.getInsertionPoint()==null && this.getResource()==null) {
 			return new EnabledFeedback(false, "No insertion point task and not Resource");
@@ -226,7 +226,7 @@ public abstract class ScheduleTaskImpl extends ScheduleDeltaImpl implements Sche
 		} else if ( this.getTaskToSchedule()==this.getInsertionPoint()) {
 			return new EnabledFeedback(false, "Insertion point equal to task to schedule");
 		}
-		return null;
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 
