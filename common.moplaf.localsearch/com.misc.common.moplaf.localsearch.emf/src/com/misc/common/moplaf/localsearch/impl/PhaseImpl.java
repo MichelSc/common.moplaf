@@ -636,7 +636,6 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 				finished = true;
 				break;
 			}
-			Solution new_solution = pool_ref.getSolution().clone();
 			
 			boolean keep_step          = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_STEP_VALUE;
 			boolean keep_step_solution = phase.getKeepLevel().getValue()==StrategyLevel.LEVEL_STEP_VALUE; 
@@ -653,13 +652,14 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			this.setNrSteps(nr_iterations);
 			
 			// do the step
-			step.setCurrentSolution(new_solution, false); 
+			step.setCurrentSolution(pool_ref.getSolution(), true); // copy the solution 
 			step.doStep(phase);
 
 			// put solution in pool
+			Solution solution = step.getCurrentSolution().getSolution();
 			boolean is_better = step.isNewSolution();
 			if ( is_better ) {
-				strategy.addPoolSolution(new_solution, false);
+				strategy.addPoolSolution(solution, false); // do not copy the solution
 				// prune the solution pool
 				strategy.prune(this.getSelectWorstChance());
 			}
@@ -676,7 +676,7 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 					phase.getMaxSteps(),
 					elapsed_millis/1000.0f,
 					phase.getMaxSeconds(),
-					new_solution.getScore().getDescription(),
+					solution.getScore().getDescription(),
 					is_better);
 			Plugin.INSTANCE.logInfo(message3);
 			strategy.setProgress(message3, ++iterations_total);

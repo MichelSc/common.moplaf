@@ -122,7 +122,7 @@
         defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionChange" abstract="true">
-    <eOperations name="setCurrentSolution">
+    <eOperations name="setCurrentSolution" eType="#//Solution">
       <eParameters name="solution" eType="#//Solution"/>
       <eParameters name="copy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
