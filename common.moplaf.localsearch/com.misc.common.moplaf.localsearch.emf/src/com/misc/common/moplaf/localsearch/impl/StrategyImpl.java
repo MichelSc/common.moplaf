@@ -314,14 +314,14 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	 * <!-- end-user-doc -->
 	 */
 	public void prune(double chance) {
-		while ( this.getSolutions().size()>this.getMaxNrSolutions()) {
+		while ( this.getPoolSolutions().size()>this.getMaxNrSolutions()) {
 			SolutionRef ref = this.selectBadSolution(chance);
 			Solution sol = ref.getSolution();
 			Plugin.INSTANCE.logInfo(String.format("Strategy %s solution %s:%d pruned", 
 					this.getName(),
 					sol.getStep(),
 					sol.getSolutionNr()));
-			this.getPoolSolutions().remove(ref);
+			ref.release();
 		}
 	}
 
@@ -364,6 +364,10 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	private static Random random = new Random();
 	
 	private SolutionRef selectPoolSolution(double chanceFirst, boolean reverse) {
+		if ( this.getPoolSolutions().isEmpty() ) {
+			Plugin.INSTANCE.logWarning("Strategy.selectPoolSolution: pool empty, no Solution selected");
+			return null;
+		}
 		double threshold = random.nextDouble();
 		// traverse the solutions from first to last
 		EList<SolutionRef> list_solutions = this.getPoolSolutions();
@@ -396,7 +400,7 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 				return current_solution;
 			} 
 		}
-		// assert should never come here
+		// assert should never come here (except if the pool is empty)
 		return null;
 	}
 
