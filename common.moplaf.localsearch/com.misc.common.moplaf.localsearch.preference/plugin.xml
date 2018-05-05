@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.misc.common.moplaf.preference.pageMain"
+            class="com.misc.common.moplaf.localsearch.preference.PreferencePage"
+            id="com.misc.common.moplaf.localsearch.preference.page"
+            name="Job">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.misc.common.moplaf.localsearch.preference.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.misc.common.moplaf.localsearch.preference.Startup">
+      </startup>
+   </extension>
+
+</plugin>

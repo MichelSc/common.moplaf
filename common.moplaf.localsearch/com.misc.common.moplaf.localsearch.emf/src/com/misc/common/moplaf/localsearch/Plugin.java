@@ -27,6 +27,15 @@ import com.misc.common.moplaf.common.Logger.Level;
  */
 public final class Plugin extends EMFPlugin {
 	private Logger logger = new Logger("Scheduler");
+	private boolean debugMode = false;
+
+	public boolean isDebugMode() {
+		return debugMode;
+	}
+
+	public void setDebugMode(boolean debugMode) {
+		this.debugMode = debugMode;
+	}
 
 	public Logger getLogger(){
 		return this.logger;
