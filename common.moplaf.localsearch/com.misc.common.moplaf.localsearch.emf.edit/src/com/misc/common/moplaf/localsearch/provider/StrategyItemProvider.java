@@ -18,6 +18,7 @@ import com.misc.common.moplaf.emf.edit.command.SortCommand;
 import com.misc.common.moplaf.job.provider.RunItemProvider;
 import com.misc.common.moplaf.localsearch.LocalSearchFactory;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Strategy;
 
 import java.util.Collection;
@@ -145,7 +146,6 @@ public class StrategyItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
@@ -153,7 +153,9 @@ public class StrategyItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__PHASES);
 			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__POOL_SOLUTIONS);
-			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__SOLUTIONS);
+			if ( Plugin.INSTANCE.isDebugMode()){
+				childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__SOLUTIONS);
+			}
 		}
 		return childrenFeatures;
 	}
