@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017, 2018 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.scheduler;
@@ -78,21 +68,6 @@ public interface Schedule extends Solution {
 	EList<Resource> getResources();
 
 	/**
-	 * Returns the value of the '<em><b>Scheduler</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Scheduler</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scheduler</em>' reference.
-	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule_Scheduler()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	Scheduler getScheduler();
-
-	/**
 	 * Returns the value of the '<em><b>Nr Scheduled Tasks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -119,15 +94,18 @@ public interface Schedule extends Solution {
 	void setNrScheduledTasks(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Scheduler</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scheduler</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Initialiaze the solution to the zero solution (no Task is scheduled)
-	 * 
-	 * <!-- end-model-doc -->
-	 * @model
+	 * @return the value of the '<em>Scheduler</em>' reference.
+	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule_Scheduler()
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	void initialize();
+	Scheduler getScheduler();
 
 } // Schedule

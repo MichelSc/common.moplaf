@@ -13,16 +13,12 @@
 package com.misc.common.moplaf.scheduler.impl;
 
 import com.misc.common.moplaf.localsearch.Plugin;
-import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.impl.SolutionImpl;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.Scheduler;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
-
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -193,13 +189,11 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	 * <!-- end-user-doc -->
 	 */
 	public void initialize() {
+		super.initialize();
+
 		// clear everything
 		this.getTasks().clear();
 		this.getResources().clear();
-		// construct tasks and resources
-		Scheduler scheduler = this.getScheduler();
-		Score new_score = scheduler.constructScore();
-		this.setScore(new_score);
 	}
 
 	/**
@@ -319,21 +313,6 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return basicGetScheduler() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case SchedulerPackage.SCHEDULE___INITIALIZE:
-				initialize();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -12,7 +12,6 @@
  */
 package com.misc.common.moplaf.scheduler;
 
-import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.Strategy;
 
 /**
@@ -26,12 +25,5 @@ import com.misc.common.moplaf.localsearch.Strategy;
  * @generated
  */
 public interface Scheduler extends Strategy {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Score constructScore();
 
 } // Scheduler

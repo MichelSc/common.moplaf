@@ -323,7 +323,11 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void initialize() {
+		// create the deltas for this Action
 		this.initializeImpl();
+		
+		// make the solution ready for calculating scores
+		this.getCurrentSolution().getSolution().enable();
 	}
 
 	/**
@@ -413,12 +417,15 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		// initializes the keep or not keep
 		boolean keep = phase.getKeepLevel().getValue()>=StrategyLevel.LEVEL_ACTION_VALUE;
 		this.setKeepSolutions(keep);
+		
+		this.doActionHelper(phase, step);
+		
 		if ( keep ) {
 			this.setActionNr(step.getActions().size());
 			step.getActions().add(this); // owning
+		} else {
+			this.getCurrentSolution().release();
 		}
-		
-		this.doActionHelper(phase, step);
 	}
 
 	/**
@@ -464,10 +471,6 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		
 		// keep or not keep
 		this.setEndSolution();
-		
-		if ( this.eContainer() == null) {
-			this.getCurrentSolution().release();
-		}
 	}
 
 	/**

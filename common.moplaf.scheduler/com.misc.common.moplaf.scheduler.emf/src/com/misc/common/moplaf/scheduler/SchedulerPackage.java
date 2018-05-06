@@ -398,22 +398,13 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULER___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN = LocalSearchPackage.STRATEGY___ADD_POOL_SOLUTION__SOLUTION_BOOLEAN;
 
 	/**
-	 * The operation id for the '<em>Construct Score</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULER___CONSTRUCT_SCORE = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Scheduler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULER_OPERATION_COUNT = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 1;
+	int SCHEDULER_OPERATION_COUNT = LocalSearchPackage.STRATEGY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl <em>Schedule</em>}' class.
@@ -552,6 +543,15 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE___ADD_PROPAGATOR_FUNCTIONS__STRING = LocalSearchPackage.SOLUTION___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
+	 * The operation id for the '<em>Construct Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE___CONSTRUCT_SCORE = LocalSearchPackage.SOLUTION___CONSTRUCT_SCORE;
+
+	/**
 	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -559,6 +559,24 @@ public interface SchedulerPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEDULE___CLONE = LocalSearchPackage.SOLUTION___CLONE;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE___INITIALIZE = LocalSearchPackage.SOLUTION___INITIALIZE;
+
+	/**
+	 * The operation id for the '<em>Enable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE___ENABLE = LocalSearchPackage.SOLUTION___ENABLE;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -570,22 +588,13 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE___REFRESH = LocalSearchPackage.SOLUTION___REFRESH;
 
 	/**
-	 * The operation id for the '<em>Initialize</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE___INITIALIZE = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_OPERATION_COUNT = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 1;
+	int SCHEDULE_OPERATION_COUNT = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ResourceImpl <em>Resource</em>}' class.
@@ -1694,16 +1703,6 @@ public interface SchedulerPackage extends EPackage {
 	EClass getScheduler();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Scheduler#constructScore() <em>Construct Score</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Construct Score</em>' operation.
-	 * @see com.misc.common.moplaf.scheduler.Scheduler#constructScore()
-	 * @generated
-	 */
-	EOperation getScheduler__ConstructScore();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.Schedule <em>Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1756,16 +1755,6 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSchedule_NrScheduledTasks();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Schedule#initialize() <em>Initialize</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Initialize</em>' operation.
-	 * @see com.misc.common.moplaf.scheduler.Schedule#initialize()
-	 * @generated
-	 */
-	EOperation getSchedule__Initialize();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.Resource <em>Resource</em>}'.
@@ -2078,14 +2067,6 @@ public interface SchedulerPackage extends EPackage {
 		EClass SCHEDULER = eINSTANCE.getScheduler();
 
 		/**
-		 * The meta object literal for the '<em><b>Construct Score</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCHEDULER___CONSTRUCT_SCORE = eINSTANCE.getScheduler__ConstructScore();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl <em>Schedule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2126,14 +2107,6 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCHEDULE__NR_SCHEDULED_TASKS = eINSTANCE.getSchedule_NrScheduledTasks();
-
-		/**
-		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCHEDULE___INITIALIZE = eINSTANCE.getSchedule__Initialize();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ResourceImpl <em>Resource</em>}' class.

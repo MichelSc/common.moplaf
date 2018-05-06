@@ -181,6 +181,9 @@ public class SolutionRefItemProvider
 			case LocalSearchPackage.SOLUTION_REF__ROLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case LocalSearchPackage.SOLUTION_REF__SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

@@ -12,9 +12,9 @@
  */
 package com.misc.common.moplaf.localsearch.provider;
 
-
-
 import com.misc.common.moplaf.emf.edit.command.CloneCommand;
+import com.misc.common.moplaf.emf.edit.command.EnableCommand;
+import com.misc.common.moplaf.emf.edit.command.InitializeCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Strategy;
@@ -242,6 +242,43 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 	 * @author michel
 	 *
 	 */
+	public class SolutionInitializeCommand extends InitializeCommand{
+		private Solution solution;
+		
+		public SolutionInitializeCommand(Solution aSolution)	{
+			super();
+			this.solution = aSolution;
+		}
+
+		@Override
+		public void execute() {
+			this.solution.initialize();;
+		}
+	} // class SolutionIntializeCommand
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public  class SolutionEnableCommand extends EnableCommand{
+		private Solution solution;
+
+		public SolutionEnableCommand(Solution solution) {
+			this.solution = solution;
+		}
+
+		@Override
+		public void execute() {
+			this.solution.enable();
+		}
+	};
+
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
 	public class SolutionCloneCommand extends CloneCommand{
 		private Solution solution;
 		
@@ -267,7 +304,13 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 			CommandParameter commandParameter) {
 		if ( commandClass == CloneCommand.class){
 			return new SolutionCloneCommand((Solution) object); 
+		} else if ( commandClass == EnableCommand.class){
+			return new SolutionEnableCommand((Solution) object); 
+		} else if ( commandClass == InitializeCommand.class){
+			return new SolutionInitializeCommand((Solution) object); 
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+
+
 }

@@ -171,13 +171,40 @@ public interface LocalSearchPackage extends EPackage {
 	int SOLUTION___ADD_PROPAGATOR_FUNCTIONS__STRING = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
+	 * The operation id for the '<em>Construct Score</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION___CONSTRUCT_SCORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
+
+	/**
 	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION___CLONE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
+	int SOLUTION___CLONE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Initialize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION___INITIALIZE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Enable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION___ENABLE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -186,7 +213,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
+	int SOLUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Solution</em>' class.
@@ -195,7 +222,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
+	int SOLUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.localsearch.impl.SolutionChangeImpl <em>Solution Change</em>}' class.
@@ -1591,6 +1618,16 @@ public interface LocalSearchPackage extends EPackage {
 	EReference getSolution_Strategy();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#constructScore() <em>Construct Score</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Score</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Solution#constructScore()
+	 * @generated
+	 */
+	EOperation getSolution__ConstructScore();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Solution#getStep <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1621,6 +1658,26 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolution__Clone();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#initialize() <em>Initialize</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Initialize</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Solution#initialize()
+	 * @generated
+	 */
+	EOperation getSolution__Initialize();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#enable() <em>Enable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Enable</em>' operation.
+	 * @see com.misc.common.moplaf.localsearch.Solution#enable()
+	 * @generated
+	 */
+	EOperation getSolution__Enable();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Solution#refresh() <em>Refresh</em>}' operation.
@@ -2625,6 +2682,14 @@ public interface LocalSearchPackage extends EPackage {
 		EReference SOLUTION__STRATEGY = eINSTANCE.getSolution_Strategy();
 
 		/**
+		 * The meta object literal for the '<em><b>Construct Score</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION___CONSTRUCT_SCORE = eINSTANCE.getSolution__ConstructScore();
+
+		/**
 		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2647,6 +2712,22 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLUTION___CLONE = eINSTANCE.getSolution__Clone();
+
+		/**
+		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION___INITIALIZE = eINSTANCE.getSolution__Initialize();
+
+		/**
+		 * The meta object literal for the '<em><b>Enable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION___ENABLE = eINSTANCE.getSolution__Enable();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.

@@ -221,6 +221,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSolution__ConstructScore() {
+		return solutionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getSolution_Step() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(2);
 	}
@@ -240,7 +249,25 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EOperation getSolution__Clone() {
-		return solutionEClass.getEOperations().get(0);
+		return solutionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSolution__Initialize() {
+		return solutionEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSolution__Enable() {
+		return solutionEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -249,7 +276,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EOperation getSolution__Refresh() {
-		return solutionEClass.getEOperations().get(1);
+		return solutionEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -1078,7 +1105,10 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEAttribute(solutionEClass, SOLUTION__STEP);
 		createEReference(solutionEClass, SOLUTION__REFERENCES);
 		createEReference(solutionEClass, SOLUTION__STRATEGY);
+		createEOperation(solutionEClass, SOLUTION___CONSTRUCT_SCORE);
 		createEOperation(solutionEClass, SOLUTION___CLONE);
+		createEOperation(solutionEClass, SOLUTION___INITIALIZE);
+		createEOperation(solutionEClass, SOLUTION___ENABLE);
 		createEOperation(solutionEClass, SOLUTION___REFRESH);
 
 		deltaEClass = createEClass(DELTA);
@@ -1225,7 +1255,13 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getSolution_References(), this.getSolutionRef(), this.getSolutionRef_Solution(), "References", null, 0, -1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolution_Strategy(), this.getStrategy(), this.getStrategy_Solutions(), "Strategy", null, 1, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getSolution__ConstructScore(), this.getScore(), "constructScore", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getSolution__Clone(), this.getSolution(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSolution__Initialize(), null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSolution__Enable(), null, "enable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSolution__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -22,6 +22,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/References"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Strategy"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/clone"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Solution/initialize"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Solution/enable"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/refresh"/>
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//Delta">
@@ -163,7 +165,7 @@
     </genClasses>
     <genClasses ecoreClass="localsearch.ecore#//SolutionRef">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//SolutionRef/Role"/>
-      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference localsearch.ecore#//SolutionRef/Solution"/>
       <genOperations ecoreOperation="localsearch.ecore#//SolutionRef/release"/>
     </genClasses>

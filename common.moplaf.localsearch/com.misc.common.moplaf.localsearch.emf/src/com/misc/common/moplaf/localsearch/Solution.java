@@ -117,6 +117,14 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	void setStrategy(Strategy value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Score constructScore();
+
+	/**
 	 * Returns the value of the '<em><b>Step</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -163,6 +171,9 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Clone this solution and add it to the solution's Strategy
+	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -171,6 +182,35 @@ public interface Solution extends ObjectWithPropagatorFunctions {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Initialize the solution to the zero solution.
+	 * Should be called when creating a Solution from scratch.
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initialize();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Makes the Solution ready for propagation.
+	 * Should be called before making changes to the Solution.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void enable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Trigger the propagation. Refresh the derived elements.
+	 * Should be called after having made changes to this Solution.
+	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */

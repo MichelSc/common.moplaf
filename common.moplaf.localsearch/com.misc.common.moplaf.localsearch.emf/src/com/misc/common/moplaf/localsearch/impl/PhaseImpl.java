@@ -653,10 +653,10 @@ public abstract class PhaseImpl extends MinimalEObjectImpl.Container implements 
 			
 			// do the step
 			step.setCurrentSolution(pool_ref.getSolution(), true); // copy the solution 
+			Solution solution = step.getCurrentSolution().getSolution(); // copied solution
 			step.doStep(phase);
 
 			// put solution in pool
-			Solution solution = step.getCurrentSolution().getSolution();
 			boolean is_better = step.isNewSolution();
 			if ( is_better ) {
 				strategy.addPoolSolution(solution, false); // do not copy the solution

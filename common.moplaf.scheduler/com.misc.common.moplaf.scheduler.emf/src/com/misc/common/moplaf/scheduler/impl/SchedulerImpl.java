@@ -12,17 +12,12 @@
  */
 package com.misc.common.moplaf.scheduler.impl;
 
-import com.misc.common.moplaf.localsearch.Score;
 import com.misc.common.moplaf.localsearch.impl.StrategyImpl;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Scheduler;
 import com.misc.common.moplaf.scheduler.SchedulerFactory;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
-
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -56,17 +51,6 @@ public abstract class SchedulerImpl extends StrategyImpl implements Scheduler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Score constructScore() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public Task constructTask(EObject task) {
 		Task new_task = SchedulerFactory.eINSTANCE.createTask();
@@ -80,21 +64,6 @@ public abstract class SchedulerImpl extends StrategyImpl implements Scheduler {
 	public Resource constructResource(EObject resource) {
 		Resource new_resource = SchedulerFactory.eINSTANCE.createResource();
 		return new_resource;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case SchedulerPackage.SCHEDULER___CONSTRUCT_SCORE:
-				return constructScore();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //SchedulerImpl

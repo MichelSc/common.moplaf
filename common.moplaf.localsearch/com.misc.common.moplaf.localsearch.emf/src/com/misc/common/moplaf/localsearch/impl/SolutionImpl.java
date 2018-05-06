@@ -237,6 +237,17 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Score constructScore() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public Strategy basicGetStrategy() {
 		// root move
@@ -298,6 +309,24 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	}
 	
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void initialize() {
+		// construct score
+		Score new_score = this.constructScore();
+		this.setScore(new_score);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void enable() {
+		// default does nothing
+	}
+
+	/**
 	 * 
 	 * @return
 	 */
@@ -310,12 +339,9 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void refresh() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// default does nothing
 	}
 
 	/**
@@ -477,8 +503,16 @@ public abstract class SolutionImpl extends ObjectWithPropagatorFunctionsImpl imp
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case LocalSearchPackage.SOLUTION___CONSTRUCT_SCORE:
+				return constructScore();
 			case LocalSearchPackage.SOLUTION___CLONE:
 				return clone();
+			case LocalSearchPackage.SOLUTION___INITIALIZE:
+				initialize();
+				return null;
+			case LocalSearchPackage.SOLUTION___ENABLE:
+				enable();
+				return null;
 			case LocalSearchPackage.SOLUTION___REFRESH:
 				refresh();
 				return null;
