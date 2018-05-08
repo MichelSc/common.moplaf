@@ -457,13 +457,10 @@ public class DistributionItemProvider
 		return this.children.get(1);
 	}
 
-	private static String TIME_PLOT_DISTRIBUTION = "com.misc.common.moplaf.time.continuous.distribution.timeplot";
-		
-	private static List<String> TIME_PLOTS = Arrays.asList(TIME_PLOT_DISTRIBUTION);
 
 	@Override
-	public Collection<?> getTimePlots(Object element) {
-		return TIME_PLOTS;
+	public Object getTimePlots(Object element) {
+		return this; // this Distribution is the Timeple
 	}
 
 	@Override
