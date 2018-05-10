@@ -22,6 +22,14 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Distribution</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A Distribution is a quantity (an amount) that changes as a function of time.
+ * Changes originate from events (DistributionEvents), specifying at a given time a modification either absolute or relative of either the amount or of the slope.
+ * DistributionEvents are provided by EventProviders, providing several events related to each other.
+ * A Distribution maintains for every event the Amount and the Slope at the moment of the event. This derivation is triggered automaticaly (declarative) or not.
+ * A Distribution provides a number of queries, as for instance Maximum/Minimum/Average value, Earlies/Latest Above/Below value, EarliestOutputPossible.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

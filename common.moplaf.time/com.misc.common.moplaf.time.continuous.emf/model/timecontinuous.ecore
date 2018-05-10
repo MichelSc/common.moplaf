@@ -10,6 +10,9 @@
     <eLiterals name="Day" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Distribution" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A Distribution is a quantity (an amount) that changes as a function of time.&#xA;Changes originate from events (DistributionEvents), specifying at a given time a modification either absolute or relative of either the amount or of the slope.&#xA;DistributionEvents are provided by EventProviders, providing several events related to each other.&#xA;A Distribution maintains for every event the Amount and the Slope at the moment of the event. This derivation is triggered automaticaly (declarative) or not.&#xA;A Distribution provides a number of queries, as for instance Maximum/Minimum/Average value, Earlies/Latest Above/Below value, EarliestOutputPossible."/>
+    </eAnnotations>
     <eOperations name="getDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the duration between two times in the unit of the distribution&#xA;"/>
