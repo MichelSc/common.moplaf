@@ -68,6 +68,8 @@ public class DistributionEventItemProvider
 			addSlopeAfterPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addDistributionAsSequencePropertyDescriptor(object);
+			addSegmentAfterPropertyDescriptor(object);
+			addSegmentBeforePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -293,6 +295,50 @@ public class DistributionEventItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Segment After feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSegmentAfterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DistributionEvent_SegmentAfter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_SegmentAfter_feature", "_UI_DistributionEvent_type"),
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__SEGMENT_AFTER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10DistributionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Segment Before feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSegmentBeforePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DistributionEvent_SegmentBefore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_SegmentBefore_feature", "_UI_DistributionEvent_type"),
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__SEGMENT_BEFORE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10DistributionPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -340,6 +386,8 @@ public class DistributionEventItemProvider
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_BEFORE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

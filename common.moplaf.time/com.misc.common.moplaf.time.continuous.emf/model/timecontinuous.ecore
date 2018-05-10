@@ -214,6 +214,8 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DistributionAsProvidedEvent"
         eType="#//Distribution" eOpposite="#//Distribution/ProvidedEvents"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SegmentAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SegmentBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChildEvent" eSuperTypes="#//OwnedEvent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Original" lowerBound="1"

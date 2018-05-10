@@ -22,7 +22,6 @@ import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
@@ -486,7 +485,11 @@ public class DistributionItemProvider
 
 	@Override
 	public int getNrMoments(Object element, Object timeplot, Object event) {
-		return 2; // 2 moments at the same time but with different amounts: amountBefore and amountAfter
+		DistributionEvent distributionEvent = (DistributionEvent) event;
+		int events = 0;
+		if ( distributionEvent.isSegmentBefore() )  { events++; }
+		if ( distributionEvent.isSegmentAfter() ) { events++; } 
+		return events; // 2 moments at the same time but with different amounts: amountBefore and amountAfter
 	}
 
 	@Override
@@ -499,13 +502,10 @@ public class DistributionItemProvider
 	public float getAmount(Object element, Object timeplot, Object event, Object moment) {
 		DistributionEvent distributionEvent = (DistributionEvent) event;
 		Integer moment_index = (Integer)moment;
-		switch ( moment_index )
-		{
-		case 0: 
+		if ( moment_index==0 && distributionEvent.isSegmentBefore() ) {
 			return (float)distributionEvent.getAmountBefore();
-		case 1: 
+		} else {
 			return (float)distributionEvent.getAmountAfter();
 		}
-		return 0.0f;
 	}
 }

@@ -36,6 +36,8 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution <em>Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentAfter <em>Segment After</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentBefore <em>Segment Before</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent()
@@ -342,6 +344,58 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	 * @generated
 	 */
 	void setDistributionAsProvidedEvent(Distribution value);
+
+	/**
+	 * Returns the value of the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Segment After</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Segment After</em>' attribute.
+	 * @see #setSegmentAfter(boolean)
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_SegmentAfter()
+	 * @model
+	 * @generated
+	 */
+	boolean isSegmentAfter();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentAfter <em>Segment After</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Segment After</em>' attribute.
+	 * @see #isSegmentAfter()
+	 * @generated
+	 */
+	void setSegmentAfter(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Segment Before</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Segment Before</em>' attribute.
+	 * @see #setSegmentBefore(boolean)
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_SegmentBefore()
+	 * @model
+	 * @generated
+	 */
+	boolean isSegmentBefore();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentBefore <em>Segment Before</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Segment Before</em>' attribute.
+	 * @see #isSegmentBefore()
+	 * @generated
+	 */
+	void setSegmentBefore(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
