@@ -21,6 +21,7 @@
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Solution"
           propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/References"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Strategy"/>
+      <genOperations ecoreOperation="localsearch.ecore#//Solution/constructScore"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/clone"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/initialize"/>
       <genOperations ecoreOperation="localsearch.ecore#//Solution/enable"/>
@@ -154,8 +155,7 @@
           propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference localsearch.ecore#//Step/Actions"/>
       <genFeatures createChild="false" propertyCategory="20 Step" ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/StepNr"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference localsearch.ecore#//Step/Phase"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Step"
-          ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/Step"/>
+      <genFeatures createChild="false" propertyCategory="20 Step" ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/Step"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/ValidFeedback"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute localsearch.ecore#//Step/Description"/>
