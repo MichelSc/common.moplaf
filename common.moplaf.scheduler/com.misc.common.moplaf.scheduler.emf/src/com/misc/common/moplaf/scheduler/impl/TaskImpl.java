@@ -412,8 +412,10 @@ public class TaskImpl extends ObjectWithPropagatorFunctionsImpl implements Task 
 		// or previous is null and next is first
 		// or next is null and previous is last
 
-		// set previous and next
+		// unset previous and next
 		this.unsetPreviousNext();
+		
+		// set previous and next
 		if ( previous==null ) {
 			resource.setFirstTask(this);
 		} else {
@@ -451,7 +453,6 @@ public class TaskImpl extends ObjectWithPropagatorFunctionsImpl implements Task 
 	 * <!-- end-user-doc -->
 	 */
 	private void unsetPreviousNext() {
-		// precondition: this task is scheduled
 		Task previous = this.getPreviousTask();
 		Task next = this.getNextTask();
 		Resource resource_asis = this.getScheduledResource();
