@@ -605,13 +605,31 @@ public interface TimeContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT__SEGMENT_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT__SEGMENT_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Distribution Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 12;
+	int DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -856,6 +874,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__SEGMENT_AFTER = DISTRIBUTION_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__SEGMENT_BEFORE = DISTRIBUTION_EVENT__SEGMENT_BEFORE;
 
 	/**
 	 * The number of structural features of the '<em>Owned Event</em>' class.
@@ -1109,6 +1145,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT__SEGMENT_AFTER = OWNED_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT__SEGMENT_BEFORE = OWNED_EVENT__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Original</b></em>' reference.
@@ -1371,6 +1425,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int START_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT__SEGMENT_AFTER = OWNED_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT__SEGMENT_BEFORE = OWNED_EVENT__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount At Start</b></em>' attribute.
@@ -1644,6 +1716,24 @@ public interface TimeContinuousPackage extends EPackage {
 	int END_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT__SEGMENT_AFTER = OWNED_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT__SEGMENT_BEFORE = OWNED_EVENT__SEGMENT_BEFORE;
+
+	/**
 	 * The number of structural features of the '<em>End Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1895,6 +1985,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT__SEGMENT_AFTER = DISTRIBUTION_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT__SEGMENT_BEFORE = DISTRIBUTION_EVENT__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -2157,6 +2265,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_DELTA__SEGMENT_AFTER = PROVIDED_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_DELTA__SEGMENT_BEFORE = PROVIDED_EVENT__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -2439,6 +2565,24 @@ public interface TimeContinuousPackage extends EPackage {
 	int SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA__SEGMENT_AFTER = PROVIDED_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA__SEGMENT_BEFORE = PROVIDED_EVENT__SEGMENT_BEFORE;
+
+	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2717,6 +2861,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE__SEGMENT_AFTER = PROVIDED_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE__SEGMENT_BEFORE = PROVIDED_EVENT__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -2999,6 +3161,24 @@ public interface TimeContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE__SEGMENT_AFTER = PROVIDED_EVENT__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE__SEGMENT_BEFORE = PROVIDED_EVENT__SEGMENT_BEFORE;
+
+	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3277,6 +3457,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START__SEGMENT_AFTER = AMOUNT_DELTA__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START__SEGMENT_BEFORE = AMOUNT_DELTA__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -3568,6 +3766,24 @@ public interface TimeContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END__SEGMENT_AFTER = AMOUNT_DELTA__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END__SEGMENT_BEFORE = AMOUNT_DELTA__SEGMENT_BEFORE;
+
+	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3855,6 +4071,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START__SEGMENT_AFTER = SLOPE_DELTA__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START__SEGMENT_BEFORE = SLOPE_DELTA__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -4146,6 +4380,24 @@ public interface TimeContinuousPackage extends EPackage {
 	int STOCK_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END__SEGMENT_AFTER = SLOPE_DELTA__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END__SEGMENT_BEFORE = SLOPE_DELTA__SEGMENT_BEFORE;
+
+	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4433,6 +4685,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_DELTA_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_DELTA_ATOMIC__SEGMENT_AFTER = AMOUNT_DELTA__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_DELTA_ATOMIC__SEGMENT_BEFORE = AMOUNT_DELTA__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -4724,6 +4994,24 @@ public interface TimeContinuousPackage extends EPackage {
 	int SLOPE_DELTA_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_DELTA__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__SEGMENT_AFTER = SLOPE_DELTA__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_DELTA_ATOMIC__SEGMENT_BEFORE = SLOPE_DELTA__SEGMENT_BEFORE;
+
+	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5013,6 +5301,24 @@ public interface TimeContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__SEGMENT_AFTER = AMOUNT_ABSOLUTE__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__SEGMENT_BEFORE = AMOUNT_ABSOLUTE__SEGMENT_BEFORE;
+
+	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5300,6 +5606,24 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Segment After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__SEGMENT_AFTER = SLOPE_ABSOLUTE__SEGMENT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Segment Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__SEGMENT_BEFORE = SLOPE_ABSOLUTE__SEGMENT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
@@ -8337,6 +8661,28 @@ public interface TimeContinuousPackage extends EPackage {
 	EReference getDistributionEvent_DistributionAsProvidedEvent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentAfter <em>Segment After</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Segment After</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentAfter()
+	 * @see #getDistributionEvent()
+	 * @generated
+	 */
+	EAttribute getDistributionEvent_SegmentAfter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentBefore <em>Segment Before</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Segment Before</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#isSegmentBefore()
+	 * @see #getDistributionEvent()
+	 * @generated
+	 */
+	EAttribute getDistributionEvent_SegmentBefore();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getAmountBefore(java.util.Date) <em>Get Amount Before</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9690,6 +10036,22 @@ public interface TimeContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = eINSTANCE.getDistributionEvent_DistributionAsProvidedEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Segment After</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISTRIBUTION_EVENT__SEGMENT_AFTER = eINSTANCE.getDistributionEvent_SegmentAfter();
+
+		/**
+		 * The meta object literal for the '<em><b>Segment Before</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISTRIBUTION_EVENT__SEGMENT_BEFORE = eINSTANCE.getDistributionEvent_SegmentBefore();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Amount Before</b></em>' operation.

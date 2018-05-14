@@ -46,6 +46,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistribution <em>Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#isSegmentAfter <em>Segment After</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#isSegmentBefore <em>Segment Before</em>}</li>
  * </ul>
  *
  * @generated
@@ -220,6 +222,46 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	 * @ordered
 	 */
 	protected Distribution distributionAsProvidedEvent;
+
+	/**
+	 * The default value of the '{@link #isSegmentAfter() <em>Segment After</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSegmentAfter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SEGMENT_AFTER_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSegmentAfter() <em>Segment After</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSegmentAfter()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean segmentAfter = SEGMENT_AFTER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSegmentBefore() <em>Segment Before</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSegmentBefore()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SEGMENT_BEFORE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSegmentBefore() <em>Segment Before</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSegmentBefore()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean segmentBefore = SEGMENT_BEFORE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' reference.
@@ -649,6 +691,48 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSegmentAfter() {
+		return segmentAfter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSegmentAfter(boolean newSegmentAfter) {
+		boolean oldSegmentAfter = segmentAfter;
+		segmentAfter = newSegmentAfter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_AFTER, oldSegmentAfter, segmentAfter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSegmentBefore() {
+		return segmentBefore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSegmentBefore(boolean newSegmentBefore) {
+		boolean oldSegmentBefore = segmentBefore;
+		segmentBefore = newSegmentBefore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_BEFORE, oldSegmentBefore, segmentBefore));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public double getAmountBefore(Date moment) {
 		Distribution distribution = this.getDistributionAsSequence();
@@ -836,6 +920,10 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				if (resolve) return getDistributionAsProvidedEvent();
 				return basicGetDistributionAsProvidedEvent();
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_AFTER:
+				return isSegmentAfter();
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_BEFORE:
+				return isSegmentBefore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -877,6 +965,12 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 				return;
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				setDistributionAsProvidedEvent((Distribution)newValue);
+				return;
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_AFTER:
+				setSegmentAfter((Boolean)newValue);
+				return;
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_BEFORE:
+				setSegmentBefore((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -920,6 +1014,12 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				setDistributionAsProvidedEvent((Distribution)null);
 				return;
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_AFTER:
+				setSegmentAfter(SEGMENT_AFTER_EDEFAULT);
+				return;
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_BEFORE:
+				setSegmentBefore(SEGMENT_BEFORE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -956,6 +1056,10 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 				return basicGetDistribution() != null;
 			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				return distributionAsProvidedEvent != null;
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_AFTER:
+				return segmentAfter != SEGMENT_AFTER_EDEFAULT;
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SEGMENT_BEFORE:
+				return segmentBefore != SEGMENT_BEFORE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1017,6 +1121,10 @@ public abstract class DistributionEventImpl extends ObjectWithPropagatorFunction
 		result.append(slopeBefore);
 		result.append(", SlopeAfter: ");
 		result.append(slopeAfter);
+		result.append(", SegmentAfter: ");
+		result.append(segmentAfter);
+		result.append(", SegmentBefore: ");
+		result.append(segmentBefore);
 		result.append(')');
 		return result.toString();
 	}

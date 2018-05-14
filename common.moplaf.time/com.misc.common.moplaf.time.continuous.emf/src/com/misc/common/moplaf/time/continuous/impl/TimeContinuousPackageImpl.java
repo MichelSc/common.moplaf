@@ -843,6 +843,24 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDistributionEvent_SegmentAfter() {
+		return (EAttribute)distributionEventEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDistributionEvent_SegmentBefore() {
+		return (EAttribute)distributionEventEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDistributionEvent__GetAmountBefore__Date() {
 		return distributionEventEClass.getEOperations().get(0);
 	}
@@ -1702,6 +1720,8 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION);
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
+		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__SEGMENT_AFTER);
+		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__SEGMENT_BEFORE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT);
@@ -2009,6 +2029,8 @@ public class TimeContinuousPackageImpl extends EPackageImpl implements TimeConti
 		initEReference(getDistributionEvent_DistributionAsSequence(), this.getDistribution(), this.getDistribution_SequenceEvents(), "DistributionAsSequence", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionEvent_Distribution(), this.getDistribution(), null, "Distribution", null, 0, 1, DistributionEvent.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionEvent_DistributionAsProvidedEvent(), this.getDistribution(), this.getDistribution_ProvidedEvents(), "DistributionAsProvidedEvent", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDistributionEvent_SegmentAfter(), ecorePackage.getEBoolean(), "SegmentAfter", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDistributionEvent_SegmentBefore(), ecorePackage.getEBoolean(), "SegmentBefore", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getDistributionEvent__GetAmountBefore__Date(), ecorePackage.getEDouble(), "getAmountBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "moment", 0, 1, IS_UNIQUE, IS_ORDERED);

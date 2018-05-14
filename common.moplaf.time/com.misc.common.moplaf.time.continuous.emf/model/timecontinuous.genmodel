@@ -18,6 +18,7 @@
     </genEnums>
     <genDataTypes ecoreDataType="timecontinuous.ecore#//DistributionVisitor"/>
     <genClasses ecoreClass="timecontinuous.ecore#//Distribution">
+      <genFeatures createChild="false" propertyCategory="10 Distribution (in)" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/Name"/>
       <genFeatures createChild="false" propertyCategory="10 Distribution (in)" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/TimeUnit"/>
       <genFeatures createChild="false" propertyCategory="10 Distribution (in)" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/HorizonStart"/>
       <genFeatures createChild="false" propertyCategory="10 Distribution (in)" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/HorizonEnd"/>
@@ -35,7 +36,6 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/ChildDistribution"/>
       <genFeatures notify="false" createChild="false" propertyCategory="20 Distribution Refs"
           propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/ProvidedEvents"/>
-      <genFeatures createChild="false" propertyCategory="10 Distribution (in)" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/Name"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getDuration">
         <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getDuration/from"/>
         <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getDuration/to"/>
@@ -142,6 +142,9 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//DistributionEvent/Distribution"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference timecontinuous.ecore#//DistributionEvent/DistributionAsProvidedEvent"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/SegmentAfter"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" propertyDescription=""
+          ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/SegmentBefore"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/getAmountBefore">
         <genParameters ecoreParameter="timecontinuous.ecore#//DistributionEvent/getAmountBefore/moment"/>
       </genOperations>

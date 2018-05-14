@@ -544,6 +544,17 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	}
 	
 	/**
+	 * Comparison logic used by the component.
+	 * Could be overloaded for instance to apply an epsilon for the equality.
+	 * @param first
+	 * @param second
+	 * @return
+	 */
+	protected int compareTime(Date first, Date second) {
+		return first.compareTo(second);
+	}
+	
+	/**
 	 * 
 	 * @param millis
 	 * @return
@@ -599,7 +610,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	public DistributionEvent getEventBefore(Date time) {
 		DistributionEvent currentEvent = this.getEnd();
 		while (currentEvent!=null){
-			if ( currentEvent.getMoment().compareTo(time)<=0 ){
+			if ( this.compareTime(currentEvent.getMoment(), time)<=0 ){
 				return currentEvent;
 			}
 			currentEvent = currentEvent.getPrevious();
@@ -614,7 +625,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	public DistributionEvent getEventStrictBefore(Date time) {
 		DistributionEvent currentEvent = this.getEnd();
 		while (currentEvent!=null){
-			if ( currentEvent.getMoment().compareTo(time)<0 ){
+			if ( this.compareTime(currentEvent.getMoment(), time)<0 ){
 				return currentEvent;
 			}
 			currentEvent = currentEvent.getPrevious();
@@ -629,7 +640,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	public DistributionEvent getEventAfter(Date time) {
 		DistributionEvent currentEvent = this.getStart();
 		while (currentEvent!=null){
-			if ( currentEvent.getMoment().compareTo(time)>=0 ){
+			if ( this.compareTime(currentEvent.getMoment(), time)>=0 ){
 				return currentEvent;
 			}
 			currentEvent = currentEvent.getNext();
@@ -644,7 +655,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	public DistributionEvent getEventStrictAfter(Date time) {
 		DistributionEvent currentEvent = this.getStart();
 		while (currentEvent!=null){
-			if ( currentEvent.getMoment().compareTo(time)>0 ){
+			if ( this.compareTime(currentEvent.getMoment(), time)>0 ){
 				return currentEvent;
 			}
 			currentEvent = currentEvent.getNext();
@@ -678,8 +689,8 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	 */
 	public double getAmount(Date time) {
 		DistributionEvent eventAfter = this.getEventAfter(time);
-		if ( eventAfter.getMoment().compareTo(time)!=0){
-			return eventAfter.getAmountBefore(time);
+		if ( this.compareTime(eventAfter.getMoment(), time)!=0){
+			return eventAfter.getAmountBefore();
 		}
 		return (eventAfter.getAmountBefore()+eventAfter.getAmountAfter())/2.0f;
 	}
@@ -921,7 +932,8 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 		@Override
 		public boolean visit(Date moment, double amount) {
 			double previousDuration = 0.0f;
-			if ( this.previousMoment!=null && this.previousMoment.compareTo(moment)<0){
+			if ( this.previousMoment!=null 
+				&& DistributionImpl.this.compareTime(this.previousMoment, moment)<0 ) {
 				previousDuration = DistributionImpl.this.getDuration(this.previousMoment, moment);
 			}
 			double deltaOutput = this.ratePossible*previousDuration;
@@ -938,7 +950,9 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				double durationOutput = (this.outputPossible-this.previousOutput)/this.ratePossible; 
 				Date outputPoint = DistributionImpl.this.getMoment(this.previousMoment, durationOutput);
 				// take the farthest
-				Date earliestEnd = outputPoint.compareTo(amountPoint)>0 ? outputPoint : amountPoint;
+				Date earliestEnd = DistributionImpl.this.compareTime(outputPoint, amountPoint)>0 
+						? outputPoint 
+						: amountPoint;
 				this.earliestOutput = DistributionImpl.this.getMoment(earliestEnd, -this.durationPossible);
 				return true; // do stop
 				}
@@ -1068,7 +1082,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	public void accept(Date from, Date to, DistributionVisitor visitor) {
 		if ( from == null ) { return ; }
 		if ( to == null ) { return ; }
-		if ( from.compareTo(to)<0 ){
+		if ( DistributionImpl.this.compareTime(from, to)<0 ){
 			// forward visit
 			DistributionEvent firstEvent = this.getEventStrictAfter(from);
 			DistributionEvent lastEvent = this.getEventStrictBefore(to);
@@ -1079,8 +1093,10 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				double amountBefore = currentEvent.getAmountBefore();
 				double amountAfter = currentEvent.getAmountAfter();
 				Date moment = currentEvent.getMoment();
-				visitor.visit(moment, amountBefore);
-				if ( amountBefore!=amountAfter){
+				if ( currentEvent.isSegmentBefore() ) {
+					visitor.visit(moment, amountBefore);
+				}
+				if ( amountBefore!=amountAfter && currentEvent.isSegmentAfter() ){
 					visitor.visit(moment, amountAfter);
 				}
 				currentEvent = currentEvent.getNext();
@@ -1098,9 +1114,11 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				double amountBefore = currentEvent.getAmountBefore();
 				double amountAfter = currentEvent.getAmountAfter();
 				Date moment = currentEvent.getMoment();
-				visitor.visit(moment, amountBefore);
-				if ( amountBefore!=amountAfter){
+				if ( currentEvent.isSegmentAfter() ) {
 					visitor.visit(moment, amountAfter);
+				}
+				if ( amountBefore!=amountAfter && currentEvent.isSegmentBefore() ){
+					visitor.visit(moment, amountBefore);
 				}
 				currentEvent = currentEvent.getPrevious();
 			}
@@ -1166,8 +1184,8 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 	private boolean isSequenceEvent(DistributionEvent event){
 		Date moment = event.getMoment();
 		if( moment==null ) { return false; }
-		if( moment.compareTo(this.getHorizonStart())<0 ) { return false; }
-		if( moment.compareTo(this.getHorizonEnd())  >0 ) { return false; }
+		if( DistributionImpl.this.compareTime(moment, this.getHorizonStart())<0 ) { return false; }
+		if( DistributionImpl.this.compareTime(moment, this.getHorizonEnd())  >0 ) { return false; }
 		return true;	
 	}
 
@@ -1208,7 +1226,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 									           DistributionEvent arg1) {
 								Date moment0 = arg0.getMoment();
 								Date moment1 = arg1.getMoment();
-								return moment0.compareTo(moment1);
+								return DistributionImpl.this.compareTime(moment0, moment1);
 							}});
 		
 	}
@@ -1219,8 +1237,22 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 		for(DistributionEvent currentEvent : this.getSequenceEvents()){
 			currentEvent.setEventNr(eventNr);
 			currentEvent.setPrevious(previousEvent);
+			// segment logic
+			if ( previousEvent==null) {
+				// first event
+				currentEvent.setSegmentBefore(false);
+			} else {
+				boolean segment = this.compareTime(previousEvent.getMoment(), currentEvent.getMoment())<0;
+				previousEvent.setSegmentAfter(segment);
+				currentEvent.setSegmentBefore(segment);
+			}
+			// loop control
 			eventNr++;
 			previousEvent = currentEvent;
+		}
+		if ( previousEvent!=null ) {
+			// last event
+			previousEvent.setSegmentAfter(false);
 		}
 	}
 	/**
