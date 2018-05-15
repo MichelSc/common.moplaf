@@ -14,6 +14,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NrScheduledTasks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Scheduler" lowerBound="1"
         eType="#//Scheduler" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NotScheduledTasks" upperBound="-1"
+        eType="#//Task"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Schedule" lowerBound="1"
