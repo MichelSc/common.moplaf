@@ -14,9 +14,9 @@ package com.misc.common.moplaf.scheduler.impl;
 
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.common.EnabledFeedback;
-import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Task;
 import com.misc.common.moplaf.scheduler.Unschedule;
+import com.misc.common.moplaf.scheduler.util.Util;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -78,11 +78,8 @@ public class UnscheduleImpl extends ScheduleDeltaImpl implements Unschedule {
 	@Override
 	public void doImpl() {
 		Task task = this.getTaskToSchedule();
-		Resource scheduled_resource = task.getScheduledResource();
-		if ( scheduled_resource==null) {
-		}
 
-		task.unschedule();
+        Util.unschedule(task);
 	}
 
 } //UnscheduleImpl

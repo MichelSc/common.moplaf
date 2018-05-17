@@ -8,15 +8,13 @@
   <foreignModel>scheduler.ecore</foreignModel>
   <genPackages prefix="Scheduler" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="scheduler.ecore#/">
-    <genClasses image="false" ecoreClass="scheduler.ecore#//Scheduler">
-      <genOperations ecoreOperation="scheduler.ecore#//Scheduler/constructScore"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="scheduler.ecore#//Schedule">
+    <genClasses image="false" ecoreClass="scheduler.ecore#//Scheduler"/>
+    <genClasses provider="Stateful" image="false" ecoreClass="scheduler.ecore#//Schedule">
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Tasks"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Resources"/>
       <genFeatures createChild="false" propertyCategory="10 Scheduler" ecoreFeature="ecore:EAttribute scheduler.ecore#//Schedule/NrScheduledTasks"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Scheduler"/>
-      <genOperations ecoreOperation="scheduler.ecore#//Schedule/initialize"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/NotScheduledTasks"/>
     </genClasses>
     <genClasses ecoreClass="scheduler.ecore#//Resource">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Resource/Schedule"/>

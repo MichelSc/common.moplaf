@@ -24,6 +24,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -312,5 +314,47 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
+	protected Command createDropCommand(EditingDomain domain, Solution owner, Object droppedObject){ 
+		return null;
+	}
+	
+	/**
+	 * Create a drag and drop command for this Run
+	 */
+	private class SolutionDragAndDropCommand extends DragAndDropCommand {
 
+		public SolutionDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			for (Object element : collection){
+				Command cmd = SolutionItemProvider.this.createDropCommand(this.domain, (Solution)this.owner, element);
+				if ( cmd != null ){
+					compound.append(cmd);
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new SolutionDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
+
+	
 }

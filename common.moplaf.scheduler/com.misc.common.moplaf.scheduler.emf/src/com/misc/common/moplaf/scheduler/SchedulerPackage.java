@@ -507,13 +507,22 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE__SCHEDULER = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Not Scheduled Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__NOT_SCHEDULED_TASKS = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_FEATURE_COUNT = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 4;
+	int SCHEDULE_FEATURE_COUNT = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -588,13 +597,40 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE___REFRESH = LocalSearchPackage.SOLUTION___REFRESH;
 
 	/**
+	 * The operation id for the '<em>Schedule</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE___SCHEDULE__TASK_TASK_RESOURCE_TASK_TASK = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Schedule Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE___SCHEDULE_FEEDBACK__TASK_TASK_RESOURCE_TASK_TASK = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE___FLUSH = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_OPERATION_COUNT = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 0;
+	int SCHEDULE_OPERATION_COUNT = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ResourceImpl <em>Resource</em>}' class.
@@ -842,31 +878,13 @@ public interface SchedulerPackage extends EPackage {
 	int TASK___ADD_PROPAGATOR_FUNCTIONS__STRING = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING;
 
 	/**
-	 * The operation id for the '<em>Schedule</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK___SCHEDULE__RESOURCE_TASK_TASK = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Unschedule</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK___UNSCHEDULE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 2;
+	int TASK_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleDeltaImpl <em>Schedule Delta</em>}' class.
@@ -1746,6 +1764,47 @@ public interface SchedulerPackage extends EPackage {
 	EReference getSchedule_Scheduler();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.scheduler.Schedule#getNotScheduledTasks <em>Not Scheduled Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Not Scheduled Tasks</em>'.
+	 * @see com.misc.common.moplaf.scheduler.Schedule#getNotScheduledTasks()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EReference getSchedule_NotScheduledTasks();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Schedule#schedule(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task) <em>Schedule</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Schedule</em>' operation.
+	 * @see com.misc.common.moplaf.scheduler.Schedule#schedule(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task)
+	 * @generated
+	 */
+	EOperation getSchedule__Schedule__Task_Task_Resource_Task_Task();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Schedule#scheduleFeedback(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task) <em>Schedule Feedback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Schedule Feedback</em>' operation.
+	 * @see com.misc.common.moplaf.scheduler.Schedule#scheduleFeedback(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task)
+	 * @generated
+	 */
+	EOperation getSchedule__ScheduleFeedback__Task_Task_Resource_Task_Task();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Schedule#flush() <em>Flush</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush</em>' operation.
+	 * @see com.misc.common.moplaf.scheduler.Schedule#flush()
+	 * @generated
+	 */
+	EOperation getSchedule__Flush();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.Schedule#getNrScheduledTasks <em>Nr Scheduled Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1931,26 +1990,6 @@ public interface SchedulerPackage extends EPackage {
 	EAttribute getTask_Scheduled();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Task#schedule(com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task) <em>Schedule</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Schedule</em>' operation.
-	 * @see com.misc.common.moplaf.scheduler.Task#schedule(com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task)
-	 * @generated
-	 */
-	EOperation getTask__Schedule__Resource_Task_Task();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Task#unschedule() <em>Unschedule</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Unschedule</em>' operation.
-	 * @see com.misc.common.moplaf.scheduler.Task#unschedule()
-	 * @generated
-	 */
-	EOperation getTask__Unschedule();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.ScheduleDelta <em>Schedule Delta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2101,6 +2140,38 @@ public interface SchedulerPackage extends EPackage {
 		EReference SCHEDULE__SCHEDULER = eINSTANCE.getSchedule_Scheduler();
 
 		/**
+		 * The meta object literal for the '<em><b>Not Scheduled Tasks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULE__NOT_SCHEDULED_TASKS = eINSTANCE.getSchedule_NotScheduledTasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Schedule</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEDULE___SCHEDULE__TASK_TASK_RESOURCE_TASK_TASK = eINSTANCE.getSchedule__Schedule__Task_Task_Resource_Task_Task();
+
+		/**
+		 * The meta object literal for the '<em><b>Schedule Feedback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEDULE___SCHEDULE_FEEDBACK__TASK_TASK_RESOURCE_TASK_TASK = eINSTANCE.getSchedule__ScheduleFeedback__Task_Task_Resource_Task_Task();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEDULE___FLUSH = eINSTANCE.getSchedule__Flush();
+
+		/**
 		 * The meta object literal for the '<em><b>Nr Scheduled Tasks</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2239,22 +2310,6 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TASK__SCHEDULED = eINSTANCE.getTask_Scheduled();
-
-		/**
-		 * The meta object literal for the '<em><b>Schedule</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TASK___SCHEDULE__RESOURCE_TASK_TASK = eINSTANCE.getTask__Schedule__Resource_Task_Task();
-
-		/**
-		 * The meta object literal for the '<em><b>Unschedule</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TASK___UNSCHEDULE = eINSTANCE.getTask__Unschedule();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ScheduleDeltaImpl <em>Schedule Delta</em>}' class.

@@ -15,7 +15,10 @@ package com.misc.common.moplaf.scheduler.impl;
 import com.misc.common.moplaf.scheduler.ScheduleBefore;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Resource;
+import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.Task;
+import com.misc.common.moplaf.scheduler.util.Util;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -64,7 +67,9 @@ public class ScheduleBeforeImpl extends ScheduleTaskImpl implements ScheduleBefo
 	@Override
 	public void doImpl() {
 		Task task = this.getTaskToSchedule();
-		Task to_be_task_after = this.getInsertionPoint();
+        Schedule schedule = task.getSchedule();
+
+        Task to_be_task_after = this.getInsertionPoint();
 		Task to_be_task_before = to_be_task_after==null 
 	                           ? this.getResource().getLastTask()
 	                           : to_be_task_after.getPreviousTask();
@@ -72,6 +77,6 @@ public class ScheduleBeforeImpl extends ScheduleTaskImpl implements ScheduleBefo
                                ? this.getResource()
                                : to_be_task_after.getScheduledResource();
 			
-		task.schedule(tobe_resource, to_be_task_before, to_be_task_after);
+        Util.schedule(schedule, task, tobe_resource, to_be_task_before, to_be_task_after);
 	}
 } //ScheduleBeforeImpl

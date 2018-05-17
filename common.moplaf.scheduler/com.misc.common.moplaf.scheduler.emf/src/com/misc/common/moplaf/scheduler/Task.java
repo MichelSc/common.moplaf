@@ -205,20 +205,4 @@ public interface Task extends ObjectWithPropagatorFunctions {
 	 */
 	boolean isScheduled();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void schedule(Resource resource, Task previous, Task next);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void unschedule();
-
 } // Task

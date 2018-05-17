@@ -12,19 +12,23 @@
  */
 package com.misc.common.moplaf.scheduler.provider;
 
+import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.provider.SolutionItemProvider;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
+import com.misc.common.moplaf.scheduler.Task;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -59,6 +63,7 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNrScheduledTasksPropertyDescriptor(object);
+			addNotScheduledTasksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,6 +87,28 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__10SchedulerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Not Scheduled Tasks feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNotScheduledTasksPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schedule_NotScheduledTasks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_NotScheduledTasks_feature", "_UI_Schedule_type"),
+				 SchedulerPackage.Literals.SCHEDULE__NOT_SCHEDULED_TASKS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
 				 null));
 	}
 
@@ -113,6 +140,18 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+	
+	private ScheduleNotScheduledTaskItemProvider node_tasks_not_scheduler = null;
+
+	@Override
+	public Collection<?> getChildren(Object object) {
+		Collection<Object> super_children = (Collection<Object>) super.getChildren(object);
+		if ( this.node_tasks_not_scheduler==null ) {
+			this.node_tasks_not_scheduler = new ScheduleNotScheduledTaskItemProvider(this.adapterFactory, (Schedule) object);
+		}
+		super_children.add(this.node_tasks_not_scheduler);
+		return super_children;
 	}
 
 	/**
@@ -173,5 +212,18 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 	public ResourceLocator getResourceLocator() {
 		return SchedulerEditPlugin.INSTANCE;
 	}
+
+	@Override
+	protected Command createDropCommand(EditingDomain domain, Solution owner, Object droppedObject) {
+		if ( droppedObject instanceof Task ){
+			Task task = (Task)droppedObject;
+			Schedule schedule = (Schedule) owner;
+			ScheduleCommand cmd = new ScheduleCommand(schedule, task, task, null, null, null);
+		   	return cmd;
+		} 
+		return null;
+	}
+	
+	
 
 }

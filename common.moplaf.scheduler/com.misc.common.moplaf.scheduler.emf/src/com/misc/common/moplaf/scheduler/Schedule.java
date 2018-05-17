@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.scheduler;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Solution;
 
 import org.eclipse.emf.common.util.EList;
@@ -24,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getResources <em>Resources</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getNrScheduledTasks <em>Nr Scheduled Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getScheduler <em>Scheduler</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getNotScheduledTasks <em>Not Scheduled Tasks</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule()
@@ -107,5 +109,64 @@ public interface Schedule extends Solution {
 	 * @generated
 	 */
 	Scheduler getScheduler();
+
+	/**
+	 * Returns the value of the '<em><b>Not Scheduled Tasks</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.scheduler.Task}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Not Scheduled Tasks</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Not Scheduled Tasks</em>' reference list.
+	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule_NotScheduledTasks()
+	 * @model
+	 * @generated
+	 */
+	EList<Task> getNotScheduledTasks();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the unique entry point for scheduling or unscheduling Task(s) on Resource.
+	 * 
+	 * The following conditions must be satisfied by the parameters. 
+	 * 
+	 * Either from and to are both planned on the same Resource, and from is before to, or from and to refers to the same Task, which is not scheduled. So the couple (from, to) refers to a sequence of planned tasks, or to some unplanned task.
+	 * 
+	 * Either all of resource, previous, next are not set, or we have either previous is null and next is first, or previous.next = next and next.previous = previous, or previous is last and next is null and previous and next are scheduled on resource. So the triple (resource, previous, next) refers to an insertion point in some Resource planning.
+	 * 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void schedule(Task from, Task to, Resource resource, Task previous, Task next);
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the unique entry point for scheduling or unscheduling Task(s) on Resource.
+	 * The following conditions must be satisfied by the parameters. 
+	 * 
+	 * Either from and to are both planned on the same Resource, and from is before to, or from and to refers to the same Task, which is not scheduled. So the couple (from, to) refers to a sequence of planned tasks, or to some unplanned task.
+	 * 
+	 * Either all of resource, previous, next are not set, or we have either previous is null and next is first, or previous.next = next and next.previous = previous, or previous is last and next is null and previous and next are scheduled on resource. So the triple (resource, previous, next) refers to an insertion point in some Resource planning.
+	 * <!-- end-model-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback scheduleFeedback(Task from, Task to, Resource resource, Task previous, Task next);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
 
 } // Schedule

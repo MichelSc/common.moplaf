@@ -18,14 +18,8 @@ import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
-
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -411,6 +405,10 @@ public class TaskImpl extends ObjectWithPropagatorFunctionsImpl implements Task 
 		// assert previous.next = next.previous
 		// or previous is null and next is first
 		// or next is null and previous is last
+		
+		if ( !this.isScheduled() ) {
+			this.getSchedule().getNotScheduledTasks().remove(this);
+		}
 
 		// unset previous and next
 		this.unsetPreviousNext();
@@ -441,11 +439,15 @@ public class TaskImpl extends ObjectWithPropagatorFunctionsImpl implements Task 
 	 * <!-- end-user-doc -->
 	 */
 	public void unschedule() {
-		// set previous and next
-		this.unsetPreviousNext();
-		
-		// set the association Task/Resource
-		this.scheduleResource(null, 0);
+		if ( this.isScheduled() ) {
+			// set previous and next
+			this.unsetPreviousNext();
+			
+			// set the association Task/Resource
+			this.scheduleResource(null, 0);
+			
+			this.getSchedule().getNotScheduledTasks().add(this);
+		}
 	}
 
 	/**
@@ -668,24 +670,6 @@ public class TaskImpl extends ObjectWithPropagatorFunctionsImpl implements Task 
 				return isScheduled() != SCHEDULED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case SchedulerPackage.TASK___SCHEDULE__RESOURCE_TASK_TASK:
-				schedule((Resource)arguments.get(0), (Task)arguments.get(1), (Task)arguments.get(2));
-				return null;
-			case SchedulerPackage.TASK___UNSCHEDULE:
-				unschedule();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
