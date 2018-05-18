@@ -319,7 +319,7 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 	}
 	
 	/**
-	 * Create a drag and drop command for this Run
+	 * Create a drag and drop command for this Solution
 	 */
 	private class SolutionDragAndDropCommand extends DragAndDropCommand {
 
@@ -348,13 +348,12 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 	};
 	
 	/**
-	 * Create a command for a drag and drop on this Run
+	 * Create a command for a drag and drop on this Solution
 	 */
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
 		return new SolutionDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
-
 	
 }

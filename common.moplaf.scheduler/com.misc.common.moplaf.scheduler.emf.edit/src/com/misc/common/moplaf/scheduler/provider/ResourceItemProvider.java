@@ -16,17 +16,23 @@ package com.misc.common.moplaf.scheduler.provider;
 import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
 
 import com.misc.common.moplaf.scheduler.Resource;
+import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
+import com.misc.common.moplaf.scheduler.Task;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -307,4 +313,54 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 		return SchedulerEditPlugin.INSTANCE;
 	}
 
+	protected Command createDropCommand(EditingDomain domain, Resource owner, Object droppedObject){ 
+		if ( droppedObject instanceof Task) {
+			Task task = (Task)droppedObject;
+			Task next = owner.getFirstTask();
+			Task previous = null;
+			Schedule schedule = owner.getSchedule();
+			Command cmd = new ScheduleCommand(schedule, task, task, owner, previous, next);
+			return cmd;
+		}
+		return null;
+	}
+	
+
+	/**
+	 * Create a drag and drop command for this Resource
+	 */
+	private class ResourceDragAndDropCommand extends DragAndDropCommand {
+
+		public ResourceDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			for (Object element : collection){
+				Command cmd = ResourceItemProvider.this.createDropCommand(this.domain, (Resource)this.owner, element);
+				if ( cmd != null ){
+					compound.append(cmd);
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Resource
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new ResourceDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
 }

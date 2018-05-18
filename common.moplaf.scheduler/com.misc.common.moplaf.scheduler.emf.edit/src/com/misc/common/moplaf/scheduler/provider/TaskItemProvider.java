@@ -14,18 +14,22 @@ package com.misc.common.moplaf.scheduler.provider;
 
 
 import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
-
+import com.misc.common.moplaf.scheduler.Resource;
+import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -271,4 +275,54 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 		return SchedulerEditPlugin.INSTANCE;
 	}
 
-}
+	protected Command createDropCommand(EditingDomain domain, Task owner, Object droppedObject){ 
+		if ( droppedObject instanceof Task) {
+			// plan the dropped task after the target (owner) task
+			Task task = (Task)droppedObject;
+			Task previous = owner;
+			Task next = previous.getNextTask();
+			Resource resource = next.getScheduledResource();
+			Schedule schedule = resource.getSchedule();
+			Command cmd = new ScheduleCommand(schedule, task, task, resource, previous, next);
+			return cmd;
+		}
+		return null;
+	}
+	
+	/**
+	 * Create a drag and drop command for this Task
+	 */
+	private class TaskDragAndDropCommand extends DragAndDropCommand {
+
+		public TaskDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			for (Object element : collection){
+				Command cmd = TaskItemProvider.this.createDropCommand(this.domain, (Task)this.owner, element);
+				if ( cmd != null ){
+					compound.append(cmd);
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Task
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new TaskDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}}

@@ -192,13 +192,92 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void schedule(Task from, Task to, Resource resource, Task previous, Task next) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( from.isScheduled() ) {
+			this.unsetPreviousNext(from, to);
+		}
+		
+		if ( resource!=null ) {
+			// set previous and next
+			if ( previous==null ) {
+				resource.setFirstTask(from);
+			} else {
+				previous.setNextTask(from);
+			}
+
+			// after: set next
+			if ( next==null) {
+				resource.setLastTask(to);
+			} else {
+				to.setNextTask(next);
+			}	
+		}
+		
+		// set the association Task/Resource
+		int position = next==null ? resource.getScheduledTasks().size() : resource.getScheduledTasks().indexOf(next);
+		Task current = from;
+		do {
+			this.scheduleResource(resource, current, position);
+			position++;
+			current = from.getNextTask();
+		} while ( current != to);
+
+
 	}
+	
+	private void scheduleResource(Resource resource, Task task, int position) {
+		Resource resource_asis = task.getScheduledResource();
+		Resource resource_tobe = resource;
+
+		if ( resource_asis != resource_tobe ) {
+			if ( resource_asis==null ) {
+				this.getNotScheduledTasks().remove(task);
+			} else {
+				resource_asis.setNrScheduledTasks(resource_asis.getNrScheduledTasks()-1);
+				resource_asis.getScheduledTasks().remove(task);
+			} 
+
+			if ( resource_tobe==null ) {
+				this.getNotScheduledTasks().add(task);
+			} else {
+				resource_tobe.setNrScheduledTasks(resource_tobe.getNrScheduledTasks()+1);
+				resource_tobe.getScheduledTasks().add(position, task);
+			}
+	
+			task.setScheduledResource(resource_tobe);
+		} else if ( resource!=null ) {
+			resource.getScheduledTasks().move(position, task);
+		}
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	private void unsetPreviousNext(Task from, Task  to) {
+		Task previous = from.getPreviousTask();
+		Task next = to.getNextTask();
+		Resource resource_asis = from.getScheduledResource();
+
+		// before
+		if ( previous==null ) {
+			// this task was the first task
+			resource_asis.setFirstTask(next);
+		} else {
+			previous.setNextTask(next);
+		} 
+
+		// after
+		if ( next==null) {
+			// this task was the last task
+			resource_asis.setLastTask(previous);
+		} else {
+			to.setNextTask(null);
+		}
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

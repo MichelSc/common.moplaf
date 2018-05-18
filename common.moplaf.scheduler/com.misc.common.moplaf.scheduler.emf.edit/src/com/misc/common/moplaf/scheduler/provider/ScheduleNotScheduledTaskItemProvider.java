@@ -2,11 +2,16 @@ package com.misc.common.moplaf.scheduler.provider;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
+import com.misc.common.moplaf.scheduler.Task;
 
 public class ScheduleNotScheduledTaskItemProvider extends ScheduleNodesItemProvider {
 
@@ -27,4 +32,45 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	public String getText(Object object) {
 		return "Not scheduled tasks";
 	}
+	
+	/**
+	 * Create a drag and drop command for this Solution
+	 */
+	private class ScheduleNotPlannedTasksDragAndDropCommand extends DragAndDropCommand {
+
+		public ScheduleNotPlannedTasksDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+			Schedule schedule = (Schedule)owner;
+	    	CompoundCommand compound = new CompoundCommand();
+			for (Object element : collection){
+				if ( element instanceof Task ) {
+					Task task = (Task) element;
+					Command cmd = new ScheduleCommand(schedule, task, task, null, null, null);
+					compound.append(cmd);
+				}
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Solution
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new ScheduleNotPlannedTasksDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
+
 }
