@@ -216,14 +216,14 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 		
 		// set the association Task/Resource
 		int position = next==null ? resource.getScheduledTasks().size() : resource.getScheduledTasks().indexOf(next);
-		Task current = from;
+		Task next_current = from;
+		Task current = null;
 		do {
+			current = next_current;
 			this.scheduleResource(resource, current, position);
 			position++;
-			current = from.getNextTask();
+			next_current = current.getNextTask();
 		} while ( current != to);
-
-
 	}
 	
 	private void scheduleResource(Resource resource, Task task, int position) {
@@ -282,12 +282,69 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EnabledFeedback scheduleFeedback(Task from, Task to, Resource resource, Task previous, Task next) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( from == null ) {
+			return new EnabledFeedback(false, "No from task to plan given");
+		}
+		if ( to == null ) {
+			return new EnabledFeedback(false, "No to task to plan given");
+		}
+		// the tasks to schedule were scheduled
+		if ( to.getScheduledResource()!=from.getScheduledResource() ) {
+			return new EnabledFeedback(false, "The given tasks to planned are scheduled on different resources");
+		}
+		if ( from.getScheduledResource()!=null ) {
+			Task current = from;
+			while ( current!=to ) {
+				current = current.getNextTask();
+				if ( current == null ) {
+					return new EnabledFeedback(false, "The given to task must be after the given from task in the schedule of the resource");
+				}
+			}
+		} else {
+			if ( from != to ) {
+				return new EnabledFeedback(false, "Not allowed to given different from and to tasks if unscheduled");
+			}
+		}
+		if ( resource == null ) {
+			if ( previous!=null ) {
+				return new EnabledFeedback(false, "No previous task may be given when unscheduling tasks");
+			}
+			if ( to!=null ) {
+				return new EnabledFeedback(false, "No to task may be given when unscheduling tasks");
+			}
+			// unschedule
+		} else {
+			// schedule
+			if ( previous == null ) {
+				if ( resource.getFirstTask()!=next) {
+					return new EnabledFeedback(false, "No given previous task, the given next task must be the first task of the resource");
+				}
+			} else {
+				// there is a previous
+				if ( previous.getNextTask()!=next ) {
+					return new EnabledFeedback(false, "The next task of the given previous task is different from the given next task");
+				}
+				if ( previous.getScheduledResource()!=resource ) {
+					return new EnabledFeedback(false, "The given previous task is not scheduled on the given resource");
+				}
+			}
+			if ( next == null ) {
+				if ( resource.getLastTask()!=previous) {
+					return new EnabledFeedback(false, "No given next task, the given previous task must be the last task of the resource");
+				}
+			} else {
+				// there is a previous
+				if ( next.getPreviousTask()!=previous ) {
+					return new EnabledFeedback(false, "The previous task of the given next task is different from the given previous task");
+				}
+				if ( next.getScheduledResource()!=resource ) {
+					return new EnabledFeedback(false, "The given next task is not scheduled on the given resource");
+				}
+			}
+		}
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**

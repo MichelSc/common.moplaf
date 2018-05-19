@@ -281,7 +281,7 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 			Task task = (Task)droppedObject;
 			Task previous = owner;
 			Task next = previous.getNextTask();
-			Resource resource = next.getScheduledResource();
+			Resource resource = previous.getScheduledResource();
 			Schedule schedule = resource.getSchedule();
 			Command cmd = new ScheduleCommand(schedule, task, task, resource, previous, next);
 			return cmd;

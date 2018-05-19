@@ -5,9 +5,11 @@ import java.util.Collection;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
@@ -34,6 +36,25 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	}
 	
 	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch (notification.getFeatureID(Schedule.class)) {
+			case SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
+	}
+
+	
+	/**
 	 * Create a drag and drop command for this Solution
 	 */
 	private class ScheduleNotPlannedTasksDragAndDropCommand extends DragAndDropCommand {
@@ -49,7 +70,8 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	     */
 	    @Override
 	    protected boolean prepare(){
-			Schedule schedule = (Schedule)owner;
+	    	ScheduleNotScheduledTaskItemProvider adapter = (ScheduleNotScheduledTaskItemProvider)owner;
+	    	Schedule schedule = (Schedule)adapter.target;
 	    	CompoundCommand compound = new CompoundCommand();
 			for (Object element : collection){
 				if ( element instanceof Task ) {
