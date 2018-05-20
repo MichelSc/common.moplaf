@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getTasks <em>Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getResources <em>Resources</em>}</li>
- *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getNrScheduledTasks <em>Nr Scheduled Tasks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getNrNotScheduledTasks <em>Nr Not Scheduled Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getNotScheduledTasks <em>Not Scheduled Tasks</em>}</li>
  * </ul>
@@ -70,30 +70,19 @@ public interface Schedule extends Solution {
 	EList<Resource> getResources();
 
 	/**
-	 * Returns the value of the '<em><b>Nr Scheduled Tasks</b></em>' attribute.
+	 * Returns the value of the '<em><b>Nr Not Scheduled Tasks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Nr Scheduled Tasks</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Nr Not Scheduled Tasks</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nr Scheduled Tasks</em>' attribute.
-	 * @see #setNrScheduledTasks(int)
-	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule_NrScheduledTasks()
-	 * @model
+	 * @return the value of the '<em>Nr Not Scheduled Tasks</em>' attribute.
+	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule_NrNotScheduledTasks()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	int getNrScheduledTasks();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.scheduler.Schedule#getNrScheduledTasks <em>Nr Scheduled Tasks</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nr Scheduled Tasks</em>' attribute.
-	 * @see #getNrScheduledTasks()
-	 * @generated
-	 */
-	void setNrScheduledTasks(int value);
+	int getNrNotScheduledTasks();
 
 	/**
 	 * Returns the value of the '<em><b>Scheduler</b></em>' reference.

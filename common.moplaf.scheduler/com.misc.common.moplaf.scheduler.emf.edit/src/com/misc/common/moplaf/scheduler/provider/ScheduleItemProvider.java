@@ -62,31 +62,31 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNrScheduledTasksPropertyDescriptor(object);
+			addNrNotScheduledTasksPropertyDescriptor(object);
 			addNotScheduledTasksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Nr Scheduled Tasks feature.
+	 * This adds a property descriptor for the Nr Not Scheduled Tasks feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNrScheduledTasksPropertyDescriptor(Object object) {
+	protected void addNrNotScheduledTasksPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Schedule_NrScheduledTasks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_NrScheduledTasks_feature", "_UI_Schedule_type"),
-				 SchedulerPackage.Literals.SCHEDULE__NR_SCHEDULED_TASKS,
-				 true,
+				 getString("_UI_Schedule_NrNotScheduledTasks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_NrNotScheduledTasks_feature", "_UI_Schedule_type"),
+				 SchedulerPackage.Literals.SCHEDULE__NR_NOT_SCHEDULED_TASKS,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -180,7 +180,7 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 
 		switch (notification.getFeatureID(Schedule.class)) {
 			case SchedulerPackage.SCHEDULE__TASKS:
-			case SchedulerPackage.SCHEDULE__NR_SCHEDULED_TASKS:
+			case SchedulerPackage.SCHEDULE__NR_NOT_SCHEDULED_TASKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SchedulerPackage.SCHEDULE__RESOURCES:
@@ -218,7 +218,7 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 		if ( droppedObject instanceof Task ){
 			Task task = (Task)droppedObject;
 			Schedule schedule = (Schedule) owner;
-			ScheduleCommand cmd = new ScheduleCommand(schedule, task, task, null, null, null);
+			ScheduleCommand cmd = new ScheduleCommand(true, schedule, task, task, null, null, null);
 		   	return cmd;
 		} 
 		return null;

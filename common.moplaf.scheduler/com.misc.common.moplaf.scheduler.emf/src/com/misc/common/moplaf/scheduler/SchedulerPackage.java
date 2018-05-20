@@ -489,13 +489,13 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE__RESOURCES = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Nr Scheduled Tasks</b></em>' attribute.
+	 * The feature id for the '<em><b>Nr Not Scheduled Tasks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE__NR_SCHEDULED_TASKS = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 2;
+	int SCHEDULE__NR_NOT_SCHEDULED_TASKS = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Scheduler</b></em>' reference.
@@ -1753,6 +1753,17 @@ public interface SchedulerPackage extends EPackage {
 	EReference getSchedule_Resources();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.Schedule#getNrNotScheduledTasks <em>Nr Not Scheduled Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nr Not Scheduled Tasks</em>'.
+	 * @see com.misc.common.moplaf.scheduler.Schedule#getNrNotScheduledTasks()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EAttribute getSchedule_NrNotScheduledTasks();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.Schedule#getScheduler <em>Scheduler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1803,17 +1814,6 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSchedule__Flush();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.Schedule#getNrScheduledTasks <em>Nr Scheduled Tasks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nr Scheduled Tasks</em>'.
-	 * @see com.misc.common.moplaf.scheduler.Schedule#getNrScheduledTasks()
-	 * @see #getSchedule()
-	 * @generated
-	 */
-	EAttribute getSchedule_NrScheduledTasks();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.Resource <em>Resource</em>}'.
@@ -2132,6 +2132,14 @@ public interface SchedulerPackage extends EPackage {
 		EReference SCHEDULE__RESOURCES = eINSTANCE.getSchedule_Resources();
 
 		/**
+		 * The meta object literal for the '<em><b>Nr Not Scheduled Tasks</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEDULE__NR_NOT_SCHEDULED_TASKS = eINSTANCE.getSchedule_NrNotScheduledTasks();
+
+		/**
 		 * The meta object literal for the '<em><b>Scheduler</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2170,14 +2178,6 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SCHEDULE___FLUSH = eINSTANCE.getSchedule__Flush();
-
-		/**
-		 * The meta object literal for the '<em><b>Nr Scheduled Tasks</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEDULE__NR_SCHEDULED_TASKS = eINSTANCE.getSchedule_NrScheduledTasks();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.ResourceImpl <em>Resource</em>}' class.

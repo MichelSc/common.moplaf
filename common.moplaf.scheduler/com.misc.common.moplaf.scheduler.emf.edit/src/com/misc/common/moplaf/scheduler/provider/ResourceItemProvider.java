@@ -67,7 +67,6 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
-			addScheduledTasksPropertyDescriptor(object);
 			addFirstTaskPropertyDescriptor(object);
 			addLastTaskPropertyDescriptor(object);
 			addNrScheduledTasksPropertyDescriptor(object);
@@ -94,28 +93,6 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10SchedulerPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scheduled Tasks feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addScheduledTasksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Resource_ScheduledTasks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_ScheduledTasks_feature", "_UI_Resource_type"),
-				 SchedulerPackage.Literals.RESOURCE__SCHEDULED_TASKS,
-				 false,
-				 false,
-				 false,
-				 null,
 				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
@@ -138,7 +115,7 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 				 false,
 				 true,
 				 null,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -160,7 +137,7 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 				 false,
 				 true,
 				 null,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -182,7 +159,7 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -204,7 +181,7 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -319,7 +296,7 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 			Task next = owner.getFirstTask();
 			Task previous = null;
 			Schedule schedule = owner.getSchedule();
-			Command cmd = new ScheduleCommand(schedule, task, task, owner, previous, next);
+			Command cmd = new ScheduleCommand(true, schedule, task, task, owner, previous, next);
 			return cmd;
 		}
 		return null;

@@ -22,8 +22,6 @@ import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -31,9 +29,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -48,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getResources <em>Resources</em>}</li>
- *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getNrScheduledTasks <em>Nr Scheduled Tasks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getNrNotScheduledTasks <em>Nr Not Scheduled Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getNotScheduledTasks <em>Not Scheduled Tasks</em>}</li>
  * </ul>
@@ -77,24 +72,14 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	protected EList<Resource> resources;
 
 	/**
-	 * The default value of the '{@link #getNrScheduledTasks() <em>Nr Scheduled Tasks</em>}' attribute.
+	 * The default value of the '{@link #getNrNotScheduledTasks() <em>Nr Not Scheduled Tasks</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNrScheduledTasks()
+	 * @see #getNrNotScheduledTasks()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NR_SCHEDULED_TASKS_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getNrScheduledTasks() <em>Nr Scheduled Tasks</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNrScheduledTasks()
-	 * @generated
-	 * @ordered
-	 */
-	protected int nrScheduledTasks = NR_SCHEDULED_TASKS_EDEFAULT;
+	protected static final int NR_NOT_SCHEDULED_TASKS_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getNotScheduledTasks() <em>Not Scheduled Tasks</em>}' reference list.
@@ -147,6 +132,14 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 			resources = new EObjectContainmentWithInverseEList<Resource>(Resource.class, this, SchedulerPackage.SCHEDULE__RESOURCES, SchedulerPackage.RESOURCE__SCHEDULE);
 		}
 		return resources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int getNrNotScheduledTasks() {
+		return this.getNotScheduledTasks().size();
 	}
 
 	/**
@@ -214,43 +207,35 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 			}	
 		}
 		
-		// set the association Task/Resource
-		int position = next==null ? resource.getScheduledTasks().size() : resource.getScheduledTasks().indexOf(next);
-		Task next_current = from;
-		Task current = null;
-		do {
-			current = next_current;
-			this.scheduleResource(resource, current, position);
-			position++;
-			next_current = current.getNextTask();
-		} while ( current != to);
-	}
-	
-	private void scheduleResource(Resource resource, Task task, int position) {
-		Resource resource_asis = task.getScheduledResource();
+		Resource resource_asis = from.getScheduledResource();
 		Resource resource_tobe = resource;
-
-		if ( resource_asis != resource_tobe ) {
+		
+		{
+		// remove the association Task/Resource
+		Task current = from;
+		do {
 			if ( resource_asis==null ) {
-				this.getNotScheduledTasks().remove(task);
+				this.getNotScheduledTasks().remove(current);
 			} else {
-				resource_asis.setNrScheduledTasks(resource_asis.getNrScheduledTasks()-1);
-				resource_asis.getScheduledTasks().remove(task);
+				resource_asis.getScheduledTasks().remove(current);
 			} 
+		} while ( current!=to);
+		}
 
+		{
+		// add the association Task/Resource
+		Task current = from;
+		do {
 			if ( resource_tobe==null ) {
-				this.getNotScheduledTasks().add(task);
+				this.getNotScheduledTasks().add(current);
 			} else {
-				resource_tobe.setNrScheduledTasks(resource_tobe.getNrScheduledTasks()+1);
-				resource_tobe.getScheduledTasks().add(position, task);
+				int position = next==null ? resource_tobe.getScheduledTasks().size() : resource_tobe.getScheduledTasks().indexOf(next);
+				resource_tobe.getScheduledTasks().add(position, current);
 			}
-	
-			task.setScheduledResource(resource_tobe);
-		} else if ( resource!=null ) {
-			resource.getScheduledTasks().move(position, task);
+		} while ( current!=to);
 		}
 	}
-
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -311,7 +296,7 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 			if ( previous!=null ) {
 				return new EnabledFeedback(false, "No previous task may be given when unscheduling tasks");
 			}
-			if ( to!=null ) {
+			if ( next!=null ) {
 				return new EnabledFeedback(false, "No to task may be given when unscheduling tasks");
 			}
 			// unschedule
@@ -354,27 +339,6 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	public void flush() {
 		this.getTasks().clear();
 		this.getResources().clear();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getNrScheduledTasks() {
-		return nrScheduledTasks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNrScheduledTasks(int newNrScheduledTasks) {
-		int oldNrScheduledTasks = nrScheduledTasks;
-		nrScheduledTasks = newNrScheduledTasks;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SchedulerPackage.SCHEDULE__NR_SCHEDULED_TASKS, oldNrScheduledTasks, nrScheduledTasks));
 	}
 
 	/**
@@ -445,8 +409,8 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return getTasks();
 			case SchedulerPackage.SCHEDULE__RESOURCES:
 				return getResources();
-			case SchedulerPackage.SCHEDULE__NR_SCHEDULED_TASKS:
-				return getNrScheduledTasks();
+			case SchedulerPackage.SCHEDULE__NR_NOT_SCHEDULED_TASKS:
+				return getNrNotScheduledTasks();
 			case SchedulerPackage.SCHEDULE__SCHEDULER:
 				if (resolve) return getScheduler();
 				return basicGetScheduler();
@@ -473,9 +437,6 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				getResources().clear();
 				getResources().addAll((Collection<? extends Resource>)newValue);
 				return;
-			case SchedulerPackage.SCHEDULE__NR_SCHEDULED_TASKS:
-				setNrScheduledTasks((Integer)newValue);
-				return;
 			case SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS:
 				getNotScheduledTasks().clear();
 				getNotScheduledTasks().addAll((Collection<? extends Task>)newValue);
@@ -498,9 +459,6 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 			case SchedulerPackage.SCHEDULE__RESOURCES:
 				getResources().clear();
 				return;
-			case SchedulerPackage.SCHEDULE__NR_SCHEDULED_TASKS:
-				setNrScheduledTasks(NR_SCHEDULED_TASKS_EDEFAULT);
-				return;
 			case SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS:
 				getNotScheduledTasks().clear();
 				return;
@@ -520,8 +478,8 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return tasks != null && !tasks.isEmpty();
 			case SchedulerPackage.SCHEDULE__RESOURCES:
 				return resources != null && !resources.isEmpty();
-			case SchedulerPackage.SCHEDULE__NR_SCHEDULED_TASKS:
-				return nrScheduledTasks != NR_SCHEDULED_TASKS_EDEFAULT;
+			case SchedulerPackage.SCHEDULE__NR_NOT_SCHEDULED_TASKS:
+				return getNrNotScheduledTasks() != NR_NOT_SCHEDULED_TASKS_EDEFAULT;
 			case SchedulerPackage.SCHEDULE__SCHEDULER:
 				return basicGetScheduler() != null;
 			case SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS:
@@ -548,22 +506,6 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (NrScheduledTasks: ");
-		result.append(nrScheduledTasks);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ScheduleImpl

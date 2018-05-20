@@ -102,15 +102,29 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 
 	/**
+	 * This is the entry point of a notification for the Propagator
+	 * <p>
 	 * Forward the notification to the inbound bindings, that detect if the bound derived element
 	 * is changed. If it is changed, touch this Adapter. 
+	 * <p>
+	 * During the handling of the notification, new sources may be added (a reference is set/added) or removed (a 
+	 * reference is reset/removed). This will typically happen to other objects, but might happen to this object as
+	 * well (self references).
+	 * <p> 
+	 * Typically, these new sources do not listen to the event that lead to their creation. So when handling the creation event
+	 * (that will add the source), we do not need to call the new source notifyChanged. Conversely, old sources that are 
+	 * removed when handling the destruction event (that will remove the source) do not listen to this event. So calling 
+	 * the old source notifyChanged will do nothing and might be skipped.
+	 * <p>
 	 * @see com.misc.common.moplaf.propagator.AbstractAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
 	 */
 	@Override
 	public void notifyChanged(Notification msg) {
 		super.notifyChanged(msg);
-		for ( PropagatorFunctionSource source : this.sources){
-			source.notifyChanged(msg);
+		int sources_nb = this.sources.size();
+		PropagatorFunctionSource[] sources_asis = this.sources.toArray(new PropagatorFunctionSource[sources_nb]);
+		for (int source_nr = 0; source_nr<sources_nb; source_nr++ ) {
+			sources_asis[source_nr].notifyChanged(msg);
 		}
 	}
 }

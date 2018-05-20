@@ -24,8 +24,8 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * <p>
  * Following features must be supported by a PropagatorFunctionSource 
  * <ul>
- * <li> associated with one PropagatorFunction: the one that is binding </li>
- * <li> associated with one EObject: the object bound to the PropagatorFunction </li>
+ * <li> associated with one PropagatorFunction, the one that is binding (the one interested in the changes): propagatorFuntion:PropagatorFunction</li>
+ * <li> associated with one EObject: the object bound to the PropagatorFunction (the objects whose changes this source is interested in): target:EObject</li>
  * <li> listening to changes in the EObject and forwarding touch() to the PropagatorFunction</li>
  * <li> collecting the antecedents of the PropagatorFunction</li>
  * <li> managing the dependencies </li>

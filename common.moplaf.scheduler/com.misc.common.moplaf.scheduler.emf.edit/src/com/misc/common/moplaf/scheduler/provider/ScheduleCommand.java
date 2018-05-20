@@ -13,9 +13,22 @@ public class ScheduleCommand extends BaseCommand {
 	private Resource resource;
 	private Task previous;
 	private Task next;
+	private boolean propagate; 
 
+	public ScheduleCommand(boolean propagate, Schedule schedule, Task from, Task to, Resource on, Task previous, Task next) {
+		super("Schedule", "Schedule Tasks");
+		this.propagate = propagate;
+		this.schedule = schedule;
+		this.fromTask = from;
+		this.toTask   = to;
+		this.resource = on;
+		this.previous = previous;
+		this.next     = next;
+	}
+	
 	public ScheduleCommand(Schedule schedule, Task from, Task to, Resource on, Task previous, Task next) {
 		super("Schedule", "Schedule Tasks");
+		this.propagate = false;
 		this.schedule = schedule;
 		this.fromTask = from;
 		this.toTask   = to;
@@ -37,6 +50,14 @@ public class ScheduleCommand extends BaseCommand {
 
 	@Override
 	public void execute() {
-		this.schedule.schedule(this.fromTask, this.toTask, this.resource, this.previous, this.next);
+		
+		if ( propagate ) {
+			this.schedule.enable();
+			this.schedule.schedule(this.fromTask, this.toTask, this.resource, this.previous, this.next);
+			this.schedule.refresh();
+			
+		} else {
+			this.schedule.schedule(this.fromTask, this.toTask, this.resource, this.previous, this.next);
+		}
 	}
 }

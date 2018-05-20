@@ -161,22 +161,11 @@ public interface Resource extends ObjectWithPropagatorFunctions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Nr Scheduled Tasks</em>' attribute.
-	 * @see #setNrScheduledTasks(int)
 	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getResource_NrScheduledTasks()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	int getNrScheduledTasks();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.scheduler.Resource#getNrScheduledTasks <em>Nr Scheduled Tasks</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nr Scheduled Tasks</em>' attribute.
-	 * @see #getNrScheduledTasks()
-	 * @generated
-	 */
-	void setNrScheduledTasks(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

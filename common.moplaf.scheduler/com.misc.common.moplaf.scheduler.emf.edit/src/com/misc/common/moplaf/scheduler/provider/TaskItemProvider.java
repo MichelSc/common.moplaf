@@ -68,7 +68,6 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 			addScheduledResourcePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addScheduledPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,7 +90,7 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 				 false,
 				 true,
 				 null,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -113,7 +112,7 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 				 false,
 				 true,
 				 null,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -131,7 +130,7 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 				 getString("_UI_Task_ScheduledResource_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_ScheduledResource_feature", "_UI_Task_type"),
 				 SchedulerPackage.Literals.TASK__SCHEDULED_RESOURCE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -157,7 +156,7 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10SchedulerPropertyCategory"),
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -179,29 +178,7 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10SchedulerPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scheduled feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addScheduledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Task_Scheduled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Task_Scheduled_feature", "_UI_Task_type"),
-				 SchedulerPackage.Literals.TASK__SCHEDULED,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 
@@ -279,12 +256,16 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 		if ( droppedObject instanceof Task) {
 			// plan the dropped task after the target (owner) task
 			Task task = (Task)droppedObject;
+			Schedule schedule = task.getSchedule();
 			Task previous = owner;
 			Task next = previous.getNextTask();
 			Resource resource = previous.getScheduledResource();
-			Schedule schedule = resource.getSchedule();
-			Command cmd = new ScheduleCommand(schedule, task, task, resource, previous, next);
-			return cmd;
+			if ( resource==null ) {
+				// the drop target is not scheduled, unschedule the dropped source
+				return new ScheduleCommand(true, schedule, task, task, null, null, null);
+			}
+			// the drop target is scheduled, schedule the dropped source
+			return new ScheduleCommand(schedule, task, task, resource, previous, next);
 		}
 		return null;
 	}

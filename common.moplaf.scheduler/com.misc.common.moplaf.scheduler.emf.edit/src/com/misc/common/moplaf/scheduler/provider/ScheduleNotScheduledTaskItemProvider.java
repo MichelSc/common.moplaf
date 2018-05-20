@@ -70,13 +70,14 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	     */
 	    @Override
 	    protected boolean prepare(){
-	    	ScheduleNotScheduledTaskItemProvider adapter = (ScheduleNotScheduledTaskItemProvider)owner;
-	    	Schedule schedule = (Schedule)adapter.target;
+//	    	ScheduleNotScheduledTaskItemProvider adapter = (ScheduleNotScheduledTaskItemProvider)owner;
+//	    	Schedule schedule = (Schedule)adapter.target;
+	    	Schedule schedule = (Schedule)owner;
 	    	CompoundCommand compound = new CompoundCommand();
 			for (Object element : collection){
 				if ( element instanceof Task ) {
 					Task task = (Task) element;
-					Command cmd = new ScheduleCommand(schedule, task, task, null, null, null);
+					Command cmd = new ScheduleCommand(true, schedule, task, task, null, null, null);
 					compound.append(cmd);
 				}
 			}

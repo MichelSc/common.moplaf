@@ -103,16 +103,6 @@ public class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements R
 	protected static final int NR_SCHEDULED_TASKS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNrScheduledTasks() <em>Nr Scheduled Tasks</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNrScheduledTasks()
-	 * @generated
-	 * @ordered
-	 */
-	protected int nrScheduledTasks = NR_SCHEDULED_TASKS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,22 +283,9 @@ public class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements R
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public int getNrScheduledTasks() {
-		return nrScheduledTasks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNrScheduledTasks(int newNrScheduledTasks) {
-		int oldNrScheduledTasks = nrScheduledTasks;
-		nrScheduledTasks = newNrScheduledTasks;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SchedulerPackage.RESOURCE__NR_SCHEDULED_TASKS, oldNrScheduledTasks, nrScheduledTasks));
+		return this.getScheduledTasks().size();
 	}
 
 	/**
@@ -431,9 +408,6 @@ public class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements R
 			case SchedulerPackage.RESOURCE__LAST_TASK:
 				setLastTask((Task)newValue);
 				return;
-			case SchedulerPackage.RESOURCE__NR_SCHEDULED_TASKS:
-				setNrScheduledTasks((Integer)newValue);
-				return;
 			case SchedulerPackage.RESOURCE__NAME:
 				setName((String)newValue);
 				return;
@@ -461,9 +435,6 @@ public class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements R
 			case SchedulerPackage.RESOURCE__LAST_TASK:
 				setLastTask((Task)null);
 				return;
-			case SchedulerPackage.RESOURCE__NR_SCHEDULED_TASKS:
-				setNrScheduledTasks(NR_SCHEDULED_TASKS_EDEFAULT);
-				return;
 			case SchedulerPackage.RESOURCE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -490,7 +461,7 @@ public class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements R
 			case SchedulerPackage.RESOURCE__LAST_TASK:
 				return lastTask != null;
 			case SchedulerPackage.RESOURCE__NR_SCHEDULED_TASKS:
-				return nrScheduledTasks != NR_SCHEDULED_TASKS_EDEFAULT;
+				return getNrScheduledTasks() != NR_SCHEDULED_TASKS_EDEFAULT;
 			case SchedulerPackage.RESOURCE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
@@ -507,9 +478,7 @@ public class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements R
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (NrScheduledTasks: ");
-		result.append(nrScheduledTasks);
-		result.append(", Name: ");
+		result.append(" (Name: ");
 		result.append(name);
 		result.append(')');
 		return result.toString();
