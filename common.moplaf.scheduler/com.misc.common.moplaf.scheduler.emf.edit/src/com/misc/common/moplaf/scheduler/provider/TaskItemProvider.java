@@ -265,7 +265,7 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 				return new ScheduleCommand(true, schedule, task, task, null, null, null);
 			}
 			// the drop target is scheduled, schedule the dropped source
-			return new ScheduleCommand(schedule, task, task, resource, previous, next);
+			return new ScheduleCommand(true, schedule, task, task, resource, previous, next);
 		}
 		return null;
 	}
