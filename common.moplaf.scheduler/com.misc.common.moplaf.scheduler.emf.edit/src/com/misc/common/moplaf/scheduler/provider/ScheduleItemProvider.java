@@ -12,23 +12,17 @@
  */
 package com.misc.common.moplaf.scheduler.provider;
 
-import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.provider.SolutionItemProvider;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
-import com.misc.common.moplaf.scheduler.Task;
-
 import java.util.Collection;
 import java.util.List;
-
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -212,18 +206,5 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 	public ResourceLocator getResourceLocator() {
 		return SchedulerEditPlugin.INSTANCE;
 	}
-
-	@Override
-	protected Command createDropCommand(EditingDomain domain, Solution owner, Object droppedObject) {
-		if ( droppedObject instanceof Task ){
-			Task task = (Task)droppedObject;
-			Schedule schedule = (Schedule) owner;
-			ScheduleCommand cmd = new ScheduleCommand(true, schedule, task, task, null, null, null);
-		   	return cmd;
-		} 
-		return null;
-	}
-	
-	
 
 }
