@@ -107,7 +107,8 @@ public class TransientItemProviderAdapter extends ItemProviderAdapter
 	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		commandParameter.owner=this.target;
-		return super.createCommand(this.target, domain, commandClass, commandParameter);
+//		return super.createCommand(this.target, domain, commandClass, commandParameter);
+		return super.createCommand(object, domain, commandClass, commandParameter);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
@@ -72,17 +73,19 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	    protected boolean prepare(){
 //	    	ScheduleNotScheduledTaskItemProvider adapter = (ScheduleNotScheduledTaskItemProvider)owner;
 //	    	Schedule schedule = (Schedule)adapter.target;
-	    	Schedule schedule = (Schedule)owner;
+			Plugin.INSTANCE.logInfo("NotScheduledTasks, owner "+owner.getClass().getName());
+//	    	Schedule schedule = (Schedule)owner;
 	    	CompoundCommand compound = new CompoundCommand();
-			for (Object element : collection){
-				if ( element instanceof Task ) {
-					Task task = (Task) element;
-					Command cmd = new ScheduleCommand(true, schedule, task, task, null, null, null);
-					compound.append(cmd);
-				}
-			}
+//			for (Object element : collection){
+//				if ( element instanceof Task ) {
+//					Task task = (Task) element;
+//					Command cmd = new ScheduleCommand(true, schedule, task, task, null, null, null);
+//					compound.append(cmd);
+//				}
+//			}
 	    	this.dragCommand = null;
 			this.dropCommand = compound;
+			this.isPrepared = true;
 	    	return true;
 	    } // prepare
 	};
@@ -93,7 +96,12 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
-		return new ScheduleNotPlannedTasksDragAndDropCommand(domain, owner, location, operations, operation, collection);
+		Plugin.INSTANCE.logInfo("NotScheduledTasks, target "+owner.getClass().getName());
+		if ( owner instanceof ScheduleNotScheduledTaskItemProvider || true ) {
+			return new ScheduleNotPlannedTasksDragAndDropCommand(domain, owner, location, operations, operation, collection);
+		} else {
+			return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
+		}
 	}
 
 }

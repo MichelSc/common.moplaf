@@ -16,6 +16,7 @@ import com.misc.common.moplaf.emf.edit.command.CloneCommand;
 import com.misc.common.moplaf.emf.edit.command.EnableCommand;
 import com.misc.common.moplaf.emf.edit.command.InitializeCommand;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
+import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.Solution;
 import com.misc.common.moplaf.localsearch.Strategy;
 import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
@@ -353,6 +354,7 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
+		Plugin.INSTANCE.logInfo("Solution, dropped "+owner.getClass().getName());
 		return new SolutionDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
 	
