@@ -293,9 +293,13 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 					compound.append(cmd);
 				}
 			}
-	    	this.dragCommand = null;
-			this.dropCommand = compound;
-	    	return true;
+			if ( compound.getCommandList().size()>0 ) {
+		    	this.dragCommand = null;
+				this.dropCommand = compound;
+		    	return true;
+			} else {
+				return super.prepare();
+			}
 	    } // prepare
 	};
 	
@@ -305,5 +309,6 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
-		return new TaskDragAndDropCommand(domain, owner, location, operations, operation, collection);
+		TaskDragAndDropCommand command = new TaskDragAndDropCommand(domain, owner, location, operations, operation, collection);
+		return command;
 	}}
