@@ -11,7 +11,6 @@ import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
 import com.misc.common.moplaf.scheduler.Task;
@@ -73,7 +72,7 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	    protected boolean prepare(){
 	    	ScheduleNotScheduledTaskItemProvider adapter = (ScheduleNotScheduledTaskItemProvider)owner;
 	    	Schedule schedule = (Schedule)adapter.target;
-			Plugin.INSTANCE.logInfo("NotScheduledTasks, owner="+owner.getClass().getName()+", target "+schedule.getClass().getName());
+//			Plugin.INSTANCE.logInfo("NotScheduledTasks, owner="+owner.getClass().getName()+", target "+schedule.getClass().getName());
 //	    	Schedule schedule = (Schedule)owner;
 	    	CompoundCommand compound = new CompoundCommand();
 			for (Object element : collection){
@@ -104,7 +103,7 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
-		Plugin.INSTANCE.logInfo("NotScheduledTasks, target "+owner.getClass().getName());
+///		Plugin.INSTANCE.logInfo("NotScheduledTasks, target "+owner.getClass().getName());
 		return new ScheduleNotPlannedTasksDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
 

@@ -57,7 +57,6 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNrNotScheduledTasksPropertyDescriptor(object);
-			addNotScheduledTasksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,29 +79,7 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Not Scheduled Tasks feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNotScheduledTasksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_NotScheduledTasks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_NotScheduledTasks_feature", "_UI_Schedule_type"),
-				 SchedulerPackage.Literals.SCHEDULE__NOT_SCHEDULED_TASKS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
+				 getString("_UI__20SchedulePropertyCategory"),
 				 null));
 	}
 

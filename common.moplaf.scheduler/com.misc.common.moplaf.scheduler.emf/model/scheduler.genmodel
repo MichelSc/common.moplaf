@@ -12,9 +12,11 @@
     <genClasses provider="Stateful" image="false" ecoreClass="scheduler.ecore#//Schedule">
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Tasks"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Resources"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute scheduler.ecore#//Schedule/NrNotScheduledTasks"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Schedule"
+          ecoreFeature="ecore:EAttribute scheduler.ecore#//Schedule/NrNotScheduledTasks"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/Scheduler"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/NotScheduledTasks"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference scheduler.ecore#//Schedule/NotScheduledTasks"/>
       <genOperations ecoreOperation="scheduler.ecore#//Schedule/schedule">
         <genParameters ecoreParameter="scheduler.ecore#//Schedule/schedule/from"/>
         <genParameters ecoreParameter="scheduler.ecore#//Schedule/schedule/to"/>

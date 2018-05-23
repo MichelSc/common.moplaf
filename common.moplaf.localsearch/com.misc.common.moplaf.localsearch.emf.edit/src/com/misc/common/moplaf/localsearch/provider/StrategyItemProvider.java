@@ -153,7 +153,7 @@ public class StrategyItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__PHASES);
 			childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__POOL_SOLUTIONS);
-			if ( Plugin.INSTANCE.isDebugMode()){
+			if ( Plugin.INSTANCE.isShowSolutions()){
 				childrenFeatures.add(LocalSearchPackage.Literals.STRATEGY__SOLUTIONS);
 			}
 		}

@@ -27,14 +27,14 @@ import com.misc.common.moplaf.common.Logger.Level;
  */
 public final class Plugin extends EMFPlugin {
 	private Logger logger = new Logger("LocalSearch");
-	private boolean debugMode = false;
+	private boolean showSolutions = false;
 
-	public boolean isDebugMode() {
-		return debugMode;
+	public boolean isShowSolutions() {
+		return showSolutions;
 	}
 
-	public void setDebugMode(boolean debugMode) {
-		this.debugMode = debugMode;
+	public void setShowSolutions(boolean showSolutions) {
+		this.showSolutions = showSolutions;
 	}
 
 	public Logger getLogger(){

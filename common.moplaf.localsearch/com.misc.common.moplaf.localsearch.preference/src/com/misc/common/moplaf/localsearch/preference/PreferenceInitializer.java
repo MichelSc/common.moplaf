@@ -21,10 +21,10 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer impleme
 	@Override
 	public void initializeDefaultPreferences() {
 		IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
-//		prefStore.setDefault(PREF_LOG_ON_INFO,    false);
-//		prefStore.setDefault(PREF_LOG_ON_WARNING, true);
-//		prefStore.setDefault(PREF_LOG_ON_ERROR,   true);
-		prefStore.setDefault(PREF_MODE_DEBUG,     false);
+		prefStore.setDefault(PREF_LOG_ON_INFO,    false);
+		prefStore.setDefault(PREF_LOG_ON_WARNING, true);
+		prefStore.setDefault(PREF_LOG_ON_ERROR,   true);
+		prefStore.setDefault(PREF_SHOW_SOLUTIONS,     false);
 	}
 
 }

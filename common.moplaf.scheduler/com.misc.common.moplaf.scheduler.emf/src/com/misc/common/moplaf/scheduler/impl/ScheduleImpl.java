@@ -187,6 +187,12 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	 * <!-- end-user-doc -->
 	 */
 	public void schedule(Task from, Task to, Resource resource, Task previous, Task next) {
+		Plugin.INSTANCE.logInfo(String.format("Schedule from=%s, to=%s, resource=%s, previous=%s, next=%s", 
+				from.getName(),
+				to.getName(),
+				resource == null ? "null" : resource.getName(),
+				previous == null ? "null" : previous.getName(), 
+				next     == null ? "null" : next.getName()));
 		if ( from.isScheduled() ) {
 			this.unsetPreviousNext(from, to);
 		}
@@ -281,12 +287,22 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 		}
 		if ( from.getScheduledResource()!=null ) {
 			Task current = from;
-			while ( current!=to ) {
-				current = current.getNextTask();
+			do {
 				if ( current == null ) {
 					return new EnabledFeedback(false, "The given to task must be after the given from task in the schedule of the resource");
 				}
-			}
+				if ( current == previous ) {
+					return new EnabledFeedback(false, "The given previous task is some task in the interval (from, to)");
+				}
+				if ( current == next ) {
+					return new EnabledFeedback(false, "The given next task is some task in the interval (from, to)");
+				}
+				if ( current == to) {
+					break;
+				} else {
+					current = current.getNextTask();
+				}
+			} while ( true );
 		} else {
 			if ( from != to ) {
 				return new EnabledFeedback(false, "Not allowed to given different from and to tasks if unscheduled");

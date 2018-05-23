@@ -23,7 +23,7 @@ public class Startup implements IStartup, PrefConstants {
 	@Override
 	public void earlyStartup() {
 		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
-		boolean debugMode    = prefStore.getBoolean(PREF_MODE_DEBUG);
+		boolean showSolutions= prefStore.getBoolean(PREF_SHOW_SOLUTIONS);
 		boolean logOnInfo    = prefStore.getBoolean(PREF_LOG_ON_INFO);
 		boolean logOnWarning = prefStore.getBoolean(PREF_LOG_ON_WARNING);
 		boolean logOnError   = prefStore.getBoolean(PREF_LOG_ON_ERROR);
@@ -31,7 +31,7 @@ public class Startup implements IStartup, PrefConstants {
 		Plugin.INSTANCE.getLogger().setLogOnInfo   (logOnInfo);
 		Plugin.INSTANCE.getLogger().setLogOnWarning(logOnWarning);
 		Plugin.INSTANCE.getLogger().setLogOnError  (logOnError);
-		Plugin.INSTANCE.setDebugMode(debugMode);
+		Plugin.INSTANCE.setShowSolutions(showSolutions);
 		
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
 		      public void propertyChange(PropertyChangeEvent event) {
@@ -49,8 +49,8 @@ public class Startup implements IStartup, PrefConstants {
 		    			Plugin.INSTANCE.getLogger().setLogOnWarning(newValueAsBoolean);
 		    	  } else if ( property.equals(PREF_LOG_ON_ERROR) ){
 		    			Plugin.INSTANCE.getLogger().setLogOnError  (newValueAsBoolean);
-		    	  } else if ( property.equals(PREF_MODE_DEBUG) ){
-		    			Plugin.INSTANCE.setDebugMode(newValueAsBoolean);
+		    	  } else if ( property.equals(PREF_SHOW_SOLUTIONS) ){
+		    			Plugin.INSTANCE.setShowSolutions(newValueAsBoolean);
 		    	  }
 		       }});
 	}

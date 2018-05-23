@@ -15,6 +15,6 @@ public interface PrefConstants {
 	String PREF_LOG_ON_INFO    = "com.misc.common.moplaf.localsearch.Preference.logOnInfo";
 	String PREF_LOG_ON_WARNING = "com.misc.common.moplaf.localsearch.Preference.logOnWarning";
 	String PREF_LOG_ON_ERROR   = "com.misc.common.moplaf.localsearch.Preference.logOnError";
-	String PREF_MODE_DEBUG     = "com.misc.common.moplaf.localsearch.Preference.modeDebug";
+	String PREF_SHOW_SOLUTIONS = "com.misc.common.moplaf.localsearch.Preference.showSolutions";
 
 }
