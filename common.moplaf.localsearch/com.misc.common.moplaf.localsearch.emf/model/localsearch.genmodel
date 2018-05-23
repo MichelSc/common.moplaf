@@ -135,6 +135,8 @@
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/Description"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ValidFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ResetFeedback"/>
       <genFeatures createChild="false" propertyCategory="20 Action" ecoreFeature="ecore:EAttribute localsearch.ecore#//Action/ActionNr"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference localsearch.ecore#//Action/Step"/>

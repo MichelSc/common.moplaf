@@ -321,7 +321,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EAttribute getAction_ActionNr() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -330,7 +330,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 * @generated
 	 */
 	public EReference getAction_Step() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(5);
+		return (EReference)actionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -340,6 +340,15 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 	 */
 	public EAttribute getAction_ValidFeedback() {
 		return (EAttribute)actionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_ResetFeedback() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1183,6 +1192,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		createEReference(actionEClass, ACTION__CURRENT_DELTA);
 		createEAttribute(actionEClass, ACTION__DESCRIPTION);
 		createEAttribute(actionEClass, ACTION__VALID_FEEDBACK);
+		createEAttribute(actionEClass, ACTION__RESET_FEEDBACK);
 		createEAttribute(actionEClass, ACTION__ACTION_NR);
 		createEReference(actionEClass, ACTION__STEP);
 		createEOperation(actionEClass, ACTION___INITIALIZE);
@@ -1362,6 +1372,7 @@ public class LocalSearchPackageImpl extends EPackageImpl implements LocalSearchP
 		initEReference(getAction_CurrentDelta(), this.getDelta(), null, "CurrentDelta", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ValidFeedback(), theJobPackage.getEnabledFeedback(), "ValidFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_ResetFeedback(), theJobPackage.getEnabledFeedback(), "ResetFeedback", null, 0, 1, Action.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAction_ActionNr(), ecorePackage.getEInt(), "ActionNr", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAction_Step(), this.getStep(), this.getStep_Actions(), "Step", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

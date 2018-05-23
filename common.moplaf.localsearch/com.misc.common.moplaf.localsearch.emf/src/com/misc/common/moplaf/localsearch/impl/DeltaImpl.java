@@ -356,7 +356,7 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EnabledFeedback getUndoEnabledFeedback() {
 		if ( this.changes==null) {
-			return new EnabledFeedback(false, "Not changes recorded");
+			return new EnabledFeedback(false, "No changes recorded");
 		}
 		if ( this.isCurrent()) {
 			return EnabledFeedback.NOFEEDBACK;
@@ -369,6 +369,16 @@ public abstract class DeltaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public EnabledFeedback getSelectEnabledFeedback() {
+		if ( this.isCurrent()) {
+			return new EnabledFeedback(false, "The delta is already selected");
+		}
+		Delta current = this.getAction().getCurrentDelta();
+		if ( current!=null ) {
+			EnabledFeedback current_undo = current.getUndoEnabledFeedback();
+			if ( !current_undo.isEnabled() ) {
+				return new EnabledFeedback(false, "The current delta cannot be undone, reason: "+current_undo.getFeedback());
+			}
+		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
 

@@ -68,6 +68,7 @@ public class ActionItemProvider
 			addCurrentDeltaPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addValidFeedbackPropertyDescriptor(object);
+			addResetFeedbackPropertyDescriptor(object);
 			addActionNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -162,6 +163,28 @@ public class ActionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Reset Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResetFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_ResetFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_ResetFeedback_feature", "_UI_Action_type"),
+				 LocalSearchPackage.Literals.ACTION__RESET_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10EnabledPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -231,6 +254,7 @@ public class ActionItemProvider
 		switch (notification.getFeatureID(Action.class)) {
 			case LocalSearchPackage.ACTION__DESCRIPTION:
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
+			case LocalSearchPackage.ACTION__RESET_FEEDBACK:
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -363,6 +387,11 @@ public class ActionItemProvider
 			super();
 			this.action = anAction;
 		}
+		@Override
+		public boolean canExecute() {
+			return this.action.getResetFeedback().isEnabled();
+		}
+
 		@Override
 		public void execute() {
 			this.action.select(null);

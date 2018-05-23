@@ -1214,13 +1214,22 @@ public interface LocalSearchPackage extends EPackage {
 	int ACTION__VALID_FEEDBACK = SOLUTION_CHANGE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__RESET_FEEDBACK = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Action Nr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ACTION_NR = SOLUTION_CHANGE_FEATURE_COUNT + 4;
+	int ACTION__ACTION_NR = SOLUTION_CHANGE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Step</b></em>' container reference.
@@ -1229,7 +1238,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 5;
+	int ACTION__STEP = SOLUTION_CHANGE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -1238,7 +1247,7 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 6;
+	int ACTION_FEATURE_COUNT = SOLUTION_CHANGE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Set Current Solution</em>' operation.
@@ -1764,6 +1773,17 @@ public interface LocalSearchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAction_ValidFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.localsearch.Action#getResetFeedback <em>Reset Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reset Feedback</em>'.
+	 * @see com.misc.common.moplaf.localsearch.Action#getResetFeedback()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_ResetFeedback();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.localsearch.Action#initialize() <em>Initialize</em>}' operation.
@@ -2794,6 +2814,14 @@ public interface LocalSearchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACTION__VALID_FEEDBACK = eINSTANCE.getAction_ValidFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__RESET_FEEDBACK = eINSTANCE.getAction_ResetFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.

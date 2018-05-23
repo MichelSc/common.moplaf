@@ -38,6 +38,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getCurrentDelta <em>Current Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getValidFeedback <em>Valid Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.Action#getResetFeedback <em>Reset Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getActionNr <em>Action Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.Action#getStep <em>Step</em>}</li>
  * </ul>
@@ -172,6 +173,21 @@ public interface Action extends SolutionChange {
 	 * @generated
 	 */
 	EnabledFeedback getValidFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reset Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reset Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.localsearch.LocalSearchPackage#getAction_ResetFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getResetFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->

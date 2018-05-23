@@ -56,6 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getCurrentDelta <em>Current Delta</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getValidFeedback <em>Valid Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getResetFeedback <em>Reset Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getActionNr <em>Action Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.localsearch.impl.ActionImpl#getStep <em>Step</em>}</li>
  * </ul>
@@ -102,6 +103,16 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * @ordered
 	 */
 	protected static final EnabledFeedback VALID_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getResetFeedback() <em>Reset Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResetFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback RESET_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getActionNr() <em>Action Nr</em>}' attribute.
@@ -311,6 +322,22 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 		return EnabledFeedback.NOFEEDBACK;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback getResetFeedback() {
+		Delta current = this.getCurrentDelta();
+		if ( current==null) {
+			return new EnabledFeedback(false, "No currently selected delta to reset");
+		}
+		EnabledFeedback current_undo = current.getUndoEnabledFeedback();
+		if ( !current_undo.isEnabled() ) {
+			return new EnabledFeedback(false, "The currently selected delta cannot be undone, reason: "+current_undo.getFeedback());
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
 	/*
 	 * 
 	 */
@@ -323,7 +350,11 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	 * <!-- end-user-doc -->
 	 */
 	public void initialize() {
-		// create the deltas for this Action
+		// flush the deltas already present
+		this.setCurrentDelta(null);
+		this.getStartDeltas().clear(); // owning
+		
+		// create new deltas for this Action
 		this.initializeImpl();
 		
 		// make the solution ready for calculating scores
@@ -490,9 +521,9 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 	}
 
 	/**
-	 * Return the next move with respect to the current move on the path to the target move
-	 * Return null if target_move is not accessible from the current move
-	 * Return null if target_move is the current node
+	 * Return the next delta with respect to the current move on the path to the target delta
+	 * Return null if target_delta is not accessible from the current delta
+	 * Return null if target_delta is the current node
 	 * @param target_delta
 	 * @return
 	 */
@@ -559,6 +590,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 				return getDescription();
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
 				return getValidFeedback();
+			case LocalSearchPackage.ACTION__RESET_FEEDBACK:
+				return getResetFeedback();
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				return getActionNr();
 			case LocalSearchPackage.ACTION__STEP:
@@ -633,6 +666,8 @@ public abstract class ActionImpl extends SolutionChangeImpl implements Action {
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case LocalSearchPackage.ACTION__VALID_FEEDBACK:
 				return VALID_FEEDBACK_EDEFAULT == null ? getValidFeedback() != null : !VALID_FEEDBACK_EDEFAULT.equals(getValidFeedback());
+			case LocalSearchPackage.ACTION__RESET_FEEDBACK:
+				return RESET_FEEDBACK_EDEFAULT == null ? getResetFeedback() != null : !RESET_FEEDBACK_EDEFAULT.equals(getResetFeedback());
 			case LocalSearchPackage.ACTION__ACTION_NR:
 				return actionNr != ACTION_NR_EDEFAULT;
 			case LocalSearchPackage.ACTION__STEP:
