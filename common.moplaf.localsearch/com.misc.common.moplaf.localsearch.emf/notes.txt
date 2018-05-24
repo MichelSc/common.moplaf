@@ -1,0 +1,12 @@
+Issues:
+  implement partial actions: load for unload and vice versa
+  rework keep mechanism: control at any level
+
+Evolutions:
+  implement lists
+  detect no new solutions
+    is this really useful for a no-toy problem?  
+  release the current solution
+  add traceability features 
+  actions: add featues to pinpoint the selected path
+    
