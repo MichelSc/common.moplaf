@@ -255,6 +255,13 @@ public abstract class StrategyImpl extends RunImpl implements Strategy {
 	public String getName() {
 		return name;
 	}
+	
+	
+
+	@Override
+	public String getLabel() {
+		return name;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
