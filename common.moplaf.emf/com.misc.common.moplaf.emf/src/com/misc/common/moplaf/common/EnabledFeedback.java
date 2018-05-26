@@ -17,6 +17,23 @@ public class EnabledFeedback {
 	
 	static public EnabledFeedback NOFEEDBACK = new EnabledFeedback(true, "");
 	
+	static private String ENABLED_PREFIX = "";
+	static private String NOT_ENABLED_PREFIX = "Not enabled, feedback=";
+	
+	public EnabledFeedback(String fromString) {
+		super();
+		
+		if ( fromString.startsWith(ENABLED_PREFIX)) {
+			this.enabled = true;
+			this.feedback = fromString.substring(ENABLED_PREFIX.length());
+		} else if ( fromString.startsWith(NOT_ENABLED_PREFIX)) {
+			this.enabled = false;
+			this.feedback = fromString.substring(NOT_ENABLED_PREFIX.length());
+		} else {
+			throw new IllegalArgumentException("Cannot instantiate EnabledFeedback from string \""+fromString+"\"");
+		}
+	}
+	
 	public EnabledFeedback(boolean enabled, String feedback) {
 		super();
 		this.enabled = enabled;
@@ -32,8 +49,28 @@ public class EnabledFeedback {
 
 	@Override
 	public String toString() {
-		if ( this.enabled) { return ""; }
-		return "Not enabled, feedback=" + feedback + "";
+		String prefix = NOT_ENABLED_PREFIX;
+		if ( this.enabled ) {
+			prefix = ENABLED_PREFIX;
+		}
+		return  prefix + this.getFeedback();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if ( !(obj instanceof EnabledFeedback) ) {
+			return false;
+		}
+		
+		EnabledFeedback other = (EnabledFeedback)obj;
+		if ( other.isEnabled()!=this.isEnabled()) {
+			return false;
+		}
+		
+		if ( !this.getFeedback().equals(other.getFeedback())) {
+			return false;
+		}
+		return true;
 	}
 	
 }
