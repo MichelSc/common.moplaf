@@ -13,13 +13,9 @@
 package com.misc.common.moplaf.scheduler.impl;
 
 import com.misc.common.moplaf.localsearch.impl.StrategyImpl;
-import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Scheduler;
-import com.misc.common.moplaf.scheduler.SchedulerFactory;
 import com.misc.common.moplaf.scheduler.SchedulerPackage;
-import com.misc.common.moplaf.scheduler.Task;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,13 +44,5 @@ public abstract class SchedulerImpl extends StrategyImpl implements Scheduler {
 		return SchedulerPackage.Literals.SCHEDULER;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Resource constructResource(EObject resource) {
-		Resource new_resource = SchedulerFactory.eINSTANCE.createResource();
-		return new_resource;
-	}
 
 } //SchedulerImpl

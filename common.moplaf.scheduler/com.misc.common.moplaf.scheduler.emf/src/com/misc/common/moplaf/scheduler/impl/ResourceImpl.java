@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements Resource {
+public abstract class ResourceImpl extends ObjectWithPropagatorFunctionsImpl implements Resource {
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->

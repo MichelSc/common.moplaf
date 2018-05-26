@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getResource()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Resource extends ObjectWithPropagatorFunctions {
