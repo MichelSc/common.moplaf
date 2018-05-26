@@ -26,10 +26,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference job.ecore#//JobParameter/JobAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//JobParameter/Description"/>
     </genClasses>
-    <genClasses ecoreClass="job.ecore#//Runs">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Runs/Name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Runs/Runs"/>
-    </genClasses>
     <genClasses ecoreClass="job.ecore#//RunParams">
       <genOperations ecoreOperation="job.ecore#//RunParams/copyParams">
         <genParameters ecoreParameter="job.ecore#//RunParams/copyParams/other"/>
@@ -45,7 +41,8 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Run/Label"/>
       <genFeatures createChild="false" propertyCategory="10 Job Status" propertyDescription=""
           ecoreFeature="ecore:EAttribute job.ecore#//Run/Cancelled"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Run/Returned"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
+          ecoreFeature="ecore:EAttribute job.ecore#//Run/Returned"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
           ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnSuccess"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
@@ -158,5 +155,9 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="job.ecore#//JobFileHandler"/>
+    <genClasses ecoreClass="job.ecore#//Runs">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Runs/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Runs/Runs"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

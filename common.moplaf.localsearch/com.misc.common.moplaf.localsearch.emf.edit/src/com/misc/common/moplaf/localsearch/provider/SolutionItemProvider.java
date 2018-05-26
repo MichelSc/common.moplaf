@@ -68,11 +68,34 @@ public class SolutionItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addScorePropertyDescriptor(object);
 			addSolutionNrPropertyDescriptor(object);
 			addStepPropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Score feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScorePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solution_Score_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_Score_feature", "_UI_Solution_type"),
+				 LocalSearchPackage.Literals.SOLUTION__SCORE,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

@@ -15,7 +15,7 @@
       <genEnumLiterals ecoreEnumLiteral="localsearch.ecore#//StrategyLevel/LevelAction"/>
     </genEnums>
     <genClasses ecoreClass="localsearch.ecore#//Solution">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Score"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference localsearch.ecore#//Solution/Score"/>
       <genFeatures createChild="false" propertyCategory="10 Solution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Solution/SolutionNr"/>
       <genFeatures createChild="false" propertyCategory="10 Solution" ecoreFeature="ecore:EAttribute localsearch.ecore#//Solution/Step"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Solution"

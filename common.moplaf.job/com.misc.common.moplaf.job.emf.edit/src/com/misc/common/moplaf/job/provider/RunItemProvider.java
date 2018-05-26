@@ -181,7 +181,7 @@ public class RunItemProvider
 				 getString("_UI_Run_Returned_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Run_Returned_feature", "_UI_Run_type"),
 				 JobPackage.Literals.RUN__RETURNED,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
