@@ -52,7 +52,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
+  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Schedule" lowerBound="1"
         eType="#//Schedule" eOpposite="#//Schedule/Tasks"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="NextTask" eType="#//Task"

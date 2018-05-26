@@ -52,15 +52,6 @@ public abstract class SchedulerImpl extends StrategyImpl implements Scheduler {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Task constructTask(EObject task) {
-		Task new_task = SchedulerFactory.eINSTANCE.createTask();
-		return new_task;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public Resource constructResource(EObject resource) {
 		Resource new_resource = SchedulerFactory.eINSTANCE.createResource();
 		return new_resource;

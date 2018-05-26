@@ -33,7 +33,7 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
  * </ul>
  *
  * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getTask()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Task extends ObjectWithPropagatorFunctions {

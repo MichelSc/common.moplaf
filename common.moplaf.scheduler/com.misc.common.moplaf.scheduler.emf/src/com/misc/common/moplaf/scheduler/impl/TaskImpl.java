@@ -46,7 +46,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class TaskImpl extends ObjectWithPropagatorFunctionsImpl implements Task {
+public abstract class TaskImpl extends ObjectWithPropagatorFunctionsImpl implements Task {
 	/**
 	 * The cached value of the '{@link #getNextTask() <em>Next Task</em>}' reference.
 	 * <!-- begin-user-doc -->
