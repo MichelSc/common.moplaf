@@ -40,6 +40,12 @@ public class ResetAction extends CommandAction
 		this.setId(ID);
 	}
 
+	@Override
+	protected String getImageFileName() {
+		return "004-power-button.png";
+	}
+
+
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
 	 */

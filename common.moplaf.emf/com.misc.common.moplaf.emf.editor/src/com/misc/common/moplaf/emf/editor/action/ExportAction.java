@@ -41,6 +41,12 @@ public class ExportAction extends CommandAction
 		this.setId(ID);
 	}
 
+	@Override
+	protected String getImageFileName() {
+		return "024-arrows.png";
+	}
+
+
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
 	 */

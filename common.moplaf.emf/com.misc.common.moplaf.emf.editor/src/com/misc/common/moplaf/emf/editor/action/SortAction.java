@@ -40,6 +40,11 @@ public class SortAction extends CommandAction
 		super(part, selection);
 		this.setId(ID);
 	}
+	
+	@Override
+	protected String getImageFileName() {
+		return "019-sort.png";
+	}
 
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.

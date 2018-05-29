@@ -41,6 +41,11 @@ public class CommitAction extends CommandAction
 		this.setId(ID);
 	}
 
+	@Override
+	protected String getImageFileName() {
+		return "002-stamp.png";
+	}
+
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
 	 */

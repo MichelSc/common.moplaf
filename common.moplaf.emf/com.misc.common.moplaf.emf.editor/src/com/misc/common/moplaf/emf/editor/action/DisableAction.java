@@ -41,6 +41,11 @@ public class DisableAction extends CommandAction
 		this.setId(ID);
 	}
 
+	@Override
+	protected String getImageFileName() {
+		return "001-off.png";
+	}
+
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
 	 */

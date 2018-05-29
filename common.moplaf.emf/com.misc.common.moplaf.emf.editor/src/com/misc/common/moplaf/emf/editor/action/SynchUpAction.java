@@ -40,6 +40,11 @@ public class SynchUpAction extends CommandAction
 		super(part, selection);
 		this.setId(ID);
 	}
+	
+	@Override
+	protected String getImageFileName() {
+		return "008-arrows-5.png";
+	}
 
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.

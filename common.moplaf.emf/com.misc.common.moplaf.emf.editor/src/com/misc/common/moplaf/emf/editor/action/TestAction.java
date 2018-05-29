@@ -41,6 +41,11 @@ public class TestAction extends CommandAction
 		this.setId(ID);
 	}
 
+	@Override
+	protected String getImageFileName() {
+		return "001-question.png";
+	}
+
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
 	 */

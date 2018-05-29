@@ -39,6 +39,11 @@ public class ConnectAction extends CommandAction
 		super(part, selection);
 		this.setId(ID);
 	}
+	
+	@Override
+	protected String getImageFileName() {
+		return "002-power.png";
+	}
 
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.

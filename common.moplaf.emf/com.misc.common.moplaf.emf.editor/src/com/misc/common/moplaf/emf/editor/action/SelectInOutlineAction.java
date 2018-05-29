@@ -30,7 +30,12 @@ public class SelectInOutlineAction extends BaseAction {
 		boolean enabled = this.selection != null && this.workbenchPart!=null;
 		this.setEnabled(enabled);
 	}
-	
+
+	@Override
+	protected String getImageFileName() {
+		return "021-sign.png";
+	}
+
 	public void run()	{
 		IContentOutlinePage outlinepage = (IContentOutlinePage)this.workbenchPart.getAdapter(IContentOutlinePage.class);
 		if ( outlinepage != null) {

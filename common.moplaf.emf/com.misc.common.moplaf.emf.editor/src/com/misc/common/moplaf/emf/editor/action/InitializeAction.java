@@ -54,8 +54,10 @@ public class InitializeAction extends CommandAction
 		return UnexecutableCommand.INSTANCE;
 	}
 
-    protected String getImageFileName() {
-    	return "refreshing.png";
-    }
+	@Override
+	protected String getImageFileName() {
+		return "005-arrows-8.png";
+	}
+
 
 }

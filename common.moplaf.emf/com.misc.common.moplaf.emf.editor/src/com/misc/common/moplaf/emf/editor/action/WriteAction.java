@@ -40,6 +40,11 @@ public class WriteAction extends CommandAction
 		super(part, selection);
 		this.setId(ID);
 	}
+	
+	@Override
+	protected String getImageFileName() {
+		return "017-pen.png";
+	}
 
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.

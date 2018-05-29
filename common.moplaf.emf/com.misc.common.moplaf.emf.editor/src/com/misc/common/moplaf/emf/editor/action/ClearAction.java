@@ -40,6 +40,11 @@ public class ClearAction extends CommandAction
 		super(part, selection);
 		this.setId(ID);
 	}
+	
+	@Override
+	protected String getImageFileName() {
+		return "022-delete.png";
+	}
 
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.

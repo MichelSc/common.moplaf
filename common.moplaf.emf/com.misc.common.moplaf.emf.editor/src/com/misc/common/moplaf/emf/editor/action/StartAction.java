@@ -41,6 +41,12 @@ public class StartAction extends CommandAction
 		this.setId(ID);
 	}
 
+	  @Override
+	  protected String getImageFileName() {
+		  return "005-arrows-8.png";
+	  }
+	
+
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
 	 */

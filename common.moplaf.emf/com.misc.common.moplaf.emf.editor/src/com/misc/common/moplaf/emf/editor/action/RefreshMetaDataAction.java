@@ -39,6 +39,11 @@ public class RefreshMetaDataAction extends CommandAction
 	    super(part, selection);
 		this.setId(ID);
 	  }
+	  
+	  @Override
+	  protected String getImageFileName() {
+		  return "012-arrows-4.png";
+	  }
 	
 	  /**
 	   * 
