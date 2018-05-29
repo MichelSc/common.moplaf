@@ -12,11 +12,16 @@ package com.misc.common.moplaf.emf.editor.action;
 
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
+
+import com.misc.common.moplaf.emf.editor.Activator;
 
 
 /**
@@ -103,4 +108,28 @@ public abstract class BaseAction extends Action
   {
     return ExtendedImageRegistry.getInstance().getImageDescriptor(object);
   }
+  
+    protected String getImageFileName() {
+    	return null;
+    }
+
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		String plugin = Activator.PLUGIN_ID;
+		String file_name = this.getImageFileName();
+		if ( file_name!=null) {
+			String url_string = String.format("platform:/plugin/%s/icons/full/ctool16/%s", plugin, file_name);
+			try {
+				URL url = new URL(url_string);
+				ImageDescriptor image_desc = ImageDescriptor.createFromURL(url);
+				if ( image_desc!=null ) {
+					return image_desc;
+				}
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		return super.getImageDescriptor();
+	}
+
 }

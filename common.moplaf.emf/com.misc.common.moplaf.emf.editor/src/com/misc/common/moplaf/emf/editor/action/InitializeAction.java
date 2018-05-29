@@ -39,7 +39,7 @@ public class InitializeAction extends CommandAction
 		super(part, selection);
 		this.setId(ID);
 	}
-
+	
 	/**
 	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
 	 */
@@ -53,4 +53,9 @@ public class InitializeAction extends CommandAction
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
+
+    protected String getImageFileName() {
+    	return "refreshing.png";
+    }
+
 }
