@@ -111,7 +111,7 @@ public class FileOwnerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/folder.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FileOwner"));
 	}
 
 	/**
