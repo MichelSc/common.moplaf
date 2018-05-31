@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EClass;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getReadFeedback <em>Read Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getWriteFeedback <em>Write Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.file.impl.FileReaderWriterImpl#getAppendFeedback <em>Append Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +58,16 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 	 * @ordered
 	 */
 	protected static final EnabledFeedback WRITE_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getAppendFeedback() <em>Append Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAppendFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback APPEND_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,6 +108,18 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public EnabledFeedback getAppendFeedback() {
+		return this.getAppendFeedback(this.getHandledFile());
+	}
+
+	protected EnabledFeedback getReadFeedbackImpl(File file) {
+		return new EnabledFeedback(false, "Read not supported");
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public EnabledFeedback getReadFeedback(File file) {
 		if ( file == null ) {
 			return new EnabledFeedback(false, "No file to read from");
@@ -104,10 +127,10 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 		return this.getReadFeedbackImpl(file);
 	}
 
-	protected EnabledFeedback getReadFeedbackImpl(File file) {
-		return new EnabledFeedback(false, "Read not supported");
+	protected EnabledFeedback getWriteFeedbackImpl(File file) {
+		return new EnabledFeedback(false, "Write not supported");
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,8 +142,19 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 		return this.getWriteFeedbackImpl(file);
 	}
 
-	protected EnabledFeedback getWriteFeedbackImpl(File file) {
-		return new EnabledFeedback(false, "Write not supported");
+	protected EnabledFeedback getAppendFeedbackImpl(File file) {
+		return new EnabledFeedback(false, "Append not supported");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback getAppendFeedback(File file) {
+		if ( file == null ) {
+			return new EnabledFeedback(false, "No file to append to");
+		}
+		return this.getAppendFeedbackImpl(file);
 	}
 
 	/**
@@ -137,6 +171,14 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 	 */
 	public void writeFile() {
 		this.writeFile(this.getHandledFile());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void appendFile() {
+		this.appendFile(this.getHandledFile());
 	}
 
 	/**
@@ -166,6 +208,17 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void appendFile(File file) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -173,6 +226,8 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 				return getReadFeedback();
 			case FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK:
 				return getWriteFeedback();
+			case FilePackage.FILE_READER_WRITER__APPEND_FEEDBACK:
+				return getAppendFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -189,6 +244,8 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 				return READ_FEEDBACK_EDEFAULT == null ? getReadFeedback() != null : !READ_FEEDBACK_EDEFAULT.equals(getReadFeedback());
 			case FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK:
 				return WRITE_FEEDBACK_EDEFAULT == null ? getWriteFeedback() != null : !WRITE_FEEDBACK_EDEFAULT.equals(getWriteFeedback());
+			case FilePackage.FILE_READER_WRITER__APPEND_FEEDBACK:
+				return APPEND_FEEDBACK_EDEFAULT == null ? getAppendFeedback() != null : !APPEND_FEEDBACK_EDEFAULT.equals(getAppendFeedback());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -205,17 +262,25 @@ public abstract class FileReaderWriterImpl extends FileHandlerImpl implements Fi
 				return getReadFeedback((File)arguments.get(0));
 			case FilePackage.FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE:
 				return getWriteFeedback((File)arguments.get(0));
+			case FilePackage.FILE_READER_WRITER___GET_APPEND_FEEDBACK__FILE:
+				return getAppendFeedback((File)arguments.get(0));
 			case FilePackage.FILE_READER_WRITER___READ_FILE:
 				readFile();
 				return null;
 			case FilePackage.FILE_READER_WRITER___WRITE_FILE:
 				writeFile();
 				return null;
+			case FilePackage.FILE_READER_WRITER___APPEND_FILE:
+				appendFile();
+				return null;
 			case FilePackage.FILE_READER_WRITER___READ_FILE__FILE:
 				readFile((File)arguments.get(0));
 				return null;
 			case FilePackage.FILE_READER_WRITER___WRITE_FILE__FILE:
 				writeFile((File)arguments.get(0));
+				return null;
+			case FilePackage.FILE_READER_WRITER___APPEND_FILE__FILE:
+				appendFile((File)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -456,13 +456,22 @@ public interface FilePackage extends EPackage {
 	int FILE_READER_WRITER__WRITE_FEEDBACK = FILE_HANDLER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Append Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_READER_WRITER__APPEND_FEEDBACK = FILE_HANDLER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Reader Writer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER_FEATURE_COUNT = FILE_HANDLER_FEATURE_COUNT + 2;
+	int FILE_READER_WRITER_FEATURE_COUNT = FILE_HANDLER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Read Feedback</em>' operation.
@@ -483,22 +492,13 @@ public interface FilePackage extends EPackage {
 	int FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE = FILE_HANDLER_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Read File</em>' operation.
+	 * The operation id for the '<em>Get Append Feedback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___READ_FILE = FILE_HANDLER_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Write File</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_READER_WRITER___WRITE_FILE = FILE_HANDLER_OPERATION_COUNT + 3;
+	int FILE_READER_WRITER___GET_APPEND_FEEDBACK__FILE = FILE_HANDLER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -507,7 +507,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___READ_FILE__FILE = FILE_HANDLER_OPERATION_COUNT + 4;
+	int FILE_READER_WRITER___READ_FILE = FILE_HANDLER_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Write File</em>' operation.
@@ -516,7 +516,43 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER___WRITE_FILE__FILE = FILE_HANDLER_OPERATION_COUNT + 5;
+	int FILE_READER_WRITER___WRITE_FILE = FILE_HANDLER_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Append File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_READER_WRITER___APPEND_FILE = FILE_HANDLER_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Read File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_READER_WRITER___READ_FILE__FILE = FILE_HANDLER_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_READER_WRITER___WRITE_FILE__FILE = FILE_HANDLER_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Append File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_READER_WRITER___APPEND_FILE__FILE = FILE_HANDLER_OPERATION_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Reader Writer</em>' class.
@@ -525,7 +561,7 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_READER_WRITER_OPERATION_COUNT = FILE_HANDLER_OPERATION_COUNT + 6;
+	int FILE_READER_WRITER_OPERATION_COUNT = FILE_HANDLER_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.file.impl.FilesImpl <em>Files</em>}' class.
@@ -757,6 +793,17 @@ public interface FilePackage extends EPackage {
 	EAttribute getFileReaderWriter_WriteFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.file.FileReaderWriter#getAppendFeedback <em>Append Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Append Feedback</em>'.
+	 * @see com.misc.common.moplaf.file.FileReaderWriter#getAppendFeedback()
+	 * @see #getFileReaderWriter()
+	 * @generated
+	 */
+	EAttribute getFileReaderWriter_AppendFeedback();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.file.FileReaderWriter#getReadFeedback(com.misc.common.moplaf.file.File) <em>Get Read Feedback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -775,6 +822,16 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getFileReaderWriter__GetWriteFeedback__File();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.file.FileReaderWriter#getAppendFeedback(com.misc.common.moplaf.file.File) <em>Get Append Feedback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Append Feedback</em>' operation.
+	 * @see com.misc.common.moplaf.file.FileReaderWriter#getAppendFeedback(com.misc.common.moplaf.file.File)
+	 * @generated
+	 */
+	EOperation getFileReaderWriter__GetAppendFeedback__File();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.file.FileReaderWriter#readFile() <em>Read File</em>}' operation.
@@ -797,6 +854,16 @@ public interface FilePackage extends EPackage {
 	EOperation getFileReaderWriter__WriteFile();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.file.FileReaderWriter#appendFile() <em>Append File</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Append File</em>' operation.
+	 * @see com.misc.common.moplaf.file.FileReaderWriter#appendFile()
+	 * @generated
+	 */
+	EOperation getFileReaderWriter__AppendFile();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.file.FileReaderWriter#readFile(com.misc.common.moplaf.file.File) <em>Read File</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -815,6 +882,16 @@ public interface FilePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getFileReaderWriter__WriteFile__File();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.file.FileReaderWriter#appendFile(com.misc.common.moplaf.file.File) <em>Append File</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Append File</em>' operation.
+	 * @see com.misc.common.moplaf.file.FileReaderWriter#appendFile(com.misc.common.moplaf.file.File)
+	 * @generated
+	 */
+	EOperation getFileReaderWriter__AppendFile__File();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.file.FileHandler <em>Handler</em>}'.
@@ -1075,6 +1152,14 @@ public interface FilePackage extends EPackage {
 		EAttribute FILE_READER_WRITER__WRITE_FEEDBACK = eINSTANCE.getFileReaderWriter_WriteFeedback();
 
 		/**
+		 * The meta object literal for the '<em><b>Append Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILE_READER_WRITER__APPEND_FEEDBACK = eINSTANCE.getFileReaderWriter_AppendFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Read Feedback</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1089,6 +1174,14 @@ public interface FilePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE = eINSTANCE.getFileReaderWriter__GetWriteFeedback__File();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Append Feedback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FILE_READER_WRITER___GET_APPEND_FEEDBACK__FILE = eINSTANCE.getFileReaderWriter__GetAppendFeedback__File();
 
 		/**
 		 * The meta object literal for the '<em><b>Read File</b></em>' operation.
@@ -1107,6 +1200,14 @@ public interface FilePackage extends EPackage {
 		EOperation FILE_READER_WRITER___WRITE_FILE = eINSTANCE.getFileReaderWriter__WriteFile();
 
 		/**
+		 * The meta object literal for the '<em><b>Append File</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FILE_READER_WRITER___APPEND_FILE = eINSTANCE.getFileReaderWriter__AppendFile();
+
+		/**
 		 * The meta object literal for the '<em><b>Read File</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1121,6 +1222,14 @@ public interface FilePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FILE_READER_WRITER___WRITE_FILE__FILE = eINSTANCE.getFileReaderWriter__WriteFile__File();
+
+		/**
+		 * The meta object literal for the '<em><b>Append File</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FILE_READER_WRITER___APPEND_FILE__FILE = eINSTANCE.getFileReaderWriter__AppendFile__File();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.file.impl.FileHandlerImpl <em>Handler</em>}' class.

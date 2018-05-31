@@ -292,6 +292,15 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFileReaderWriter_AppendFeedback() {
+		return (EAttribute)fileReaderWriterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getFileReaderWriter__GetReadFeedback__File() {
 		return fileReaderWriterEClass.getEOperations().get(0);
 	}
@@ -310,7 +319,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFileReaderWriter__ReadFile() {
+	public EOperation getFileReaderWriter__GetAppendFeedback__File() {
 		return fileReaderWriterEClass.getEOperations().get(2);
 	}
 
@@ -319,7 +328,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFileReaderWriter__WriteFile() {
+	public EOperation getFileReaderWriter__ReadFile() {
 		return fileReaderWriterEClass.getEOperations().get(3);
 	}
 
@@ -328,7 +337,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFileReaderWriter__ReadFile__File() {
+	public EOperation getFileReaderWriter__WriteFile() {
 		return fileReaderWriterEClass.getEOperations().get(4);
 	}
 
@@ -337,8 +346,35 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFileReaderWriter__WriteFile__File() {
+	public EOperation getFileReaderWriter__AppendFile() {
 		return fileReaderWriterEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFileReaderWriter__ReadFile__File() {
+		return fileReaderWriterEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFileReaderWriter__WriteFile__File() {
+		return fileReaderWriterEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFileReaderWriter__AppendFile__File() {
+		return fileReaderWriterEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -501,12 +537,16 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		fileReaderWriterEClass = createEClass(FILE_READER_WRITER);
 		createEAttribute(fileReaderWriterEClass, FILE_READER_WRITER__READ_FEEDBACK);
 		createEAttribute(fileReaderWriterEClass, FILE_READER_WRITER__WRITE_FEEDBACK);
+		createEAttribute(fileReaderWriterEClass, FILE_READER_WRITER__APPEND_FEEDBACK);
 		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___GET_READ_FEEDBACK__FILE);
 		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___GET_WRITE_FEEDBACK__FILE);
+		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___GET_APPEND_FEEDBACK__FILE);
 		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___READ_FILE);
 		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___WRITE_FILE);
+		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___APPEND_FILE);
 		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___READ_FILE__FILE);
 		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___WRITE_FILE__FILE);
+		createEOperation(fileReaderWriterEClass, FILE_READER_WRITER___APPEND_FILE__FILE);
 
 		fileHandlerEClass = createEClass(FILE_HANDLER);
 		createEReference(fileHandlerEClass, FILE_HANDLER__SELECTED_FILE);
@@ -584,6 +624,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		initEClass(fileReaderWriterEClass, FileReaderWriter.class, "FileReaderWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFileReaderWriter_ReadFeedback(), this.getEnabledFeedback(), "ReadFeedback", null, 0, 1, FileReaderWriter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileReaderWriter_WriteFeedback(), this.getEnabledFeedback(), "WriteFeedback", null, 0, 1, FileReaderWriter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFileReaderWriter_AppendFeedback(), this.getEnabledFeedback(), "AppendFeedback", null, 0, 1, FileReaderWriter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getFileReaderWriter__GetReadFeedback__File(), this.getEnabledFeedback(), "getReadFeedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -591,14 +632,22 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		op = initEOperation(getFileReaderWriter__GetWriteFeedback__File(), this.getEnabledFeedback(), "getWriteFeedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getFileReaderWriter__GetAppendFeedback__File(), this.getEnabledFeedback(), "getAppendFeedback", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getFileReaderWriter__ReadFile(), null, "readFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getFileReaderWriter__WriteFile(), null, "writeFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getFileReaderWriter__AppendFile(), null, "appendFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getFileReaderWriter__ReadFile__File(), null, "readFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getFileReaderWriter__WriteFile__File(), null, "writeFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getFileReaderWriter__AppendFile__File(), null, "appendFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(fileHandlerEClass, FileHandler.class, "FileHandler", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -25,6 +25,7 @@ import com.misc.common.moplaf.common.EnabledFeedback;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#getReadFeedback <em>Read Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#getWriteFeedback <em>Write Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#getAppendFeedback <em>Append Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.file.FilePackage#getFileReaderWriter()
@@ -63,6 +64,21 @@ public interface FileReaderWriter extends FileHandler {
 	EnabledFeedback getWriteFeedback();
 
 	/**
+	 * Returns the value of the '<em><b>Append Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Append Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Append Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.file.FilePackage#getFileReaderWriter_AppendFeedback()
+	 * @model dataType="com.misc.common.moplaf.file.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getAppendFeedback();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="com.misc.common.moplaf.file.EnabledFeedback"
@@ -77,6 +93,14 @@ public interface FileReaderWriter extends FileHandler {
 	 * @generated
 	 */
 	EnabledFeedback getWriteFeedback(File file);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.file.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback getAppendFeedback(File file);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,6 +124,14 @@ public interface FileReaderWriter extends FileHandler {
 	 * @model
 	 * @generated
 	 */
+	void appendFile();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void readFile(File file);
 
 	/**
@@ -109,5 +141,13 @@ public interface FileReaderWriter extends FileHandler {
 	 * @generated
 	 */
 	void writeFile(File file);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void appendFile(File file);
 
 } // FileReaderWriter
