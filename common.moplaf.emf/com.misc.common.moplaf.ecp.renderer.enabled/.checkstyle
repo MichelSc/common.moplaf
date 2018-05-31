@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fileset-config file-format-version="1.2.0" simple-config="false" sync-formatter="false">
+  <local-check-config name="ESMCheckstyle" location="/org.eclipse.emf.ecp.makeithappen.model/checkstyle/esmCheckstyle.xml" type="project" description="">
+    <additional-data name="protect-config-file" value="false"/>
+  </local-check-config>
+  <fileset name="Java Files" enabled="true" check-config-name="ESMCheckstyle" local="true">
+    <file-match-pattern match-pattern=".java" include-pattern="true"/>
+  </fileset>
+</fileset-config>
