@@ -14,14 +14,23 @@ package com.misc.common.moplaf.file.impl;
 
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.FileRemote;
+import com.misc.common.moplaf.file.Plugin;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.apache.commons.lang.StringEscapeUtils;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -183,10 +192,39 @@ public class FileRemoteImpl extends ByteFileImpl implements FileRemote {
 
 	@Override
 	protected java.io.File getFile() {
-		URI uri = this.getURI_private();
-		if ( uri == null ) {
+		URL url;
+		try {
+			url = new URL(this.getURI());
+		} catch (MalformedURLException e) {
+			Plugin.INSTANCE.logError("FileRemote: invalid URL, exception "+e.getMessage());
 			return null;
 		}
+		
+		URL platformURL;
+		try {
+			platformURL = FileLocator.toFileURL(url);
+		} catch (IOException e) {
+			Plugin.INSTANCE.logError("FileRemote: no file url, exception "+e.getMessage());
+			return null;
+		}
+		
+		String b = "blal";
+		String a = StringEscapeUtils.escapeHtml(b);
+		
+		if (platformURL != null) {
+			url = platformURL;
+		} else {
+			Plugin.INSTANCE.logWarning("FileRemote: no platform URL");
+		}
+
+		URI uri = null;
+		try {
+			uri = url.toURI();
+		} catch (URISyntaxException e) {
+			Plugin.INSTANCE.logError("FileRemote: bad URI syntax, exception "+e.getMessage());
+			return null;
+		}
+		
 		java.io.File file = new java.io.File(uri);
 		return file;
 	}

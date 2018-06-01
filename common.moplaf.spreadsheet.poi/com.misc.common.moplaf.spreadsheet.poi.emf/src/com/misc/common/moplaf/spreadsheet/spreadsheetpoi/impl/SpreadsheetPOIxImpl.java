@@ -48,6 +48,35 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements SpreadsheetPOIx {
+	
+	private OpenResources openResources = null;
+	
+	private class OpenResources  {
+		private InputStream inputStream = null;
+		private XSSFWorkbook workbook = null;
+		public OpenResources(InputStream inputStream, XSSFWorkbook workbook) {
+			super();
+			this.inputStream = inputStream;
+			this.workbook = workbook;
+		}
+		public void close()  {
+			try {
+				if ( this.inputStream!=null) {
+					this.inputStream.close();
+				}
+			} catch (IOException e) {
+				Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file not closed, exeption "+e.getMessage());
+			}
+			try {
+				if ( this.workbook!=null ) {
+					this.workbook.close();
+				}
+			} catch (IOException e) {
+				Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: workbook not closed, exeption "+e.getMessage());
+			}
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,30 +101,22 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 		return EnabledFeedback.NOFEEDBACK;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
-	 */
 	@Override
-	public void readFile(File file){
-		InputStream inputStream = file.getInputStream();
-		if ( inputStream==null) {
-			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: sheet NOT read");
-			return;
+	protected EnabledFeedback getWriteFeedbackImpl(File file) {
+		return EnabledFeedback.NOFEEDBACK;
+	}
+	
+	
+
+	@Override
+	public EnabledFeedback getCloseFeedback() {
+		if ( this.openResources==null) {
+			return new EnabledFeedback(false, "No resource to close");
 		}
-		
-		// load the file
-		XSSFWorkbook wb = null;
-		try {
-			wb = new XSSFWorkbook(inputStream);
-		} catch (IOException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, i/o exeption "+e.getMessage());
-			return;
-		} catch (RuntimeException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, runtime exeption "+e.getMessage());
-			return;
-		}
-		Plugin.INSTANCE.logInfo("SpreadsheetPOI.readFile: sheet loaded");
-		
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	private void loadSpreadsheet(XSSFWorkbook wb) {
 		Spreadsheet spreadsheet = this.getSpreadsheet();
 		for (int k = 0; k < wb.getNumberOfSheets(); k++) {
 			Map<Integer, Column> pocolumns = new HashMap<Integer, Column>();
@@ -168,23 +189,52 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 				} // traverse the cells
 			}  // traverse the rows
 		}  // traverse the sheets 
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
+	 */
+	@Override
+	public void readFile(File file){
+		// read the file
+		InputStream inputStream = file.getInputStream();
+		if ( inputStream==null) {
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: sheet NOT read");
+		}
+
+		XSSFWorkbook wb = null;
+
+		// load the file
 		try {
-			wb.close();
-			inputStream.close();
+			wb = new XSSFWorkbook(inputStream);
 		} catch (IOException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file not closed, exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, i/o exeption "+e.getMessage());
+			return; 
+		} catch (RuntimeException e) {
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.readFile: file NOT opened, runtime exeption "+e.getMessage());
 			return;
 		}
+		Plugin.INSTANCE.logInfo("SpreadsheetPOI.readFile: sheet loaded");
+		
+		this.openResources = new OpenResources(inputStream, wb);
+		this.setOpen(true);
+		
+		// do something with the file
+		this.loadSpreadsheet(wb);
+		
 	} // load readFile
 
 	@Override
-	protected EnabledFeedback getWriteFeedbackImpl(File file) {
-		return EnabledFeedback.NOFEEDBACK;
-	}
-
-	@Override
 	public void writeFile(File file) {
-		XSSFWorkbook wb = new XSSFWorkbook();
+		XSSFWorkbook wb = null;
+		if ( this.isOpen() ) {
+			// append behavior
+			wb = this.openResources.workbook;
+		} else {
+			// overwrite behavior
+			wb = new XSSFWorkbook();
+		}
 
 		// fill in the wb
 		boolean success = true;
@@ -198,6 +248,8 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 				}
 				XSSFSheet to_sheet = wb.createSheet(safe_name);
 				for( Row from_row : from_sheet.getRows()) {
+					// Create a new row within the sheet and return the high level representation 
+					// Note: If a row already exists at this position, it is removed/overwritten and any existing cell is removed!
 					XSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
 					for( Cell from_cell : from_row.getCells()){
 						XSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
@@ -241,4 +293,15 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 			return;
 		}
 	}
+
+	@Override
+	public void close() {
+		if ( this.isOpen() && this.openResources!=null ) {
+			this.openResources.close();
+			this.openResources = null;
+		}
+		this.setOpen(false);
+	}
+	
+	
 } //SpreadsheetPOIxImpl

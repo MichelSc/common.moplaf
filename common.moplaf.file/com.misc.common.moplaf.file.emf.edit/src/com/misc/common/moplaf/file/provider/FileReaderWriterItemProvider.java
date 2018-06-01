@@ -14,7 +14,7 @@ package com.misc.common.moplaf.file.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
-import com.misc.common.moplaf.emf.edit.command.AppendCommand;
+import com.misc.common.moplaf.emf.edit.command.CloseCommand;
 import com.misc.common.moplaf.emf.edit.command.ReadCommand;
 import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.file.FileReaderWriter;
@@ -64,7 +64,8 @@ public class FileReaderWriterItemProvider
 
 			addReadFeedbackPropertyDescriptor(object);
 			addWriteFeedbackPropertyDescriptor(object);
-			addAppendFeedbackPropertyDescriptor(object);
+			addCloseFeedbackPropertyDescriptor(object);
+			addOpenPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,23 +115,45 @@ public class FileReaderWriterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Append Feedback feature.
+	 * This adds a property descriptor for the Close Feedback feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAppendFeedbackPropertyDescriptor(Object object) {
+	protected void addCloseFeedbackPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FileReaderWriter_AppendFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FileReaderWriter_AppendFeedback_feature", "_UI_FileReaderWriter_type"),
-				 FilePackage.Literals.FILE_READER_WRITER__APPEND_FEEDBACK,
+				 getString("_UI_FileReaderWriter_CloseFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FileReaderWriter_CloseFeedback_feature", "_UI_FileReaderWriter_type"),
+				 FilePackage.Literals.FILE_READER_WRITER__CLOSE_FEEDBACK,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Open feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOpenPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FileReaderWriter_Open_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FileReaderWriter_Open_feature", "_UI_FileReaderWriter_type"),
+				 FilePackage.Literals.FILE_READER_WRITER__OPEN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -175,7 +198,8 @@ public class FileReaderWriterItemProvider
 		switch (notification.getFeatureID(FileReaderWriter.class)) {
 			case FilePackage.FILE_READER_WRITER__READ_FEEDBACK:
 			case FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK:
-			case FilePackage.FILE_READER_WRITER__APPEND_FEEDBACK:
+			case FilePackage.FILE_READER_WRITER__CLOSE_FEEDBACK:
+			case FilePackage.FILE_READER_WRITER__OPEN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -219,18 +243,18 @@ public class FileReaderWriterItemProvider
 		}
 	} // class FileWriteCommand
 
-	public class FileAppendCommand extends AppendCommand{
+	public class CloseAppendCommand extends CloseCommand{
 		private FileReaderWriter writer;
 		
 		// constructor
-		public FileAppendCommand(FileReaderWriter writer)	{
+		public CloseAppendCommand(FileReaderWriter writer)	{
 			super();
 			this.writer = writer;
 		}
 
 		@Override
 		protected boolean prepare(){
-			EnabledFeedback feedback = this.writer.getAppendFeedback();
+			EnabledFeedback feedback = this.writer.getCloseFeedback();
 			if ( !feedback.isEnabled()) {
 				this.setDescription(feedback.getFeedback());
 				return false;
@@ -242,7 +266,7 @@ public class FileReaderWriterItemProvider
 		public void execute() {
 			this.writer.writeFile();
 		}
-	} // class FileAppendCommand
+	} // class CloseAppendCommand
 
 	public class FileReadCommand extends ReadCommand{
 		private FileReaderWriter reader;
@@ -276,8 +300,8 @@ public class FileReaderWriterItemProvider
 		if ( commandClass == WriteCommand.class){
 			return new FileWriteCommand((FileReaderWriter) object); 
 		}
-		else if ( commandClass == AppendCommand.class){
-			return new FileAppendCommand((FileReaderWriter) object); 
+		else if ( commandClass == CloseCommand.class){
+			return new CloseAppendCommand((FileReaderWriter) object); 
 		}
 		else if ( commandClass == ReadCommand.class){
 			return new FileReadCommand((FileReaderWriter) object); 

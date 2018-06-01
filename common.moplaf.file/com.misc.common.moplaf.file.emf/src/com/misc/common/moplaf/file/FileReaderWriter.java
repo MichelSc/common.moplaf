@@ -25,7 +25,8 @@ import com.misc.common.moplaf.common.EnabledFeedback;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#getReadFeedback <em>Read Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#getWriteFeedback <em>Write Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#getAppendFeedback <em>Append Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#getCloseFeedback <em>Close Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.file.FileReaderWriter#isOpen <em>Open</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.file.FilePackage#getFileReaderWriter()
@@ -64,19 +65,45 @@ public interface FileReaderWriter extends FileHandler {
 	EnabledFeedback getWriteFeedback();
 
 	/**
-	 * Returns the value of the '<em><b>Append Feedback</b></em>' attribute.
+	 * Returns the value of the '<em><b>Close Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Append Feedback</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Close Feedback</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Append Feedback</em>' attribute.
-	 * @see com.misc.common.moplaf.file.FilePackage#getFileReaderWriter_AppendFeedback()
+	 * @return the value of the '<em>Close Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.file.FilePackage#getFileReaderWriter_CloseFeedback()
 	 * @model dataType="com.misc.common.moplaf.file.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	EnabledFeedback getAppendFeedback();
+	EnabledFeedback getCloseFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Open</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Open</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Open</em>' attribute.
+	 * @see #setOpen(boolean)
+	 * @see com.misc.common.moplaf.file.FilePackage#getFileReaderWriter_Open()
+	 * @model transient="true"
+	 * @generated
+	 */
+	boolean isOpen();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.file.FileReaderWriter#isOpen <em>Open</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Open</em>' attribute.
+	 * @see #isOpen()
+	 * @generated
+	 */
+	void setOpen(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,14 +120,6 @@ public interface FileReaderWriter extends FileHandler {
 	 * @generated
 	 */
 	EnabledFeedback getWriteFeedback(File file);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.file.EnabledFeedback"
-	 * @generated
-	 */
-	EnabledFeedback getAppendFeedback(File file);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,7 +143,7 @@ public interface FileReaderWriter extends FileHandler {
 	 * @model
 	 * @generated
 	 */
-	void appendFile();
+	void close();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,13 +160,5 @@ public interface FileReaderWriter extends FileHandler {
 	 * @generated
 	 */
 	void writeFile(File file);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void appendFile(File file);
 
 } // FileReaderWriter

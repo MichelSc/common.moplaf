@@ -17,6 +17,7 @@ import com.misc.common.moplaf.file.FileEncoding;
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.file.Plugin;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -191,21 +192,33 @@ public abstract class ByteFileImpl extends FileImpl implements ByteFile {
 
 	@Override
 	public Reader getReader() {
+		InputStream stream = this.getInputStream();
+		if ( stream == null ) {
+			Plugin.INSTANCE.logError("ByteFile.getReader: no input stream");
+			return null;
+		}
+		
 		try {
-			return new InputStreamReader(this.getInputStream(), getEncoding().getLiteral());
+			return new InputStreamReader(stream, getEncoding().getLiteral());
 		} catch (UnsupportedEncodingException e) {
-			Plugin.INSTANCE.logError("ByteFile.getReader: file NOT found");
+			Plugin.INSTANCE.logError("ByteFile.getReader: unsupported encoding, exception "+e.getMessage());
 			return null;
 		}
 	}
 
 	@Override
 	public InputStream getInputStream() {
-		FileInputStream inputstream = null;;
-		try {
-			inputstream  = new FileInputStream(this.getFile());
-		} catch (FileNotFoundException e) {
+		File file = this.getFile();
+		if ( file == null ) {
 			Plugin.INSTANCE.logError("ByteFile.getInputStream: file NOT found");
+			return null;
+		}
+		
+		FileInputStream inputstream = null;
+		try {
+			inputstream  = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			Plugin.INSTANCE.logError("ByteFile.getInputStream: input stream not created");
 			return null;
 		} 
 		return inputstream;
@@ -213,26 +226,36 @@ public abstract class ByteFileImpl extends FileImpl implements ByteFile {
 
 	@Override
 	public Writer getWriter() {
+		OutputStream stream = this.getOutputStream();
+		if ( stream == null ) {
+			Plugin.INSTANCE.logError("ByteFile.getReader: no output stream");
+			return null;
+		}
+			
 		try {
-			return new OutputStreamWriter(this.getOutputStream(), this.getEncoding().getLiteral());
+			return new OutputStreamWriter(stream, this.getEncoding().getLiteral());
 		} catch (UnsupportedEncodingException e) {
-			Plugin.INSTANCE.logError("ByteFile.getWriter: file NOT found");
+			Plugin.INSTANCE.logError("ByteFile.getWriter: unsupported encoding, exception "+e.getMessage());
 			return null;
 		}
 	}
 
 	@Override
 	public OutputStream getOutputStream() {
+		File file = this.getFile();
+		if ( file == null ) {
+			Plugin.INSTANCE.logError("ByteFile.getOutputStream: file NOT found");
+			return null;
+		}
+
 		FileOutputStream outputstream = null;
 		try {
-			outputstream = new FileOutputStream(this.getFile());
+			outputstream = new FileOutputStream(file);
 		} catch (FileNotFoundException e) {
-			Plugin.INSTANCE.logError("ByteFile.getOutputStream: file NOT found");
+			Plugin.INSTANCE.logError("ByteFile.getOutputStream: output stream not created");
 			return null;
 		} 
 		return outputstream;
 	}
-	
-	
 
 } //ByteFileImpl
