@@ -21,6 +21,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLEncoder;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.notify.Notification;
@@ -210,6 +211,7 @@ public class FileRemoteImpl extends ByteFileImpl implements FileRemote {
 		
 		String b = "blal";
 		String a = StringEscapeUtils.escapeHtml(b);
+		URLEncoder encoder = null;
 		
 		if (platformURL != null) {
 			url = platformURL;
