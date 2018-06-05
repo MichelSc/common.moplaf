@@ -55,25 +55,25 @@ public class FileRemoteItemProvider extends ByteFileItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addURIPropertyDescriptor(object);
+			addURLPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the URI feature.
+	 * This adds a property descriptor for the URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addURIPropertyDescriptor(Object object) {
+	protected void addURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FileRemote_URI_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FileRemote_URI_feature", "_UI_FileRemote_type"),
-				 FilePackage.Literals.FILE_REMOTE__URI,
+				 getString("_UI_FileRemote_URL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FileRemote_URL_feature", "_UI_FileRemote_type"),
+				 FilePackage.Literals.FILE_REMOTE__URL,
 				 true,
 				 false,
 				 false,
@@ -109,7 +109,7 @@ public class FileRemoteItemProvider extends ByteFileItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(FileRemote.class)) {
-			case FilePackage.FILE_REMOTE__URI:
+			case FilePackage.FILE_REMOTE__URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -238,7 +238,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFileRemote_URI() {
+	public EAttribute getFileRemote_URL() {
 		return (EAttribute)fileRemoteEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -520,7 +520,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		createEAttribute(fileLocalEClass, FILE_LOCAL__FILE_PATH);
 
 		fileRemoteEClass = createEClass(FILE_REMOTE);
-		createEAttribute(fileRemoteEClass, FILE_REMOTE__URI);
+		createEAttribute(fileRemoteEClass, FILE_REMOTE__URL);
 
 		fileInMemoryEClass = createEClass(FILE_IN_MEMORY);
 		createEAttribute(fileInMemoryEClass, FILE_IN_MEMORY__CONTENT);
@@ -606,7 +606,7 @@ public class FilePackageImpl extends EPackageImpl implements FilePackage {
 		initEAttribute(getFileLocal_FilePath(), ecorePackage.getEString(), "FilePath", "", 0, 1, FileLocal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileRemoteEClass, FileRemote.class, "FileRemote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFileRemote_URI(), ecorePackage.getEString(), "URI", "", 0, 1, FileRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFileRemote_URL(), ecorePackage.getEString(), "URL", "", 0, 1, FileRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileInMemoryEClass, FileInMemory.class, "FileInMemory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFileInMemory_Content(), ecorePackage.getEString(), "Content", "", 0, 1, FileInMemory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

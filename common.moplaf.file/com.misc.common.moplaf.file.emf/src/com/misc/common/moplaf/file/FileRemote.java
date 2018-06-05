@@ -22,7 +22,7 @@ package com.misc.common.moplaf.file;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.file.FileRemote#getURI <em>URI</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.file.FileRemote#getURL <em>URL</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.file.FilePackage#getFileRemote()
@@ -31,30 +31,30 @@ package com.misc.common.moplaf.file;
  */
 public interface FileRemote extends ByteFile {
 	/**
-	 * Returns the value of the '<em><b>URI</b></em>' attribute.
+	 * Returns the value of the '<em><b>URL</b></em>' attribute.
 	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>URI</em>' attribute isn't clear,
+	 * If the meaning of the '<em>URL</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>URI</em>' attribute.
-	 * @see #setURI(String)
-	 * @see com.misc.common.moplaf.file.FilePackage#getFileRemote_URI()
+	 * @return the value of the '<em>URL</em>' attribute.
+	 * @see #setURL(String)
+	 * @see com.misc.common.moplaf.file.FilePackage#getFileRemote_URL()
 	 * @model default=""
 	 * @generated
 	 */
-	String getURI();
+	String getURL();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.file.FileRemote#getURI <em>URI</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.file.FileRemote#getURL <em>URL</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>URI</em>' attribute.
-	 * @see #getURI()
+	 * @param value the new value of the '<em>URL</em>' attribute.
+	 * @see #getURL()
 	 * @generated
 	 */
-	void setURI(String value);
+	void setURL(String value);
 
 } // FileRemote

@@ -132,7 +132,7 @@ public class FileReaderWriterItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -154,7 +154,7 @@ public class FileReaderWriterItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20FileReaderWriterPropertyCategory"),
 				 null));
 	}
 
@@ -243,11 +243,11 @@ public class FileReaderWriterItemProvider
 		}
 	} // class FileWriteCommand
 
-	public class CloseAppendCommand extends CloseCommand{
+	public class FileCloseCommand extends CloseCommand{
 		private FileReaderWriter writer;
 		
 		// constructor
-		public CloseAppendCommand(FileReaderWriter writer)	{
+		public FileCloseCommand(FileReaderWriter writer)	{
 			super();
 			this.writer = writer;
 		}
@@ -264,9 +264,9 @@ public class FileReaderWriterItemProvider
 
 		@Override
 		public void execute() {
-			this.writer.writeFile();
+			this.writer.close();
 		}
-	} // class CloseAppendCommand
+	} // class FileCloseCommande
 
 	public class FileReadCommand extends ReadCommand{
 		private FileReaderWriter reader;
@@ -301,7 +301,7 @@ public class FileReaderWriterItemProvider
 			return new FileWriteCommand((FileReaderWriter) object); 
 		}
 		else if ( commandClass == CloseCommand.class){
-			return new CloseAppendCommand((FileReaderWriter) object); 
+			return new FileCloseCommand((FileReaderWriter) object); 
 		}
 		else if ( commandClass == ReadCommand.class){
 			return new FileReadCommand((FileReaderWriter) object); 

@@ -33,6 +33,9 @@
           ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/ReadFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/WriteFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/CloseFeedback"/>
+      <genFeatures createChild="false" propertyCategory="20 File Reader/Writer" ecoreFeature="ecore:EAttribute file.ecore#//FileReaderWriter/Open"/>
       <genOperations ecoreOperation="file.ecore#//FileReaderWriter/getReadFeedback">
         <genParameters ecoreParameter="file.ecore#//FileReaderWriter/getReadFeedback/file"/>
       </genOperations>
@@ -41,6 +44,7 @@
       </genOperations>
       <genOperations ecoreOperation="file.ecore#//FileReaderWriter/readFile"/>
       <genOperations ecoreOperation="file.ecore#//FileReaderWriter/writeFile"/>
+      <genOperations ecoreOperation="file.ecore#//FileReaderWriter/close"/>
       <genOperations ecoreOperation="file.ecore#//FileReaderWriter/readFile.1">
         <genParameters ecoreParameter="file.ecore#//FileReaderWriter/readFile.1/file"/>
       </genOperations>

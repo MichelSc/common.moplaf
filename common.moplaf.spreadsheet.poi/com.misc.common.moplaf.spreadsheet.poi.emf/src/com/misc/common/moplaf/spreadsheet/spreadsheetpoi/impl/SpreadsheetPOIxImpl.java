@@ -98,6 +98,9 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 
 	@Override
 	protected EnabledFeedback getReadFeedbackImpl(File file) {
+		if ( this.isOpen() ) {
+			return new EnabledFeedback(false, "The File is already open");
+		}
 		return EnabledFeedback.NOFEEDBACK;
 	}
 

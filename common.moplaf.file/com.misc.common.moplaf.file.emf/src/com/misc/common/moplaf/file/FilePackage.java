@@ -236,13 +236,13 @@ public interface FilePackage extends EPackage {
 	int FILE_REMOTE__ENCODING = BYTE_FILE__ENCODING;
 
 	/**
-	 * The feature id for the '<em><b>URI</b></em>' attribute.
+	 * The feature id for the '<em><b>URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_REMOTE__URI = BYTE_FILE_FEATURE_COUNT + 0;
+	int FILE_REMOTE__URL = BYTE_FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Remote</em>' class.
@@ -720,15 +720,15 @@ public interface FilePackage extends EPackage {
 	EClass getFileRemote();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.file.FileRemote#getURI <em>URI</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.file.FileRemote#getURL <em>URL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>URI</em>'.
-	 * @see com.misc.common.moplaf.file.FileRemote#getURI()
+	 * @return the meta object for the attribute '<em>URL</em>'.
+	 * @see com.misc.common.moplaf.file.FileRemote#getURL()
 	 * @see #getFileRemote()
 	 * @generated
 	 */
-	EAttribute getFileRemote_URI();
+	EAttribute getFileRemote_URL();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.file.FileInMemory <em>In Memory</em>}'.
@@ -1082,12 +1082,12 @@ public interface FilePackage extends EPackage {
 		EClass FILE_REMOTE = eINSTANCE.getFileRemote();
 
 		/**
-		 * The meta object literal for the '<em><b>URI</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>URL</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FILE_REMOTE__URI = eINSTANCE.getFileRemote_URI();
+		EAttribute FILE_REMOTE__URL = eINSTANCE.getFileRemote_URL();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.file.impl.FileInMemoryImpl <em>In Memory</em>}' class.
