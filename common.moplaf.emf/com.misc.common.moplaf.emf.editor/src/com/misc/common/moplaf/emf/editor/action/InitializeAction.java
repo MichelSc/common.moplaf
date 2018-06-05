@@ -56,7 +56,7 @@ public class InitializeAction extends CommandAction
 
 	@Override
 	protected String getImageFileName() {
-		return "005-arrows-8.png";
+		return "004-start.png";
 	}
 
 

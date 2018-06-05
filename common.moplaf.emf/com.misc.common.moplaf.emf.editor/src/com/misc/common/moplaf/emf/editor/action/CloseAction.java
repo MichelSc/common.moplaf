@@ -43,7 +43,7 @@ public class CloseAction extends CommandAction
 
 	@Override
 	protected String getImageFileName() {
-		return "003-copy.png";
+		return "002-delete.png";
 	}
 
 	/**
