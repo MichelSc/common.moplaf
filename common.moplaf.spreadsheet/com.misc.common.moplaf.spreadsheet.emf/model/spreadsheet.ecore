@@ -15,8 +15,13 @@
     <eOperations name="getOrCreateSheet" eType="#//Sheet">
       <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="getOrCreateSheet" eType="#//Sheet">
+      <eParameters name="sheetname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="addSheet" eType="#//Sheet"/>
     <eOperations name="flush"/>
+    <eOperations name="conformSheetIndex"/>
+    <eOperations name="conformAllIndices"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" lowerBound="1"
         upperBound="-1" eType="#//Sheet" containment="true" eOpposite="#//Sheet/Spreadsheet"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -57,6 +62,8 @@
       <eParameters name="column" eType="#//Column"/>
     </eOperations>
     <eOperations name="flush"/>
+    <eOperations name="conformColumnIndex"/>
+    <eOperations name="conformRowIndex"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Rows" upperBound="-1" eType="#//Row"
         containment="true" eOpposite="#//Row/Sheet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"

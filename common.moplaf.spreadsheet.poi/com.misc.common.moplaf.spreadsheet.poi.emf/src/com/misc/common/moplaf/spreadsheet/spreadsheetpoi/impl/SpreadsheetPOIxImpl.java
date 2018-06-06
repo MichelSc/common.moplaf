@@ -119,6 +119,56 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 		return EnabledFeedback.NOFEEDBACK;
 	}
 
+	private void saveSpreadsheet(XSSFWorkbook wb) {
+		Spreadsheet spreadsheet = this.getSpreadsheet();
+		//spreadsheet.conformAllIndices();
+		
+		for ( Sheet from_sheet : spreadsheet.getSheets()) {
+			String sheet_name = from_sheet.getSheetName();
+			String safe_name = WorkbookUtil.createSafeSheetName(sheet_name);
+			if ( !safe_name.equals(sheet_name)) {
+				Plugin.INSTANCE.logWarning(String.format("SpreadsheetPOIx.writeFile: sheet name %s was reduced to %s", sheet_name, safe_name));
+			}
+			// michel: sheet are identified by names, rows and columns by indices
+			XSSFSheet to_sheet = wb.getSheet(sheet_name);
+			if ( to_sheet==null ) {
+				to_sheet = wb.createSheet(safe_name);
+			}
+			for( Row from_row : from_sheet.getRows()) {
+				// Create a new row within the sheet and return the high level representation 
+				// Note: If a row already exists at this position, it is removed/overwritten and any existing cell is removed!
+				int row_index = from_row.getRowIndex();
+				XSSFRow to_row = to_sheet.getRow(row_index);
+				if ( to_row==null ) {
+					to_row = to_sheet.createRow(from_row.getRowIndex());
+				}
+				for( Cell from_cell : from_row.getCells()){
+					int column_index = from_cell.getColumn().getColumnIndex();
+					XSSFCell to_cell = to_row.getCell(column_index);
+					if ( to_cell==null ) {
+						to_cell = to_row.createCell(column_index);
+					}
+					switch ( from_cell.getCellType()) {
+					case CELL_TYPE_DATE:
+						to_cell.setCellValue(from_cell.getDateValue());
+						break;
+					case CELL_TYPE_BOOLEAN:
+						to_cell.setCellValue(from_cell.isBooleanValueSet());
+						break;
+					case CELL_TYPE_NUMERIC:
+						to_cell.setCellValue(from_cell.getDoubleValue());
+						break;
+					case CELL_TYPE_STRING:
+						to_cell.setCellValue(from_cell.getStringValue());
+						break;
+					default:
+						// ignore the cell
+					}
+				}
+			}
+		}
+	}
+	
 	private void loadSpreadsheet(XSSFWorkbook wb) {
 		Spreadsheet spreadsheet = this.getSpreadsheet();
 		for (int k = 0; k < wb.getNumberOfSheets(); k++) {
@@ -192,7 +242,6 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 				} // traverse the cells
 			}  // traverse the rows
 		}  // traverse the sheets 
-		
 	}
 
 	/* (non-Javadoc)
@@ -242,57 +291,39 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 		// fill in the wb
 		boolean success = true;
 		try {
-			Spreadsheet spreadsheet = this.getSpreadsheet();
-			for ( Sheet from_sheet : spreadsheet.getSheets()) {
-				String sheet_name = from_sheet.getSheetName();
-				String safe_name = WorkbookUtil.createSafeSheetName(sheet_name);
-				if ( !safe_name.equals(sheet_name)) {
-					Plugin.INSTANCE.logWarning(String.format("SpreadsheetPOIx.writeFile: sheet name %s was reduced to %s", sheet_name, safe_name));
-				}
-				XSSFSheet to_sheet = wb.createSheet(safe_name);
-				for( Row from_row : from_sheet.getRows()) {
-					// Create a new row within the sheet and return the high level representation 
-					// Note: If a row already exists at this position, it is removed/overwritten and any existing cell is removed!
-					XSSFRow to_row = to_sheet.createRow(from_row.getRowIndex());
-					for( Cell from_cell : from_row.getCells()){
-						XSSFCell to_cell = to_row.createCell(from_cell.getColumn().getColumnIndex());
-						switch ( from_cell.getCellType()) {
-						case CELL_TYPE_DATE:
-							to_cell.setCellValue(from_cell.getDateValue());
-							break;
-						case CELL_TYPE_BOOLEAN:
-							to_cell.setCellValue(from_cell.isBooleanValueSet());
-							break;
-						case CELL_TYPE_NUMERIC:
-							to_cell.setCellValue(from_cell.getDoubleValue());
-							break;
-						case CELL_TYPE_STRING:
-							to_cell.setCellValue(from_cell.getStringValue());
-							break;
-						default:
-							// ignore the cell
-						}
-					}
-				}
-			}
+			this.saveSpreadsheet(wb);
 		} catch(Exception e) {
 			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: exception while filling XSSFWorkbook "+e.getMessage());
 			success = false;
 		};
 		
-		// write the file
+		// close the outputsteam
 		try {
 			OutputStream outputStream = file.getOutputStream();
 			if ( outputStream!=null && success ) {
 				wb.write(outputStream);
 				outputStream.close();
 			} else {
-				Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: file NOT opened");
+				Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: output stream NOT closed");
 				success = false;
 			} 
-			wb.close();
 		} catch (IOException e) {
-			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: sheet NOT written, exeption "+e.getMessage());
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: output stream NOT closed, exception "+e.getMessage());
+			return;
+		}
+
+		// close the workbook
+		try {
+			if ( !this.isOpen() ) {
+				// own Workbook
+				wb.close();
+				wb = null;
+			} else {
+				Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: workbook NOT closed");
+				success = false;
+			} 
+		} catch (IOException e) {
+			Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: workbook NOT closed, exception "+e.getMessage());
 			return;
 		}
 	}

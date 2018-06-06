@@ -357,4 +357,20 @@ public interface Sheet extends EObject {
 	 */
 	void flush();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void conformColumnIndex();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void conformRowIndex();
+
 } // Sheet

@@ -229,7 +229,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSpreadsheet__AddSheet() {
+	public EOperation getSpreadsheet__GetOrCreateSheet__String() {
 		return spreadsheetEClass.getEOperations().get(4);
 	}
 
@@ -238,8 +238,35 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSpreadsheet__Flush() {
+	public EOperation getSpreadsheet__AddSheet() {
 		return spreadsheetEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSpreadsheet__Flush() {
+		return spreadsheetEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSpreadsheet__ConformSheetIndex() {
+		return spreadsheetEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSpreadsheet__ConformAllIndices() {
+		return spreadsheetEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -438,6 +465,24 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	public EOperation getSheet__Flush() {
 		return sheetEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSheet__ConformColumnIndex() {
+		return sheetEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSheet__ConformRowIndex() {
+		return sheetEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -737,8 +782,11 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEOperation(spreadsheetEClass, SPREADSHEET___GET_SHEET__INT);
 		createEOperation(spreadsheetEClass, SPREADSHEET___CREATE_SHEET__INT);
 		createEOperation(spreadsheetEClass, SPREADSHEET___GET_OR_CREATE_SHEET__INT);
+		createEOperation(spreadsheetEClass, SPREADSHEET___GET_OR_CREATE_SHEET__STRING);
 		createEOperation(spreadsheetEClass, SPREADSHEET___ADD_SHEET);
 		createEOperation(spreadsheetEClass, SPREADSHEET___FLUSH);
+		createEOperation(spreadsheetEClass, SPREADSHEET___CONFORM_SHEET_INDEX);
+		createEOperation(spreadsheetEClass, SPREADSHEET___CONFORM_ALL_INDICES);
 
 		sheetEClass = createEClass(SHEET);
 		createEReference(sheetEClass, SHEET__ROWS);
@@ -762,6 +810,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEOperation(sheetEClass, SHEET___CREATE_CELL__ROW_COLUMN);
 		createEOperation(sheetEClass, SHEET___GET_OR_CREATE_CELL__ROW_COLUMN);
 		createEOperation(sheetEClass, SHEET___FLUSH);
+		createEOperation(sheetEClass, SHEET___CONFORM_COLUMN_INDEX);
+		createEOperation(sheetEClass, SHEET___CONFORM_ROW_INDEX);
 
 		rowEClass = createEClass(ROW);
 		createEReference(rowEClass, ROW__CELLS);
@@ -850,9 +900,16 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		op = initEOperation(getSpreadsheet__GetOrCreateSheet__int(), this.getSheet(), "getOrCreateSheet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getSpreadsheet__GetOrCreateSheet__String(), this.getSheet(), "getOrCreateSheet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sheetname", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getSpreadsheet__AddSheet(), this.getSheet(), "addSheet", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSpreadsheet__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSpreadsheet__ConformSheetIndex(), null, "conformSheetIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSpreadsheet__ConformAllIndices(), null, "conformAllIndices", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sheetEClass, Sheet.class, "Sheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSheet_Rows(), this.getRow(), this.getRow_Sheet(), "Rows", null, 0, -1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -900,6 +957,10 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		addEParameter(op, this.getColumn(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSheet__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSheet__ConformColumnIndex(), null, "conformColumnIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSheet__ConformRowIndex(), null, "conformRowIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRow_Cells(), this.getCell(), this.getCell_Row(), "Cells", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

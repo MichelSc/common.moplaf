@@ -549,6 +549,30 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void conformColumnIndex() {
+		int columnIndex = 0;
+		for ( Column column : this.getColumns()) {
+			column.setColumnIndex(columnIndex);
+			columnIndex++;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void conformRowIndex() {
+		int rowIndex = 0;
+		for ( Row row : this.getRows()) {
+			row.setRowIndex(rowIndex);
+			rowIndex++;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -772,6 +796,12 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 				return getOrCreateCell((Row)arguments.get(0), (Column)arguments.get(1));
 			case SpreadsheetPackage.SHEET___FLUSH:
 				flush();
+				return null;
+			case SpreadsheetPackage.SHEET___CONFORM_COLUMN_INDEX:
+				conformColumnIndex();
+				return null;
+			case SpreadsheetPackage.SHEET___CONFORM_ROW_INDEX:
+				conformRowIndex();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -134,6 +134,14 @@ public interface Spreadsheet extends EObject {
 	 * @model
 	 * @generated
 	 */
+	Sheet getOrCreateSheet(String sheetname);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Sheet addSheet();
 
 	/**
@@ -143,5 +151,21 @@ public interface Spreadsheet extends EObject {
 	 * @generated
 	 */
 	void flush();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void conformSheetIndex();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void conformAllIndices();
 
 } // Spreadsheet

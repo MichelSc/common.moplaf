@@ -210,6 +210,19 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public Sheet getOrCreateSheet(String sheetname) {
+		Sheet sheet = this.getSheet(sheetname);
+		if ( sheet ==null ) {
+			sheet = this.addSheet();
+			sheet.setSheetName(sheetname);
+		}
+		return sheet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public Sheet addSheet() {
 		Optional<Integer> max_index = this.getSheets().stream()
 				.map(c -> c.getSheetIndex())
@@ -225,6 +238,30 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	 */
 	public void flush() {
 		this.getSheets().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void conformSheetIndex() {
+		int sheetIndex = 0;
+		for ( Sheet sheet : this.getSheets()) {
+			sheet.setSheetIndex(sheetIndex);
+			sheetIndex++;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void conformAllIndices() {
+		this.conformSheetIndex();
+		for ( Sheet sheet : this.getSheets()) {
+			sheet.conformColumnIndex();
+			sheet.conformRowIndex();
+		}
 	}
 
 	/**
@@ -357,10 +394,18 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 				return createSheet((Integer)arguments.get(0));
 			case SpreadsheetPackage.SPREADSHEET___GET_OR_CREATE_SHEET__INT:
 				return getOrCreateSheet((Integer)arguments.get(0));
+			case SpreadsheetPackage.SPREADSHEET___GET_OR_CREATE_SHEET__STRING:
+				return getOrCreateSheet((String)arguments.get(0));
 			case SpreadsheetPackage.SPREADSHEET___ADD_SHEET:
 				return addSheet();
 			case SpreadsheetPackage.SPREADSHEET___FLUSH:
 				flush();
+				return null;
+			case SpreadsheetPackage.SPREADSHEET___CONFORM_SHEET_INDEX:
+				conformSheetIndex();
+				return null;
+			case SpreadsheetPackage.SPREADSHEET___CONFORM_ALL_INDICES:
+				conformAllIndices();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

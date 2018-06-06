@@ -152,13 +152,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int SPREADSHEET___GET_OR_CREATE_SHEET__INT = 3;
 
 	/**
+	 * The operation id for the '<em>Get Or Create Sheet</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___GET_OR_CREATE_SHEET__STRING = 4;
+
+	/**
 	 * The operation id for the '<em>Add Sheet</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET___ADD_SHEET = 4;
+	int SPREADSHEET___ADD_SHEET = 5;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -167,7 +176,25 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET___FLUSH = 5;
+	int SPREADSHEET___FLUSH = 6;
+
+	/**
+	 * The operation id for the '<em>Conform Sheet Index</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___CONFORM_SHEET_INDEX = 7;
+
+	/**
+	 * The operation id for the '<em>Conform All Indices</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___CONFORM_ALL_INDICES = 8;
 
 	/**
 	 * The number of operations of the '<em>Spreadsheet</em>' class.
@@ -176,7 +203,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_OPERATION_COUNT = 6;
+	int SPREADSHEET_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
@@ -387,13 +414,31 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET___FLUSH = 11;
 
 	/**
+	 * The operation id for the '<em>Conform Column Index</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___CONFORM_COLUMN_INDEX = 12;
+
+	/**
+	 * The operation id for the '<em>Conform Row Index</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___CONFORM_ROW_INDEX = 13;
+
+	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_OPERATION_COUNT = 12;
+	int SHEET_OPERATION_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
@@ -742,6 +787,24 @@ public interface SpreadsheetPackage extends EPackage {
 	int SPREADSHEET_READER_WRITER__WRITE_FEEDBACK = FilePackage.FILE_READER_WRITER__WRITE_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Close Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__CLOSE_FEEDBACK = FilePackage.FILE_READER_WRITER__CLOSE_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Open</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER__OPEN = FilePackage.FILE_READER_WRITER__OPEN;
+
+	/**
 	 * The feature id for the '<em><b>Spreadsheet</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -794,6 +857,15 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPREADSHEET_READER_WRITER___WRITE_FILE = FilePackage.FILE_READER_WRITER___WRITE_FILE;
+
+	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_READER_WRITER___CLOSE = FilePackage.FILE_READER_WRITER___CLOSE;
 
 	/**
 	 * The operation id for the '<em>Read File</em>' operation.
@@ -917,6 +989,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSpreadsheet__GetOrCreateSheet__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getOrCreateSheet(java.lang.String) <em>Get Or Create Sheet</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Or Create Sheet</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getOrCreateSheet(java.lang.String)
+	 * @generated
+	 */
+	EOperation getSpreadsheet__GetOrCreateSheet__String();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#addSheet() <em>Add Sheet</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -935,6 +1017,26 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSpreadsheet__Flush();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#conformSheetIndex() <em>Conform Sheet Index</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Conform Sheet Index</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#conformSheetIndex()
+	 * @generated
+	 */
+	EOperation getSpreadsheet__ConformSheetIndex();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#conformAllIndices() <em>Conform All Indices</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Conform All Indices</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#conformAllIndices()
+	 * @generated
+	 */
+	EOperation getSpreadsheet__ConformAllIndices();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Sheet <em>Sheet</em>}'.
@@ -1164,6 +1266,26 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSheet__Flush();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#conformColumnIndex() <em>Conform Column Index</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Conform Column Index</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#conformColumnIndex()
+	 * @generated
+	 */
+	EOperation getSheet__ConformColumnIndex();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#conformRowIndex() <em>Conform Row Index</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Conform Row Index</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#conformRowIndex()
+	 * @generated
+	 */
+	EOperation getSheet__ConformRowIndex();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Row <em>Row</em>}'.
@@ -1563,6 +1685,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SPREADSHEET___GET_OR_CREATE_SHEET__INT = eINSTANCE.getSpreadsheet__GetOrCreateSheet__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Or Create Sheet</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___GET_OR_CREATE_SHEET__STRING = eINSTANCE.getSpreadsheet__GetOrCreateSheet__String();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Sheet</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1577,6 +1707,22 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SPREADSHEET___FLUSH = eINSTANCE.getSpreadsheet__Flush();
+
+		/**
+		 * The meta object literal for the '<em><b>Conform Sheet Index</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___CONFORM_SHEET_INDEX = eINSTANCE.getSpreadsheet__ConformSheetIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Conform All Indices</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___CONFORM_ALL_INDICES = eINSTANCE.getSpreadsheet__ConformAllIndices();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
@@ -1755,6 +1901,22 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SHEET___FLUSH = eINSTANCE.getSheet__Flush();
+
+		/**
+		 * The meta object literal for the '<em><b>Conform Column Index</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___CONFORM_COLUMN_INDEX = eINSTANCE.getSheet__ConformColumnIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Conform Row Index</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___CONFORM_ROW_INDEX = eINSTANCE.getSheet__ConformRowIndex();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
