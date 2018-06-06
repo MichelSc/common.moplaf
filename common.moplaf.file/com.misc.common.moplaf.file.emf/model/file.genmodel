@@ -23,7 +23,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileLocal/FilePath"/>
     </genClasses>
     <genClasses image="false" ecoreClass="file.ecore#//FileRemote">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileRemote/URI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//FileRemote/URL"/>
     </genClasses>
     <genClasses image="false" ecoreClass="file.ecore#//FileInMemory">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute file.ecore#//FileInMemory/Content"/>
@@ -61,7 +61,7 @@
     <genClasses ecoreClass="file.ecore#//FileOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference file.ecore#//FileOwner/Files"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="file.ecore#//Files">
+    <genClasses ecoreClass="file.ecore#//Files">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute file.ecore#//Files/Name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="file.ecore#//ByteFile">

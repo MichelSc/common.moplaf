@@ -25,7 +25,7 @@
       <eParameters name="other" eType="#//RunParams"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Run" abstract="true" eSuperTypes="#//RunParams">
+  <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//RunParams">
     <eOperations name="reset"/>
     <eOperations name="run" eType="#//ReturnFeedback"/>
     <eOperations name="run" eType="#//ReturnFeedback">

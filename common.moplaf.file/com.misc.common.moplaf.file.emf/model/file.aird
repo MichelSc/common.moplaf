@@ -79,9 +79,9 @@
         <children xmi:type="notation:Node" xmi:id="_Cm2b9fYOEeesU-ShemDjnw" type="2003" element="_Cmjg9vYOEeesU-ShemDjnw">
           <children xmi:type="notation:Node" xmi:id="_Cm2b-PYOEeesU-ShemDjnw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_Cm2b-fYOEeesU-ShemDjnw" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_Cm2cE_YOEeesU-ShemDjnw" type="3010" element="_CmtR9vYOEeesU-ShemDjnw">
-              <styles xmi:type="notation:FontStyle" xmi:id="_Cm2cFPYOEeesU-ShemDjnw" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_Cm2cFfYOEeesU-ShemDjnw"/>
+            <children xmi:type="notation:Node" xmi:id="_hytJ8GmIEeiIh7re19wlPA" type="3010" element="_hyknEGmIEeiIh7re19wlPA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_hytJ8WmIEeiIh7re19wlPA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_hytJ8mmIEeiIh7re19wlPA"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_Cm2b-vYOEeesU-ShemDjnw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_Cm2b-_YOEeesU-ShemDjnw"/>
@@ -485,10 +485,10 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CmtR9vYOEeesU-ShemDjnw" name="URI : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="file.ecore#//FileRemote/URI"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="file.ecore#//FileRemote/URI"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_CmtR9_YOEeesU-ShemDjnw" labelAlignment="LEFT">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_hyknEGmIEeiIh7re19wlPA" name="URL : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="file.ecore#//FileRemote/URL"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="file.ecore#//FileRemote/URL"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_hylOIGmIEeiIh7re19wlPA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
