@@ -319,7 +319,7 @@ public class SpreadsheetPOIxImpl extends SpreadsheetReaderWriterImpl implements 
 				wb.close();
 				wb = null;
 			} else {
-				Plugin.INSTANCE.logError("SpreadsheetPOIx.writeFile: workbook NOT closed");
+				Plugin.INSTANCE.logInfo("SpreadsheetPOIx.writeFile: workbook NOT closed");
 				success = false;
 			} 
 		} catch (IOException e) {
