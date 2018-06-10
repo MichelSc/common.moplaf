@@ -120,6 +120,14 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 				return createUnscheduleAdapter();
 			}
 			@Override
+			public Adapter caseFlockTask(FlockTask object) {
+				return createFlockTaskAdapter();
+			}
+			@Override
+			public Adapter caseFlockResource(FlockResource object) {
+				return createFlockResourceAdapter();
+			}
+			@Override
 			public Adapter caseRunParams(RunParams object) {
 				return createRunParamsAdapter();
 			}
@@ -314,6 +322,34 @@ public class SchedulerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnscheduleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.scheduler.FlockTask <em>Flock Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.scheduler.FlockTask
+	 * @generated
+	 */
+	public Adapter createFlockTaskAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.scheduler.FlockResource <em>Flock Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource
+	 * @generated
+	 */
+	public Adapter createFlockResourceAdapter() {
 		return null;
 	}
 

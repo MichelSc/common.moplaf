@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getNrNotScheduledTasks <em>Nr Not Scheduled Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getNotScheduledTasks <em>Not Scheduled Tasks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.Schedule#getFlocks <em>Flocks</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule()
@@ -114,6 +115,22 @@ public interface Schedule extends Solution {
 	 * @generated
 	 */
 	EList<Task> getNotScheduledTasks();
+
+	/**
+	 * Returns the value of the '<em><b>Flocks</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.scheduler.FlockResource}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Flocks</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Flocks</em>' containment reference list.
+	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getSchedule_Flocks()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<FlockResource> getFlocks();
 
 	/**
 	 * <!-- begin-user-doc -->

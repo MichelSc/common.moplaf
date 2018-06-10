@@ -82,6 +82,29 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.scheduler.Scheduler} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SchedulerItemProvider schedulerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.scheduler.Scheduler}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSchedulerAdapter() {
+		if (schedulerItemProvider == null) {
+			schedulerItemProvider = new SchedulerItemProvider(this);
+		}
+
+		return schedulerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.scheduler.ScheduleAfter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +171,52 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 		}
 
 		return unscheduleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.scheduler.FlockTask} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FlockTaskItemProvider flockTaskItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.scheduler.FlockTask}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFlockTaskAdapter() {
+		if (flockTaskItemProvider == null) {
+			flockTaskItemProvider = new FlockTaskItemProvider(this);
+		}
+
+		return flockTaskItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.scheduler.FlockResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FlockResourceItemProvider flockResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.scheduler.FlockResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFlockResourceAdapter() {
+		if (flockResourceItemProvider == null) {
+			flockResourceItemProvider = new FlockResourceItemProvider(this);
+		}
+
+		return flockResourceItemProvider;
 	}
 
 	/**
@@ -249,9 +318,12 @@ public class SchedulerItemProviderAdapterFactory extends SchedulerAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
+		if (schedulerItemProvider != null) schedulerItemProvider.dispose();
 		if (scheduleAfterItemProvider != null) scheduleAfterItemProvider.dispose();
 		if (scheduleBeforeItemProvider != null) scheduleBeforeItemProvider.dispose();
 		if (unscheduleItemProvider != null) unscheduleItemProvider.dispose();
+		if (flockTaskItemProvider != null) flockTaskItemProvider.dispose();
+		if (flockResourceItemProvider != null) flockResourceItemProvider.dispose();
 	}
 
 }

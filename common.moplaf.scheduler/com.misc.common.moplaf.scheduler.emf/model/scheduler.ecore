@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="scheduler" nsURI="http://www.misc.com/common/moplaf/scheduler/model/0.1"
     nsPrefix="sched">
-  <eClassifiers xsi:type="ecore:EClass" name="Scheduler" abstract="true" eSuperTypes="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.ecore#//Strategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheduler" eSuperTypes="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.ecore#//Strategy"/>
   <eClassifiers xsi:type="ecore:EClass" name="Schedule" abstract="true" eSuperTypes="../../com.misc.common.moplaf.localsearch.emf/model/localsearch.ecore#//Solution">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Update the candidate solution with the parameter Move.&#xA;"/>
@@ -38,6 +38,8 @@
         eType="#//Scheduler" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="NotScheduledTasks" upperBound="-1"
         eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocks" upperBound="-1"
+        eType="#//FlockResource" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Schedule" lowerBound="1"
@@ -94,7 +96,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Successors" upperBound="-1"
         eType="#//FlockTask" eOpposite="#//FlockTask/Predecessors"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="#//FlockResource"
-        eOpposite="#//FlockResource/Flocks"/>
+        eOpposite="#//FlockResource/Tasks"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlockResource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlannedResource" eType="#//Resource"/>
@@ -103,7 +105,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsResourceInvalid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocks" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tasks" upperBound="-1"
         eType="#//FlockTask" eOpposite="#//FlockTask/Resource"/>
   </eClassifiers>
 </ecore:EPackage>

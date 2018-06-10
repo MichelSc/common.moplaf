@@ -16,6 +16,8 @@ import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.localsearch.LocalSearchPackage;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
+import com.misc.common.moplaf.scheduler.FlockResource;
+import com.misc.common.moplaf.scheduler.FlockTask;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.ScheduleAfter;
@@ -104,6 +106,20 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * @generated
 	 */
 	private EClass unscheduleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flockTaskEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flockResourceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -233,6 +249,15 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 */
 	public EReference getSchedule_NotScheduledTasks() {
 		return (EReference)scheduleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchedule_Flocks() {
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -483,6 +508,105 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFlockTask() {
+		return flockTaskEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlockTask_Predecessors() {
+		return (EReference)flockTaskEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlockTask_Successors() {
+		return (EReference)flockTaskEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlockTask_Resource() {
+		return (EReference)flockTaskEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFlockTask__GetCongruentTasks() {
+		return flockTaskEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFlockResource() {
+		return flockResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlockResource_PlannedResource() {
+		return (EReference)flockResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlockResource_KeepTogether() {
+		return (EAttribute)flockResourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlockResource_IsFullyPlanned() {
+		return (EAttribute)flockResourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFlockResource_IsResourceInvalid() {
+		return (EAttribute)flockResourceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlockResource_Tasks() {
+		return (EReference)flockResourceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SchedulerFactory getSchedulerFactory() {
 		return (SchedulerFactory)getEFactoryInstance();
 	}
@@ -514,6 +638,7 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		createEAttribute(scheduleEClass, SCHEDULE__NR_NOT_SCHEDULED_TASKS);
 		createEReference(scheduleEClass, SCHEDULE__SCHEDULER);
 		createEReference(scheduleEClass, SCHEDULE__NOT_SCHEDULED_TASKS);
+		createEReference(scheduleEClass, SCHEDULE__FLOCKS);
 		createEOperation(scheduleEClass, SCHEDULE___SCHEDULE__TASK_TASK_RESOURCE_TASK_TASK);
 		createEOperation(scheduleEClass, SCHEDULE___SCHEDULE_FEEDBACK__TASK_TASK_RESOURCE_TASK_TASK);
 		createEOperation(scheduleEClass, SCHEDULE___FLUSH);
@@ -548,6 +673,19 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		scheduleBeforeEClass = createEClass(SCHEDULE_BEFORE);
 
 		unscheduleEClass = createEClass(UNSCHEDULE);
+
+		flockTaskEClass = createEClass(FLOCK_TASK);
+		createEReference(flockTaskEClass, FLOCK_TASK__PREDECESSORS);
+		createEReference(flockTaskEClass, FLOCK_TASK__SUCCESSORS);
+		createEReference(flockTaskEClass, FLOCK_TASK__RESOURCE);
+		createEOperation(flockTaskEClass, FLOCK_TASK___GET_CONGRUENT_TASKS);
+
+		flockResourceEClass = createEClass(FLOCK_RESOURCE);
+		createEReference(flockResourceEClass, FLOCK_RESOURCE__PLANNED_RESOURCE);
+		createEAttribute(flockResourceEClass, FLOCK_RESOURCE__KEEP_TOGETHER);
+		createEAttribute(flockResourceEClass, FLOCK_RESOURCE__IS_FULLY_PLANNED);
+		createEAttribute(flockResourceEClass, FLOCK_RESOURCE__IS_RESOURCE_INVALID);
+		createEReference(flockResourceEClass, FLOCK_RESOURCE__TASKS);
 	}
 
 	/**
@@ -592,9 +730,10 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		scheduleAfterEClass.getESuperTypes().add(this.getScheduleTask());
 		scheduleBeforeEClass.getESuperTypes().add(this.getScheduleTask());
 		unscheduleEClass.getESuperTypes().add(this.getScheduleDelta());
+		flockTaskEClass.getESuperTypes().add(this.getTask());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(schedulerEClass, Scheduler.class, "Scheduler", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(schedulerEClass, Scheduler.class, "Scheduler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(scheduleEClass, Schedule.class, "Schedule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSchedule_Tasks(), this.getTask(), this.getTask_Schedule(), "Tasks", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -602,6 +741,7 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		initEAttribute(getSchedule_NrNotScheduledTasks(), ecorePackage.getEInt(), "NrNotScheduledTasks", null, 0, 1, Schedule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_Scheduler(), this.getScheduler(), null, "Scheduler", null, 1, 1, Schedule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_NotScheduledTasks(), this.getTask(), null, "NotScheduledTasks", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchedule_Flocks(), this.getFlockResource(), null, "Flocks", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getSchedule__Schedule__Task_Task_Resource_Task_Task(), null, "schedule", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTask(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -649,6 +789,20 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		initEClass(scheduleBeforeEClass, ScheduleBefore.class, "ScheduleBefore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(unscheduleEClass, Unschedule.class, "Unschedule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(flockTaskEClass, FlockTask.class, "FlockTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFlockTask_Predecessors(), this.getFlockTask(), this.getFlockTask_Successors(), "Predecessors", null, 0, -1, FlockTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlockTask_Successors(), this.getFlockTask(), this.getFlockTask_Predecessors(), "Successors", null, 0, -1, FlockTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlockTask_Resource(), this.getFlockResource(), this.getFlockResource_Tasks(), "Resource", null, 0, 1, FlockTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getFlockTask__GetCongruentTasks(), this.getFlockTask(), "getCongruentTasks", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(flockResourceEClass, FlockResource.class, "FlockResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFlockResource_PlannedResource(), this.getResource(), null, "PlannedResource", null, 0, 1, FlockResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlockResource_KeepTogether(), ecorePackage.getEBoolean(), "KeepTogether", null, 0, 1, FlockResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlockResource_IsFullyPlanned(), ecorePackage.getEBoolean(), "IsFullyPlanned", null, 0, 1, FlockResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlockResource_IsResourceInvalid(), ecorePackage.getEBoolean(), "IsResourceInvalid", null, 0, 1, FlockResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getFlockResource_Tasks(), this.getFlockTask(), this.getFlockTask_Resource(), "Tasks", null, 0, -1, FlockResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

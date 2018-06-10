@@ -516,13 +516,22 @@ public interface SchedulerPackage extends EPackage {
 	int SCHEDULE__NOT_SCHEDULED_TASKS = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Flocks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__FLOCKS = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_FEATURE_COUNT = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 5;
+	int SCHEDULE_FEATURE_COUNT = LocalSearchPackage.SOLUTION_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -1711,6 +1720,242 @@ public interface SchedulerPackage extends EPackage {
 	int UNSCHEDULE_OPERATION_COUNT = SCHEDULE_DELTA_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.FlockTaskImpl <em>Flock Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.scheduler.impl.FlockTaskImpl
+	 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getFlockTask()
+	 * @generated
+	 */
+	int FLOCK_TASK = 9;
+
+	/**
+	 * The feature id for the '<em><b>Propagator Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__PROPAGATOR_FUNCTIONS = TASK__PROPAGATOR_FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Schedule</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__SCHEDULE = TASK__SCHEDULE;
+
+	/**
+	 * The feature id for the '<em><b>Next Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__NEXT_TASK = TASK__NEXT_TASK;
+
+	/**
+	 * The feature id for the '<em><b>Previous Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__PREVIOUS_TASK = TASK__PREVIOUS_TASK;
+
+	/**
+	 * The feature id for the '<em><b>Scheduled Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__SCHEDULED_RESOURCE = TASK__SCHEDULED_RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__NAME = TASK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__DESCRIPTION = TASK__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Scheduled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__SCHEDULED = TASK__SCHEDULED;
+
+	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__PREDECESSORS = TASK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__SUCCESSORS = TASK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK__RESOURCE = TASK_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Flock Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK_FEATURE_COUNT = TASK_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = TASK___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
+
+	/**
+	 * The operation id for the '<em>Get Propagator Function</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK___GET_PROPAGATOR_FUNCTION__ECLASS = TASK___GET_PROPAGATOR_FUNCTION__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK___ADD_PROPAGATOR_FUNCTIONS__STRING = TASK___ADD_PROPAGATOR_FUNCTIONS__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Congruent Tasks</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK___GET_CONGRUENT_TASKS = TASK_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Flock Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_TASK_OPERATION_COUNT = TASK_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl <em>Flock Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.scheduler.impl.FlockResourceImpl
+	 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getFlockResource()
+	 * @generated
+	 */
+	int FLOCK_RESOURCE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Planned Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_RESOURCE__PLANNED_RESOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Keep Together</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_RESOURCE__KEEP_TOGETHER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Is Fully Planned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_RESOURCE__IS_FULLY_PLANNED = 2;
+
+	/**
+	 * The feature id for the '<em><b>Is Resource Invalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_RESOURCE__IS_RESOURCE_INVALID = 3;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_RESOURCE__TASKS = 4;
+
+	/**
+	 * The number of structural features of the '<em>Flock Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_RESOURCE_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Flock Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOCK_RESOURCE_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.Scheduler <em>Scheduler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1784,6 +2029,17 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSchedule_NotScheduledTasks();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.scheduler.Schedule#getFlocks <em>Flocks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Flocks</em>'.
+	 * @see com.misc.common.moplaf.scheduler.Schedule#getFlocks()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EReference getSchedule_Flocks();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Schedule#schedule(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task) <em>Schedule</em>}' operation.
@@ -2073,6 +2329,124 @@ public interface SchedulerPackage extends EPackage {
 	EClass getUnschedule();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.FlockTask <em>Flock Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flock Task</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockTask
+	 * @generated
+	 */
+	EClass getFlockTask();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.scheduler.FlockTask#getPredecessors <em>Predecessors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Predecessors</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockTask#getPredecessors()
+	 * @see #getFlockTask()
+	 * @generated
+	 */
+	EReference getFlockTask_Predecessors();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.scheduler.FlockTask#getSuccessors <em>Successors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Successors</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockTask#getSuccessors()
+	 * @see #getFlockTask()
+	 * @generated
+	 */
+	EReference getFlockTask_Successors();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.FlockTask#getResource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockTask#getResource()
+	 * @see #getFlockTask()
+	 * @generated
+	 */
+	EReference getFlockTask_Resource();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.FlockTask#getCongruentTasks() <em>Get Congruent Tasks</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Congruent Tasks</em>' operation.
+	 * @see com.misc.common.moplaf.scheduler.FlockTask#getCongruentTasks()
+	 * @generated
+	 */
+	EOperation getFlockTask__GetCongruentTasks();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.scheduler.FlockResource <em>Flock Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flock Resource</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource
+	 * @generated
+	 */
+	EClass getFlockResource();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.scheduler.FlockResource#getPlannedResource <em>Planned Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Planned Resource</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource#getPlannedResource()
+	 * @see #getFlockResource()
+	 * @generated
+	 */
+	EReference getFlockResource_PlannedResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.FlockResource#isKeepTogether <em>Keep Together</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Keep Together</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource#isKeepTogether()
+	 * @see #getFlockResource()
+	 * @generated
+	 */
+	EAttribute getFlockResource_KeepTogether();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.FlockResource#isIsFullyPlanned <em>Is Fully Planned</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Fully Planned</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource#isIsFullyPlanned()
+	 * @see #getFlockResource()
+	 * @generated
+	 */
+	EAttribute getFlockResource_IsFullyPlanned();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.FlockResource#isIsResourceInvalid <em>Is Resource Invalid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Resource Invalid</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource#isIsResourceInvalid()
+	 * @see #getFlockResource()
+	 * @generated
+	 */
+	EAttribute getFlockResource_IsResourceInvalid();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.scheduler.FlockResource#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tasks</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource#getTasks()
+	 * @see #getFlockResource()
+	 * @generated
+	 */
+	EReference getFlockResource_Tasks();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2154,6 +2528,14 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEDULE__NOT_SCHEDULED_TASKS = eINSTANCE.getSchedule_NotScheduledTasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Flocks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULE__FLOCKS = eINSTANCE.getSchedule_Flocks();
 
 		/**
 		 * The meta object literal for the '<em><b>Schedule</b></em>' operation.
@@ -2384,6 +2766,98 @@ public interface SchedulerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNSCHEDULE = eINSTANCE.getUnschedule();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.FlockTaskImpl <em>Flock Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.scheduler.impl.FlockTaskImpl
+		 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getFlockTask()
+		 * @generated
+		 */
+		EClass FLOCK_TASK = eINSTANCE.getFlockTask();
+
+		/**
+		 * The meta object literal for the '<em><b>Predecessors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOCK_TASK__PREDECESSORS = eINSTANCE.getFlockTask_Predecessors();
+
+		/**
+		 * The meta object literal for the '<em><b>Successors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOCK_TASK__SUCCESSORS = eINSTANCE.getFlockTask_Successors();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOCK_TASK__RESOURCE = eINSTANCE.getFlockTask_Resource();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Congruent Tasks</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FLOCK_TASK___GET_CONGRUENT_TASKS = eINSTANCE.getFlockTask__GetCongruentTasks();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl <em>Flock Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.scheduler.impl.FlockResourceImpl
+		 * @see com.misc.common.moplaf.scheduler.impl.SchedulerPackageImpl#getFlockResource()
+		 * @generated
+		 */
+		EClass FLOCK_RESOURCE = eINSTANCE.getFlockResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Planned Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOCK_RESOURCE__PLANNED_RESOURCE = eINSTANCE.getFlockResource_PlannedResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Keep Together</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOCK_RESOURCE__KEEP_TOGETHER = eINSTANCE.getFlockResource_KeepTogether();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Fully Planned</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOCK_RESOURCE__IS_FULLY_PLANNED = eINSTANCE.getFlockResource_IsFullyPlanned();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Resource Invalid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOCK_RESOURCE__IS_RESOURCE_INVALID = eINSTANCE.getFlockResource_IsResourceInvalid();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOCK_RESOURCE__TASKS = eINSTANCE.getFlockResource_Tasks();
 
 	}
 

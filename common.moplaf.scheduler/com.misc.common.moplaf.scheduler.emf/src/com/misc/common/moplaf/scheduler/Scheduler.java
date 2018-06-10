@@ -21,7 +21,7 @@ import com.misc.common.moplaf.localsearch.Strategy;
  *
  *
  * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getScheduler()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Scheduler extends Strategy {

@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class SchedulerImpl extends StrategyImpl implements Scheduler {
+public class SchedulerImpl extends StrategyImpl implements Scheduler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

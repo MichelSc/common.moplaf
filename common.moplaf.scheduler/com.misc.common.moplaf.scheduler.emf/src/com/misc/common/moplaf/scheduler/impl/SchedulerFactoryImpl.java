@@ -66,12 +66,25 @@ public class SchedulerFactoryImpl extends EFactoryImpl implements SchedulerFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case SchedulerPackage.SCHEDULER: return createScheduler();
 			case SchedulerPackage.SCHEDULE_AFTER: return createScheduleAfter();
 			case SchedulerPackage.SCHEDULE_BEFORE: return createScheduleBefore();
 			case SchedulerPackage.UNSCHEDULE: return createUnschedule();
+			case SchedulerPackage.FLOCK_TASK: return createFlockTask();
+			case SchedulerPackage.FLOCK_RESOURCE: return createFlockResource();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Scheduler createScheduler() {
+		SchedulerImpl scheduler = new SchedulerImpl();
+		return scheduler;
 	}
 
 	/**
@@ -102,6 +115,26 @@ public class SchedulerFactoryImpl extends EFactoryImpl implements SchedulerFacto
 	public Unschedule createUnschedule() {
 		UnscheduleImpl unschedule = new UnscheduleImpl();
 		return unschedule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlockTask createFlockTask() {
+		FlockTaskImpl flockTask = new FlockTaskImpl();
+		return flockTask;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlockResource createFlockResource() {
+		FlockResourceImpl flockResource = new FlockResourceImpl();
+		return flockResource;
 	}
 
 	/**

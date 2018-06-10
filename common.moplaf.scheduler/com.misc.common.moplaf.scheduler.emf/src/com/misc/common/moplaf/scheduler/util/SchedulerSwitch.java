@@ -154,6 +154,20 @@ public class SchedulerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SchedulerPackage.FLOCK_TASK: {
+				FlockTask flockTask = (FlockTask)theEObject;
+				T result = caseFlockTask(flockTask);
+				if (result == null) result = caseTask(flockTask);
+				if (result == null) result = caseObjectWithPropagatorFunctions(flockTask);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SchedulerPackage.FLOCK_RESOURCE: {
+				FlockResource flockResource = (FlockResource)theEObject;
+				T result = caseFlockResource(flockResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -320,6 +334,36 @@ public class SchedulerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUnschedule(Unschedule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flock Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flock Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlockTask(FlockTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flock Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flock Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlockResource(FlockResource object) {
 		return null;
 	}
 

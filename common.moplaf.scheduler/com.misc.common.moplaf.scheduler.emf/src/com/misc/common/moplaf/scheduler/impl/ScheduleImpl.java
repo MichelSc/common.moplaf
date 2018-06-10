@@ -15,6 +15,7 @@ package com.misc.common.moplaf.scheduler.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.impl.SolutionImpl;
+import com.misc.common.moplaf.scheduler.FlockResource;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.Scheduler;
@@ -29,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -46,6 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getNrNotScheduledTasks <em>Nr Not Scheduled Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getScheduler <em>Scheduler</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getNotScheduledTasks <em>Not Scheduled Tasks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.impl.ScheduleImpl#getFlocks <em>Flocks</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +93,16 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	 * @ordered
 	 */
 	protected EList<Task> notScheduledTasks;
+
+	/**
+	 * The cached value of the '{@link #getFlocks() <em>Flocks</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFlocks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlockResource> flocks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +193,18 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 			notScheduledTasks = new EObjectResolvingEList<Task>(Task.class, this, SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS);
 		}
 		return notScheduledTasks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<FlockResource> getFlocks() {
+		if (flocks == null) {
+			flocks = new EObjectContainmentEList<FlockResource>(FlockResource.class, this, SchedulerPackage.SCHEDULE__FLOCKS);
+		}
+		return flocks;
 	}
 
 	/**
@@ -353,7 +378,9 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	 * <!-- end-user-doc -->
 	 */
 	public void flush() {
+		
 		this.getTasks().clear();
+		this.getFlocks().clear();
 		this.getResources().clear();
 	}
 
@@ -409,6 +436,8 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
 			case SchedulerPackage.SCHEDULE__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
+			case SchedulerPackage.SCHEDULE__FLOCKS:
+				return ((InternalEList<?>)getFlocks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -432,6 +461,8 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return basicGetScheduler();
 			case SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS:
 				return getNotScheduledTasks();
+			case SchedulerPackage.SCHEDULE__FLOCKS:
+				return getFlocks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -457,6 +488,10 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				getNotScheduledTasks().clear();
 				getNotScheduledTasks().addAll((Collection<? extends Task>)newValue);
 				return;
+			case SchedulerPackage.SCHEDULE__FLOCKS:
+				getFlocks().clear();
+				getFlocks().addAll((Collection<? extends FlockResource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -477,6 +512,9 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return;
 			case SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS:
 				getNotScheduledTasks().clear();
+				return;
+			case SchedulerPackage.SCHEDULE__FLOCKS:
+				getFlocks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -500,6 +538,8 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				return basicGetScheduler() != null;
 			case SchedulerPackage.SCHEDULE__NOT_SCHEDULED_TASKS:
 				return notScheduledTasks != null && !notScheduledTasks.isEmpty();
+			case SchedulerPackage.SCHEDULE__FLOCKS:
+				return flocks != null && !flocks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

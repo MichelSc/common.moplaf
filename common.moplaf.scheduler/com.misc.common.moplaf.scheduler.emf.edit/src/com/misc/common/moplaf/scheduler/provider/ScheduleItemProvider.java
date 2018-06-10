@@ -150,6 +150,7 @@ public class ScheduleItemProvider extends SolutionItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Schedule.class)) {
+			case SchedulerPackage.SCHEDULE__FLOCKS:
 			case SchedulerPackage.SCHEDULE__TASKS:
 			case SchedulerPackage.SCHEDULE__NR_NOT_SCHEDULED_TASKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

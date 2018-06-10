@@ -32,6 +32,15 @@ public interface SchedulerFactory extends EFactory {
 	SchedulerFactory eINSTANCE = com.misc.common.moplaf.scheduler.impl.SchedulerFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Scheduler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scheduler</em>'.
+	 * @generated
+	 */
+	Scheduler createScheduler();
+
+	/**
 	 * Returns a new object of class '<em>Schedule After</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,6 +66,24 @@ public interface SchedulerFactory extends EFactory {
 	 * @generated
 	 */
 	Unschedule createUnschedule();
+
+	/**
+	 * Returns a new object of class '<em>Flock Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flock Task</em>'.
+	 * @generated
+	 */
+	FlockTask createFlockTask();
+
+	/**
+	 * Returns a new object of class '<em>Flock Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flock Resource</em>'.
+	 * @generated
+	 */
+	FlockResource createFlockResource();
 
 	/**
 	 * Returns the package supported by this factory.
