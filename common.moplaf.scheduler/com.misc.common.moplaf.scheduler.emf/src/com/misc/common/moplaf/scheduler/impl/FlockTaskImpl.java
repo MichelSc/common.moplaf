@@ -194,7 +194,6 @@ public class FlockTaskImpl extends TaskImpl implements FlockTask {
 		if ( resource!=null && resource.isKeepTogether() && resource==task.getResource() ) {
 			congruentTasks.add(task);
 		}
-		visitedTasks.add(task);
 	}
 
 	/**

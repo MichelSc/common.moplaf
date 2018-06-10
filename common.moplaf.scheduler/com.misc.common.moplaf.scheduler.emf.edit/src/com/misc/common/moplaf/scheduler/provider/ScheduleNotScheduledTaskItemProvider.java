@@ -78,7 +78,7 @@ public ScheduleNotScheduledTaskItemProvider(AdapterFactory adapterFactory, Sched
 			for (Object element : collection){
 				if ( element instanceof Task ) {
 					Task task = (Task) element;
-					Command cmd = new ScheduleCommand(true, schedule, task, task, null, null, null);
+					Command cmd = new ScheduleCommand(schedule, task, null, null, null);
 					compound.append(cmd);
 				}
 			}

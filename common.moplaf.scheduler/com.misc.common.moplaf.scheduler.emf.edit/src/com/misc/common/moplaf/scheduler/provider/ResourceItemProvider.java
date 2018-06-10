@@ -296,7 +296,7 @@ public class ResourceItemProvider extends ObjectWithPropagatorFunctionsItemProvi
 			Task next = owner.getFirstTask();
 			Task previous = null;
 			Schedule schedule = owner.getSchedule();
-			Command cmd = new ScheduleCommand(true, schedule, task, task, owner, previous, next);
+			Command cmd = new ScheduleCommand(schedule, task, owner, previous, next);
 			return cmd;
 		}
 		return null;

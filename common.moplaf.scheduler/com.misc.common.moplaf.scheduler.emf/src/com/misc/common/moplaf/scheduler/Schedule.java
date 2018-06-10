@@ -156,6 +156,44 @@ public interface Schedule extends Solution {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This is the unique entry point for scheduling or unscheduling Task(s) on Resource.
+	 * 
+	 * The following conditions must be satisfied by the parameters. 
+	 * 
+	 * Either from and to are both planned on the same Resource, and from is before to, or from and to refers to the same Task, which is not scheduled. So the couple (from, to) refers to a sequence of planned tasks, or to some unplanned task.
+	 * 
+	 * Either all of resource, previous, next are not set, or we have either previous is null and next is first, or previous.next = next and next.previous = previous, or previous is last and next is null and previous and next are scheduled on resource. So the triple (resource, previous, next) refers to an insertion point in some Resource planning.
+	 * 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model tasksMany="true"
+	 * @generated
+	 */
+	void schedule(EList<Task> tasks, Resource resource, Task previous, Task next);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the unique entry point for scheduling or unscheduling Task(s) on Resource.
+	 * 
+	 * The following conditions must be satisfied by the parameters. 
+	 * 
+	 * Either from and to are both planned on the same Resource, and from is before to, or from and to refers to the same Task, which is not scheduled. So the couple (from, to) refers to a sequence of planned tasks, or to some unplanned task.
+	 * 
+	 * Either all of resource, previous, next are not set, or we have either previous is null and next is first, or previous.next = next and next.previous = previous, or previous is last and next is null and previous and next are scheduled on resource. So the triple (resource, previous, next) refers to an insertion point in some Resource planning.
+	 * 
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void schedule(Task task, Resource resource, Task previous, Task next);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This is the unique entry point for scheduling or unscheduling Task(s) on Resource.
 	 * The following conditions must be satisfied by the parameters. 
 	 * 
 	 * Either from and to are both planned on the same Resource, and from is before to, or from and to refers to the same Task, which is not scheduled. So the couple (from, to) refers to a sequence of planned tasks, or to some unplanned task.

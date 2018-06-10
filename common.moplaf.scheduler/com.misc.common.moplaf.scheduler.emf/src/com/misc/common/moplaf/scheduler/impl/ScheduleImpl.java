@@ -16,6 +16,7 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.localsearch.Plugin;
 import com.misc.common.moplaf.localsearch.impl.SolutionImpl;
 import com.misc.common.moplaf.scheduler.FlockResource;
+import com.misc.common.moplaf.scheduler.FlockTask;
 import com.misc.common.moplaf.scheduler.Resource;
 import com.misc.common.moplaf.scheduler.Schedule;
 import com.misc.common.moplaf.scheduler.Scheduler;
@@ -24,7 +25,6 @@ import com.misc.common.moplaf.scheduler.Task;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -218,6 +218,7 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				resource == null ? "null" : resource.getName(),
 				previous == null ? "null" : previous.getName(), 
 				next     == null ? "null" : next.getName()));
+		
 		if ( from.isScheduled() ) {
 			this.unsetPreviousNext(from, to);
 		}
@@ -250,7 +251,9 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 			} else {
 				resource_asis.getScheduledTasks().remove(current);
 			} 
-		} while ( current!=to);
+			current = current==to ? null : current.getNextTask();
+		}
+		while ( current!=null );
 		}
 
 		{
@@ -263,10 +266,51 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 				int position = next==null ? resource_tobe.getScheduledTasks().size() : resource_tobe.getScheduledTasks().indexOf(next);
 				resource_tobe.getScheduledTasks().add(position, current);
 			}
-		} while ( current!=to);
+			current = current==to ? null : current.getNextTask();
+		}
+		while ( current!=null );
 		}
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void schedule(Task task, Resource resource, Task previous, Task next) {
+		if ( resource==null ) {
+			// unschedule
+			if ( task instanceof FlockTask && task.isScheduled() ) {
+				FlockTask flock_task = (FlockTask)task;
+				for ( FlockTask congruent_task : flock_task.getCongruentTasks()) {
+					this.schedule(congruent_task, congruent_task, null, null, null);
+				}
+			} else {
+				this.schedule(task, task, null, null, null);
+			}
+		} else {
+			// (re)schedule
+			if ( task instanceof FlockTask && !task.isScheduled() ){
+				FlockTask flock_task = (FlockTask)task;
+				for ( FlockTask congruent_task : flock_task.getCongruentTasks()) {
+					this.schedule(congruent_task, congruent_task, resource, previous, next);
+					previous = congruent_task;
+				}
+			} else {
+				this.schedule(task, task, resource, previous, next);
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void schedule(EList<Task> tasks, Resource resource, Task previous, Task next) {
+		for ( Task task : tasks) {
+			previous = next==null ? null : next.getPreviousTask();
+			this.schedule(task, resource, previous, next);
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -308,7 +352,7 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 		}
 		// the tasks to schedule were scheduled
 		if ( to.getScheduledResource()!=from.getScheduledResource() ) {
-			return new EnabledFeedback(false, "The given tasks to planned are scheduled on different resources");
+			return new EnabledFeedback(false, "The given tasks to be (re)planned are scheduled on different resources");
 		}
 		if ( from.getScheduledResource()!=null ) {
 			Task current = from;
@@ -550,10 +594,17 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case SchedulerPackage.SCHEDULE___SCHEDULE__TASK_TASK_RESOURCE_TASK_TASK:
 				schedule((Task)arguments.get(0), (Task)arguments.get(1), (Resource)arguments.get(2), (Task)arguments.get(3), (Task)arguments.get(4));
+				return null;
+			case SchedulerPackage.SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK:
+				schedule((EList<Task>)arguments.get(0), (Resource)arguments.get(1), (Task)arguments.get(2), (Task)arguments.get(3));
+				return null;
+			case SchedulerPackage.SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK_1:
+				schedule((Task)arguments.get(0), (Resource)arguments.get(1), (Task)arguments.get(2), (Task)arguments.get(3));
 				return null;
 			case SchedulerPackage.SCHEDULE___SCHEDULE_FEEDBACK__TASK_TASK_RESOURCE_TASK_TASK:
 				return scheduleFeedback((Task)arguments.get(0), (Task)arguments.get(1), (Resource)arguments.get(2), (Task)arguments.get(3), (Task)arguments.get(4));

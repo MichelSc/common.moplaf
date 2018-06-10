@@ -274,7 +274,7 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSchedule__ScheduleFeedback__Task_Task_Resource_Task_Task() {
+	public EOperation getSchedule__Schedule__Task_Resource_Task_Task() {
 		return scheduleEClass.getEOperations().get(1);
 	}
 
@@ -283,8 +283,26 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSchedule__Flush() {
+	public EOperation getSchedule__Schedule__Task_Resource_Task_Task_1() {
 		return scheduleEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSchedule__ScheduleFeedback__Task_Task_Resource_Task_Task() {
+		return scheduleEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSchedule__Flush() {
+		return scheduleEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -640,6 +658,8 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		createEReference(scheduleEClass, SCHEDULE__NOT_SCHEDULED_TASKS);
 		createEReference(scheduleEClass, SCHEDULE__FLOCKS);
 		createEOperation(scheduleEClass, SCHEDULE___SCHEDULE__TASK_TASK_RESOURCE_TASK_TASK);
+		createEOperation(scheduleEClass, SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK);
+		createEOperation(scheduleEClass, SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK_1);
 		createEOperation(scheduleEClass, SCHEDULE___SCHEDULE_FEEDBACK__TASK_TASK_RESOURCE_TASK_TASK);
 		createEOperation(scheduleEClass, SCHEDULE___FLUSH);
 
@@ -746,6 +766,18 @@ public class SchedulerPackageImpl extends EPackageImpl implements SchedulerPacka
 		EOperation op = initEOperation(getSchedule__Schedule__Task_Task_Resource_Task_Task(), null, "schedule", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTask(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTask(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getResource(), "resource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTask(), "previous", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTask(), "next", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSchedule__Schedule__Task_Resource_Task_Task(), null, "schedule", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTask(), "tasks", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getResource(), "resource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTask(), "previous", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTask(), "next", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSchedule__Schedule__Task_Resource_Task_Task_1(), null, "schedule", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTask(), "task", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResource(), "resource", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTask(), "previous", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTask(), "next", 0, 1, IS_UNIQUE, IS_ORDERED);

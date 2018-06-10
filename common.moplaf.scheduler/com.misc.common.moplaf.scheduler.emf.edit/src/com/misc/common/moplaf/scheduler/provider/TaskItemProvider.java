@@ -262,10 +262,10 @@ public class TaskItemProvider extends ObjectWithPropagatorFunctionsItemProvider 
 			Resource resource = previous.getScheduledResource();
 			if ( resource==null ) {
 				// the drop target is not scheduled, unschedule the dropped source
-				return new ScheduleCommand(true, schedule, task, task, null, null, null);
+				return new ScheduleCommand(schedule, task, null, null, null);
 			}
 			// the drop target is scheduled, schedule the dropped source
-			return new ScheduleCommand(true, schedule, task, task, resource, previous, next);
+			return new ScheduleCommand(schedule, task, resource, previous, next);
 		}
 		return null;
 	}
