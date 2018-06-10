@@ -80,4 +80,30 @@
   <eClassifiers xsi:type="ecore:EClass" name="ScheduleAfter" eSuperTypes="#//ScheduleTask"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScheduleBefore" eSuperTypes="#//ScheduleTask"/>
   <eClassifiers xsi:type="ecore:EClass" name="Unschedule" eSuperTypes="#//ScheduleDelta"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockTask" eSuperTypes="#//Task">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An activity involving Resources. &#xA;Typically that will take place at the same time(s) and location(s)"/>
+    </eAnnotations>
+    <eOperations name="getCongruentTasks" upperBound="-1" eType="#//FlockTask">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Return the collection of Tasks to be planned together on the same Resource, in a sequence consistent with the Predecessors-Successors relationship"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Predecessors" upperBound="-1"
+        eType="#//FlockTask" eOpposite="#//FlockTask/Successors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Successors" upperBound="-1"
+        eType="#//FlockTask" eOpposite="#//FlockTask/Predecessors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="#//FlockResource"
+        eOpposite="#//FlockResource/Flocks"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockResource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlannedResource" eType="#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeepTogether" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsFullyPlanned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsResourceInvalid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocks" upperBound="-1"
+        eType="#//FlockTask" eOpposite="#//FlockTask/Resource"/>
+  </eClassifiers>
 </ecore:EPackage>

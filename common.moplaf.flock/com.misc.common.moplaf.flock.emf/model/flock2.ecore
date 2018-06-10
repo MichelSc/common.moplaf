@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="flock2" nsURI="http://com.misc.common.moplaf.flock2" nsPrefix="flock2">
+  <eClassifiers xsi:type="ecore:EClass" name="ScopeFlock" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A set of activities related to each other, involving Resources"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" upperBound="-1"
+        eType="#//ScopeResource" eOpposite="#//ScopeResource/FlockScope"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocks" upperBound="-1"
+        eType="#//Flock" eOpposite="#//Flock/FlockScope"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flock">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An activity involving Resources. &#xA;Typically that will take place at the same time(s) and location(s)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" lowerBound="1"
+        upperBound="-1" eType="#//FlockResource" eOpposite="#//FlockResource/Flock"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DurationMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DurationMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartEarliest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndLatest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="End" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockScope" lowerBound="1"
+        eType="#//ScopeFlock" eOpposite="#//ScopeFlock/Flocks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocksfore" upperBound="-1"
+        eType="#//FlockPrecedence" eOpposite="#//FlockPrecedence/FlockAfter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlocksAfter" upperBound="-1"
+        eType="#//FlockPrecedence" eOpposite="#//FlockPrecedence/FlockBefore"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockResource" abstract="true" eSuperTypes="#//Task">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An activity for a Resource, to be planned in the schedule of the Resource&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="#//ScopeResource"
+        eOpposite="#//ScopeResource/Flocks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flock" lowerBound="1" eType="#//Flock"
+        eOpposite="#//Flock/Resources"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScopeResource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The set of activities to be executed by one given Resource, to be planned"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocks" upperBound="-1"
+        eType="#//FlockResource" eOpposite="#//FlockResource/Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockScope" lowerBound="1"
+        eType="#//ScopeFlock" eOpposite="#//ScopeFlock/Resources"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlannedResource" eType="#//Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockPrecedence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockAfter" lowerBound="1"
+        eType="#//Flock" eOpposite="#//Flock/Flocksfore"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockBefore" lowerBound="1"
+        eType="#//Flock" eOpposite="#//Flock/FlocksAfter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PlannedTasks" upperBound="-1"
+        eType="#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SequenceNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>
