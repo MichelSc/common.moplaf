@@ -600,10 +600,10 @@ public abstract class ScheduleImpl extends SolutionImpl implements Schedule {
 			case SchedulerPackage.SCHEDULE___SCHEDULE__TASK_TASK_RESOURCE_TASK_TASK:
 				schedule((Task)arguments.get(0), (Task)arguments.get(1), (Resource)arguments.get(2), (Task)arguments.get(3), (Task)arguments.get(4));
 				return null;
-			case SchedulerPackage.SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK:
+			case SchedulerPackage.SCHEDULE___SCHEDULE__ELIST_RESOURCE_TASK_TASK:
 				schedule((EList<Task>)arguments.get(0), (Resource)arguments.get(1), (Task)arguments.get(2), (Task)arguments.get(3));
 				return null;
-			case SchedulerPackage.SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK_1:
+			case SchedulerPackage.SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK:
 				schedule((Task)arguments.get(0), (Resource)arguments.get(1), (Task)arguments.get(2), (Task)arguments.get(3));
 				return null;
 			case SchedulerPackage.SCHEDULE___SCHEDULE_FEEDBACK__TASK_TASK_RESOURCE_TASK_TASK:

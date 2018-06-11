@@ -119,9 +119,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="FlockResource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlannedResource" eType="#//Resource"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeepTogether" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsFullyPlanned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FullyPlanned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsResourceInvalid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ResourceInvalid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tasks" upperBound="-1"
         eType="#//FlockTask" eOpposite="#//FlockTask/Resource"/>

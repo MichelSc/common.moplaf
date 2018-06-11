@@ -62,8 +62,8 @@ public class FlockResourceItemProvider
 
 			addPlannedResourcePropertyDescriptor(object);
 			addKeepTogetherPropertyDescriptor(object);
-			addIsFullyPlannedPropertyDescriptor(object);
-			addIsResourceInvalidPropertyDescriptor(object);
+			addFullyPlannedPropertyDescriptor(object);
+			addResourceInvalidPropertyDescriptor(object);
 			addTasksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -114,19 +114,19 @@ public class FlockResourceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Fully Planned feature.
+	 * This adds a property descriptor for the Fully Planned feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsFullyPlannedPropertyDescriptor(Object object) {
+	protected void addFullyPlannedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FlockResource_IsFullyPlanned_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FlockResource_IsFullyPlanned_feature", "_UI_FlockResource_type"),
-				 SchedulerPackage.Literals.FLOCK_RESOURCE__IS_FULLY_PLANNED,
+				 getString("_UI_FlockResource_FullyPlanned_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FlockResource_FullyPlanned_feature", "_UI_FlockResource_type"),
+				 SchedulerPackage.Literals.FLOCK_RESOURCE__FULLY_PLANNED,
 				 false,
 				 false,
 				 false,
@@ -136,19 +136,19 @@ public class FlockResourceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Resource Invalid feature.
+	 * This adds a property descriptor for the Resource Invalid feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsResourceInvalidPropertyDescriptor(Object object) {
+	protected void addResourceInvalidPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FlockResource_IsResourceInvalid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FlockResource_IsResourceInvalid_feature", "_UI_FlockResource_type"),
-				 SchedulerPackage.Literals.FLOCK_RESOURCE__IS_RESOURCE_INVALID,
+				 getString("_UI_FlockResource_ResourceInvalid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FlockResource_ResourceInvalid_feature", "_UI_FlockResource_type"),
+				 SchedulerPackage.Literals.FLOCK_RESOURCE__RESOURCE_INVALID,
 				 false,
 				 false,
 				 false,
@@ -216,8 +216,8 @@ public class FlockResourceItemProvider
 
 		switch (notification.getFeatureID(FlockResource.class)) {
 			case SchedulerPackage.FLOCK_RESOURCE__KEEP_TOGETHER:
-			case SchedulerPackage.FLOCK_RESOURCE__IS_FULLY_PLANNED:
-			case SchedulerPackage.FLOCK_RESOURCE__IS_RESOURCE_INVALID:
+			case SchedulerPackage.FLOCK_RESOURCE__FULLY_PLANNED:
+			case SchedulerPackage.FLOCK_RESOURCE__RESOURCE_INVALID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

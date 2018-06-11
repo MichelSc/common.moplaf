@@ -621,7 +621,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 1;
+	int SCHEDULE___SCHEDULE__ELIST_RESOURCE_TASK_TASK = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Schedule</em>' operation.
@@ -630,7 +630,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK_1 = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 2;
+	int SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK = LocalSearchPackage.SOLUTION_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Schedule Feedback</em>' operation.
@@ -1929,22 +1929,22 @@ public interface SchedulerPackage extends EPackage {
 	int FLOCK_RESOURCE__KEEP_TOGETHER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Fully Planned</b></em>' attribute.
+	 * The feature id for the '<em><b>Fully Planned</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLOCK_RESOURCE__IS_FULLY_PLANNED = 2;
+	int FLOCK_RESOURCE__FULLY_PLANNED = 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Resource Invalid</b></em>' attribute.
+	 * The feature id for the '<em><b>Resource Invalid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLOCK_RESOURCE__IS_RESOURCE_INVALID = 3;
+	int FLOCK_RESOURCE__RESOURCE_INVALID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2077,7 +2077,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.scheduler.Schedule#schedule(org.eclipse.emf.common.util.EList, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task)
 	 * @generated
 	 */
-	EOperation getSchedule__Schedule__Task_Resource_Task_Task();
+	EOperation getSchedule__Schedule__EList_Resource_Task_Task();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Schedule#schedule(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task) <em>Schedule</em>}' operation.
@@ -2087,7 +2087,7 @@ public interface SchedulerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.scheduler.Schedule#schedule(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task)
 	 * @generated
 	 */
-	EOperation getSchedule__Schedule__Task_Resource_Task_Task_1();
+	EOperation getSchedule__Schedule__Task_Resource_Task_Task();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.scheduler.Schedule#scheduleFeedback(com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Resource, com.misc.common.moplaf.scheduler.Task, com.misc.common.moplaf.scheduler.Task) <em>Schedule Feedback</em>}' operation.
@@ -2452,26 +2452,26 @@ public interface SchedulerPackage extends EPackage {
 	EAttribute getFlockResource_KeepTogether();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.FlockResource#isIsFullyPlanned <em>Is Fully Planned</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.FlockResource#isFullyPlanned <em>Fully Planned</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Fully Planned</em>'.
-	 * @see com.misc.common.moplaf.scheduler.FlockResource#isIsFullyPlanned()
+	 * @return the meta object for the attribute '<em>Fully Planned</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource#isFullyPlanned()
 	 * @see #getFlockResource()
 	 * @generated
 	 */
-	EAttribute getFlockResource_IsFullyPlanned();
+	EAttribute getFlockResource_FullyPlanned();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.FlockResource#isIsResourceInvalid <em>Is Resource Invalid</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.scheduler.FlockResource#isResourceInvalid <em>Resource Invalid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Resource Invalid</em>'.
-	 * @see com.misc.common.moplaf.scheduler.FlockResource#isIsResourceInvalid()
+	 * @return the meta object for the attribute '<em>Resource Invalid</em>'.
+	 * @see com.misc.common.moplaf.scheduler.FlockResource#isResourceInvalid()
 	 * @see #getFlockResource()
 	 * @generated
 	 */
-	EAttribute getFlockResource_IsResourceInvalid();
+	EAttribute getFlockResource_ResourceInvalid();
 
 	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.scheduler.FlockResource#getTasks <em>Tasks</em>}'.
@@ -2589,7 +2589,7 @@ public interface SchedulerPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK = eINSTANCE.getSchedule__Schedule__Task_Resource_Task_Task();
+		EOperation SCHEDULE___SCHEDULE__ELIST_RESOURCE_TASK_TASK = eINSTANCE.getSchedule__Schedule__EList_Resource_Task_Task();
 
 		/**
 		 * The meta object literal for the '<em><b>Schedule</b></em>' operation.
@@ -2597,7 +2597,7 @@ public interface SchedulerPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK_1 = eINSTANCE.getSchedule__Schedule__Task_Resource_Task_Task_1();
+		EOperation SCHEDULE___SCHEDULE__TASK_RESOURCE_TASK_TASK = eINSTANCE.getSchedule__Schedule__Task_Resource_Task_Task();
 
 		/**
 		 * The meta object literal for the '<em><b>Schedule Feedback</b></em>' operation.
@@ -2890,20 +2890,20 @@ public interface SchedulerPackage extends EPackage {
 		EAttribute FLOCK_RESOURCE__KEEP_TOGETHER = eINSTANCE.getFlockResource_KeepTogether();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Fully Planned</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Fully Planned</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FLOCK_RESOURCE__IS_FULLY_PLANNED = eINSTANCE.getFlockResource_IsFullyPlanned();
+		EAttribute FLOCK_RESOURCE__FULLY_PLANNED = eINSTANCE.getFlockResource_FullyPlanned();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Resource Invalid</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Resource Invalid</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FLOCK_RESOURCE__IS_RESOURCE_INVALID = eINSTANCE.getFlockResource_IsResourceInvalid();
+		EAttribute FLOCK_RESOURCE__RESOURCE_INVALID = eINSTANCE.getFlockResource_ResourceInvalid();
 
 		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.

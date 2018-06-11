@@ -1762,15 +1762,15 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_qMGMomyPEei0jer8ILM4Pg" name="/IsFullyPlanned : EBoolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/IsFullyPlanned"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/IsFullyPlanned"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_qMGMomyPEei0jer8ILM4Pg" name="/FullyPlanned : EBoolean = false" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/FullyPlanned"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/FullyPlanned"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wTj6IGyPEei0jer8ILM4Pg" labelColor="39,76,114" labelAlignment="LEFT" description="_wTjTEGyPEei0jer8ILM4Pg"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_qMGzsGyPEei0jer8ILM4Pg" name="/IsResourceInvalid : EBoolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/IsResourceInvalid"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/IsResourceInvalid"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_qMGzsGyPEei0jer8ILM4Pg" name="/ResourceInvalid : EBoolean = false" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/ResourceInvalid"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="scheduler.ecore#//FlockResource/ResourceInvalid"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_x_OxwGyPEei0jer8ILM4Pg" labelColor="39,76,114" labelAlignment="LEFT" description="_wTjTEGyPEei0jer8ILM4Pg"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>

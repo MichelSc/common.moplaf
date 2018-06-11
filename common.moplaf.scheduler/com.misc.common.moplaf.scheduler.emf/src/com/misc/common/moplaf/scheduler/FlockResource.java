@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.scheduler.FlockResource#getPlannedResource <em>Planned Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.FlockResource#isKeepTogether <em>Keep Together</em>}</li>
- *   <li>{@link com.misc.common.moplaf.scheduler.FlockResource#isIsFullyPlanned <em>Is Fully Planned</em>}</li>
- *   <li>{@link com.misc.common.moplaf.scheduler.FlockResource#isIsResourceInvalid <em>Is Resource Invalid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.FlockResource#isFullyPlanned <em>Fully Planned</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.FlockResource#isResourceInvalid <em>Resource Invalid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.FlockResource#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -80,34 +80,34 @@ public interface FlockResource extends EObject {
 	void setKeepTogether(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Fully Planned</b></em>' attribute.
+	 * Returns the value of the '<em><b>Fully Planned</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Is Fully Planned</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Fully Planned</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Fully Planned</em>' attribute.
-	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getFlockResource_IsFullyPlanned()
+	 * @return the value of the '<em>Fully Planned</em>' attribute.
+	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getFlockResource_FullyPlanned()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	boolean isIsFullyPlanned();
+	boolean isFullyPlanned();
 
 	/**
-	 * Returns the value of the '<em><b>Is Resource Invalid</b></em>' attribute.
+	 * Returns the value of the '<em><b>Resource Invalid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Is Resource Invalid</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Resource Invalid</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Resource Invalid</em>' attribute.
-	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getFlockResource_IsResourceInvalid()
+	 * @return the value of the '<em>Resource Invalid</em>' attribute.
+	 * @see com.misc.common.moplaf.scheduler.SchedulerPackage#getFlockResource_ResourceInvalid()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	boolean isIsResourceInvalid();
+	boolean isResourceInvalid();
 
 	/**
 	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.

@@ -33,8 +33,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl#getPlannedResource <em>Planned Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl#isKeepTogether <em>Keep Together</em>}</li>
- *   <li>{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl#isIsFullyPlanned <em>Is Fully Planned</em>}</li>
- *   <li>{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl#isIsResourceInvalid <em>Is Resource Invalid</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl#isFullyPlanned <em>Fully Planned</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl#isResourceInvalid <em>Resource Invalid</em>}</li>
  *   <li>{@link com.misc.common.moplaf.scheduler.impl.FlockResourceImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
@@ -72,24 +72,24 @@ public class FlockResourceImpl extends MinimalEObjectImpl.Container implements F
 	protected boolean keepTogether = KEEP_TOGETHER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsFullyPlanned() <em>Is Fully Planned</em>}' attribute.
+	 * The default value of the '{@link #isFullyPlanned() <em>Fully Planned</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsFullyPlanned()
+	 * @see #isFullyPlanned()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_FULLY_PLANNED_EDEFAULT = false;
+	protected static final boolean FULLY_PLANNED_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isIsResourceInvalid() <em>Is Resource Invalid</em>}' attribute.
+	 * The default value of the '{@link #isResourceInvalid() <em>Resource Invalid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsResourceInvalid()
+	 * @see #isResourceInvalid()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_RESOURCE_INVALID_EDEFAULT = false;
+	protected static final boolean RESOURCE_INVALID_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
@@ -182,23 +182,19 @@ public class FlockResourceImpl extends MinimalEObjectImpl.Container implements F
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public boolean isIsFullyPlanned() {
-		// TODO: implement this method to return the 'Is Fully Planned' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean isFullyPlanned() {
+		boolean fully_planned = this.getTasks().stream().allMatch(t -> t.isScheduled());
+		return fully_planned;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public boolean isIsResourceInvalid() {
-		// TODO: implement this method to return the 'Is Resource Invalid' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean isResourceInvalid() {
+		boolean valid = this.getTasks().stream().map(t -> t.getScheduledResource()).distinct().count()<=1;
+		return valid;
 	}
 
 	/**
@@ -255,10 +251,10 @@ public class FlockResourceImpl extends MinimalEObjectImpl.Container implements F
 				return basicGetPlannedResource();
 			case SchedulerPackage.FLOCK_RESOURCE__KEEP_TOGETHER:
 				return isKeepTogether();
-			case SchedulerPackage.FLOCK_RESOURCE__IS_FULLY_PLANNED:
-				return isIsFullyPlanned();
-			case SchedulerPackage.FLOCK_RESOURCE__IS_RESOURCE_INVALID:
-				return isIsResourceInvalid();
+			case SchedulerPackage.FLOCK_RESOURCE__FULLY_PLANNED:
+				return isFullyPlanned();
+			case SchedulerPackage.FLOCK_RESOURCE__RESOURCE_INVALID:
+				return isResourceInvalid();
 			case SchedulerPackage.FLOCK_RESOURCE__TASKS:
 				return getTasks();
 		}
@@ -321,10 +317,10 @@ public class FlockResourceImpl extends MinimalEObjectImpl.Container implements F
 				return plannedResource != null;
 			case SchedulerPackage.FLOCK_RESOURCE__KEEP_TOGETHER:
 				return keepTogether != KEEP_TOGETHER_EDEFAULT;
-			case SchedulerPackage.FLOCK_RESOURCE__IS_FULLY_PLANNED:
-				return isIsFullyPlanned() != IS_FULLY_PLANNED_EDEFAULT;
-			case SchedulerPackage.FLOCK_RESOURCE__IS_RESOURCE_INVALID:
-				return isIsResourceInvalid() != IS_RESOURCE_INVALID_EDEFAULT;
+			case SchedulerPackage.FLOCK_RESOURCE__FULLY_PLANNED:
+				return isFullyPlanned() != FULLY_PLANNED_EDEFAULT;
+			case SchedulerPackage.FLOCK_RESOURCE__RESOURCE_INVALID:
+				return isResourceInvalid() != RESOURCE_INVALID_EDEFAULT;
 			case SchedulerPackage.FLOCK_RESOURCE__TASKS:
 				return tasks != null && !tasks.isEmpty();
 		}
