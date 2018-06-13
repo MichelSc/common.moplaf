@@ -2082,13 +2082,22 @@ public interface JobPackage extends EPackage {
 	int TASK___ADD_DOC__DOC = RUN_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Add Docs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___ADD_DOCS__ELIST = RUN_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Init Outputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 1;
+	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -2097,7 +2106,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 2;
+	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.DocImpl <em>Doc</em>}' class.
@@ -2339,13 +2348,31 @@ public interface JobPackage extends EPackage {
 	int DOCS_HOLDER_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Add Doc</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_HOLDER___ADD_DOC__DOC = 0;
+
+	/**
+	 * The operation id for the '<em>Add Docs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_HOLDER___ADD_DOCS__ELIST = 1;
+
+	/**
 	 * The number of operations of the '<em>Docs Holder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCS_HOLDER_OPERATION_COUNT = 0;
+	int DOCS_HOLDER_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
@@ -2996,6 +3023,16 @@ public interface JobPackage extends EPackage {
 	EOperation getTask__AddDoc__Doc();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#addDocs(org.eclipse.emf.common.util.EList) <em>Add Docs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Docs</em>' operation.
+	 * @see com.misc.common.moplaf.job.Task#addDocs(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getTask__AddDocs__EList();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#initOutputs() <em>Init Outputs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3183,6 +3220,26 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDocsHolder_Name();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.DocsHolder#addDoc(com.misc.common.moplaf.job.Doc) <em>Add Doc</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Doc</em>' operation.
+	 * @see com.misc.common.moplaf.job.DocsHolder#addDoc(com.misc.common.moplaf.job.Doc)
+	 * @generated
+	 */
+	EOperation getDocsHolder__AddDoc__Doc();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.DocsHolder#addDocs(org.eclipse.emf.common.util.EList) <em>Add Docs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Docs</em>' operation.
+	 * @see com.misc.common.moplaf.job.DocsHolder#addDocs(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getDocsHolder__AddDocs__EList();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Setter <em>Setter</em>}'.
@@ -3958,6 +4015,14 @@ public interface JobPackage extends EPackage {
 		EOperation TASK___ADD_DOC__DOC = eINSTANCE.getTask__AddDoc__Doc();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Docs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___ADD_DOCS__ELIST = eINSTANCE.getTask__AddDocs__EList();
+
+		/**
 		 * The meta object literal for the '<em><b>Init Outputs</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4110,6 +4175,22 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOCS_HOLDER__NAME = eINSTANCE.getDocsHolder_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Doc</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOCS_HOLDER___ADD_DOC__DOC = eINSTANCE.getDocsHolder__AddDoc__Doc();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Docs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOCS_HOLDER___ADD_DOCS__ELIST = eINSTANCE.getDocsHolder__AddDocs__EList();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterImpl <em>Setter</em>}' class.

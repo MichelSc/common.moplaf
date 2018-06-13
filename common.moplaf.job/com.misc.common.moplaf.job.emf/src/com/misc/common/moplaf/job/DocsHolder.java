@@ -66,4 +66,20 @@ public interface DocsHolder extends EObject {
 	 */
 	void setName(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addDoc(Doc doc);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model docsMany="true"
+	 * @generated
+	 */
+	void addDocs(EList<Doc> docs);
+
 } // DocsHolder

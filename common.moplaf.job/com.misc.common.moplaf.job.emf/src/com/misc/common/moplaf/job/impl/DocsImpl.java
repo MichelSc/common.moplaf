@@ -10,8 +10,6 @@ import com.misc.common.moplaf.job.util.Util;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.Iterator;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;

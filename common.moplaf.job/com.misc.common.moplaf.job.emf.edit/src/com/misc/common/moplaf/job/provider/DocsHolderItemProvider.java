@@ -3,20 +3,24 @@
 package com.misc.common.moplaf.job.provider;
 
 
+import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.DocsHolder;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.command.DocsHolderAddDocsCommand;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -196,4 +200,46 @@ public class DocsHolderItemProvider
 		return JobEditPlugin.INSTANCE;
 	}
 
+	protected Command createDropCommand(EditingDomain domain, DocsHolder owner, Collection<?> droppedObjects) {
+    	BasicEList<Doc> docs = new BasicEList<Doc>();
+		for (Object droppedObject : droppedObjects){
+			if ( droppedObject instanceof Doc ) {
+				docs.add((Doc)droppedObject);
+			}
+		}
+		if ( docs.size()> 0 ) {
+			return new DocsHolderAddDocsCommand(owner, docs);
+		}
+		return null;
+	}
+	/**
+	 * Create a drag and drop command for this DocsHolder
+	 */
+	private class DocsHolderDragAndDropCommand extends DragAndDropCommand {
+
+		public DocsHolderDragAndDropCommand(EditingDomain domain, DocsHolder owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	this.dragCommand = null;
+			this.dropCommand = DocsHolderItemProvider.this.createDropCommand(this.domain, (DocsHolder)this.owner, this.collection);
+	    	return this.dropCommand!=null;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new DocsHolderDragAndDropCommand(domain, (DocsHolder) owner, location, operations, operation, collection);
+	}
 }

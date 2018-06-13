@@ -166,6 +166,9 @@
     <eOperations name="addDoc">
       <eParameters name="doc" eType="#//Doc"/>
     </eOperations>
+    <eOperations name="addDocs">
+      <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
+    </eOperations>
     <eOperations name="initOutputs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//DocRef"
         containment="true"/>
@@ -186,7 +189,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tasks" upperBound="-1"
         eType="#//Task" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NewEClass18"/>
   <eClassifiers xsi:type="ecore:EClass" name="Docs">
     <eOperations name="garbageCollect"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//Doc"
@@ -195,6 +197,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="DocsHolder">
     <eOperations name="addDoc">
       <eParameters name="doc" eType="#//Doc"/>
+    </eOperations>
+    <eOperations name="addDocs">
+      <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//DocRef"
         containment="true"/>

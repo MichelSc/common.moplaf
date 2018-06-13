@@ -2,10 +2,13 @@
  */
 package com.misc.common.moplaf.job.impl;
 
+import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.DocRef;
 import com.misc.common.moplaf.job.DocsHolder;
+import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -122,6 +125,26 @@ public class DocsHolderImpl extends MinimalEObjectImpl.Container implements Docs
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void addDoc(Doc doc) {
+		DocRef ref = JobFactory.eINSTANCE.createDocRef();
+		ref.setDoc(doc);
+		this.getDocs().add(ref);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addDocs(EList<Doc> docs) {
+		for(Doc doc : docs) {
+			this.addDoc(doc);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -201,6 +224,25 @@ public class DocsHolderImpl extends MinimalEObjectImpl.Container implements Docs
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JobPackage.DOCS_HOLDER___ADD_DOC__DOC:
+				addDoc((Doc)arguments.get(0));
+				return null;
+			case JobPackage.DOCS_HOLDER___ADD_DOCS__ELIST:
+				addDocs((EList<Doc>)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

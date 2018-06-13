@@ -805,8 +805,17 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTask__InitOutputs() {
+	public EOperation getTask__AddDocs__EList() {
 		return taskEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTask__InitOutputs() {
+		return taskEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -960,6 +969,24 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 */
 	public EAttribute getDocsHolder_Name() {
 		return (EAttribute)docsHolderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDocsHolder__AddDoc__Doc() {
+		return docsHolderEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDocsHolder__AddDocs__EList() {
+		return docsHolderEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1323,6 +1350,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		taskEClass = createEClass(TASK);
 		createEReference(taskEClass, TASK__DOCS);
 		createEOperation(taskEClass, TASK___ADD_DOC__DOC);
+		createEOperation(taskEClass, TASK___ADD_DOCS__ELIST);
 		createEOperation(taskEClass, TASK___INIT_OUTPUTS);
 
 		docEClass = createEClass(DOC);
@@ -1346,6 +1374,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		docsHolderEClass = createEClass(DOCS_HOLDER);
 		createEReference(docsHolderEClass, DOCS_HOLDER__DOCS);
 		createEAttribute(docsHolderEClass, DOCS_HOLDER__NAME);
+		createEOperation(docsHolderEClass, DOCS_HOLDER___ADD_DOC__DOC);
+		createEOperation(docsHolderEClass, DOCS_HOLDER___ADD_DOCS__ELIST);
 
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
@@ -1546,6 +1576,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		op = initEOperation(getTask__AddDoc__Doc(), null, "addDoc", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getTask__AddDocs__EList(), null, "addDocs", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDoc(), "docs", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getTask__InitOutputs(), null, "initOutputs", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(docEClass, Doc.class, "Doc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1572,6 +1605,12 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEClass(docsHolderEClass, DocsHolder.class, "DocsHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocsHolder_Docs(), this.getDocRef(), null, "Docs", null, 0, -1, DocsHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocsHolder_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DocsHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getDocsHolder__AddDoc__Doc(), null, "addDoc", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDocsHolder__AddDocs__EList(), null, "addDocs", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDoc(), "docs", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");

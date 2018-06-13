@@ -83,8 +83,18 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	 */
 	public void addDoc(Doc doc) {
 		DocRef ref = JobFactory.eINSTANCE.createDocRef();
-		this.getDocs().add(ref);
 		ref.setDoc(doc);
+		this.getDocs().add(ref);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addDocs(EList<Doc> docs) {
+		for(Doc doc : docs) {
+			this.addDoc(doc);
+		}
 	}
 
 	/**
@@ -178,10 +188,14 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JobPackage.TASK___ADD_DOC__DOC:
 				addDoc((Doc)arguments.get(0));
+				return null;
+			case JobPackage.TASK___ADD_DOCS__ELIST:
+				addDocs((EList<Doc>)arguments.get(0));
 				return null;
 			case JobPackage.TASK___INIT_OUTPUTS:
 				initOutputs();

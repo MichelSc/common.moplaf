@@ -48,6 +48,14 @@ public interface Task extends Run {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model docsMany="true"
+	 * @generated
+	 */
+	void addDocs(EList<Doc> docs);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
