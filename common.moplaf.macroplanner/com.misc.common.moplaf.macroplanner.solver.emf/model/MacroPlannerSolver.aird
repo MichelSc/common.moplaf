@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/filter/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/filter http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis xmi:id="_gs2RgAMbEeeNCYlzCZ5qgA" selectedViews="_gvWL4AMbEeeNCYlzCZ5qgA _gvjnQAMbEeeNCYlzCZ5qgA _gvv0gAMbEeeNCYlzCZ5qgA _gv928AMbEeeNCYlzCZ5qgA" version="12.0.0.201704271200">
+  <viewpoint:DAnalysis xmi:id="_gs2RgAMbEeeNCYlzCZ5qgA" selectedViews="_gvWL4AMbEeeNCYlzCZ5qgA _gvjnQAMbEeeNCYlzCZ5qgA _gvv0gAMbEeeNCYlzCZ5qgA _gv928AMbEeeNCYlzCZ5qgA" version="12.1.0.201708031200">
     <semanticResources>MacroPlannerSolver.ecore</semanticResources>
     <semanticResources>platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore</semanticResources>
     <semanticResources>platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore</semanticResources>
@@ -9,25 +9,26 @@
     <semanticResources>platform:/resource/com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore</semanticResources>
     <semanticResources>platform:/resource/com.misc.touse.moplaf.macroplanner.emf/model/ToUseMacroPlanner.ecore</semanticResources>
     <semanticResources>platform:/resource/com.misc.common.moplaf.time.emf/model/Time.ecore</semanticResources>
+    <semanticResources>platform:/resource/com.misc.common.moplaf.file.emf/model/file.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_gvWL4AMbEeeNCYlzCZ5qgA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAAaKEee7xKhX2WgPcw" name="solver class diagram" repPath="#_iQnxYAMbEeeNCYlzCZ5qgA">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAAaKEee7xKhX2WgPcw" name="solver class diagram" repPath="#_n8s3kG4pEeiJ-LaKdCl0bg">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAQaKEee7xKhX2WgPcw" name="solver class diagram LP buckets" repPath="#_ZjDtEANXEeeqMsY9_5_Gtw">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAQaKEee7xKhX2WgPcw" name="solver class diagram LP buckets" repPath="#_n9BnsG4pEeiJ-LaKdCl0bg">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAgaKEee7xKhX2WgPcw" name="solver class diagram LP tuples" repPath="#_TiZjcANdEeeqMsY9_5_Gtw">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAgaKEee7xKhX2WgPcw" name="solver class diagram LP tuples" repPath="#_n-kf0G4pEeiJ-LaKdCl0bg">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAwaKEee7xKhX2WgPcw" name="solver class diagram LP Vars and Cons" repPath="#_SABp8APaEeezM4xsHYQ6TA">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_rfJKAwaKEee7xKhX2WgPcw" name="solver class diagram LP Vars and Cons" repPath="#_n_6joG4pEeiJ-LaKdCl0bg">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_aKAtIC49Eee3TLKQ8ztXKw" name="solver class diagram LP Solution" repPath="#_aKGMsC49Eee3TLKQ8ztXKw">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_aKAtIC49Eee3TLKQ8ztXKw" name="solver class diagram LP Solution" repPath="#_oAVaYG4pEeiJ-LaKdCl0bg">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -42,7 +43,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram xmi:id="_iQnxYAMbEeeNCYlzCZ5qgA" name="solver class diagram">
+  <diagram:DSemanticDiagram xmi:id="_iQnxYAMbEeeNCYlzCZ5qgA" name="solver class diagram" uid="_n8s3kG4pEeiJ-LaKdCl0bg">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_iQnxYQMbEeeNCYlzCZ5qgA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_iQnxYgMbEeeNCYlzCZ5qgA">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_kZdtMAMbEeeNCYlzCZ5qgA" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -695,7 +696,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39OnMBY0EeeBIuZ5Tcjouw" name="RunDurationInitialization : EFloat = 0.0" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39OnMBY0EeeBIuZ5Tcjouw" name="RunDurationInitialization : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/RunDurationInitialization"/>
         <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/RunDurationInitialization"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_39OnMRY0EeeBIuZ5Tcjouw" labelAlignment="LEFT">
@@ -703,7 +704,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39OnMhY0EeeBIuZ5Tcjouw" name="RunDurationFinalization : EFloat = 0.0" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39OnMhY0EeeBIuZ5Tcjouw" name="RunDurationFinalization : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/RunDurationFinalization"/>
         <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/RunDurationFinalization"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_39OnMxY0EeeBIuZ5Tcjouw" labelAlignment="LEFT">
@@ -711,7 +712,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39OnNBY0EeeBIuZ5Tcjouw" name="RunDurationSolving : EFloat = 0.0" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39OnNBY0EeeBIuZ5Tcjouw" name="RunDurationSolving : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/RunDurationSolving"/>
         <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/RunDurationSolving"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_39OnNRY0EeeBIuZ5Tcjouw" labelAlignment="LEFT">
@@ -759,7 +760,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39P1URY0EeeBIuZ5Tcjouw" name="SolValue : EFloat = 0.0" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39P1URY0EeeBIuZ5Tcjouw" name="SolValue : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/SolValue"/>
         <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/SolValue"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_39P1UhY0EeeBIuZ5Tcjouw" labelAlignment="LEFT">
@@ -832,7 +833,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39RqgBY0EeeBIuZ5Tcjouw" name="buildLpVar(var GeneratorLpVar, lowerBound EFloat, upperBound EFloat, type EnumLpVarType)" tooltipText="buildLpVar(var, lowerBound, upperBound, type)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39RqgBY0EeeBIuZ5Tcjouw" name="buildLpVar(var GeneratorLpVar, lowerBound EDouble, upperBound EDouble, type EnumLpVarType)" tooltipText="buildLpVar(var, lowerBound, upperBound, type)">
         <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpVar"/>
         <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpVar"/>
         <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpVar/lowerBound"/>
@@ -870,7 +871,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39RqiBY0EeeBIuZ5Tcjouw" name="buildLpCons(element GeneratorElement, linear GeneratorLpLinear, rhs EFloat, type EnumLpConsType)" tooltipText="buildLpCons(element, linear, rhs, type)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39RqiBY0EeeBIuZ5Tcjouw" name="buildLpCons(element GeneratorElement, linear GeneratorLpLinear, rhs EDouble, type EnumLpConsType)" tooltipText="buildLpCons(element, linear, rhs, type)">
         <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpCons.1"/>
         <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpCons.1"/>
         <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpCons.1/element"/>
@@ -882,7 +883,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__QRagGVmEeeOgOis7Jjwfw" name="constructVarBinder(binder GeneratorVarBinder)" tooltipText="constructVarBinder(binder)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__QRagGVmEeeOgOis7Jjwfw" name="constructVarBinder(binder GeneratorVarBinder) : SolverVarBinder" tooltipText="constructVarBinder(binder) : SolverVarBinder">
         <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructVarBinder"/>
         <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructVarBinder"/>
         <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructVarBinder/binder"/>
@@ -899,7 +900,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39SRkxY0EeeBIuZ5Tcjouw" name="buildLpGoal(goal GeneratorLpGoal, weight EFloat)" tooltipText="buildLpGoal(goal, weight)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39SRkxY0EeeBIuZ5Tcjouw" name="buildLpGoal(goal GeneratorLpGoal, weight EDouble)" tooltipText="buildLpGoal(goal, weight)">
         <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpGoal"/>
         <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpGoal"/>
         <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/buildLpGoal/goal"/>
@@ -918,7 +919,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39S4oBY0EeeBIuZ5Tcjouw" name="constructSolverGoal(previousSolution Solution) : SolverGoalPreviousSolver" tooltipText="constructSolverGoal(previousSolution) : SolverGoalPreviousSolver">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39S4oBY0EeeBIuZ5Tcjouw" name="constructSolverGoal(previousSolution Solution)" tooltipText="constructSolverGoal(previousSolution)">
         <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructSolverGoal.1"/>
         <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructSolverGoal.1"/>
         <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructSolverGoal.1/previousSolution"/>
@@ -927,7 +928,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39S4ohY0EeeBIuZ5Tcjouw" name="constructSolverGoal(previousSolver Solver) : SolverGoalPreviousSolver" tooltipText="constructSolverGoal(previousSolver) : SolverGoalPreviousSolver">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_39S4ohY0EeeBIuZ5Tcjouw" name="constructSolverGoal(previousSolver Solver)" tooltipText="constructSolverGoal(previousSolver)">
         <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructSolverGoal.2"/>
         <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructSolverGoal.2"/>
         <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver/constructSolverGoal.2/previousSolver"/>
@@ -1039,7 +1040,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
     <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram xmi:id="_ZjDtEANXEeeqMsY9_5_Gtw" name="solver class diagram LP buckets">
+  <diagram:DSemanticDiagram xmi:id="_ZjDtEANXEeeqMsY9_5_Gtw" name="solver class diagram LP buckets" uid="_n9BnsG4pEeiJ-LaKdCl0bg">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ZjDtEQNXEeeqMsY9_5_Gtw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_ZjDtEgNXEeeqMsY9_5_Gtw">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_b-VcsQNXEeeqMsY9_5_Gtw" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -2421,7 +2422,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_alAc0QNYEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_alAc0gNYEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_alAc0wNYEeeqMsY9_5_Gtw" points="[0, 0, 89, 333]$[-76, -284, 13, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_alAc0wNYEeeqMsY9_5_Gtw" points="[0, 0, 149, 383]$[-148, -381, 1, 2]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_alBD4ANYEeeqMsY9_5_Gtw" id="(0.3701657458563536,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_alBD4QNYEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2437,7 +2438,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_b3DTgQNYEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_b3DTggNYEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_b3DTgwNYEeeqMsY9_5_Gtw" points="[0, 0, 67, 947]$[-69, -898, -2, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_b3DTgwNYEeeqMsY9_5_Gtw" points="[0, 0, 128, 997]$[-127, -990, 1, 7]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_b3D6kANYEeeqMsY9_5_Gtw" id="(0.7896995708154506,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_b3D6kQNYEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2453,7 +2454,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_2OceAQNYEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_2OceAgNYEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2OceAwNYEeeqMsY9_5_Gtw" points="[-84, 6, 838, 5]$[-863, 1, 59, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2OceAwNYEeeqMsY9_5_Gtw" points="[0, 0, 922, -2]$[-862, 1, 60, -1]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2OdFFANYEeeqMsY9_5_Gtw" id="(0.711864406779661,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2OdFFQNYEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2485,7 +2486,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_54vlgQNYEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_54vlggNYEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_54vlgwNYEeeqMsY9_5_Gtw" points="[0, 0, -269, 797]$[253, -748, -16, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_54vlgwNYEeeqMsY9_5_Gtw" points="[0, 0, -270, 796]$[253, -746, -17, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_54wMlgNYEeeqMsY9_5_Gtw" id="(0.2659279778393352,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_54wMlwNYEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2501,7 +2502,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_OHvOYQNZEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_OHvOYgNZEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OHvOYwNZEeeqMsY9_5_Gtw" points="[17, -49, -406, 1163]$[406, -1163, -17, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OHvOYwNZEeeqMsY9_5_Gtw" points="[17, -50, -406, 1162]$[405, -1162, -18, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OHwchANZEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OHwchQNZEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2517,7 +2518,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_wKs9cQNZEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_wKs9cgNZEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wKs9cwNZEeeqMsY9_5_Gtw" points="[0, 0, -206, 221]$[171, -172, -35, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wKs9cwNZEeeqMsY9_5_Gtw" points="[0, 0, -206, 220]$[159, -170, -47, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wKuLlANZEeeqMsY9_5_Gtw" id="(0.6434316353887399,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wKuLlQNZEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2549,7 +2550,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ct6YIgNaEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ct6YIwNaEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct6YJANaEeeqMsY9_5_Gtw" points="[182, 28, -190, -14]$[313, 49, -59, 7]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct6YJANaEeeqMsY9_5_Gtw" points="[183, 20, -188, -22]$[312, 35, -59, -7]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct6_MANaEeeqMsY9_5_Gtw" id="(0.5120643431635389,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct6_MQNaEeeqMsY9_5_Gtw" id="(0.3259668508287293,0.5)"/>
         </edges>
@@ -2565,7 +2566,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ct6_MwNaEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ct6_NANaEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct6_NQNaEeeqMsY9_5_Gtw" points="[19, 49, -100, -600]$[110, 600, -9, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct6_NQNaEeeqMsY9_5_Gtw" points="[1, 3, -216, -697]$[201, 650, -16, -50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct7mRANaEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct7mRQNaEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2581,7 +2582,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ct7mRwNaEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ct7mSANaEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct7mSQNaEeeqMsY9_5_Gtw" points="[109, 95, -105, -143]$[178, 189, -36, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct7mSQNaEeeqMsY9_5_Gtw" points="[1, 1, -356, -332]$[304, 284, -53, -49]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct8NVgNaEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct8NVwNaEeeqMsY9_5_Gtw" id="(0.2299168975069252,0.44954128440366975)"/>
         </edges>
@@ -2597,7 +2598,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ct80YQNaEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ct80YgNaEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct80YwNaEeeqMsY9_5_Gtw" points="[278, -4, -133, -10]$[352, -4, -59, -10]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ct80YwNaEeeqMsY9_5_Gtw" points="[280, 4, -131, -3]$[352, 5, -59, -2]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct9bcANaEeeqMsY9_5_Gtw" id="(0.2299168975069252,0.44954128440366975)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ct9bcQNaEeeqMsY9_5_Gtw" id="(0.271889400921659,0.5)"/>
         </edges>
@@ -2613,7 +2614,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_6hyQmQNaEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_6hyQmgNaEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6hyQmwNaEeeqMsY9_5_Gtw" points="[57, 49, -220, -179]$[211, 179, -66, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6hyQmwNaEeeqMsY9_5_Gtw" points="[60, 50, -218, -178]$[217, 178, -61, -50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6hy3pgNaEeeqMsY9_5_Gtw" id="(0.271889400921659,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6hy3pwNaEeeqMsY9_5_Gtw" id="(0.7124781433794309,0.5)"/>
         </edges>
@@ -2629,7 +2630,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_6hy3qQNaEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_6hy3qgNaEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6hy3qwNaEeeqMsY9_5_Gtw" points="[59, 21, -133, -76]$[133, 63, -59, -34]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6hy3qwNaEeeqMsY9_5_Gtw" points="[60, 30, -132, -67]$[132, 66, -60, -31]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6h0FwgNaEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6h0FwwNaEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2661,7 +2662,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_KP1WcQNeEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_KP1WcgNeEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KP1WcwNeEeeqMsY9_5_Gtw" points="[0, 0, -134, 215]$[87, -166, -47, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KP1WcwNeEeeqMsY9_5_Gtw" points="[52, -84, -83, 130]$[103, -164, -32, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KP19hgNeEeeqMsY9_5_Gtw" id="(0.28615384615384615,0.46153846153846156)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KP19hwNeEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2677,7 +2678,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_K5_twQNeEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_K5_twgNeEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K5_twwNeEeeqMsY9_5_Gtw" points="[0, 0, 169, 383]$[-154, -334, 15, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K5_twwNeEeeqMsY9_5_Gtw" points="[0, 0, 169, 382]$[-147, -332, 22, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K6AU1ANeEeeqMsY9_5_Gtw" id="(0.7810650887573964,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K6AU1QNeEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2693,7 +2694,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Lhz7tANeEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Lhz7tQNeEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Lhz7tgNeEeeqMsY9_5_Gtw" points="[0, 0, 169, 575]$[-159, -526, 10, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Lhz7tgNeEeeqMsY9_5_Gtw" points="[0, 0, 169, 574]$[-155, -524, 14, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Lh0iwgNeEeeqMsY9_5_Gtw" id="(0.9056603773584906,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Lh0iwwNeEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2709,7 +2710,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_NIJAVANeEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_NIJAVQNeEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NIJAVgNeEeeqMsY9_5_Gtw" points="[10, -36, -217, 737]$[213, -724, -14, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NIJAVgNeEeeqMsY9_5_Gtw" points="[10, -36, -218, 736]$[213, -722, -15, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NIJnZANeEeeqMsY9_5_Gtw" id="(0.34657039711191334,0.26865671641791045)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NIJnZQNeEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2725,7 +2726,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ONGdQQNeEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ONGdQgNeEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ONGdQwNeEeeqMsY9_5_Gtw" points="[0, 0, 11, 959]$[-14, -910, -3, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ONGdQwNeEeeqMsY9_5_Gtw" points="[0, 0, 11, 958]$[-11, -908, 0, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ONHEUgNeEeeqMsY9_5_Gtw" id="(0.5477178423236515,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ONHEUwNeEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2741,7 +2742,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_REtjkQNeEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_REtjkgNeEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_REtjkwNeEeeqMsY9_5_Gtw" points="[0, 0, -236, 1283]$[224, -1234, -12, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_REtjkwNeEeeqMsY9_5_Gtw" points="[0, 0, -236, 1282]$[226, -1232, -10, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_REuKogNeEeeqMsY9_5_Gtw" id="(0.8709677419354839,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_REuKowNeEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2757,7 +2758,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SNxA4QNfEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SNxA4gNfEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNxA4wNfEeeqMsY9_5_Gtw" points="[91, 2, -458, -12]$[465, 11, -84, -3]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNxA4wNfEeeqMsY9_5_Gtw" points="[92, 2, -457, -12]$[464, 11, -85, -3]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNxn9ANfEeeqMsY9_5_Gtw" id="(0.4972677595628415,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNxn9QNfEeeqMsY9_5_Gtw" id="(0.49707602339181284,0.5)"/>
         </edges>
@@ -2773,7 +2774,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SNxn9wNfEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SNxn-ANfEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNxn-QNfEeeqMsY9_5_Gtw" points="[91, 0, -490, 0]$[522, 3, -59, 3]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNxn-QNfEeeqMsY9_5_Gtw" points="[92, 0, -488, 0]$[521, 0, -59, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNxoAANfEeeqMsY9_5_Gtw" id="(0.4972677595628415,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNxoAQNfEeeqMsY9_5_Gtw" id="(0.18153846153846154,0.7307692307692307)"/>
         </edges>
@@ -2789,7 +2790,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SNyPAQNfEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SNyPAgNfEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNyPAwNfEeeqMsY9_5_Gtw" points="[158, 5, -346, -13]$[445, 16, -59, -2]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNyPAwNfEeeqMsY9_5_Gtw" points="[160, 5, -344, -13]$[445, 15, -59, -3]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNyPCgNfEeeqMsY9_5_Gtw" id="(0.271889400921659,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNyPCwNfEeeqMsY9_5_Gtw" id="(0.21299638989169675,0.6343283582089553)"/>
         </edges>
@@ -2805,7 +2806,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SNyPDQNfEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SNyPDgNfEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNyPDwNfEeeqMsY9_5_Gtw" points="[83, 0, -494, -24]$[505, 20, -72, -4]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNyPDwNfEeeqMsY9_5_Gtw" points="[7, 1, -570, -73]$[384, 49, -193, -25]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNy2EgNfEeeqMsY9_5_Gtw" id="(0.6121495327102804,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNy2EwNfEeeqMsY9_5_Gtw" id="(0.7245539725324092,0.4049586776859504)"/>
         </edges>
@@ -2821,7 +2822,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SNy2FQNfEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SNy2FgNfEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNy2FwNfEeeqMsY9_5_Gtw" points="[59, 4, -802, -67]$[703, 57, -158, -14]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNy2FwNfEeeqMsY9_5_Gtw" points="[60, 4, -801, -67]$[702, 57, -159, -14]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNy2HgNfEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SNy2HwNfEeeqMsY9_5_Gtw" id="(0.728110599078341,0.5)"/>
         </edges>
@@ -2837,7 +2838,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SNy2IQNfEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SNy2IgNfEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNy2IwNfEeeqMsY9_5_Gtw" points="[67, -5, -387, 19]$[370, -20, -84, 4]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SNy2IwNfEeeqMsY9_5_Gtw" points="[68, -4, -385, 20]$[369, -20, -84, 4]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SN0rQANfEeeqMsY9_5_Gtw" id="(0.7124781433794309,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SN0rQQNfEeeqMsY9_5_Gtw" id="(0.3485719832083667,0.5)"/>
         </edges>
@@ -2853,7 +2854,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_kHgpoQNfEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_kHgpogNfEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kHgpowNfEeeqMsY9_5_Gtw" points="[91, 47, -230, -107]$[231, 120, -90, -34]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kHgpowNfEeeqMsY9_5_Gtw" points="[92, 44, -229, -110]$[230, 110, -91, -44]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kHhQtgNfEeeqMsY9_5_Gtw" id="(0.4972677595628415,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kHhQtwNfEeeqMsY9_5_Gtw" id="(0.4972677595628415,0.5)"/>
         </edges>
@@ -2869,7 +2870,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_cx874wNgEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_cx875ANgEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cx875QNgEeeqMsY9_5_Gtw" points="[-39, -49, 919, 1222]$[-922, -1222, 36, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cx875QNgEeeqMsY9_5_Gtw" points="[-38, -50, 919, 1221]$[-920, -1221, 37, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cx877ANgEeeqMsY9_5_Gtw" id="(0.3871237232867114,0.5697674418604651)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cx877QNgEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -2885,7 +2886,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_cx877wNgEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_cx878ANgEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cx878QNgEeeqMsY9_5_Gtw" points="[43, 49, -184, -137]$[161, 137, -66, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cx878QNgEeeqMsY9_5_Gtw" points="[61, 50, -166, -136]$[165, 136, -62, -50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cx9i9gNgEeeqMsY9_5_Gtw" id="(0.21299638989169675,0.6343283582089553)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cx9i9wNgEeeqMsY9_5_Gtw" id="(0.3485719832083667,0.5)"/>
         </edges>
@@ -2901,7 +2902,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_q_vQQQNgEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_q_vQQgNgEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_q_vQQwNgEeeqMsY9_5_Gtw" points="[59, 35, -230, -133]$[205, 124, -84, -44]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_q_vQQwNgEeeqMsY9_5_Gtw" points="[86, 50, -204, -118]$[205, 118, -85, -50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_q_vQSgNgEeeqMsY9_5_Gtw" id="(0.18153846153846154,0.7307692307692307)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_q_vQSwNgEeeqMsY9_5_Gtw" id="(0.49707602339181284,0.5)"/>
         </edges>
@@ -2933,7 +2934,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_xshL4QQREeeOXrlaa74AgA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_xshL4gQREeeOXrlaa74AgA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xshL4wQREeeOXrlaa74AgA" points="[1176, 0, 1176, 0]$[1452, 360, 1452, 360]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xshL4wQREeeOXrlaa74AgA" points="[40, 50, -250, -309]$[250, 310, -40, -49]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xshy9gQREeeOXrlaa74AgA" id="(0.18153846153846154,0.7307692307692307)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xshy9wQREeeOXrlaa74AgA" id="(0.7245539725324092,0.4049586776859504)"/>
         </edges>
@@ -2981,7 +2982,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ZzXAkQQgEeeOXrlaa74AgA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ZzXAkgQgEeeOXrlaa74AgA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZzXAkwQgEeeOXrlaa74AgA" points="[-6, -41, 48, 538]$[-54, -579, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZzXAkwQgEeeOXrlaa74AgA" points="[-4, -42, 51, 536]$[-55, -578, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZzXnoAQgEeeOXrlaa74AgA" id="(0.21596275655229524,0.42)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZzXnoQQgEeeOXrlaa74AgA" id="(0.1935483870967742,1.0)"/>
         </edges>
@@ -2997,7 +2998,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Xd49kQSaEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Xd49kgSaEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xd49kwSaEeedXoNvySXfJA" points="[59, -2, -412, 36]$[349, -9, -122, 29]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xd49kwSaEeedXoNvySXfJA" points="[60, -5, -410, 33]$[348, -29, -122, 9]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XeEjwASaEeedXoNvySXfJA" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XeEjwQSaEeedXoNvySXfJA" id="(0.4404332129963899,0.5)"/>
         </edges>
@@ -3013,7 +3014,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_XeFK0QSaEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_XeFK0gSaEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XeFK0wSaEeedXoNvySXfJA" points="[59, 21, -392, -158]$[354, 130, -97, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XeFK0wSaEeedXoNvySXfJA" points="[60, 23, -390, -156]$[336, 133, -114, -46]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XeFx4ASaEeedXoNvySXfJA" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XeFx4QSaEeedXoNvySXfJA" id="(0.40571633205756624,0.5)"/>
         </edges>
@@ -3045,7 +3046,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_BwFX4wSbEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_BwFX5ASbEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BwFX5QSbEeedXoNvySXfJA" points="[-108, 0, 634, -6]$[-587, 4, 155, -2]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BwFX5QSbEeedXoNvySXfJA" points="[-109, 0, 634, -6]$[-586, 4, 157, -2]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BwF-8ASbEeedXoNvySXfJA" id="(0.4977168949771689,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BwF-8QSbEeedXoNvySXfJA" id="(0.4404332129963899,0.5)"/>
         </edges>
@@ -3061,7 +3062,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_4ft7wQTGEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_4ft7wgTGEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4ft7wwTGEeedXoNvySXfJA" points="[109, -34, -293, 81]$[294, -91, -108, 24]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4ft7wwTGEeedXoNvySXfJA" points="[110, -32, -292, 83]$[293, -84, -109, 31]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4fui1gTGEeedXoNvySXfJA" id="(0.4977168949771689,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4fui1wTGEeedXoNvySXfJA" id="(0.4977168949771689,0.5)"/>
         </edges>
@@ -3077,7 +3078,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_4fui2QTGEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_4fui2gTGEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4fui2wTGEeedXoNvySXfJA" points="[1176, 0, 1176, 0]$[1380, 959, 1380, 959]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4fui2wTGEeedXoNvySXfJA" points="[14, 68, -191, -903]$[195, 927, -10, -44]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4fvJ5ATGEeedXoNvySXfJA" id="(0.33232174218475585,0.6318681318681318)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4fvJ5QTGEeedXoNvySXfJA" id="(0.4977168949771689,0.5)"/>
         </edges>
@@ -6721,7 +6722,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
     <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram xmi:id="_TiZjcANdEeeqMsY9_5_Gtw" name="solver class diagram LP tuples">
+  <diagram:DSemanticDiagram xmi:id="_TiZjcANdEeeqMsY9_5_Gtw" name="solver class diagram LP tuples" uid="_n-kf0G4pEeiJ-LaKdCl0bg">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_TiZjcQNdEeeqMsY9_5_Gtw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_TiZjcgNdEeeqMsY9_5_Gtw">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_TiZjcwNdEeeqMsY9_5_Gtw" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -7813,7 +7814,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMAANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMAQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMAgNdEeeqMsY9_5_Gtw" points="[0, 0, 152, 284]$[-126, -235, 26, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMAgNdEeeqMsY9_5_Gtw" points="[0, 0, 212, 334]$[-212, -333, 0, 1]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMAwNdEeeqMsY9_5_Gtw" id="(0.32682926829268294,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMBANdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -7829,7 +7830,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMDANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMDQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMDgNdEeeqMsY9_5_Gtw" points="[0, 0, 61, 802]$[-58, -753, 3, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMDgNdEeeqMsY9_5_Gtw" points="[0, 0, 121, 852]$[-120, -845, 1, 7]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMDwNdEeeqMsY9_5_Gtw" id="(0.4097560975609756,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMEANdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -7845,7 +7846,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMGANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMGQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMGgNdEeeqMsY9_5_Gtw" points="[0, 0, 553, -84]$[-494, 75, 59, -9]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMGgNdEeeqMsY9_5_Gtw" points="[0, 0, 553, -85]$[-493, 75, 60, -10]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMGwNdEeeqMsY9_5_Gtw" id="(0.711864406779661,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMHANdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -7877,7 +7878,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMMANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMMQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMMgNdEeeqMsY9_5_Gtw" points="[0, 0, -323, 516]$[307, -467, -16, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMMgNdEeeqMsY9_5_Gtw" points="[0, 0, -324, 515]$[292, -465, -32, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMMwNdEeeqMsY9_5_Gtw" id="(0.16981132075471697,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMNANdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -7893,7 +7894,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMPANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMPQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMPgNdEeeqMsY9_5_Gtw" points="[20, -49, -352, 864]$[357, -864, -15, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMPgNdEeeqMsY9_5_Gtw" points="[20, -50, -352, 863]$[351, -863, -21, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMPwNdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMQANdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -7909,7 +7910,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMSANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMSQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMSgNdEeeqMsY9_5_Gtw" points="[0, 0, -323, 263]$[269, -214, -54, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMSgNdEeeqMsY9_5_Gtw" points="[0, 0, -324, 262]$[264, -214, -60, 48]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMSwNdEeeqMsY9_5_Gtw" id="(0.4400977995110024,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMTANdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -7941,7 +7942,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMYANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMYQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMYgNdEeeqMsY9_5_Gtw" points="[278, -22, -202, 13]$[421, -32, -59, 3]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMYgNdEeeqMsY9_5_Gtw" points="[280, -21, -200, 14]$[421, -31, -59, 4]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMYwNdEeeqMsY9_5_Gtw" id="(0.3202933985330073,0.5833333333333334)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMZANdEeeqMsY9_5_Gtw" id="(0.28780487804878047,0.5)"/>
         </edges>
@@ -7957,7 +7958,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMbANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMbQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMbgNdEeeqMsY9_5_Gtw" points="[142, 73, -195, -264]$[300, 288, -37, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMbgNdEeeqMsY9_5_Gtw" points="[1, 1, -480, -432]$[425, 383, -56, -50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMbwNdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMcANdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
         </edges>
@@ -7973,7 +7974,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMeANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMeQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMegNdEeeqMsY9_5_Gtw" points="[142, -9, -231, 2]$[314, -11, -59, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMegNdEeeqMsY9_5_Gtw" points="[6, 1, -510, -84]$[457, 75, -59, -10]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMewNdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMfANdEeeqMsY9_5_Gtw" id="(0.1391509433962264,0.7)"/>
         </edges>
@@ -7989,7 +7990,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMhANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMhQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMhgNdEeeqMsY9_5_Gtw" points="[52, 21, -361, -172]$[357, 144, -56, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMhgNdEeeqMsY9_5_Gtw" points="[47, 22, -366, -171]$[354, 165, -59, -28]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMhwNdEeeqMsY9_5_Gtw" id="(0.1391509433962264,0.7)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMiANdEeeqMsY9_5_Gtw" id="(0.30102040816326536,0.5)"/>
         </edges>
@@ -8005,7 +8006,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMnANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMnQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMngNdEeeqMsY9_5_Gtw" points="[99, 49, -179, -106]$[215, 106, -63, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMngNdEeeqMsY9_5_Gtw" points="[89, 50, -189, -105]$[212, 118, -66, -37]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMnwNdEeeqMsY9_5_Gtw" id="(0.30102040816326536,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMoANdEeeqMsY9_5_Gtw" id="(0.32198735320686545,0.5)"/>
         </edges>
@@ -8021,7 +8022,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_TiaMqANdEeeqMsY9_5_Gtw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_TiaMqQNdEeeqMsY9_5_Gtw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMqgNdEeeqMsY9_5_Gtw" points="[52, 49, -320, -251]$[313, 253, -59, -47]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TiaMqgNdEeeqMsY9_5_Gtw" points="[60, 48, -311, -252]$[312, 252, -59, -48]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMqwNdEeeqMsY9_5_Gtw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TiaMrANdEeeqMsY9_5_Gtw" id="(0.30569948186528495,0.5)"/>
         </edges>
@@ -8117,7 +8118,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_MbTgUwPeEeezM4xsHYQ6TA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_MbTgVAPeEeezM4xsHYQ6TA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MbTgVQPeEeezM4xsHYQ6TA" points="[143, 49, -205, -69]$[289, 99, -59, -19]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MbTgVQPeEeezM4xsHYQ6TA" points="[148, 50, -200, -68]$[289, 97, -59, -21]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MbUucAPeEeezM4xsHYQ6TA" id="(0.28780487804878047,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MbUucQPeEeezM4xsHYQ6TA" id="(0.28780487804878047,0.5)"/>
         </edges>
@@ -11184,7 +11185,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
     <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram xmi:id="_SABp8APaEeezM4xsHYQ6TA" name="solver class diagram LP Vars and Cons">
+  <diagram:DSemanticDiagram xmi:id="_SABp8APaEeezM4xsHYQ6TA" name="solver class diagram LP Vars and Cons" uid="_n_6joG4pEeiJ-LaKdCl0bg">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_SABp8QPaEeezM4xsHYQ6TA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_SABp8gPaEeezM4xsHYQ6TA">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_SABp8wPaEeezM4xsHYQ6TA" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -11881,7 +11882,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SACUKgPaEeezM4xsHYQ6TA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SACUKwPaEeezM4xsHYQ6TA" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SACULAPaEeezM4xsHYQ6TA" points="[194, 57, -269, -75]$[379, 112, -84, -20]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SACULAPaEeezM4xsHYQ6TA" points="[196, 55, -267, -77]$[379, 108, -84, -24]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SACULQPaEeezM4xsHYQ6TA" id="(0.44412607449856734,0.07692307692307693)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SACULgPaEeezM4xsHYQ6TA" id="(0.2886798898735958,0.46496815286624205)"/>
         </edges>
@@ -11897,7 +11898,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_SACUNgPaEeezM4xsHYQ6TA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_SACUNwPaEeezM4xsHYQ6TA" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SACUOAPaEeezM4xsHYQ6TA" points="[134, -42, -263, 87]$[313, -97, -84, 32]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SACUOAPaEeezM4xsHYQ6TA" points="[135, -45, -261, 85]$[312, -103, -84, 27]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SACUOQPaEeezM4xsHYQ6TA" id="(0.602373887240356,0.6519337016574586)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SACUOgPaEeezM4xsHYQ6TA" id="(0.3032702092173876,0.4049586776859504)"/>
         </edges>
@@ -11913,7 +11914,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_qqk7UQPeEeezM4xsHYQ6TA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_qqk7UgPeEeezM4xsHYQ6TA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qqk7UwPeEeezM4xsHYQ6TA" points="[93, 38, -358, -132]$[337, 137, -114, -33]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qqk7UwPeEeezM4xsHYQ6TA" points="[104, 39, -347, -130]$[337, 126, -114, -43]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qqliZAPeEeezM4xsHYQ6TA" id="(0.3887240356083086,0.7900918371080458)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qqliZQPeEeezM4xsHYQ6TA" id="(0.39447864707380276,0.4336283185840708)"/>
         </edges>
@@ -11929,7 +11930,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_NcxPYQTFEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_NcxPYgTFEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NcxPYwTFEeedXoNvySXfJA" points="[-186, 70, 342, -122]$[-383, 145, 145, -47]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NcxPYwTFEeedXoNvySXfJA" points="[-187, 68, 342, -125]$[-392, 143, 137, -50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ncx2dgTFEeedXoNvySXfJA" id="(0.5329669469366026,0.07692307692307693)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ncx2dwTFEeedXoNvySXfJA" id="(0.45284571783523564,0.5764705882352941)"/>
         </edges>
@@ -11945,7 +11946,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Q0RWsQTFEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Q0RWsgTFEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q0RWswTFEeedXoNvySXfJA" points="[-131, 37, 342, -85]$[-316, 91, 157, -31]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q0RWswTFEeedXoNvySXfJA" points="[-131, 33, 342, -89]$[-314, 80, 159, -42]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q0RWugTFEeedXoNvySXfJA" id="(0.3887240356083086,0.7900918371080458)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Q0RWuwTFEeedXoNvySXfJA" id="(0.4206801808277823,0.5)"/>
         </edges>
@@ -11961,7 +11962,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_pdZBgQTFEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_pdZBggTFEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pdZBgwTFEeedXoNvySXfJA" points="[25, 48, -80, -180]$[83, 179, -22, -49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pdZBgwTFEeedXoNvySXfJA" points="[16, 37, -88, -191]$[81, 178, -23, -50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pdZokATFEeedXoNvySXfJA" id="(0.5501907550350457,0.5764705882352941)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pdZokQTFEeedXoNvySXfJA" id="(0.45284571783523564,0.5764705882352941)"/>
         </edges>
@@ -11977,7 +11978,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_pdZokwTFEeedXoNvySXfJA"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_pdZolATFEeedXoNvySXfJA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pdZolQTFEeedXoNvySXfJA" points="[36, -49, -75, 167]$[88, -167, -23, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pdZolQTFEeedXoNvySXfJA" points="[25, -50, -85, 166]$[84, -166, -26, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pdZonATFEeedXoNvySXfJA" id="(0.5501907550350457,0.5764705882352941)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pdZonQTFEeedXoNvySXfJA" id="(0.4206801808277823,0.5)"/>
         </edges>
@@ -13541,7 +13542,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
     <target xmi:type="ecore:EPackage" href="MacroPlannerSolver.ecore#/"/>
   </diagram:DSemanticDiagram>
-  <diagram:DSemanticDiagram xmi:id="_aKGMsC49Eee3TLKQ8ztXKw" name="solver class diagram LP Solution">
+  <diagram:DSemanticDiagram xmi:id="_aKGMsC49Eee3TLKQ8ztXKw" name="solver class diagram LP Solution" uid="_oAVaYG4pEeiJ-LaKdCl0bg">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_aKGMsS49Eee3TLKQ8ztXKw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_aKGMsi49Eee3TLKQ8ztXKw">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_aKGMsy49Eee3TLKQ8ztXKw" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
@@ -14246,7 +14247,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_aKG1Wy49Eee3TLKQ8ztXKw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_aKG1XC49Eee3TLKQ8ztXKw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1XS49Eee3TLKQ8ztXKw" points="[194, 92, -299, 104]$[409, 17, -84, 29]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1XS49Eee3TLKQ8ztXKw" points="[196, -5, -297, 7]$[409, -10, -84, 2]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1Xi49Eee3TLKQ8ztXKw" id="(0.44412607449856734,0.31877729257641924)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1Xy49Eee3TLKQ8ztXKw" id="(0.2886798898735958,0.46496815286624205)"/>
         </edges>
@@ -14262,7 +14263,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_aKG1Zy49Eee3TLKQ8ztXKw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_aKG1aC49Eee3TLKQ8ztXKw" fontName="Oxygen-Sans" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1aS49Eee3TLKQ8ztXKw" points="[164, -62, -305, 103]$[385, -137, -84, 28]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1aS49Eee3TLKQ8ztXKw" points="[165, -59, -303, 106]$[384, -136, -84, 29]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1ai49Eee3TLKQ8ztXKw" id="(0.553133514986376,0.3064935064935065)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1ay49Eee3TLKQ8ztXKw" id="(0.3032702092173876,0.30434782608695654)"/>
         </edges>
@@ -14278,7 +14279,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_aKG1cy49Eee3TLKQ8ztXKw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_aKG1dC49Eee3TLKQ8ztXKw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1dS49Eee3TLKQ8ztXKw" points="[236, 34, -335, -88]$[457, 92, -114, -30]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1dS49Eee3TLKQ8ztXKw" points="[238, 50, -333, -72]$[457, 97, -114, -25]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1di49Eee3TLKQ8ztXKw" id="(0.3569482288828338,0.3714457727702761)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1dy49Eee3TLKQ8ztXKw" id="(0.32949228035933237,0.3684210526315789)"/>
         </edges>
@@ -14294,7 +14295,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_aKG1fy49Eee3TLKQ8ztXKw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_aKG1gC49Eee3TLKQ8ztXKw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1gS49Eee3TLKQ8ztXKw" points="[-186, -1, 360, 11]$[-389, -2, 157, 10]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1gS49Eee3TLKQ8ztXKw" points="[-187, -22, 360, 40]$[-539, -61, 8, 1]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1gi49Eee3TLKQ8ztXKw" id="(0.5329669469366026,0.31877729257641924)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1gy49Eee3TLKQ8ztXKw" id="(0.43322785280266224,0.5)"/>
         </edges>
@@ -14310,7 +14311,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_aKG1iy49Eee3TLKQ8ztXKw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_aKG1jC49Eee3TLKQ8ztXKw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1jS49Eee3TLKQ8ztXKw" points="[-131, 21, 318, -65]$[-292, 49, 157, -37]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1jS49Eee3TLKQ8ztXKw" points="[-131, 25, 318, -62]$[-290, 56, 159, -31]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1ji49Eee3TLKQ8ztXKw" id="(0.3569482288828338,0.3714457727702761)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1jy49Eee3TLKQ8ztXKw" id="(0.4206801808277823,0.5)"/>
         </edges>
@@ -14342,7 +14343,7 @@
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_aKG1oy49Eee3TLKQ8ztXKw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_aKG1pC49Eee3TLKQ8ztXKw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1pS49Eee3TLKQ8ztXKw" points="[36, -49, -75, 167]$[88, -167, -23, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aKG1pS49Eee3TLKQ8ztXKw" points="[25, -49, -85, 166]$[84, -165, -26, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1pi49Eee3TLKQ8ztXKw" id="(0.5390004345936549,0.4083333333333333)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aKG1py49Eee3TLKQ8ztXKw" id="(0.4206801808277823,0.5)"/>
         </edges>
