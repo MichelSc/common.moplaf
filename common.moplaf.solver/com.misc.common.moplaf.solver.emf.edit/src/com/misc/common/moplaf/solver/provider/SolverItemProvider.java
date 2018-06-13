@@ -14,6 +14,7 @@ package com.misc.common.moplaf.solver.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.WriteCommand;
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorVarBinder;
@@ -839,7 +840,7 @@ public class SolverItemProvider
 	};
 		
 	@Override
-	protected Command createDropCommand(EditingDomain domain, Object owner, Object droppedObject) {
+	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject) {
 		Solver solver = (Solver)owner;
 		if ( droppedObject instanceof GeneratorGoal){
   	   		GeneratorGoal droppedGoal = (GeneratorGoal) droppedObject;

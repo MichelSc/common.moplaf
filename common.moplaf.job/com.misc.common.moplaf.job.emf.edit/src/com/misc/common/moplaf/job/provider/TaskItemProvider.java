@@ -4,19 +4,22 @@ package com.misc.common.moplaf.job.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
-
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
+import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.Task;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -133,5 +136,42 @@ public class TaskItemProvider extends RunItemProvider {
 				(JobPackage.Literals.TASK__DOCS,
 				 JobFactory.eINSTANCE.createDocRef()));
 	}
+
+	/*
+	 * RunRunCommand
+	 */
+	public class TaskAddDocCommand extends BaseCommand{
+		private Task task;
+		private Doc doc;
+		
+		// constructor
+		public TaskAddDocCommand(Task task, Doc doc)	{
+			super("Drop Doc on Task", "Drop Doc on Task");
+			this.task = task;
+			this.doc = doc;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.task.addDoc(doc);
+		}
+	} // class TaskAddDocCommand
+
+	@Override
+	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject) {
+		Task task = (Task) owner;
+		if ( droppedObject instanceof Doc ) {
+			return new TaskAddDocCommand(task, (Doc)droppedObject);
+		}
+		return null;
+	}
+	
+	
 
 }

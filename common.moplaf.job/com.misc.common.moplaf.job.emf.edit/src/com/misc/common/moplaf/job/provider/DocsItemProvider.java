@@ -3,19 +3,23 @@
 package com.misc.common.moplaf.job.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.GarbageCollectCommand;
 import com.misc.common.moplaf.job.Docs;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.command.DocsGarbageCollectCommand;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -159,4 +163,13 @@ public class DocsItemProvider
 		return JobEditPlugin.INSTANCE;
 	}
 
+	@Override
+	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		Docs docs = (Docs)object;
+		if ( commandClass == GarbageCollectCommand.class ) {
+			return new DocsGarbageCollectCommand(docs);
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	}
 }

@@ -479,11 +479,10 @@ public class RunItemProvider
 		}
 	} // class RunResetCommand
 	
-	protected Command createDropCommand(EditingDomain domain, Object owner, Object droppedObject){ 
-		Run thisRun = (Run) owner;
+	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject){ 
 		if ( droppedObject instanceof RunParams){
   	   		RunParams droppedParams = (RunParams) droppedObject;
-  	   		RunCopyParamsCommand cmd = new RunCopyParamsCommand(thisRun, droppedParams);
+  	   		RunCopyParamsCommand cmd = new RunCopyParamsCommand(owner, droppedParams);
 		   	return cmd;
 		} 
 		return null;
@@ -507,7 +506,7 @@ public class RunItemProvider
 	    protected boolean prepare(){
 	    	CompoundCommand compound = new CompoundCommand();
 			for (Object element : collection){
-				Command cmd = RunItemProvider.this.createDropCommand(this.domain, this.owner, element);
+				Command cmd = RunItemProvider.this.createDropCommand(this.domain, (Run) this.owner, element);
 				if ( cmd != null ){
 					compound.append(cmd);
 				}

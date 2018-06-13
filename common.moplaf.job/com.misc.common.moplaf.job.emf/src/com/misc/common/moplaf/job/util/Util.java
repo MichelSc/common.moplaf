@@ -10,12 +10,16 @@
  *******************************************************************************/
 package com.misc.common.moplaf.job.util;
 
+import java.util.Iterator;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
 import com.misc.common.moplaf.file.Plugin;
+import com.misc.common.moplaf.job.Doc;
+import com.misc.common.moplaf.job.Docs;
 
 public class Util {
 	static public RunFactory getRunFactory(String factory_id) {
@@ -52,6 +56,17 @@ public class Util {
 			}
 		}
 		return null;
+	}
+	
+	static public void docsGarbageCollect(Docs docs) {
+		Iterator<Doc> iterator = docs.getDocs().iterator();
+		while ( iterator.hasNext()) {
+			Doc doc = iterator.next();
+			if ( doc.getReferences().size()==0 ) {
+				iterator.remove();
+			}
+		}
+
 	}
 
 }

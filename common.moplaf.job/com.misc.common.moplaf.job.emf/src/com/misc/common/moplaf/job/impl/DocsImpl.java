@@ -5,10 +5,12 @@ package com.misc.common.moplaf.job.impl;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.Docs;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.util.Util;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -80,12 +82,9 @@ public class DocsImpl extends MinimalEObjectImpl.Container implements Docs {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void garbageCollect() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Util.docsGarbageCollect(this);
 	}
 
 	/**

@@ -18,6 +18,7 @@ import com.misc.common.moplaf.file.FileFactory;
 import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobFileHandler;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.Run;
 
 import java.util.Collection;
 import java.util.List;
@@ -203,7 +204,7 @@ public class JobFileHandlerItemProvider extends JobItemProvider {
 	}
 
 	@Override
-	protected Command createDropCommand(EditingDomain domain, Object owner, Object droppedObject) {
+	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject) {
 		JobFileHandler thisRun = (JobFileHandler) owner;
 		if ( droppedObject instanceof File){
   	   		SetCommand cmd = new SetCommand(domain, thisRun, FilePackage.Literals.FILE_HANDLER__SELECTED_FILE, droppedObject);
