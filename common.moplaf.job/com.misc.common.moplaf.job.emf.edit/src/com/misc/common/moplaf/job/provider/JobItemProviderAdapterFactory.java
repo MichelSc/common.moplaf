@@ -128,6 +128,98 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.DocRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocRefItemProvider docRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.DocRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocRefAdapter() {
+		if (docRefItemProvider == null) {
+			docRefItemProvider = new DocRefItemProvider(this);
+		}
+
+		return docRefItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Tasks} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TasksItemProvider tasksItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.Tasks}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTasksAdapter() {
+		if (tasksItemProvider == null) {
+			tasksItemProvider = new TasksItemProvider(this);
+		}
+
+		return tasksItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Docs} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocsItemProvider docsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.Docs}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocsAdapter() {
+		if (docsItemProvider == null) {
+			docsItemProvider = new DocsItemProvider(this);
+		}
+
+		return docsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.DocsHolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocsHolderItemProvider docsHolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.DocsHolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocsHolderAdapter() {
+		if (docsHolderItemProvider == null) {
+			docsHolderItemProvider = new DocsHolderItemProvider(this);
+		}
+
+		return docsHolderItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.RunParams} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +240,29 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		}
 
 		return runParamsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Run} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RunItemProvider runItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.Run}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRunAdapter() {
+		if (runItemProvider == null) {
+			runItemProvider = new RunItemProvider(this);
+		}
+
+		return runItemProvider;
 	}
 
 	/**
@@ -343,11 +458,16 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	public void dispose() {
 		if (jobParameterItemProvider != null) jobParameterItemProvider.dispose();
 		if (runParamsItemProvider != null) runParamsItemProvider.dispose();
+		if (runItemProvider != null) runItemProvider.dispose();
 		if (setterItemProvider != null) setterItemProvider.dispose();
 		if (setterAttributeIntItemProvider != null) setterAttributeIntItemProvider.dispose();
 		if (setterAttributeFloatItemProvider != null) setterAttributeFloatItemProvider.dispose();
 		if (paramsHolderItemProvider != null) paramsHolderItemProvider.dispose();
 		if (runsItemProvider != null) runsItemProvider.dispose();
+		if (docRefItemProvider != null) docRefItemProvider.dispose();
+		if (tasksItemProvider != null) tasksItemProvider.dispose();
+		if (docsItemProvider != null) docsItemProvider.dispose();
+		if (docsHolderItemProvider != null) docsHolderItemProvider.dispose();
 	}
 
 }

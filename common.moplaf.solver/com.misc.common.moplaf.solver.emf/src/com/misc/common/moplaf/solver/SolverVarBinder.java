@@ -72,7 +72,7 @@ public interface SolverVarBinder extends EObject {
 	 * @return the value of the '<em>Var Binder</em>' reference.
 	 * @see #setVarBinder(GeneratorVarBinder)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverVarBinder_VarBinder()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	GeneratorVarBinder getVarBinder();

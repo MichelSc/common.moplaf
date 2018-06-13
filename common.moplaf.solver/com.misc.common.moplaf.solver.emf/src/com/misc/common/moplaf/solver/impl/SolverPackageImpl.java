@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.EnumCpLinearType;
 import com.misc.common.moplaf.solver.EnumCpLogicalType;
@@ -536,6 +537,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		// Initialize simple dependencies
 		EcorePackage.eINSTANCE.eClass();
 		JobPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolverPackage.createPackageContents();
@@ -3770,7 +3772,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEClass(solverVarBinderEClass, SolverVarBinder.class, "SolverVarBinder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolverVarBinder_Solver(), this.getSolver(), this.getSolver_VarBinders(), "Solver", null, 1, 1, SolverVarBinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSolverVarBinder_VarBinder(), this.getGeneratorVarBinder(), null, "VarBinder", null, 0, 1, SolverVarBinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolverVarBinder_VarBinder(), this.getGeneratorVarBinder(), null, "VarBinder", null, 1, 1, SolverVarBinder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverVarBinder_Label(), ecorePackage.getEString(), "Label", null, 0, 1, SolverVarBinder.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(solverVarBinderToSolutionEClass, SolverVarBinderToSolution.class, "SolverVarBinderToSolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

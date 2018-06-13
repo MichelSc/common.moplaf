@@ -1856,6 +1856,498 @@ public interface JobPackage extends EPackage {
 	int RUNS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.TaskImpl <em>Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.TaskImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getTask()
+	 * @generated
+	 */
+	int TASK = 13;
+
+	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RUN_FEEDBACK = RUN__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CANCEL_FEEDBACK = RUN__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RESET_FEEDBACK = RUN__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__LABEL = RUN__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CANCELLED = RUN__CANCELLED;
+
+	/**
+	 * The feature id for the '<em><b>Returned</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RETURNED = RUN__RETURNED;
+
+	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RETURN_SUCCESS = RUN__RETURN_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RETURN_FEEDBACK = RUN__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__DOCS = RUN_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___COPY_PARAMS__RUNPARAMS = RUN___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___RESET = RUN___RESET;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___RUN = RUN___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___RUN__RUNCONTEXT = RUN___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___RUN_ASYNCH__RUNCONTEXT = RUN___RUN_ASYNCH__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Run Asynch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___CANCEL = RUN___CANCEL;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___SET_PROGRESS__STRING_FLOAT = RUN___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___SET_PROGRESS__PROGRESSFEEDBACK = RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___SET_RETURN__RETURNFEEDBACK = RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___GET_RETURN = RUN___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___CONSTRUCT_PARAMS = RUN___CONSTRUCT_PARAMS;
+
+	/**
+	 * The operation id for the '<em>Add Doc</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___ADD_DOC__DOC = RUN_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init Outputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.DocImpl <em>Doc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.DocImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDoc()
+	 * @generated
+	 */
+	int DOC = 14;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC__REFERENCES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC__LOADED = 1;
+
+	/**
+	 * The number of structural features of the '<em>Doc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Save</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___SAVE = 0;
+
+	/**
+	 * The operation id for the '<em>Load</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___LOAD = 1;
+
+	/**
+	 * The number of operations of the '<em>Doc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.DocRefImpl <em>Doc Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.DocRefImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDocRef()
+	 * @generated
+	 */
+	int DOC_REF = 15;
+
+	/**
+	 * The feature id for the '<em><b>Doc</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_REF__DOC = 0;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_REF__INPUT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_REF__ROLE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Doc Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_REF_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Doc Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_REF_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.TasksImpl <em>Tasks</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.TasksImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getTasks()
+	 * @generated
+	 */
+	int TASKS = 16;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASKS__TASKS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Tasks</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASKS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Tasks</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASKS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.DocsImpl <em>Docs</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.DocsImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDocs()
+	 * @generated
+	 */
+	int DOCS = 17;
+
+	/**
+	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS__DOCS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Docs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Garbage Collect</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS___GARBAGE_COLLECT = 0;
+
+	/**
+	 * The number of operations of the '<em>Docs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.DocsHolderImpl <em>Docs Holder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.DocsHolderImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDocsHolder()
+	 * @generated
+	 */
+	int DOCS_HOLDER = 18;
+
+	/**
+	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_HOLDER__DOCS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_HOLDER__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Docs Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_HOLDER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Docs Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCS_HOLDER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1863,7 +2355,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobParameterType()
 	 * @generated
 	 */
-	int JOB_PARAMETER_TYPE = 13;
+	int JOB_PARAMETER_TYPE = 19;
 
 	/**
 	 * The meta object id for the '<em>Progress Feedback</em>' data type.
@@ -1873,7 +2365,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getProgressFeedback()
 	 * @generated
 	 */
-	int PROGRESS_FEEDBACK = 14;
+	int PROGRESS_FEEDBACK = 20;
 
 	/**
 	 * The meta object id for the '<em>Run Context</em>' data type.
@@ -1883,7 +2375,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunContext()
 	 * @generated
 	 */
-	int RUN_CONTEXT = 15;
+	int RUN_CONTEXT = 21;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1893,7 +2385,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 16;
+	int EXCEPTION = 22;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -1903,7 +2395,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 17;
+	int RETURN_FEEDBACK = 23;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -1913,7 +2405,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 18;
+	int ENABLED_FEEDBACK = 24;
 
 
 	/**
@@ -2471,6 +2963,226 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRuns_Runs();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Task <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task</em>'.
+	 * @see com.misc.common.moplaf.job.Task
+	 * @generated
+	 */
+	EClass getTask();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Task#getDocs <em>Docs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Docs</em>'.
+	 * @see com.misc.common.moplaf.job.Task#getDocs()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_Docs();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#addDoc(com.misc.common.moplaf.job.Doc) <em>Add Doc</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Doc</em>' operation.
+	 * @see com.misc.common.moplaf.job.Task#addDoc(com.misc.common.moplaf.job.Doc)
+	 * @generated
+	 */
+	EOperation getTask__AddDoc__Doc();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#initOutputs() <em>Init Outputs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init Outputs</em>' operation.
+	 * @see com.misc.common.moplaf.job.Task#initOutputs()
+	 * @generated
+	 */
+	EOperation getTask__InitOutputs();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Doc <em>Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Doc</em>'.
+	 * @see com.misc.common.moplaf.job.Doc
+	 * @generated
+	 */
+	EClass getDoc();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.Doc#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see com.misc.common.moplaf.job.Doc#getReferences()
+	 * @see #getDoc()
+	 * @generated
+	 */
+	EReference getDoc_References();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Doc#isLoaded <em>Loaded</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Loaded</em>'.
+	 * @see com.misc.common.moplaf.job.Doc#isLoaded()
+	 * @see #getDoc()
+	 * @generated
+	 */
+	EAttribute getDoc_Loaded();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Doc#Save() <em>Save</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Save</em>' operation.
+	 * @see com.misc.common.moplaf.job.Doc#Save()
+	 * @generated
+	 */
+	EOperation getDoc__Save();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Doc#Load() <em>Load</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Load</em>' operation.
+	 * @see com.misc.common.moplaf.job.Doc#Load()
+	 * @generated
+	 */
+	EOperation getDoc__Load();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.DocRef <em>Doc Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Doc Ref</em>'.
+	 * @see com.misc.common.moplaf.job.DocRef
+	 * @generated
+	 */
+	EClass getDocRef();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.DocRef#getDoc <em>Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Doc</em>'.
+	 * @see com.misc.common.moplaf.job.DocRef#getDoc()
+	 * @see #getDocRef()
+	 * @generated
+	 */
+	EReference getDocRef_Doc();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.DocRef#isInput <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input</em>'.
+	 * @see com.misc.common.moplaf.job.DocRef#isInput()
+	 * @see #getDocRef()
+	 * @generated
+	 */
+	EAttribute getDocRef_Input();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.DocRef#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Role</em>'.
+	 * @see com.misc.common.moplaf.job.DocRef#getRole()
+	 * @see #getDocRef()
+	 * @generated
+	 */
+	EAttribute getDocRef_Role();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Tasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tasks</em>'.
+	 * @see com.misc.common.moplaf.job.Tasks
+	 * @generated
+	 */
+	EClass getTasks();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Tasks#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
+	 * @see com.misc.common.moplaf.job.Tasks#getTasks()
+	 * @see #getTasks()
+	 * @generated
+	 */
+	EReference getTasks_Tasks();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Docs <em>Docs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Docs</em>'.
+	 * @see com.misc.common.moplaf.job.Docs
+	 * @generated
+	 */
+	EClass getDocs();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Docs#getDocs <em>Docs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Docs</em>'.
+	 * @see com.misc.common.moplaf.job.Docs#getDocs()
+	 * @see #getDocs()
+	 * @generated
+	 */
+	EReference getDocs_Docs();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Docs#garbageCollect() <em>Garbage Collect</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Garbage Collect</em>' operation.
+	 * @see com.misc.common.moplaf.job.Docs#garbageCollect()
+	 * @generated
+	 */
+	EOperation getDocs__GarbageCollect();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.DocsHolder <em>Docs Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Docs Holder</em>'.
+	 * @see com.misc.common.moplaf.job.DocsHolder
+	 * @generated
+	 */
+	EClass getDocsHolder();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.DocsHolder#getDocs <em>Docs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Docs</em>'.
+	 * @see com.misc.common.moplaf.job.DocsHolder#getDocs()
+	 * @see #getDocsHolder()
+	 * @generated
+	 */
+	EReference getDocsHolder_Docs();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.DocsHolder#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.DocsHolder#getName()
+	 * @see #getDocsHolder()
+	 * @generated
+	 */
+	EAttribute getDocsHolder_Name();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Setter <em>Setter</em>}'.
@@ -3218,6 +3930,186 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RUNS__RUNS = eINSTANCE.getRuns_Runs();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.TaskImpl <em>Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.TaskImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getTask()
+		 * @generated
+		 */
+		EClass TASK = eINSTANCE.getTask();
+
+		/**
+		 * The meta object literal for the '<em><b>Docs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__DOCS = eINSTANCE.getTask_Docs();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Doc</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___ADD_DOC__DOC = eINSTANCE.getTask__AddDoc__Doc();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Outputs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___INIT_OUTPUTS = eINSTANCE.getTask__InitOutputs();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.DocImpl <em>Doc</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.DocImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDoc()
+		 * @generated
+		 */
+		EClass DOC = eINSTANCE.getDoc();
+
+		/**
+		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC__REFERENCES = eINSTANCE.getDoc_References();
+
+		/**
+		 * The meta object literal for the '<em><b>Loaded</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC__LOADED = eINSTANCE.getDoc_Loaded();
+
+		/**
+		 * The meta object literal for the '<em><b>Save</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC___SAVE = eINSTANCE.getDoc__Save();
+
+		/**
+		 * The meta object literal for the '<em><b>Load</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC___LOAD = eINSTANCE.getDoc__Load();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.DocRefImpl <em>Doc Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.DocRefImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDocRef()
+		 * @generated
+		 */
+		EClass DOC_REF = eINSTANCE.getDocRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Doc</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC_REF__DOC = eINSTANCE.getDocRef_Doc();
+
+		/**
+		 * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC_REF__INPUT = eINSTANCE.getDocRef_Input();
+
+		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC_REF__ROLE = eINSTANCE.getDocRef_Role();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.TasksImpl <em>Tasks</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.TasksImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getTasks()
+		 * @generated
+		 */
+		EClass TASKS = eINSTANCE.getTasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASKS__TASKS = eINSTANCE.getTasks_Tasks();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.DocsImpl <em>Docs</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.DocsImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDocs()
+		 * @generated
+		 */
+		EClass DOCS = eINSTANCE.getDocs();
+
+		/**
+		 * The meta object literal for the '<em><b>Docs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCS__DOCS = eINSTANCE.getDocs_Docs();
+
+		/**
+		 * The meta object literal for the '<em><b>Garbage Collect</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOCS___GARBAGE_COLLECT = eINSTANCE.getDocs__GarbageCollect();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.DocsHolderImpl <em>Docs Holder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.DocsHolderImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getDocsHolder()
+		 * @generated
+		 */
+		EClass DOCS_HOLDER = eINSTANCE.getDocsHolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Docs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCS_HOLDER__DOCS = eINSTANCE.getDocsHolder_Docs();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCS_HOLDER__NAME = eINSTANCE.getDocsHolder_Name();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterImpl <em>Setter</em>}' class.

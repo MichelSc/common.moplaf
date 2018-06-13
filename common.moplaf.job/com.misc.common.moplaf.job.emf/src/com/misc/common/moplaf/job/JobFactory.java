@@ -50,6 +50,15 @@ public interface JobFactory extends EFactory {
 	RunParams createRunParams();
 
 	/**
+	 * Returns a new object of class '<em>Run</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Run</em>'.
+	 * @generated
+	 */
+	Run createRun();
+
+	/**
 	 * Returns a new object of class '<em>Setter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,6 +102,42 @@ public interface JobFactory extends EFactory {
 	 * @generated
 	 */
 	Runs createRuns();
+
+	/**
+	 * Returns a new object of class '<em>Doc Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Doc Ref</em>'.
+	 * @generated
+	 */
+	DocRef createDocRef();
+
+	/**
+	 * Returns a new object of class '<em>Tasks</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tasks</em>'.
+	 * @generated
+	 */
+	Tasks createTasks();
+
+	/**
+	 * Returns a new object of class '<em>Docs</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Docs</em>'.
+	 * @generated
+	 */
+	Docs createDocs();
+
+	/**
+	 * Returns a new object of class '<em>Docs Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Docs Holder</em>'.
+	 * @generated
+	 */
+	DocsHolder createDocsHolder();
 
 	/**
 	 * Returns the package supported by this factory.

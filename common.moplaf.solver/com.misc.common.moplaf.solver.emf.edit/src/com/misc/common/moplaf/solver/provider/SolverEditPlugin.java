@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.provider;
 
+import com.misc.common.moplaf.file.provider.FileEditPlugin;
 import com.misc.common.moplaf.job.provider.JobEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
@@ -52,6 +53,7 @@ public final class SolverEditPlugin extends EMFPlugin {
 		  (new ResourceLocator [] {
 		     EcoreEditPlugin.INSTANCE,
 		     JobEditPlugin.INSTANCE,
+		     FileEditPlugin.INSTANCE,
 		   });
 	}
 

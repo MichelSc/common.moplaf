@@ -72,11 +72,16 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 		switch (eClass.getClassifierID()) {
 			case JobPackage.JOB_PARAMETER: return createJobParameter();
 			case JobPackage.RUN_PARAMS: return createRunParams();
+			case JobPackage.RUN: return createRun();
 			case JobPackage.SETTER: return createSetter();
 			case JobPackage.SETTER_ATTRIBUTE_INT: return createSetterAttributeInt();
 			case JobPackage.SETTER_ATTRIBUTE_FLOAT: return createSetterAttributeFloat();
 			case JobPackage.PARAMS_HOLDER: return createParamsHolder();
 			case JobPackage.RUNS: return createRuns();
+			case JobPackage.DOC_REF: return createDocRef();
+			case JobPackage.TASKS: return createTasks();
+			case JobPackage.DOCS: return createDocs();
+			case JobPackage.DOCS_HOLDER: return createDocsHolder();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -157,6 +162,16 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Run createRun() {
+		RunImpl run = new RunImpl();
+		return run;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Setter createSetter() {
 		SetterImpl setter = new SetterImpl();
 		return setter;
@@ -200,6 +215,46 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	public Runs createRuns() {
 		RunsImpl runs = new RunsImpl();
 		return runs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DocRef createDocRef() {
+		DocRefImpl docRef = new DocRefImpl();
+		return docRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Tasks createTasks() {
+		TasksImpl tasks = new TasksImpl();
+		return tasks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Docs createDocs() {
+		DocsImpl docs = new DocsImpl();
+		return docs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DocsHolder createDocsHolder() {
+		DocsHolderImpl docsHolder = new DocsHolderImpl();
+		return docsHolder;
 	}
 
 	/**

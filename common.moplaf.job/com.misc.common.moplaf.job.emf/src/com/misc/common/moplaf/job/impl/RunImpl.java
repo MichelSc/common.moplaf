@@ -58,7 +58,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class RunImpl extends RunParamsImpl implements Run {
+public class RunImpl extends RunParamsImpl implements Run {
 	/**
 	 * The default value of the '{@link #getRunFeedback() <em>Run Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->

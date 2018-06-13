@@ -36,7 +36,7 @@ import com.misc.common.moplaf.common.ReturnFeedback;
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getRun()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Run extends RunParams {

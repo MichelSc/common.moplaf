@@ -162,26 +162,39 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Runs" upperBound="-1" eType="#//Run"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Run">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Inputs" upperBound="-1"
-        eType="#//TaskInput" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Outputs" upperBound="-1"
-        eType="#//TaskOutput" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//Run">
+    <eOperations name="addDoc">
+      <eParameters name="doc" eType="#//Doc"/>
+    </eOperations>
+    <eOperations name="initOutputs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//DocRef"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Doc">
+  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true">
     <eOperations name="Save"/>
     <eOperations name="Load"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Consumers" upperBound="-1"
-        eType="#//TaskInput" eOpposite="#//TaskInput/Input"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Producers" upperBound="-1"
-        eType="#//TaskOutput" eOpposite="#//TaskOutput/Output"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="References" upperBound="-1"
+        eType="#//DocRef" eOpposite="#//DocRef/Doc"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskInput">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Input" eType="#//Doc" eOpposite="#//Doc/Consumers"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DocRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Doc" eType="#//Doc" eOpposite="#//Doc/References"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskOutput">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Output" eType="#//Doc"
-        eOpposite="#//Doc/Producers"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tasks">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tasks" upperBound="-1"
+        eType="#//Task" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass18"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Docs">
+    <eOperations name="garbageCollect"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//Doc"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocsHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//DocRef"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
