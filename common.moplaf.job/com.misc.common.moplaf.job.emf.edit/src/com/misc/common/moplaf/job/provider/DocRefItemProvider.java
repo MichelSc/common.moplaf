@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.job.provider;
 
 
+import com.misc.common.moplaf.job.DocRef;
 import com.misc.common.moplaf.job.JobPackage;
 
 import java.util.Collection;
@@ -22,6 +23,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.job.DocRef} object.
@@ -119,11 +121,10 @@ public class DocRefItemProvider
 	 * This returns DocRef.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DocRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/document.png"));
 	}
 
 	/**
@@ -148,6 +149,12 @@ public class DocRefItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DocRef.class)) {
+			case JobPackage.DOC_REF__DOC:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

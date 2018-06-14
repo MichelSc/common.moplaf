@@ -128,11 +128,10 @@ public class DocsHolderItemProvider
 	 * This returns DocsHolder.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DocsHolder"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/folder.png"));
 	}
 
 	/**
