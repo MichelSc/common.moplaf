@@ -3003,22 +3003,22 @@ public interface JobPackage extends EPackage {
 	int DOCS_OPERATION_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_DOMAIN__TASKS = TASKS__TASKS;
-
-	/**
 	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_DOMAIN__DOCS = TASKS_FEATURE_COUNT + 0;
+	int TASK_DOMAIN__DOCS = DOCS__DOCS;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_DOMAIN__TASKS = DOCS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Task Domain</em>' class.
@@ -3027,7 +3027,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_DOMAIN_FEATURE_COUNT = TASKS_FEATURE_COUNT + 1;
+	int TASK_DOMAIN_FEATURE_COUNT = DOCS_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Garbage Collect</em>' operation.
@@ -3036,7 +3036,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_DOMAIN___GARBAGE_COLLECT = TASKS_OPERATION_COUNT + 0;
+	int TASK_DOMAIN___GARBAGE_COLLECT = DOCS___GARBAGE_COLLECT;
 
 	/**
 	 * The number of operations of the '<em>Task Domain</em>' class.
@@ -3045,7 +3045,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_DOMAIN_OPERATION_COUNT = TASKS_OPERATION_COUNT + 1;
+	int TASK_DOMAIN_OPERATION_COUNT = DOCS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.

@@ -234,5 +234,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//Doc"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskDomain" eSuperTypes="#//Tasks #//Docs"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskDomain" eSuperTypes="#//Docs #//Tasks"/>
 </ecore:EPackage>

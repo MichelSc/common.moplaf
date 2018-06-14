@@ -3,23 +3,16 @@
 package com.misc.common.moplaf.job.provider;
 
 
-import com.misc.common.moplaf.emf.edit.command.GarbageCollectCommand;
-import com.misc.common.moplaf.job.Docs;
-import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.TaskDomain;
-import com.misc.common.moplaf.job.command.DocsGarbageCollectCommand;
 
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -29,7 +22,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskDomainItemProvider extends TasksItemProvider {
+public class TaskDomainItemProvider extends DocsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,7 +60,7 @@ public class TaskDomainItemProvider extends TasksItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.DOCS__DOCS);
+			childrenFeatures.add(JobPackage.Literals.TASKS__TASKS);
 		}
 		return childrenFeatures;
 	}
@@ -120,7 +113,7 @@ public class TaskDomainItemProvider extends TasksItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TaskDomain.class)) {
-			case JobPackage.TASK_DOMAIN__DOCS:
+			case JobPackage.TASK_DOMAIN__TASKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -137,21 +130,7 @@ public class TaskDomainItemProvider extends TasksItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobPackage.Literals.DOCS__DOCS,
-				 JobFactory.eINSTANCE.createCompoundDoc()));
 	}
 	
-	@Override
-	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-		Docs docs = (Docs)object;
-		if ( commandClass == GarbageCollectCommand.class ) {
-			return new DocsGarbageCollectCommand(docs);
-		}
-		return super.createCommand(object, domain, commandClass, commandParameter);
-	}
 
 }

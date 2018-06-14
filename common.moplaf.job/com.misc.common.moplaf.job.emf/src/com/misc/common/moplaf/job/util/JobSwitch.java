@@ -259,8 +259,8 @@ public class JobSwitch<T> extends Switch<T> {
 			case JobPackage.TASK_DOMAIN: {
 				TaskDomain taskDomain = (TaskDomain)theEObject;
 				T result = caseTaskDomain(taskDomain);
-				if (result == null) result = caseTasks(taskDomain);
 				if (result == null) result = caseDocs(taskDomain);
+				if (result == null) result = caseTasks(taskDomain);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

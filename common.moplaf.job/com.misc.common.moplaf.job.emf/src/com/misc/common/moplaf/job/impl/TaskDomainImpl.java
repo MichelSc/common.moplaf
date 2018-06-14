@@ -2,14 +2,11 @@
  */
 package com.misc.common.moplaf.job.impl;
 
-import com.misc.common.moplaf.job.Doc;
-import com.misc.common.moplaf.job.Docs;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.Task;
 import com.misc.common.moplaf.job.TaskDomain;
+import com.misc.common.moplaf.job.Tasks;
 import com.misc.common.moplaf.job.util.Util;
-
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -30,22 +27,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.impl.TaskDomainImpl#getDocs <em>Docs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.TaskDomainImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TaskDomainImpl extends TasksImpl implements TaskDomain {
+public class TaskDomainImpl extends DocsImpl implements TaskDomain {
 	/**
-	 * The cached value of the '{@link #getDocs() <em>Docs</em>}' containment reference list.
+	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDocs()
+	 * @see #getTasks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Doc> docs;
-
+	protected EList<Task> tasks;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,19 +66,11 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Doc> getDocs() {
-		if (docs == null) {
-			docs = new EObjectContainmentEList<Doc>(Doc.class, this, JobPackage.TASK_DOMAIN__DOCS);
+	public EList<Task> getTasks() {
+		if (tasks == null) {
+			tasks = new EObjectContainmentEList<Task>(Task.class, this, JobPackage.TASK_DOMAIN__TASKS);
 		}
-		return docs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void garbageCollect() {
-		Util.docsGarbageCollect(this);
+		return tasks;
 	}
 
 	/**
@@ -93,8 +81,8 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobPackage.TASK_DOMAIN__DOCS:
-				return ((InternalEList<?>)getDocs()).basicRemove(otherEnd, msgs);
+			case JobPackage.TASK_DOMAIN__TASKS:
+				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -107,8 +95,8 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobPackage.TASK_DOMAIN__DOCS:
-				return getDocs();
+			case JobPackage.TASK_DOMAIN__TASKS:
+				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,9 +110,9 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobPackage.TASK_DOMAIN__DOCS:
-				getDocs().clear();
-				getDocs().addAll((Collection<? extends Doc>)newValue);
+			case JobPackage.TASK_DOMAIN__TASKS:
+				getTasks().clear();
+				getTasks().addAll((Collection<? extends Task>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,8 +126,8 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.TASK_DOMAIN__DOCS:
-				getDocs().clear();
+			case JobPackage.TASK_DOMAIN__TASKS:
+				getTasks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -153,8 +141,8 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobPackage.TASK_DOMAIN__DOCS:
-				return docs != null && !docs.isEmpty();
+			case JobPackage.TASK_DOMAIN__TASKS:
+				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -166,9 +154,9 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Docs.class) {
+		if (baseClass == Tasks.class) {
 			switch (derivedFeatureID) {
-				case JobPackage.TASK_DOMAIN__DOCS: return JobPackage.DOCS__DOCS;
+				case JobPackage.TASK_DOMAIN__TASKS: return JobPackage.TASKS__TASKS;
 				default: return -1;
 			}
 		}
@@ -182,44 +170,13 @@ public class TaskDomainImpl extends TasksImpl implements TaskDomain {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Docs.class) {
+		if (baseClass == Tasks.class) {
 			switch (baseFeatureID) {
-				case JobPackage.DOCS__DOCS: return JobPackage.TASK_DOMAIN__DOCS;
+				case JobPackage.TASKS__TASKS: return JobPackage.TASK_DOMAIN__TASKS;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Docs.class) {
-			switch (baseOperationID) {
-				case JobPackage.DOCS___GARBAGE_COLLECT: return JobPackage.TASK_DOMAIN___GARBAGE_COLLECT;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case JobPackage.TASK_DOMAIN___GARBAGE_COLLECT:
-				garbageCollect();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //TaskDomainImpl

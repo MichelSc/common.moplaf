@@ -13,5 +13,5 @@ package com.misc.common.moplaf.job;
  * @model
  * @generated
  */
-public interface TaskDomain extends Tasks, Docs {
+public interface TaskDomain extends Docs, Tasks {
 } // TaskDomain

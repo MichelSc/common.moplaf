@@ -1638,8 +1638,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		taskDocEClass.getESuperTypes().add(this.getDocRef());
 		taskInputEClass.getESuperTypes().add(this.getTaskDoc());
 		taskOutputEClass.getESuperTypes().add(this.getTaskDoc());
-		taskDomainEClass.getESuperTypes().add(this.getTasks());
 		taskDomainEClass.getESuperTypes().add(this.getDocs());
+		taskDomainEClass.getESuperTypes().add(this.getTasks());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
