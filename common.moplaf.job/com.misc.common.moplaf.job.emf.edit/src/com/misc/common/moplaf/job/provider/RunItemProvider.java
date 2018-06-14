@@ -22,7 +22,6 @@ import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunParams;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -479,7 +478,7 @@ public class RunItemProvider
 		}
 	} // class RunResetCommand
 	
-	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject){ 
+	protected Command createDropCommandSingle(EditingDomain domain, Run owner, Object droppedObject){ 
 		if ( droppedObject instanceof RunParams){
   	   		RunParams droppedParams = (RunParams) droppedObject;
   	   		RunCopyParamsCommand cmd = new RunCopyParamsCommand(owner, droppedParams);
@@ -487,6 +486,21 @@ public class RunItemProvider
 		} 
 		return null;
 	}
+	
+	protected Command createDropCommandMulti(EditingDomain domain, Run owner, Collection<?> droppedObjects) {
+    	CompoundCommand compound = new CompoundCommand();
+		for (Object droppedObject : droppedObjects){
+			Command cmd = RunItemProvider.this.createDropCommandSingle(domain, owner, droppedObject);
+			if ( cmd !=null ) {
+				compound.append(cmd);
+			}
+		}
+		if ( !compound.isEmpty() ) {
+			return compound;
+		}
+		return null;
+	}
+
 	
 	/**
 	 * Create a drag and drop command for this Run
@@ -504,15 +518,12 @@ public class RunItemProvider
 	     */
 	    @Override
 	    protected boolean prepare(){
-	    	CompoundCommand compound = new CompoundCommand();
-			for (Object element : collection){
-				Command cmd = RunItemProvider.this.createDropCommand(this.domain, (Run) this.owner, element);
-				if ( cmd != null ){
-					compound.append(cmd);
-				}
+			Command cmd = RunItemProvider.this.createDropCommandMulti(this.domain, (Run) this.owner, this.collection);
+			if ( cmd == null ){
+				return super.prepare();
 			}
 	    	this.dragCommand = null;
-			this.dropCommand = compound;
+			this.dropCommand = cmd;
 	    	return true;
 	    } // prepare
 	};

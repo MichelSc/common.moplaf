@@ -78,10 +78,14 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 			case JobPackage.SETTER_ATTRIBUTE_FLOAT: return createSetterAttributeFloat();
 			case JobPackage.PARAMS_HOLDER: return createParamsHolder();
 			case JobPackage.RUNS: return createRuns();
-			case JobPackage.DOC_REF: return createDocRef();
+			case JobPackage.DOCS_HOLDER: return createDocsHolder();
+			case JobPackage.COMPOUND_DOC: return createCompoundDoc();
+			case JobPackage.DOC_IN_DOCS_HOLDER: return createDocInDocsHolder();
+			case JobPackage.TASK_INPUT: return createTaskInput();
+			case JobPackage.TASK_OUTPUT: return createTaskOutput();
 			case JobPackage.TASKS: return createTasks();
 			case JobPackage.DOCS: return createDocs();
-			case JobPackage.DOCS_HOLDER: return createDocsHolder();
+			case JobPackage.TASK_DOMAIN: return createTaskDomain();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -222,16 +226,6 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocRef createDocRef() {
-		DocRefImpl docRef = new DocRefImpl();
-		return docRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Tasks createTasks() {
 		TasksImpl tasks = new TasksImpl();
 		return tasks;
@@ -252,9 +246,59 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TaskDomain createTaskDomain() {
+		TaskDomainImpl taskDomain = new TaskDomainImpl();
+		return taskDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DocsHolder createDocsHolder() {
 		DocsHolderImpl docsHolder = new DocsHolderImpl();
 		return docsHolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompoundDoc createCompoundDoc() {
+		CompoundDocImpl compoundDoc = new CompoundDocImpl();
+		return compoundDoc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DocInDocsHolder createDocInDocsHolder() {
+		DocInDocsHolderImpl docInDocsHolder = new DocInDocsHolderImpl();
+		return docInDocsHolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskInput createTaskInput() {
+		TaskInputImpl taskInput = new TaskInputImpl();
+		return taskInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskOutput createTaskOutput() {
+		TaskOutputImpl taskOutput = new TaskOutputImpl();
+		return taskOutput;
 	}
 
 	/**

@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.impl.DocImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.DocImpl#getRefs <em>Refs</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.DocImpl#isLoaded <em>Loaded</em>}</li>
  * </ul>
  *
@@ -40,14 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class DocImpl extends MinimalEObjectImpl.Container implements Doc {
 	/**
-	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
+	 * The cached value of the '{@link #getRefs() <em>Refs</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferences()
+	 * @see #getRefs()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocRef> references;
+	protected EList<DocRef> refs;
 
 	/**
 	 * The default value of the '{@link #isLoaded() <em>Loaded</em>}' attribute.
@@ -93,11 +93,11 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DocRef> getReferences() {
-		if (references == null) {
-			references = new EObjectWithInverseResolvingEList<DocRef>(DocRef.class, this, JobPackage.DOC__REFERENCES, JobPackage.DOC_REF__DOC);
+	public EList<DocRef> getRefs() {
+		if (refs == null) {
+			refs = new EObjectWithInverseResolvingEList<DocRef>(DocRef.class, this, JobPackage.DOC__REFS, JobPackage.DOC_REF__DOC);
 		}
-		return references;
+		return refs;
 	}
 
 	/**
@@ -126,7 +126,7 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Save() {
+	public void save() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -137,7 +137,18 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Load() {
+	public void load() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void flush() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -152,8 +163,8 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobPackage.DOC__REFERENCES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
+			case JobPackage.DOC__REFS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRefs()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -166,8 +177,8 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobPackage.DOC__REFERENCES:
-				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case JobPackage.DOC__REFS:
+				return ((InternalEList<?>)getRefs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -180,8 +191,8 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobPackage.DOC__REFERENCES:
-				return getReferences();
+			case JobPackage.DOC__REFS:
+				return getRefs();
 			case JobPackage.DOC__LOADED:
 				return isLoaded();
 		}
@@ -197,9 +208,9 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobPackage.DOC__REFERENCES:
-				getReferences().clear();
-				getReferences().addAll((Collection<? extends DocRef>)newValue);
+			case JobPackage.DOC__REFS:
+				getRefs().clear();
+				getRefs().addAll((Collection<? extends DocRef>)newValue);
 				return;
 			case JobPackage.DOC__LOADED:
 				setLoaded((Boolean)newValue);
@@ -216,8 +227,8 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.DOC__REFERENCES:
-				getReferences().clear();
+			case JobPackage.DOC__REFS:
+				getRefs().clear();
 				return;
 			case JobPackage.DOC__LOADED:
 				setLoaded(LOADED_EDEFAULT);
@@ -234,8 +245,8 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobPackage.DOC__REFERENCES:
-				return references != null && !references.isEmpty();
+			case JobPackage.DOC__REFS:
+				return refs != null && !refs.isEmpty();
 			case JobPackage.DOC__LOADED:
 				return loaded != LOADED_EDEFAULT;
 		}
@@ -251,10 +262,13 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JobPackage.DOC___SAVE:
-				Save();
+				save();
 				return null;
 			case JobPackage.DOC___LOAD:
-				Load();
+				load();
+				return null;
+			case JobPackage.DOC___FLUSH:
+				flush();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

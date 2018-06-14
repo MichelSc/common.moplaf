@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.job.impl;
 
 import com.misc.common.moplaf.job.Doc;
-import com.misc.common.moplaf.job.DocRef;
+import com.misc.common.moplaf.job.DocInDocsHolder;
 import com.misc.common.moplaf.job.DocsHolder;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -48,7 +47,7 @@ public class DocsHolderImpl extends MinimalEObjectImpl.Container implements Docs
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocRef> docs;
+	protected EList<DocInDocsHolder> docs;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -94,9 +93,9 @@ public class DocsHolderImpl extends MinimalEObjectImpl.Container implements Docs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DocRef> getDocs() {
+	public EList<DocInDocsHolder> getDocs() {
 		if (docs == null) {
-			docs = new EObjectContainmentEList<DocRef>(DocRef.class, this, JobPackage.DOCS_HOLDER__DOCS);
+			docs = new EObjectContainmentWithInverseEList<DocInDocsHolder>(DocInDocsHolder.class, this, JobPackage.DOCS_HOLDER__DOCS, JobPackage.DOC_IN_DOCS_HOLDER__DOCS_HOLDER);
 		}
 		return docs;
 	}
@@ -127,7 +126,7 @@ public class DocsHolderImpl extends MinimalEObjectImpl.Container implements Docs
 	 * <!-- end-user-doc -->
 	 */
 	public void addDoc(Doc doc) {
-		DocRef ref = JobFactory.eINSTANCE.createDocRef();
+		DocInDocsHolder ref = JobFactory.eINSTANCE.createDocInDocsHolder();
 		ref.setDoc(doc);
 		this.getDocs().add(ref);
 	}
@@ -140,6 +139,21 @@ public class DocsHolderImpl extends MinimalEObjectImpl.Container implements Docs
 		for(Doc doc : docs) {
 			this.addDoc(doc);
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JobPackage.DOCS_HOLDER__DOCS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDocs()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -183,7 +197,7 @@ public class DocsHolderImpl extends MinimalEObjectImpl.Container implements Docs
 		switch (featureID) {
 			case JobPackage.DOCS_HOLDER__DOCS:
 				getDocs().clear();
-				getDocs().addAll((Collection<? extends DocRef>)newValue);
+				getDocs().addAll((Collection<? extends DocInDocsHolder>)newValue);
 				return;
 			case JobPackage.DOCS_HOLDER__NAME:
 				setName((String)newValue);

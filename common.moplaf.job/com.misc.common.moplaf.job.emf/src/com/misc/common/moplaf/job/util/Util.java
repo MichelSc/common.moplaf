@@ -62,11 +62,9 @@ public class Util {
 		Iterator<Doc> iterator = docs.getDocs().iterator();
 		while ( iterator.hasNext()) {
 			Doc doc = iterator.next();
-			if ( doc.getReferences().size()==0 ) {
+			if ( doc.getRefs().size()==0 ) {
 				iterator.remove();
 			}
 		}
-
 	}
-
 }

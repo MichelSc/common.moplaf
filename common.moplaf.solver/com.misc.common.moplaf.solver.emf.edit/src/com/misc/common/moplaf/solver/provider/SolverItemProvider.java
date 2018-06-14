@@ -840,7 +840,7 @@ public class SolverItemProvider
 	};
 		
 	@Override
-	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject) {
+	protected Command createDropCommandSingle(EditingDomain domain, Run owner, Object droppedObject) {
 		Solver solver = (Solver)owner;
 		if ( droppedObject instanceof GeneratorGoal){
   	   		GeneratorGoal droppedGoal = (GeneratorGoal) droppedObject;
@@ -855,7 +855,7 @@ public class SolverItemProvider
 		   		GeneratorVarBinder binder = (GeneratorVarBinder) droppedObject;
 		   		return new ConstructVarBinder(solver, binder);
 		} 
-		return super.createDropCommand(domain, owner, droppedObject);
+		return super.createDropCommandSingle(domain, owner, droppedObject);
 		//return null;
 	}
 }

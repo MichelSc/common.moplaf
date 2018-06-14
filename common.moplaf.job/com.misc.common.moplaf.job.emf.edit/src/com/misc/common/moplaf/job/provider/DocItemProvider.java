@@ -3,17 +3,20 @@
 package com.misc.common.moplaf.job.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobPackage;
-
+import com.misc.common.moplaf.job.command.DocFlushCommand;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -60,26 +63,26 @@ public class DocItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReferencesPropertyDescriptor(object);
+			addRefsPropertyDescriptor(object);
 			addLoadedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the References feature.
+	 * This adds a property descriptor for the Refs feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReferencesPropertyDescriptor(Object object) {
+	protected void addRefsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Doc_References_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Doc_References_feature", "_UI_Doc_type"),
-				 JobPackage.Literals.DOC__REFERENCES,
+				 getString("_UI_Doc_Refs_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Doc_Refs_feature", "_UI_Doc_type"),
+				 JobPackage.Literals.DOC__REFS,
 				 true,
 				 false,
 				 true,
@@ -164,5 +167,16 @@ public class DocItemProvider
 	public ResourceLocator getResourceLocator() {
 		return JobEditPlugin.INSTANCE;
 	}
+	
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == FlushCommand.class){
+			return new DocFlushCommand((Doc) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
+
 
 }

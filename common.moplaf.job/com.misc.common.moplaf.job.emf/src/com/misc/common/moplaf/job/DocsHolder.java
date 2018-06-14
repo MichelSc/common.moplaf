@@ -26,7 +26,8 @@ import org.eclipse.emf.ecore.EObject;
 public interface DocsHolder extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Docs</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.job.DocRef}.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.DocInDocsHolder}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.DocInDocsHolder#getDocsHolder <em>Docs Holder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Docs</em>' containment reference list isn't clear,
@@ -35,10 +36,11 @@ public interface DocsHolder extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Docs</em>' containment reference list.
 	 * @see com.misc.common.moplaf.job.JobPackage#getDocsHolder_Docs()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.job.DocInDocsHolder#getDocsHolder
+	 * @model opposite="DocsHolder" containment="true"
 	 * @generated
 	 */
-	EList<DocRef> getDocs();
+	EList<DocInDocsHolder> getDocs();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

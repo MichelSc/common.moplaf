@@ -13,7 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.Task#getDocs <em>Docs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Task#getOutputs <em>Outputs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Task#getInputs <em>Inputs</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getTask()
@@ -22,20 +23,40 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Task extends Run {
 	/**
-	 * Returns the value of the '<em><b>Docs</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.job.DocRef}.
+	 * Returns the value of the '<em><b>Outputs</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.TaskOutput}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.TaskOutput#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Docs</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Outputs</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Docs</em>' containment reference list.
-	 * @see com.misc.common.moplaf.job.JobPackage#getTask_Docs()
-	 * @model containment="true"
+	 * @return the value of the '<em>Outputs</em>' containment reference list.
+	 * @see com.misc.common.moplaf.job.JobPackage#getTask_Outputs()
+	 * @see com.misc.common.moplaf.job.TaskOutput#getTask
+	 * @model opposite="Task" containment="true"
 	 * @generated
 	 */
-	EList<DocRef> getDocs();
+	EList<TaskOutput> getOutputs();
+
+	/**
+	 * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.job.TaskInput}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.TaskInput#getTask <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inputs</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inputs</em>' containment reference list.
+	 * @see com.misc.common.moplaf.job.JobPackage#getTask_Inputs()
+	 * @see com.misc.common.moplaf.job.TaskInput#getTask
+	 * @model opposite="Task" containment="true"
+	 * @generated
+	 */
+	EList<TaskInput> getInputs();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -43,7 +64,7 @@ public interface Task extends Run {
 	 * @model
 	 * @generated
 	 */
-	void addDoc(Doc doc);
+	void addInputDoc(Doc doc);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -51,7 +72,7 @@ public interface Task extends Run {
 	 * @model docsMany="true"
 	 * @generated
 	 */
-	void addDocs(EList<Doc> docs);
+	void addInputDocs(EList<Doc> docs);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,5 +81,21 @@ public interface Task extends Run {
 	 * @generated
 	 */
 	void initOutputs();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addOutputDoc(Doc doc);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model docsMany="true"
+	 * @generated
+	 */
+	void addOutputDocs(EList<Doc> docs);
 
 } // Task

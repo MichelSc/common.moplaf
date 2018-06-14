@@ -5,6 +5,7 @@ package com.misc.common.moplaf.job.provider;
 
 import com.misc.common.moplaf.emf.edit.command.GarbageCollectCommand;
 import com.misc.common.moplaf.job.Docs;
+import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.command.DocsGarbageCollectCommand;
 
@@ -150,6 +151,11 @@ public class DocsItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.DOCS__DOCS,
+				 JobFactory.eINSTANCE.createCompoundDoc()));
 	}
 
 	/**

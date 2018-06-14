@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.Doc#getReferences <em>References</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Doc#getRefs <em>Refs</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Doc#isLoaded <em>Loaded</em>}</li>
  * </ul>
  *
@@ -25,22 +25,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Doc extends EObject {
 	/**
-	 * Returns the value of the '<em><b>References</b></em>' reference list.
+	 * Returns the value of the '<em><b>Refs</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.DocRef}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.DocRef#getDoc <em>Doc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>References</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Refs</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>References</em>' reference list.
-	 * @see com.misc.common.moplaf.job.JobPackage#getDoc_References()
+	 * @return the value of the '<em>Refs</em>' reference list.
+	 * @see com.misc.common.moplaf.job.JobPackage#getDoc_Refs()
 	 * @see com.misc.common.moplaf.job.DocRef#getDoc
 	 * @model opposite="Doc"
 	 * @generated
 	 */
-	EList<DocRef> getReferences();
+	EList<DocRef> getRefs();
 
 	/**
 	 * Returns the value of the '<em><b>Loaded</b></em>' attribute.
@@ -74,7 +74,7 @@ public interface Doc extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void Save();
+	void save();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,6 +82,14 @@ public interface Doc extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void Load();
+	void load();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
 
 } // Doc

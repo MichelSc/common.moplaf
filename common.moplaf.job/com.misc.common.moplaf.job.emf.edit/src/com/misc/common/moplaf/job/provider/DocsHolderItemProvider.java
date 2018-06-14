@@ -186,7 +186,7 @@ public class DocsHolderItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JobPackage.Literals.DOCS_HOLDER__DOCS,
-				 JobFactory.eINSTANCE.createDocRef()));
+				 JobFactory.eINSTANCE.createDocInDocsHolder()));
 	}
 
 	/**
@@ -200,7 +200,7 @@ public class DocsHolderItemProvider
 		return JobEditPlugin.INSTANCE;
 	}
 
-	protected Command createDropCommand(EditingDomain domain, DocsHolder owner, Collection<?> droppedObjects) {
+	protected Command createDropCommandMulti(EditingDomain domain, DocsHolder owner, Collection<?> droppedObjects) {
     	BasicEList<Doc> docs = new BasicEList<Doc>();
 		for (Object droppedObject : droppedObjects){
 			if ( droppedObject instanceof Doc ) {
@@ -228,8 +228,13 @@ public class DocsHolderItemProvider
 	     */
 	    @Override
 	    protected boolean prepare(){
+	    	super.prepare();
+	    	Command cmd = DocsHolderItemProvider.this.createDropCommandMulti(this.domain, (DocsHolder)this.owner, this.collection);
+	    	if ( cmd == null ) {
+	    		return super.prepare();
+	    	}
 	    	this.dragCommand = null;
-			this.dropCommand = DocsHolderItemProvider.this.createDropCommand(this.domain, (DocsHolder)this.owner, this.collection);
+			this.dropCommand = cmd;
 	    	return this.dropCommand!=null;
 	    } // prepare
 	};

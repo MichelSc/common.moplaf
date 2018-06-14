@@ -4,12 +4,12 @@ package com.misc.common.moplaf.job.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
-import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.Task;
+import com.misc.common.moplaf.job.command.TaskAddInputDocsCommand;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -67,7 +67,8 @@ public class TaskItemProvider extends RunItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.TASK__DOCS);
+			childrenFeatures.add(JobPackage.Literals.TASK__OUTPUTS);
+			childrenFeatures.add(JobPackage.Literals.TASK__INPUTS);
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +114,8 @@ public class TaskItemProvider extends RunItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Task.class)) {
-			case JobPackage.TASK__DOCS:
+			case JobPackage.TASK__OUTPUTS:
+			case JobPackage.TASK__INPUTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -133,45 +135,27 @@ public class TaskItemProvider extends RunItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobPackage.Literals.TASK__DOCS,
-				 JobFactory.eINSTANCE.createDocRef()));
+				(JobPackage.Literals.TASK__OUTPUTS,
+				 JobFactory.eINSTANCE.createTaskOutput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.TASK__INPUTS,
+				 JobFactory.eINSTANCE.createTaskInput()));
 	}
-
-	/*
-	 * RunRunCommand
-	 */
-	public class TaskAddDocCommand extends BaseCommand{
-		private Task task;
-		private Doc doc;
-		
-		// constructor
-		public TaskAddDocCommand(Task task, Doc doc)	{
-			super("Drop Doc on Task", "Drop Doc on Task");
-			this.task = task;
-			this.doc = doc;
-		}
-
-		@Override
-		protected boolean prepare(){
-			boolean isExecutable = true;
-			return isExecutable;
-		}
-
-		@Override
-		public void execute() {
-			this.task.addDoc(doc);
-		}
-	} // class TaskAddDocCommand
 
 	@Override
-	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject) {
+	protected Command createDropCommandMulti(EditingDomain domain, Run owner, Collection<?> droppedObjects) {
 		Task task = (Task) owner;
-		if ( droppedObject instanceof Doc ) {
-			return new TaskAddDocCommand(task, (Doc)droppedObject);
+		BasicEList<Doc> docs = new BasicEList<Doc>();
+		for( Object droppedObject : droppedObjects) {
+			if ( droppedObject instanceof Doc ) {
+				docs.add((Doc)droppedObject);
+			}
 		}
-		return null;
+		if ( docs.size()>0 ){
+			return new TaskAddInputDocsCommand(task, docs);
+		}
+		return super.createDropCommandMulti(domain, owner, droppedObjects);
 	}
-	
-	
-
 }

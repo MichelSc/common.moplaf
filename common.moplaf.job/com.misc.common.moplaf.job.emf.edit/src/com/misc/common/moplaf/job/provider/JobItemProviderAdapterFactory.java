@@ -128,29 +128,6 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.DocRef} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DocRefItemProvider docRefItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.job.DocRef}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDocRefAdapter() {
-		if (docRefItemProvider == null) {
-			docRefItemProvider = new DocRefItemProvider(this);
-		}
-
-		return docRefItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Tasks} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,6 +174,29 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.TaskDomain} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskDomainItemProvider taskDomainItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.TaskDomain}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskDomainAdapter() {
+		if (taskDomainItemProvider == null) {
+			taskDomainItemProvider = new TaskDomainItemProvider(this);
+		}
+
+		return taskDomainItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.DocsHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -217,6 +217,98 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		}
 
 		return docsHolderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.CompoundDoc} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompoundDocItemProvider compoundDocItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.CompoundDoc}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompoundDocAdapter() {
+		if (compoundDocItemProvider == null) {
+			compoundDocItemProvider = new CompoundDocItemProvider(this);
+		}
+
+		return compoundDocItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.DocInDocsHolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocInDocsHolderItemProvider docInDocsHolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.DocInDocsHolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocInDocsHolderAdapter() {
+		if (docInDocsHolderItemProvider == null) {
+			docInDocsHolderItemProvider = new DocInDocsHolderItemProvider(this);
+		}
+
+		return docInDocsHolderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.TaskInput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskInputItemProvider taskInputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.TaskInput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskInputAdapter() {
+		if (taskInputItemProvider == null) {
+			taskInputItemProvider = new TaskInputItemProvider(this);
+		}
+
+		return taskInputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.TaskOutput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskOutputItemProvider taskOutputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.TaskOutput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskOutputAdapter() {
+		if (taskOutputItemProvider == null) {
+			taskOutputItemProvider = new TaskOutputItemProvider(this);
+		}
+
+		return taskOutputItemProvider;
 	}
 
 	/**
@@ -464,10 +556,14 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (setterAttributeFloatItemProvider != null) setterAttributeFloatItemProvider.dispose();
 		if (paramsHolderItemProvider != null) paramsHolderItemProvider.dispose();
 		if (runsItemProvider != null) runsItemProvider.dispose();
-		if (docRefItemProvider != null) docRefItemProvider.dispose();
+		if (docsHolderItemProvider != null) docsHolderItemProvider.dispose();
+		if (compoundDocItemProvider != null) compoundDocItemProvider.dispose();
+		if (docInDocsHolderItemProvider != null) docInDocsHolderItemProvider.dispose();
+		if (taskInputItemProvider != null) taskInputItemProvider.dispose();
+		if (taskOutputItemProvider != null) taskOutputItemProvider.dispose();
 		if (tasksItemProvider != null) tasksItemProvider.dispose();
 		if (docsItemProvider != null) docsItemProvider.dispose();
-		if (docsHolderItemProvider != null) docsHolderItemProvider.dispose();
+		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
 	}
 
 }

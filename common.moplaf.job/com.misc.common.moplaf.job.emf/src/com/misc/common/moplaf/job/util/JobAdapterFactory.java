@@ -131,16 +131,44 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 				return createRunsAdapter();
 			}
 			@Override
-			public Adapter caseTask(Task object) {
-				return createTaskAdapter();
-			}
-			@Override
 			public Adapter caseDoc(Doc object) {
 				return createDocAdapter();
 			}
 			@Override
 			public Adapter caseDocRef(DocRef object) {
 				return createDocRefAdapter();
+			}
+			@Override
+			public Adapter caseDocsHolder(DocsHolder object) {
+				return createDocsHolderAdapter();
+			}
+			@Override
+			public Adapter caseCompoundDoc(CompoundDoc object) {
+				return createCompoundDocAdapter();
+			}
+			@Override
+			public Adapter caseDocInDocsHolder(DocInDocsHolder object) {
+				return createDocInDocsHolderAdapter();
+			}
+			@Override
+			public Adapter caseTask(Task object) {
+				return createTaskAdapter();
+			}
+			@Override
+			public Adapter caseDomainTask(DomainTask object) {
+				return createDomainTaskAdapter();
+			}
+			@Override
+			public Adapter caseTaskDoc(TaskDoc object) {
+				return createTaskDocAdapter();
+			}
+			@Override
+			public Adapter caseTaskInput(TaskInput object) {
+				return createTaskInputAdapter();
+			}
+			@Override
+			public Adapter caseTaskOutput(TaskOutput object) {
+				return createTaskOutputAdapter();
 			}
 			@Override
 			public Adapter caseTasks(Tasks object) {
@@ -151,8 +179,8 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 				return createDocsAdapter();
 			}
 			@Override
-			public Adapter caseDocsHolder(DocsHolder object) {
-				return createDocsHolderAdapter();
+			public Adapter caseTaskDomain(TaskDomain object) {
+				return createTaskDomainAdapter();
 			}
 			@Override
 			public Adapter caseFileOwner(FileOwner object) {
@@ -295,6 +323,62 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.DomainTask <em>Domain Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.DomainTask
+	 * @generated
+	 */
+	public Adapter createDomainTaskAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.TaskDoc <em>Task Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.TaskDoc
+	 * @generated
+	 */
+	public Adapter createTaskDocAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.TaskInput <em>Task Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.TaskInput
+	 * @generated
+	 */
+	public Adapter createTaskInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.TaskOutput <em>Task Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.TaskOutput
+	 * @generated
+	 */
+	public Adapter createTaskOutputAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Doc <em>Doc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -351,6 +435,20 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.TaskDomain <em>Task Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.TaskDomain
+	 * @generated
+	 */
+	public Adapter createTaskDomainAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.DocsHolder <em>Docs Holder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -361,6 +459,34 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocsHolderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.CompoundDoc <em>Compound Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.CompoundDoc
+	 * @generated
+	 */
+	public Adapter createCompoundDocAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.DocInDocsHolder <em>Doc In Docs Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.DocInDocsHolder
+	 * @generated
+	 */
+	public Adapter createDocInDocsHolderAdapter() {
 		return null;
 	}
 

@@ -204,7 +204,7 @@ public class JobFileHandlerItemProvider extends JobItemProvider {
 	}
 
 	@Override
-	protected Command createDropCommand(EditingDomain domain, Run owner, Object droppedObject) {
+	protected Command createDropCommandSingle(EditingDomain domain, Run owner, Object droppedObject) {
 		JobFileHandler thisRun = (JobFileHandler) owner;
 		if ( droppedObject instanceof File){
   	   		SetCommand cmd = new SetCommand(domain, thisRun, FilePackage.Literals.FILE_HANDLER__SELECTED_FILE, droppedObject);

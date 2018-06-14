@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.job.provider;
 
 
-import com.misc.common.moplaf.job.DocRef;
 import com.misc.common.moplaf.job.JobPackage;
 
 import java.util.Collection;
@@ -22,9 +21,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.job.DocRef} object.
@@ -62,8 +59,6 @@ public class DocRefItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDocPropertyDescriptor(object);
-			addInputPropertyDescriptor(object);
-			addRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,50 +81,6 @@ public class DocRefItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Input feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInputPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocRef_Input_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocRef_Input_feature", "_UI_DocRef_type"),
-				 JobPackage.Literals.DOC_REF__INPUT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Role feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocRef_Role_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocRef_Role_feature", "_UI_DocRef_type"),
-				 JobPackage.Literals.DOC_REF__ROLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -183,8 +134,7 @@ public class DocRefItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		DocRef docRef = (DocRef)object;
-		return getString("_UI_DocRef_type") + " " + docRef.isInput();
+		return getString("_UI_DocRef_type");
 	}
 	
 
@@ -198,13 +148,6 @@ public class DocRefItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(DocRef.class)) {
-			case JobPackage.DOC_REF__INPUT:
-			case JobPackage.DOC_REF__ROLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

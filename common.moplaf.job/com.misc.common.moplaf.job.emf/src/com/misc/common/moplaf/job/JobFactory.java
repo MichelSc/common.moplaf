@@ -104,15 +104,6 @@ public interface JobFactory extends EFactory {
 	Runs createRuns();
 
 	/**
-	 * Returns a new object of class '<em>Doc Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Doc Ref</em>'.
-	 * @generated
-	 */
-	DocRef createDocRef();
-
-	/**
 	 * Returns a new object of class '<em>Tasks</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,6 +122,15 @@ public interface JobFactory extends EFactory {
 	Docs createDocs();
 
 	/**
+	 * Returns a new object of class '<em>Task Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Domain</em>'.
+	 * @generated
+	 */
+	TaskDomain createTaskDomain();
+
+	/**
 	 * Returns a new object of class '<em>Docs Holder</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +138,42 @@ public interface JobFactory extends EFactory {
 	 * @generated
 	 */
 	DocsHolder createDocsHolder();
+
+	/**
+	 * Returns a new object of class '<em>Compound Doc</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compound Doc</em>'.
+	 * @generated
+	 */
+	CompoundDoc createCompoundDoc();
+
+	/**
+	 * Returns a new object of class '<em>Doc In Docs Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Doc In Docs Holder</em>'.
+	 * @generated
+	 */
+	DocInDocsHolder createDocInDocsHolder();
+
+	/**
+	 * Returns a new object of class '<em>Task Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Input</em>'.
+	 * @generated
+	 */
+	TaskInput createTaskInput();
+
+	/**
+	 * Returns a new object of class '<em>Task Output</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Output</em>'.
+	 * @generated
+	 */
+	TaskOutput createTaskOutput();
 
 	/**
 	 * Returns the package supported by this factory.

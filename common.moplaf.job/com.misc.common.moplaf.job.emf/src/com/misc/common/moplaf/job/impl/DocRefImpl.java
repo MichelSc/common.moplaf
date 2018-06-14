@@ -24,13 +24,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.impl.DocRefImpl#getDoc <em>Doc</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.DocRefImpl#isInput <em>Input</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.DocRefImpl#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
+public abstract class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 	/**
 	 * The cached value of the '{@link #getDoc() <em>Doc</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -40,46 +38,6 @@ public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 	 * @ordered
 	 */
 	protected Doc doc;
-
-	/**
-	 * The default value of the '{@link #isInput() <em>Input</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInput()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean INPUT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isInput() <em>Input</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInput()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean input = INPUT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ROLE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected String role = ROLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,9 +108,9 @@ public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 		if (newDoc != doc) {
 			NotificationChain msgs = null;
 			if (doc != null)
-				msgs = ((InternalEObject)doc).eInverseRemove(this, JobPackage.DOC__REFERENCES, Doc.class, msgs);
+				msgs = ((InternalEObject)doc).eInverseRemove(this, JobPackage.DOC__REFS, Doc.class, msgs);
 			if (newDoc != null)
-				msgs = ((InternalEObject)newDoc).eInverseAdd(this, JobPackage.DOC__REFERENCES, Doc.class, msgs);
+				msgs = ((InternalEObject)newDoc).eInverseAdd(this, JobPackage.DOC__REFS, Doc.class, msgs);
 			msgs = basicSetDoc(newDoc, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -165,54 +123,12 @@ public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isInput() {
-		return input;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInput(boolean newInput) {
-		boolean oldInput = input;
-		input = newInput;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.DOC_REF__INPUT, oldInput, input));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getRole() {
-		return role;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRole(String newRole) {
-		String oldRole = role;
-		role = newRole;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.DOC_REF__ROLE, oldRole, role));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JobPackage.DOC_REF__DOC:
 				if (doc != null)
-					msgs = ((InternalEObject)doc).eInverseRemove(this, JobPackage.DOC__REFERENCES, Doc.class, msgs);
+					msgs = ((InternalEObject)doc).eInverseRemove(this, JobPackage.DOC__REFS, Doc.class, msgs);
 				return basicSetDoc((Doc)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -243,10 +159,6 @@ public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 			case JobPackage.DOC_REF__DOC:
 				if (resolve) return getDoc();
 				return basicGetDoc();
-			case JobPackage.DOC_REF__INPUT:
-				return isInput();
-			case JobPackage.DOC_REF__ROLE:
-				return getRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,12 +173,6 @@ public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 		switch (featureID) {
 			case JobPackage.DOC_REF__DOC:
 				setDoc((Doc)newValue);
-				return;
-			case JobPackage.DOC_REF__INPUT:
-				setInput((Boolean)newValue);
-				return;
-			case JobPackage.DOC_REF__ROLE:
-				setRole((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,12 +189,6 @@ public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 			case JobPackage.DOC_REF__DOC:
 				setDoc((Doc)null);
 				return;
-			case JobPackage.DOC_REF__INPUT:
-				setInput(INPUT_EDEFAULT);
-				return;
-			case JobPackage.DOC_REF__ROLE:
-				setRole(ROLE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,30 +203,8 @@ public class DocRefImpl extends MinimalEObjectImpl.Container implements DocRef {
 		switch (featureID) {
 			case JobPackage.DOC_REF__DOC:
 				return doc != null;
-			case JobPackage.DOC_REF__INPUT:
-				return input != INPUT_EDEFAULT;
-			case JobPackage.DOC_REF__ROLE:
-				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Input: ");
-		result.append(input);
-		result.append(", Role: ");
-		result.append(role);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DocRefImpl

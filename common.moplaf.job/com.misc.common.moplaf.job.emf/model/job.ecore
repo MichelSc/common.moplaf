@@ -162,28 +162,68 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Runs" upperBound="-1" eType="#//Run"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//Run">
+  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true">
+    <eOperations name="save"/>
+    <eOperations name="load"/>
+    <eOperations name="flush"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Refs" upperBound="-1" eType="#//DocRef"
+        eOpposite="#//DocRef/Doc"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocRef" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Doc" lowerBound="1" eType="#//Doc"
+        eOpposite="#//Doc/Refs"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocsHolder">
     <eOperations name="addDoc">
       <eParameters name="doc" eType="#//Doc"/>
     </eOperations>
     <eOperations name="addDocs">
       <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//DocInDocsHolder"
+        containment="true" eOpposite="#//DocInDocsHolder/DocsHolder"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundDoc" eSuperTypes="#//Doc #//DocsHolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DocInDocsHolder" eSuperTypes="#//DocRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DocsHolder" lowerBound="1"
+        eType="#//DocsHolder" eOpposite="#//DocsHolder/Docs"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//Run">
+    <eOperations name="addInputDoc">
+      <eParameters name="doc" eType="#//Doc"/>
+    </eOperations>
+    <eOperations name="addInputDocs">
+      <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
+    </eOperations>
     <eOperations name="initOutputs"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//DocRef"
-        containment="true"/>
+    <eOperations name="addOutputDoc">
+      <eParameters name="doc" eType="#//Doc"/>
+    </eOperations>
+    <eOperations name="addOutputDocs">
+      <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Outputs" upperBound="-1"
+        eType="#//TaskOutput" containment="true" eOpposite="#//TaskOutput/Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Inputs" upperBound="-1"
+        eType="#//TaskInput" containment="true" eOpposite="#//TaskInput/Task"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true">
-    <eOperations name="Save"/>
-    <eOperations name="Load"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="References" upperBound="-1"
-        eType="#//DocRef" eOpposite="#//DocRef/Doc"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainTask" abstract="true" eSuperTypes="#//Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"
+        eType="#//TaskDomain" changeable="false" volatile="true" transient="true"
+        derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Doc" eType="#//Doc" eOpposite="#//Doc/References"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskDoc" abstract="true" eSuperTypes="#//DocRef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskInput" eSuperTypes="#//TaskDoc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Task" lowerBound="1" eType="#//Task"
+        eOpposite="#//Task/Inputs"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskOutput" eSuperTypes="#//TaskDoc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Task" lowerBound="1" eType="#//Task"
+        eOpposite="#//Task/Outputs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tasks">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tasks" upperBound="-1"
@@ -194,15 +234,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//Doc"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocsHolder">
-    <eOperations name="addDoc">
-      <eParameters name="doc" eType="#//Doc"/>
-    </eOperations>
-    <eOperations name="addDocs">
-      <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//DocRef"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskDomain" eSuperTypes="#//Tasks #//Docs"/>
 </ecore:EPackage>
