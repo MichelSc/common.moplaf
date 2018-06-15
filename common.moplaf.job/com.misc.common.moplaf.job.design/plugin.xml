@@ -7,4 +7,11 @@
 	       name="job">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="com.misc.common.moplaf.job.design.ExternalJavaRun"
+           id="com.misc.common.moplaf.job.design.action.run">
+     </javaActions>
+  </extension>
 </plugin>

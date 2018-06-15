@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="job" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="job" version="12.0.0.2017041100">
   <ownedViewpoints name="vp_doctasks" label="Diagrams Docs &amp; Tasks">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="di_doctasks" label="Docs &amp; Tasks Diagram" domainClass="job::TaskDomain" enablePopupBars="true">
       <metamodel href="../../com.misc.common.moplaf.job.emf/model/job.ecore#/"/>
@@ -34,6 +34,28 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <toolSections name="di_doctasks_tools_taskload">
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_createtask" id="com.misc.common.moplaf.job.design.action.run"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask2" elementsToSelect="aql:instance" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" valueExpression="service:myService2"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.job.design.Services"/>
