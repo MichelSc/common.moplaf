@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="job" version="12.0.0.2017041100">
+  <ownedViewpoints name="vp_doctasks" label="Diagrams Docs &amp; Tasks">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="di_doctasks" label="Docs &amp; Tasks Diagram" domainClass="job::TaskDomain" enablePopupBars="true">
+      <metamodel href="../../com.misc.common.moplaf.job.emf/model/job.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="di_doctasks_doc" label="aDoc" semanticCandidatesExpression="feature:Docs" domainClass="job::Doc">
+          <style xsi:type="style:SquareDescription" labelExpression="feature:Description" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="di_doctasks_task" label="aTask" semanticCandidatesExpression="feature:Tasks" domainClass="job::Task">
+          <style xsi:type="style:DotDescription" labelExpression="feature:Description" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </nodeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.job.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

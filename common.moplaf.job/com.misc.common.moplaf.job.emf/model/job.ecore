@@ -166,9 +166,11 @@
     <eOperations name="save"/>
     <eOperations name="load"/>
     <eOperations name="flush"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Refs" upperBound="-1" eType="#//DocRef"
         eOpposite="#//DocRef/Doc"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocRef" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Doc" lowerBound="1" eType="#//Doc"
@@ -204,10 +206,13 @@
     <eOperations name="addOutputDocs">
       <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Outputs" upperBound="-1"
-        eType="#//TaskOutput" containment="true" eOpposite="#//TaskOutput/Task"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Inputs" upperBound="-1"
         eType="#//TaskInput" containment="true" eOpposite="#//TaskInput/Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Outputs" upperBound="-1"
+        eType="#//TaskOutput" containment="true" eOpposite="#//TaskOutput/Task"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainTask" abstract="true" eSuperTypes="#//Task">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"

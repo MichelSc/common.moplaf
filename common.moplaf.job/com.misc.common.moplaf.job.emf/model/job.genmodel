@@ -160,8 +160,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Runs/Runs"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//Doc">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference job.ecore#//Doc/Refs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Doc/Loaded"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Doc"
+          ecoreFeature="ecore:EAttribute job.ecore#//Doc/Description"/>
+      <genFeatures createChild="false" propertyCategory="20 Doc" ecoreFeature="ecore:EAttribute job.ecore#//Doc/Loaded"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Doc" propertySortChoices="true"
+          ecoreFeature="ecore:EReference job.ecore#//Doc/Refs"/>
       <genOperations ecoreOperation="job.ecore#//Doc/save"/>
       <genOperations ecoreOperation="job.ecore#//Doc/load"/>
       <genOperations ecoreOperation="job.ecore#//Doc/flush"/>
@@ -184,9 +187,12 @@
     <genClasses image="false" ecoreClass="job.ecore#//DocInDocsHolder">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//DocInDocsHolder/DocsHolder"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="job.ecore#//Task">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Task/Outputs"/>
+    <genClasses image="false" ecoreClass="job.ecore#//Task" labelFeature="#//job/Task/Description">
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Task"
+          ecoreFeature="ecore:EAttribute job.ecore#//Task/Description"/>
+      <genFeatures createChild="false" propertyCategory="20 Task" ecoreFeature="ecore:EAttribute job.ecore#//Task/Name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Task/Inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Task/Outputs"/>
       <genOperations ecoreOperation="job.ecore#//Task/addInputDoc">
         <genParameters ecoreParameter="job.ecore#//Task/addInputDoc/doc"/>
       </genOperations>
@@ -201,7 +207,7 @@
         <genParameters ecoreParameter="job.ecore#//Task/addOutputDocs/docs"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="job.ecore#//DomainTask">
+    <genClasses image="false" ecoreClass="job.ecore#//DomainTask" labelFeature="#//job/Task/Description">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//DomainTask/Domain"/>
     </genClasses>
     <genClasses image="false" ecoreClass="job.ecore#//TaskDoc">

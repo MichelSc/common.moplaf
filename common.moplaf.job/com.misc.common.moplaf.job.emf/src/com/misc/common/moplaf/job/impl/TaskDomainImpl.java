@@ -6,7 +6,6 @@ import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.Task;
 import com.misc.common.moplaf.job.TaskDomain;
 import com.misc.common.moplaf.job.Tasks;
-import com.misc.common.moplaf.job.util.Util;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;

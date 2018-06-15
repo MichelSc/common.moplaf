@@ -63,8 +63,9 @@ public class DocItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRefsPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addLoadedPropertyDescriptor(object);
+			addRefsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,7 +88,7 @@ public class DocItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DocPropertyCategory"),
 				 null));
 	}
 
@@ -109,7 +110,29 @@ public class DocItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20DocPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Doc_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Doc_Description_feature", "_UI_Doc_type"),
+				 JobPackage.Literals.DOC__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__20DocPropertyCategory"),
 				 null));
 	}
 
@@ -131,8 +154,10 @@ public class DocItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Doc doc = (Doc)object;
-		return getString("_UI_Doc_type") + " " + doc.isLoaded();
+		String label = ((Doc)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Doc_type") :
+			getString("_UI_Doc_type") + " " + label;
 	}
 	
 
@@ -148,6 +173,7 @@ public class DocItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Doc.class)) {
+			case JobPackage.DOC__DESCRIPTION:
 			case JobPackage.DOC__LOADED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

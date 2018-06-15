@@ -15,8 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.Doc#getRefs <em>Refs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Doc#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Doc#isLoaded <em>Loaded</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Doc#getRefs <em>Refs</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getDoc()
@@ -67,6 +68,21 @@ public interface Doc extends EObject {
 	 * @generated
 	 */
 	void setLoaded(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getDoc_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 	/**
 	 * <!-- begin-user-doc -->

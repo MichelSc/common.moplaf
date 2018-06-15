@@ -844,7 +844,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EReference getTask_Outputs() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(0);
+		return (EReference)taskEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -853,7 +853,25 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EReference getTask_Inputs() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(1);
+		return (EReference)taskEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Description() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Name() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -988,7 +1006,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EReference getDoc_Refs() {
-		return (EReference)docEClass.getEStructuralFeatures().get(0);
+		return (EReference)docEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -998,6 +1016,15 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 */
 	public EAttribute getDoc_Loaded() {
 		return (EAttribute)docEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoc_Description() {
+		return (EAttribute)docEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1530,8 +1557,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEReference(runsEClass, RUNS__RUNS);
 
 		docEClass = createEClass(DOC);
-		createEReference(docEClass, DOC__REFS);
+		createEAttribute(docEClass, DOC__DESCRIPTION);
 		createEAttribute(docEClass, DOC__LOADED);
+		createEReference(docEClass, DOC__REFS);
 		createEOperation(docEClass, DOC___SAVE);
 		createEOperation(docEClass, DOC___LOAD);
 		createEOperation(docEClass, DOC___FLUSH);
@@ -1551,8 +1579,10 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEReference(docInDocsHolderEClass, DOC_IN_DOCS_HOLDER__DOCS_HOLDER);
 
 		taskEClass = createEClass(TASK);
-		createEReference(taskEClass, TASK__OUTPUTS);
+		createEAttribute(taskEClass, TASK__DESCRIPTION);
+		createEAttribute(taskEClass, TASK__NAME);
 		createEReference(taskEClass, TASK__INPUTS);
+		createEReference(taskEClass, TASK__OUTPUTS);
 		createEOperation(taskEClass, TASK___ADD_INPUT_DOC__DOC);
 		createEOperation(taskEClass, TASK___ADD_INPUT_DOCS__ELIST);
 		createEOperation(taskEClass, TASK___INIT_OUTPUTS);
@@ -1783,8 +1813,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEReference(getRuns_Runs(), this.getRun(), null, "Runs", null, 0, -1, Runs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(docEClass, Doc.class, "Doc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDoc_Refs(), this.getDocRef(), this.getDocRef_Doc(), "Refs", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDoc_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Doc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDoc_Loaded(), ecorePackage.getEBoolean(), "Loaded", null, 0, 1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDoc_Refs(), this.getDocRef(), this.getDocRef_Doc(), "Refs", null, 0, -1, Doc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDoc__Save(), null, "save", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1811,8 +1842,10 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEReference(getDocInDocsHolder_DocsHolder(), this.getDocsHolder(), this.getDocsHolder_Docs(), "DocsHolder", null, 1, 1, DocInDocsHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTask_Outputs(), this.getTaskOutput(), this.getTaskOutput_Task(), "Outputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Inputs(), this.getTaskInput(), this.getTaskInput_Task(), "Inputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Outputs(), this.getTaskOutput(), this.getTaskOutput_Task(), "Outputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTask__AddInputDoc__Doc(), null, "addInputDoc", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.job.provider;
 
 
-import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
@@ -20,7 +19,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -51,8 +52,54 @@ public class TaskItemProvider extends RunItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDescriptionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_Description_feature", "_UI_Task_type"),
+				 JobPackage.Literals.TASK__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__20TaskPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_Name_feature", "_UI_Task_type"),
+				 JobPackage.Literals.TASK__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__20TaskPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -67,8 +114,8 @@ public class TaskItemProvider extends RunItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.TASK__OUTPUTS);
 			childrenFeatures.add(JobPackage.Literals.TASK__INPUTS);
+			childrenFeatures.add(JobPackage.Literals.TASK__OUTPUTS);
 		}
 		return childrenFeatures;
 	}
@@ -94,8 +141,7 @@ public class TaskItemProvider extends RunItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		EnabledFeedback labelValue = ((Task)object).getRunFeedback();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Task)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Task_type") :
 			getString("_UI_Task_type") + " " + label;
@@ -114,8 +160,12 @@ public class TaskItemProvider extends RunItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Task.class)) {
-			case JobPackage.TASK__OUTPUTS:
+			case JobPackage.TASK__DESCRIPTION:
+			case JobPackage.TASK__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case JobPackage.TASK__INPUTS:
+			case JobPackage.TASK__OUTPUTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -135,13 +185,13 @@ public class TaskItemProvider extends RunItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobPackage.Literals.TASK__OUTPUTS,
-				 JobFactory.eINSTANCE.createTaskOutput()));
+				(JobPackage.Literals.TASK__INPUTS,
+				 JobFactory.eINSTANCE.createTaskInput()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobPackage.Literals.TASK__INPUTS,
-				 JobFactory.eINSTANCE.createTaskInput()));
+				(JobPackage.Literals.TASK__OUTPUTS,
+				 JobFactory.eINSTANCE.createTaskOutput()));
 	}
 
 	@Override

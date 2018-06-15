@@ -1916,13 +1916,13 @@ public interface JobPackage extends EPackage {
 	int DOC = 13;
 
 	/**
-	 * The feature id for the '<em><b>Refs</b></em>' reference list.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__REFS = 0;
+	int DOC__DESCRIPTION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -1934,13 +1934,22 @@ public interface JobPackage extends EPackage {
 	int DOC__LOADED = 1;
 
 	/**
+	 * The feature id for the '<em><b>Refs</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC__REFS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Doc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_FEATURE_COUNT = 2;
+	int DOC_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Save</em>' operation.
@@ -2120,13 +2129,13 @@ public interface JobPackage extends EPackage {
 	int COMPOUND_DOC = 16;
 
 	/**
-	 * The feature id for the '<em><b>Refs</b></em>' reference list.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOUND_DOC__REFS = DOC__REFS;
+	int COMPOUND_DOC__DESCRIPTION = DOC__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -2136,6 +2145,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOUND_DOC__LOADED = DOC__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Refs</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC__REFS = DOC__REFS;
 
 	/**
 	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
@@ -2346,13 +2364,22 @@ public interface JobPackage extends EPackage {
 	int TASK__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
 
 	/**
-	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__OUTPUTS = RUN_FEATURE_COUNT + 0;
+	int TASK__DESCRIPTION = RUN_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__NAME = RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -2361,7 +2388,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__INPUTS = RUN_FEATURE_COUNT + 1;
+	int TASK__INPUTS = RUN_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__OUTPUTS = RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -2370,7 +2406,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 2;
+	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -2616,13 +2652,22 @@ public interface JobPackage extends EPackage {
 	int DOMAIN_TASK__RETURN_INFORMATION = TASK__RETURN_INFORMATION;
 
 	/**
-	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_TASK__OUTPUTS = TASK__OUTPUTS;
+	int DOMAIN_TASK__DESCRIPTION = TASK__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__NAME = TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -2632,6 +2677,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_TASK__INPUTS = TASK__INPUTS;
+
+	/**
+	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__OUTPUTS = TASK__OUTPUTS;
 
 	/**
 	 * The feature id for the '<em><b>Domain</b></em>' reference.
@@ -3697,6 +3751,28 @@ public interface JobPackage extends EPackage {
 	EReference getTask_Inputs();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Task#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.job.Task#getDescription()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Task#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.Task#getName()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Name();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#addInputDoc(com.misc.common.moplaf.job.Doc) <em>Add Input Doc</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3861,6 +3937,17 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDoc_Loaded();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Doc#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.job.Doc#getDescription()
+	 * @see #getDoc()
+	 * @generated
+	 */
+	EAttribute getDoc_Description();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Doc#save() <em>Save</em>}' operation.
@@ -4832,6 +4919,22 @@ public interface JobPackage extends EPackage {
 		EReference TASK__INPUTS = eINSTANCE.getTask_Inputs();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__DESCRIPTION = eINSTANCE.getTask_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__NAME = eINSTANCE.getTask_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Input Doc</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4968,6 +5071,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOC__LOADED = eINSTANCE.getDoc_Loaded();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC__DESCRIPTION = eINSTANCE.getDoc_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Save</b></em>' operation.

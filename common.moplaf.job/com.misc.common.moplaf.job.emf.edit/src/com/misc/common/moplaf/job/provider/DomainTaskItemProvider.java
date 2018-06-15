@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.job.provider;
 
 
-import com.misc.common.moplaf.common.EnabledFeedback;
-
 import com.misc.common.moplaf.job.DomainTask;
 import java.util.Collection;
 import java.util.List;
@@ -53,8 +51,7 @@ public class DomainTaskItemProvider extends TaskItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		EnabledFeedback labelValue = ((DomainTask)object).getRunFeedback();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((DomainTask)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DomainTask_type") :
 			getString("_UI_DomainTask_type") + " " + label;

@@ -32,22 +32,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.impl.DocImpl#getRefs <em>Refs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.DocImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.DocImpl#isLoaded <em>Loaded</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.DocImpl#getRefs <em>Refs</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class DocImpl extends MinimalEObjectImpl.Container implements Doc {
 	/**
-	 * The cached value of the '{@link #getRefs() <em>Refs</em>}' reference list.
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRefs()
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocRef> refs;
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isLoaded() <em>Loaded</em>}' attribute.
@@ -68,6 +69,16 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	 * @ordered
 	 */
 	protected boolean loaded = LOADED_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRefs() <em>Refs</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DocRef> refs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,6 +130,17 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 		loaded = newLoaded;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.DOC__LOADED, oldLoaded, loaded));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		// TODO: implement this method to return the 'Description' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -191,10 +213,12 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobPackage.DOC__REFS:
-				return getRefs();
+			case JobPackage.DOC__DESCRIPTION:
+				return getDescription();
 			case JobPackage.DOC__LOADED:
 				return isLoaded();
+			case JobPackage.DOC__REFS:
+				return getRefs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,12 +232,12 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case JobPackage.DOC__LOADED:
+				setLoaded((Boolean)newValue);
+				return;
 			case JobPackage.DOC__REFS:
 				getRefs().clear();
 				getRefs().addAll((Collection<? extends DocRef>)newValue);
-				return;
-			case JobPackage.DOC__LOADED:
-				setLoaded((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,11 +251,11 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.DOC__REFS:
-				getRefs().clear();
-				return;
 			case JobPackage.DOC__LOADED:
 				setLoaded(LOADED_EDEFAULT);
+				return;
+			case JobPackage.DOC__REFS:
+				getRefs().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -245,10 +269,12 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobPackage.DOC__REFS:
-				return refs != null && !refs.isEmpty();
+			case JobPackage.DOC__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case JobPackage.DOC__LOADED:
 				return loaded != LOADED_EDEFAULT;
+			case JobPackage.DOC__REFS:
+				return refs != null && !refs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
