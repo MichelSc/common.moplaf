@@ -35,7 +35,7 @@
           </style>
         </edgeMappings>
         <toolSections name="di_doctasks_tools_taskload">
-          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun">
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun" label="Run  a Task">
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
