@@ -18,6 +18,22 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </nodeMappings>
+        <edgeMappings name="di_doctasks_input" semanticCandidatesExpression="aql:self.Tasks.Inputs" sourceMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_doc']" targetMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']" targetFinderExpression="aql:self.Task" sourceFinderExpression="aql:self.Doc" domainClass="job::TaskInput" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="di_doctasks_output" semanticCandidatesExpression="aql:self.Tasks.Outputs" sourceMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']" targetMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_doc']" targetFinderExpression="aql:self.Doc" sourceFinderExpression="aql:self.Task" domainClass="job::TaskOutput" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.job.design.Services"/>
