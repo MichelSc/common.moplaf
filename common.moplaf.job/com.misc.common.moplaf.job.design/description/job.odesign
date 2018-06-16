@@ -79,8 +79,8 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="pr_doctasks">
     <metamodels href="../../com.misc.common.moplaf.job.emf/model/job.ecore#/"/>
     <categories name="Default">
+      <pages name="pr_page_doctasks" label="Doc &amp; Tasks" labelExpression="Docs &amp; Tasks" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.1" indented="true"/>
       <pages name="pr_page_default" label="Default Page" labelExpression="aql:input.emfEditServices(self).getTabName()" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="pr_page_doctasks" label="Doc &amp; Tasks" labelExpression="Docs &amp; Tasks" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.1" indented="true"/>
       <groups name="sirius_default_rules_defaultgroup" labelExpression="Properties" semanticCandidateExpression="var:self" preconditionExpression="">
         <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
           <ifs name="sirius_default_rules_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
@@ -152,6 +152,16 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:ListDescription" name="pr_group_task_inputs" label="List Task Inputs" labelExpression="Inputs" valueExpression="aql:self.Inputs" displayExpression="aql:value.Doc.Description">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </onClickOperation>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="pr_group_task_outputs" label="List Task Outputs" labelExpression="Outputs" valueExpression="aql:self.Outputs" displayExpression="aql:value.Doc.Description">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </onClickOperation>
+        </controls>
       </groups>
       <groups name="pr_group_enabled" label="Group Enabled" labelExpression="Enabled" domainClass="job::Run" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_enabled_run" label="Field RunEnabled" labelExpression="Run Enabled" helpExpression="Feedback about allowed to execute the run" isEnabledExpression="aql:false" valueExpression="aql:self.RunFeedback">
@@ -165,6 +175,37 @@
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="pr_group_enabled_cancel" label="Field CancelEnabled" labelExpression="Cancel Enabled" helpExpression="Feedback about allowed to cancel the run" isEnabledExpression="aql:false" valueExpression="aql:self.CancelFeedback">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool:SetValue" featureName="Cancelled" valueExpression="aql:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="pr_group_run" label="Group Run" labelExpression="Run" domainClass="job::Run" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:CheckboxDescription" name="pr_group_run_returned" label="Field RunReturned" labelExpression="Run Returned" isEnabledExpression="aql:false" valueExpression="aql:self.Returned">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="pr_group_run_success" label="Field RunSuccess" labelExpression="Run Success" isEnabledExpression="aql:false" valueExpression="aql:self.ReturnSuccess">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="pr_group_run_cancelled" label="Field RunCancelled" labelExpression="Run Cancelled" valueExpression="aql:self.Cancelled">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool:SetValue" featureName="Cancelled" valueExpression="aql:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="pr_group_run_feedback" label="Field RunFeedback" labelExpression="Run Feedback" isEnabledExpression="aql:false" valueExpression="aql:self.ReturnFeedback">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="pr_group_run_information" label="Field RunInformation" labelExpression="Run Information" isEnabledExpression="aql:false" valueExpression="aql:self.ReturnInformation">
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
