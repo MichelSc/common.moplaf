@@ -27,7 +27,7 @@ public interface Task extends Run {
 	/**
 	 * Returns the value of the '<em><b>Outputs</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.TaskOutput}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.TaskOutput#getTask <em>Task</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.TaskOutput#getProducer <em>Producer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Outputs</em>' containment reference list isn't clear,
@@ -36,8 +36,8 @@ public interface Task extends Run {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outputs</em>' containment reference list.
 	 * @see com.misc.common.moplaf.job.JobPackage#getTask_Outputs()
-	 * @see com.misc.common.moplaf.job.TaskOutput#getTask
-	 * @model opposite="Task" containment="true"
+	 * @see com.misc.common.moplaf.job.TaskOutput#getProducer
+	 * @model opposite="Producer" containment="true"
 	 * @generated
 	 */
 	EList<TaskOutput> getOutputs();
@@ -45,7 +45,7 @@ public interface Task extends Run {
 	/**
 	 * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.TaskInput}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.TaskInput#getTask <em>Task</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.TaskInput#getConsumer <em>Consumer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Inputs</em>' containment reference list isn't clear,
@@ -54,8 +54,8 @@ public interface Task extends Run {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inputs</em>' containment reference list.
 	 * @see com.misc.common.moplaf.job.JobPackage#getTask_Inputs()
-	 * @see com.misc.common.moplaf.job.TaskInput#getTask
-	 * @model opposite="Task" containment="true"
+	 * @see com.misc.common.moplaf.job.TaskInput#getConsumer
+	 * @model opposite="Consumer" containment="true"
 	 * @generated
 	 */
 	EList<TaskInput> getInputs();

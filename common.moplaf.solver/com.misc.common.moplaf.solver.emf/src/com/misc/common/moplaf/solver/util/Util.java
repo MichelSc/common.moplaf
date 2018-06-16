@@ -15,7 +15,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 
+import com.misc.common.moplaf.job.util.RunFactory;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
@@ -220,6 +223,29 @@ public class Util {
 		}
 		return null;
 	}
+
+	static public EList<Solver> getNewSolvers() {
+		BasicEList<Solver> list = new BasicEList<Solver>();
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.solver.emf.solver_factory");
+		for ( IConfigurationElement element : elements){
+			Object value;
+			try {
+				value = element.createExecutableExtension("class");
+				if ( value instanceof RunFactory) {
+					Solver newSolver = ((com.misc.common.moplaf.solver.util.SolverFactory)value).createSolver();
+					if ( newSolver!=null){
+						list.add(newSolver);
+					}
+				}
+			} catch (CoreException e) {
+				e.printStackTrace();
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.Util.getNewSolvers: exception caught "+e.getMessage());
+			}
+		}
+		return list;
+	}
+
 
 
 }

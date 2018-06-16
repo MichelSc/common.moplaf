@@ -16,10 +16,14 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 
 import com.misc.common.moplaf.file.Plugin;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.Docs;
+import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.Task;
 
 public class Util {
 	static public RunFactory getRunFactory(String factory_id) {
@@ -57,6 +61,51 @@ public class Util {
 		}
 		return null;
 	}
+	
+	static public EList<Run> getNewRuns() {
+		BasicEList<Run> list = new BasicEList<Run>();
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.run_factory");
+		for ( IConfigurationElement element : elements){
+			Object value;
+			try {
+				value = element.createExecutableExtension("class");
+				if ( value instanceof RunFactory) {
+					Run newRun = ((RunFactory)value).createRun();
+					if ( newRun!=null){
+						list.add(newRun);
+					}
+				}
+			} catch (CoreException e) {
+				e.printStackTrace();
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.Util.getNewRuns: exception caught "+e.getMessage());
+			}
+		}
+		return list;
+	}
+
+	static public EList<Task> getNewTasks() {
+		BasicEList<Task> list = new BasicEList<Task>();
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.run_factory");
+		for ( IConfigurationElement element : elements){
+			Object value;
+			try {
+				value = element.createExecutableExtension("class");
+				if ( value instanceof RunFactory) {
+					Run newRun = ((RunFactory)value).createRun();
+					if ( newRun instanceof Task ){
+						list.add((Task)newRun);
+					}
+				}
+			} catch (CoreException e) {
+				e.printStackTrace();
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.Util.getNewTasks: exception caught "+e.getMessage());
+			}
+		}
+		return list;
+	}
+
 	
 	static public void docsGarbageCollect(Docs docs) {
 		Iterator<Doc> iterator = docs.getDocs().iterator();

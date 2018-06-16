@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.impl.TaskInputImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.TaskInputImpl#getConsumer <em>Consumer</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,8 +54,8 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task getTask() {
-		if (eContainerFeatureID() != JobPackage.TASK_INPUT__TASK) return null;
+	public Task getConsumer() {
+		if (eContainerFeatureID() != JobPackage.TASK_INPUT__CONSUMER) return null;
 		return (Task)eInternalContainer();
 	}
 
@@ -64,8 +64,8 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTask(Task newTask, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newTask, JobPackage.TASK_INPUT__TASK, msgs);
+	public NotificationChain basicSetConsumer(Task newConsumer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newConsumer, JobPackage.TASK_INPUT__CONSUMER, msgs);
 		return msgs;
 	}
 
@@ -74,20 +74,20 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTask(Task newTask) {
-		if (newTask != eInternalContainer() || (eContainerFeatureID() != JobPackage.TASK_INPUT__TASK && newTask != null)) {
-			if (EcoreUtil.isAncestor(this, newTask))
+	public void setConsumer(Task newConsumer) {
+		if (newConsumer != eInternalContainer() || (eContainerFeatureID() != JobPackage.TASK_INPUT__CONSUMER && newConsumer != null)) {
+			if (EcoreUtil.isAncestor(this, newConsumer))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newTask != null)
-				msgs = ((InternalEObject)newTask).eInverseAdd(this, JobPackage.TASK__INPUTS, Task.class, msgs);
-			msgs = basicSetTask(newTask, msgs);
+			if (newConsumer != null)
+				msgs = ((InternalEObject)newConsumer).eInverseAdd(this, JobPackage.TASK__INPUTS, Task.class, msgs);
+			msgs = basicSetConsumer(newConsumer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.TASK_INPUT__TASK, newTask, newTask));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.TASK_INPUT__CONSUMER, newConsumer, newConsumer));
 	}
 
 	/**
@@ -98,10 +98,10 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobPackage.TASK_INPUT__TASK:
+			case JobPackage.TASK_INPUT__CONSUMER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetTask((Task)otherEnd, msgs);
+				return basicSetConsumer((Task)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -114,8 +114,8 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobPackage.TASK_INPUT__TASK:
-				return basicSetTask(null, msgs);
+			case JobPackage.TASK_INPUT__CONSUMER:
+				return basicSetConsumer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -128,7 +128,7 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case JobPackage.TASK_INPUT__TASK:
+			case JobPackage.TASK_INPUT__CONSUMER:
 				return eInternalContainer().eInverseRemove(this, JobPackage.TASK__INPUTS, Task.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -142,8 +142,8 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobPackage.TASK_INPUT__TASK:
-				return getTask();
+			case JobPackage.TASK_INPUT__CONSUMER:
+				return getConsumer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,8 +156,8 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobPackage.TASK_INPUT__TASK:
-				setTask((Task)newValue);
+			case JobPackage.TASK_INPUT__CONSUMER:
+				setConsumer((Task)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -171,8 +171,8 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.TASK_INPUT__TASK:
-				setTask((Task)null);
+			case JobPackage.TASK_INPUT__CONSUMER:
+				setConsumer((Task)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -186,8 +186,8 @@ public class TaskInputImpl extends TaskDocImpl implements TaskInput {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobPackage.TASK_INPUT__TASK:
-				return getTask() != null;
+			case JobPackage.TASK_INPUT__CONSUMER:
+				return getConsumer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -210,9 +210,9 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Inputs" upperBound="-1"
-        eType="#//TaskInput" containment="true" eOpposite="#//TaskInput/Task"/>
+        eType="#//TaskInput" containment="true" eOpposite="#//TaskInput/Consumer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Outputs" upperBound="-1"
-        eType="#//TaskOutput" containment="true" eOpposite="#//TaskOutput/Task"/>
+        eType="#//TaskOutput" containment="true" eOpposite="#//TaskOutput/Producer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainTask" abstract="true" eSuperTypes="#//Task">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"
@@ -223,12 +223,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskInput" eSuperTypes="#//TaskDoc">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Task" lowerBound="1" eType="#//Task"
-        eOpposite="#//Task/Inputs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Consumer" lowerBound="1"
+        eType="#//Task" eOpposite="#//Task/Inputs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskOutput" eSuperTypes="#//TaskDoc">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Task" lowerBound="1" eType="#//Task"
-        eOpposite="#//Task/Outputs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Producer" lowerBound="1"
+        eType="#//Task" eOpposite="#//Task/Outputs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tasks">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tasks" upperBound="-1"
@@ -239,5 +239,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//Doc"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskDomain" eSuperTypes="#//Docs #//Tasks"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskDomain" eSuperTypes="#//Docs #//Tasks">
+    <eOperations name="getNewTasks" upperBound="-1" eType="#//Task">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Return an exemplar of every task type supported by this TaskDomain."/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
 </ecore:EPackage>

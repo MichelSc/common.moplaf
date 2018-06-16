@@ -2922,13 +2922,13 @@ public interface JobPackage extends EPackage {
 	int TASK_INPUT__ROLE = TASK_DOC__ROLE;
 
 	/**
-	 * The feature id for the '<em><b>Task</b></em>' container reference.
+	 * The feature id for the '<em><b>Consumer</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_INPUT__TASK = TASK_DOC_FEATURE_COUNT + 0;
+	int TASK_INPUT__CONSUMER = TASK_DOC_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Task Input</em>' class.
@@ -2967,13 +2967,13 @@ public interface JobPackage extends EPackage {
 	int TASK_OUTPUT__ROLE = TASK_DOC__ROLE;
 
 	/**
-	 * The feature id for the '<em><b>Task</b></em>' container reference.
+	 * The feature id for the '<em><b>Producer</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OUTPUT__TASK = TASK_DOC_FEATURE_COUNT + 0;
+	int TASK_OUTPUT__PRODUCER = TASK_DOC_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Task Output</em>' class.
@@ -3093,13 +3093,22 @@ public interface JobPackage extends EPackage {
 	int TASK_DOMAIN___GARBAGE_COLLECT = DOCS___GARBAGE_COLLECT;
 
 	/**
+	 * The operation id for the '<em>Get New Tasks</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_DOMAIN___GET_NEW_TASKS = DOCS_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Task Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_DOMAIN_OPERATION_COUNT = DOCS_OPERATION_COUNT + 0;
+	int TASK_DOMAIN_OPERATION_COUNT = DOCS_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
@@ -3875,15 +3884,15 @@ public interface JobPackage extends EPackage {
 	EClass getTaskInput();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.TaskInput#getTask <em>Task</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.TaskInput#getConsumer <em>Consumer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Task</em>'.
-	 * @see com.misc.common.moplaf.job.TaskInput#getTask()
+	 * @return the meta object for the container reference '<em>Consumer</em>'.
+	 * @see com.misc.common.moplaf.job.TaskInput#getConsumer()
 	 * @see #getTaskInput()
 	 * @generated
 	 */
-	EReference getTaskInput_Task();
+	EReference getTaskInput_Consumer();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.TaskOutput <em>Task Output</em>}'.
@@ -3896,15 +3905,15 @@ public interface JobPackage extends EPackage {
 	EClass getTaskOutput();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.TaskOutput#getTask <em>Task</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.TaskOutput#getProducer <em>Producer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Task</em>'.
-	 * @see com.misc.common.moplaf.job.TaskOutput#getTask()
+	 * @return the meta object for the container reference '<em>Producer</em>'.
+	 * @see com.misc.common.moplaf.job.TaskOutput#getProducer()
 	 * @see #getTaskOutput()
 	 * @generated
 	 */
-	EReference getTaskOutput_Task();
+	EReference getTaskOutput_Producer();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Doc <em>Doc</em>}'.
@@ -4061,6 +4070,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTaskDomain();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.TaskDomain#getNewTasks() <em>Get New Tasks</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get New Tasks</em>' operation.
+	 * @see com.misc.common.moplaf.job.TaskDomain#getNewTasks()
+	 * @generated
+	 */
+	EOperation getTaskDomain__GetNewTasks();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.DocsHolder <em>Docs Holder</em>}'.
@@ -5021,12 +5040,12 @@ public interface JobPackage extends EPackage {
 		EClass TASK_INPUT = eINSTANCE.getTaskInput();
 
 		/**
-		 * The meta object literal for the '<em><b>Task</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Consumer</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TASK_INPUT__TASK = eINSTANCE.getTaskInput_Task();
+		EReference TASK_INPUT__CONSUMER = eINSTANCE.getTaskInput_Consumer();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.TaskOutputImpl <em>Task Output</em>}' class.
@@ -5039,12 +5058,12 @@ public interface JobPackage extends EPackage {
 		EClass TASK_OUTPUT = eINSTANCE.getTaskOutput();
 
 		/**
-		 * The meta object literal for the '<em><b>Task</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Producer</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TASK_OUTPUT__TASK = eINSTANCE.getTaskOutput_Task();
+		EReference TASK_OUTPUT__PRODUCER = eINSTANCE.getTaskOutput_Producer();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.DocImpl <em>Doc</em>}' class.
@@ -5175,6 +5194,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TASK_DOMAIN = eINSTANCE.getTaskDomain();
+
+		/**
+		 * The meta object literal for the '<em><b>Get New Tasks</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK_DOMAIN___GET_NEW_TASKS = eINSTANCE.getTaskDomain__GetNewTasks();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.DocsHolderImpl <em>Docs Holder</em>}' class.

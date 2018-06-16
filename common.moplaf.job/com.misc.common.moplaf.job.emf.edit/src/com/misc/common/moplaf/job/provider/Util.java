@@ -12,37 +12,19 @@ package com.misc.common.moplaf.job.provider;
 
 import java.util.Collection;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 
-import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
-import com.misc.common.moplaf.job.util.RunFactory;
 
 
 public class Util {
 
 	public static void collectNewChildRunDescriptors2(Collection<Object> newChildDescriptors, Object object, EStructuralFeature feature) {
-		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.run_factory");
-		for ( IConfigurationElement element : elements){
-			Object value;
-			try {
-				value = element.createExecutableExtension("class");
-				if ( value instanceof RunFactory) {
-					Run newSolver = ((RunFactory)value).createRun();
-					if ( newSolver!=null){
-						newChildDescriptors.add(new CommandParameter(null, feature, newSolver));
-					}
-				}
-			} catch (CoreException e) {
-				e.printStackTrace();
-				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.provider.Util.collectNewChildRunDescriptors exception caught "+e.getMessage());
-			}
+		EList<Run> runs = com.misc.common.moplaf.job.util.Util.getNewRuns();
+		for ( Run run : runs) {
+			newChildDescriptors.add(new CommandParameter(null, feature, run));
 		}
 	}  // method collectNewChildRunDescriptors2
 }

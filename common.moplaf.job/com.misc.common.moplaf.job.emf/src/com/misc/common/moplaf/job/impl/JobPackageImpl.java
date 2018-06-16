@@ -969,7 +969,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskInput_Task() {
+	public EReference getTaskInput_Consumer() {
 		return (EReference)taskInputEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -987,7 +987,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskOutput_Task() {
+	public EReference getTaskOutput_Producer() {
 		return (EReference)taskOutputEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1124,6 +1124,15 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 */
 	public EClass getTaskDomain() {
 		return taskDomainEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTaskDomain__GetNewTasks() {
+		return taskDomainEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1596,10 +1605,10 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEAttribute(taskDocEClass, TASK_DOC__ROLE);
 
 		taskInputEClass = createEClass(TASK_INPUT);
-		createEReference(taskInputEClass, TASK_INPUT__TASK);
+		createEReference(taskInputEClass, TASK_INPUT__CONSUMER);
 
 		taskOutputEClass = createEClass(TASK_OUTPUT);
-		createEReference(taskOutputEClass, TASK_OUTPUT__TASK);
+		createEReference(taskOutputEClass, TASK_OUTPUT__PRODUCER);
 
 		tasksEClass = createEClass(TASKS);
 		createEReference(tasksEClass, TASKS__TASKS);
@@ -1609,6 +1618,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(docsEClass, DOCS___GARBAGE_COLLECT);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
+		createEOperation(taskDomainEClass, TASK_DOMAIN___GET_NEW_TASKS);
 
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
@@ -1844,8 +1854,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEClass(taskEClass, Task.class, "Task", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Inputs(), this.getTaskInput(), this.getTaskInput_Task(), "Inputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Outputs(), this.getTaskOutput(), this.getTaskOutput_Task(), "Outputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Inputs(), this.getTaskInput(), this.getTaskInput_Consumer(), "Inputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Outputs(), this.getTaskOutput(), this.getTaskOutput_Producer(), "Outputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTask__AddInputDoc__Doc(), null, "addInputDoc", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1868,10 +1878,10 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEAttribute(getTaskDoc_Role(), ecorePackage.getEString(), "Role", null, 0, 1, TaskDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskInputEClass, TaskInput.class, "TaskInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTaskInput_Task(), this.getTask(), this.getTask_Inputs(), "Task", null, 1, 1, TaskInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskInput_Consumer(), this.getTask(), this.getTask_Inputs(), "Consumer", null, 1, 1, TaskInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskOutputEClass, TaskOutput.class, "TaskOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTaskOutput_Task(), this.getTask(), this.getTask_Outputs(), "Task", null, 1, 1, TaskOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskOutput_Producer(), this.getTask(), this.getTask_Outputs(), "Producer", null, 1, 1, TaskOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tasksEClass, Tasks.class, "Tasks", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTasks_Tasks(), this.getTask(), null, "Tasks", null, 0, -1, Tasks.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1882,6 +1892,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEOperation(getDocs__GarbageCollect(), null, "garbageCollect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getTaskDomain__GetNewTasks(), this.getTask(), "getNewTasks", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");

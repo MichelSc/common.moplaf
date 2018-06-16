@@ -13,10 +13,7 @@ package com.misc.common.moplaf.solver.provider;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
@@ -24,10 +21,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 
-import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
-import com.misc.common.moplaf.solver.util.SolverFactory;
 
 public class Util {
 
@@ -57,22 +52,9 @@ public class Util {
 	}  // method collectNewChildDescriptors
 	
 	public static void collectNewChildSolverDescriptors2(Collection<Object> newChildDescriptors, Object object, EStructuralFeature feature) {
-		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.solver.emf.solver_factory");
-		for ( IConfigurationElement element : elements){
-			Object value;
-			try {
-				value = element.createExecutableExtension("class");
-				if ( value instanceof SolverFactory) {
-					Solver newSolver = ((SolverFactory)value).createSolver();
-					if ( newSolver!=null){
-						newChildDescriptors.add(new CommandParameter(null, feature, newSolver));
-					}
-				}
-			} catch (CoreException e) {
-				e.printStackTrace();
-				Plugin.INSTANCE.logError("com.misc.common.moplaf.solver.provider.Util.collectNewChildSolverDescriptors exception caught "+e.getMessage());
-			}
+		EList<Solver> solvers = com.misc.common.moplaf.solver.util.Util.getNewSolvers();
+		for ( Solver solver : solvers) {
+			newChildDescriptors.add(new CommandParameter(null, feature, solver));
 		}
 	}  // method collectNewChildDescriptors2
 }

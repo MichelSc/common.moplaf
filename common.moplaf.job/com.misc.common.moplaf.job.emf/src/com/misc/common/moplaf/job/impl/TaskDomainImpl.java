@@ -6,6 +6,9 @@ import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.Task;
 import com.misc.common.moplaf.job.TaskDomain;
 import com.misc.common.moplaf.job.Tasks;
+import com.misc.common.moplaf.job.util.Util;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -70,6 +73,14 @@ public class TaskDomainImpl extends DocsImpl implements TaskDomain {
 			tasks = new EObjectContainmentEList<Task>(Task.class, this, JobPackage.TASK_DOMAIN__TASKS);
 		}
 		return tasks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Task> getNewTasks() {
+		return Util.getNewTasks();
 	}
 
 	/**
@@ -176,6 +187,20 @@ public class TaskDomainImpl extends DocsImpl implements TaskDomain {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JobPackage.TASK_DOMAIN___GET_NEW_TASKS:
+				return getNewTasks();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //TaskDomainImpl

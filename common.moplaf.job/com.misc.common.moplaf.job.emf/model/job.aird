@@ -2088,6 +2088,10 @@
         <children xmi:type="notation:Node" xmi:id="_umFNAG7yEei3B_w0DJjJgQ" type="2003" element="_ul6N4G7yEei3B_w0DJjJgQ">
           <children xmi:type="notation:Node" xmi:id="_umFNA27yEei3B_w0DJjJgQ" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_umFNBG7yEei3B_w0DJjJgQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_OKnpcHFyEei4jZ7GLHxYpg" type="3010" element="_OKWjsHFyEei4jZ7GLHxYpg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_OKnpcXFyEei4jZ7GLHxYpg" fontName="Oxygen-Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_OKnpcnFyEei4jZ7GLHxYpg"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_umFNBW7yEei3B_w0DJjJgQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_umFNBm7yEei3B_w0DJjJgQ"/>
           </children>
@@ -2596,6 +2600,14 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_OKWjsHFyEei4jZ7GLHxYpg" name="getNewTasks() : Task" tooltipText="getNewTasks() : Task">
+        <target xmi:type="ecore:EOperation" href="job.ecore#//TaskDomain/getNewTasks"/>
+        <semanticElements xmi:type="ecore:EOperation" href="job.ecore#//TaskDomain/getNewTasks"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_OKXKwHFyEei4jZ7GLHxYpg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_weJh4G7yEei3B_w0DJjJgQ" name="[0..*] Tasks" sourceNode="_YI8I8G-fEeihMqAPE2-4PQ" targetNode="_Xm88oG7jEei3B_w0DJjJgQ">
       <target xmi:type="ecore:EReference" href="job.ecore#//Tasks/Tasks"/>
@@ -2804,10 +2816,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_oIp_4G-dEeihMqAPE2-4PQ" sourceNode="_Xm88oG7jEei3B_w0DJjJgQ" targetNode="_hxk-gG-cEeihMqAPE2-4PQ" beginLabel="[1..1] Task" endLabel="[0..*] Outputs">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_oIp_4G-dEeihMqAPE2-4PQ" sourceNode="_Xm88oG7jEei3B_w0DJjJgQ" targetNode="_hxk-gG-cEeihMqAPE2-4PQ" beginLabel="[1..1] Producer" endLabel="[0..*] Outputs">
       <target xmi:type="ecore:EReference" href="job.ecore#//Task/Outputs"/>
       <semanticElements xmi:type="ecore:EReference" href="job.ecore#//Task/Outputs"/>
-      <semanticElements xmi:type="ecore:EReference" href="job.ecore#//TaskOutput/Task"/>
+      <semanticElements xmi:type="ecore:EReference" href="job.ecore#//TaskOutput/Producer"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_oIp_5G-dEeihMqAPE2-4PQ" description="_oIp_4W-dEeihMqAPE2-4PQ" sourceArrow="FillDiamond" strokeColor="0,0,0">
         <customFeatures>routingStyle</customFeatures>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_oIp_5W-dEeihMqAPE2-4PQ" showIcon="false"/>
@@ -2928,10 +2940,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_KY6KwG-jEeihMqAPE2-4PQ" sourceNode="_Xm88oG7jEei3B_w0DJjJgQ" targetNode="_f5v6MG-cEeihMqAPE2-4PQ" beginLabel="[1..1] Task" endLabel="[0..*] Inputs">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_KY6KwG-jEeihMqAPE2-4PQ" sourceNode="_Xm88oG7jEei3B_w0DJjJgQ" targetNode="_f5v6MG-cEeihMqAPE2-4PQ" beginLabel="[1..1] Consumer" endLabel="[0..*] Inputs">
       <target xmi:type="ecore:EReference" href="job.ecore#//Task/Inputs"/>
+      <semanticElements xmi:type="ecore:EReference" href="job.ecore#//TaskInput/Consumer"/>
       <semanticElements xmi:type="ecore:EReference" href="job.ecore#//Task/Inputs"/>
-      <semanticElements xmi:type="ecore:EReference" href="job.ecore#//TaskInput/Task"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_KY6KwW-jEeihMqAPE2-4PQ" description="_oIp_4W-dEeihMqAPE2-4PQ" sourceArrow="FillDiamond" strokeColor="0,0,0">
         <customFeatures>routingStyle</customFeatures>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_KY6Kwm-jEeihMqAPE2-4PQ" showIcon="false"/>

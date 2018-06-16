@@ -112,7 +112,7 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	 */
 	public EList<TaskOutput> getOutputs() {
 		if (outputs == null) {
-			outputs = new EObjectContainmentWithInverseEList<TaskOutput>(TaskOutput.class, this, JobPackage.TASK__OUTPUTS, JobPackage.TASK_OUTPUT__TASK);
+			outputs = new EObjectContainmentWithInverseEList<TaskOutput>(TaskOutput.class, this, JobPackage.TASK__OUTPUTS, JobPackage.TASK_OUTPUT__PRODUCER);
 		}
 		return outputs;
 	}
@@ -124,7 +124,7 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	 */
 	public EList<TaskInput> getInputs() {
 		if (inputs == null) {
-			inputs = new EObjectContainmentWithInverseEList<TaskInput>(TaskInput.class, this, JobPackage.TASK__INPUTS, JobPackage.TASK_INPUT__TASK);
+			inputs = new EObjectContainmentWithInverseEList<TaskInput>(TaskInput.class, this, JobPackage.TASK__INPUTS, JobPackage.TASK_INPUT__CONSUMER);
 		}
 		return inputs;
 	}
