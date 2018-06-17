@@ -65,6 +65,32 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createinput" label="Create Task Input" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_input']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:target">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="job::TaskInput" referenceName="Inputs">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Doc" valueExpression="aql:source"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createoutput" label="Create Task Output" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_output']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="job::TaskOutput" referenceName="Outputs">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Doc" valueExpression="aql:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="di_doctasks_tools_playground" label="Playground tools">
           <ownedTools xsi:type="tool_1:OperationAction" name="di_doctasks_tools_actionrun" label="Run  a Task">
