@@ -17,25 +17,25 @@ public class Services {
     */
     public EObject myService(EObject self, String arg) {
     	Plugin.INSTANCE.logInfo("Job myService arg ");
-    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
+    	Plugin.INSTANCE.logInfo(".. self "+(self == null ? "null" : self.eClass().getName()));
     	Plugin.INSTANCE.logInfo(".. arg "+arg);
        // TODO Auto-generated code
       return self;
     }
     public EObject myService2(EObject self) {
        	Plugin.INSTANCE.logInfo("Job myService2 no arg ");
-    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
+    	Plugin.INSTANCE.logInfo(".. self "+(self == null ? "null" : self.eClass().getName()));
       return self;
     }
     public EObject myService3(EObject self, EObject param) {
        	Plugin.INSTANCE.logInfo("Job myService3 object param ");
-    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
-    	Plugin.INSTANCE.logInfo(".. param "+param == null ? "null" : param.eClass().getName());
+    	Plugin.INSTANCE.logInfo(".. self "+(self == null ? "null" : self.eClass().getName()));
+    	Plugin.INSTANCE.logInfo(".. param "+(param == null ? "null" : param.eClass().getName()));
       return self;
     }
     public EList<Task> getNewTasks(EObject self) {
        	Plugin.INSTANCE.logInfo("Job getNewTasks ");
-    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
+    	Plugin.INSTANCE.logInfo(".. self "+(self == null ? "null" : self.eClass().getName()));
     	if ( self instanceof TaskDomain ) {
     		TaskDomain domain = (TaskDomain)self;
     		return domain.getNewTasks();
