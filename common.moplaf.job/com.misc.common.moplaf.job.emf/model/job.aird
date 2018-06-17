@@ -2519,7 +2519,7 @@
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_-a8FYXB9EeicP9ZDtzAvDQ" labelColor="39,76,114" labelAlignment="LEFT" description="_-a8FYHB9EeicP9ZDtzAvDQ"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_0oPKUHB_EeicP9ZDtzAvDQ" name="Name : EString" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_0oPKUHB_EeicP9ZDtzAvDQ" name="Name : EString = &lt;new Task>" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="job.ecore#//Task/Name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="job.ecore#//Task/Name"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_0oQYcHB_EeicP9ZDtzAvDQ" labelAlignment="LEFT">

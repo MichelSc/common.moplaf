@@ -1,8 +1,11 @@
 package com.misc.common.moplaf.job.design;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.misc.common.moplaf.job.Plugin;
+import com.misc.common.moplaf.job.Task;
+import com.misc.common.moplaf.job.TaskDomain;
 
 /**
  * The services class used by VSM.
@@ -23,6 +26,15 @@ public class Services {
        	Plugin.INSTANCE.logInfo("Job myService2 no arg ");
     	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
       return self;
+    }
+    public EList<Task> getNewTasks(EObject self) {
+       	Plugin.INSTANCE.logInfo("Job getNewTasks ");
+    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
+    	if ( self instanceof TaskDomain ) {
+    		TaskDomain domain = (TaskDomain)self;
+    		return domain.getNewTasks();
+    	}
+      return null;
     }
     public String generateName(EObject self, String arg) {
        	Plugin.INSTANCE.logInfo("Job generateName ");

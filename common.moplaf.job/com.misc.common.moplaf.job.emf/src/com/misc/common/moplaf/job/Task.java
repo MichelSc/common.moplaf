@@ -77,6 +77,7 @@ public interface Task extends Run {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>"<new Task>"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -86,7 +87,7 @@ public interface Task extends Run {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see com.misc.common.moplaf.job.JobPackage#getTask_Name()
-	 * @model
+	 * @model default="&lt;new Task&gt;"
 	 * @generated
 	 */
 	String getName();

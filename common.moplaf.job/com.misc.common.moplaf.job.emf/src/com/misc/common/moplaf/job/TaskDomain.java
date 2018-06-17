@@ -4,6 +4,8 @@ package com.misc.common.moplaf.job;
 
 import org.eclipse.emf.common.util.EList;
 
+import com.misc.common.moplaf.job.util.Util;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +26,8 @@ public interface TaskDomain extends Docs, Tasks {
 	 * Return an exemplar of every task type supported by this TaskDomain.
 	 * <!-- end-model-doc -->
 	 * @model kind="operation"
-	 * @generated
 	 */
-	EList<Task> getNewTasks();
+	default EList<Task> getNewTasks(){
+		return Util.getNewTasks();
+	}
 } // TaskDomain

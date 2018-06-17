@@ -59,15 +59,21 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create a new Task">
                 <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                   <initialOperation/>
                 </buttons>
                 <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                   <initialOperation/>
                 </buttons>
-                <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_actionrun_createtask3']/@initialOperation/@firstModelOperations/@groups.0"/>
-                <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self"/>
+                <page name="di_doctasks_tools_actionrun_createtask_page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_actionrun_createtask3']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="di_doctasks_tools_actionrun_createtask_group" labelExpression="Group" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_actionrun_createtask_list" labelExpression="Tasks" valueExpression="service:getNewTasks" displayExpression="aql:value.Description">
+                    <onClickOperation>
+                      <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+                    </onClickOperation>
+                  </controls>
+                </groups>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
