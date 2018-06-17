@@ -27,6 +27,12 @@ public class Services {
     	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
       return self;
     }
+    public EObject myService3(EObject self, EObject param) {
+       	Plugin.INSTANCE.logInfo("Job myService3 object param ");
+    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
+    	Plugin.INSTANCE.logInfo(".. param "+param == null ? "null" : param.eClass().getName());
+      return self;
+    }
     public EList<Task> getNewTasks(EObject self) {
        	Plugin.INSTANCE.logInfo("Job getNewTasks ");
     	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
