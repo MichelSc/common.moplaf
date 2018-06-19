@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.job.provider;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobPackage;
@@ -63,11 +64,57 @@ public class DocItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCloneFeedbackPropertyDescriptor(object);
+			addFlushFeedbackPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addLoadedPropertyDescriptor(object);
 			addRefsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Clone Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCloneFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Doc_CloneFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Doc_CloneFeedback_feature", "_UI_Doc_type"),
+				 JobPackage.Literals.DOC__CLONE_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Flush Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFlushFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Doc_FlushFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Doc_FlushFeedback_feature", "_UI_Doc_type"),
+				 JobPackage.Literals.DOC__FLUSH_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -154,7 +201,8 @@ public class DocItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Doc)object).getDescription();
+		EnabledFeedback labelValue = ((Doc)object).getCloneFeedback();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Doc_type") :
 			getString("_UI_Doc_type") + " " + label;
@@ -173,6 +221,8 @@ public class DocItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Doc.class)) {
+			case JobPackage.DOC__CLONE_FEEDBACK:
+			case JobPackage.DOC__FLUSH_FEEDBACK:
 			case JobPackage.DOC__DESCRIPTION:
 			case JobPackage.DOC__LOADED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

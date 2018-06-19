@@ -1916,13 +1916,31 @@ public interface JobPackage extends EPackage {
 	int DOC = 13;
 
 	/**
+	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC__CLONE_FEEDBACK = 0;
+
+	/**
+	 * The feature id for the '<em><b>Flush Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC__FLUSH_FEEDBACK = 1;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__DESCRIPTION = 0;
+	int DOC__DESCRIPTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -1931,7 +1949,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__LOADED = 1;
+	int DOC__LOADED = 3;
 
 	/**
 	 * The feature id for the '<em><b>Refs</b></em>' reference list.
@@ -1940,7 +1958,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__REFS = 2;
+	int DOC__REFS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Doc</em>' class.
@@ -1949,25 +1967,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_FEATURE_COUNT = 3;
+	int DOC_FEATURE_COUNT = 5;
 
 	/**
-	 * The operation id for the '<em>Save</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC___SAVE = 0;
-
-	/**
-	 * The operation id for the '<em>Load</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC___LOAD = 1;
+	int DOC___CLONE = 0;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -1976,7 +1985,25 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC___FLUSH = 2;
+	int DOC___FLUSH = 1;
+
+	/**
+	 * The operation id for the '<em>Save</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___SAVE = 2;
+
+	/**
+	 * The operation id for the '<em>Load</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___LOAD = 3;
 
 	/**
 	 * The number of operations of the '<em>Doc</em>' class.
@@ -1985,7 +2012,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_OPERATION_COUNT = 3;
+	int DOC_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.DocRefImpl <em>Doc Ref</em>}' class.
@@ -2129,6 +2156,24 @@ public interface JobPackage extends EPackage {
 	int COMPOUND_DOC = 16;
 
 	/**
+	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC__CLONE_FEEDBACK = DOC__CLONE_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Flush Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC__FLUSH_FEEDBACK = DOC__FLUSH_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2183,6 +2228,24 @@ public interface JobPackage extends EPackage {
 	int COMPOUND_DOC_FEATURE_COUNT = DOC_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC___CLONE = DOC___CLONE;
+
+	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC___FLUSH = DOC___FLUSH;
+
+	/**
 	 * The operation id for the '<em>Save</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2199,15 +2262,6 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOUND_DOC___LOAD = DOC___LOAD;
-
-	/**
-	 * The operation id for the '<em>Flush</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_DOC___FLUSH = DOC___FLUSH;
 
 	/**
 	 * The operation id for the '<em>Add Doc</em>' operation.
@@ -2364,13 +2418,22 @@ public interface JobPackage extends EPackage {
 	int TASK__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CLONE_FEEDBACK = RUN_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__DESCRIPTION = RUN_FEATURE_COUNT + 0;
+	int TASK__DESCRIPTION = RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2379,7 +2442,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__NAME = RUN_FEATURE_COUNT + 1;
+	int TASK__NAME = RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -2388,7 +2451,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__INPUTS = RUN_FEATURE_COUNT + 2;
+	int TASK__INPUTS = RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -2397,7 +2460,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__OUTPUTS = RUN_FEATURE_COUNT + 3;
+	int TASK__OUTPUTS = RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -2406,7 +2469,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 4;
+	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -2544,13 +2607,22 @@ public interface JobPackage extends EPackage {
 	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___CLONE = RUN_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Add Output Doc</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOC__DOC = RUN_OPERATION_COUNT + 3;
+	int TASK___ADD_OUTPUT_DOC__DOC = RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Add Output Docs</em>' operation.
@@ -2559,7 +2631,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 4;
+	int TASK___ADD_OUTPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -2568,7 +2640,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 5;
+	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2650,6 +2722,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_TASK__RETURN_INFORMATION = TASK__RETURN_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__CLONE_FEEDBACK = TASK__CLONE_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2839,6 +2920,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_TASK___INIT_OUTPUTS = TASK___INIT_OUTPUTS;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK___CLONE = TASK___CLONE;
 
 	/**
 	 * The operation id for the '<em>Add Output Doc</em>' operation.
@@ -3738,6 +3828,17 @@ public interface JobPackage extends EPackage {
 	EClass getTask();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Task#getCloneFeedback <em>Clone Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Clone Feedback</em>'.
+	 * @see com.misc.common.moplaf.job.Task#getCloneFeedback()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_CloneFeedback();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Task#getOutputs <em>Outputs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3810,6 +3911,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTask__InitOutputs();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#clone() <em>Clone</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clone</em>' operation.
+	 * @see com.misc.common.moplaf.job.Task#clone()
+	 * @generated
+	 */
+	EOperation getTask__Clone();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#addOutputDoc(com.misc.common.moplaf.job.Doc) <em>Add Output Doc</em>}' operation.
@@ -3926,6 +4037,28 @@ public interface JobPackage extends EPackage {
 	EClass getDoc();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Doc#getCloneFeedback <em>Clone Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Clone Feedback</em>'.
+	 * @see com.misc.common.moplaf.job.Doc#getCloneFeedback()
+	 * @see #getDoc()
+	 * @generated
+	 */
+	EAttribute getDoc_CloneFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Doc#getFlushFeedback <em>Flush Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Flush Feedback</em>'.
+	 * @see com.misc.common.moplaf.job.Doc#getFlushFeedback()
+	 * @see #getDoc()
+	 * @generated
+	 */
+	EAttribute getDoc_FlushFeedback();
+
+	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.Doc#getRefs <em>Refs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3935,6 +4068,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDoc_Refs();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Doc#clone() <em>Clone</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clone</em>' operation.
+	 * @see com.misc.common.moplaf.job.Doc#clone()
+	 * @generated
+	 */
+	EOperation getDoc__Clone();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Doc#isLoaded <em>Loaded</em>}'.
@@ -4922,6 +5065,14 @@ public interface JobPackage extends EPackage {
 		EClass TASK = eINSTANCE.getTask();
 
 		/**
+		 * The meta object literal for the '<em><b>Clone Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__CLONE_FEEDBACK = eINSTANCE.getTask_CloneFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Outputs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4976,6 +5127,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TASK___INIT_OUTPUTS = eINSTANCE.getTask__InitOutputs();
+
+		/**
+		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___CLONE = eINSTANCE.getTask__Clone();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Output Doc</b></em>' operation.
@@ -5076,12 +5235,36 @@ public interface JobPackage extends EPackage {
 		EClass DOC = eINSTANCE.getDoc();
 
 		/**
+		 * The meta object literal for the '<em><b>Clone Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC__CLONE_FEEDBACK = eINSTANCE.getDoc_CloneFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC__FLUSH_FEEDBACK = eINSTANCE.getDoc_FlushFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DOC__REFS = eINSTANCE.getDoc_Refs();
+
+		/**
+		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC___CLONE = eINSTANCE.getDoc__Clone();
 
 		/**
 		 * The meta object literal for the '<em><b>Loaded</b></em>' attribute feature.

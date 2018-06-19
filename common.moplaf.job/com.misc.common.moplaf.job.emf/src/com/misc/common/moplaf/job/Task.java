@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.job.Task#getCloneFeedback <em>Clone Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Task#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Task#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Task#getInputs <em>Inputs</em>}</li>
@@ -24,6 +26,21 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Task extends Run {
+	/**
+	 * Returns the value of the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Clone Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Clone Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getTask_CloneFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getCloneFeedback();
+
 	/**
 	 * Returns the value of the '<em><b>Outputs</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.TaskOutput}.
@@ -125,6 +142,14 @@ public interface Task extends Run {
 	 * @generated
 	 */
 	void initOutputs();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Task clone();
 
 	/**
 	 * <!-- begin-user-doc -->

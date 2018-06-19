@@ -164,9 +164,14 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true">
+    <eOperations name="clone" eType="#//Doc"/>
+    <eOperations name="flush"/>
     <eOperations name="save"/>
     <eOperations name="load"/>
-    <eOperations name="flush"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CloneFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FlushFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -201,12 +206,15 @@
       <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
     </eOperations>
     <eOperations name="initOutputs"/>
+    <eOperations name="clone" eType="#//Task"/>
     <eOperations name="addOutputDoc">
       <eParameters name="doc" eType="#//Doc"/>
     </eOperations>
     <eOperations name="addOutputDocs">
       <eParameters name="docs" upperBound="-1" eType="#//Doc"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CloneFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

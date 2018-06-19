@@ -52,10 +52,33 @@ public class TaskItemProvider extends RunItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCloneFeedbackPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Clone Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCloneFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_CloneFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_CloneFeedback_feature", "_UI_Task_type"),
+				 JobPackage.Literals.TASK__CLONE_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -160,6 +183,7 @@ public class TaskItemProvider extends RunItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Task.class)) {
+			case JobPackage.TASK__CLONE_FEEDBACK:
 			case JobPackage.TASK__DESCRIPTION:
 			case JobPackage.TASK__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

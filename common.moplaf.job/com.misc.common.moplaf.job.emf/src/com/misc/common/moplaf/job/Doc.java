@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -15,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.job.Doc#getCloneFeedback <em>Clone Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Doc#getFlushFeedback <em>Flush Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Doc#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Doc#isLoaded <em>Loaded</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Doc#getRefs <em>Refs</em>}</li>
@@ -25,6 +28,36 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Doc extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Clone Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Clone Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getDoc_CloneFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getCloneFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Flush Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Flush Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Flush Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getDoc_FlushFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getFlushFeedback();
+
 	/**
 	 * Returns the value of the '<em><b>Refs</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.DocRef}.
@@ -42,6 +75,14 @@ public interface Doc extends EObject {
 	 * @generated
 	 */
 	EList<DocRef> getRefs();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Doc clone();
 
 	/**
 	 * Returns the value of the '<em><b>Loaded</b></em>' attribute.

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.job.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getCloneFeedback <em>Clone Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getInputs <em>Inputs</em>}</li>
@@ -41,6 +43,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public abstract class TaskImpl extends RunImpl implements Task {
+	/**
+	 * The default value of the '{@link #getCloneFeedback() <em>Clone Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCloneFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback CLONE_FEEDBACK_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,6 +114,17 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	protected EClass eStaticClass() {
 		return JobPackage.Literals.TASK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback getCloneFeedback() {
+		// TODO: implement this method to return the 'Clone Feedback' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -195,6 +217,17 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task clone() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void addOutputDoc(Doc doc) {
 		TaskOutput ref = JobFactory.eINSTANCE.createTaskOutput();
@@ -253,6 +286,8 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case JobPackage.TASK__CLONE_FEEDBACK:
+				return getCloneFeedback();
 			case JobPackage.TASK__DESCRIPTION:
 				return getDescription();
 			case JobPackage.TASK__NAME:
@@ -318,6 +353,8 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case JobPackage.TASK__CLONE_FEEDBACK:
+				return CLONE_FEEDBACK_EDEFAULT == null ? getCloneFeedback() != null : !CLONE_FEEDBACK_EDEFAULT.equals(getCloneFeedback());
 			case JobPackage.TASK__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case JobPackage.TASK__NAME:
@@ -348,6 +385,8 @@ public abstract class TaskImpl extends RunImpl implements Task {
 			case JobPackage.TASK___INIT_OUTPUTS:
 				initOutputs();
 				return null;
+			case JobPackage.TASK___CLONE:
+				return clone();
 			case JobPackage.TASK___ADD_OUTPUT_DOC__DOC:
 				addOutputDoc((Doc)arguments.get(0));
 				return null;
