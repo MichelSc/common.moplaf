@@ -41,7 +41,7 @@
               <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task 2">
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task 2" precondition="service:runRunEnabled">
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:runRun"/>
