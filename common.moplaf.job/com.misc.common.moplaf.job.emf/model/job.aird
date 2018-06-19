@@ -584,7 +584,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Qum5YLPNEeaWCLqKzjuliA" name="Name : EString" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Qum5YLPNEeaWCLqKzjuliA" name="Name : EString = &lt;new Job>" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="job.ecore#//Job/Name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="job.ecore#//Job/Name"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_QungcLPNEeaWCLqKzjuliA" labelAlignment="LEFT">

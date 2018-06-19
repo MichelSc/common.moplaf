@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="job" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="job" version="12.0.0.2017041100">
   <ownedViewpoints name="vp_doctasks" label="Diagrams Docs &amp; Tasks">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="di_doctasks" label="Docs &amp; Tasks Diagram" domainClass="job::TaskDomain" enablePopupBars="true">
       <metamodel href="../../com.misc.common.moplaf.job.emf/model/job.ecore#/"/>
@@ -35,20 +35,32 @@
           </style>
         </edgeMappings>
         <toolSections name="di_doctasks_tools_taskload" label="Docs &amp; Tasks tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Tasks" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun" label="Run  a Task">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task 2">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:runRun"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Tasks" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
-                <subModelOperations xsi:type="tool_1:Let" variableName="tocreate">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool:Let" variableName="tocreate">
                   <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create new Tasks">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation/>
                     </buttons>
                     <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                       <initialOperation>
-                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:tocreate">
-                          <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="aql:container" featureName="Tasks"/>
+                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:tocreate">
+                          <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:container" featureName="Tasks"/>
                         </firstModelOperations>
                       </initialOperation>
                     </buttons>
@@ -56,7 +68,7 @@
                     <groups name="di_doctasks_tools_actionrun_createtask_group" labelExpression="Select Tasks to create" semanticCandidateExpression="var:self">
                       <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_actionrun_createtask_list" labelExpression="Tasks" valueExpression="service:getNewTasks" displayExpression="aql:value.Description">
                         <onClickOperation>
-                          <firstModelOperations xsi:type="tool_1:Let" variableName="tocreate" valueExpression="aql:selection->first()"/>
+                          <firstModelOperations xsi:type="tool:Let" variableName="tocreate" valueExpression="aql:selection->first()"/>
                         </onClickOperation>
                       </controls>
                     </groups>
@@ -65,55 +77,49 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createinput" label="Create Task Input" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_input']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createinput" label="Create Task Input" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_input']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:target">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="job::TaskInput" referenceName="Inputs">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Doc" valueExpression="aql:source"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="job::TaskInput" referenceName="Inputs">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="Doc" valueExpression="aql:source"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createoutput" label="Create Task Output" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_output']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createoutput" label="Create Task Output" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_output']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="job::TaskOutput" referenceName="Outputs">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Doc" valueExpression="aql:target"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="job::TaskOutput" referenceName="Outputs">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="Doc" valueExpression="aql:target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="di_doctasks_tools_playground" label="Playground tools">
-          <ownedTools xsi:type="tool_1:OperationAction" name="di_doctasks_tools_actionrun" label="Run  a Task">
-            <view name="views"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask1" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask1" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="di_doctasks_tools_actionrun_createtask" id="com.misc.common.moplaf.job.design.action.run"/>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_createtask" id="com.misc.common.moplaf.job.design.action.run"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask2" elementsToSelect="aql:instance" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask2" elementsToSelect="aql:instance" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:Let" valueExpression="service:myService3(self)"/>
+              <firstModelOperations xsi:type="tool:Let" valueExpression="service:myService3(self)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask3" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask3" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -123,15 +129,15 @@
                 </buttons>
                 <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                   <initialOperation>
-                    <firstModelOperations xsi:type="tool_1:Let" valueExpression="service:myService3(self)"/>
+                    <firstModelOperations xsi:type="tool:Let" valueExpression="service:myService3(self)"/>
                   </initialOperation>
                 </buttons>
                 <page name="di_doctasks_tools_actionrun_createtask_page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@toolSections.1/@ownedTools[name='di_doctasks_tools_actionrun_createtask3']/@initialOperation/@firstModelOperations/@groups.0"/>
                 <groups name="di_doctasks_tools_actionrun_createtask_group" labelExpression="Group" semanticCandidateExpression="var:self">
                   <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_actionrun_createtask_list" labelExpression="Tasks" valueExpression="service:getNewTasks" displayExpression="aql:value.Description">
                     <onClickOperation>
-                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
-                        <subModelOperations xsi:type="tool_1:Let" valueExpression="service:myService3(self)"/>
+                      <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
+                        <subModelOperations xsi:type="tool:Let" valueExpression="service:myService3(self)"/>
                       </firstModelOperations>
                     </onClickOperation>
                   </controls>
@@ -154,7 +160,7 @@
           <ifs name="sirius_default_rules_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
             <widget xsi:type="properties:TextDescription" name="sirius_default_rules_mono_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
               <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
@@ -166,7 +172,7 @@
           <ifs name="sirius_default_rules_multi_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature)">
             <widget xsi:type="properties:TextAreaDescription" name="sirius_default_rules_multi_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
               <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
@@ -178,7 +184,7 @@
           <ifs name="sirius_default_rules_mono_boolean" predicateExpression="aql:input.emfEditServices(self).needsCheckboxWidget(eStructuralFeature)">
             <widget xsi:type="properties:CheckboxDescription" name="sirius_default_rules_mono_boolean" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
               </initialOperation>
               <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
@@ -190,7 +196,7 @@
           <ifs name="sirius_default_rules_enum_if" predicateExpression="aql:eStructuralFeature.eType.oclIsKindOf(ecore::EEnum) and not(eStructuralFeature.many)">
             <widget xsi:type="properties:RadioDescription" name="sirius_default_rules_enum" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).getEEnumLiteralByLiteral(self.eGet(eStructuralFeature.name).toString())" candidatesExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue.instance)"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue.instance)"/>
               </initialOperation>
               <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
                 <style>
@@ -210,42 +216,42 @@
       <groups name="pr_group_task" label="Group Task" labelExpression="Task" domainClass="job::Task" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_task_description" label="Field Task Description" labelExpression="Description" helpExpression="String used by user to recognize the Task" isEnabledExpression="aql:false" valueExpression="aql:self.Description">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="pr_group_task_name" label="Field Task Name" labelExpression="Name" helpExpression="String set be the user for the Task name" valueExpression="aql:self.Name">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="Name" valueExpression="aql:newValue"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool:SetValue" featureName="Name" valueExpression="aql:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" name="pr_group_task_inputs" label="List Task Inputs" labelExpression="Inputs" valueExpression="aql:self.Inputs" displayExpression="aql:value.Doc.Description">
           <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" name="pr_group_task_outputs" label="List Task Outputs" labelExpression="Outputs" valueExpression="aql:self.Outputs" displayExpression="aql:value.Doc.Description">
           <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
         </controls>
       </groups>
       <groups name="pr_group_enabled" label="Group Enabled" labelExpression="Enabled" domainClass="job::Run" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_enabled_run" label="Field RunEnabled" labelExpression="Run Enabled" helpExpression="Feedback about allowed to execute the run" isEnabledExpression="aql:false" valueExpression="aql:self.RunFeedback">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="pr_group_enabled_reset" label="Field ResetEnabled" labelExpression="Reset Enabled" helpExpression="Feedback about allowed to reset the run" isEnabledExpression="aql:false" valueExpression="aql:self.ResetFeedback">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="pr_group_enabled_cancel" label="Field CancelEnabled" labelExpression="Cancel Enabled" helpExpression="Feedback about allowed to cancel the run" isEnabledExpression="aql:false" valueExpression="aql:self.CancelFeedback">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="Cancelled" valueExpression="aql:newValue"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool:SetValue" featureName="Cancelled" valueExpression="aql:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
@@ -253,51 +259,51 @@
       <groups name="pr_group_run" label="Group Run" labelExpression="Run" domainClass="job::Run" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:CheckboxDescription" name="pr_group_run_returned" label="Field RunReturned" labelExpression="Run Returned" isEnabledExpression="aql:false" valueExpression="aql:self.Returned">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="pr_group_run_success" label="Field RunSuccess" labelExpression="Run Success" isEnabledExpression="aql:false" valueExpression="aql:self.ReturnSuccess">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="pr_group_run_cancelled" label="Field RunCancelled" labelExpression="Run Cancelled" valueExpression="aql:self.Cancelled">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="Cancelled" valueExpression="aql:newValue"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool:SetValue" featureName="Cancelled" valueExpression="aql:newValue"/>
             </firstModelOperations>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="pr_group_run_feedback" label="Field RunFeedback" labelExpression="Run Feedback" isEnabledExpression="aql:false" valueExpression="aql:self.ReturnFeedback">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:TextDescription" name="pr_group_run_information" label="Field RunInformation" labelExpression="Run Information" isEnabledExpression="aql:false" valueExpression="aql:self.ReturnInformation">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
       </groups>
       <groups name="pr_group_doc" label="Group Doc" labelExpression="Doc" domainClass="job::Doc" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_task_description" label="Field Task Description" labelExpression="Description" helpExpression="String used by user to recognize the Doc" isEnabledExpression="aql:false" valueExpression="aql:self.Description">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:CheckboxDescription" name="pr_group_doc_loaded" label="Field DocLoaded" labelExpression="Doc Loaded" isEnabledExpression="aql:false" valueExpression="aql:self.Loaded">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" name="pr_group_doc_producers" label="List Doc Producers" labelExpression="Producers" isEnabledExpression="aql:false" valueExpression="aql:self.Refs->filter(job::TaskOutput)" displayExpression="aql:value.Producer.Description">
           <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" name="pr_group_doc_consumers" label="List Doc Consumers" labelExpression="Consumers" isEnabledExpression="aql:false" valueExpression="aql:self.Refs->filter(job::TaskInput)" displayExpression="aql:value.Consumer.Description">
           <onClickOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
         </controls>
       </groups>

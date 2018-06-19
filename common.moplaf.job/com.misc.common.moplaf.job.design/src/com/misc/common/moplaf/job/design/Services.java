@@ -3,7 +3,9 @@ package com.misc.common.moplaf.job.design;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.Plugin;
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.Task;
 import com.misc.common.moplaf.job.TaskDomain;
 
@@ -33,19 +35,49 @@ public class Services {
     	Plugin.INSTANCE.logInfo(".. param "+(param == null ? "null" : param.eClass().getName()));
       return self;
     }
+    public String generateName(EObject self, String arg) {
+       	Plugin.INSTANCE.logInfo("Job generateName ");
+    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
+    	Plugin.INSTANCE.logInfo(".. arg "+arg);
+       return "new name";
+    }
+
+    /**
+     * 
+     * @param self
+     * @return
+     */
     public EList<Task> getNewTasks(EObject self) {
-       	Plugin.INSTANCE.logInfo("Job getNewTasks ");
-    	Plugin.INSTANCE.logInfo(".. self "+(self == null ? "null" : self.eClass().getName()));
     	if ( self instanceof TaskDomain ) {
     		TaskDomain domain = (TaskDomain)self;
     		return domain.getNewTasks();
     	}
       return null;
     }
-    public String generateName(EObject self, String arg) {
-       	Plugin.INSTANCE.logInfo("Job generateName ");
-    	Plugin.INSTANCE.logInfo(".. self "+self == null ? "null" : self.eClass().getName());
-    	Plugin.INSTANCE.logInfo(".. arg "+arg);
-       return "new name";
+    
+    /**
+     * 
+     * @param self
+     * @return
+     */
+    public boolean runRun(EObject self) {
+    	if ( self instanceof Run ) {
+    		Run run = (Run)self;
+    		ReturnFeedback feedback = run.run();
+    		return feedback.isSuccess();
+    	}
+    	return false;
+    }
+    /**
+     * 
+     * @param self
+     * @return
+     */
+    public boolean runRunEnabled(EObject self) {
+    	if ( self instanceof Run ) {
+    		Run run = (Run)self;
+    		return run.getRunFeedback().isEnabled();
+    	}
+    	return false;
     }
 }
