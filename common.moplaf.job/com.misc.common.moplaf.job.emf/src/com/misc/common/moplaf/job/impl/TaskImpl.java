@@ -142,6 +142,32 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback isValidInput(Doc doc) {
+		if ( doc == null ) {
+			return new EnabledFeedback(false, "No input doc");
+		} else if ( this.getInputs().stream().anyMatch(d -> d.getDoc()==doc) ) {
+			return new EnabledFeedback(false, "No the doc is already an input of this task");
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback isValidOutput(Doc doc) {
+		if ( doc == null ) {
+			return new EnabledFeedback(false, "No output doc");
+		} else if ( this.getOutputs().stream().anyMatch(d -> d.getDoc()==doc) ) {
+			return new EnabledFeedback(false, "No the doc is already an output of this task");
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<TaskInput> getInputs() {
@@ -376,6 +402,10 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case JobPackage.TASK___IS_VALID_INPUT__DOC:
+				return isValidInput((Doc)arguments.get(0));
+			case JobPackage.TASK___IS_VALID_OUTPUT__DOC:
+				return isValidOutput((Doc)arguments.get(0));
 			case JobPackage.TASK___ADD_INPUT_DOC__DOC:
 				addInputDoc((Doc)arguments.get(0));
 				return null;

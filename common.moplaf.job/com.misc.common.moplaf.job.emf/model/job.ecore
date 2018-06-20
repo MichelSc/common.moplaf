@@ -199,6 +199,12 @@
         eType="#//DocsHolder" eOpposite="#//DocsHolder/Docs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//Run">
+    <eOperations name="isValidInput" eType="#//EnabledFeedback">
+      <eParameters name="doc" eType="#//Doc"/>
+    </eOperations>
+    <eOperations name="isValidOutput" eType="#//EnabledFeedback">
+      <eParameters name="doc" eType="#//Doc"/>
+    </eOperations>
     <eOperations name="addInputDoc">
       <eParameters name="doc" eType="#//Doc"/>
     </eOperations>

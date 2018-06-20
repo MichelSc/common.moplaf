@@ -861,6 +861,24 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTask__IsValidInput__Doc() {
+		return taskEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTask__IsValidOutput__Doc() {
+		return taskEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTask_Inputs() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(3);
 	}
@@ -889,24 +907,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EOperation getTask__AddInputDoc__Doc() {
-		return taskEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTask__AddInputDocs__EList() {
-		return taskEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTask__InitOutputs() {
 		return taskEClass.getEOperations().get(2);
 	}
 
@@ -915,7 +915,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTask__Clone() {
+	public EOperation getTask__AddInputDocs__EList() {
 		return taskEClass.getEOperations().get(3);
 	}
 
@@ -924,7 +924,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTask__AddOutputDoc__Doc() {
+	public EOperation getTask__InitOutputs() {
 		return taskEClass.getEOperations().get(4);
 	}
 
@@ -933,8 +933,26 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTask__AddOutputDocs__EList() {
+	public EOperation getTask__Clone() {
 		return taskEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTask__AddOutputDoc__Doc() {
+		return taskEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTask__AddOutputDocs__EList() {
+		return taskEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1641,6 +1659,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEAttribute(taskEClass, TASK__NAME);
 		createEReference(taskEClass, TASK__INPUTS);
 		createEReference(taskEClass, TASK__OUTPUTS);
+		createEOperation(taskEClass, TASK___IS_VALID_INPUT__DOC);
+		createEOperation(taskEClass, TASK___IS_VALID_OUTPUT__DOC);
 		createEOperation(taskEClass, TASK___ADD_INPUT_DOC__DOC);
 		createEOperation(taskEClass, TASK___ADD_INPUT_DOCS__ELIST);
 		createEOperation(taskEClass, TASK___INIT_OUTPUTS);
@@ -1911,6 +1931,12 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEAttribute(getTask_Name(), ecorePackage.getEString(), "Name", "<new Task>", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Inputs(), this.getTaskInput(), this.getTaskInput_Consumer(), "Inputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Outputs(), this.getTaskOutput(), this.getTaskOutput_Producer(), "Outputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getTask__IsValidInput__Doc(), this.getEnabledFeedback(), "isValidInput", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTask__IsValidOutput__Doc(), this.getEnabledFeedback(), "isValidOutput", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getTask__AddInputDoc__Doc(), null, "addInputDoc", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);

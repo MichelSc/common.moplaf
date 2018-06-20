@@ -2013,6 +2013,14 @@
         <children xmi:type="notation:Node" xmi:id="_XnquUG7jEei3B_w0DJjJgQ" type="2003" element="_Xm88oG7jEei3B_w0DJjJgQ">
           <children xmi:type="notation:Node" xmi:id="_XnrVYG7jEei3B_w0DJjJgQ" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_XnsjgG7jEei3B_w0DJjJgQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_wqMtsHSAEeiP4qSoZdWfkg" type="3010" element="_wo_z0HSAEeiP4qSoZdWfkg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_wqMtsXSAEeiP4qSoZdWfkg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_wqMtsnSAEeiP4qSoZdWfkg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_-J_ToHSAEeiP4qSoZdWfkg" type="3010" element="_-JWacHSAEeiP4qSoZdWfkg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_-J_ToXSAEeiP4qSoZdWfkg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_-J_TonSAEeiP4qSoZdWfkg"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_9L7RgG7xEei3B_w0DJjJgQ" type="3010" element="_9Lw5cG7xEei3B_w0DJjJgQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_9L7RgW7xEei3B_w0DJjJgQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9L7Rgm7xEei3B_w0DJjJgQ"/>
@@ -2594,6 +2602,24 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wo_z0HSAEeiP4qSoZdWfkg" name="isValidInput(doc Doc) : EnabledFeedback" tooltipText="isValidInput(doc) : EnabledFeedback">
+        <target xmi:type="ecore:EOperation" href="job.ecore#//Task/isValidInput"/>
+        <semanticElements xmi:type="ecore:EOperation" href="job.ecore#//Task/isValidInput"/>
+        <semanticElements xmi:type="ecore:EParameter" href="job.ecore#//Task/isValidInput/doc"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wpBB8HSAEeiP4qSoZdWfkg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_-JWacHSAEeiP4qSoZdWfkg" name="isValidOutput(doc Doc) : EnabledFeedback" tooltipText="isValidOutput(doc) : EnabledFeedback">
+        <target xmi:type="ecore:EOperation" href="job.ecore#//Task/isValidOutput"/>
+        <semanticElements xmi:type="ecore:EOperation" href="job.ecore#//Task/isValidOutput"/>
+        <semanticElements xmi:type="ecore:EParameter" href="job.ecore#//Task/isValidOutput/doc"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_-JXBgHSAEeiP4qSoZdWfkg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_9Lw5cG7xEei3B_w0DJjJgQ" name="addInputDoc(doc Doc)" tooltipText="addInputDoc(doc)">
         <target xmi:type="ecore:EOperation" href="job.ecore#//Task/addInputDoc"/>
         <semanticElements xmi:type="ecore:EOperation" href="job.ecore#//Task/addInputDoc"/>

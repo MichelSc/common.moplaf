@@ -89,7 +89,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createinput" label="Create Task Input" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_input']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="precondition service:target.taskIsValidInput(source)" name="di_doctasks_tools_actionrun_createinput" label="Create Task Input" precondition="service:preTarget.taskIsValidInput(preSource)" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_input']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -102,7 +102,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createoutput" label="Create Task Output" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_output']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_actionrun_createoutput" label="Create Task Output" precondition="service:preSource.taskIsValidOutput(preTarget)" edgeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@edgeMappings[name='di_doctasks_output']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>

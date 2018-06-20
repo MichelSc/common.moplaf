@@ -181,4 +181,13 @@ public class Services {
     	}
     	return false;
     }
+
+    public boolean taskIsValidInput(Task task, Doc doc) {
+   		return task.isValidInput(doc).isEnabled();
+    }
+    
+    public boolean taskIsValidOutput(Task task, Doc doc) {
+   		return task.isValidOutput(doc).isEnabled();
+    }
+
 }

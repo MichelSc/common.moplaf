@@ -2580,13 +2580,31 @@ public interface JobPackage extends EPackage {
 	int TASK___CONSTRUCT_PARAMS = RUN___CONSTRUCT_PARAMS;
 
 	/**
+	 * The operation id for the '<em>Is Valid Input</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___IS_VALID_INPUT__DOC = RUN_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Valid Output</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___IS_VALID_OUTPUT__DOC = RUN_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Add Input Doc</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_INPUT_DOC__DOC = RUN_OPERATION_COUNT + 0;
+	int TASK___ADD_INPUT_DOC__DOC = RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Input Docs</em>' operation.
@@ -2595,7 +2613,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_INPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 1;
+	int TASK___ADD_INPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Init Outputs</em>' operation.
@@ -2604,7 +2622,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 2;
+	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Clone</em>' operation.
@@ -2613,7 +2631,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___CLONE = RUN_OPERATION_COUNT + 3;
+	int TASK___CLONE = RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Output Doc</em>' operation.
@@ -2622,7 +2640,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOC__DOC = RUN_OPERATION_COUNT + 4;
+	int TASK___ADD_OUTPUT_DOC__DOC = RUN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Output Docs</em>' operation.
@@ -2631,7 +2649,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 5;
+	int TASK___ADD_OUTPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -2640,7 +2658,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 6;
+	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2893,6 +2911,24 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_TASK___CONSTRUCT_PARAMS = TASK___CONSTRUCT_PARAMS;
+
+	/**
+	 * The operation id for the '<em>Is Valid Input</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK___IS_VALID_INPUT__DOC = TASK___IS_VALID_INPUT__DOC;
+
+	/**
+	 * The operation id for the '<em>Is Valid Output</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK___IS_VALID_OUTPUT__DOC = TASK___IS_VALID_OUTPUT__DOC;
 
 	/**
 	 * The operation id for the '<em>Add Input Doc</em>' operation.
@@ -3848,6 +3884,26 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTask_Outputs();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#isValidInput(com.misc.common.moplaf.job.Doc) <em>Is Valid Input</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Input</em>' operation.
+	 * @see com.misc.common.moplaf.job.Task#isValidInput(com.misc.common.moplaf.job.Doc)
+	 * @generated
+	 */
+	EOperation getTask__IsValidInput__Doc();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#isValidOutput(com.misc.common.moplaf.job.Doc) <em>Is Valid Output</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Output</em>' operation.
+	 * @see com.misc.common.moplaf.job.Task#isValidOutput(com.misc.common.moplaf.job.Doc)
+	 * @generated
+	 */
+	EOperation getTask__IsValidOutput__Doc();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Task#getInputs <em>Inputs</em>}'.
@@ -5079,6 +5135,22 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK__OUTPUTS = eINSTANCE.getTask_Outputs();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Input</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___IS_VALID_INPUT__DOC = eINSTANCE.getTask__IsValidInput__Doc();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Output</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK___IS_VALID_OUTPUT__DOC = eINSTANCE.getTask__IsValidOutput__Doc();
 
 		/**
 		 * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.

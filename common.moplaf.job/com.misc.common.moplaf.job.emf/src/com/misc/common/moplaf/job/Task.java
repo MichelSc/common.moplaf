@@ -60,6 +60,22 @@ public interface Task extends Run {
 	EList<TaskOutput> getOutputs();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback isValidInput(Doc doc);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback isValidOutput(Doc doc);
+
+	/**
 	 * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.TaskInput}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.TaskInput#getConsumer <em>Consumer</em>}'.
