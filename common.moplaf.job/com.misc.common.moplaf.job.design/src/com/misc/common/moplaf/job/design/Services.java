@@ -48,12 +48,8 @@ public class Services {
      * @param self
      * @return
      */
-    public EList<Task> getNewTasks(EObject self) {
-    	if ( self instanceof TaskDomain ) {
-    		TaskDomain domain = (TaskDomain)self;
-    		return domain.getNewTasks();
-    	}
-      return null;
+    public EList<Task> getNewTasks(TaskDomain domain) {
+   		return domain.getNewTasks();
     }
     
     /**
@@ -61,125 +57,85 @@ public class Services {
      * @param self
      * @return
      */
-    public boolean runRunEnabled(EObject self) {
-    	if ( self instanceof Run ) {
-    		Run run = (Run)self;
-    		return run.getRunFeedback().isEnabled();
-    	}
-    	return false;
+    public boolean runRunEnabled(Run run) {
+   		return run.getRunFeedback().isEnabled();
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean runRun(EObject self) {
-    	if ( self instanceof Run ) {
-    		Run run = (Run)self;
-    		ReturnFeedback feedback = run.run();
-    		return feedback.isSuccess();
-    	}
-    	return false;
+    public boolean runRun(Run run) {
+		ReturnFeedback feedback = run.run();
+		return feedback.isSuccess();
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean runResetEnabled(EObject self) {
-    	if ( self instanceof Run ) {
-    		Run run = (Run)self;
-    		return run.getResetFeedback().isEnabled();
-    	}
-    	return false;
+    public boolean runResetEnabled(Run run) {
+   		return run.getResetFeedback().isEnabled();
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean runReset(EObject self) {
-    	if ( self instanceof Run ) {
-    		Run run = (Run)self;
-    		run.reset();
-    		return true;
-    	}
-    	return false;
+    public boolean runReset(Run run) {
+		run.reset();
+		return true;
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean runCancelEnabled(EObject self) {
-    	if ( self instanceof Run ) {
-    		Run run = (Run)self;
-    		return run.getCancelFeedback().isEnabled();
-    	}
-    	return false;
+    public boolean runCancelEnabled(Run run) {
+   		return run.getCancelFeedback().isEnabled();
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean runCancel(EObject self) {
-    	if ( self instanceof Run ) {
-    		Run run = (Run)self;
-    		run.reset();
-    		return true;
-    	}
-    	return false;
+    public boolean runCancel(Run run) {
+		run.reset();
+		return true;
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean docFlushEnabled(EObject self) {
-    	if ( self instanceof Doc ) {
-    		Doc doc = (Doc)self;
-    		return doc.getFlushFeedback().isEnabled();
-    	}
-    	return false;
+    public boolean docFlushEnabled(Doc doc) {
+   		return doc.getFlushFeedback().isEnabled();
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean docFlush(EObject self) {
-    	if ( self instanceof Doc ) {
-    		Doc doc = (Doc)self;
-    		doc.flush();
-    		return true;
-    	}
-    	return false;
+    public boolean docFlush(Doc doc) {
+   		doc.flush();
+   		return true;
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean docCloneEnabled(EObject self) {
-    	if ( self instanceof Doc ) {
-    		Doc doc = (Doc)self;
-    		return doc.getCloneFeedback().isEnabled();
-    	}
-    	return false;
+    public boolean docCloneEnabled(Doc doc) {
+   		return doc.getCloneFeedback().isEnabled();
     }
     /**
      * 
      * @param self
      * @return
      */
-    public boolean docClone(EObject self) {
-    	if ( self instanceof Doc ) {
-    		Doc doc = (Doc)self;
-    		doc.clone();
-    		return true;
-    	}
-    	return false;
+    public boolean docClone(Doc doc) {
+		doc.clone();
+		return true;
     }
 
     public boolean taskIsValidInput(Task task, Doc doc) {
