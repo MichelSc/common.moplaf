@@ -59,6 +59,12 @@
               <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docFlush"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionclone" label="Clone a Doc" precondition="service:docCloneEnabled">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docClone"/>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Tasks" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -115,28 +121,8 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionclone" label="Clone a Doc" precondition="service:docCloneEnabled">
-            <view name="views"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docClone"/>
-            </initialOperation>
-          </ownedTools>
         </toolSections>
         <toolSections name="di_doctasks_tools_playground" label="Playground tools">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask1" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_createtask" id="com.misc.common.moplaf.job.design.action.run"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask2" elementsToSelect="aql:instance" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:Let" valueExpression="service:myService3(self)"/>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask3" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -153,20 +139,14 @@
                 <page name="di_doctasks_tools_actionrun_createtask_page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@toolSections.1/@ownedTools[name='di_doctasks_tools_actionrun_createtask3']/@initialOperation/@firstModelOperations/@groups.0"/>
                 <groups name="di_doctasks_tools_actionrun_createtask_group" labelExpression="Group" semanticCandidateExpression="var:self">
                   <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_actionrun_createtask_list" labelExpression="Tasks" valueExpression="service:getNewTasks" displayExpression="aql:value.Description">
-                    <onClickOperation>
-                      <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->first()">
-                        <subModelOperations xsi:type="tool:Let" valueExpression="service:myService3(self)"/>
-                      </firstModelOperations>
-                    </onClickOperation>
+                    <actions labelExpression="aql:&quot;label button&quot;">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </actions>
                   </controls>
                 </groups>
               </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task 2" precondition="aql:false">
-            <view name="views"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
