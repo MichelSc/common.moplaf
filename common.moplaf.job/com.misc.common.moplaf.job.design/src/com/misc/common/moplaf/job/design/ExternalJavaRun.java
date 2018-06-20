@@ -45,7 +45,6 @@ public class ExternalJavaRun implements IExternalJavaAction {
 	@Override
 	public boolean canExecute(Collection<? extends EObject> arg0) {
 		EList<Run> runs = this.getRuns(arg0);
-		Plugin.INSTANCE.logInfo(String.format("ExternalJavaRun.canExecute: called %d/%d", runs.size(), arg0.size()));
 		return runs.size()>0;
 	}
 
