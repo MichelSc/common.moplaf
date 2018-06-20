@@ -77,7 +77,7 @@
                     </buttons>
                     <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                       <initialOperation>
-                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:tocreate">
+                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:tocreate->first()">
                           <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:container" featureName="Tasks"/>
                         </firstModelOperations>
                       </initialOperation>
@@ -86,7 +86,7 @@
                     <groups name="di_doctasks_tools_actionrun_createtask_group" labelExpression="Select Tasks to create" semanticCandidateExpression="var:self">
                       <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_actionrun_createtask_list" labelExpression="Tasks" valueExpression="service:getNewTasks" displayExpression="aql:value.Description">
                         <onClickOperation>
-                          <firstModelOperations xsi:type="tool:Let" variableName="tocreate" valueExpression="aql:selection->first()"/>
+                          <firstModelOperations xsi:type="tool:Let" variableName="tocreate" valueExpression="aql:selection"/>
                         </onClickOperation>
                       </controls>
                     </groups>
