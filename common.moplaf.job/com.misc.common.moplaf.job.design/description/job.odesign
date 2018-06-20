@@ -327,7 +327,7 @@
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="pr_group_doc_loaded" label="Field DocLoaded" labelExpression="Doc Loaded" isEnabledExpression="aql:false" valueExpression="aql:self.Loaded">
+        <controls xsi:type="properties:CheckboxDescription" name="pr_group_doc_loaded" label="Field DocLoaded" labelExpression="Doc Loaded" valueExpression="aql:self.Loaded">
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>

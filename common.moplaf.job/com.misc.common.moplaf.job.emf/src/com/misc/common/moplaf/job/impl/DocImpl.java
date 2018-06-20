@@ -19,7 +19,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -236,11 +235,16 @@ public abstract class DocImpl extends MinimalEObjectImpl.Container implements Do
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void flush() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		this.flushImpl();
+		this.setLoaded(false);
+	}
+
+	/**
+	 * 
+	 */
+	protected void flushImpl() {
 		throw new UnsupportedOperationException();
 	}
 
