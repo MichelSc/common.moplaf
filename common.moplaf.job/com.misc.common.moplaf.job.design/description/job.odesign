@@ -35,16 +35,28 @@
           </style>
         </edgeMappings>
         <toolSections name="di_doctasks_tools_taskload" label="Docs &amp; Tasks tools">
-          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun" label="Run  a Task">
-            <view name="views"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task 2" precondition="service:runRunEnabled">
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task " precondition="service:runRunEnabled">
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:runRun"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionreset" label="Reset  a Task " precondition="service:runResetEnabled">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:runReset"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actioncancel" label="Cancel a Task " precondition="service:runCancelEnabled">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:runCancel"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionflush" label="Flush a Doc" precondition="service:docFlushEnabled">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docFlush"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Tasks" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
@@ -103,6 +115,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionclone" label="Clone a Doc" precondition="service:docCloneEnabled">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docClone"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="di_doctasks_tools_playground" label="Playground tools">
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask1" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
@@ -145,6 +163,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task 2" precondition="aql:false">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="di_doctasks_tools_actionrun_call" id="com.misc.common.moplaf.job.design.action.run"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -153,7 +177,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="pr_doctasks">
     <metamodels href="../../com.misc.common.moplaf.job.emf/model/job.ecore#/"/>
     <categories name="Default">
-      <pages name="pr_page_doctasks" label="Doc &amp; Tasks" labelExpression="Docs &amp; Tasks" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.4" indented="true"/>
+      <pages name="pr_page_doctasks" label="Doc &amp; Tasks" labelExpression="Docs &amp; Tasks" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.5" indented="true"/>
       <pages name="pr_page_default" label="Default Page" labelExpression="aql:input.emfEditServices(self).getTabName()" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0"/>
       <groups name="sirius_default_rules_defaultgroup" labelExpression="Properties" semanticCandidateExpression="var:self" preconditionExpression="">
         <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
@@ -237,7 +261,7 @@
           </onClickOperation>
         </controls>
       </groups>
-      <groups name="pr_group_enabled" label="Group Enabled" labelExpression="Enabled" domainClass="job::Run" semanticCandidateExpression="var:self">
+      <groups name="pr_group_enabled_run" label="Group Enabled Run" labelExpression="Enabled" domainClass="job::Run" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_enabled_run" label="Field RunEnabled" labelExpression="Run Enabled" helpExpression="Feedback about allowed to execute the run" isEnabledExpression="aql:false" valueExpression="aql:self.RunFeedback">
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
@@ -253,6 +277,18 @@
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool:SetValue" featureName="Cancelled" valueExpression="aql:newValue"/>
             </firstModelOperations>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="pr_group_enabled_doc" label="Group Enabled Doc" labelExpression="Enabled" domainClass="job::Doc" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="pr_group_enabled_flush" label="Field FlushEnabled" labelExpression="Flush Enabled" helpExpression="Feedback about allowed to flush the doc" isEnabledExpression="aql:false" valueExpression="aql:self.FlushFeedback">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="pr_group_enabled_clone" label="Field CloneEnabled" labelExpression="Clone Enabled" helpExpression="Feedback about allowed to clone the doc" isEnabledExpression="aql:false" valueExpression="aql:self.CloneFeedback">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </initialOperation>
         </controls>
       </groups>
