@@ -36,7 +36,13 @@
           </style>
         </containerMappings>
         <containerMappings name="di_doctasks_task_container" label="aTask container" semanticCandidatesExpression="feature:Tasks" domainClass="job::Task" childrenPresentation="List">
-          <subNodeMappings semanticCandidatesExpression="feature:eAllContents"/>
+          <subNodeMappings name="di_doctasks_task_container_status" label="Job Status" semanticCandidatesExpression="aql:self" domainClass="job::Task">
+            <style xsi:type="style:SquareDescription" labelExpression="feature:Status" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="feature:Description">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
