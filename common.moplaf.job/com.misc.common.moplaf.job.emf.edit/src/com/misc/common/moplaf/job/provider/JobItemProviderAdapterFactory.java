@@ -266,6 +266,52 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicatorDate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyIndicatorDateItemProvider keyIndicatorDateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicatorDate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyIndicatorDateAdapter() {
+		if (keyIndicatorDateItemProvider == null) {
+			keyIndicatorDateItemProvider = new KeyIndicatorDateItemProvider(this);
+		}
+
+		return keyIndicatorDateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicatorString} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyIndicatorStringItemProvider keyIndicatorStringItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicatorString}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyIndicatorStringAdapter() {
+		if (keyIndicatorStringItemProvider == null) {
+			keyIndicatorStringItemProvider = new KeyIndicatorStringItemProvider(this);
+		}
+
+		return keyIndicatorStringItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.DocsHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -636,6 +682,8 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (keyIndicatorsItemProvider != null) keyIndicatorsItemProvider.dispose();
 		if (keyIndicatorDoubleItemProvider != null) keyIndicatorDoubleItemProvider.dispose();
 		if (keyIndicatorIntItemProvider != null) keyIndicatorIntItemProvider.dispose();
+		if (keyIndicatorDateItemProvider != null) keyIndicatorDateItemProvider.dispose();
+		if (keyIndicatorStringItemProvider != null) keyIndicatorStringItemProvider.dispose();
 	}
 
 }

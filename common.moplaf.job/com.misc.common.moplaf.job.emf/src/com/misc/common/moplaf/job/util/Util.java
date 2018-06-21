@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.misc.common.moplaf.job.util;
 
+import java.util.Date;
 import java.util.Iterator;
 
 import org.eclipse.core.runtime.CoreException;
@@ -24,8 +25,10 @@ import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.Docs;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.KeyIndicator;
+import com.misc.common.moplaf.job.KeyIndicatorDate;
 import com.misc.common.moplaf.job.KeyIndicatorDouble;
 import com.misc.common.moplaf.job.KeyIndicatorInt;
+import com.misc.common.moplaf.job.KeyIndicatorString;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.Task;
 
@@ -161,5 +164,48 @@ public class Util {
 		
 		// update
 		indicator.setValue(value);
+	}
+	
+	public static void updateKeyIndicatorString(EList<KeyIndicator> indicators, String name, String value) {
+		// get 
+		KeyIndicatorString indicator = indicators
+				.stream()
+				.filter(i -> i instanceof KeyIndicatorString)
+				.map(i -> (KeyIndicatorString)i)
+				.filter(i -> i.getName().equals(name))
+				.findAny()
+				.orElse(null);
+		
+		// create
+		if ( indicator == null ) {
+			indicator = JobFactory.eINSTANCE.createKeyIndicatorString();
+			indicator.setName(name);
+			indicators.add(indicator);
+		}
+		
+		// update
+		indicator.setValue(value);
+	}
+
+	public static void updateKeyIndicatorDate(EList<KeyIndicator> indicators, String name, Date date, String format) {
+		// get 
+		KeyIndicatorDate indicator = indicators
+				.stream()
+				.filter(i -> i instanceof KeyIndicatorDate)
+				.map(i -> (KeyIndicatorDate)i)
+				.filter(i -> i.getName().equals(name))
+				.findAny()
+				.orElse(null);
+		
+		// create
+		if ( indicator == null ) {
+			indicator = JobFactory.eINSTANCE.createKeyIndicatorDate();
+			indicator.setName(name);
+			indicators.add(indicator);
+		}
+		
+		// update
+		indicator.setDate(date);
+		indicator.setFormat(format);
 	}
 }

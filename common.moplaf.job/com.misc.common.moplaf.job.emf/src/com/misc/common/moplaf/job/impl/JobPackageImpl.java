@@ -31,8 +31,10 @@ import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.JobParameter;
 import com.misc.common.moplaf.job.JobParameterType;
 import com.misc.common.moplaf.job.KeyIndicator;
+import com.misc.common.moplaf.job.KeyIndicatorDate;
 import com.misc.common.moplaf.job.KeyIndicatorDouble;
 import com.misc.common.moplaf.job.KeyIndicatorInt;
+import com.misc.common.moplaf.job.KeyIndicatorString;
 import com.misc.common.moplaf.job.KeyIndicators;
 import com.misc.common.moplaf.job.ParamsHolder;
 import com.misc.common.moplaf.job.ProgressFeedback;
@@ -214,6 +216,20 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	private EClass keyIndicatorIntEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyIndicatorDateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyIndicatorStringEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1316,6 +1332,51 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getKeyIndicatorDate() {
+		return keyIndicatorDateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyIndicatorDate_Date() {
+		return (EAttribute)keyIndicatorDateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyIndicatorDate_Format() {
+		return (EAttribute)keyIndicatorDateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getKeyIndicatorString() {
+		return keyIndicatorStringEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyIndicatorString_Value() {
+		return (EAttribute)keyIndicatorStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDocsHolder() {
 		return docsHolderEClass;
 	}
@@ -1816,6 +1877,13 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		keyIndicatorIntEClass = createEClass(KEY_INDICATOR_INT);
 		createEAttribute(keyIndicatorIntEClass, KEY_INDICATOR_INT__VALUE);
 
+		keyIndicatorDateEClass = createEClass(KEY_INDICATOR_DATE);
+		createEAttribute(keyIndicatorDateEClass, KEY_INDICATOR_DATE__DATE);
+		createEAttribute(keyIndicatorDateEClass, KEY_INDICATOR_DATE__FORMAT);
+
+		keyIndicatorStringEClass = createEClass(KEY_INDICATOR_STRING);
+		createEAttribute(keyIndicatorStringEClass, KEY_INDICATOR_STRING__VALUE);
+
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
 
@@ -1871,6 +1939,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		compoundDocEClass.getESuperTypes().add(this.getDocsHolder());
 		docInDocsHolderEClass.getESuperTypes().add(this.getDocRef());
 		taskEClass.getESuperTypes().add(this.getJob());
+		taskEClass.getESuperTypes().add(this.getKeyIndicators());
 		domainTaskEClass.getESuperTypes().add(this.getTask());
 		taskDocEClass.getESuperTypes().add(this.getDocRef());
 		taskInputEClass.getESuperTypes().add(this.getTaskDoc());
@@ -1879,6 +1948,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		taskDomainEClass.getESuperTypes().add(this.getTasks());
 		keyIndicatorDoubleEClass.getESuperTypes().add(this.getKeyIndicator());
 		keyIndicatorIntEClass.getESuperTypes().add(this.getKeyIndicator());
+		keyIndicatorDateEClass.getESuperTypes().add(this.getKeyIndicator());
+		keyIndicatorStringEClass.getESuperTypes().add(this.getKeyIndicator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2120,6 +2191,13 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		initEClass(keyIndicatorIntEClass, KeyIndicatorInt.class, "KeyIndicatorInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyIndicatorInt_Value(), ecorePackage.getEInt(), "Value", null, 0, 1, KeyIndicatorInt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(keyIndicatorDateEClass, KeyIndicatorDate.class, "KeyIndicatorDate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyIndicatorDate_Date(), ecorePackage.getEDate(), "Date", null, 0, 1, KeyIndicatorDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKeyIndicatorDate_Format(), ecorePackage.getEString(), "Format", null, 0, 1, KeyIndicatorDate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(keyIndicatorStringEClass, KeyIndicatorString.class, "KeyIndicatorString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyIndicatorString_Value(), ecorePackage.getEString(), "Value", null, 0, 1, KeyIndicatorString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");

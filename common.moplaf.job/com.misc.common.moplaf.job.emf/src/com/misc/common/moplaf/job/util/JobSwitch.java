@@ -210,6 +210,7 @@ public class JobSwitch<T> extends Switch<T> {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
 				if (result == null) result = caseJob(task);
+				if (result == null) result = caseKeyIndicators(task);
 				if (result == null) result = caseRun(task);
 				if (result == null) result = caseRunParams(task);
 				if (result == null) result = defaultCase(theEObject);
@@ -220,6 +221,7 @@ public class JobSwitch<T> extends Switch<T> {
 				T result = caseDomainTask(domainTask);
 				if (result == null) result = caseTask(domainTask);
 				if (result == null) result = caseJob(domainTask);
+				if (result == null) result = caseKeyIndicators(domainTask);
 				if (result == null) result = caseRun(domainTask);
 				if (result == null) result = caseRunParams(domainTask);
 				if (result == null) result = defaultCase(theEObject);
@@ -291,6 +293,20 @@ public class JobSwitch<T> extends Switch<T> {
 				KeyIndicatorInt keyIndicatorInt = (KeyIndicatorInt)theEObject;
 				T result = caseKeyIndicatorInt(keyIndicatorInt);
 				if (result == null) result = caseKeyIndicator(keyIndicatorInt);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.KEY_INDICATOR_DATE: {
+				KeyIndicatorDate keyIndicatorDate = (KeyIndicatorDate)theEObject;
+				T result = caseKeyIndicatorDate(keyIndicatorDate);
+				if (result == null) result = caseKeyIndicator(keyIndicatorDate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.KEY_INDICATOR_STRING: {
+				KeyIndicatorString keyIndicatorString = (KeyIndicatorString)theEObject;
+				T result = caseKeyIndicatorString(keyIndicatorString);
+				if (result == null) result = caseKeyIndicator(keyIndicatorString);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -610,6 +626,36 @@ public class JobSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseKeyIndicatorInt(KeyIndicatorInt object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Indicator Date</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Indicator Date</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyIndicatorDate(KeyIndicatorDate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Indicator String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Indicator String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyIndicatorString(KeyIndicatorString object) {
 		return null;
 	}
 

@@ -156,6 +156,16 @@ public class KeyIndicatorsItemProvider
 			(createChildParameter
 				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
 				 JobFactory.eINSTANCE.createKeyIndicatorInt()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
+				 JobFactory.eINSTANCE.createKeyIndicatorDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
+				 JobFactory.eINSTANCE.createKeyIndicatorString()));
 	}
 
 	/**

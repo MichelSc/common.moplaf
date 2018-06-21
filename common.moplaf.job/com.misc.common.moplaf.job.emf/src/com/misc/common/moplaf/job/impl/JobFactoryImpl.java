@@ -89,6 +89,8 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 			case JobPackage.KEY_INDICATORS: return createKeyIndicators();
 			case JobPackage.KEY_INDICATOR_DOUBLE: return createKeyIndicatorDouble();
 			case JobPackage.KEY_INDICATOR_INT: return createKeyIndicatorInt();
+			case JobPackage.KEY_INDICATOR_DATE: return createKeyIndicatorDate();
+			case JobPackage.KEY_INDICATOR_STRING: return createKeyIndicatorString();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -282,6 +284,26 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	public KeyIndicatorInt createKeyIndicatorInt() {
 		KeyIndicatorIntImpl keyIndicatorInt = new KeyIndicatorIntImpl();
 		return keyIndicatorInt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyIndicatorDate createKeyIndicatorDate() {
+		KeyIndicatorDateImpl keyIndicatorDate = new KeyIndicatorDateImpl();
+		return keyIndicatorDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyIndicatorString createKeyIndicatorString() {
+		KeyIndicatorStringImpl keyIndicatorString = new KeyIndicatorStringImpl();
+		return keyIndicatorString;
 	}
 
 	/**

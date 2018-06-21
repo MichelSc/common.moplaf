@@ -91,6 +91,7 @@ public class TaskItemProvider extends JobItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(JobPackage.Literals.KEY_INDICATORS__INDICATORS);
 			childrenFeatures.add(JobPackage.Literals.TASK__INPUTS);
 			childrenFeatures.add(JobPackage.Literals.TASK__OUTPUTS);
 		}
@@ -140,6 +141,7 @@ public class TaskItemProvider extends JobItemProvider {
 			case JobPackage.TASK__CLONE_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case JobPackage.TASK__INDICATORS:
 			case JobPackage.TASK__INPUTS:
 			case JobPackage.TASK__OUTPUTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -158,6 +160,26 @@ public class TaskItemProvider extends JobItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
+				 JobFactory.eINSTANCE.createKeyIndicatorDouble()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
+				 JobFactory.eINSTANCE.createKeyIndicatorInt()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
+				 JobFactory.eINSTANCE.createKeyIndicatorDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
+				 JobFactory.eINSTANCE.createKeyIndicatorString()));
 
 		newChildDescriptors.add
 			(createChildParameter

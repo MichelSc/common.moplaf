@@ -199,6 +199,14 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 				return createKeyIndicatorIntAdapter();
 			}
 			@Override
+			public Adapter caseKeyIndicatorDate(KeyIndicatorDate object) {
+				return createKeyIndicatorDateAdapter();
+			}
+			@Override
+			public Adapter caseKeyIndicatorString(KeyIndicatorString object) {
+				return createKeyIndicatorStringAdapter();
+			}
+			@Override
 			public Adapter caseFileOwner(FileOwner object) {
 				return createFileOwnerAdapter();
 			}
@@ -517,6 +525,34 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createKeyIndicatorIntAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.KeyIndicatorDate <em>Key Indicator Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorDate
+	 * @generated
+	 */
+	public Adapter createKeyIndicatorDateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.KeyIndicatorString <em>Key Indicator String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorString
+	 * @generated
+	 */
+	public Adapter createKeyIndicatorStringAdapter() {
 		return null;
 	}
 

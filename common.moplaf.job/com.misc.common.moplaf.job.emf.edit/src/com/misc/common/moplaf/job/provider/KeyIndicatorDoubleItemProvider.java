@@ -91,7 +91,7 @@ public class KeyIndicatorDoubleItemProvider extends KeyIndicatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((KeyIndicatorDouble)object).getName();
+		String label = ((KeyIndicatorDouble)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_KeyIndicatorDouble_type") :
 			getString("_UI_KeyIndicatorDouble_type") + " " + label;

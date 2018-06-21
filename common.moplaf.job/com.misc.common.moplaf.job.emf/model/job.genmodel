@@ -252,5 +252,12 @@
     <genClasses ecoreClass="job.ecore#//KeyIndicatorInt" labelFeature="#//job/KeyIndicator/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicatorInt/Value"/>
     </genClasses>
+    <genClasses ecoreClass="job.ecore#//KeyIndicatorDate" labelFeature="#//job/KeyIndicator/Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicatorDate/Date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicatorDate/Format"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//KeyIndicatorString" labelFeature="#//job/KeyIndicator/Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicatorString/Value"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

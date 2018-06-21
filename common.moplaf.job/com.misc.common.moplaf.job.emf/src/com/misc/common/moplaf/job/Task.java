@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Task extends Job {
+public interface Task extends Job, KeyIndicators {
 	/**
 	 * Returns the value of the '<em><b>Clone Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
