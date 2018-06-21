@@ -28,13 +28,6 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="di_doctasks_doc_container_ki" label="Key Indicator" semanticCandidatesExpression="feature:Indicators" domainClass="job::KeyIndicator">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:self" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="feature:Description">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -43,29 +36,8 @@
           </style>
         </containerMappings>
         <containerMappings name="di_doctasks_task_container" label="aTask container" semanticCandidatesExpression="feature:Tasks" domainClass="job::Task" childrenPresentation="List">
-          <subNodeMappings name="di_doctasks_task_container_status" label="Job Status" semanticCandidatesExpression="aql:self" domainClass="job::Task">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:'Status='+self.Status" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="di_doctasks_task_container_start" label="Job Start" semanticCandidatesExpression="aql:self" domainClass="job::Task">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:'Start ='+self.StartTime" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="di_doctasks_task_container_end" label="Job End" semanticCandidatesExpression="aql:self" domainClass="job::Task">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:'End   ='+self.EndTime" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="di_doctasks_task_container_duration" label="Job Duration" semanticCandidatesExpression="aql:self" domainClass="job::Task">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:'Durat.='+self.Duration" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+          <subNodeMappings name="di_doctasks_task_container_ki" label="Key Indicator" semanticCandidatesExpression="feature:Indicators" domainClass="job::KeyIndicator">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:Description" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
