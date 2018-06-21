@@ -163,7 +163,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Runs" upperBound="-1" eType="#//Run"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true" eSuperTypes="#//KeyIndicatorsHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true" eSuperTypes="#//KeyIndicators">
     <eOperations name="clone" eType="#//Doc"/>
     <eOperations name="flush"/>
     <eOperations name="save"/>
@@ -262,7 +262,7 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KeyIndicatorsHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="KeyIndicators">
     <eOperations name="getKeyIndicator" eType="#//KeyIndicator">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -278,6 +278,8 @@
         eType="#//KeyIndicator" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyIndicator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>

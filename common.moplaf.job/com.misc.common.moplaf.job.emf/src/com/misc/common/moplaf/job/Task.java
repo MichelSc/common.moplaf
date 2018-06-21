@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Task extends Run, KeyIndicatorsHolder {
+public interface Task extends Run {
 	/**
 	 * Returns the value of the '<em><b>Clone Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->

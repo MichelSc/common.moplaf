@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Doc extends KeyIndicatorsHolder {
+public interface Doc extends KeyIndicators {
 	/**
 	 * Returns the value of the '<em><b>Clone Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->

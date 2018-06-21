@@ -183,8 +183,8 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 				return createTaskDomainAdapter();
 			}
 			@Override
-			public Adapter caseKeyIndicatorsHolder(KeyIndicatorsHolder object) {
-				return createKeyIndicatorsHolderAdapter();
+			public Adapter caseKeyIndicators(KeyIndicators object) {
+				return createKeyIndicatorsAdapter();
 			}
 			@Override
 			public Adapter caseKeyIndicator(KeyIndicator object) {
@@ -457,16 +457,16 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.KeyIndicatorsHolder <em>Key Indicators Holder</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.KeyIndicators <em>Key Indicators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.job.KeyIndicatorsHolder
+	 * @see com.misc.common.moplaf.job.KeyIndicators
 	 * @generated
 	 */
-	public Adapter createKeyIndicatorsHolderAdapter() {
+	public Adapter createKeyIndicatorsAdapter() {
 		return null;
 	}
 

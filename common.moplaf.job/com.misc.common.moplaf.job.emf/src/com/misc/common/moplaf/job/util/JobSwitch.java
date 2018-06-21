@@ -174,7 +174,7 @@ public class JobSwitch<T> extends Switch<T> {
 			case JobPackage.DOC: {
 				Doc doc = (Doc)theEObject;
 				T result = caseDoc(doc);
-				if (result == null) result = caseKeyIndicatorsHolder(doc);
+				if (result == null) result = caseKeyIndicators(doc);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,7 +195,7 @@ public class JobSwitch<T> extends Switch<T> {
 				T result = caseCompoundDoc(compoundDoc);
 				if (result == null) result = caseDoc(compoundDoc);
 				if (result == null) result = caseDocsHolder(compoundDoc);
-				if (result == null) result = caseKeyIndicatorsHolder(compoundDoc);
+				if (result == null) result = caseKeyIndicators(compoundDoc);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -210,7 +210,6 @@ public class JobSwitch<T> extends Switch<T> {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
 				if (result == null) result = caseRun(task);
-				if (result == null) result = caseKeyIndicatorsHolder(task);
 				if (result == null) result = caseRunParams(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -220,7 +219,6 @@ public class JobSwitch<T> extends Switch<T> {
 				T result = caseDomainTask(domainTask);
 				if (result == null) result = caseTask(domainTask);
 				if (result == null) result = caseRun(domainTask);
-				if (result == null) result = caseKeyIndicatorsHolder(domainTask);
 				if (result == null) result = caseRunParams(domainTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -268,9 +266,9 @@ public class JobSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JobPackage.KEY_INDICATORS_HOLDER: {
-				KeyIndicatorsHolder keyIndicatorsHolder = (KeyIndicatorsHolder)theEObject;
-				T result = caseKeyIndicatorsHolder(keyIndicatorsHolder);
+			case JobPackage.KEY_INDICATORS: {
+				KeyIndicators keyIndicators = (KeyIndicators)theEObject;
+				T result = caseKeyIndicators(keyIndicators);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -540,17 +538,17 @@ public class JobSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Key Indicators Holder</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Key Indicators</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Key Indicators Holder</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Key Indicators</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseKeyIndicatorsHolder(KeyIndicatorsHolder object) {
+	public T caseKeyIndicators(KeyIndicators object) {
 		return null;
 	}
 

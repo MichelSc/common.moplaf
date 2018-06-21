@@ -137,7 +137,6 @@ public class TaskItemProvider extends RunItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.KEY_INDICATORS_HOLDER__INDICATORS);
 			childrenFeatures.add(JobPackage.Literals.TASK__INPUTS);
 			childrenFeatures.add(JobPackage.Literals.TASK__OUTPUTS);
 		}
@@ -189,7 +188,6 @@ public class TaskItemProvider extends RunItemProvider {
 			case JobPackage.TASK__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case JobPackage.TASK__INDICATORS:
 			case JobPackage.TASK__INPUTS:
 			case JobPackage.TASK__OUTPUTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -208,11 +206,6 @@ public class TaskItemProvider extends RunItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobPackage.Literals.KEY_INDICATORS_HOLDER__INDICATORS,
-				 JobFactory.eINSTANCE.createKeyIndicator()));
 
 		newChildDescriptors.add
 			(createChildParameter

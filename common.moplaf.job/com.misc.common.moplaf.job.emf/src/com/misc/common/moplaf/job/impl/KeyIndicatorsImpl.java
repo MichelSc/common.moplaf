@@ -5,7 +5,7 @@ package com.misc.common.moplaf.job.impl;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.KeyIndicator;
-import com.misc.common.moplaf.job.KeyIndicatorsHolder;
+import com.misc.common.moplaf.job.KeyIndicators;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -25,18 +25,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Key Indicators Holder</b></em>'.
+ * An implementation of the model object '<em><b>Key Indicators</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorsHolderImpl#getIndicators <em>Indicators</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorsImpl#getIndicators <em>Indicators</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implements KeyIndicatorsHolder {
+public class KeyIndicatorsImpl extends MinimalEObjectImpl.Container implements KeyIndicators {
 	/**
 	 * The cached value of the '{@link #getIndicators() <em>Indicators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KeyIndicatorsHolderImpl() {
+	protected KeyIndicatorsImpl() {
 		super();
 	}
 
@@ -63,7 +63,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JobPackage.Literals.KEY_INDICATORS_HOLDER;
+		return JobPackage.Literals.KEY_INDICATORS;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	 */
 	public EList<KeyIndicator> getIndicators() {
 		if (indicators == null) {
-			indicators = new EObjectContainmentEList<KeyIndicator>(KeyIndicator.class, this, JobPackage.KEY_INDICATORS_HOLDER__INDICATORS);
+			indicators = new EObjectContainmentEList<KeyIndicator>(KeyIndicator.class, this, JobPackage.KEY_INDICATORS__INDICATORS);
 		}
 		return indicators;
 	}
@@ -131,7 +131,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JobPackage.KEY_INDICATORS_HOLDER__INDICATORS:
+			case JobPackage.KEY_INDICATORS__INDICATORS:
 				return ((InternalEList<?>)getIndicators()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -145,7 +145,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobPackage.KEY_INDICATORS_HOLDER__INDICATORS:
+			case JobPackage.KEY_INDICATORS__INDICATORS:
 				return getIndicators();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -160,7 +160,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobPackage.KEY_INDICATORS_HOLDER__INDICATORS:
+			case JobPackage.KEY_INDICATORS__INDICATORS:
 				getIndicators().clear();
 				getIndicators().addAll((Collection<? extends KeyIndicator>)newValue);
 				return;
@@ -176,7 +176,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.KEY_INDICATORS_HOLDER__INDICATORS:
+			case JobPackage.KEY_INDICATORS__INDICATORS:
 				getIndicators().clear();
 				return;
 		}
@@ -191,7 +191,7 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobPackage.KEY_INDICATORS_HOLDER__INDICATORS:
+			case JobPackage.KEY_INDICATORS__INDICATORS:
 				return indicators != null && !indicators.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -205,17 +205,17 @@ public class KeyIndicatorsHolderImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobPackage.KEY_INDICATORS_HOLDER___GET_KEY_INDICATOR__STRING:
+			case JobPackage.KEY_INDICATORS___GET_KEY_INDICATOR__STRING:
 				return getKeyIndicator((String)arguments.get(0));
-			case JobPackage.KEY_INDICATORS_HOLDER___GET_OR_CREATE_KEY_INDICATOR__STRING:
+			case JobPackage.KEY_INDICATORS___GET_OR_CREATE_KEY_INDICATOR__STRING:
 				return getOrCreateKeyIndicator((String)arguments.get(0));
-			case JobPackage.KEY_INDICATORS_HOLDER___UPDATE_KEY_INDICATOR__STRING_DOUBLE:
+			case JobPackage.KEY_INDICATORS___UPDATE_KEY_INDICATOR__STRING_DOUBLE:
 				return updateKeyIndicator((String)arguments.get(0), (Double)arguments.get(1));
-			case JobPackage.KEY_INDICATORS_HOLDER___REFRESH_KEY_INDICATORS:
+			case JobPackage.KEY_INDICATORS___REFRESH_KEY_INDICATORS:
 				refreshKeyIndicators();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
-} //KeyIndicatorsHolderImpl
+} //KeyIndicatorsImpl

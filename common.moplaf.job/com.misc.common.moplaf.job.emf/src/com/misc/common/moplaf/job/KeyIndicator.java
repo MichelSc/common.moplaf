@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.job.KeyIndicator#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.KeyIndicator#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.KeyIndicator#getValue <em>Value</em>}</li>
  * </ul>
@@ -22,6 +23,21 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface KeyIndicator extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getKeyIndicator_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

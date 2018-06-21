@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class DocImpl extends KeyIndicatorsHolderImpl implements Doc {
+public abstract class DocImpl extends KeyIndicatorsImpl implements Doc {
 	/**
 	 * The default value of the '{@link #getCloneFeedback() <em>Clone Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -28,7 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DocItemProvider 
-	extends KeyIndicatorsHolderItemProvider {
+	extends KeyIndicatorsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -5,7 +5,7 @@ package com.misc.common.moplaf.job.provider;
 
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
-import com.misc.common.moplaf.job.KeyIndicatorsHolder;
+import com.misc.common.moplaf.job.KeyIndicators;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.job.KeyIndicatorsHolder} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.job.KeyIndicators} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class KeyIndicatorsHolderItemProvider 
+public class KeyIndicatorsItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class KeyIndicatorsHolderItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KeyIndicatorsHolderItemProvider(AdapterFactory adapterFactory) {
+	public KeyIndicatorsItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,7 +77,7 @@ public class KeyIndicatorsHolderItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.KEY_INDICATORS_HOLDER__INDICATORS);
+			childrenFeatures.add(JobPackage.Literals.KEY_INDICATORS__INDICATORS);
 		}
 		return childrenFeatures;
 	}
@@ -96,14 +96,14 @@ public class KeyIndicatorsHolderItemProvider
 	}
 
 	/**
-	 * This returns KeyIndicatorsHolder.gif.
+	 * This returns KeyIndicators.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/KeyIndicatorsHolder"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/KeyIndicators"));
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class KeyIndicatorsHolderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_KeyIndicatorsHolder_type");
+		return getString("_UI_KeyIndicators_type");
 	}
 	
 
@@ -129,8 +129,8 @@ public class KeyIndicatorsHolderItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(KeyIndicatorsHolder.class)) {
-			case JobPackage.KEY_INDICATORS_HOLDER__INDICATORS:
+		switch (notification.getFeatureID(KeyIndicators.class)) {
+			case JobPackage.KEY_INDICATORS__INDICATORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,7 +150,7 @@ public class KeyIndicatorsHolderItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobPackage.Literals.KEY_INDICATORS_HOLDER__INDICATORS,
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
 				 JobFactory.eINSTANCE.createKeyIndicator()));
 	}
 

@@ -131,13 +131,13 @@ public interface JobFactory extends EFactory {
 	TaskDomain createTaskDomain();
 
 	/**
-	 * Returns a new object of class '<em>Key Indicators Holder</em>'.
+	 * Returns a new object of class '<em>Key Indicators</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Key Indicators Holder</em>'.
+	 * @return a new object of class '<em>Key Indicators</em>'.
 	 * @generated
 	 */
-	KeyIndicatorsHolder createKeyIndicatorsHolder();
+	KeyIndicators createKeyIndicators();
 
 	/**
 	 * Returns a new object of class '<em>Key Indicator</em>'.

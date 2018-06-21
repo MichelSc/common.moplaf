@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -27,6 +28,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements KeyIndicator {
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,6 +100,15 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("%s = %f", this.getName(), this.getValue());
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getName() {
@@ -136,6 +156,8 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case JobPackage.KEY_INDICATOR__DESCRIPTION:
+				return getDescription();
 			case JobPackage.KEY_INDICATOR__NAME:
 				return getName();
 			case JobPackage.KEY_INDICATOR__VALUE:
@@ -188,6 +210,8 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case JobPackage.KEY_INDICATOR__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case JobPackage.KEY_INDICATOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JobPackage.KEY_INDICATOR__VALUE:

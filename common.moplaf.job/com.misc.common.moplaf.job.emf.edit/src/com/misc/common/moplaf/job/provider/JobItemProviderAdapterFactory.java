@@ -197,26 +197,26 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicatorsHolder} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicators} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KeyIndicatorsHolderItemProvider keyIndicatorsHolderItemProvider;
+	protected KeyIndicatorsItemProvider keyIndicatorsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicatorsHolder}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicators}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createKeyIndicatorsHolderAdapter() {
-		if (keyIndicatorsHolderItemProvider == null) {
-			keyIndicatorsHolderItemProvider = new KeyIndicatorsHolderItemProvider(this);
+	public Adapter createKeyIndicatorsAdapter() {
+		if (keyIndicatorsItemProvider == null) {
+			keyIndicatorsItemProvider = new KeyIndicatorsItemProvider(this);
 		}
 
-		return keyIndicatorsHolderItemProvider;
+		return keyIndicatorsItemProvider;
 	}
 
 	/**
@@ -610,7 +610,7 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (tasksItemProvider != null) tasksItemProvider.dispose();
 		if (docsItemProvider != null) docsItemProvider.dispose();
 		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
-		if (keyIndicatorsHolderItemProvider != null) keyIndicatorsHolderItemProvider.dispose();
+		if (keyIndicatorsItemProvider != null) keyIndicatorsItemProvider.dispose();
 		if (keyIndicatorItemProvider != null) keyIndicatorItemProvider.dispose();
 	}
 

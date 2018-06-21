@@ -60,10 +60,33 @@ public class KeyIndicatorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDescriptionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_KeyIndicator_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyIndicator_Description_feature", "_UI_KeyIndicator_type"),
+				 JobPackage.Literals.KEY_INDICATOR__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -129,7 +152,7 @@ public class KeyIndicatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((KeyIndicator)object).getName();
+		String label = ((KeyIndicator)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_KeyIndicator_type") :
 			getString("_UI_KeyIndicator_type") + " " + label;
@@ -148,6 +171,7 @@ public class KeyIndicatorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(KeyIndicator.class)) {
+			case JobPackage.KEY_INDICATOR__DESCRIPTION:
 			case JobPackage.KEY_INDICATOR__NAME:
 			case JobPackage.KEY_INDICATOR__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

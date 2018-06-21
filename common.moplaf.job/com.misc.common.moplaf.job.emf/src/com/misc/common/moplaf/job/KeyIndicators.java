@@ -8,21 +8,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Key Indicators Holder</b></em>'.
+ * A representation of the model object '<em><b>Key Indicators</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.KeyIndicatorsHolder#getIndicators <em>Indicators</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.KeyIndicators#getIndicators <em>Indicators</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.job.JobPackage#getKeyIndicatorsHolder()
+ * @see com.misc.common.moplaf.job.JobPackage#getKeyIndicators()
  * @model
  * @generated
  */
-public interface KeyIndicatorsHolder extends EObject {
+public interface KeyIndicators extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Indicators</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.KeyIndicator}.
@@ -33,7 +33,7 @@ public interface KeyIndicatorsHolder extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Indicators</em>' containment reference list.
-	 * @see com.misc.common.moplaf.job.JobPackage#getKeyIndicatorsHolder_Indicators()
+	 * @see com.misc.common.moplaf.job.JobPackage#getKeyIndicators_Indicators()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -71,4 +71,4 @@ public interface KeyIndicatorsHolder extends EObject {
 	 */
 	void refreshKeyIndicators();
 
-} // KeyIndicatorsHolder
+} // KeyIndicators
