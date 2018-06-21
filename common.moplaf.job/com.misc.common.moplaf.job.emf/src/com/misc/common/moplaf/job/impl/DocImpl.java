@@ -237,6 +237,7 @@ public abstract class DocImpl extends KeyIndicatorsImpl implements Doc {
 	public void flush() {
 		this.flushImpl();
 		this.setLoaded(false);
+		this.refreshKeyIndicators();
 	}
 
 	/**
