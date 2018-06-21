@@ -23,14 +23,14 @@ import java.util.Date;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.Job#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Job#getStatus <em>Status</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Job#isStarted <em>Started</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Job#isFinished <em>Finished</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getEndTime <em>End Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getDuration <em>Duration</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#isStarted <em>Started</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#isFinished <em>Finished</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getJob()

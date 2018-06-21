@@ -51,7 +51,7 @@ public class DomainTaskItemProvider extends TaskItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DomainTask)object).getDescription();
+		String label = ((DomainTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DomainTask_type") :
 			getString("_UI_DomainTask_type") + " " + label;

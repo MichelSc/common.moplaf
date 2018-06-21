@@ -13,15 +13,12 @@ import com.misc.common.moplaf.job.TaskOutput;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,15 +31,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getCloneFeedback <em>Clone Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getInputs <em>Inputs</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getOutputs <em>Outputs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class TaskImpl extends RunImpl implements Task {
+public abstract class TaskImpl extends JobImpl implements Task {
 	/**
 	 * The default value of the '{@link #getCloneFeedback() <em>Clone Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,33 +47,6 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	 * @ordered
 	 */
 	protected static final EnabledFeedback CLONE_FEEDBACK_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = "<new Task>";
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -175,38 +143,6 @@ public abstract class TaskImpl extends RunImpl implements Task {
 			inputs = new EObjectContainmentWithInverseEList<TaskInput>(TaskInput.class, this, JobPackage.TASK__INPUTS, JobPackage.TASK_INPUT__CONSUMER);
 		}
 		return inputs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		// TODO: implement this method to return the 'Description' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.TASK__NAME, oldName, name));
 	}
 
 	/**
@@ -314,10 +250,6 @@ public abstract class TaskImpl extends RunImpl implements Task {
 		switch (featureID) {
 			case JobPackage.TASK__CLONE_FEEDBACK:
 				return getCloneFeedback();
-			case JobPackage.TASK__DESCRIPTION:
-				return getDescription();
-			case JobPackage.TASK__NAME:
-				return getName();
 			case JobPackage.TASK__INPUTS:
 				return getInputs();
 			case JobPackage.TASK__OUTPUTS:
@@ -335,9 +267,6 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JobPackage.TASK__NAME:
-				setName((String)newValue);
-				return;
 			case JobPackage.TASK__INPUTS:
 				getInputs().clear();
 				getInputs().addAll((Collection<? extends TaskInput>)newValue);
@@ -358,9 +287,6 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JobPackage.TASK__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case JobPackage.TASK__INPUTS:
 				getInputs().clear();
 				return;
@@ -381,10 +307,6 @@ public abstract class TaskImpl extends RunImpl implements Task {
 		switch (featureID) {
 			case JobPackage.TASK__CLONE_FEEDBACK:
 				return CLONE_FEEDBACK_EDEFAULT == null ? getCloneFeedback() != null : !CLONE_FEEDBACK_EDEFAULT.equals(getCloneFeedback());
-			case JobPackage.TASK__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case JobPackage.TASK__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JobPackage.TASK__INPUTS:
 				return inputs != null && !inputs.isEmpty();
 			case JobPackage.TASK__OUTPUTS:
@@ -425,22 +347,6 @@ public abstract class TaskImpl extends RunImpl implements Task {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //TaskImpl

@@ -209,6 +209,7 @@ public class JobSwitch<T> extends Switch<T> {
 			case JobPackage.TASK: {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
+				if (result == null) result = caseJob(task);
 				if (result == null) result = caseRun(task);
 				if (result == null) result = caseRunParams(task);
 				if (result == null) result = defaultCase(theEObject);
@@ -218,6 +219,7 @@ public class JobSwitch<T> extends Switch<T> {
 				DomainTask domainTask = (DomainTask)theEObject;
 				T result = caseDomainTask(domainTask);
 				if (result == null) result = caseTask(domainTask);
+				if (result == null) result = caseJob(domainTask);
 				if (result == null) result = caseRun(domainTask);
 				if (result == null) result = caseRunParams(domainTask);
 				if (result == null) result = defaultCase(theEObject);

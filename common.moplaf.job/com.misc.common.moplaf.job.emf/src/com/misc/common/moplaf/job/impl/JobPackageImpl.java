@@ -635,15 +635,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EAttribute getJob_Status() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJob_Description() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -652,34 +643,16 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJob_Description() {
+		return (EAttribute)jobEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getJob_StartTime() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJob_EndTime() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJob_Duration() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJob_Started() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -688,7 +661,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Finished() {
+	public EAttribute getJob_EndTime() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -697,8 +670,35 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Name() {
+	public EAttribute getJob_Duration() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJob_Started() {
+		return (EAttribute)jobEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJob_Finished() {
+		return (EAttribute)jobEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJob_Name() {
+		return (EAttribute)jobEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -869,7 +869,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EReference getTask_Outputs() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(4);
+		return (EReference)taskEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -896,25 +896,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	public EReference getTask_Inputs() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTask_Description() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTask_Name() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(2);
+		return (EReference)taskEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1679,14 +1661,14 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(runEClass, RUN___CONSTRUCT_PARAMS);
 
 		jobEClass = createEClass(JOB);
-		createEAttribute(jobEClass, JOB__STATUS);
 		createEAttribute(jobEClass, JOB__DESCRIPTION);
+		createEAttribute(jobEClass, JOB__STATUS);
+		createEAttribute(jobEClass, JOB__NAME);
+		createEAttribute(jobEClass, JOB__STARTED);
+		createEAttribute(jobEClass, JOB__FINISHED);
 		createEAttribute(jobEClass, JOB__START_TIME);
 		createEAttribute(jobEClass, JOB__END_TIME);
 		createEAttribute(jobEClass, JOB__DURATION);
-		createEAttribute(jobEClass, JOB__STARTED);
-		createEAttribute(jobEClass, JOB__FINISHED);
-		createEAttribute(jobEClass, JOB__NAME);
 
 		jobConsoleEClass = createEClass(JOB_CONSOLE);
 		createEReference(jobConsoleEClass, JOB_CONSOLE__PARAMETERS);
@@ -1761,8 +1743,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__CLONE_FEEDBACK);
-		createEAttribute(taskEClass, TASK__DESCRIPTION);
-		createEAttribute(taskEClass, TASK__NAME);
 		createEReference(taskEClass, TASK__INPUTS);
 		createEReference(taskEClass, TASK__OUTPUTS);
 		createEOperation(taskEClass, TASK___IS_VALID_INPUT__DOC);
@@ -1862,7 +1842,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		compoundDocEClass.getESuperTypes().add(this.getDoc());
 		compoundDocEClass.getESuperTypes().add(this.getDocsHolder());
 		docInDocsHolderEClass.getESuperTypes().add(this.getDocRef());
-		taskEClass.getESuperTypes().add(this.getRun());
+		taskEClass.getESuperTypes().add(this.getJob());
 		domainTaskEClass.getESuperTypes().add(this.getTask());
 		taskDocEClass.getESuperTypes().add(this.getDocRef());
 		taskInputEClass.getESuperTypes().add(this.getTaskDoc());
@@ -1924,14 +1904,14 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEOperation(getRun__ConstructParams(), this.getRunParams(), "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobEClass, Job.class, "Job", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJob_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_Name(), ecorePackage.getEString(), "Name", "<new Job>", 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_Started(), ecorePackage.getEBoolean(), "Started", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_Finished(), ecorePackage.getEBoolean(), "Finished", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_StartTime(), ecorePackage.getEDate(), "StartTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_EndTime(), ecorePackage.getEDate(), "EndTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Duration(), ecorePackage.getEFloat(), "Duration", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Started(), ecorePackage.getEBoolean(), "Started", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Finished(), ecorePackage.getEBoolean(), "Finished", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Name(), ecorePackage.getEString(), "Name", "<new Job>", 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobConsoleEClass, JobConsole.class, "JobConsole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobConsole_Parameters(), this.getJobParameter(), null, "Parameters", null, 0, -1, JobConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2046,8 +2026,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		initEClass(taskEClass, Task.class, "Task", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_CloneFeedback(), this.getEnabledFeedback(), "CloneFeedback", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTask_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Task.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTask_Name(), ecorePackage.getEString(), "Name", "<new Task>", 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Inputs(), this.getTaskInput(), this.getTaskInput_Consumer(), "Inputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Outputs(), this.getTaskOutput(), this.getTaskOutput_Producer(), "Outputs", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

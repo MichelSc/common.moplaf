@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TaskItemProvider extends RunItemProvider {
+public class TaskItemProvider extends JobItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -53,8 +53,6 @@ public class TaskItemProvider extends RunItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCloneFeedbackPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,50 +76,6 @@ public class TaskItemProvider extends RunItemProvider {
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Task_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Task_Description_feature", "_UI_Task_type"),
-				 JobPackage.Literals.TASK__DESCRIPTION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20TaskPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Task_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Task_Name_feature", "_UI_Task_type"),
-				 JobPackage.Literals.TASK__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20TaskPropertyCategory"),
 				 null));
 	}
 
@@ -184,8 +138,6 @@ public class TaskItemProvider extends RunItemProvider {
 
 		switch (notification.getFeatureID(Task.class)) {
 			case JobPackage.TASK__CLONE_FEEDBACK:
-			case JobPackage.TASK__DESCRIPTION:
-			case JobPackage.TASK__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobPackage.TASK__INPUTS:

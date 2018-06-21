@@ -479,67 +479,22 @@ public interface JobPackage extends EPackage {
 	int JOB__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__STATUS = RUN_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__DESCRIPTION = RUN_FEATURE_COUNT + 1;
+	int JOB__DESCRIPTION = RUN_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__START_TIME = RUN_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>End Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__END_TIME = RUN_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Duration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__DURATION = RUN_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Started</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__STARTED = RUN_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Finished</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__FINISHED = RUN_FEATURE_COUNT + 6;
+	int JOB__STATUS = RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -548,7 +503,52 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__NAME = RUN_FEATURE_COUNT + 7;
+	int JOB__NAME = RUN_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__STARTED = RUN_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__FINISHED = RUN_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__START_TIME = RUN_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>End Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__END_TIME = RUN_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__DURATION = RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.
@@ -768,6 +768,15 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE__RETURN_INFORMATION = JOB__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__DESCRIPTION = JOB__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -777,13 +786,31 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE__STATUS = JOB__STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_CONSOLE__DESCRIPTION = JOB__DESCRIPTION;
+	int JOB_CONSOLE__NAME = JOB__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__STARTED = JOB__STARTED;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__FINISHED = JOB__FINISHED;
 
 	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
@@ -811,33 +838,6 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_CONSOLE__DURATION = JOB__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Started</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_CONSOLE__STARTED = JOB__STARTED;
-
-	/**
-	 * The feature id for the '<em><b>Finished</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_CONSOLE__FINISHED = JOB__FINISHED;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_CONSOLE__NAME = JOB__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1585,6 +1585,15 @@ public interface JobPackage extends EPackage {
 	int JOB_FILE_HANDLER__RETURN_INFORMATION = JOB__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__DESCRIPTION = JOB__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1594,13 +1603,31 @@ public interface JobPackage extends EPackage {
 	int JOB_FILE_HANDLER__STATUS = JOB__STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FILE_HANDLER__DESCRIPTION = JOB__DESCRIPTION;
+	int JOB_FILE_HANDLER__NAME = JOB__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__STARTED = JOB__STARTED;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_FILE_HANDLER__FINISHED = JOB__FINISHED;
 
 	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
@@ -1628,33 +1655,6 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_FILE_HANDLER__DURATION = JOB__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Started</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_FILE_HANDLER__STARTED = JOB__STARTED;
-
-	/**
-	 * The feature id for the '<em><b>Finished</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_FILE_HANDLER__FINISHED = JOB__FINISHED;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_FILE_HANDLER__NAME = JOB__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
@@ -2506,7 +2506,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RUN_FEEDBACK = RUN__RUN_FEEDBACK;
+	int TASK__RUN_FEEDBACK = JOB__RUN_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
@@ -2515,7 +2515,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__CANCEL_FEEDBACK = RUN__CANCEL_FEEDBACK;
+	int TASK__CANCEL_FEEDBACK = JOB__CANCEL_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
@@ -2524,7 +2524,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RESET_FEEDBACK = RUN__RESET_FEEDBACK;
+	int TASK__RESET_FEEDBACK = JOB__RESET_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -2533,7 +2533,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__LABEL = RUN__LABEL;
+	int TASK__LABEL = JOB__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Cancelled</b></em>' attribute.
@@ -2542,7 +2542,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__CANCELLED = RUN__CANCELLED;
+	int TASK__CANCELLED = JOB__CANCELLED;
 
 	/**
 	 * The feature id for the '<em><b>Returned</b></em>' attribute.
@@ -2551,7 +2551,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RETURNED = RUN__RETURNED;
+	int TASK__RETURNED = JOB__RETURNED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -2560,7 +2560,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RETURN_SUCCESS = RUN__RETURN_SUCCESS;
+	int TASK__RETURN_SUCCESS = JOB__RETURN_SUCCESS;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -2569,7 +2569,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RETURN_FEEDBACK = RUN__RETURN_FEEDBACK;
+	int TASK__RETURN_FEEDBACK = JOB__RETURN_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -2578,16 +2578,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
-
-	/**
-	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__CLONE_FEEDBACK = RUN_FEATURE_COUNT + 0;
+	int TASK__RETURN_INFORMATION = JOB__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2596,7 +2587,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__DESCRIPTION = RUN_FEATURE_COUNT + 1;
+	int TASK__DESCRIPTION = JOB__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__STATUS = JOB__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2605,7 +2605,61 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__NAME = RUN_FEATURE_COUNT + 2;
+	int TASK__NAME = JOB__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__STARTED = JOB__STARTED;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__FINISHED = JOB__FINISHED;
+
+	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__START_TIME = JOB__START_TIME;
+
+	/**
+	 * The feature id for the '<em><b>End Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__END_TIME = JOB__END_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__DURATION = JOB__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CLONE_FEEDBACK = JOB_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -2614,7 +2668,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__INPUTS = RUN_FEATURE_COUNT + 3;
+	int TASK__INPUTS = JOB_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -2623,7 +2677,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__OUTPUTS = RUN_FEATURE_COUNT + 4;
+	int TASK__OUTPUTS = JOB_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -2632,7 +2686,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 5;
+	int TASK_FEATURE_COUNT = JOB_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -2641,7 +2695,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___COPY_PARAMS__RUNPARAMS = RUN___COPY_PARAMS__RUNPARAMS;
+	int TASK___COPY_PARAMS__RUNPARAMS = JOB___COPY_PARAMS__RUNPARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -2650,7 +2704,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___RESET = RUN___RESET;
+	int TASK___RESET = JOB___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -2659,7 +2713,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___RUN = RUN___RUN;
+	int TASK___RUN = JOB___RUN;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -2668,7 +2722,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___RUN__RUNCONTEXT = RUN___RUN__RUNCONTEXT;
+	int TASK___RUN__RUNCONTEXT = JOB___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Run Asynch</em>' operation.
@@ -2677,7 +2731,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___RUN_ASYNCH__RUNCONTEXT = RUN___RUN_ASYNCH__RUNCONTEXT;
+	int TASK___RUN_ASYNCH__RUNCONTEXT = JOB___RUN_ASYNCH__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Run Asynch</em>' operation.
@@ -2686,7 +2740,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = RUN___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
+	int TASK___RUN_ASYNCH__RUNCONTEXT_BOOLEAN = JOB___RUN_ASYNCH__RUNCONTEXT_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -2695,7 +2749,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___CANCEL = RUN___CANCEL;
+	int TASK___CANCEL = JOB___CANCEL;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -2704,7 +2758,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___SET_PROGRESS__STRING_FLOAT = RUN___SET_PROGRESS__STRING_FLOAT;
+	int TASK___SET_PROGRESS__STRING_FLOAT = JOB___SET_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -2713,7 +2767,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___SET_PROGRESS__PROGRESSFEEDBACK = RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+	int TASK___SET_PROGRESS__PROGRESSFEEDBACK = JOB___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
@@ -2722,7 +2776,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___SET_RETURN__RETURNFEEDBACK = RUN___SET_RETURN__RETURNFEEDBACK;
+	int TASK___SET_RETURN__RETURNFEEDBACK = JOB___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -2731,7 +2785,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___GET_RETURN = RUN___GET_RETURN;
+	int TASK___GET_RETURN = JOB___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Construct Params</em>' operation.
@@ -2740,7 +2794,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___CONSTRUCT_PARAMS = RUN___CONSTRUCT_PARAMS;
+	int TASK___CONSTRUCT_PARAMS = JOB___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Is Valid Input</em>' operation.
@@ -2749,7 +2803,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___IS_VALID_INPUT__DOC = RUN_OPERATION_COUNT + 0;
+	int TASK___IS_VALID_INPUT__DOC = JOB_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid Output</em>' operation.
@@ -2758,7 +2812,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___IS_VALID_OUTPUT__DOC = RUN_OPERATION_COUNT + 1;
+	int TASK___IS_VALID_OUTPUT__DOC = JOB_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Input Doc</em>' operation.
@@ -2767,7 +2821,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_INPUT_DOC__DOC = RUN_OPERATION_COUNT + 2;
+	int TASK___ADD_INPUT_DOC__DOC = JOB_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Input Docs</em>' operation.
@@ -2776,7 +2830,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_INPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 3;
+	int TASK___ADD_INPUT_DOCS__ELIST = JOB_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Init Outputs</em>' operation.
@@ -2785,7 +2839,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 4;
+	int TASK___INIT_OUTPUTS = JOB_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Clone</em>' operation.
@@ -2794,7 +2848,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___CLONE = RUN_OPERATION_COUNT + 5;
+	int TASK___CLONE = JOB_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Output Doc</em>' operation.
@@ -2803,7 +2857,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOC__DOC = RUN_OPERATION_COUNT + 6;
+	int TASK___ADD_OUTPUT_DOC__DOC = JOB_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Output Docs</em>' operation.
@@ -2812,7 +2866,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 7;
+	int TASK___ADD_OUTPUT_DOCS__ELIST = JOB_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -2821,7 +2875,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 8;
+	int TASK_OPERATION_COUNT = JOB_OPERATION_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2905,15 +2959,6 @@ public interface JobPackage extends EPackage {
 	int DOMAIN_TASK__RETURN_INFORMATION = TASK__RETURN_INFORMATION;
 
 	/**
-	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_TASK__CLONE_FEEDBACK = TASK__CLONE_FEEDBACK;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2923,6 +2968,15 @@ public interface JobPackage extends EPackage {
 	int DOMAIN_TASK__DESCRIPTION = TASK__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__STATUS = TASK__STATUS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2930,6 +2984,60 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_TASK__NAME = TASK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__STARTED = TASK__STARTED;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__FINISHED = TASK__FINISHED;
+
+	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__START_TIME = TASK__START_TIME;
+
+	/**
+	 * The feature id for the '<em><b>End Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__END_TIME = TASK__END_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__DURATION = TASK__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__CLONE_FEEDBACK = TASK__CLONE_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -4133,28 +4241,6 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTask_Inputs();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Task#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.job.Task#getDescription()
-	 * @see #getTask()
-	 * @generated
-	 */
-	EAttribute getTask_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Task#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.job.Task#getName()
-	 * @see #getTask()
-	 * @generated
-	 */
-	EAttribute getTask_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Task#addInputDoc(com.misc.common.moplaf.job.Doc) <em>Add Input Doc</em>}' operation.
@@ -5481,22 +5567,6 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK__INPUTS = eINSTANCE.getTask_Inputs();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TASK__DESCRIPTION = eINSTANCE.getTask_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TASK__NAME = eINSTANCE.getTask_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Input Doc</b></em>' operation.

@@ -76,17 +76,17 @@
       <genOperations ecoreOperation="job.ecore#//Run/constructParams"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//Job">
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
-          ecoreFeature="ecore:EAttribute job.ecore#//Job/Status"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
           ecoreFeature="ecore:EAttribute job.ecore#//Job/Description"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/StartTime"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/EndTime"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/Duration"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
+          ecoreFeature="ecore:EAttribute job.ecore#//Job/Status"/>
+      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute job.ecore#//Job/Name"/>
       <genFeatures property="None" createChild="false" propertyCategory="10 Job Status"
           ecoreFeature="ecore:EAttribute job.ecore#//Job/Started"/>
       <genFeatures property="None" createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute job.ecore#//Job/Finished"/>
-      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute job.ecore#//Job/Name"/>
+      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/StartTime"/>
+      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/EndTime"/>
+      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/Duration"/>
     </genClasses>
     <genClasses image="false" ecoreClass="job.ecore#//JobConsole">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//JobConsole/Parameters"/>
@@ -190,11 +190,8 @@
     <genClasses image="false" ecoreClass="job.ecore#//DocInDocsHolder">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//DocInDocsHolder/DocsHolder"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="job.ecore#//Task" labelFeature="#//job/Task/Description">
+    <genClasses image="false" ecoreClass="job.ecore#//Task" labelFeature="#//job/Job/Description">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Task/CloneFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Task"
-          ecoreFeature="ecore:EAttribute job.ecore#//Task/Description"/>
-      <genFeatures createChild="false" propertyCategory="20 Task" ecoreFeature="ecore:EAttribute job.ecore#//Task/Name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Task/Inputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Task/Outputs"/>
       <genOperations ecoreOperation="job.ecore#//Task/isValidInput">
@@ -218,7 +215,7 @@
         <genParameters ecoreParameter="job.ecore#//Task/addOutputDocs/docs"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="job.ecore#//DomainTask" labelFeature="#//job/Task/Description">
+    <genClasses image="false" ecoreClass="job.ecore#//DomainTask">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//DomainTask/Domain"/>
     </genClasses>
     <genClasses image="false" ecoreClass="job.ecore#//TaskDoc">

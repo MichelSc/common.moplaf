@@ -32,19 +32,29 @@ import com.misc.common.moplaf.job.RunContext;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#isStarted <em>Started</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#isFinished <em>Finished</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getEndTime <em>End Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getDuration <em>Duration</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#isStarted <em>Started</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#isFinished <em>Finished</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.JobImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class JobImpl extends RunImpl implements Job {
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,14 +66,64 @@ public abstract class JobImpl extends RunImpl implements Job {
 	protected static final String STATUS_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = "<new Job>";
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isStarted() <em>Started</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStarted()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean STARTED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isStarted() <em>Started</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStarted()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean started = STARTED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isFinished() <em>Finished</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFinished()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FINISHED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFinished() <em>Finished</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFinished()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean finished = FINISHED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
@@ -124,66 +184,6 @@ public abstract class JobImpl extends RunImpl implements Job {
 	 * @ordered
 	 */
 	protected float duration = DURATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isStarted() <em>Started</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isStarted()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean STARTED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isStarted() <em>Started</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isStarted()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean started = STARTED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isFinished() <em>Finished</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFinished()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean FINISHED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isFinished() <em>Finished</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isFinished()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean finished = FINISHED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = "<new Job>";
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -418,22 +418,22 @@ public abstract class JobImpl extends RunImpl implements Job {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JobPackage.JOB__STATUS:
-				return getStatus();
 			case JobPackage.JOB__DESCRIPTION:
 				return getDescription();
+			case JobPackage.JOB__STATUS:
+				return getStatus();
+			case JobPackage.JOB__NAME:
+				return getName();
+			case JobPackage.JOB__STARTED:
+				return isStarted();
+			case JobPackage.JOB__FINISHED:
+				return isFinished();
 			case JobPackage.JOB__START_TIME:
 				return getStartTime();
 			case JobPackage.JOB__END_TIME:
 				return getEndTime();
 			case JobPackage.JOB__DURATION:
 				return getDuration();
-			case JobPackage.JOB__STARTED:
-				return isStarted();
-			case JobPackage.JOB__FINISHED:
-				return isFinished();
-			case JobPackage.JOB__NAME:
-				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -447,6 +447,15 @@ public abstract class JobImpl extends RunImpl implements Job {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case JobPackage.JOB__NAME:
+				setName((String)newValue);
+				return;
+			case JobPackage.JOB__STARTED:
+				setStarted((Boolean)newValue);
+				return;
+			case JobPackage.JOB__FINISHED:
+				setFinished((Boolean)newValue);
+				return;
 			case JobPackage.JOB__START_TIME:
 				setStartTime((Date)newValue);
 				return;
@@ -455,15 +464,6 @@ public abstract class JobImpl extends RunImpl implements Job {
 				return;
 			case JobPackage.JOB__DURATION:
 				setDuration((Float)newValue);
-				return;
-			case JobPackage.JOB__STARTED:
-				setStarted((Boolean)newValue);
-				return;
-			case JobPackage.JOB__FINISHED:
-				setFinished((Boolean)newValue);
-				return;
-			case JobPackage.JOB__NAME:
-				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -477,6 +477,15 @@ public abstract class JobImpl extends RunImpl implements Job {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case JobPackage.JOB__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case JobPackage.JOB__STARTED:
+				setStarted(STARTED_EDEFAULT);
+				return;
+			case JobPackage.JOB__FINISHED:
+				setFinished(FINISHED_EDEFAULT);
+				return;
 			case JobPackage.JOB__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
 				return;
@@ -485,15 +494,6 @@ public abstract class JobImpl extends RunImpl implements Job {
 				return;
 			case JobPackage.JOB__DURATION:
 				setDuration(DURATION_EDEFAULT);
-				return;
-			case JobPackage.JOB__STARTED:
-				setStarted(STARTED_EDEFAULT);
-				return;
-			case JobPackage.JOB__FINISHED:
-				setFinished(FINISHED_EDEFAULT);
-				return;
-			case JobPackage.JOB__NAME:
-				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -507,22 +507,22 @@ public abstract class JobImpl extends RunImpl implements Job {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JobPackage.JOB__STATUS:
-				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
 			case JobPackage.JOB__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case JobPackage.JOB__STATUS:
+				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
+			case JobPackage.JOB__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case JobPackage.JOB__STARTED:
+				return started != STARTED_EDEFAULT;
+			case JobPackage.JOB__FINISHED:
+				return finished != FINISHED_EDEFAULT;
 			case JobPackage.JOB__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
 			case JobPackage.JOB__END_TIME:
 				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
 			case JobPackage.JOB__DURATION:
 				return duration != DURATION_EDEFAULT;
-			case JobPackage.JOB__STARTED:
-				return started != STARTED_EDEFAULT;
-			case JobPackage.JOB__FINISHED:
-				return finished != FINISHED_EDEFAULT;
-			case JobPackage.JOB__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -537,18 +537,18 @@ public abstract class JobImpl extends RunImpl implements Job {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (StartTime: ");
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(", Started: ");
+		result.append(started);
+		result.append(", Finished: ");
+		result.append(finished);
+		result.append(", StartTime: ");
 		result.append(startTime);
 		result.append(", EndTime: ");
 		result.append(endTime);
 		result.append(", Duration: ");
 		result.append(duration);
-		result.append(", Started: ");
-		result.append(started);
-		result.append(", Finished: ");
-		result.append(finished);
-		result.append(", Name: ");
-		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

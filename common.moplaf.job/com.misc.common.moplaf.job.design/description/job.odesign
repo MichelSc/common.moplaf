@@ -4,14 +4,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="di_doctasks" label="Docs &amp; Tasks Diagram" domainClass="job::TaskDomain" enablePopupBars="true">
       <metamodel href="../../com.misc.common.moplaf.job.emf/model/job.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="di_doctasks_task" label="aTask" semanticCandidatesExpression="feature:Tasks" domainClass="job::Task">
-          <style xsi:type="style:DotDescription" labelExpression="feature:Description" sizeComputationExpression="10" labelPosition="node" strokeSizeComputationExpression="10">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="di_doctasks_input" semanticCandidatesExpression="aql:self.Tasks.Inputs" sourceMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@containerMappings[name='di_doctasks_doc_container']" targetMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']" targetFinderExpression="aql:self.Consumer" sourceFinderExpression="aql:self.Doc" domainClass="job::TaskInput" useDomainElement="true">
+        <edgeMappings name="di_doctasks_input" semanticCandidatesExpression="aql:self.Tasks.Inputs" sourceMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@containerMappings[name='di_doctasks_doc_container']" targetMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']" targetFinderExpression="aql:self.Consumer" sourceFinderExpression="aql:self.Doc" domainClass="job::TaskInput" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -19,7 +12,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="di_doctasks_output" semanticCandidatesExpression="aql:self.Tasks.Outputs" sourceMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']" targetMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@containerMappings[name='di_doctasks_doc_container']" targetFinderExpression="aql:self.Doc" sourceFinderExpression="aql:self.Producer" domainClass="job::TaskOutput" useDomainElement="true">
+        <edgeMappings name="di_doctasks_output" semanticCandidatesExpression="aql:self.Tasks.Outputs" sourceMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']" targetMapping="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@containerMappings[name='di_doctasks_doc_container']" targetFinderExpression="aql:self.Doc" sourceFinderExpression="aql:self.Producer" domainClass="job::TaskOutput" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -40,6 +33,15 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="di_doctasks_task_container" label="aTask container" semanticCandidatesExpression="feature:Tasks" domainClass="job::Task" childrenPresentation="List">
+          <subNodeMappings semanticCandidatesExpression="feature:eAllContents"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="feature:Description">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </containerMappings>
         <toolSections name="di_doctasks_tools_taskload" label="Docs &amp; Tasks tools">
@@ -73,7 +75,7 @@
               <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docClone"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Tasks" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Tasks" containerMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -131,7 +133,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="di_doctasks_tools_playground" label="Playground tools">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask3" nodeMappings="//@ownedViewpoints[name='vp_doctasks']/@ownedRepresentations[name='di_doctasks']/@defaultLayer/@nodeMappings[name='di_doctasks_task']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_actionrun_createtask3">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>

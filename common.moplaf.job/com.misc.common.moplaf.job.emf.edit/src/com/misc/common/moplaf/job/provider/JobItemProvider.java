@@ -55,12 +55,12 @@ public class JobItemProvider extends RunItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addStatusPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addStatusPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addStartTimePropertyDescriptor(object);
 			addEndTimePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -234,14 +234,14 @@ public class JobItemProvider extends RunItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Job.class)) {
-			case JobPackage.JOB__STATUS:
 			case JobPackage.JOB__DESCRIPTION:
+			case JobPackage.JOB__STATUS:
+			case JobPackage.JOB__NAME:
+			case JobPackage.JOB__STARTED:
+			case JobPackage.JOB__FINISHED:
 			case JobPackage.JOB__START_TIME:
 			case JobPackage.JOB__END_TIME:
 			case JobPackage.JOB__DURATION:
-			case JobPackage.JOB__STARTED:
-			case JobPackage.JOB__FINISHED:
-			case JobPackage.JOB__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
