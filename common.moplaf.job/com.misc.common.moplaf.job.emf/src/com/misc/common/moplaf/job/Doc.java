@@ -5,8 +5,6 @@ package com.misc.common.moplaf.job;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Doc</b></em>'.
@@ -27,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Doc extends EObject {
+public interface Doc extends KeyIndicatorsHolder {
 	/**
 	 * Returns the value of the '<em><b>Clone Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->

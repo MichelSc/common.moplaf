@@ -86,6 +86,8 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 			case JobPackage.TASKS: return createTasks();
 			case JobPackage.DOCS: return createDocs();
 			case JobPackage.TASK_DOMAIN: return createTaskDomain();
+			case JobPackage.KEY_INDICATORS_HOLDER: return createKeyIndicatorsHolder();
+			case JobPackage.KEY_INDICATOR: return createKeyIndicator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -249,6 +251,26 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	public TaskDomain createTaskDomain() {
 		TaskDomainImpl taskDomain = new TaskDomainImpl();
 		return taskDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyIndicatorsHolder createKeyIndicatorsHolder() {
+		KeyIndicatorsHolderImpl keyIndicatorsHolder = new KeyIndicatorsHolderImpl();
+		return keyIndicatorsHolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyIndicator createKeyIndicator() {
+		KeyIndicatorImpl keyIndicator = new KeyIndicatorImpl();
+		return keyIndicator;
 	}
 
 	/**

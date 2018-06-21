@@ -163,7 +163,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Runs" upperBound="-1" eType="#//Run"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true" eSuperTypes="#//KeyIndicatorsHolder">
     <eOperations name="clone" eType="#//Doc"/>
     <eOperations name="flush"/>
     <eOperations name="save"/>
@@ -261,5 +261,24 @@
         <details key="documentation" value="Return an exemplar of every task type supported by this TaskDomain."/>
       </eAnnotations>
     </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyIndicatorsHolder">
+    <eOperations name="getKeyIndicator" eType="#//KeyIndicator">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getOrCreateKeyIndicator" eType="#//KeyIndicator">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="updateKeyIndicator" eType="#//KeyIndicator">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="refreshKeyIndicators"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Indicators" upperBound="-1"
+        eType="#//KeyIndicator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyIndicator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

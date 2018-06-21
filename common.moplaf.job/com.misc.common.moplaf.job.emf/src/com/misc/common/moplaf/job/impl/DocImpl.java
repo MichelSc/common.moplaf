@@ -22,8 +22,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -45,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class DocImpl extends MinimalEObjectImpl.Container implements Doc {
+public abstract class DocImpl extends KeyIndicatorsHolderImpl implements Doc {
 	/**
 	 * The default value of the '{@link #getCloneFeedback() <em>Clone Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->

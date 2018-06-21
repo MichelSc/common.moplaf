@@ -6,6 +6,8 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.KeyIndicator;
+import com.misc.common.moplaf.job.KeyIndicatorsHolder;
 import com.misc.common.moplaf.job.Task;
 
 import com.misc.common.moplaf.job.TaskInput;
@@ -22,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getIndicators <em>Indicators</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getCloneFeedback <em>Clone Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.TaskImpl#getName <em>Name</em>}</li>
@@ -43,6 +47,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public abstract class TaskImpl extends RunImpl implements Task {
+	/**
+	 * The cached value of the '{@link #getIndicators() <em>Indicators</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIndicators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<KeyIndicator> indicators;
 	/**
 	 * The default value of the '{@link #getCloneFeedback() <em>Clone Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -114,6 +127,18 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	protected EClass eStaticClass() {
 		return JobPackage.Literals.TASK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<KeyIndicator> getIndicators() {
+		if (indicators == null) {
+			indicators = new EObjectContainmentEList<KeyIndicator>(KeyIndicator.class, this, JobPackage.TASK__INDICATORS);
+		}
+		return indicators;
 	}
 
 	/**
@@ -276,6 +301,50 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public KeyIndicator getKeyIndicator(String name) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyIndicator getOrCreateKeyIndicator(String name) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KeyIndicator updateKeyIndicator(String name, double value) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refreshKeyIndicators() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -296,6 +365,8 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case JobPackage.TASK__INDICATORS:
+				return ((InternalEList<?>)getIndicators()).basicRemove(otherEnd, msgs);
 			case JobPackage.TASK__INPUTS:
 				return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
 			case JobPackage.TASK__OUTPUTS:
@@ -312,6 +383,8 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case JobPackage.TASK__INDICATORS:
+				return getIndicators();
 			case JobPackage.TASK__CLONE_FEEDBACK:
 				return getCloneFeedback();
 			case JobPackage.TASK__DESCRIPTION:
@@ -335,6 +408,10 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case JobPackage.TASK__INDICATORS:
+				getIndicators().clear();
+				getIndicators().addAll((Collection<? extends KeyIndicator>)newValue);
+				return;
 			case JobPackage.TASK__NAME:
 				setName((String)newValue);
 				return;
@@ -358,6 +435,9 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case JobPackage.TASK__INDICATORS:
+				getIndicators().clear();
+				return;
 			case JobPackage.TASK__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -379,6 +459,8 @@ public abstract class TaskImpl extends RunImpl implements Task {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case JobPackage.TASK__INDICATORS:
+				return indicators != null && !indicators.isEmpty();
 			case JobPackage.TASK__CLONE_FEEDBACK:
 				return CLONE_FEEDBACK_EDEFAULT == null ? getCloneFeedback() != null : !CLONE_FEEDBACK_EDEFAULT.equals(getCloneFeedback());
 			case JobPackage.TASK__DESCRIPTION:
@@ -391,6 +473,57 @@ public abstract class TaskImpl extends RunImpl implements Task {
 				return outputs != null && !outputs.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == KeyIndicatorsHolder.class) {
+			switch (derivedFeatureID) {
+				case JobPackage.TASK__INDICATORS: return JobPackage.KEY_INDICATORS_HOLDER__INDICATORS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == KeyIndicatorsHolder.class) {
+			switch (baseFeatureID) {
+				case JobPackage.KEY_INDICATORS_HOLDER__INDICATORS: return JobPackage.TASK__INDICATORS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == KeyIndicatorsHolder.class) {
+			switch (baseOperationID) {
+				case JobPackage.KEY_INDICATORS_HOLDER___GET_KEY_INDICATOR__STRING: return JobPackage.TASK___GET_KEY_INDICATOR__STRING;
+				case JobPackage.KEY_INDICATORS_HOLDER___GET_OR_CREATE_KEY_INDICATOR__STRING: return JobPackage.TASK___GET_OR_CREATE_KEY_INDICATOR__STRING;
+				case JobPackage.KEY_INDICATORS_HOLDER___UPDATE_KEY_INDICATOR__STRING_DOUBLE: return JobPackage.TASK___UPDATE_KEY_INDICATOR__STRING_DOUBLE;
+				case JobPackage.KEY_INDICATORS_HOLDER___REFRESH_KEY_INDICATORS: return JobPackage.TASK___REFRESH_KEY_INDICATORS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**
@@ -422,6 +555,15 @@ public abstract class TaskImpl extends RunImpl implements Task {
 				return null;
 			case JobPackage.TASK___ADD_OUTPUT_DOCS__ELIST:
 				addOutputDocs((EList<Doc>)arguments.get(0));
+				return null;
+			case JobPackage.TASK___GET_KEY_INDICATOR__STRING:
+				return getKeyIndicator((String)arguments.get(0));
+			case JobPackage.TASK___GET_OR_CREATE_KEY_INDICATOR__STRING:
+				return getOrCreateKeyIndicator((String)arguments.get(0));
+			case JobPackage.TASK___UPDATE_KEY_INDICATOR__STRING_DOUBLE:
+				return updateKeyIndicator((String)arguments.get(0), (Double)arguments.get(1));
+			case JobPackage.TASK___REFRESH_KEY_INDICATORS:
+				refreshKeyIndicators();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

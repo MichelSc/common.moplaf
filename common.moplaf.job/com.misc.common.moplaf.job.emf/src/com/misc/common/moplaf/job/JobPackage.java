@@ -1856,6 +1856,79 @@ public interface JobPackage extends EPackage {
 	int RUNS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.KeyIndicatorsHolderImpl <em>Key Indicators Holder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.KeyIndicatorsHolderImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getKeyIndicatorsHolder()
+	 * @generated
+	 */
+	int KEY_INDICATORS_HOLDER = 26;
+
+	/**
+	 * The feature id for the '<em><b>Indicators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATORS_HOLDER__INDICATORS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Key Indicators Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATORS_HOLDER_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Get Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATORS_HOLDER___GET_KEY_INDICATOR__STRING = 0;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATORS_HOLDER___GET_OR_CREATE_KEY_INDICATOR__STRING = 1;
+
+	/**
+	 * The operation id for the '<em>Update Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATORS_HOLDER___UPDATE_KEY_INDICATOR__STRING_DOUBLE = 2;
+
+	/**
+	 * The operation id for the '<em>Refresh Key Indicators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATORS_HOLDER___REFRESH_KEY_INDICATORS = 3;
+
+	/**
+	 * The number of operations of the '<em>Key Indicators Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATORS_HOLDER_OPERATION_COUNT = 4;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.TaskImpl <em>Task</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1916,13 +1989,22 @@ public interface JobPackage extends EPackage {
 	int DOC = 13;
 
 	/**
+	 * The feature id for the '<em><b>Indicators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC__INDICATORS = KEY_INDICATORS_HOLDER__INDICATORS;
+
+	/**
 	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__CLONE_FEEDBACK = 0;
+	int DOC__CLONE_FEEDBACK = KEY_INDICATORS_HOLDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Flush Feedback</b></em>' attribute.
@@ -1931,7 +2013,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__FLUSH_FEEDBACK = 1;
+	int DOC__FLUSH_FEEDBACK = KEY_INDICATORS_HOLDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1940,7 +2022,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__DESCRIPTION = 2;
+	int DOC__DESCRIPTION = KEY_INDICATORS_HOLDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -1949,7 +2031,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__LOADED = 3;
+	int DOC__LOADED = KEY_INDICATORS_HOLDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Refs</b></em>' reference list.
@@ -1958,7 +2040,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC__REFS = 4;
+	int DOC__REFS = KEY_INDICATORS_HOLDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Doc</em>' class.
@@ -1967,7 +2049,43 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_FEATURE_COUNT = 5;
+	int DOC_FEATURE_COUNT = KEY_INDICATORS_HOLDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___GET_KEY_INDICATOR__STRING = KEY_INDICATORS_HOLDER___GET_KEY_INDICATOR__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___GET_OR_CREATE_KEY_INDICATOR__STRING = KEY_INDICATORS_HOLDER___GET_OR_CREATE_KEY_INDICATOR__STRING;
+
+	/**
+	 * The operation id for the '<em>Update Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___UPDATE_KEY_INDICATOR__STRING_DOUBLE = KEY_INDICATORS_HOLDER___UPDATE_KEY_INDICATOR__STRING_DOUBLE;
+
+	/**
+	 * The operation id for the '<em>Refresh Key Indicators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC___REFRESH_KEY_INDICATORS = KEY_INDICATORS_HOLDER___REFRESH_KEY_INDICATORS;
 
 	/**
 	 * The operation id for the '<em>Clone</em>' operation.
@@ -1976,7 +2094,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC___CLONE = 0;
+	int DOC___CLONE = KEY_INDICATORS_HOLDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -1985,7 +2103,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC___FLUSH = 1;
+	int DOC___FLUSH = KEY_INDICATORS_HOLDER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Save</em>' operation.
@@ -1994,7 +2112,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC___SAVE = 2;
+	int DOC___SAVE = KEY_INDICATORS_HOLDER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Load</em>' operation.
@@ -2003,7 +2121,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC___LOAD = 3;
+	int DOC___LOAD = KEY_INDICATORS_HOLDER_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Doc</em>' class.
@@ -2012,7 +2130,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_OPERATION_COUNT = 4;
+	int DOC_OPERATION_COUNT = KEY_INDICATORS_HOLDER_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.DocRefImpl <em>Doc Ref</em>}' class.
@@ -2156,6 +2274,15 @@ public interface JobPackage extends EPackage {
 	int COMPOUND_DOC = 16;
 
 	/**
+	 * The feature id for the '<em><b>Indicators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC__INDICATORS = DOC__INDICATORS;
+
+	/**
 	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2226,6 +2353,42 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOUND_DOC_FEATURE_COUNT = DOC_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC___GET_KEY_INDICATOR__STRING = DOC___GET_KEY_INDICATOR__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC___GET_OR_CREATE_KEY_INDICATOR__STRING = DOC___GET_OR_CREATE_KEY_INDICATOR__STRING;
+
+	/**
+	 * The operation id for the '<em>Update Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC___UPDATE_KEY_INDICATOR__STRING_DOUBLE = DOC___UPDATE_KEY_INDICATOR__STRING_DOUBLE;
+
+	/**
+	 * The operation id for the '<em>Refresh Key Indicators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_DOC___REFRESH_KEY_INDICATORS = DOC___REFRESH_KEY_INDICATORS;
 
 	/**
 	 * The operation id for the '<em>Clone</em>' operation.
@@ -2418,13 +2581,22 @@ public interface JobPackage extends EPackage {
 	int TASK__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Indicators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__INDICATORS = RUN_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__CLONE_FEEDBACK = RUN_FEATURE_COUNT + 0;
+	int TASK__CLONE_FEEDBACK = RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2433,7 +2605,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__DESCRIPTION = RUN_FEATURE_COUNT + 1;
+	int TASK__DESCRIPTION = RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2442,7 +2614,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__NAME = RUN_FEATURE_COUNT + 2;
+	int TASK__NAME = RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -2451,7 +2623,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__INPUTS = RUN_FEATURE_COUNT + 3;
+	int TASK__INPUTS = RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -2460,7 +2632,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__OUTPUTS = RUN_FEATURE_COUNT + 4;
+	int TASK__OUTPUTS = RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -2469,7 +2641,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 5;
+	int TASK_FEATURE_COUNT = RUN_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -2580,13 +2752,49 @@ public interface JobPackage extends EPackage {
 	int TASK___CONSTRUCT_PARAMS = RUN___CONSTRUCT_PARAMS;
 
 	/**
+	 * The operation id for the '<em>Get Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___GET_KEY_INDICATOR__STRING = RUN_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___GET_OR_CREATE_KEY_INDICATOR__STRING = RUN_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Update Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___UPDATE_KEY_INDICATOR__STRING_DOUBLE = RUN_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Refresh Key Indicators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK___REFRESH_KEY_INDICATORS = RUN_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Is Valid Input</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___IS_VALID_INPUT__DOC = RUN_OPERATION_COUNT + 0;
+	int TASK___IS_VALID_INPUT__DOC = RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Valid Output</em>' operation.
@@ -2595,7 +2803,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___IS_VALID_OUTPUT__DOC = RUN_OPERATION_COUNT + 1;
+	int TASK___IS_VALID_OUTPUT__DOC = RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Input Doc</em>' operation.
@@ -2604,7 +2812,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_INPUT_DOC__DOC = RUN_OPERATION_COUNT + 2;
+	int TASK___ADD_INPUT_DOC__DOC = RUN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Input Docs</em>' operation.
@@ -2613,7 +2821,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_INPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 3;
+	int TASK___ADD_INPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Init Outputs</em>' operation.
@@ -2622,7 +2830,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 4;
+	int TASK___INIT_OUTPUTS = RUN_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Clone</em>' operation.
@@ -2631,7 +2839,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___CLONE = RUN_OPERATION_COUNT + 5;
+	int TASK___CLONE = RUN_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Add Output Doc</em>' operation.
@@ -2640,7 +2848,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOC__DOC = RUN_OPERATION_COUNT + 6;
+	int TASK___ADD_OUTPUT_DOC__DOC = RUN_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Output Docs</em>' operation.
@@ -2649,7 +2857,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK___ADD_OUTPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 7;
+	int TASK___ADD_OUTPUT_DOCS__ELIST = RUN_OPERATION_COUNT + 11;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -2658,7 +2866,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 8;
+	int TASK_OPERATION_COUNT = RUN_OPERATION_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2740,6 +2948,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_TASK__RETURN_INFORMATION = TASK__RETURN_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Indicators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK__INDICATORS = TASK__INDICATORS;
 
 	/**
 	 * The feature id for the '<em><b>Clone Feedback</b></em>' attribute.
@@ -2911,6 +3128,42 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN_TASK___CONSTRUCT_PARAMS = TASK___CONSTRUCT_PARAMS;
+
+	/**
+	 * The operation id for the '<em>Get Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK___GET_KEY_INDICATOR__STRING = TASK___GET_KEY_INDICATOR__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK___GET_OR_CREATE_KEY_INDICATOR__STRING = TASK___GET_OR_CREATE_KEY_INDICATOR__STRING;
+
+	/**
+	 * The operation id for the '<em>Update Key Indicator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK___UPDATE_KEY_INDICATOR__STRING_DOUBLE = TASK___UPDATE_KEY_INDICATOR__STRING_DOUBLE;
+
+	/**
+	 * The operation id for the '<em>Refresh Key Indicators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_TASK___REFRESH_KEY_INDICATORS = TASK___REFRESH_KEY_INDICATORS;
 
 	/**
 	 * The operation id for the '<em>Is Valid Input</em>' operation.
@@ -3237,6 +3490,52 @@ public interface JobPackage extends EPackage {
 	int TASK_DOMAIN_OPERATION_COUNT = DOCS_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl <em>Key Indicator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.KeyIndicatorImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getKeyIndicator()
+	 * @generated
+	 */
+	int KEY_INDICATOR = 27;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATOR__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATOR__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Key Indicator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATOR_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Key Indicator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATOR_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3244,7 +3543,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobParameterType()
 	 * @generated
 	 */
-	int JOB_PARAMETER_TYPE = 26;
+	int JOB_PARAMETER_TYPE = 28;
 
 	/**
 	 * The meta object id for the '<em>Progress Feedback</em>' data type.
@@ -3254,7 +3553,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getProgressFeedback()
 	 * @generated
 	 */
-	int PROGRESS_FEEDBACK = 27;
+	int PROGRESS_FEEDBACK = 29;
 
 	/**
 	 * The meta object id for the '<em>Run Context</em>' data type.
@@ -3264,7 +3563,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunContext()
 	 * @generated
 	 */
-	int RUN_CONTEXT = 28;
+	int RUN_CONTEXT = 30;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -3274,7 +3573,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 29;
+	int EXCEPTION = 31;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -3284,7 +3583,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 30;
+	int RETURN_FEEDBACK = 32;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -3294,7 +3593,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 31;
+	int ENABLED_FEEDBACK = 33;
 
 
 	/**
@@ -4279,6 +4578,99 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTaskDomain__GetNewTasks();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.KeyIndicatorsHolder <em>Key Indicators Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Key Indicators Holder</em>'.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorsHolder
+	 * @generated
+	 */
+	EClass getKeyIndicatorsHolder();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.KeyIndicatorsHolder#getIndicators <em>Indicators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Indicators</em>'.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorsHolder#getIndicators()
+	 * @see #getKeyIndicatorsHolder()
+	 * @generated
+	 */
+	EReference getKeyIndicatorsHolder_Indicators();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.KeyIndicatorsHolder#getKeyIndicator(java.lang.String) <em>Get Key Indicator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Key Indicator</em>' operation.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorsHolder#getKeyIndicator(java.lang.String)
+	 * @generated
+	 */
+	EOperation getKeyIndicatorsHolder__GetKeyIndicator__String();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.KeyIndicatorsHolder#getOrCreateKeyIndicator(java.lang.String) <em>Get Or Create Key Indicator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Or Create Key Indicator</em>' operation.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorsHolder#getOrCreateKeyIndicator(java.lang.String)
+	 * @generated
+	 */
+	EOperation getKeyIndicatorsHolder__GetOrCreateKeyIndicator__String();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.KeyIndicatorsHolder#updateKeyIndicator(java.lang.String, double) <em>Update Key Indicator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update Key Indicator</em>' operation.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorsHolder#updateKeyIndicator(java.lang.String, double)
+	 * @generated
+	 */
+	EOperation getKeyIndicatorsHolder__UpdateKeyIndicator__String_double();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.KeyIndicatorsHolder#refreshKeyIndicators() <em>Refresh Key Indicators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Key Indicators</em>' operation.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorsHolder#refreshKeyIndicators()
+	 * @generated
+	 */
+	EOperation getKeyIndicatorsHolder__RefreshKeyIndicators();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.KeyIndicator <em>Key Indicator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Key Indicator</em>'.
+	 * @see com.misc.common.moplaf.job.KeyIndicator
+	 * @generated
+	 */
+	EClass getKeyIndicator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.KeyIndicator#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.KeyIndicator#getName()
+	 * @see #getKeyIndicator()
+	 * @generated
+	 */
+	EAttribute getKeyIndicator_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.KeyIndicator#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.misc.common.moplaf.job.KeyIndicator#getValue()
+	 * @see #getKeyIndicator()
+	 * @generated
+	 */
+	EAttribute getKeyIndicator_Value();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.DocsHolder <em>Docs Holder</em>}'.
@@ -5457,6 +5849,82 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TASK_DOMAIN___GET_NEW_TASKS = eINSTANCE.getTaskDomain__GetNewTasks();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.KeyIndicatorsHolderImpl <em>Key Indicators Holder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.KeyIndicatorsHolderImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getKeyIndicatorsHolder()
+		 * @generated
+		 */
+		EClass KEY_INDICATORS_HOLDER = eINSTANCE.getKeyIndicatorsHolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Indicators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KEY_INDICATORS_HOLDER__INDICATORS = eINSTANCE.getKeyIndicatorsHolder_Indicators();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Key Indicator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KEY_INDICATORS_HOLDER___GET_KEY_INDICATOR__STRING = eINSTANCE.getKeyIndicatorsHolder__GetKeyIndicator__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Or Create Key Indicator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KEY_INDICATORS_HOLDER___GET_OR_CREATE_KEY_INDICATOR__STRING = eINSTANCE.getKeyIndicatorsHolder__GetOrCreateKeyIndicator__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Update Key Indicator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KEY_INDICATORS_HOLDER___UPDATE_KEY_INDICATOR__STRING_DOUBLE = eINSTANCE.getKeyIndicatorsHolder__UpdateKeyIndicator__String_double();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Key Indicators</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KEY_INDICATORS_HOLDER___REFRESH_KEY_INDICATORS = eINSTANCE.getKeyIndicatorsHolder__RefreshKeyIndicators();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl <em>Key Indicator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.KeyIndicatorImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getKeyIndicator()
+		 * @generated
+		 */
+		EClass KEY_INDICATOR = eINSTANCE.getKeyIndicator();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_INDICATOR__NAME = eINSTANCE.getKeyIndicator_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_INDICATOR__VALUE = eINSTANCE.getKeyIndicator_Value();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.DocsHolderImpl <em>Docs Holder</em>}' class.

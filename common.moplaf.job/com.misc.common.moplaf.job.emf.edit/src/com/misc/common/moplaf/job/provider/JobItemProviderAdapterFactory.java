@@ -197,6 +197,52 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicatorsHolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyIndicatorsHolderItemProvider keyIndicatorsHolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicatorsHolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyIndicatorsHolderAdapter() {
+		if (keyIndicatorsHolderItemProvider == null) {
+			keyIndicatorsHolderItemProvider = new KeyIndicatorsHolderItemProvider(this);
+		}
+
+		return keyIndicatorsHolderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyIndicatorItemProvider keyIndicatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyIndicatorAdapter() {
+		if (keyIndicatorItemProvider == null) {
+			keyIndicatorItemProvider = new KeyIndicatorItemProvider(this);
+		}
+
+		return keyIndicatorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.DocsHolder} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -564,6 +610,8 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (tasksItemProvider != null) tasksItemProvider.dispose();
 		if (docsItemProvider != null) docsItemProvider.dispose();
 		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
+		if (keyIndicatorsHolderItemProvider != null) keyIndicatorsHolderItemProvider.dispose();
+		if (keyIndicatorItemProvider != null) keyIndicatorItemProvider.dispose();
 	}
 
 }

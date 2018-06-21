@@ -30,6 +30,8 @@ import com.misc.common.moplaf.job.JobFileHandler;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.JobParameter;
 import com.misc.common.moplaf.job.JobParameterType;
+import com.misc.common.moplaf.job.KeyIndicator;
+import com.misc.common.moplaf.job.KeyIndicatorsHolder;
 import com.misc.common.moplaf.job.ParamsHolder;
 import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.Run;
@@ -182,6 +184,20 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	private EClass taskDomainEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyIndicatorsHolderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyIndicatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1203,6 +1219,87 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getKeyIndicatorsHolder() {
+		return keyIndicatorsHolderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getKeyIndicatorsHolder_Indicators() {
+		return (EReference)keyIndicatorsHolderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getKeyIndicatorsHolder__GetKeyIndicator__String() {
+		return keyIndicatorsHolderEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getKeyIndicatorsHolder__GetOrCreateKeyIndicator__String() {
+		return keyIndicatorsHolderEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getKeyIndicatorsHolder__UpdateKeyIndicator__String_double() {
+		return keyIndicatorsHolderEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getKeyIndicatorsHolder__RefreshKeyIndicators() {
+		return keyIndicatorsHolderEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getKeyIndicator() {
+		return keyIndicatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyIndicator_Name() {
+		return (EAttribute)keyIndicatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyIndicator_Value() {
+		return (EAttribute)keyIndicatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDocsHolder() {
 		return docsHolderEClass;
 	}
@@ -1690,6 +1787,17 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEOperation(taskDomainEClass, TASK_DOMAIN___GET_NEW_TASKS);
 
+		keyIndicatorsHolderEClass = createEClass(KEY_INDICATORS_HOLDER);
+		createEReference(keyIndicatorsHolderEClass, KEY_INDICATORS_HOLDER__INDICATORS);
+		createEOperation(keyIndicatorsHolderEClass, KEY_INDICATORS_HOLDER___GET_KEY_INDICATOR__STRING);
+		createEOperation(keyIndicatorsHolderEClass, KEY_INDICATORS_HOLDER___GET_OR_CREATE_KEY_INDICATOR__STRING);
+		createEOperation(keyIndicatorsHolderEClass, KEY_INDICATORS_HOLDER___UPDATE_KEY_INDICATOR__STRING_DOUBLE);
+		createEOperation(keyIndicatorsHolderEClass, KEY_INDICATORS_HOLDER___REFRESH_KEY_INDICATORS);
+
+		keyIndicatorEClass = createEClass(KEY_INDICATOR);
+		createEAttribute(keyIndicatorEClass, KEY_INDICATOR__NAME);
+		createEAttribute(keyIndicatorEClass, KEY_INDICATOR__VALUE);
+
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
 
@@ -1740,10 +1848,12 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		setterAttributeFloatEClass.getESuperTypes().add(this.getSetterAttribute());
 		jobFileHandlerEClass.getESuperTypes().add(this.getJob());
 		jobFileHandlerEClass.getESuperTypes().add(theFilePackage.getFileHandler());
+		docEClass.getESuperTypes().add(this.getKeyIndicatorsHolder());
 		compoundDocEClass.getESuperTypes().add(this.getDoc());
 		compoundDocEClass.getESuperTypes().add(this.getDocsHolder());
 		docInDocsHolderEClass.getESuperTypes().add(this.getDocRef());
 		taskEClass.getESuperTypes().add(this.getRun());
+		taskEClass.getESuperTypes().add(this.getKeyIndicatorsHolder());
 		domainTaskEClass.getESuperTypes().add(this.getTask());
 		taskDocEClass.getESuperTypes().add(this.getDocRef());
 		taskInputEClass.getESuperTypes().add(this.getTaskDoc());
@@ -1977,6 +2087,25 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getTaskDomain__GetNewTasks(), this.getTask(), "getNewTasks", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(keyIndicatorsHolderEClass, KeyIndicatorsHolder.class, "KeyIndicatorsHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getKeyIndicatorsHolder_Indicators(), this.getKeyIndicator(), null, "Indicators", null, 0, -1, KeyIndicatorsHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getKeyIndicatorsHolder__GetKeyIndicator__String(), this.getKeyIndicator(), "getKeyIndicator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getKeyIndicatorsHolder__GetOrCreateKeyIndicator__String(), this.getKeyIndicator(), "getOrCreateKeyIndicator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getKeyIndicatorsHolder__UpdateKeyIndicator__String_double(), this.getKeyIndicator(), "updateKeyIndicator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDouble(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getKeyIndicatorsHolder__RefreshKeyIndicators(), null, "refreshKeyIndicators", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(keyIndicatorEClass, KeyIndicator.class, "KeyIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyIndicator_Name(), ecorePackage.getEString(), "Name", null, 0, 1, KeyIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKeyIndicator_Value(), ecorePackage.getEDouble(), "Value", null, 0, 1, KeyIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");
