@@ -137,11 +137,10 @@ public class KeyIndicatorItemProvider
 	 * This returns KeyIndicator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/KeyIndicator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/gauge.png"));
 	}
 
 	/**
