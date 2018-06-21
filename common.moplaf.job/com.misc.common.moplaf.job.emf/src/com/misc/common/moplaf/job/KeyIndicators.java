@@ -45,30 +45,6 @@ public interface KeyIndicators extends EObject {
 	 * @model
 	 * @generated
 	 */
-	KeyIndicator getKeyIndicator(String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	KeyIndicator getOrCreateKeyIndicator(String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	KeyIndicator updateKeyIndicator(String name, double value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void refreshKeyIndicators();
 
 } // KeyIndicators

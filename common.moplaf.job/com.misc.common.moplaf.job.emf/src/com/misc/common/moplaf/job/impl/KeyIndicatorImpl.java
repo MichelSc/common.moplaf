@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl#getFormattedValue <em>Formatted Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.impl.KeyIndicatorImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements KeyIndicator {
+public abstract class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements KeyIndicator {
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -37,6 +37,16 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getFormattedValue() <em>Formatted Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFormattedValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FORMATTED_VALUE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -57,26 +67,6 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double VALUE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,8 +92,19 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("%s = %f", this.getName(), this.getValue());
+		String description = String.format("%s = %s", this.getName(), this.getFormattedValue());
 		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFormattedValue() {
+		// TODO: implement this method to return the 'Formatted Value' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -132,36 +133,15 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(double newValue) {
-		double oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobPackage.KEY_INDICATOR__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JobPackage.KEY_INDICATOR__DESCRIPTION:
 				return getDescription();
+			case JobPackage.KEY_INDICATOR__FORMATTED_VALUE:
+				return getFormattedValue();
 			case JobPackage.KEY_INDICATOR__NAME:
 				return getName();
-			case JobPackage.KEY_INDICATOR__VALUE:
-				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,9 +156,6 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 		switch (featureID) {
 			case JobPackage.KEY_INDICATOR__NAME:
 				setName((String)newValue);
-				return;
-			case JobPackage.KEY_INDICATOR__VALUE:
-				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,9 +172,6 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 			case JobPackage.KEY_INDICATOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case JobPackage.KEY_INDICATOR__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -212,10 +186,10 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 		switch (featureID) {
 			case JobPackage.KEY_INDICATOR__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case JobPackage.KEY_INDICATOR__FORMATTED_VALUE:
+				return FORMATTED_VALUE_EDEFAULT == null ? getFormattedValue() != null : !FORMATTED_VALUE_EDEFAULT.equals(getFormattedValue());
 			case JobPackage.KEY_INDICATOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case JobPackage.KEY_INDICATOR__VALUE:
-				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -232,8 +206,6 @@ public class KeyIndicatorImpl extends MinimalEObjectImpl.Container implements Ke
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
-		result.append(", Value: ");
-		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

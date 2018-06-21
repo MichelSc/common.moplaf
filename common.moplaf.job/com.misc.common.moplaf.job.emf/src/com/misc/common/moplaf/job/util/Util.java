@@ -22,6 +22,10 @@ import org.eclipse.emf.common.util.EList;
 import com.misc.common.moplaf.file.Plugin;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.Docs;
+import com.misc.common.moplaf.job.JobFactory;
+import com.misc.common.moplaf.job.KeyIndicator;
+import com.misc.common.moplaf.job.KeyIndicatorDouble;
+import com.misc.common.moplaf.job.KeyIndicatorInt;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.Task;
 
@@ -115,5 +119,47 @@ public class Util {
 				iterator.remove();
 			}
 		}
+	}
+	
+	public static void updateKeyIndicatorDouble(EList<KeyIndicator> indicators, String name, double value) {
+		// get 
+		KeyIndicatorDouble indicator = indicators
+				.stream()
+				.filter(i -> i instanceof KeyIndicatorDouble)
+				.map(i -> (KeyIndicatorDouble)i)
+				.filter(i -> i.getName().equals(name))
+				.findAny()
+				.orElse(null);
+		
+		// create
+		if ( indicator == null ) {
+			indicator = JobFactory.eINSTANCE.createKeyIndicatorDouble();
+			indicator.setName(name);
+			indicators.add(indicator);
+		}
+		
+		// update
+		indicator.setValue(value);
+	}
+	
+	public static void updateKeyIndicatorInt(EList<KeyIndicator> indicators, String name, int value) {
+		// get 
+		KeyIndicatorInt indicator = indicators
+				.stream()
+				.filter(i -> i instanceof KeyIndicatorInt)
+				.map(i -> (KeyIndicatorInt)i)
+				.filter(i -> i.getName().equals(name))
+				.findAny()
+				.orElse(null);
+		
+		// create
+		if ( indicator == null ) {
+			indicator = JobFactory.eINSTANCE.createKeyIndicatorInt();
+			indicator.setName(name);
+			indicators.add(indicator);
+		}
+		
+		// update
+		indicator.setValue(value);
 	}
 }

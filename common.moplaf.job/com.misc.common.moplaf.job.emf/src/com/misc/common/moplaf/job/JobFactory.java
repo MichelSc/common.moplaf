@@ -140,13 +140,22 @@ public interface JobFactory extends EFactory {
 	KeyIndicators createKeyIndicators();
 
 	/**
-	 * Returns a new object of class '<em>Key Indicator</em>'.
+	 * Returns a new object of class '<em>Key Indicator Double</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Key Indicator</em>'.
+	 * @return a new object of class '<em>Key Indicator Double</em>'.
 	 * @generated
 	 */
-	KeyIndicator createKeyIndicator();
+	KeyIndicatorDouble createKeyIndicatorDouble();
+
+	/**
+	 * Returns a new object of class '<em>Key Indicator Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Key Indicator Int</em>'.
+	 * @generated
+	 */
+	KeyIndicatorInt createKeyIndicatorInt();
 
 	/**
 	 * Returns a new object of class '<em>Docs Holder</em>'.

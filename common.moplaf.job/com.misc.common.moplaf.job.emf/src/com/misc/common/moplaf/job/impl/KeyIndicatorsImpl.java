@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.job.impl;
 
-import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.KeyIndicator;
 import com.misc.common.moplaf.job.KeyIndicators;
@@ -76,43 +75,6 @@ public class KeyIndicatorsImpl extends MinimalEObjectImpl.Container implements K
 			indicators = new EObjectContainmentEList<KeyIndicator>(KeyIndicator.class, this, JobPackage.KEY_INDICATORS__INDICATORS);
 		}
 		return indicators;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public KeyIndicator getKeyIndicator(String name) {
-		KeyIndicator indicator = this.getIndicators()
-				.stream()
-				.filter(i -> i.getName().equals(name))
-				.findAny()
-				.orElse(null);
-		return indicator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public KeyIndicator getOrCreateKeyIndicator(String name) {
-		KeyIndicator indicator = this.getKeyIndicator(name);
-		if ( indicator==null ) {
-			indicator = JobFactory.eINSTANCE.createKeyIndicator();
-			indicator.setName(name);
-			this.getIndicators().add(indicator);
-		}
-		return indicator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public KeyIndicator updateKeyIndicator(String name, double value) {
-		KeyIndicator indicator = this.getOrCreateKeyIndicator(name);
-		indicator.setValue(value);
-		return indicator;
 	}
 
 	/**
@@ -205,12 +167,6 @@ public class KeyIndicatorsImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobPackage.KEY_INDICATORS___GET_KEY_INDICATOR__STRING:
-				return getKeyIndicator((String)arguments.get(0));
-			case JobPackage.KEY_INDICATORS___GET_OR_CREATE_KEY_INDICATOR__STRING:
-				return getOrCreateKeyIndicator((String)arguments.get(0));
-			case JobPackage.KEY_INDICATORS___UPDATE_KEY_INDICATOR__STRING_DOUBLE:
-				return updateKeyIndicator((String)arguments.get(0), (Double)arguments.get(1));
 			case JobPackage.KEY_INDICATORS___REFRESH_KEY_INDICATORS:
 				refreshKeyIndicators();
 				return null;

@@ -31,6 +31,8 @@ import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.JobParameter;
 import com.misc.common.moplaf.job.JobParameterType;
 import com.misc.common.moplaf.job.KeyIndicator;
+import com.misc.common.moplaf.job.KeyIndicatorDouble;
+import com.misc.common.moplaf.job.KeyIndicatorInt;
 import com.misc.common.moplaf.job.KeyIndicators;
 import com.misc.common.moplaf.job.ParamsHolder;
 import com.misc.common.moplaf.job.ProgressFeedback;
@@ -198,6 +200,20 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	private EClass keyIndicatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyIndicatorDoubleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyIndicatorIntEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1219,35 +1235,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getKeyIndicators__GetKeyIndicator__String() {
-		return keyIndicatorsEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getKeyIndicators__GetOrCreateKeyIndicator__String() {
-		return keyIndicatorsEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getKeyIndicators__UpdateKeyIndicator__String_double() {
-		return keyIndicatorsEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getKeyIndicators__RefreshKeyIndicators() {
-		return keyIndicatorsEClass.getEOperations().get(3);
+		return keyIndicatorsEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1273,7 +1262,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getKeyIndicator_Name() {
+	public EAttribute getKeyIndicator_FormattedValue() {
 		return (EAttribute)keyIndicatorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1282,8 +1271,44 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getKeyIndicator_Value() {
+	public EAttribute getKeyIndicator_Name() {
 		return (EAttribute)keyIndicatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getKeyIndicatorDouble() {
+		return keyIndicatorDoubleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyIndicatorDouble_Value() {
+		return (EAttribute)keyIndicatorDoubleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getKeyIndicatorInt() {
+		return keyIndicatorIntEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getKeyIndicatorInt_Value() {
+		return (EAttribute)keyIndicatorIntEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1778,15 +1803,18 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		keyIndicatorsEClass = createEClass(KEY_INDICATORS);
 		createEReference(keyIndicatorsEClass, KEY_INDICATORS__INDICATORS);
-		createEOperation(keyIndicatorsEClass, KEY_INDICATORS___GET_KEY_INDICATOR__STRING);
-		createEOperation(keyIndicatorsEClass, KEY_INDICATORS___GET_OR_CREATE_KEY_INDICATOR__STRING);
-		createEOperation(keyIndicatorsEClass, KEY_INDICATORS___UPDATE_KEY_INDICATOR__STRING_DOUBLE);
 		createEOperation(keyIndicatorsEClass, KEY_INDICATORS___REFRESH_KEY_INDICATORS);
 
 		keyIndicatorEClass = createEClass(KEY_INDICATOR);
 		createEAttribute(keyIndicatorEClass, KEY_INDICATOR__DESCRIPTION);
+		createEAttribute(keyIndicatorEClass, KEY_INDICATOR__FORMATTED_VALUE);
 		createEAttribute(keyIndicatorEClass, KEY_INDICATOR__NAME);
-		createEAttribute(keyIndicatorEClass, KEY_INDICATOR__VALUE);
+
+		keyIndicatorDoubleEClass = createEClass(KEY_INDICATOR_DOUBLE);
+		createEAttribute(keyIndicatorDoubleEClass, KEY_INDICATOR_DOUBLE__VALUE);
+
+		keyIndicatorIntEClass = createEClass(KEY_INDICATOR_INT);
+		createEAttribute(keyIndicatorIntEClass, KEY_INDICATOR_INT__VALUE);
 
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
@@ -1849,6 +1877,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		taskOutputEClass.getESuperTypes().add(this.getTaskDoc());
 		taskDomainEClass.getESuperTypes().add(this.getDocs());
 		taskDomainEClass.getESuperTypes().add(this.getTasks());
+		keyIndicatorDoubleEClass.getESuperTypes().add(this.getKeyIndicator());
+		keyIndicatorIntEClass.getESuperTypes().add(this.getKeyIndicator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2078,22 +2108,18 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEClass(keyIndicatorsEClass, KeyIndicators.class, "KeyIndicators", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getKeyIndicators_Indicators(), this.getKeyIndicator(), null, "Indicators", null, 0, -1, KeyIndicators.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getKeyIndicators__GetKeyIndicator__String(), this.getKeyIndicator(), "getKeyIndicator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getKeyIndicators__GetOrCreateKeyIndicator__String(), this.getKeyIndicator(), "getOrCreateKeyIndicator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getKeyIndicators__UpdateKeyIndicator__String_double(), this.getKeyIndicator(), "updateKeyIndicator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDouble(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEOperation(getKeyIndicators__RefreshKeyIndicators(), null, "refreshKeyIndicators", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(keyIndicatorEClass, KeyIndicator.class, "KeyIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(keyIndicatorEClass, KeyIndicator.class, "KeyIndicator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyIndicator_Description(), ecorePackage.getEString(), "Description", null, 0, 1, KeyIndicator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKeyIndicator_FormattedValue(), ecorePackage.getEString(), "FormattedValue", null, 0, 1, KeyIndicator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKeyIndicator_Name(), ecorePackage.getEString(), "Name", null, 0, 1, KeyIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getKeyIndicator_Value(), ecorePackage.getEDouble(), "Value", null, 0, 1, KeyIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(keyIndicatorDoubleEClass, KeyIndicatorDouble.class, "KeyIndicatorDouble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyIndicatorDouble_Value(), ecorePackage.getEDouble(), "Value", null, 0, 1, KeyIndicatorDouble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(keyIndicatorIntEClass, KeyIndicatorInt.class, "KeyIndicatorInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyIndicatorInt_Value(), ecorePackage.getEInt(), "Value", null, 0, 1, KeyIndicatorInt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");

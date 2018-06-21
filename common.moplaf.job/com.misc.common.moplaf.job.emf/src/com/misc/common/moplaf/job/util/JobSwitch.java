@@ -280,6 +280,20 @@ public class JobSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JobPackage.KEY_INDICATOR_DOUBLE: {
+				KeyIndicatorDouble keyIndicatorDouble = (KeyIndicatorDouble)theEObject;
+				T result = caseKeyIndicatorDouble(keyIndicatorDouble);
+				if (result == null) result = caseKeyIndicator(keyIndicatorDouble);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.KEY_INDICATOR_INT: {
+				KeyIndicatorInt keyIndicatorInt = (KeyIndicatorInt)theEObject;
+				T result = caseKeyIndicatorInt(keyIndicatorInt);
+				if (result == null) result = caseKeyIndicator(keyIndicatorInt);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -566,6 +580,36 @@ public class JobSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseKeyIndicator(KeyIndicator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Indicator Double</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Indicator Double</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyIndicatorDouble(KeyIndicatorDouble object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Indicator Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Indicator Int</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKeyIndicatorInt(KeyIndicatorInt object) {
 		return null;
 	}
 

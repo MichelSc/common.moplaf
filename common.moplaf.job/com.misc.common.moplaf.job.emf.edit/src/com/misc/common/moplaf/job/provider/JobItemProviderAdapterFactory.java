@@ -220,26 +220,49 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicator} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicatorDouble} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KeyIndicatorItemProvider keyIndicatorItemProvider;
+	protected KeyIndicatorDoubleItemProvider keyIndicatorDoubleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicator}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicatorDouble}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createKeyIndicatorAdapter() {
-		if (keyIndicatorItemProvider == null) {
-			keyIndicatorItemProvider = new KeyIndicatorItemProvider(this);
+	public Adapter createKeyIndicatorDoubleAdapter() {
+		if (keyIndicatorDoubleItemProvider == null) {
+			keyIndicatorDoubleItemProvider = new KeyIndicatorDoubleItemProvider(this);
 		}
 
-		return keyIndicatorItemProvider;
+		return keyIndicatorDoubleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.KeyIndicatorInt} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyIndicatorIntItemProvider keyIndicatorIntItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.KeyIndicatorInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyIndicatorIntAdapter() {
+		if (keyIndicatorIntItemProvider == null) {
+			keyIndicatorIntItemProvider = new KeyIndicatorIntItemProvider(this);
+		}
+
+		return keyIndicatorIntItemProvider;
 	}
 
 	/**
@@ -611,7 +634,8 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (docsItemProvider != null) docsItemProvider.dispose();
 		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
 		if (keyIndicatorsItemProvider != null) keyIndicatorsItemProvider.dispose();
-		if (keyIndicatorItemProvider != null) keyIndicatorItemProvider.dispose();
+		if (keyIndicatorDoubleItemProvider != null) keyIndicatorDoubleItemProvider.dispose();
+		if (keyIndicatorIntItemProvider != null) keyIndicatorIntItemProvider.dispose();
 	}
 
 }

@@ -61,8 +61,8 @@ public class KeyIndicatorItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
+			addFormattedValuePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +90,28 @@ public class KeyIndicatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Formatted Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFormattedValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_KeyIndicator_FormattedValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyIndicator_FormattedValue_feature", "_UI_KeyIndicator_type"),
+				 JobPackage.Literals.KEY_INDICATOR__FORMATTED_VALUE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,28 +129,6 @@ public class KeyIndicatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_KeyIndicator_Value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_KeyIndicator_Value_feature", "_UI_KeyIndicator_type"),
-				 JobPackage.Literals.KEY_INDICATOR__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -171,8 +171,8 @@ public class KeyIndicatorItemProvider
 
 		switch (notification.getFeatureID(KeyIndicator.class)) {
 			case JobPackage.KEY_INDICATOR__DESCRIPTION:
+			case JobPackage.KEY_INDICATOR__FORMATTED_VALUE:
 			case JobPackage.KEY_INDICATOR__NAME:
-			case JobPackage.KEY_INDICATOR__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

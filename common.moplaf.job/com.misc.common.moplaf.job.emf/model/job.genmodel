@@ -239,22 +239,18 @@
     </genClasses>
     <genClasses ecoreClass="job.ecore#//KeyIndicators">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//KeyIndicators/Indicators"/>
-      <genOperations ecoreOperation="job.ecore#//KeyIndicators/getKeyIndicator">
-        <genParameters ecoreParameter="job.ecore#//KeyIndicators/getKeyIndicator/name"/>
-      </genOperations>
-      <genOperations ecoreOperation="job.ecore#//KeyIndicators/getOrCreateKeyIndicator">
-        <genParameters ecoreParameter="job.ecore#//KeyIndicators/getOrCreateKeyIndicator/name"/>
-      </genOperations>
-      <genOperations ecoreOperation="job.ecore#//KeyIndicators/updateKeyIndicator">
-        <genParameters ecoreParameter="job.ecore#//KeyIndicators/updateKeyIndicator/name"/>
-        <genParameters ecoreParameter="job.ecore#//KeyIndicators/updateKeyIndicator/value"/>
-      </genOperations>
       <genOperations ecoreOperation="job.ecore#//KeyIndicators/refreshKeyIndicators"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//KeyIndicator" labelFeature="#//job/KeyIndicator/Description">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicator/Description"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicator/FormattedValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicator/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicator/Value"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//KeyIndicatorDouble" labelFeature="#//job/KeyIndicator/Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicatorDouble/Value"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//KeyIndicatorInt" labelFeature="#//job/KeyIndicator/Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//KeyIndicatorInt/Value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

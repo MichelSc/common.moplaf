@@ -150,7 +150,12 @@ public class KeyIndicatorsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
-				 JobFactory.eINSTANCE.createKeyIndicator()));
+				 JobFactory.eINSTANCE.createKeyIndicatorDouble()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JobPackage.Literals.KEY_INDICATORS__INDICATORS,
+				 JobFactory.eINSTANCE.createKeyIndicatorInt()));
 	}
 
 	/**
