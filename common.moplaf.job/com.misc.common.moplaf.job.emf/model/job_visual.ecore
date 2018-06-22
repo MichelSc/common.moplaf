@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="job_visual" nsURI="http://www.misc.com/common/moplaf/job/visual/model/0.1"
+    nsPrefix="jobvisual">
+  <eClassifiers xsi:type="ecore:EClass" name="Categorizer" eSuperTypes="job.ecore#//DocRef">
+    <eOperations name="isValidDoc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="doc" lowerBound="1" eType="ecore:EClass job.ecore#//Doc"/>
+    </eOperations>
+    <eOperations name="refresh"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Categories" upperBound="-1"
+        eType="#//Category" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Category">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Categorizers">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Selectors" upperBound="-1"
+        eType="#//Categorizer" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
