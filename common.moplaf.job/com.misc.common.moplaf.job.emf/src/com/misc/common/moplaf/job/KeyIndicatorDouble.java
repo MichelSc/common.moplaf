@@ -13,6 +13,7 @@ package com.misc.common.moplaf.job;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.KeyIndicatorDouble#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.KeyIndicatorDouble#getFormat <em>Format</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getKeyIndicatorDouble()
@@ -45,5 +46,31 @@ public interface KeyIndicatorDouble extends KeyIndicator {
 	 * @generated
 	 */
 	void setValue(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Format</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Format</em>' attribute.
+	 * @see #setFormat(String)
+	 * @see com.misc.common.moplaf.job.JobPackage#getKeyIndicatorDouble_Format()
+	 * @model
+	 * @generated
+	 */
+	String getFormat();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.KeyIndicatorDouble#getFormat <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Format</em>' attribute.
+	 * @see #getFormat()
+	 * @generated
+	 */
+	void setFormat(String value);
 
 } // KeyIndicatorDouble

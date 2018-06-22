@@ -3564,13 +3564,22 @@ public interface JobPackage extends EPackage {
 	int KEY_INDICATOR_DOUBLE__VALUE = KEY_INDICATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_INDICATOR_DOUBLE__FORMAT = KEY_INDICATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Key Indicator Double</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_INDICATOR_DOUBLE_FEATURE_COUNT = KEY_INDICATOR_FEATURE_COUNT + 1;
+	int KEY_INDICATOR_DOUBLE_FEATURE_COUNT = KEY_INDICATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Key Indicator Double</em>' class.
@@ -4900,6 +4909,17 @@ public interface JobPackage extends EPackage {
 	EAttribute getKeyIndicatorDouble_Value();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.KeyIndicatorDouble#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see com.misc.common.moplaf.job.KeyIndicatorDouble#getFormat()
+	 * @see #getKeyIndicatorDouble()
+	 * @generated
+	 */
+	EAttribute getKeyIndicatorDouble_Format();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.KeyIndicatorInt <em>Key Indicator Int</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6212,6 +6232,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute KEY_INDICATOR_DOUBLE__VALUE = eINSTANCE.getKeyIndicatorDouble_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_INDICATOR_DOUBLE__FORMAT = eINSTANCE.getKeyIndicatorDouble_Format();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.KeyIndicatorIntImpl <em>Key Indicator Int</em>}' class.

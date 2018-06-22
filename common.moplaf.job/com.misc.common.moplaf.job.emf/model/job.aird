@@ -3655,6 +3655,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_8CGeYXViEeiUfr5XJMLIdg" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_8CGeYnViEeiUfr5XJMLIdg"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_Qox6IHX1EeiJGeMxkVbrXw" type="3010" element="_QoY4kHX1EeiJGeMxkVbrXw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Qox6IXX1EeiJGeMxkVbrXw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Qox6InX1EeiJGeMxkVbrXw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_46gbUXViEeiUfr5XJMLIdg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_46gbUnViEeiUfr5XJMLIdg"/>
           </children>
@@ -4093,6 +4097,14 @@
         <target xmi:type="ecore:EAttribute" href="job.ecore#//KeyIndicatorDouble/Value"/>
         <semanticElements xmi:type="ecore:EAttribute" href="job.ecore#//KeyIndicatorDouble/Value"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_90N8QHViEeiUfr5XJMLIdg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_QoY4kHX1EeiJGeMxkVbrXw" name="Format : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="job.ecore#//KeyIndicatorDouble/Format"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="job.ecore#//KeyIndicatorDouble/Format"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_QoaGsHX1EeiJGeMxkVbrXw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

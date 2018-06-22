@@ -123,8 +123,17 @@ public class Util {
 			}
 		}
 	}
-	
+
 	public static void updateKeyIndicatorDouble(EList<KeyIndicator> indicators, String name, double value) {
+		Util.updateKeyIndicatorDouble(indicators, name, value, "%f");
+	}
+
+	public static void updateKeyIndicatorDouble(EList<KeyIndicator> indicators, String name, double value, int precision) {
+		String format = String.format("%%.%df", precision);
+		Util.updateKeyIndicatorDouble(indicators, name, value, format);
+	}
+
+	public static void updateKeyIndicatorDouble(EList<KeyIndicator> indicators, String name, double value, String format) {
 		// get 
 		KeyIndicatorDouble indicator = indicators
 				.stream()
@@ -138,6 +147,7 @@ public class Util {
 		if ( indicator == null ) {
 			indicator = JobFactory.eINSTANCE.createKeyIndicatorDouble();
 			indicator.setName(name);
+			indicator.setFormat(format);
 			indicators.add(indicator);
 		}
 		
@@ -185,6 +195,18 @@ public class Util {
 		
 		// update
 		indicator.setValue(value);
+	}
+
+	public static void updateKeyIndicatorTimeOfDay(EList<KeyIndicator> indicators, String name, Date date) {
+		Util.updateKeyIndicatorDate(indicators, name, date, "%tR");
+	}
+
+	public static void updateKeyIndicatorDay(EList<KeyIndicator> indicators, String name, Date date) {
+		Util.updateKeyIndicatorDate(indicators, name, date, "%tF");
+	}
+
+	public static void updateKeyIndicatorDateTime(EList<KeyIndicator> indicators, String name, Date date) {
+		Util.updateKeyIndicatorDate(indicators, name, date, "%1$tF %1$tR");
 	}
 
 	public static void updateKeyIndicatorDate(EList<KeyIndicator> indicators, String name, Date date, String format) {

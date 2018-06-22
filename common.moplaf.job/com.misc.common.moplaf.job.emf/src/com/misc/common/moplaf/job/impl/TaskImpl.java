@@ -253,10 +253,10 @@ public abstract class TaskImpl extends JobImpl implements Task {
 	 * <!-- end-user-doc -->
 	 */
 	public void refreshKeyIndicators() {
-		Util.updateKeyIndicatorString(this.getIndicators(), "status", this.getStatus());
-		Util.updateKeyIndicatorDate(this.getIndicators(), "start", this.getStartTime(), "%tR");
-		Util.updateKeyIndicatorDate(this.getIndicators(), "end", this.getEndTime(), "%tR");
-		Util.updateKeyIndicatorDouble(this.getIndicators(), "durat.", this.getDuration());
+		Util.updateKeyIndicatorString  (this.getIndicators(), "status", this.getStatus());
+		Util.updateKeyIndicatorDateTime(this.getIndicators(), "start",  this.getStartTime());
+		Util.updateKeyIndicatorDateTime(this.getIndicators(), "end",    this.getEndTime());
+		Util.updateKeyIndicatorDouble  (this.getIndicators(), "durat.", this.getDuration(), 2);
 	}
 
 	/**

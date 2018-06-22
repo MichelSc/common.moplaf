@@ -1314,6 +1314,15 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getKeyIndicatorDouble_Format() {
+		return (EAttribute)keyIndicatorDoubleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getKeyIndicatorInt() {
 		return keyIndicatorIntEClass;
 	}
@@ -1873,6 +1882,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		keyIndicatorDoubleEClass = createEClass(KEY_INDICATOR_DOUBLE);
 		createEAttribute(keyIndicatorDoubleEClass, KEY_INDICATOR_DOUBLE__VALUE);
+		createEAttribute(keyIndicatorDoubleEClass, KEY_INDICATOR_DOUBLE__FORMAT);
 
 		keyIndicatorIntEClass = createEClass(KEY_INDICATOR_INT);
 		createEAttribute(keyIndicatorIntEClass, KEY_INDICATOR_INT__VALUE);
@@ -2188,6 +2198,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		initEClass(keyIndicatorDoubleEClass, KeyIndicatorDouble.class, "KeyIndicatorDouble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyIndicatorDouble_Value(), ecorePackage.getEDouble(), "Value", null, 0, 1, KeyIndicatorDouble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getKeyIndicatorDouble_Format(), ecorePackage.getEString(), "Format", null, 0, 1, KeyIndicatorDouble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(keyIndicatorIntEClass, KeyIndicatorInt.class, "KeyIndicatorInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyIndicatorInt_Value(), ecorePackage.getEInt(), "Value", null, 0, 1, KeyIndicatorInt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

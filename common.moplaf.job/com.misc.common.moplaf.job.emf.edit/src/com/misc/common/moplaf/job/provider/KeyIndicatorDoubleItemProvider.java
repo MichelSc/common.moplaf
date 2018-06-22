@@ -46,6 +46,7 @@ public class KeyIndicatorDoubleItemProvider extends KeyIndicatorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
+			addFormatPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,14 +74,25 @@ public class KeyIndicatorDoubleItemProvider extends KeyIndicatorItemProvider {
 	}
 
 	/**
-	 * This returns KeyIndicatorDouble.gif.
+	 * This adds a property descriptor for the Format feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/KeyIndicatorDouble"));
+	protected void addFormatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_KeyIndicatorDouble_Format_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyIndicatorDouble_Format_feature", "_UI_KeyIndicatorDouble_type"),
+				 JobPackage.Literals.KEY_INDICATOR_DOUBLE__FORMAT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -111,6 +123,7 @@ public class KeyIndicatorDoubleItemProvider extends KeyIndicatorItemProvider {
 
 		switch (notification.getFeatureID(KeyIndicatorDouble.class)) {
 			case JobPackage.KEY_INDICATOR_DOUBLE__VALUE:
+			case JobPackage.KEY_INDICATOR_DOUBLE__FORMAT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
