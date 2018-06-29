@@ -1,0 +1,713 @@
+/**
+ */
+package com.misc.common.moplaf.datatools.util;
+
+import com.misc.common.moplaf.datatools.*;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.util.Switch;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Switch</b> for the model's inheritance hierarchy.
+ * It supports the call {@link #doSwitch(EObject) doSwitch(object)}
+ * to invoke the <code>caseXXX</code> method for each class of the model,
+ * starting with the actual class of the object
+ * and proceeding up the inheritance hierarchy
+ * until a non-null result is returned,
+ * which is the result of the switch.
+ * <!-- end-user-doc -->
+ * @see com.misc.common.moplaf.datatools.DatatoolsPackage
+ * @generated
+ */
+public class DatatoolsSwitch<T> extends Switch<T> {
+	/**
+	 * The cached model package
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static DatatoolsPackage modelPackage;
+
+	/**
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DatatoolsSwitch() {
+		if (modelPackage == null) {
+			modelPackage = DatatoolsPackage.eINSTANCE;
+		}
+	}
+
+	/**
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
+	}
+
+	/**
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
+		switch (classifierID) {
+			case DatatoolsPackage.CATEGORIZER: {
+				Categorizer categorizer = (Categorizer)theEObject;
+				T result = caseCategorizer(categorizer);
+				if (result == null) result = caseCategoryAbstract(categorizer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY: {
+				Category category = (Category)theEObject;
+				T result = caseCategory(category);
+				if (result == null) result = caseCategoryAbstract(category);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY_CRITERIA: {
+				CategoryCriteria categoryCriteria = (CategoryCriteria)theEObject;
+				T result = caseCategoryCriteria(categoryCriteria);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR: {
+				Extractor extractor = (Extractor)theEObject;
+				T result = caseExtractor(extractor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER: {
+				Columnizer columnizer = (Columnizer)theEObject;
+				T result = caseColumnizer(columnizer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY_ABSTRACT: {
+				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
+				T result = caseCategoryAbstract(categoryAbstract);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_TYPE: {
+				ExtractorType extractorType = (ExtractorType)theEObject;
+				T result = caseExtractorType(extractorType);
+				if (result == null) result = caseExtractor(extractorType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_COMPOUND: {
+				ExtractorCompound extractorCompound = (ExtractorCompound)theEObject;
+				T result = caseExtractorCompound(extractorCompound);
+				if (result == null) result = caseExtractor(extractorCompound);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTATOR_PIPE: {
+				ExtractatorPipe extractatorPipe = (ExtractatorPipe)theEObject;
+				T result = caseExtractatorPipe(extractatorPipe);
+				if (result == null) result = caseExtractorCompound(extractatorPipe);
+				if (result == null) result = caseExtractor(extractatorPipe);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_LOGIC: {
+				ExtractorLogic extractorLogic = (ExtractorLogic)theEObject;
+				T result = caseExtractorLogic(extractorLogic);
+				if (result == null) result = caseExtractorCompound(extractorLogic);
+				if (result == null) result = caseExtractor(extractorLogic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_UNION: {
+				ExtractorUnion extractorUnion = (ExtractorUnion)theEObject;
+				T result = caseExtractorUnion(extractorUnion);
+				if (result == null) result = caseExtractorLogic(extractorUnion);
+				if (result == null) result = caseExtractorCompound(extractorUnion);
+				if (result == null) result = caseExtractor(extractorUnion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_INTERSECTION: {
+				ExtractorIntersection extractorIntersection = (ExtractorIntersection)theEObject;
+				T result = caseExtractorIntersection(extractorIntersection);
+				if (result == null) result = caseExtractorLogic(extractorIntersection);
+				if (result == null) result = caseExtractorCompound(extractorIntersection);
+				if (result == null) result = caseExtractor(extractorIntersection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_PATH: {
+				ExtractorPath extractorPath = (ExtractorPath)theEObject;
+				T result = caseExtractorPath(extractorPath);
+				if (result == null) result = caseExtractor(extractorPath);
+				if (result == null) result = caseNavigationPath(extractorPath);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_OCL: {
+				ExtractorOcl extractorOcl = (ExtractorOcl)theEObject;
+				T result = caseExtractorOcl(extractorOcl);
+				if (result == null) result = caseExtractor(extractorOcl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER: {
+				ExtractorFilter extractorFilter = (ExtractorFilter)theEObject;
+				T result = caseExtractorFilter(extractorFilter);
+				if (result == null) result = caseExtractor(extractorFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE: {
+				ExtractorFilterAttribute extractorFilterAttribute = (ExtractorFilterAttribute)theEObject;
+				T result = caseExtractorFilterAttribute(extractorFilterAttribute);
+				if (result == null) result = caseExtractorFilter(extractorFilterAttribute);
+				if (result == null) result = caseNavigationPath(extractorFilterAttribute);
+				if (result == null) result = caseExtractor(extractorFilterAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT: {
+				ExtractorFilterAttributeInt extractorFilterAttributeInt = (ExtractorFilterAttributeInt)theEObject;
+				T result = caseExtractorFilterAttributeInt(extractorFilterAttributeInt);
+				if (result == null) result = caseExtractorFilterAttribute(extractorFilterAttributeInt);
+				if (result == null) result = caseExtractorFilter(extractorFilterAttributeInt);
+				if (result == null) result = caseNavigationPath(extractorFilterAttributeInt);
+				if (result == null) result = caseExtractor(extractorFilterAttributeInt);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: {
+				ExtractorFilterOcl extractorFilterOcl = (ExtractorFilterOcl)theEObject;
+				T result = caseExtractorFilterOcl(extractorFilterOcl);
+				if (result == null) result = caseExtractorFilter(extractorFilterOcl);
+				if (result == null) result = caseExtractor(extractorFilterOcl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE: {
+				CategoryCriteriaAttribute categoryCriteriaAttribute = (CategoryCriteriaAttribute)theEObject;
+				T result = caseCategoryCriteriaAttribute(categoryCriteriaAttribute);
+				if (result == null) result = caseCategoryCriteria(categoryCriteriaAttribute);
+				if (result == null) result = caseNavigationPath(categoryCriteriaAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: {
+				CategoryCriteriaOcl categoryCriteriaOcl = (CategoryCriteriaOcl)theEObject;
+				T result = caseCategoryCriteriaOcl(categoryCriteriaOcl);
+				if (result == null) result = caseCategoryCriteria(categoryCriteriaOcl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT: {
+				ColumnizerExplicit columnizerExplicit = (ColumnizerExplicit)theEObject;
+				T result = caseColumnizerExplicit(columnizerExplicit);
+				if (result == null) result = caseColumnizer(columnizerExplicit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER_COLUMN: {
+				ColumnizerColumn columnizerColumn = (ColumnizerColumn)theEObject;
+				T result = caseColumnizerColumn(columnizerColumn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: {
+				ColumnizerColumnAttribute columnizerColumnAttribute = (ColumnizerColumnAttribute)theEObject;
+				T result = caseColumnizerColumnAttribute(columnizerColumnAttribute);
+				if (result == null) result = caseColumnizerColumn(columnizerColumnAttribute);
+				if (result == null) result = caseNavigationPath(columnizerColumnAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER_COLUMN_OCL: {
+				ColumnizerColumnOcl columnizerColumnOcl = (ColumnizerColumnOcl)theEObject;
+				T result = caseColumnizerColumnOcl(columnizerColumnOcl);
+				if (result == null) result = caseColumnizerColumn(columnizerColumnOcl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.NAVIGATION_PATH: {
+				NavigationPath navigationPath = (NavigationPath)theEObject;
+				T result = caseNavigationPath(navigationPath);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.NAVIGATION_REFERENCE: {
+				NavigationReference navigationReference = (NavigationReference)theEObject;
+				T result = caseNavigationReference(navigationReference);
+				if (result == null) result = caseNavigationAxis(navigationReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.NAVIGATION_DOWNCAST: {
+				NavigationDowncast navigationDowncast = (NavigationDowncast)theEObject;
+				T result = caseNavigationDowncast(navigationDowncast);
+				if (result == null) result = caseNavigationAxis(navigationDowncast);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.NAVIGATION_AXIS: {
+				NavigationAxis navigationAxis = (NavigationAxis)theEObject;
+				T result = caseNavigationAxis(navigationAxis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
+		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorizer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorizer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorizer(Categorizer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategory(Category object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Criteria</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryCriteria(CategoryCriteria object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractor(Extractor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Columnizer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Columnizer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColumnizer(Columnizer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryAbstract(CategoryAbstract object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorType(ExtractorType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Compound</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Compound</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorCompound(ExtractorCompound object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractator Pipe</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractator Pipe</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractatorPipe(ExtractatorPipe object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Logic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Logic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorLogic(ExtractorLogic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Union</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Union</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorUnion(ExtractorUnion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Intersection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Intersection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorIntersection(ExtractorIntersection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Path</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorPath(ExtractorPath object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Ocl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Ocl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorOcl(ExtractorOcl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilter(ExtractorFilter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilterAttribute(ExtractorFilterAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter Attribute Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter Attribute Int</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilterAttributeInt(ExtractorFilterAttributeInt object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter Ocl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter Ocl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilterOcl(ExtractorFilterOcl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Criteria Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryCriteriaAttribute(CategoryCriteriaAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria Ocl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Criteria Ocl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryCriteriaOcl(CategoryCriteriaOcl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Columnizer Explicit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Columnizer Explicit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColumnizerExplicit(ColumnizerExplicit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Columnizer Column</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Columnizer Column</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColumnizerColumn(ColumnizerColumn object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Columnizer Column Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Columnizer Column Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColumnizerColumnAttribute(ColumnizerColumnAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Columnizer Column Ocl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Columnizer Column Ocl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseColumnizerColumnOcl(ColumnizerColumnOcl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Navigation Path</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Navigation Path</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNavigationPath(NavigationPath object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Navigation Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Navigation Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNavigationReference(NavigationReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Navigation Downcast</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Navigation Downcast</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNavigationDowncast(NavigationDowncast object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Navigation Axis</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Navigation Axis</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNavigationAxis(NavigationAxis object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	@Override
+	public T defaultCase(EObject object) {
+		return null;
+	}
+
+} //DatatoolsSwitch

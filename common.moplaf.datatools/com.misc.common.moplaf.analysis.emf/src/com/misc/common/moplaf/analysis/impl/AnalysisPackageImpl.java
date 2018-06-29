@@ -1,0 +1,215 @@
+/**
+ */
+package com.misc.common.moplaf.analysis.impl;
+
+import com.misc.common.moplaf.analysis.AnalysisFactory;
+import com.misc.common.moplaf.analysis.AnalysisPackage;
+import com.misc.common.moplaf.analysis.DocAnalysis;
+
+import com.misc.common.moplaf.datatools.DatatoolsPackage;
+
+import com.misc.common.moplaf.file.FilePackage;
+
+import com.misc.common.moplaf.job.JobPackage;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Package</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass docAnalysisEClass = null;
+
+	/**
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecore.EPackage.Registry
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#eNS_URI
+	 * @see #init()
+	 * @generated
+	 */
+	private AnalysisPackageImpl() {
+		super(eNS_URI, AnalysisFactory.eINSTANCE);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static boolean isInited = false;
+
+	/**
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link AnalysisPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #eNS_URI
+	 * @see #createPackageContents()
+	 * @see #initializePackageContents()
+	 * @generated
+	 */
+	public static AnalysisPackage init() {
+		if (isInited) return (AnalysisPackage)EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
+
+		// Obtain or create and register package
+		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AnalysisPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AnalysisPackageImpl());
+
+		isInited = true;
+
+		// Initialize simple dependencies
+		DatatoolsPackage.eINSTANCE.eClass();
+		FilePackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
+
+		// Create package meta-data objects
+		theAnalysisPackage.createPackageContents();
+
+		// Initialize created meta-data
+		theAnalysisPackage.initializePackageContents();
+
+		// Mark meta-data to indicate it can't be changed
+		theAnalysisPackage.freeze();
+
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(AnalysisPackage.eNS_URI, theAnalysisPackage);
+		return theAnalysisPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDocAnalysis() {
+		return docAnalysisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocAnalysis_Extractor() {
+		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocAnalysis_Categorizer() {
+		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocAnalysis_Columnizer() {
+		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisFactory getAnalysisFactory() {
+		return (AnalysisFactory)getEFactoryInstance();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private boolean isCreated = false;
+
+	/**
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void createPackageContents() {
+		if (isCreated) return;
+		isCreated = true;
+
+		// Create classes and their features
+		docAnalysisEClass = createEClass(DOC_ANALYSIS);
+		createEReference(docAnalysisEClass, DOC_ANALYSIS__EXTRACTOR);
+		createEReference(docAnalysisEClass, DOC_ANALYSIS__CATEGORIZER);
+		createEReference(docAnalysisEClass, DOC_ANALYSIS__COLUMNIZER);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private boolean isInitialized = false;
+
+	/**
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void initializePackageContents() {
+		if (isInitialized) return;
+		isInitialized = true;
+
+		// Initialize package
+		setName(eNAME);
+		setNsPrefix(eNS_PREFIX);
+		setNsURI(eNS_URI);
+
+		// Obtain other dependent packages
+		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
+		DatatoolsPackage theDatatoolsPackage = (DatatoolsPackage)EPackage.Registry.INSTANCE.getEPackage(DatatoolsPackage.eNS_URI);
+
+		// Create type parameters
+
+		// Set bounds for type parameters
+
+		// Add supertypes to classes
+		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
+
+		// Initialize classes, features, and operations; add parameters
+		initEClass(docAnalysisEClass, DocAnalysis.class, "DocAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDocAnalysis_Extractor(), theDatatoolsPackage.getExtractor(), null, "Extractor", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocAnalysis_Categorizer(), theDatatoolsPackage.getCategorizer(), null, "Categorizer", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocAnalysis_Columnizer(), theDatatoolsPackage.getColumnizer(), null, "Columnizer", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Create resource
+		createResource(eNS_URI);
+	}
+
+} //AnalysisPackageImpl
