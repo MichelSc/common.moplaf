@@ -8,7 +8,7 @@
     <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_UquHgHuFEeidFuGEkYQFRA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_VZG3gHuFEeidFuGEkYQFRA" name="dataextractor class diagram" repPath="#_VYxgUHuFEeidFuGEkYQFRA">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_VZG3gHuFEeidFuGEkYQFRA" name="01 Base" repPath="#_VYxgUHuFEeidFuGEkYQFRA">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="dataextractor.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -23,7 +23,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram xmi:id="_VZD0MHuFEeidFuGEkYQFRA" name="dataextractor class diagram" uid="_VYxgUHuFEeidFuGEkYQFRA">
+  <diagram:DSemanticDiagram xmi:id="_VZD0MHuFEeidFuGEkYQFRA" name="01 Base" uid="_VYxgUHuFEeidFuGEkYQFRA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_VZD0MXuFEeidFuGEkYQFRA" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_VZD0MnuFEeidFuGEkYQFRA">
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_YT5NonuFEeidFuGEkYQFRA" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">

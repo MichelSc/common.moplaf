@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="job_visual" nsURI="http://www.misc.com/common/moplaf/job/visual/model/0.1"
-    nsPrefix="jobvisual">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="datatools" nsURI="http://www.misc.com/common/moplaf/datatools/model/0.1"
+    nsPrefix="datatools">
   <eClassifiers xsi:type="ecore:EClass" name="Categorizer" eSuperTypes="#//CategoryAbstract">
     <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -16,15 +16,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" lowerBound="1"
         eType="#//CategoryCriteria"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocAnalysis" eSuperTypes="job.ecore#//DocRef">
-    <eOperations name="refresh"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" eType="#//Categorizer"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" lowerBound="1"
-        eType="#//Columnizer" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" lowerBound="1"
-        eType="#//Extractor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteria" abstract="true">
     <eOperations name="getCategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
