@@ -11,17 +11,19 @@
 package com.misc.common.moplaf.gridview.emf.edit.util;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
-public class GridSheetsProvider extends LinkedList<com.misc.common.moplaf.gridview.emf.edit.util.GridSheetsProvider.SheetDelegate> {
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.GridColumnsProvider.ColumnDelegate;
+
+public class GridSheetsProvider implements IItemGridsProvider {
 	
 	/**
 	 * 
 	 */
+	private LinkedList<com.misc.common.moplaf.gridview.emf.edit.util.GridSheetsProvider.SheetDelegate> sheets;
 	private static final long serialVersionUID = 1L;
 
 	public interface SheetDelegate {
@@ -56,8 +58,6 @@ public class GridSheetsProvider extends LinkedList<com.misc.common.moplaf.gridvi
 			return this.columns;
 		}
 		
-		
-
 		@Override
 		public String getSheetText() {
 			return this.reference.getName();
@@ -67,6 +67,7 @@ public class GridSheetsProvider extends LinkedList<com.misc.common.moplaf.gridvi
 	
 	private GridSheetsProvider() {
 		super();
+		this.sheets = new LinkedList<com.misc.common.moplaf.gridview.emf.edit.util.GridSheetsProvider.SheetDelegate>();
 	}
 	
 	/*
@@ -80,7 +81,49 @@ public class GridSheetsProvider extends LinkedList<com.misc.common.moplaf.gridvi
 	 * Convenience method for adding a sheet in the grid
 	 */
 	public GridSheetsProvider addSheet(EReference reference, GridColumnsProvider columns) {
-		this.add(new SheetFeature(reference, columns));
+		this.sheets.add(new SheetFeature(reference, columns));
 		return this;
 	}
+	
+	// delegated methods
+	@Override 
+	public Object getGrids(Object element) {
+		return this.sheets;
+	}
+	@Override
+	public String getGridText(Object element, Object grid) {
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.getSheetText();
+	}
+
+	@Override
+	public Collection<?> getRows(Object element, Object grid) {
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.getRows(element);
+	}
+
+	@Override
+	public Collection<?> getColumns(Object element, Object grid) {
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.getColumns();
+	}
+	
+	@Override
+	public String getColumnText(Object element, Object grid, Object column) {
+		ColumnDelegate delegate = (ColumnDelegate)column;
+		return delegate.getColumnText();
+	}
+	
+	@Override
+	public int getColumnWidth(Object element, Object grid, Object column) {
+		ColumnDelegate delegate = (ColumnDelegate)column;
+		return delegate.getColumnWidth();
+	}
+
+	@Override
+	public Object getCellValue(Object element, Object grid, Object row, Object column) {
+		ColumnDelegate delegate = (ColumnDelegate)column;
+		return delegate.getCellValue(row);
+	}
+
 }

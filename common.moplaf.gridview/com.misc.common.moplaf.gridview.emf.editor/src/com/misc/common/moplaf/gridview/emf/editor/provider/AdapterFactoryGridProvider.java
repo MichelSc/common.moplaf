@@ -143,17 +143,20 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		
 		ArrayList<TableProvider> providers = new ArrayList<TableProvider>();
 		
-		Object grid_asobject = gridsProvider.getGrids(element);
-		if ( grid_asobject==null ){
-			// no grids for the element
-		} else if ( grid_asobject instanceof Collection<?> ) {
+		Object grids_asobject = gridsProvider.getGrids(element);
+		while ( grids_asobject instanceof IItemGridsProvider ) {
+			// delegated to 
+			gridsProvider = (IItemGridsProvider) grids_asobject;
+			grids_asobject = gridsProvider.getGrids(element);
+		} 
+		if ( grids_asobject instanceof Collection<?> ) {
 			// a collections of grids for the element
-			Collection<?> grids = (Collection<?>)grid_asobject;
+			Collection<?> grids = (Collection<?>)grids_asobject;
 			for ( Object grid : grids){
 				TableProvider provider = this.createTableProvider(element, grid, gridsProvider);
 				providers.add(provider);
 			}
-		} else {
+		} else if ( grids_asobject!=null ){
 			// a single grid for the element
 			TableProvider provider = this.createTableProvider(element, null, gridsProvider);
 			providers.add(provider);
