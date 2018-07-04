@@ -52,10 +52,9 @@ public class GridView extends ViewPart {
 	class SiteSelectionListener implements ISelectionListener {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-			
 			if (  GridView.this.viewer != null && part!= GridView.this) {
 				GridView.this.viewer.setInput(Util.getSelectedObjects(selection));
-			} // there is a viewer
+			} 
 		}
 	}
 

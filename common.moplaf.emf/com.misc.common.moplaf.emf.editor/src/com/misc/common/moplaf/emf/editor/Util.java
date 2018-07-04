@@ -15,7 +15,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import org.eclipse.core.runtime.Adapters;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.jface.viewers.ISelection;
@@ -23,6 +22,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.RGB;
 
 import com.misc.common.moplaf.common.Color;
+import com.misc.common.moplaf.common.IMoplafObject;
 
 public class Util {
 
@@ -66,7 +66,9 @@ public class Util {
 	}
 
 	/**
-	 * 
+	 * Returns the objects in the selections.
+	 * <p>
+	 * If the selected objects can be adapted to a IMoplafObject, then this IMoplafObject is returned.
 	 * @param selection
 	 * @return
 	 */
@@ -78,8 +80,8 @@ public class Util {
 			Iterator iterator = structuredSelection.iterator();
 			while (iterator.hasNext()) {
 				Object selected = iterator.next();
-				Object adapted = Adapters.adapt(selected, EObject.class);
-				if ( adapted!= null ) {
+				Object adapted = Adapters.adapt(selected, IMoplafObject.class);
+				if ( adapted != null ) {
 					objects_selected.add(adapted);
 				} else {
 					objects_selected.add(selected);

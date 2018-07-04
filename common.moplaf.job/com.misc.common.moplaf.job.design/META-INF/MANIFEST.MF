@@ -11,9 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql,
  com.misc.common.moplaf.job.emf;bundle-version="0.1.0",
- com.misc.common.moplaf.emf,
- org.eclipse.sirius.ui;bundle-version="5.1.1",
- org.eclipse.sirius.diagram.ui;bundle-version="5.1.1"
+ com.misc.common.moplaf.emf
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName

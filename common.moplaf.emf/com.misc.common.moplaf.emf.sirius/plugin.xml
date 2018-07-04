@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart"
+            class="com.misc.common.moplaf.emf.sirius.SiriusEditPartAdapter">
+         <adapter
+               type="com.misc.common.moplaf.common.IMoplafObject">
+         </adapter>
+      </factory>
+   </extension>
+
+</plugin>

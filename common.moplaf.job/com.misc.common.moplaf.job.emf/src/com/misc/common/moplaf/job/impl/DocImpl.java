@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.job.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.common.IMoplafObject;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.DocRef;
 import com.misc.common.moplaf.job.JobPackage;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Doc</b></em>'.
+ * @implements IMoplafObject
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -43,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class DocImpl extends KeyIndicatorsImpl implements Doc {
+public abstract class DocImpl extends KeyIndicatorsImpl implements Doc, IMoplafObject {
 	/**
 	 * The default value of the '{@link #getCloneFeedback() <em>Clone Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
