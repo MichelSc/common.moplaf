@@ -11,9 +11,15 @@
 package com.misc.common.moplaf.emf.editor;
 
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
 
+import org.eclipse.core.runtime.Adapters;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionManager;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.RGB;
 
 import com.misc.common.moplaf.common.Color;
@@ -59,4 +65,28 @@ public class Util {
 		return anInt; 
 	}
 
+	/**
+	 * 
+	 * @param selection
+	 * @return
+	 */
+	public static Object[] getSelectedObjects(ISelection selection) {
+		if (  !selection.isEmpty() && selection instanceof IStructuredSelection) {
+			IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+			LinkedList<Object> objects_selected = new LinkedList<Object>();
+			@SuppressWarnings("rawtypes")
+			Iterator iterator = structuredSelection.iterator();
+			while (iterator.hasNext()) {
+				Object selected = iterator.next();
+				Object adapted = Adapters.adapt(selected, EObject.class);
+				if ( adapted!= null ) {
+					objects_selected.add(adapted);
+				} else {
+					objects_selected.add(selected);
+				}
+			}
+			return objects_selected.toArray();
+		} // there is a selection
+		return null;
+	}
 }

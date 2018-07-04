@@ -23,6 +23,7 @@ import org.eclipse.jface.action.*;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
+import com.misc.common.moplaf.emf.editor.Util;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
 //import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
 import com.misc.common.moplaf.gridview.emf.editor.viewers.GridViewer;
@@ -53,14 +54,7 @@ public class GridView extends ViewPart {
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			
 			if (  GridView.this.viewer != null && part!= GridView.this) {
-				if (  !selection.isEmpty() 
-				  && selection instanceof IStructuredSelection) {
-					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					GridView.this.viewer.setInput(structuredSelection.toArray());
-				} // there is a selection
-				else {
-					GridView.this.viewer.setInput(null);
-				}
+				GridView.this.viewer.setInput(Util.getSelectedObjects(selection));
 			} // there is a viewer
 		}
 	}
