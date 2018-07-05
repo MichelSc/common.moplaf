@@ -195,13 +195,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER__COLUMNIZER = CATEGORY_ABSTRACT__COLUMNIZER;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER__CONTEXT = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Criteria</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER__CRITERIA = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
+	int CATEGORIZER__CRITERIA = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Categorizer</em>' class.
@@ -210,7 +219,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER_FEATURE_COUNT = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
+	int CATEGORIZER_FEATURE_COUNT = CATEGORY_ABSTRACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -395,6 +404,43 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_CRITERIA_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.DataToolImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTool()
+	 * @generated
+	 */
+	int DATA_TOOL = 31;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL__CONTEXT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Tool</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Data Tool</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl <em>Extractor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -405,13 +451,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR = 3;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR__CONTEXT = DATA_TOOL__CONTEXT;
+
+	/**
 	 * The number of structural features of the '<em>Extractor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FEATURE_COUNT = 0;
+	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Refresh Outs</em>' operation.
@@ -420,7 +475,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR___REFRESH_OUTS__ELIST = 0;
+	int EXTRACTOR___REFRESH_OUTS__ELIST = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -429,7 +484,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR___IS_VALID_ROOT__EOBJECT = 1;
+	int EXTRACTOR___IS_VALID_ROOT__EOBJECT = DATA_TOOL_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Extractor</em>' class.
@@ -438,7 +493,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_OPERATION_COUNT = 2;
+	int EXTRACTOR_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerImpl <em>Columnizer</em>}' class.
@@ -451,13 +506,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER = 4;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__CONTEXT = DATA_TOOL__CONTEXT;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_FEATURE_COUNT = 0;
+	int COLUMNIZER_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Columnizer</em>' class.
@@ -466,7 +530,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_OPERATION_COUNT = 0;
+	int COLUMNIZER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorTypeImpl <em>Extractor Type</em>}' class.
@@ -477,6 +541,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	int EXTRACTOR_TYPE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE__CONTEXT = EXTRACTOR__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -534,6 +607,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND = 7;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__CONTEXT = EXTRACTOR__CONTEXT;
+
+	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -587,6 +669,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	int EXTRACTATOR_PIPE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTATOR_PIPE__CONTEXT = EXTRACTOR_COMPOUND__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
@@ -644,6 +735,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_LOGIC = 9;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__CONTEXT = EXTRACTOR_COMPOUND__CONTEXT;
+
+	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -697,6 +797,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	int EXTRACTOR_UNION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__CONTEXT = EXTRACTOR_LOGIC__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
@@ -754,6 +863,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_INTERSECTION = 11;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__CONTEXT = EXTRACTOR_LOGIC__CONTEXT;
+
+	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -809,13 +927,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PATH = 12;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH__ELEMENTS = EXTRACTOR_FEATURE_COUNT + 0;
+	int EXTRACTOR_PATH__CONTEXT = EXTRACTOR__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH__PATH_ELEMENTS = EXTRACTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -882,6 +1009,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_OCL = 13;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL__CONTEXT = EXTRACTOR__CONTEXT;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -935,6 +1071,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	int EXTRACTOR_FILTER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER__CONTEXT = EXTRACTOR__CONTEXT;
 
 	/**
 	 * The number of structural features of the '<em>Extractor Filter</em>' class.
@@ -992,13 +1137,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE = 15;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__ELEMENTS = EXTRACTOR_FILTER_FEATURE_COUNT + 0;
+	int EXTRACTOR_FILTER_ATTRIBUTE__CONTEXT = EXTRACTOR_FILTER__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE__PATH_ELEMENTS = EXTRACTOR_FILTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1092,13 +1246,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT = 16;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ELEMENTS = EXTRACTOR_FILTER_ATTRIBUTE__ELEMENTS;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT__CONTEXT = EXTRACTOR_FILTER_ATTRIBUTE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT__PATH_ELEMENTS = EXTRACTOR_FILTER_ATTRIBUTE__PATH_ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1210,6 +1373,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL = 17;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OCL__CONTEXT = EXTRACTOR_FILTER__CONTEXT;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1274,13 +1446,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_CRITERIA_ATTRIBUTE = 18;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__ELEMENTS = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
+	int CATEGORY_CRITERIA_ATTRIBUTE__CONTEXT = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1289,7 +1470,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
+	int CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -1298,7 +1479,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 2;
+	int CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -1307,7 +1488,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE = CATEGORY_CRITERIA_FEATURE_COUNT + 3;
+	int CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE = CATEGORY_CRITERIA_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Category Criteria Attribute</em>' class.
@@ -1316,7 +1497,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 4;
+	int CATEGORY_CRITERIA_ATTRIBUTE_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Category Value</em>' operation.
@@ -1418,6 +1599,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	int COLUMNIZER_EXPLICIT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_EXPLICIT__CONTEXT = COLUMNIZER__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -1530,13 +1720,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE__WIDTH = COLUMNIZER_COLUMN__WIDTH;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ELEMENTS = COLUMNIZER_COLUMN_FEATURE_COUNT + 0;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT = COLUMNIZER_COLUMN_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS = COLUMNIZER_COLUMN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1545,7 +1744,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE = COLUMNIZER_COLUMN_FEATURE_COUNT + 1;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE = COLUMNIZER_COLUMN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -1554,7 +1753,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE = COLUMNIZER_COLUMN_FEATURE_COUNT + 2;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE = COLUMNIZER_COLUMN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -1563,7 +1762,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = COLUMNIZER_COLUMN_FEATURE_COUNT + 3;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = COLUMNIZER_COLUMN_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Columnizer Column Attribute</em>' class.
@@ -1572,7 +1771,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = COLUMNIZER_COLUMN_FEATURE_COUNT + 4;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = COLUMNIZER_COLUMN_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -1667,13 +1866,22 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_PATH = 24;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH__ELEMENTS = 0;
+	int NAVIGATION_PATH__CONTEXT = DATA_TOOL__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__PATH_ELEMENTS = DATA_TOOL_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1682,7 +1890,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH__SOURCE_TYPE = 1;
+	int NAVIGATION_PATH__SOURCE_TYPE = DATA_TOOL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -1691,7 +1899,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH__TARGET_TYPE = 2;
+	int NAVIGATION_PATH__TARGET_TYPE = DATA_TOOL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Navigation Path</em>' class.
@@ -1700,7 +1908,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH_FEATURE_COUNT = 3;
+	int NAVIGATION_PATH_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Navigation Path</em>' class.
@@ -1709,7 +1917,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH_OPERATION_COUNT = 0;
+	int NAVIGATION_PATH_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl <em>Navigation Axis</em>}' class.
@@ -1740,13 +1948,31 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_AXIS__TARGET_TYPE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__PATH = 2;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__PREVIOUS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Navigation Axis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS_FEATURE_COUNT = 2;
+	int NAVIGATION_AXIS_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Navigation Axis</em>' class.
@@ -1784,6 +2010,24 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAVIGATION_REFERENCE__TARGET_TYPE = NAVIGATION_AXIS__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__PATH = NAVIGATION_AXIS__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__PREVIOUS = NAVIGATION_AXIS__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' reference.
@@ -1841,6 +2085,24 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_DOWNCAST__TARGET_TYPE = NAVIGATION_AXIS__TARGET_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__PATH = NAVIGATION_AXIS__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__PREVIOUS = NAVIGATION_AXIS__PREVIOUS;
+
+	/**
 	 * The feature id for the '<em><b>Downcast Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1867,6 +2129,144 @@ public interface DatatoolsPackage extends EPackage {
 	 */
 	int NAVIGATION_DOWNCAST_OPERATION_COUNT = NAVIGATION_AXIS_OPERATION_COUNT + 0;
 
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.MatcherImpl <em>Matcher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.MatcherImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatcher()
+	 * @generated
+	 */
+	int MATCHER = 28;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER__MATCHES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Matches</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT = 0;
+
+	/**
+	 * The number of operations of the '<em>Matcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.MatchImpl <em>Match</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.MatchImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatch()
+	 * @generated
+	 */
+	int MATCH = 29;
+
+	/**
+	 * The feature id for the '<em><b>Object1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__OBJECT1 = 0;
+
+	/**
+	 * The feature id for the '<em><b>Object2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__OBJECT2 = 1;
+
+	/**
+	 * The number of structural features of the '<em>Match</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Match</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolsImpl <em>Data Tools</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.DataToolsImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTools()
+	 * @generated
+	 */
+	int DATA_TOOLS = 30;
+
+	/**
+	 * The feature id for the '<em><b>Data Tools</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS__DATA_TOOLS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Tools</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS___GET_DOMAIN_TYPES = 0;
+
+	/**
+	 * The number of operations of the '<em>Data Tools</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS_OPERATION_COUNT = 1;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -2471,15 +2871,15 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getNavigationPath();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.NavigationPath#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.NavigationPath#getPathElements <em>Path Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see com.misc.common.moplaf.datatools.NavigationPath#getElements()
+	 * @return the meta object for the containment reference list '<em>Path Elements</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationPath#getPathElements()
 	 * @see #getNavigationPath()
 	 * @generated
 	 */
-	EReference getNavigationPath_Elements();
+	EReference getNavigationPath_PathElements();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.NavigationPath#getSourceType <em>Source Type</em>}'.
@@ -2576,6 +2976,143 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNavigationAxis_TargetType();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.datatools.NavigationAxis#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Path</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getPath()
+	 * @see #getNavigationAxis()
+	 * @generated
+	 */
+	EReference getNavigationAxis_Path();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.NavigationAxis#getPrevious <em>Previous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Previous</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getPrevious()
+	 * @see #getNavigationAxis()
+	 * @generated
+	 */
+	EReference getNavigationAxis_Previous();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Matcher <em>Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Matcher</em>'.
+	 * @see com.misc.common.moplaf.datatools.Matcher
+	 * @generated
+	 */
+	EClass getMatcher();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.Matcher#getMatches <em>Matches</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Matches</em>'.
+	 * @see com.misc.common.moplaf.datatools.Matcher#getMatches()
+	 * @see #getMatcher()
+	 * @generated
+	 */
+	EReference getMatcher_Matches();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Matcher#refreshMatches(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Refresh Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Matches</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Matcher#refreshMatches(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getMatcher__RefreshMatches__EObject_EObject();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Match <em>Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Match</em>'.
+	 * @see com.misc.common.moplaf.datatools.Match
+	 * @generated
+	 */
+	EClass getMatch();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Match#getObject1 <em>Object1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Object1</em>'.
+	 * @see com.misc.common.moplaf.datatools.Match#getObject1()
+	 * @see #getMatch()
+	 * @generated
+	 */
+	EReference getMatch_Object1();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Match#getObject2 <em>Object2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Object2</em>'.
+	 * @see com.misc.common.moplaf.datatools.Match#getObject2()
+	 * @see #getMatch()
+	 * @generated
+	 */
+	EReference getMatch_Object2();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Tools</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataTools
+	 * @generated
+	 */
+	EClass getDataTools();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.DataTools#getDataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Tools</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataTools#getDataTools()
+	 * @see #getDataTools()
+	 * @generated
+	 */
+	EReference getDataTools_DataTools();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.DataTools#getDomainTypes() <em>Get Domain Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Domain Types</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.DataTools#getDomainTypes()
+	 * @generated
+	 */
+	EOperation getDataTools__GetDomainTypes();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTool <em>Data Tool</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Tool</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataTool
+	 * @generated
+	 */
+	EClass getDataTool();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.DataTool#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataTool#getContext()
+	 * @see #getDataTool()
+	 * @generated
+	 */
+	EReference getDataTool_Context();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3115,12 +3652,12 @@ public interface DatatoolsPackage extends EPackage {
 		EClass NAVIGATION_PATH = eINSTANCE.getNavigationPath();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Path Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NAVIGATION_PATH__ELEMENTS = eINSTANCE.getNavigationPath_Elements();
+		EReference NAVIGATION_PATH__PATH_ELEMENTS = eINSTANCE.getNavigationPath_PathElements();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Type</b></em>' reference feature.
@@ -3199,6 +3736,118 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAVIGATION_AXIS__TARGET_TYPE = eINSTANCE.getNavigationAxis_TargetType();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAVIGATION_AXIS__PATH = eINSTANCE.getNavigationAxis_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Previous</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAVIGATION_AXIS__PREVIOUS = eINSTANCE.getNavigationAxis_Previous();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.MatcherImpl <em>Matcher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.MatcherImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatcher()
+		 * @generated
+		 */
+		EClass MATCHER = eINSTANCE.getMatcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Matches</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MATCHER__MATCHES = eINSTANCE.getMatcher_Matches();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Matches</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT = eINSTANCE.getMatcher__RefreshMatches__EObject_EObject();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.MatchImpl <em>Match</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.MatchImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatch()
+		 * @generated
+		 */
+		EClass MATCH = eINSTANCE.getMatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Object1</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MATCH__OBJECT1 = eINSTANCE.getMatch_Object1();
+
+		/**
+		 * The meta object literal for the '<em><b>Object2</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MATCH__OBJECT2 = eINSTANCE.getMatch_Object2();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolsImpl <em>Data Tools</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.DataToolsImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTools()
+		 * @generated
+		 */
+		EClass DATA_TOOLS = eINSTANCE.getDataTools();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Tools</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TOOLS__DATA_TOOLS = eINSTANCE.getDataTools_DataTools();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Domain Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_TOOLS___GET_DOMAIN_TYPES = eINSTANCE.getDataTools__GetDomainTypes();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.DataToolImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTool()
+		 * @generated
+		 */
+		EClass DATA_TOOL = eINSTANCE.getDataTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TOOL__CONTEXT = eINSTANCE.getDataTool_Context();
 
 	}
 

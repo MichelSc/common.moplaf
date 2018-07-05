@@ -70,6 +70,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				Categorizer categorizer = (Categorizer)theEObject;
 				T result = caseCategorizer(categorizer);
 				if (result == null) result = caseCategoryAbstract(categorizer);
+				if (result == null) result = caseDataTool(categorizer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,12 +90,14 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.EXTRACTOR: {
 				Extractor extractor = (Extractor)theEObject;
 				T result = caseExtractor(extractor);
+				if (result == null) result = caseDataTool(extractor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case DatatoolsPackage.COLUMNIZER: {
 				Columnizer columnizer = (Columnizer)theEObject;
 				T result = caseColumnizer(columnizer);
+				if (result == null) result = caseDataTool(columnizer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,6 +111,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorType extractorType = (ExtractorType)theEObject;
 				T result = caseExtractorType(extractorType);
 				if (result == null) result = caseExtractor(extractorType);
+				if (result == null) result = caseDataTool(extractorType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,6 +119,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorCompound extractorCompound = (ExtractorCompound)theEObject;
 				T result = caseExtractorCompound(extractorCompound);
 				if (result == null) result = caseExtractor(extractorCompound);
+				if (result == null) result = caseDataTool(extractorCompound);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,6 +128,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractatorPipe(extractatorPipe);
 				if (result == null) result = caseExtractorCompound(extractatorPipe);
 				if (result == null) result = caseExtractor(extractatorPipe);
+				if (result == null) result = caseDataTool(extractatorPipe);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -131,6 +137,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractorLogic(extractorLogic);
 				if (result == null) result = caseExtractorCompound(extractorLogic);
 				if (result == null) result = caseExtractor(extractorLogic);
+				if (result == null) result = caseDataTool(extractorLogic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -140,6 +147,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorLogic(extractorUnion);
 				if (result == null) result = caseExtractorCompound(extractorUnion);
 				if (result == null) result = caseExtractor(extractorUnion);
+				if (result == null) result = caseDataTool(extractorUnion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,6 +157,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorLogic(extractorIntersection);
 				if (result == null) result = caseExtractorCompound(extractorIntersection);
 				if (result == null) result = caseExtractor(extractorIntersection);
+				if (result == null) result = caseDataTool(extractorIntersection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,6 +166,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractorPath(extractorPath);
 				if (result == null) result = caseExtractor(extractorPath);
 				if (result == null) result = caseNavigationPath(extractorPath);
+				if (result == null) result = caseDataTool(extractorPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +174,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorOcl extractorOcl = (ExtractorOcl)theEObject;
 				T result = caseExtractorOcl(extractorOcl);
 				if (result == null) result = caseExtractor(extractorOcl);
+				if (result == null) result = caseDataTool(extractorOcl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -171,6 +182,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorFilter extractorFilter = (ExtractorFilter)theEObject;
 				T result = caseExtractorFilter(extractorFilter);
 				if (result == null) result = caseExtractor(extractorFilter);
+				if (result == null) result = caseDataTool(extractorFilter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -180,6 +192,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorFilter(extractorFilterAttribute);
 				if (result == null) result = caseNavigationPath(extractorFilterAttribute);
 				if (result == null) result = caseExtractor(extractorFilterAttribute);
+				if (result == null) result = caseDataTool(extractorFilterAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -190,6 +203,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorFilter(extractorFilterAttributeInt);
 				if (result == null) result = caseNavigationPath(extractorFilterAttributeInt);
 				if (result == null) result = caseExtractor(extractorFilterAttributeInt);
+				if (result == null) result = caseDataTool(extractorFilterAttributeInt);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -198,6 +212,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractorFilterOcl(extractorFilterOcl);
 				if (result == null) result = caseExtractorFilter(extractorFilterOcl);
 				if (result == null) result = caseExtractor(extractorFilterOcl);
+				if (result == null) result = caseDataTool(extractorFilterOcl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -206,6 +221,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseCategoryCriteriaAttribute(categoryCriteriaAttribute);
 				if (result == null) result = caseCategoryCriteria(categoryCriteriaAttribute);
 				if (result == null) result = caseNavigationPath(categoryCriteriaAttribute);
+				if (result == null) result = caseDataTool(categoryCriteriaAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -220,6 +236,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ColumnizerExplicit columnizerExplicit = (ColumnizerExplicit)theEObject;
 				T result = caseColumnizerExplicit(columnizerExplicit);
 				if (result == null) result = caseColumnizer(columnizerExplicit);
+				if (result == null) result = caseDataTool(columnizerExplicit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -234,6 +251,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseColumnizerColumnAttribute(columnizerColumnAttribute);
 				if (result == null) result = caseColumnizerColumn(columnizerColumnAttribute);
 				if (result == null) result = caseNavigationPath(columnizerColumnAttribute);
+				if (result == null) result = caseDataTool(columnizerColumnAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -247,6 +265,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.NAVIGATION_PATH: {
 				NavigationPath navigationPath = (NavigationPath)theEObject;
 				T result = caseNavigationPath(navigationPath);
+				if (result == null) result = caseDataTool(navigationPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -267,6 +286,30 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.NAVIGATION_AXIS: {
 				NavigationAxis navigationAxis = (NavigationAxis)theEObject;
 				T result = caseNavigationAxis(navigationAxis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.MATCHER: {
+				Matcher matcher = (Matcher)theEObject;
+				T result = caseMatcher(matcher);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.MATCH: {
+				Match match = (Match)theEObject;
+				T result = caseMatch(match);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.DATA_TOOLS: {
+				DataTools dataTools = (DataTools)theEObject;
+				T result = caseDataTools(dataTools);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.DATA_TOOL: {
+				DataTool dataTool = (DataTool)theEObject;
+				T result = caseDataTool(dataTool);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -691,6 +734,66 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNavigationAxis(NavigationAxis object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Matcher</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Matcher</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMatcher(Matcher object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Match</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Match</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMatch(Match object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Tools</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Tools</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataTools(DataTools object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Tool</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Tool</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataTool(DataTool object) {
 		return null;
 	}
 

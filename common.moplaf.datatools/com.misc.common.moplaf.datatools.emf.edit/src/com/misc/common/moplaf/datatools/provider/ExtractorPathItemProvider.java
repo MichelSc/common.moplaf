@@ -3,9 +3,11 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorPath;
+import com.misc.common.moplaf.datatools.ExtractorType;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,6 +19,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -57,11 +60,10 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 	 * This adds a property descriptor for the Source Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addSourceTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_NavigationPath_SourceType_feature"),
@@ -72,7 +74,16 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						ExtractorType extractor = (ExtractorType)object;
+						DataTools context = extractor.getContext();
+						return context.getDomainTypes();
+					}
+				
+			});
 	}
 
 	/**
@@ -89,7 +100,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 				 getString("_UI_NavigationPath_TargetType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_TargetType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__TARGET_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -109,7 +120,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS);
+			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -162,7 +173,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExtractorPath.class)) {
-			case DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS:
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,17 +193,12 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
-				 DatatoolsFactory.eINSTANCE.createNavigationAxis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationDowncast()));
 	}
 

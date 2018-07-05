@@ -13,6 +13,8 @@ import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
 import com.misc.common.moplaf.datatools.ColumnizerColumnOcl;
 import com.misc.common.moplaf.datatools.ColumnizerExplicit;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractatorPipe;
@@ -28,6 +30,8 @@ import com.misc.common.moplaf.datatools.ExtractorOcl;
 import com.misc.common.moplaf.datatools.ExtractorPath;
 import com.misc.common.moplaf.datatools.ExtractorType;
 import com.misc.common.moplaf.datatools.ExtractorUnion;
+import com.misc.common.moplaf.datatools.Match;
+import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationDowncast;
 import com.misc.common.moplaf.datatools.NavigationPath;
@@ -243,6 +247,34 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EClass navigationAxisEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass matcherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass matchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataToolsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataToolEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -832,7 +864,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNavigationPath_Elements() {
+	public EReference getNavigationPath_PathElements() {
 		return (EReference)navigationPathEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -915,6 +947,123 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EReference getNavigationAxis_TargetType() {
 		return (EReference)navigationAxisEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNavigationAxis_Path() {
+		return (EReference)navigationAxisEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNavigationAxis_Previous() {
+		return (EReference)navigationAxisEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMatcher() {
+		return matcherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMatcher_Matches() {
+		return (EReference)matcherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getMatcher__RefreshMatches__EObject_EObject() {
+		return matcherEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMatch() {
+		return matchEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMatch_Object1() {
+		return (EReference)matchEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMatch_Object2() {
+		return (EReference)matchEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataTools() {
+		return dataToolsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataTools_DataTools() {
+		return (EReference)dataToolsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDataTools__GetDomainTypes() {
+		return dataToolsEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataTool() {
+		return dataToolEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataTool_Context() {
+		return (EReference)dataToolEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1027,7 +1176,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEAttribute(columnizerColumnOclEClass, COLUMNIZER_COLUMN_OCL__EXPRESSION);
 
 		navigationPathEClass = createEClass(NAVIGATION_PATH);
-		createEReference(navigationPathEClass, NAVIGATION_PATH__ELEMENTS);
+		createEReference(navigationPathEClass, NAVIGATION_PATH__PATH_ELEMENTS);
 		createEReference(navigationPathEClass, NAVIGATION_PATH__SOURCE_TYPE);
 		createEReference(navigationPathEClass, NAVIGATION_PATH__TARGET_TYPE);
 
@@ -1040,6 +1189,23 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		navigationAxisEClass = createEClass(NAVIGATION_AXIS);
 		createEReference(navigationAxisEClass, NAVIGATION_AXIS__SOURCE_TYPE);
 		createEReference(navigationAxisEClass, NAVIGATION_AXIS__TARGET_TYPE);
+		createEReference(navigationAxisEClass, NAVIGATION_AXIS__PATH);
+		createEReference(navigationAxisEClass, NAVIGATION_AXIS__PREVIOUS);
+
+		matcherEClass = createEClass(MATCHER);
+		createEReference(matcherEClass, MATCHER__MATCHES);
+		createEOperation(matcherEClass, MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT);
+
+		matchEClass = createEClass(MATCH);
+		createEReference(matchEClass, MATCH__OBJECT1);
+		createEReference(matchEClass, MATCH__OBJECT2);
+
+		dataToolsEClass = createEClass(DATA_TOOLS);
+		createEReference(dataToolsEClass, DATA_TOOLS__DATA_TOOLS);
+		createEOperation(dataToolsEClass, DATA_TOOLS___GET_DOMAIN_TYPES);
+
+		dataToolEClass = createEClass(DATA_TOOL);
+		createEReference(dataToolEClass, DATA_TOOL__CONTEXT);
 	}
 
 	/**
@@ -1071,7 +1237,10 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		// Add supertypes to classes
 		categorizerEClass.getESuperTypes().add(this.getCategoryAbstract());
+		categorizerEClass.getESuperTypes().add(this.getDataTool());
 		categoryEClass.getESuperTypes().add(this.getCategoryAbstract());
+		extractorEClass.getESuperTypes().add(this.getDataTool());
+		columnizerEClass.getESuperTypes().add(this.getDataTool());
 		extractorTypeEClass.getESuperTypes().add(this.getExtractor());
 		extractorCompoundEClass.getESuperTypes().add(this.getExtractor());
 		extractatorPipeEClass.getESuperTypes().add(this.getExtractorCompound());
@@ -1093,6 +1262,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		columnizerColumnAttributeEClass.getESuperTypes().add(this.getColumnizerColumn());
 		columnizerColumnAttributeEClass.getESuperTypes().add(this.getNavigationPath());
 		columnizerColumnOclEClass.getESuperTypes().add(this.getColumnizerColumn());
+		navigationPathEClass.getESuperTypes().add(this.getDataTool());
 		navigationReferenceEClass.getESuperTypes().add(this.getNavigationAxis());
 		navigationDowncastEClass.getESuperTypes().add(this.getNavigationAxis());
 
@@ -1198,9 +1368,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEAttribute(getColumnizerColumnOcl_Expression(), ecorePackage.getEString(), "Expression", null, 0, 1, ColumnizerColumnOcl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(navigationPathEClass, NavigationPath.class, "NavigationPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNavigationPath_Elements(), this.getNavigationAxis(), null, "Elements", null, 0, -1, NavigationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNavigationPath_PathElements(), this.getNavigationAxis(), this.getNavigationAxis_Path(), "PathElements", null, 0, -1, NavigationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNavigationPath_SourceType(), ecorePackage.getEClass(), null, "SourceType", null, 0, 1, NavigationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNavigationPath_TargetType(), ecorePackage.getEClass(), null, "TargetType", null, 0, 1, NavigationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNavigationPath_TargetType(), ecorePackage.getEClass(), null, "TargetType", null, 0, 1, NavigationPath.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(navigationReferenceEClass, NavigationReference.class, "NavigationReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNavigationReference_Reference(), ecorePackage.getEReference(), null, "Reference", null, 1, 1, NavigationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1208,9 +1378,30 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(navigationDowncastEClass, NavigationDowncast.class, "NavigationDowncast", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNavigationDowncast_DowncastType(), ecorePackage.getEClass(), null, "DowncastType", null, 0, 1, NavigationDowncast.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(navigationAxisEClass, NavigationAxis.class, "NavigationAxis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNavigationAxis_SourceType(), ecorePackage.getEClass(), null, "SourceType", null, 0, 1, NavigationAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNavigationAxis_TargetType(), ecorePackage.getEClass(), null, "TargetType", null, 0, 1, NavigationAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(navigationAxisEClass, NavigationAxis.class, "NavigationAxis", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNavigationAxis_SourceType(), ecorePackage.getEClass(), null, "SourceType", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getNavigationAxis_TargetType(), ecorePackage.getEClass(), null, "TargetType", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getNavigationAxis_Path(), this.getNavigationPath(), this.getNavigationPath_PathElements(), "Path", null, 1, 1, NavigationAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNavigationAxis_Previous(), this.getNavigationAxis(), null, "Previous", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(matcherEClass, Matcher.class, "Matcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMatcher_Matches(), this.getMatch(), null, "Matches", null, 0, -1, Matcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getMatcher__RefreshMatches__EObject_EObject(), null, "refreshMatches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "ins1", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "ins2", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMatch_Object1(), ecorePackage.getEObject(), null, "Object1", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMatch_Object2(), ecorePackage.getEObject(), null, "Object2", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataToolsEClass, DataTools.class, "DataTools", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataTools_DataTools(), this.getDataTool(), null, "DataTools", null, 0, -1, DataTools.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getDataTools__GetDomainTypes(), ecorePackage.getEClass(), "getDomainTypes", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(dataToolEClass, DataTool.class, "DataTool", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataTool_Context(), this.getDataTools(), null, "Context", null, 0, 1, DataTool.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

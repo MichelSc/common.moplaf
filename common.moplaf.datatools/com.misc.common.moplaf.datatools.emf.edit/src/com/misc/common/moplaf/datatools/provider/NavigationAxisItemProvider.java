@@ -59,6 +59,7 @@ public class NavigationAxisItemProvider
 
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
+			addPreviousPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,7 +78,7 @@ public class NavigationAxisItemProvider
 				 getString("_UI_NavigationAxis_SourceType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_SourceType_feature", "_UI_NavigationAxis_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_AXIS__SOURCE_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -99,9 +100,31 @@ public class NavigationAxisItemProvider
 				 getString("_UI_NavigationAxis_TargetType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_TargetType_feature", "_UI_NavigationAxis_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_AXIS__TARGET_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Previous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPreviousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationAxis_Previous_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_Previous_feature", "_UI_NavigationAxis_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_AXIS__PREVIOUS,
+				 false,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

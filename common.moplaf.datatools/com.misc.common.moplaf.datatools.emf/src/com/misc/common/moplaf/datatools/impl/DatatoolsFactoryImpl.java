@@ -75,7 +75,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.NAVIGATION_PATH: return createNavigationPath();
 			case DatatoolsPackage.NAVIGATION_REFERENCE: return createNavigationReference();
 			case DatatoolsPackage.NAVIGATION_DOWNCAST: return createNavigationDowncast();
-			case DatatoolsPackage.NAVIGATION_AXIS: return createNavigationAxis();
+			case DatatoolsPackage.MATCHER: return createMatcher();
+			case DatatoolsPackage.MATCH: return createMatch();
+			case DatatoolsPackage.DATA_TOOLS: return createDataTools();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -276,9 +278,29 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NavigationAxis createNavigationAxis() {
-		NavigationAxisImpl navigationAxis = new NavigationAxisImpl();
-		return navigationAxis;
+	public Matcher createMatcher() {
+		MatcherImpl matcher = new MatcherImpl();
+		return matcher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Match createMatch() {
+		MatchImpl match = new MatchImpl();
+		return match;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataTools createDataTools() {
+		DataToolsImpl dataTools = new DataToolsImpl();
+		return dataTools;
 	}
 
 	/**

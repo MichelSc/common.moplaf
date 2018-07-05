@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Extractor extends EObject {
+public interface Extractor extends DataTool {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

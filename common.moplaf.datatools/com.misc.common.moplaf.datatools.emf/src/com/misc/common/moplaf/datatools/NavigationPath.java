@@ -5,7 +5,6 @@ package com.misc.common.moplaf.datatools;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#getPathElements <em>Path Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#getTargetType <em>Target Type</em>}</li>
  * </ul>
@@ -25,22 +24,24 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface NavigationPath extends EObject {
+public interface NavigationPath extends DataTool {
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Path Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.NavigationAxis}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.NavigationAxis#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Path Elements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationPath_Elements()
-	 * @model containment="true"
+	 * @return the value of the '<em>Path Elements</em>' containment reference list.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationPath_PathElements()
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getPath
+	 * @model opposite="Path" containment="true"
 	 * @generated
 	 */
-	EList<NavigationAxis> getElements();
+	EList<NavigationAxis> getPathElements();
 
 	/**
 	 * Returns the value of the '<em><b>Source Type</b></em>' reference.
@@ -77,21 +78,10 @@ public interface NavigationPath extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Type</em>' reference.
-	 * @see #setTargetType(EClass)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationPath_TargetType()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EClass getTargetType();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.NavigationPath#getTargetType <em>Target Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Type</em>' reference.
-	 * @see #getTargetType()
-	 * @generated
-	 */
-	void setTargetType(EClass value);
 
 } // NavigationPath

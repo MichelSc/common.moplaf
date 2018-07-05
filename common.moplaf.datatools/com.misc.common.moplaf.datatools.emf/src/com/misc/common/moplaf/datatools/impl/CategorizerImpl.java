@@ -4,6 +4,8 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.CategoryCriteria;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategorizerImpl#getContext <em>Context</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategorizerImpl#getCriteria <em>Criteria</em>}</li>
  * </ul>
  *
@@ -62,6 +65,28 @@ public class CategorizerImpl extends CategoryAbstractImpl implements Categorizer
 	@Override
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.CATEGORIZER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataTools getContext() {
+		DataTools context = basicGetContext();
+		return context != null && context.eIsProxy() ? (DataTools)eResolveProxy((InternalEObject)context) : context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataTools basicGetContext() {
+		// TODO: implement this method to return the 'Context' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -120,6 +145,9 @@ public class CategorizerImpl extends CategoryAbstractImpl implements Categorizer
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DatatoolsPackage.CATEGORIZER__CONTEXT:
+				if (resolve) return getContext();
+				return basicGetContext();
 			case DatatoolsPackage.CATEGORIZER__CRITERIA:
 				return getCriteria();
 		}
@@ -166,10 +194,44 @@ public class CategorizerImpl extends CategoryAbstractImpl implements Categorizer
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DatatoolsPackage.CATEGORIZER__CONTEXT:
+				return basicGetContext() != null;
 			case DatatoolsPackage.CATEGORIZER__CRITERIA:
 				return criteria != null && !criteria.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DataTool.class) {
+			switch (derivedFeatureID) {
+				case DatatoolsPackage.CATEGORIZER__CONTEXT: return DatatoolsPackage.DATA_TOOL__CONTEXT;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DataTool.class) {
+			switch (baseFeatureID) {
+				case DatatoolsPackage.DATA_TOOL__CONTEXT: return DatatoolsPackage.CATEGORIZER__CONTEXT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

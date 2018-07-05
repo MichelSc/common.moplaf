@@ -3,7 +3,9 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.ExtractorType;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.ExtractorType} object.
@@ -51,11 +54,10 @@ public class ExtractorTypeItemProvider extends ExtractorItemProvider {
 	 * This adds a property descriptor for the Target Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addTargetTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_ExtractorType_TargetType_feature"),
@@ -66,7 +68,16 @@ public class ExtractorTypeItemProvider extends ExtractorItemProvider {
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						ExtractorType extractor = (ExtractorType)object;
+						DataTools context = extractor.getContext();
+						return context.getDomainTypes();
+					}
+				
+			});
 	}
 
 	/**

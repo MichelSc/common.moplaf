@@ -90,7 +90,7 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 				 getString("_UI_NavigationPath_TargetType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_TargetType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__TARGET_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -132,7 +132,7 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS);
+			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -174,7 +174,7 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExtractorFilterAttribute.class)) {
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__ELEMENTS:
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -194,17 +194,12 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
-				 DatatoolsFactory.eINSTANCE.createNavigationAxis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationDowncast()));
 	}
 

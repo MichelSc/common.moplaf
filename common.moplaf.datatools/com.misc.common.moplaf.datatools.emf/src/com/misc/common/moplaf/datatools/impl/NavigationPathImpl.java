@@ -17,9 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -30,23 +28,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getPathElements <em>Path Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getTargetType <em>Target Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NavigationPathImpl extends MinimalEObjectImpl.Container implements NavigationPath {
+public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getPathElements() <em>Path Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getPathElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NavigationAxis> elements;
+	protected EList<NavigationAxis> pathElements;
 
 	/**
 	 * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' reference.
@@ -57,16 +55,6 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EClass sourceType;
-
-	/**
-	 * The cached value of the '{@link #getTargetType() <em>Target Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass targetType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +80,11 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<NavigationAxis> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentEList<NavigationAxis>(NavigationAxis.class, this, DatatoolsPackage.NAVIGATION_PATH__ELEMENTS);
+	public EList<NavigationAxis> getPathElements() {
+		if (pathElements == null) {
+			pathElements = new EObjectContainmentWithInverseEList<NavigationAxis>(NavigationAxis.class, this, DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS, DatatoolsPackage.NAVIGATION_AXIS__PATH);
 		}
-		return elements;
+		return pathElements;
 	}
 
 	/**
@@ -143,24 +131,22 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	public EClass getTargetType() {
-		if (targetType != null && targetType.eIsProxy()) {
-			InternalEObject oldTargetType = (InternalEObject)targetType;
-			targetType = (EClass)eResolveProxy(oldTargetType);
-			if (targetType != oldTargetType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE, oldTargetType, targetType));
-			}
-		}
-		return targetType;
+		EClass targetType = basicGetTargetType();
+		return targetType != null && targetType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)targetType) : targetType;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetTargetType() {
-		return targetType;
+		int nb_elements = this.getPathElements().size();
+		if ( nb_elements==0 ) {
+			return null;
+		}
+		NavigationAxis last_element = this.getPathElements().get(nb_elements-1);
+		return last_element.getTargetType();
+		
 	}
 
 	/**
@@ -168,11 +154,14 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetType(EClass newTargetType) {
-		EClass oldTargetType = targetType;
-		targetType = newTargetType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE, oldTargetType, targetType));
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPathElements()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -183,8 +172,8 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.NAVIGATION_PATH__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
+				return ((InternalEList<?>)getPathElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -197,8 +186,8 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatoolsPackage.NAVIGATION_PATH__ELEMENTS:
-				return getElements();
+			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
+				return getPathElements();
 			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
 				if (resolve) return getSourceType();
 				return basicGetSourceType();
@@ -218,15 +207,12 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatoolsPackage.NAVIGATION_PATH__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends NavigationAxis>)newValue);
+			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
+				getPathElements().clear();
+				getPathElements().addAll((Collection<? extends NavigationAxis>)newValue);
 				return;
 			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
 				setSourceType((EClass)newValue);
-				return;
-			case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE:
-				setTargetType((EClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,14 +226,11 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.NAVIGATION_PATH__ELEMENTS:
-				getElements().clear();
+			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
+				getPathElements().clear();
 				return;
 			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
 				setSourceType((EClass)null);
-				return;
-			case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE:
-				setTargetType((EClass)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,12 +244,12 @@ public class NavigationPathImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.NAVIGATION_PATH__ELEMENTS:
-				return elements != null && !elements.isEmpty();
+			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
+				return pathElements != null && !pathElements.isEmpty();
 			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
 				return sourceType != null;
 			case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE:
-				return targetType != null;
+				return basicGetTargetType() != null;
 		}
 		return super.eIsSet(featureID);
 	}

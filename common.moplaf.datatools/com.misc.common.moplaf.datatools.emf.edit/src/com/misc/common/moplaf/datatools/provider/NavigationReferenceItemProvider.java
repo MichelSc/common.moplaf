@@ -4,15 +4,17 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.NavigationReference;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.NavigationReference} object.
@@ -51,11 +53,10 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	 * This adds a property descriptor for the Reference feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addReferencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_NavigationReference_Reference_feature"),
@@ -66,7 +67,19 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						NavigationReference this_element = (NavigationReference) object;
+						EClass source_type = this_element.getSourceType();
+						if ( source_type==null ) {
+							return null;
+						}
+						return source_type.getEAllReferences();
+					}
+				
+			});
 	}
 
 	/**

@@ -7,8 +7,6 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Columnizer</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class ColumnizerImpl extends MinimalEObjectImpl.Container implements Columnizer {
+public abstract class ColumnizerImpl extends DataToolImpl implements Columnizer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

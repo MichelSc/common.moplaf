@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.datatools;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Columnizer</b></em>'.
@@ -14,5 +12,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Columnizer extends EObject {
+public interface Columnizer extends DataTool {
 } // Columnizer

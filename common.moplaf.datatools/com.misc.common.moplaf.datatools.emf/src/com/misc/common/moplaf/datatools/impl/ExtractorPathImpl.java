@@ -18,8 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -30,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getPathElements <em>Path Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getTargetType <em>Target Type</em>}</li>
  * </ul>
@@ -39,14 +38,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getPathElements() <em>Path Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getPathElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NavigationAxis> elements;
+	protected EList<NavigationAxis> pathElements;
 
 	/**
 	 * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' reference.
@@ -57,16 +56,6 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @ordered
 	 */
 	protected EClass sourceType;
-
-	/**
-	 * The cached value of the '{@link #getTargetType() <em>Target Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass targetType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +81,11 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<NavigationAxis> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentEList<NavigationAxis>(NavigationAxis.class, this, DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS);
+	public EList<NavigationAxis> getPathElements() {
+		if (pathElements == null) {
+			pathElements = new EObjectContainmentWithInverseEList<NavigationAxis>(NavigationAxis.class, this, DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS, DatatoolsPackage.NAVIGATION_AXIS__PATH);
 		}
-		return elements;
+		return pathElements;
 	}
 
 	/**
@@ -143,15 +132,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @generated
 	 */
 	public EClass getTargetType() {
-		if (targetType != null && targetType.eIsProxy()) {
-			InternalEObject oldTargetType = (InternalEObject)targetType;
-			targetType = (EClass)eResolveProxy(oldTargetType);
-			if (targetType != oldTargetType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE, oldTargetType, targetType));
-			}
-		}
-		return targetType;
+		EClass targetType = basicGetTargetType();
+		return targetType != null && targetType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)targetType) : targetType;
 	}
 
 	/**
@@ -160,7 +142,10 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @generated
 	 */
 	public EClass basicGetTargetType() {
-		return targetType;
+		// TODO: implement this method to return the 'Target Type' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -168,11 +153,14 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetType(EClass newTargetType) {
-		EClass oldTargetType = targetType;
-		targetType = newTargetType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE, oldTargetType, targetType));
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPathElements()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -183,8 +171,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
+				return ((InternalEList<?>)getPathElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -197,8 +185,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS:
-				return getElements();
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
+				return getPathElements();
 			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
 				if (resolve) return getSourceType();
 				return basicGetSourceType();
@@ -218,15 +206,12 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends NavigationAxis>)newValue);
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
+				getPathElements().clear();
+				getPathElements().addAll((Collection<? extends NavigationAxis>)newValue);
 				return;
 			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
 				setSourceType((EClass)newValue);
-				return;
-			case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE:
-				setTargetType((EClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,14 +225,11 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS:
-				getElements().clear();
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
+				getPathElements().clear();
 				return;
 			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
 				setSourceType((EClass)null);
-				return;
-			case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE:
-				setTargetType((EClass)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,12 +243,12 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS:
-				return elements != null && !elements.isEmpty();
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
+				return pathElements != null && !pathElements.isEmpty();
 			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
 				return sourceType != null;
 			case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE:
-				return targetType != null;
+				return basicGetTargetType() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -280,7 +262,7 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NavigationPath.class) {
 			switch (derivedFeatureID) {
-				case DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS: return DatatoolsPackage.NAVIGATION_PATH__ELEMENTS;
+				case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS: return DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS;
 				case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
 				default: return -1;
@@ -298,7 +280,7 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NavigationPath.class) {
 			switch (baseFeatureID) {
-				case DatatoolsPackage.NAVIGATION_PATH__ELEMENTS: return DatatoolsPackage.EXTRACTOR_PATH__ELEMENTS;
+				case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS: return DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS;
 				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE;
 				default: return -1;

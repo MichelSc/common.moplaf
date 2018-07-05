@@ -509,26 +509,72 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.NavigationAxis} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Matcher} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NavigationAxisItemProvider navigationAxisItemProvider;
+	protected MatcherItemProvider matcherItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.NavigationAxis}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.Matcher}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNavigationAxisAdapter() {
-		if (navigationAxisItemProvider == null) {
-			navigationAxisItemProvider = new NavigationAxisItemProvider(this);
+	public Adapter createMatcherAdapter() {
+		if (matcherItemProvider == null) {
+			matcherItemProvider = new MatcherItemProvider(this);
 		}
 
-		return navigationAxisItemProvider;
+		return matcherItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Match} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MatchItemProvider matchItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.Match}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMatchAdapter() {
+		if (matchItemProvider == null) {
+			matchItemProvider = new MatchItemProvider(this);
+		}
+
+		return matchItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.DataTools} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataToolsItemProvider dataToolsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.DataTools}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataToolsAdapter() {
+		if (dataToolsItemProvider == null) {
+			dataToolsItemProvider = new DataToolsItemProvider(this);
+		}
+
+		return dataToolsItemProvider;
 	}
 
 	/**
@@ -649,7 +695,9 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (navigationPathItemProvider != null) navigationPathItemProvider.dispose();
 		if (navigationReferenceItemProvider != null) navigationReferenceItemProvider.dispose();
 		if (navigationDowncastItemProvider != null) navigationDowncastItemProvider.dispose();
-		if (navigationAxisItemProvider != null) navigationAxisItemProvider.dispose();
+		if (matcherItemProvider != null) matcherItemProvider.dispose();
+		if (matchItemProvider != null) matchItemProvider.dispose();
+		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
 	}
 
 }

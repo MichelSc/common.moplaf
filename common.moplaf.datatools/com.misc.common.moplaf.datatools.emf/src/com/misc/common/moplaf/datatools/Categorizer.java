@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Categorizer extends CategoryAbstract {
+public interface Categorizer extends CategoryAbstract, DataTool {
 	/**
 	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.CategoryCriteria}.

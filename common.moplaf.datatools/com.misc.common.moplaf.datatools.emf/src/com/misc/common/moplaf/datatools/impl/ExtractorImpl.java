@@ -12,8 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Extractor</b></em>'.
@@ -21,7 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class ExtractorImpl extends MinimalEObjectImpl.Container implements Extractor {
+public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

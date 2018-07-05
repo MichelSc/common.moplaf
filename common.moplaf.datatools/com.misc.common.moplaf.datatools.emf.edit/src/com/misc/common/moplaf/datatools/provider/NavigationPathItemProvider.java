@@ -12,19 +12,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -34,13 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class NavigationPathItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends DataToolItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -104,7 +89,7 @@ public class NavigationPathItemProvider
 				 getString("_UI_NavigationPath_TargetType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_TargetType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__TARGET_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -124,7 +109,7 @@ public class NavigationPathItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS);
+			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -177,7 +162,7 @@ public class NavigationPathItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NavigationPath.class)) {
-			case DatatoolsPackage.NAVIGATION_PATH__ELEMENTS:
+			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -197,29 +182,13 @@ public class NavigationPathItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
-				 DatatoolsFactory.eINSTANCE.createNavigationAxis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationDowncast()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DatatoolsEditPlugin.INSTANCE;
 	}
 
 }

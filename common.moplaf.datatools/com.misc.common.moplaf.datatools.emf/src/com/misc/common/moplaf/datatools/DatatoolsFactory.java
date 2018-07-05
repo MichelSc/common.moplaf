@@ -193,13 +193,31 @@ public interface DatatoolsFactory extends EFactory {
 	NavigationDowncast createNavigationDowncast();
 
 	/**
-	 * Returns a new object of class '<em>Navigation Axis</em>'.
+	 * Returns a new object of class '<em>Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Navigation Axis</em>'.
+	 * @return a new object of class '<em>Matcher</em>'.
 	 * @generated
 	 */
-	NavigationAxis createNavigationAxis();
+	Matcher createMatcher();
+
+	/**
+	 * Returns a new object of class '<em>Match</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Match</em>'.
+	 * @generated
+	 */
+	Match createMatch();
+
+	/**
+	 * Returns a new object of class '<em>Data Tools</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Tools</em>'.
+	 * @generated
+	 */
+	DataTools createDataTools();
 
 	/**
 	 * Returns the package supported by this factory.

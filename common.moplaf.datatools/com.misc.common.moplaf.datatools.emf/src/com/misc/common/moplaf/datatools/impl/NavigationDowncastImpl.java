@@ -80,6 +80,14 @@ public class NavigationDowncastImpl extends NavigationAxisImpl implements Naviga
 	public EClass basicGetDowncastType() {
 		return downcastType;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EClass basicGetTargetType() {
+		return this.getDowncastType();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

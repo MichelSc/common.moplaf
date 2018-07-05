@@ -99,9 +99,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumnOcl/Expression"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationPath">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/Elements"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/SourceType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/TargetType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/PathElements"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/SourceType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/TargetType"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationReference/Reference"/>
@@ -110,8 +111,30 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationDowncast/DowncastType"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationAxis">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/SourceType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/TargetType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/SourceType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/TargetType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Path"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Previous"/>
+    </genClasses>
+    <genClasses ecoreClass="datatools.ecore#//Matcher">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Matcher/Matches"/>
+      <genOperations ecoreOperation="datatools.ecore#//Matcher/refreshMatches">
+        <genParameters ecoreParameter="datatools.ecore#//Matcher/refreshMatches/ins1"/>
+        <genParameters ecoreParameter="datatools.ecore#//Matcher/refreshMatches/ins2"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="datatools.ecore#//Match">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object2"/>
+    </genClasses>
+    <genClasses ecoreClass="datatools.ecore#//DataTools">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//DataTools/DataTools"/>
+      <genOperations ecoreOperation="datatools.ecore#//DataTools/getDomainTypes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="datatools.ecore#//DataTool">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//DataTool/Context"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

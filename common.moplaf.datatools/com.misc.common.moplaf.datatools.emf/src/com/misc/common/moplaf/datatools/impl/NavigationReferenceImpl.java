@@ -85,6 +85,19 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public EClass basicGetTargetType() {
+		EReference reference = this.getReference();
+		if ( reference == null ) {
+			return null;
+		}
+		return reference.getEReferenceType();
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setReference(EReference newReference) {

@@ -47,11 +47,34 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addContextPropertyDescriptor(object);
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Context feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataTool_Context_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataTool_Context_feature", "_UI_DataTool_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL__CONTEXT,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -90,7 +113,7 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 				 getString("_UI_NavigationPath_TargetType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_TargetType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__TARGET_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -132,7 +155,7 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS);
+			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -185,7 +208,7 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CategoryCriteriaAttribute.class)) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__ELEMENTS:
+			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,17 +228,12 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
-				 DatatoolsFactory.eINSTANCE.createNavigationAxis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
+				(DatatoolsPackage.Literals.NAVIGATION_PATH__PATH_ELEMENTS,
 				 DatatoolsFactory.eINSTANCE.createNavigationDowncast()));
 	}
 
