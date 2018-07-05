@@ -6,9 +6,12 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 
 import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.datatools.Extractor;
+import com.misc.common.moplaf.datatools.NavigationAxis;
+import com.misc.common.moplaf.datatools.NavigationPath;
 
 
 public class Util {
@@ -33,5 +36,15 @@ public class Util {
 			}
 		}
 		return list;
+	}
+	
+	static public EClass NavigationPathGetTargetType(NavigationPath path) {
+		int nb_elements = path.getPathElements().size();
+		if ( nb_elements==0 ) {
+			return path.getSourceType();
+		}
+		NavigationAxis last_element = path.getPathElements().get(nb_elements-1);
+		return last_element.getTargetType();
+		
 	}
 }

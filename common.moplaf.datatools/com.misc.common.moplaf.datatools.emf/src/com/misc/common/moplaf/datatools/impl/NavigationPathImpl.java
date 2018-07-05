@@ -5,6 +5,7 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
+import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
 
@@ -140,13 +141,7 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 	 * <!-- end-user-doc -->
 	 */
 	public EClass basicGetTargetType() {
-		int nb_elements = this.getPathElements().size();
-		if ( nb_elements==0 ) {
-			return null;
-		}
-		NavigationAxis last_element = this.getPathElements().get(nb_elements-1);
-		return last_element.getTargetType();
-		
+		return Util.NavigationPathGetTargetType(this);
 	}
 
 	/**

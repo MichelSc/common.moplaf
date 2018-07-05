@@ -6,6 +6,7 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttribute;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
+import com.misc.common.moplaf.datatools.util.Util;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -153,13 +154,9 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetTargetType() {
-		// TODO: implement this method to return the 'Target Type' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Util.NavigationPathGetTargetType(this);
 	}
 
 	/**

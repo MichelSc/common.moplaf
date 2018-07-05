@@ -7,7 +7,6 @@ import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorPath;
-import com.misc.common.moplaf.datatools.ExtractorType;
 
 import java.util.Collection;
 import java.util.List;
@@ -78,7 +77,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
-						ExtractorType extractor = (ExtractorType)object;
+						ExtractorPath extractor = (ExtractorPath)object;
 						DataTools context = extractor.getContext();
 						return context.getDomainTypes();
 					}

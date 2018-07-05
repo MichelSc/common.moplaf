@@ -12,11 +12,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -80,11 +81,10 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 	 * This adds a property descriptor for the Target Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addTargetTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_NavigationPath_TargetType_feature"),
@@ -95,18 +95,29 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+				
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					ExtractorFilterAttribute extractor = (ExtractorFilterAttribute)object;
+					EClass target_type = extractor.getTargetType();
+					if ( target_type==null ) {
+						return null;
+					}
+					return target_type.getEAllAttributes();
+				}
+				
+			});
 	}
 
 	/**
 	 * This adds a property descriptor for the Attribute feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addAttributePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_ExtractorFilterAttribute_Attribute_feature"),
@@ -117,7 +128,19 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+				
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					ExtractorFilterAttribute extractor = (ExtractorFilterAttribute)object;
+					EClass target_type = extractor.getTargetType();
+					if ( target_type==null ) {
+						return null;
+					}
+					return target_type.getEAllAttributes();
+				}
+				
+			});
 	}
 
 	/**

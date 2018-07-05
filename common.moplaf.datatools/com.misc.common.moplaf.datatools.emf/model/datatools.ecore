@@ -69,12 +69,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttribute" abstract="true"
       eSuperTypes="#//ExtractorFilter #//NavigationPath">
     <eOperations name="getAttributeValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttributeInt" eSuperTypes="#//ExtractorFilterAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterOcl" eSuperTypes="#//ExtractorFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -111,6 +111,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="SourceType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TargetType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NavigationReference" eSuperTypes="#//NavigationAxis">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Reference" lowerBound="1"
@@ -150,4 +151,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Context" eType="#//DataTools"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectPath" eSuperTypes="#//NavigationPath"/>
 </ecore:EPackage>
