@@ -123,12 +123,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.EXTRACTATOR_PIPE: {
-				ExtractatorPipe extractatorPipe = (ExtractatorPipe)theEObject;
-				T result = caseExtractatorPipe(extractatorPipe);
-				if (result == null) result = caseExtractorCompound(extractatorPipe);
-				if (result == null) result = caseExtractor(extractatorPipe);
-				if (result == null) result = caseDataTool(extractatorPipe);
+			case DatatoolsPackage.EXTRACTOR_PIPE: {
+				ExtractorPipe extractorPipe = (ExtractorPipe)theEObject;
+				T result = caseExtractorPipe(extractorPipe);
+				if (result == null) result = caseExtractorCompound(extractorPipe);
+				if (result == null) result = caseExtractor(extractorPipe);
+				if (result == null) result = caseDataTool(extractorPipe);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -216,12 +216,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE: {
-				CategoryCriteriaAttribute categoryCriteriaAttribute = (CategoryCriteriaAttribute)theEObject;
-				T result = caseCategoryCriteriaAttribute(categoryCriteriaAttribute);
-				if (result == null) result = caseCategoryCriteria(categoryCriteriaAttribute);
-				if (result == null) result = caseNavigationPath(categoryCriteriaAttribute);
-				if (result == null) result = caseDataTool(categoryCriteriaAttribute);
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: {
+				CategoryCriteriaStructuralFeature categoryCriteriaStructuralFeature = (CategoryCriteriaStructuralFeature)theEObject;
+				T result = caseCategoryCriteriaStructuralFeature(categoryCriteriaStructuralFeature);
+				if (result == null) result = caseCategoryCriteria(categoryCriteriaStructuralFeature);
+				if (result == null) result = caseNavigationPath(categoryCriteriaStructuralFeature);
+				if (result == null) result = caseDataTool(categoryCriteriaStructuralFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -438,17 +438,17 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Extractator Pipe</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Pipe</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Extractator Pipe</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Pipe</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExtractatorPipe(ExtractatorPipe object) {
+	public T caseExtractorPipe(ExtractorPipe object) {
 		return null;
 	}
 
@@ -588,17 +588,17 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria Structural Feature</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Category Criteria Attribute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Category Criteria Structural Feature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCategoryCriteriaAttribute(CategoryCriteriaAttribute object) {
+	public T caseCategoryCriteriaStructuralFeature(CategoryCriteriaStructuralFeature object) {
 		return null;
 	}
 

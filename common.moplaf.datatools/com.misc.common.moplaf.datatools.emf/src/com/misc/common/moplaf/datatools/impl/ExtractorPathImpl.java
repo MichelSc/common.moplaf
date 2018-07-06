@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getPathElements <em>Path Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getTargetType <em>Target Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#isMany <em>Many</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +58,16 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @ordered
 	 */
 	protected EClass sourceType;
+
+	/**
+	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMany()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MANY_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +159,14 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isMany() {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -190,6 +209,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 			case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE:
 				if (resolve) return getTargetType();
 				return basicGetTargetType();
+			case DatatoolsPackage.EXTRACTOR_PATH__MANY:
+				return isMany();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -246,6 +267,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				return sourceType != null;
 			case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE:
 				return basicGetTargetType() != null;
+			case DatatoolsPackage.EXTRACTOR_PATH__MANY:
+				return isMany() != MANY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -262,6 +285,7 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS: return DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS;
 				case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
+				case DatatoolsPackage.EXTRACTOR_PATH__MANY: return DatatoolsPackage.NAVIGATION_PATH__MANY;
 				default: return -1;
 			}
 		}
@@ -280,6 +304,7 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS: return DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS;
 				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE;
+				case DatatoolsPackage.NAVIGATION_PATH__MANY: return DatatoolsPackage.EXTRACTOR_PATH__MANY;
 				default: return -1;
 			}
 		}

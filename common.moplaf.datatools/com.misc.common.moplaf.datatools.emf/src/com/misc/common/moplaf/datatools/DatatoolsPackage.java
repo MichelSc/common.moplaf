@@ -661,14 +661,14 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl <em>Extractator Pipe</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl <em>Extractor Pipe</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractatorPipe()
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPipe()
 	 * @generated
 	 */
-	int EXTRACTATOR_PIPE = 8;
+	int EXTRACTOR_PIPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -677,7 +677,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTATOR_PIPE__CONTEXT = EXTRACTOR_COMPOUND__CONTEXT;
+	int EXTRACTOR_PIPE__CONTEXT = EXTRACTOR_COMPOUND__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
@@ -686,16 +686,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTATOR_PIPE__EXTRACTORS = EXTRACTOR_COMPOUND__EXTRACTORS;
+	int EXTRACTOR_PIPE__EXTRACTORS = EXTRACTOR_COMPOUND__EXTRACTORS;
 
 	/**
-	 * The number of structural features of the '<em>Extractator Pipe</em>' class.
+	 * The number of structural features of the '<em>Extractor Pipe</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTATOR_PIPE_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
+	int EXTRACTOR_PIPE_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Refresh Outs</em>' operation.
@@ -704,7 +704,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTATOR_PIPE___REFRESH_OUTS__ELIST = EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_PIPE___REFRESH_OUTS__ELIST = EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -713,16 +713,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTATOR_PIPE___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
+	int EXTRACTOR_PIPE___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
 
 	/**
-	 * The number of operations of the '<em>Extractator Pipe</em>' class.
+	 * The number of operations of the '<em>Extractor Pipe</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTATOR_PIPE_OPERATION_COUNT = EXTRACTOR_COMPOUND_OPERATION_COUNT + 0;
+	int EXTRACTOR_PIPE_OPERATION_COUNT = EXTRACTOR_COMPOUND_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl <em>Extractor Logic</em>}' class.
@@ -963,13 +963,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PATH__TARGET_TYPE = EXTRACTOR_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH__MANY = EXTRACTOR_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Extractor Path</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 3;
+	int EXTRACTOR_PATH_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Outs</em>' operation.
@@ -1173,13 +1182,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE__TARGET_TYPE = EXTRACTOR_FILTER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE = EXTRACTOR_FILTER_FEATURE_COUNT + 3;
+	int EXTRACTOR_FILTER_ATTRIBUTE__MANY = EXTRACTOR_FILTER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Extractor Filter Attribute</em>' class.
@@ -1282,13 +1291,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__TARGET_TYPE = EXTRACTOR_FILTER_ATTRIBUTE__TARGET_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE = EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT__MANY = EXTRACTOR_FILTER_ATTRIBUTE__MANY;
 
 	/**
 	 * The feature id for the '<em><b>Min Value</b></em>' attribute.
@@ -1309,13 +1318,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Extractor Filter Attribute Int</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_FEATURE_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 2;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_FEATURE_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Refresh Outs</em>' operation.
@@ -1436,14 +1454,14 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL_OPERATION_COUNT = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl <em>Category Criteria Attribute</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl <em>Category Criteria Structural Feature</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaAttribute()
+	 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaStructuralFeature()
 	 * @generated
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE = 18;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -1452,7 +1470,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__CONTEXT = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -1461,7 +1479,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1470,7 +1488,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 2;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -1479,25 +1497,34 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 3;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE = CATEGORY_CRITERIA_FEATURE_COUNT + 4;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY = CATEGORY_CRITERIA_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Category Criteria Attribute</em>' class.
+	 * The feature id for the '<em><b>Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 5;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE = CATEGORY_CRITERIA_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Category Criteria Structural Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Category Value</em>' operation.
@@ -1506,7 +1533,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE___GET_CATEGORY_VALUE__EOBJECT = CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE___GET_CATEGORY_VALUE__EOBJECT = CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Construct Category</em>' operation.
@@ -1515,25 +1542,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE___CONSTRUCT_CATEGORY = CATEGORY_CRITERIA___CONSTRUCT_CATEGORY;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE___CONSTRUCT_CATEGORY = CATEGORY_CRITERIA___CONSTRUCT_CATEGORY;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * The number of operations of the '<em>Category Criteria Structural Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE___GET_ATTRIBUTE_VALUE = CATEGORY_CRITERIA_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Category Criteria Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE_OPERATION_COUNT = CATEGORY_CRITERIA_OPERATION_COUNT + 1;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE_OPERATION_COUNT = CATEGORY_CRITERIA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaOclImpl <em>Category Criteria Ocl</em>}' class.
@@ -1756,13 +1774,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE = COLUMNIZER_COLUMN_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__MANY = COLUMNIZER_COLUMN_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = COLUMNIZER_COLUMN_FEATURE_COUNT + 4;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = COLUMNIZER_COLUMN_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Columnizer Column Attribute</em>' class.
@@ -1771,7 +1798,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = COLUMNIZER_COLUMN_FEATURE_COUNT + 5;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = COLUMNIZER_COLUMN_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -1902,13 +1929,22 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_PATH__TARGET_TYPE = DATA_TOOL_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__MANY = DATA_TOOL_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Navigation Path</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 3;
+	int NAVIGATION_PATH_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Navigation Path</em>' class.
@@ -2529,14 +2565,14 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getExtractorCompound_Extractors();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractatorPipe <em>Extractator Pipe</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorPipe <em>Extractor Pipe</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extractator Pipe</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractatorPipe
+	 * @return the meta object for class '<em>Extractor Pipe</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorPipe
 	 * @generated
 	 */
-	EClass getExtractatorPipe();
+	EClass getExtractorPipe();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorLogic <em>Extractor Logic</em>}'.
@@ -2630,17 +2666,6 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractorFilterAttribute();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttribute()
-	 * @see #getExtractorFilterAttribute()
-	 * @generated
-	 */
-	EReference getExtractorFilterAttribute_Attribute();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttributeValue() <em>Get Attribute Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2683,6 +2708,17 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getExtractorFilterAttributeInt_MaxValue();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getAttribute()
+	 * @see #getExtractorFilterAttributeInt()
+	 * @generated
+	 */
+	EReference getExtractorFilterAttributeInt_Attribute();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterOcl <em>Extractor Filter Ocl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2704,35 +2740,25 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getExtractorFilterOcl_Expression();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute <em>Category Criteria Attribute</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature <em>Category Criteria Structural Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Category Criteria Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute
+	 * @return the meta object for class '<em>Category Criteria Structural Feature</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature
 	 * @generated
 	 */
-	EClass getCategoryCriteriaAttribute();
+	EClass getCategoryCriteriaStructuralFeature();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature#getFeature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttribute()
-	 * @see #getCategoryCriteriaAttribute()
+	 * @return the meta object for the reference '<em>Feature</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature#getFeature()
+	 * @see #getCategoryCriteriaStructuralFeature()
 	 * @generated
 	 */
-	EReference getCategoryCriteriaAttribute_Attribute();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttributeValue() <em>Get Attribute Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Attribute Value</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttributeValue()
-	 * @generated
-	 */
-	EOperation getCategoryCriteriaAttribute__GetAttributeValue();
+	EReference getCategoryCriteriaStructuralFeature_Feature();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaOcl <em>Category Criteria Ocl</em>}'.
@@ -2902,6 +2928,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNavigationPath_TargetType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.NavigationPath#isMany <em>Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Many</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationPath#isMany()
+	 * @see #getNavigationPath()
+	 * @generated
+	 */
+	EAttribute getNavigationPath_Many();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.NavigationReference <em>Navigation Reference</em>}'.
@@ -3354,14 +3391,14 @@ public interface DatatoolsPackage extends EPackage {
 		EReference EXTRACTOR_COMPOUND__EXTRACTORS = eINSTANCE.getExtractorCompound_Extractors();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl <em>Extractator Pipe</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl <em>Extractor Pipe</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractatorPipe()
+		 * @see com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPipe()
 		 * @generated
 		 */
-		EClass EXTRACTATOR_PIPE = eINSTANCE.getExtractatorPipe();
+		EClass EXTRACTOR_PIPE = eINSTANCE.getExtractorPipe();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl <em>Extractor Logic</em>}' class.
@@ -3450,14 +3487,6 @@ public interface DatatoolsPackage extends EPackage {
 		EClass EXTRACTOR_FILTER_ATTRIBUTE = eINSTANCE.getExtractorFilterAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getExtractorFilterAttribute_Attribute();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Attribute Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3492,6 +3521,14 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE = eINSTANCE.getExtractorFilterAttributeInt_MaxValue();
 
 		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE = eINSTANCE.getExtractorFilterAttributeInt_Attribute();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterOclImpl <em>Extractor Filter Ocl</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3510,30 +3547,22 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute EXTRACTOR_FILTER_OCL__EXPRESSION = eINSTANCE.getExtractorFilterOcl_Expression();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl <em>Category Criteria Attribute</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl <em>Category Criteria Structural Feature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaAttribute()
+		 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaStructuralFeature()
 		 * @generated
 		 */
-		EClass CATEGORY_CRITERIA_ATTRIBUTE = eINSTANCE.getCategoryCriteriaAttribute();
+		EClass CATEGORY_CRITERIA_STRUCTURAL_FEATURE = eINSTANCE.getCategoryCriteriaStructuralFeature();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getCategoryCriteriaAttribute_Attribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Attribute Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CATEGORY_CRITERIA_ATTRIBUTE___GET_ATTRIBUTE_VALUE = eINSTANCE.getCategoryCriteriaAttribute__GetAttributeValue();
+		EReference CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE = eINSTANCE.getCategoryCriteriaStructuralFeature_Feature();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaOclImpl <em>Category Criteria Ocl</em>}' class.
@@ -3674,6 +3703,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAVIGATION_PATH__TARGET_TYPE = eINSTANCE.getNavigationPath_TargetType();
+
+		/**
+		 * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAVIGATION_PATH__MANY = eINSTANCE.getNavigationPath_Many();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.NavigationReferenceImpl <em>Navigation Reference</em>}' class.

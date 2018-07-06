@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
-import com.misc.common.moplaf.datatools.CategoryCriteriaAttribute;
+import com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -17,22 +17,23 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemProvider {
+public class CategoryCriteriaStructuralFeatureItemProvider extends CategoryCriteriaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CategoryCriteriaAttributeItemProvider(AdapterFactory adapterFactory) {
+	public CategoryCriteriaStructuralFeatureItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,7 +51,8 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 			addContextPropertyDescriptor(object);
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
-			addAttributePropertyDescriptor(object);
+			addManyPropertyDescriptor(object);
+			addFeaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,19 +124,41 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 	}
 
 	/**
-	 * This adds a property descriptor for the Attribute feature.
+	 * This adds a property descriptor for the Many feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAttributePropertyDescriptor(Object object) {
+	protected void addManyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CategoryCriteriaAttribute_Attribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryCriteriaAttribute_Attribute_feature", "_UI_CategoryCriteriaAttribute_type"),
-				 DatatoolsPackage.Literals.CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE,
+				 getString("_UI_NavigationPath_Many_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Many_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__MANY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Feature feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFeaturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CategoryCriteriaStructuralFeature_Feature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryCriteriaStructuralFeature_Feature_feature", "_UI_CategoryCriteriaStructuralFeature_type"),
+				 DatatoolsPackage.Literals.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE,
 				 true,
 				 false,
 				 true,
@@ -174,14 +198,14 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 	}
 
 	/**
-	 * This returns CategoryCriteriaAttribute.gif.
+	 * This returns CategoryCriteriaStructuralFeature.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CategoryCriteriaAttribute"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CategoryCriteriaStructuralFeature"));
 	}
 
 	/**
@@ -192,7 +216,8 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CategoryCriteriaAttribute_type");
+		CategoryCriteriaStructuralFeature categoryCriteriaStructuralFeature = (CategoryCriteriaStructuralFeature)object;
+		return getString("_UI_CategoryCriteriaStructuralFeature_type") + " " + categoryCriteriaStructuralFeature.isMany();
 	}
 	
 
@@ -207,8 +232,12 @@ public class CategoryCriteriaAttributeItemProvider extends CategoryCriteriaItemP
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CategoryCriteriaAttribute.class)) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
+		switch (notification.getFeatureID(CategoryCriteriaStructuralFeature.class)) {
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

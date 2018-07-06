@@ -164,26 +164,26 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractatorPipe} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorPipe} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExtractatorPipeItemProvider extractatorPipeItemProvider;
+	protected ExtractorPipeItemProvider extractorPipeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractatorPipe}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorPipe}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createExtractatorPipeAdapter() {
-		if (extractatorPipeItemProvider == null) {
-			extractatorPipeItemProvider = new ExtractatorPipeItemProvider(this);
+	public Adapter createExtractorPipeAdapter() {
+		if (extractorPipeItemProvider == null) {
+			extractorPipeItemProvider = new ExtractorPipeItemProvider(this);
 		}
 
-		return extractatorPipeItemProvider;
+		return extractorPipeItemProvider;
 	}
 
 	/**
@@ -325,26 +325,26 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CategoryCriteriaAttributeItemProvider categoryCriteriaAttributeItemProvider;
+	protected CategoryCriteriaStructuralFeatureItemProvider categoryCriteriaStructuralFeatureItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCategoryCriteriaAttributeAdapter() {
-		if (categoryCriteriaAttributeItemProvider == null) {
-			categoryCriteriaAttributeItemProvider = new CategoryCriteriaAttributeItemProvider(this);
+	public Adapter createCategoryCriteriaStructuralFeatureAdapter() {
+		if (categoryCriteriaStructuralFeatureItemProvider == null) {
+			categoryCriteriaStructuralFeatureItemProvider = new CategoryCriteriaStructuralFeatureItemProvider(this);
 		}
 
-		return categoryCriteriaAttributeItemProvider;
+		return categoryCriteriaStructuralFeatureItemProvider;
 	}
 
 	/**
@@ -680,14 +680,14 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (categoryItemProvider != null) categoryItemProvider.dispose();
 		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
 		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
-		if (extractatorPipeItemProvider != null) extractatorPipeItemProvider.dispose();
+		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
 		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
 		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
 		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
 		if (extractorOclItemProvider != null) extractorOclItemProvider.dispose();
 		if (extractorFilterAttributeIntItemProvider != null) extractorFilterAttributeIntItemProvider.dispose();
 		if (extractorFilterOclItemProvider != null) extractorFilterOclItemProvider.dispose();
-		if (categoryCriteriaAttributeItemProvider != null) categoryCriteriaAttributeItemProvider.dispose();
+		if (categoryCriteriaStructuralFeatureItemProvider != null) categoryCriteriaStructuralFeatureItemProvider.dispose();
 		if (categoryCriteriaOclItemProvider != null) categoryCriteriaOclItemProvider.dispose();
 		if (columnizerExplicitItemProvider != null) columnizerExplicitItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();

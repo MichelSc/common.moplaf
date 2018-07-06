@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#getPathElements <em>Path Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#getTargetType <em>Target Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationPath#isMany <em>Many</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationPath()
@@ -83,5 +84,20 @@ public interface NavigationPath extends DataTool {
 	 * @generated
 	 */
 	EClass getTargetType();
+
+	/**
+	 * Returns the value of the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Many</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Many</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationPath_Many()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isMany();
 
 } // NavigationPath

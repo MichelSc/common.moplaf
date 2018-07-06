@@ -100,8 +100,8 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createExtractorCompoundAdapter();
 			}
 			@Override
-			public Adapter caseExtractatorPipe(ExtractatorPipe object) {
-				return createExtractatorPipeAdapter();
+			public Adapter caseExtractorPipe(ExtractorPipe object) {
+				return createExtractorPipeAdapter();
 			}
 			@Override
 			public Adapter caseExtractorLogic(ExtractorLogic object) {
@@ -140,8 +140,8 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createExtractorFilterOclAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteriaAttribute(CategoryCriteriaAttribute object) {
-				return createCategoryCriteriaAttributeAdapter();
+			public Adapter caseCategoryCriteriaStructuralFeature(CategoryCriteriaStructuralFeature object) {
+				return createCategoryCriteriaStructuralFeatureAdapter();
 			}
 			@Override
 			public Adapter caseCategoryCriteriaOcl(CategoryCriteriaOcl object) {
@@ -328,16 +328,16 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractatorPipe <em>Extractator Pipe</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorPipe <em>Extractor Pipe</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ExtractatorPipe
+	 * @see com.misc.common.moplaf.datatools.ExtractorPipe
 	 * @generated
 	 */
-	public Adapter createExtractatorPipeAdapter() {
+	public Adapter createExtractorPipeAdapter() {
 		return null;
 	}
 
@@ -468,16 +468,16 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute <em>Category Criteria Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature <em>Category Criteria Structural Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute
+	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature
 	 * @generated
 	 */
-	public Adapter createCategoryCriteriaAttributeAdapter() {
+	public Adapter createCategoryCriteriaStructuralFeatureAdapter() {
 		return null;
 	}
 

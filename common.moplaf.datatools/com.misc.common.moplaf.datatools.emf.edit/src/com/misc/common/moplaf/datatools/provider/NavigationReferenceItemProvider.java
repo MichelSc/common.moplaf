@@ -4,14 +4,17 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.NavigationPath;
 import com.misc.common.moplaf.datatools.NavigationReference;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -72,11 +75,16 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
 						NavigationReference this_element = (NavigationReference) object;
+						NavigationPath path = this_element.getPath();
 						EClass source_type = this_element.getSourceType();
 						if ( source_type==null ) {
 							return null;
 						}
-						return source_type.getEAllReferences();
+						List<EReference> to_return = source_type.getEAllReferences()
+								.stream()
+								.filter(r -> !r.isMany() || path.isMany()) // only the many if the path requires them
+								.collect(Collectors.toList());
+						return to_return;
 					}
 				
 			});

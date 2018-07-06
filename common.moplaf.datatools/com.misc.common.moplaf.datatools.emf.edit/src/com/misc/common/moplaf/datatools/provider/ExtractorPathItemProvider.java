@@ -51,6 +51,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
+			addManyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +109,28 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Many feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addManyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationPath_Many_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Many_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__MANY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -156,7 +179,8 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorPath_type");
+		ExtractorPath extractorPath = (ExtractorPath)object;
+		return getString("_UI_ExtractorPath_type") + " " + extractorPath.isMany();
 	}
 	
 
@@ -172,6 +196,10 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExtractorPath.class)) {
+			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
+			case DatatoolsPackage.EXTRACTOR_PATH__MANY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

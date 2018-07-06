@@ -166,7 +166,7 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractatorPipe()));
+				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -201,7 +201,7 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaAttribute()));
+				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaStructuralFeature()));
 
 		newChildDescriptors.add
 			(createChildParameter

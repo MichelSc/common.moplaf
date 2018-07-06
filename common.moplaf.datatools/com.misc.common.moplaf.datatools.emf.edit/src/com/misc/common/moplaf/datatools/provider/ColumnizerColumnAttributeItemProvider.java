@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -50,6 +51,7 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 			addContextPropertyDescriptor(object);
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
+			addManyPropertyDescriptor(object);
 			addAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -117,6 +119,28 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Many feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addManyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationPath_Many_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Many_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__MANY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -211,6 +235,10 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ColumnizerColumnAttribute.class)) {
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE:
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

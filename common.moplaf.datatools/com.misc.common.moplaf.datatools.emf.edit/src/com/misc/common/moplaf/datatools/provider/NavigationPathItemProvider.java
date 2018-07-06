@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -49,6 +50,7 @@ public class NavigationPathItemProvider
 
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
+			addManyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +95,28 @@ public class NavigationPathItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Many feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addManyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationPath_Many_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Many_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__MANY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -146,7 +170,8 @@ public class NavigationPathItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NavigationPath_type");
+		NavigationPath navigationPath = (NavigationPath)object;
+		return getString("_UI_NavigationPath_type") + " " + navigationPath.isMany();
 	}
 	
 
@@ -162,6 +187,10 @@ public class NavigationPathItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NavigationPath.class)) {
+			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
+			case DatatoolsPackage.NAVIGATION_PATH__MANY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

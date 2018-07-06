@@ -3,24 +3,24 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-import com.misc.common.moplaf.datatools.ExtractatorPipe;
+import com.misc.common.moplaf.datatools.ExtractorPipe;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Extractator Pipe</b></em>'.
+ * An implementation of the model object '<em><b>Extractor Pipe</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ExtractatorPipeImpl extends ExtractorCompoundImpl implements ExtractatorPipe {
+public class ExtractorPipeImpl extends ExtractorCompoundImpl implements ExtractorPipe {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExtractatorPipeImpl() {
+	protected ExtractorPipeImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class ExtractatorPipeImpl extends ExtractorCompoundImpl implements Extrac
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DatatoolsPackage.Literals.EXTRACTATOR_PIPE;
+		return DatatoolsPackage.Literals.EXTRACTOR_PIPE;
 	}
 
-} //ExtractatorPipeImpl
+} //ExtractorPipeImpl

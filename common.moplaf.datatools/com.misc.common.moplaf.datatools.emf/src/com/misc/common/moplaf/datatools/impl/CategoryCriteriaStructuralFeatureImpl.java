@@ -2,14 +2,12 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
-import com.misc.common.moplaf.datatools.CategoryCriteriaAttribute;
+import com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
-
-import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -18,32 +16,34 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Category Criteria Attribute</b></em>'.
+ * An implementation of the model object '<em><b>Category Criteria Structural Feature</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl#getContext <em>Context</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl#getPathElements <em>Path Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl#getSourceType <em>Source Type</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl#getTargetType <em>Target Type</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getPathElements <em>Path Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getSourceType <em>Source Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getTargetType <em>Target Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getFeature <em>Feature</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implements CategoryCriteriaAttribute {
+public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl implements CategoryCriteriaStructuralFeature {
 	/**
 	 * The cached value of the '{@link #getPathElements() <em>Path Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -65,21 +65,31 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	protected EClass sourceType;
 
 	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
+	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAttribute()
+	 * @see #isMany()
 	 * @generated
 	 * @ordered
 	 */
-	protected EAttribute attribute;
+	protected static final boolean MANY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeature()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature feature;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CategoryCriteriaAttributeImpl() {
+	protected CategoryCriteriaStructuralFeatureImpl() {
 		super();
 	}
 
@@ -90,7 +100,7 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DatatoolsPackage.Literals.CATEGORY_CRITERIA_ATTRIBUTE;
+		return DatatoolsPackage.Literals.CATEGORY_CRITERIA_STRUCTURAL_FEATURE;
 	}
 
 	/**
@@ -122,7 +132,7 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	 */
 	public EList<NavigationAxis> getPathElements() {
 		if (pathElements == null) {
-			pathElements = new EObjectContainmentWithInverseEList<NavigationAxis>(NavigationAxis.class, this, DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS, DatatoolsPackage.NAVIGATION_AXIS__PATH);
+			pathElements = new EObjectContainmentWithInverseEList<NavigationAxis>(NavigationAxis.class, this, DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS, DatatoolsPackage.NAVIGATION_AXIS__PATH);
 		}
 		return pathElements;
 	}
@@ -138,7 +148,7 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 			sourceType = (EClass)eResolveProxy(oldSourceType);
 			if (sourceType != oldSourceType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE, oldSourceType, sourceType));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE, oldSourceType, sourceType));
 			}
 		}
 		return sourceType;
@@ -162,7 +172,7 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 		EClass oldSourceType = sourceType;
 		sourceType = newSourceType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE, oldSourceType, sourceType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE, oldSourceType, sourceType));
 	}
 
 	/**
@@ -190,18 +200,26 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isMany() {
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttribute() {
-		if (attribute != null && attribute.eIsProxy()) {
-			InternalEObject oldAttribute = (InternalEObject)attribute;
-			attribute = (EAttribute)eResolveProxy(oldAttribute);
-			if (attribute != oldAttribute) {
+	public EStructuralFeature getFeature() {
+		if (feature != null && feature.eIsProxy()) {
+			InternalEObject oldFeature = (InternalEObject)feature;
+			feature = (EStructuralFeature)eResolveProxy(oldFeature);
+			if (feature != oldFeature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE, oldAttribute, attribute));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE, oldFeature, feature));
 			}
 		}
-		return attribute;
+		return feature;
 	}
 
 	/**
@@ -209,8 +227,8 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute basicGetAttribute() {
-		return attribute;
+	public EStructuralFeature basicGetFeature() {
+		return feature;
 	}
 
 	/**
@@ -218,22 +236,11 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAttribute(EAttribute newAttribute) {
-		EAttribute oldAttribute = attribute;
-		attribute = newAttribute;
+	public void setFeature(EStructuralFeature newFeature) {
+		EStructuralFeature oldFeature = feature;
+		feature = newFeature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE, oldAttribute, attribute));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Object getAttributeValue() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE, oldFeature, feature));
 	}
 
 	/**
@@ -245,7 +252,7 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPathElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -259,7 +266,7 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				return ((InternalEList<?>)getPathElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -273,20 +280,22 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__CONTEXT:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT:
 				if (resolve) return getContext();
 				return basicGetContext();
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				return getPathElements();
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
 				if (resolve) return getSourceType();
 				return basicGetSourceType();
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE:
 				if (resolve) return getTargetType();
 				return basicGetTargetType();
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE:
-				if (resolve) return getAttribute();
-				return basicGetAttribute();
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY:
+				return isMany();
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE:
+				if (resolve) return getFeature();
+				return basicGetFeature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,15 +309,15 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				getPathElements().clear();
 				getPathElements().addAll((Collection<? extends NavigationAxis>)newValue);
 				return;
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
 				setSourceType((EClass)newValue);
 				return;
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE:
-				setAttribute((EAttribute)newValue);
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE:
+				setFeature((EStructuralFeature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -322,14 +331,14 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				getPathElements().clear();
 				return;
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
 				setSourceType((EClass)null);
 				return;
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE:
-				setAttribute((EAttribute)null);
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE:
+				setFeature((EStructuralFeature)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -343,16 +352,18 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__CONTEXT:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT:
 				return basicGetContext() != null;
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				return pathElements != null && !pathElements.isEmpty();
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
 				return sourceType != null;
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE:
 				return basicGetTargetType() != null;
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE:
-				return attribute != null;
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY:
+				return isMany() != MANY_EDEFAULT;
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE:
+				return feature != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -366,15 +377,16 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == DataTool.class) {
 			switch (derivedFeatureID) {
-				case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__CONTEXT: return DatatoolsPackage.DATA_TOOL__CONTEXT;
+				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT: return DatatoolsPackage.DATA_TOOL__CONTEXT;
 				default: return -1;
 			}
 		}
 		if (baseClass == NavigationPath.class) {
 			switch (derivedFeatureID) {
-				case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS: return DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS;
-				case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
-				case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
+				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS: return DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS;
+				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
+				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
+				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY: return DatatoolsPackage.NAVIGATION_PATH__MANY;
 				default: return -1;
 			}
 		}
@@ -390,33 +402,20 @@ public class CategoryCriteriaAttributeImpl extends CategoryCriteriaImpl implemen
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == DataTool.class) {
 			switch (baseFeatureID) {
-				case DatatoolsPackage.DATA_TOOL__CONTEXT: return DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__CONTEXT;
+				case DatatoolsPackage.DATA_TOOL__CONTEXT: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT;
 				default: return -1;
 			}
 		}
 		if (baseClass == NavigationPath.class) {
 			switch (baseFeatureID) {
-				case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS: return DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__PATH_ELEMENTS;
-				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE;
-				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE;
+				case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS;
+				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE;
+				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE;
+				case DatatoolsPackage.NAVIGATION_PATH__MANY: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE___GET_ATTRIBUTE_VALUE:
-				return getAttributeValue();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-} //CategoryCriteriaAttributeImpl
+} //CategoryCriteriaStructuralFeatureImpl

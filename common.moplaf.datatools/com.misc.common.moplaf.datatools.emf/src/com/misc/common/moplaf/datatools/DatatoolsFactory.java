@@ -58,13 +58,13 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorCompound createExtractorCompound();
 
 	/**
-	 * Returns a new object of class '<em>Extractator Pipe</em>'.
+	 * Returns a new object of class '<em>Extractor Pipe</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractator Pipe</em>'.
+	 * @return a new object of class '<em>Extractor Pipe</em>'.
 	 * @generated
 	 */
-	ExtractatorPipe createExtractatorPipe();
+	ExtractorPipe createExtractorPipe();
 
 	/**
 	 * Returns a new object of class '<em>Extractor Union</em>'.
@@ -121,13 +121,13 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorFilterOcl createExtractorFilterOcl();
 
 	/**
-	 * Returns a new object of class '<em>Category Criteria Attribute</em>'.
+	 * Returns a new object of class '<em>Category Criteria Structural Feature</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category Criteria Attribute</em>'.
+	 * @return a new object of class '<em>Category Criteria Structural Feature</em>'.
 	 * @generated
 	 */
-	CategoryCriteriaAttribute createCategoryCriteriaAttribute();
+	CategoryCriteriaStructuralFeature createCategoryCriteriaStructuralFeature();
 
 	/**
 	 * Returns a new object of class '<em>Category Criteria Ocl</em>'.

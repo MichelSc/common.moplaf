@@ -12,19 +12,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.ExtractatorPipe} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.ExtractorPipe} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExtractatorPipeItemProvider extends ExtractorCompoundItemProvider {
+public class ExtractorPipeItemProvider extends ExtractorCompoundItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractatorPipeItemProvider(AdapterFactory adapterFactory) {
+	public ExtractorPipeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +44,14 @@ public class ExtractatorPipeItemProvider extends ExtractorCompoundItemProvider {
 	}
 
 	/**
-	 * This returns ExtractatorPipe.gif.
+	 * This returns ExtractorPipe.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtractatorPipe"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtractorPipe"));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class ExtractatorPipeItemProvider extends ExtractorCompoundItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractatorPipe_type");
+		return getString("_UI_ExtractorPipe_type");
 	}
 	
 

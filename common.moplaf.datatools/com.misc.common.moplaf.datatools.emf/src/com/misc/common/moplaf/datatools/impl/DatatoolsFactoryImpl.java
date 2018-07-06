@@ -60,14 +60,14 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.CATEGORY: return createCategory();
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
 			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
-			case DatatoolsPackage.EXTRACTATOR_PIPE: return createExtractatorPipe();
+			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
 			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
 			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT: return createExtractorFilterAttributeInt();
 			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: return createExtractorFilterOcl();
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE: return createCategoryCriteriaAttribute();
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: return createCategoryCriteriaStructuralFeature();
 			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: return createCategoryCriteriaOcl();
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT: return createColumnizerExplicit();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
@@ -128,9 +128,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractatorPipe createExtractatorPipe() {
-		ExtractatorPipeImpl extractatorPipe = new ExtractatorPipeImpl();
-		return extractatorPipe;
+	public ExtractorPipe createExtractorPipe() {
+		ExtractorPipeImpl extractorPipe = new ExtractorPipeImpl();
+		return extractorPipe;
 	}
 
 	/**
@@ -198,9 +198,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CategoryCriteriaAttribute createCategoryCriteriaAttribute() {
-		CategoryCriteriaAttributeImpl categoryCriteriaAttribute = new CategoryCriteriaAttributeImpl();
-		return categoryCriteriaAttribute;
+	public CategoryCriteriaStructuralFeature createCategoryCriteriaStructuralFeature() {
+		CategoryCriteriaStructuralFeatureImpl categoryCriteriaStructuralFeature = new CategoryCriteriaStructuralFeatureImpl();
+		return categoryCriteriaStructuralFeature;
 	}
 
 	/**

@@ -161,7 +161,7 @@ public class CategorizerItemProvider extends CategoryAbstractItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.CATEGORIZER__CRITERIA,
-				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaAttribute()));
+				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaStructuralFeature()));
 
 		newChildDescriptors.add
 			(createChildParameter

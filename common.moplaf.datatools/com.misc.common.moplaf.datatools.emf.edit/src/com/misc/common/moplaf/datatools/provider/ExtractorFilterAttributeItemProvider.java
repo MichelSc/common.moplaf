@@ -50,7 +50,7 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
-			addAttributePropertyDescriptor(object);
+			addManyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,37 +111,27 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 	}
 
 	/**
-	 * This adds a property descriptor for the Attribute feature.
+	 * This adds a property descriptor for the Many feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	protected void addAttributePropertyDescriptor(Object object) {
+	protected void addManyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExtractorFilterAttribute_Attribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExtractorFilterAttribute_Attribute_feature", "_UI_ExtractorFilterAttribute_type"),
-				 DatatoolsPackage.Literals.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE,
-				 true,
+				 getString("_UI_NavigationPath_Many_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Many_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__MANY,
 				 false,
-				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
-				 null,
-				 null) {
-				
-				@Override
-				public Collection<?> getChoiceOfValues(Object object) {
-					ExtractorFilterAttribute extractor = (ExtractorFilterAttribute)object;
-					EClass target_type = extractor.getTargetType();
-					if ( target_type==null ) {
-						return null;
-					}
-					return target_type.getEAllAttributes();
-				}
-				
-			});
+				 null));
 	}
+
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -181,7 +171,8 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorFilterAttribute_type");
+		ExtractorFilterAttribute extractorFilterAttribute = (ExtractorFilterAttribute)object;
+		return getString("_UI_ExtractorFilterAttribute_type") + " " + extractorFilterAttribute.isMany();
 	}
 	
 
@@ -197,6 +188,10 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExtractorFilterAttribute.class)) {
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE:
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__MANY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

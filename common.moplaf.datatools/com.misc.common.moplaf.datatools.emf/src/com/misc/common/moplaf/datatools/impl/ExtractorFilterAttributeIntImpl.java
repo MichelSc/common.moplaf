@@ -7,8 +7,10 @@ import com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl#getMaxValue <em>Max Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +68,16 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 	 * @ordered
 	 */
 	protected int maxValue = MAX_VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected EAttribute attribute;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +145,44 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAttribute() {
+		if (attribute != null && attribute.eIsProxy()) {
+			InternalEObject oldAttribute = (InternalEObject)attribute;
+			attribute = (EAttribute)eResolveProxy(oldAttribute);
+			if (attribute != oldAttribute) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE, oldAttribute, attribute));
+			}
+		}
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute basicGetAttribute() {
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAttribute(EAttribute newAttribute) {
+		EAttribute oldAttribute = attribute;
+		attribute = newAttribute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE, oldAttribute, attribute));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -139,6 +190,9 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 				return getMinValue();
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE:
 				return getMaxValue();
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE:
+				if (resolve) return getAttribute();
+				return basicGetAttribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,6 +210,9 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 				return;
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE:
 				setMaxValue((Integer)newValue);
+				return;
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE:
+				setAttribute((EAttribute)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,6 +232,9 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE:
 				setMaxValue(MAX_VALUE_EDEFAULT);
 				return;
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE:
+				setAttribute((EAttribute)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -191,6 +251,8 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 				return minValue != MIN_VALUE_EDEFAULT;
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE:
 				return maxValue != MAX_VALUE_EDEFAULT;
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE:
+				return attribute != null;
 		}
 		return super.eIsSet(featureID);
 	}

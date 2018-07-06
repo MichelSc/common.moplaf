@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getPathElements <em>Path Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getTargetType <em>Target Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#isMany <em>Many</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +57,16 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 	 * @ordered
 	 */
 	protected EClass sourceType;
+
+	/**
+	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMany()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MANY_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +160,17 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isMany() {
+		// TODO: implement this method to return the 'Many' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -189,6 +211,8 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 			case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE:
 				if (resolve) return getTargetType();
 				return basicGetTargetType();
+			case DatatoolsPackage.NAVIGATION_PATH__MANY:
+				return isMany();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +269,8 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 				return sourceType != null;
 			case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE:
 				return basicGetTargetType() != null;
+			case DatatoolsPackage.NAVIGATION_PATH__MANY:
+				return isMany() != MANY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
