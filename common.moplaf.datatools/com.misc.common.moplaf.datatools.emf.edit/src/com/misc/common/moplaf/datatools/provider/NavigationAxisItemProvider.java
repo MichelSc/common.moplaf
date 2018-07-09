@@ -5,6 +5,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
+import com.misc.common.moplaf.datatools.NavigationAxis;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,7 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.NavigationAxis} object.
@@ -60,6 +63,7 @@ public class NavigationAxisItemProvider
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addPreviousPropertyDescriptor(object);
+			addPathElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -131,6 +135,28 @@ public class NavigationAxisItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Path Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationAxis_PathElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_PathElement_feature", "_UI_NavigationAxis_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_AXIS__PATH_ELEMENT,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns NavigationAxis.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,7 +175,10 @@ public class NavigationAxisItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NavigationAxis_type");
+		String label = ((NavigationAxis)object).getPathElement();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NavigationAxis_type") :
+			getString("_UI_NavigationAxis_type") + " " + label;
 	}
 	
 
@@ -163,6 +192,12 @@ public class NavigationAxisItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(NavigationAxis.class)) {
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

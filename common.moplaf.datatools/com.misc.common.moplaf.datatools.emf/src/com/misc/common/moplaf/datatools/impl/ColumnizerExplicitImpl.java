@@ -72,6 +72,11 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 		}
 		return columns;
 	}
+	
+	@Override
+	public String getDescription() {
+		return String.format("columnizer %s", this.getName());
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

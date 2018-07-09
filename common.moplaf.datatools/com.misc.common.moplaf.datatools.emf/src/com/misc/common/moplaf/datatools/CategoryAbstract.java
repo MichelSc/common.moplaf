@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories <em>Sub Categories</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryLabel <em>Category Label</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
@@ -75,19 +75,19 @@ public interface CategoryAbstract extends EObject {
 	int getNbElements();
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * Returns the value of the '<em><b>Category Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Category Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_Description()
+	 * @return the value of the '<em>Category Label</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_CategoryLabel()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	String getDescription();
+	String getCategoryLabel();
 
 	/**
 	 * Returns the value of the '<em><b>Columnizer</b></em>' reference.

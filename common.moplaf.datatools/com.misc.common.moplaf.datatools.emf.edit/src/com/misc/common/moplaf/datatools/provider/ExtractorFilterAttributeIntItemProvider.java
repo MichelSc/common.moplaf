@@ -4,7 +4,6 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-import com.misc.common.moplaf.datatools.ExtractorFilterAttribute;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt;
 
 import java.util.Collection;
@@ -156,8 +155,10 @@ public class ExtractorFilterAttributeIntItemProvider extends ExtractorFilterAttr
 	 */
 	@Override
 	public String getText(Object object) {
-		ExtractorFilterAttributeInt extractorFilterAttributeInt = (ExtractorFilterAttributeInt)object;
-		return getString("_UI_ExtractorFilterAttributeInt_type") + " " + extractorFilterAttributeInt.isMany();
+		String label = ((ExtractorFilterAttributeInt)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorFilterAttributeInt_type") :
+			getString("_UI_ExtractorFilterAttributeInt_type") + " " + label;
 	}
 	
 

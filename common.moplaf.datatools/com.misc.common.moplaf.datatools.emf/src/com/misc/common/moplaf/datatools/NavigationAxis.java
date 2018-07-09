@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPathElement <em>Path Element</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis()
@@ -97,5 +98,20 @@ public interface NavigationAxis extends EObject {
 	 * @generated
 	 */
 	NavigationAxis getPrevious();
+
+	/**
+	 * Returns the value of the '<em><b>Path Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Path Element</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Path Element</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_PathElement()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getPathElement();
 
 } // NavigationAxis

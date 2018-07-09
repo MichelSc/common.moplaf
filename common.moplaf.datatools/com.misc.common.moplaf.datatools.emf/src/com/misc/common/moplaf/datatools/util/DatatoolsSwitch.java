@@ -66,44 +66,57 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case DatatoolsPackage.CATEGORIZER: {
-				Categorizer categorizer = (Categorizer)theEObject;
-				T result = caseCategorizer(categorizer);
-				if (result == null) result = caseCategoryAbstract(categorizer);
-				if (result == null) result = caseDataTool(categorizer);
+			case DatatoolsPackage.NAVIGATION_PATH: {
+				NavigationPath navigationPath = (NavigationPath)theEObject;
+				T result = caseNavigationPath(navigationPath);
+				if (result == null) result = caseDataTool(navigationPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY: {
-				Category category = (Category)theEObject;
-				T result = caseCategory(category);
-				if (result == null) result = caseCategoryAbstract(category);
+			case DatatoolsPackage.NAVIGATION_AXIS: {
+				NavigationAxis navigationAxis = (NavigationAxis)theEObject;
+				T result = caseNavigationAxis(navigationAxis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_CRITERIA: {
-				CategoryCriteria categoryCriteria = (CategoryCriteria)theEObject;
-				T result = caseCategoryCriteria(categoryCriteria);
+			case DatatoolsPackage.NAVIGATION_REFERENCE: {
+				NavigationReference navigationReference = (NavigationReference)theEObject;
+				T result = caseNavigationReference(navigationReference);
+				if (result == null) result = caseNavigationAxis(navigationReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.NAVIGATION_DOWNCAST: {
+				NavigationDowncast navigationDowncast = (NavigationDowncast)theEObject;
+				T result = caseNavigationDowncast(navigationDowncast);
+				if (result == null) result = caseNavigationAxis(navigationDowncast);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.DATA_TOOLS: {
+				DataTools dataTools = (DataTools)theEObject;
+				T result = caseDataTools(dataTools);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.DATA_TOOL: {
+				DataTool dataTool = (DataTool)theEObject;
+				T result = caseDataTool(dataTool);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.DATA_TOOL_ABSTRACT: {
+				DataToolAbstract dataToolAbstract = (DataToolAbstract)theEObject;
+				T result = caseDataToolAbstract(dataToolAbstract);
+				if (result == null) result = caseDataTool(dataToolAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case DatatoolsPackage.EXTRACTOR: {
 				Extractor extractor = (Extractor)theEObject;
 				T result = caseExtractor(extractor);
+				if (result == null) result = caseDataToolAbstract(extractor);
 				if (result == null) result = caseDataTool(extractor);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.COLUMNIZER: {
-				Columnizer columnizer = (Columnizer)theEObject;
-				T result = caseColumnizer(columnizer);
-				if (result == null) result = caseDataTool(columnizer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.CATEGORY_ABSTRACT: {
-				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
-				T result = caseCategoryAbstract(categoryAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -111,53 +124,8 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorType extractorType = (ExtractorType)theEObject;
 				T result = caseExtractorType(extractorType);
 				if (result == null) result = caseExtractor(extractorType);
+				if (result == null) result = caseDataToolAbstract(extractorType);
 				if (result == null) result = caseDataTool(extractorType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_COMPOUND: {
-				ExtractorCompound extractorCompound = (ExtractorCompound)theEObject;
-				T result = caseExtractorCompound(extractorCompound);
-				if (result == null) result = caseExtractor(extractorCompound);
-				if (result == null) result = caseDataTool(extractorCompound);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_PIPE: {
-				ExtractorPipe extractorPipe = (ExtractorPipe)theEObject;
-				T result = caseExtractorPipe(extractorPipe);
-				if (result == null) result = caseExtractorCompound(extractorPipe);
-				if (result == null) result = caseExtractor(extractorPipe);
-				if (result == null) result = caseDataTool(extractorPipe);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_LOGIC: {
-				ExtractorLogic extractorLogic = (ExtractorLogic)theEObject;
-				T result = caseExtractorLogic(extractorLogic);
-				if (result == null) result = caseExtractorCompound(extractorLogic);
-				if (result == null) result = caseExtractor(extractorLogic);
-				if (result == null) result = caseDataTool(extractorLogic);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_UNION: {
-				ExtractorUnion extractorUnion = (ExtractorUnion)theEObject;
-				T result = caseExtractorUnion(extractorUnion);
-				if (result == null) result = caseExtractorLogic(extractorUnion);
-				if (result == null) result = caseExtractorCompound(extractorUnion);
-				if (result == null) result = caseExtractor(extractorUnion);
-				if (result == null) result = caseDataTool(extractorUnion);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_INTERSECTION: {
-				ExtractorIntersection extractorIntersection = (ExtractorIntersection)theEObject;
-				T result = caseExtractorIntersection(extractorIntersection);
-				if (result == null) result = caseExtractorLogic(extractorIntersection);
-				if (result == null) result = caseExtractorCompound(extractorIntersection);
-				if (result == null) result = caseExtractor(extractorIntersection);
-				if (result == null) result = caseDataTool(extractorIntersection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,6 +134,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractorPath(extractorPath);
 				if (result == null) result = caseExtractor(extractorPath);
 				if (result == null) result = caseNavigationPath(extractorPath);
+				if (result == null) result = caseDataToolAbstract(extractorPath);
 				if (result == null) result = caseDataTool(extractorPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -174,6 +143,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorOcl extractorOcl = (ExtractorOcl)theEObject;
 				T result = caseExtractorOcl(extractorOcl);
 				if (result == null) result = caseExtractor(extractorOcl);
+				if (result == null) result = caseDataToolAbstract(extractorOcl);
 				if (result == null) result = caseDataTool(extractorOcl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -182,6 +152,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorFilter extractorFilter = (ExtractorFilter)theEObject;
 				T result = caseExtractorFilter(extractorFilter);
 				if (result == null) result = caseExtractor(extractorFilter);
+				if (result == null) result = caseDataToolAbstract(extractorFilter);
 				if (result == null) result = caseDataTool(extractorFilter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -192,6 +163,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorFilter(extractorFilterAttribute);
 				if (result == null) result = caseNavigationPath(extractorFilterAttribute);
 				if (result == null) result = caseExtractor(extractorFilterAttribute);
+				if (result == null) result = caseDataToolAbstract(extractorFilterAttribute);
 				if (result == null) result = caseDataTool(extractorFilterAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -203,6 +175,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorFilter(extractorFilterAttributeInt);
 				if (result == null) result = caseNavigationPath(extractorFilterAttributeInt);
 				if (result == null) result = caseExtractor(extractorFilterAttributeInt);
+				if (result == null) result = caseDataToolAbstract(extractorFilterAttributeInt);
 				if (result == null) result = caseDataTool(extractorFilterAttributeInt);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -212,23 +185,73 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractorFilterOcl(extractorFilterOcl);
 				if (result == null) result = caseExtractorFilter(extractorFilterOcl);
 				if (result == null) result = caseExtractor(extractorFilterOcl);
+				if (result == null) result = caseDataToolAbstract(extractorFilterOcl);
 				if (result == null) result = caseDataTool(extractorFilterOcl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: {
-				CategoryCriteriaStructuralFeature categoryCriteriaStructuralFeature = (CategoryCriteriaStructuralFeature)theEObject;
-				T result = caseCategoryCriteriaStructuralFeature(categoryCriteriaStructuralFeature);
-				if (result == null) result = caseCategoryCriteria(categoryCriteriaStructuralFeature);
-				if (result == null) result = caseNavigationPath(categoryCriteriaStructuralFeature);
-				if (result == null) result = caseDataTool(categoryCriteriaStructuralFeature);
+			case DatatoolsPackage.EXTRACTOR_COMPOUND: {
+				ExtractorCompound extractorCompound = (ExtractorCompound)theEObject;
+				T result = caseExtractorCompound(extractorCompound);
+				if (result == null) result = caseExtractor(extractorCompound);
+				if (result == null) result = caseDataToolAbstract(extractorCompound);
+				if (result == null) result = caseDataTool(extractorCompound);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: {
-				CategoryCriteriaOcl categoryCriteriaOcl = (CategoryCriteriaOcl)theEObject;
-				T result = caseCategoryCriteriaOcl(categoryCriteriaOcl);
-				if (result == null) result = caseCategoryCriteria(categoryCriteriaOcl);
+			case DatatoolsPackage.EXTRACTOR_LOGIC: {
+				ExtractorLogic extractorLogic = (ExtractorLogic)theEObject;
+				T result = caseExtractorLogic(extractorLogic);
+				if (result == null) result = caseExtractorCompound(extractorLogic);
+				if (result == null) result = caseExtractor(extractorLogic);
+				if (result == null) result = caseDataToolAbstract(extractorLogic);
+				if (result == null) result = caseDataTool(extractorLogic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_PIPE: {
+				ExtractorPipe extractorPipe = (ExtractorPipe)theEObject;
+				T result = caseExtractorPipe(extractorPipe);
+				if (result == null) result = caseExtractorCompound(extractorPipe);
+				if (result == null) result = caseExtractor(extractorPipe);
+				if (result == null) result = caseDataToolAbstract(extractorPipe);
+				if (result == null) result = caseDataTool(extractorPipe);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_UNION: {
+				ExtractorUnion extractorUnion = (ExtractorUnion)theEObject;
+				T result = caseExtractorUnion(extractorUnion);
+				if (result == null) result = caseExtractorLogic(extractorUnion);
+				if (result == null) result = caseExtractorCompound(extractorUnion);
+				if (result == null) result = caseExtractor(extractorUnion);
+				if (result == null) result = caseDataToolAbstract(extractorUnion);
+				if (result == null) result = caseDataTool(extractorUnion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_INTERSECTION: {
+				ExtractorIntersection extractorIntersection = (ExtractorIntersection)theEObject;
+				T result = caseExtractorIntersection(extractorIntersection);
+				if (result == null) result = caseExtractorLogic(extractorIntersection);
+				if (result == null) result = caseExtractorCompound(extractorIntersection);
+				if (result == null) result = caseExtractor(extractorIntersection);
+				if (result == null) result = caseDataToolAbstract(extractorIntersection);
+				if (result == null) result = caseDataTool(extractorIntersection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER: {
+				Columnizer columnizer = (Columnizer)theEObject;
+				T result = caseColumnizer(columnizer);
+				if (result == null) result = caseDataToolAbstract(columnizer);
+				if (result == null) result = caseDataTool(columnizer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER_COLUMN: {
+				ColumnizerColumn columnizerColumn = (ColumnizerColumn)theEObject;
+				T result = caseColumnizerColumn(columnizerColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -236,13 +259,8 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ColumnizerExplicit columnizerExplicit = (ColumnizerExplicit)theEObject;
 				T result = caseColumnizerExplicit(columnizerExplicit);
 				if (result == null) result = caseColumnizer(columnizerExplicit);
+				if (result == null) result = caseDataToolAbstract(columnizerExplicit);
 				if (result == null) result = caseDataTool(columnizerExplicit);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.COLUMNIZER_COLUMN: {
-				ColumnizerColumn columnizerColumn = (ColumnizerColumn)theEObject;
-				T result = caseColumnizerColumn(columnizerColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -262,30 +280,47 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.NAVIGATION_PATH: {
-				NavigationPath navigationPath = (NavigationPath)theEObject;
-				T result = caseNavigationPath(navigationPath);
-				if (result == null) result = caseDataTool(navigationPath);
+			case DatatoolsPackage.CATEGORIZER: {
+				Categorizer categorizer = (Categorizer)theEObject;
+				T result = caseCategorizer(categorizer);
+				if (result == null) result = caseCategoryAbstract(categorizer);
+				if (result == null) result = caseDataToolAbstract(categorizer);
+				if (result == null) result = caseDataTool(categorizer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.NAVIGATION_REFERENCE: {
-				NavigationReference navigationReference = (NavigationReference)theEObject;
-				T result = caseNavigationReference(navigationReference);
-				if (result == null) result = caseNavigationAxis(navigationReference);
+			case DatatoolsPackage.CATEGORY: {
+				Category category = (Category)theEObject;
+				T result = caseCategory(category);
+				if (result == null) result = caseCategoryAbstract(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.NAVIGATION_DOWNCAST: {
-				NavigationDowncast navigationDowncast = (NavigationDowncast)theEObject;
-				T result = caseNavigationDowncast(navigationDowncast);
-				if (result == null) result = caseNavigationAxis(navigationDowncast);
+			case DatatoolsPackage.CATEGORY_CRITERIA: {
+				CategoryCriteria categoryCriteria = (CategoryCriteria)theEObject;
+				T result = caseCategoryCriteria(categoryCriteria);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.NAVIGATION_AXIS: {
-				NavigationAxis navigationAxis = (NavigationAxis)theEObject;
-				T result = caseNavigationAxis(navigationAxis);
+			case DatatoolsPackage.CATEGORY_ABSTRACT: {
+				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
+				T result = caseCategoryAbstract(categoryAbstract);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: {
+				CategoryCriteriaStructuralFeature categoryCriteriaStructuralFeature = (CategoryCriteriaStructuralFeature)theEObject;
+				T result = caseCategoryCriteriaStructuralFeature(categoryCriteriaStructuralFeature);
+				if (result == null) result = caseCategoryCriteria(categoryCriteriaStructuralFeature);
+				if (result == null) result = caseNavigationPath(categoryCriteriaStructuralFeature);
+				if (result == null) result = caseDataTool(categoryCriteriaStructuralFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: {
+				CategoryCriteriaOcl categoryCriteriaOcl = (CategoryCriteriaOcl)theEObject;
+				T result = caseCategoryCriteriaOcl(categoryCriteriaOcl);
+				if (result == null) result = caseCategoryCriteria(categoryCriteriaOcl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -298,18 +333,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.MATCH: {
 				Match match = (Match)theEObject;
 				T result = caseMatch(match);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.DATA_TOOLS: {
-				DataTools dataTools = (DataTools)theEObject;
-				T result = caseDataTools(dataTools);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.DATA_TOOL: {
-				DataTool dataTool = (DataTool)theEObject;
-				T result = caseDataTool(dataTool);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -794,6 +817,21 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataTool(DataTool object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Tool Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Tool Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataToolAbstract(DataToolAbstract object) {
 		return null;
 	}
 

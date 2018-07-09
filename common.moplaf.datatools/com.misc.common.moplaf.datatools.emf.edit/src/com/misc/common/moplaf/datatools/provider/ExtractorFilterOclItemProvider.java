@@ -91,7 +91,7 @@ public class ExtractorFilterOclItemProvider extends ExtractorFilterItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExtractorFilterOcl)object).getExpression();
+		String label = ((ExtractorFilterOcl)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExtractorFilterOcl_type") :
 			getString("_UI_ExtractorFilterOcl_type") + " " + label;

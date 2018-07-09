@@ -94,6 +94,15 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 		return reference.getEReferenceType();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getPathElement() {
+		return this.getReference()==null ? "null" : this.getReference().getName();
+	}
+
+
 
 	/**
 	 * <!-- begin-user-doc -->

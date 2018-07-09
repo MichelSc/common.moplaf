@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class ColumnizerImpl extends DataToolImpl implements Columnizer {
+public abstract class ColumnizerImpl extends DataToolAbstractImpl implements Columnizer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

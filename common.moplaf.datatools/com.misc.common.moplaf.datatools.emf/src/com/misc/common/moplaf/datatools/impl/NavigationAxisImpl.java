@@ -28,11 +28,22 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPathElement <em>Path Element</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container implements NavigationAxis {
+	/**
+	 * The default value of the '{@link #getPathElement() <em>Path Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPathElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_ELEMENT_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,6 +171,17 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPathElement() {
+		// TODO: implement this method to return the 'Path Element' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -218,6 +240,8 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 			case DatatoolsPackage.NAVIGATION_AXIS__PREVIOUS:
 				if (resolve) return getPrevious();
 				return basicGetPrevious();
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
+				return getPathElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,6 +292,8 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 				return getPath() != null;
 			case DatatoolsPackage.NAVIGATION_AXIS__PREVIOUS:
 				return basicGetPrevious() != null;
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
+				return PATH_ELEMENT_EDEFAULT == null ? getPathElement() != null : !PATH_ELEMENT_EDEFAULT.equals(getPathElement());
 		}
 		return super.eIsSet(featureID);
 	}

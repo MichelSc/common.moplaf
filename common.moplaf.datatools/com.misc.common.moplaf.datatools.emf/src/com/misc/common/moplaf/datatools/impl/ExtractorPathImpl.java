@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +69,16 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @ordered
 	 */
 	protected static final boolean MANY_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,6 +178,24 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getPath() {
+		return Util.getNavigationPath(this);
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public String getDescription() {
+		String description = String.format("path: %s", this.getPath());
+		return description;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -211,6 +240,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				return basicGetTargetType();
 			case DatatoolsPackage.EXTRACTOR_PATH__MANY:
 				return isMany();
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH:
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -269,6 +300,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.EXTRACTOR_PATH__MANY:
 				return isMany() != MANY_EDEFAULT;
+			case DatatoolsPackage.EXTRACTOR_PATH__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -286,6 +319,7 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
 				case DatatoolsPackage.EXTRACTOR_PATH__MANY: return DatatoolsPackage.NAVIGATION_PATH__MANY;
+				case DatatoolsPackage.EXTRACTOR_PATH__PATH: return DatatoolsPackage.NAVIGATION_PATH__PATH;
 				default: return -1;
 			}
 		}
@@ -305,6 +339,7 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__MANY: return DatatoolsPackage.EXTRACTOR_PATH__MANY;
+				case DatatoolsPackage.NAVIGATION_PATH__PATH: return DatatoolsPackage.EXTRACTOR_PATH__PATH;
 				default: return -1;
 			}
 		}

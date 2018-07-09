@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.Extractor;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class ExtractorItemProvider 
-	extends DataToolItemProvider {
+	extends DataToolAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -51,7 +52,10 @@ public class ExtractorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Extractor_type");
+		String label = ((Extractor)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Extractor_type") :
+			getString("_UI_Extractor_type") + " " + label;
 	}
 	
 

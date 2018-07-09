@@ -52,6 +52,7 @@ public class CategoryCriteriaStructuralFeatureItemProvider extends CategoryCrite
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 			addFeaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -146,6 +147,28 @@ public class CategoryCriteriaStructuralFeatureItemProvider extends CategoryCrite
 	}
 
 	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationPath_Path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Path_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__PATH,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Feature feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,6 +258,7 @@ public class CategoryCriteriaStructuralFeatureItemProvider extends CategoryCrite
 		switch (notification.getFeatureID(CategoryCriteriaStructuralFeature.class)) {
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY:
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:

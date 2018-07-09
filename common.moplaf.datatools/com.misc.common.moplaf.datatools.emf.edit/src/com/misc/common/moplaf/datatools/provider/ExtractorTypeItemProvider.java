@@ -99,7 +99,10 @@ public class ExtractorTypeItemProvider extends ExtractorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorType_type");
+		String label = ((ExtractorType)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorType_type") :
+			getString("_UI_ExtractorType_type") + " " + label;
 	}
 	
 

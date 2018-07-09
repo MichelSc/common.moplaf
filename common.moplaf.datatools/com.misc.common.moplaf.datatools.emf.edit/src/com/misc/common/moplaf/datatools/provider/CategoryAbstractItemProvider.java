@@ -65,7 +65,7 @@ public class CategoryAbstractItemProvider
 
 			addElementsPropertyDescriptor(object);
 			addNbElementsPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
+			addCategoryLabelPropertyDescriptor(object);
 			addColumnizerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -116,19 +116,19 @@ public class CategoryAbstractItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Category Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addCategoryLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_Description_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__DESCRIPTION,
+				 getString("_UI_CategoryAbstract_CategoryLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_CategoryLabel_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_LABEL,
 				 false,
 				 false,
 				 false,
@@ -215,7 +215,7 @@ public class CategoryAbstractItemProvider
 
 		switch (notification.getFeatureID(CategoryAbstract.class)) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT__NB_ELEMENTS:
-			case DatatoolsPackage.CATEGORY_ABSTRACT__DESCRIPTION:
+			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__SUB_CATEGORIES:

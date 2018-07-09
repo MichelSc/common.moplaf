@@ -51,6 +51,7 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -134,6 +135,28 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 
 
 	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationPath_Path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Path_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__PATH,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -171,8 +194,10 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 	 */
 	@Override
 	public String getText(Object object) {
-		ExtractorFilterAttribute extractorFilterAttribute = (ExtractorFilterAttribute)object;
-		return getString("_UI_ExtractorFilterAttribute_type") + " " + extractorFilterAttribute.isMany();
+		String label = ((ExtractorFilterAttribute)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorFilterAttribute_type") :
+			getString("_UI_ExtractorFilterAttribute_type") + " " + label;
 	}
 	
 
@@ -190,6 +215,7 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 		switch (notification.getFeatureID(ExtractorFilterAttribute.class)) {
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE:
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__MANY:
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH_ELEMENTS:

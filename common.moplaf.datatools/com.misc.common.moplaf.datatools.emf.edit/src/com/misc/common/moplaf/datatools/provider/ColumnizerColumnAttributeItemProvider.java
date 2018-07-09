@@ -52,6 +52,7 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 			addAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -141,6 +142,28 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationPath_Path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Path_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__PATH,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -237,6 +260,7 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 		switch (notification.getFeatureID(ColumnizerColumnAttribute.class)) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE:
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY:
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:

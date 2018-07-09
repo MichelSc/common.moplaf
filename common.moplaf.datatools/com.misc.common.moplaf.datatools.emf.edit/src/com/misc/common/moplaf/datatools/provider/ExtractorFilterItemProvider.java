@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.ExtractorFilter;
 import java.util.Collection;
 import java.util.List;
 
@@ -51,7 +52,10 @@ public class ExtractorFilterItemProvider extends ExtractorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorFilter_type");
+		String label = ((ExtractorFilter)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorFilter_type") :
+			getString("_UI_ExtractorFilter_type") + " " + label;
 	}
 	
 

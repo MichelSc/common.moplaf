@@ -56,28 +56,28 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DatatoolsPackage.CATEGORIZER: return createCategorizer();
-			case DatatoolsPackage.CATEGORY: return createCategory();
+			case DatatoolsPackage.NAVIGATION_PATH: return createNavigationPath();
+			case DatatoolsPackage.NAVIGATION_REFERENCE: return createNavigationReference();
+			case DatatoolsPackage.NAVIGATION_DOWNCAST: return createNavigationDowncast();
+			case DatatoolsPackage.DATA_TOOLS: return createDataTools();
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
-			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
-			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
-			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
-			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
 			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT: return createExtractorFilterAttributeInt();
 			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: return createExtractorFilterOcl();
-			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: return createCategoryCriteriaStructuralFeature();
-			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: return createCategoryCriteriaOcl();
+			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
+			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
+			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
+			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT: return createColumnizerExplicit();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_OCL: return createColumnizerColumnOcl();
-			case DatatoolsPackage.NAVIGATION_PATH: return createNavigationPath();
-			case DatatoolsPackage.NAVIGATION_REFERENCE: return createNavigationReference();
-			case DatatoolsPackage.NAVIGATION_DOWNCAST: return createNavigationDowncast();
+			case DatatoolsPackage.CATEGORIZER: return createCategorizer();
+			case DatatoolsPackage.CATEGORY: return createCategory();
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: return createCategoryCriteriaStructuralFeature();
+			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: return createCategoryCriteriaOcl();
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
-			case DatatoolsPackage.DATA_TOOLS: return createDataTools();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

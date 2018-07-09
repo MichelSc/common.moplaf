@@ -51,6 +51,7 @@ public class NavigationPathItemProvider
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,6 +123,28 @@ public class NavigationPathItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationPath_Path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_Path_feature", "_UI_NavigationPath_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_PATH__PATH,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -170,8 +193,10 @@ public class NavigationPathItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		NavigationPath navigationPath = (NavigationPath)object;
-		return getString("_UI_NavigationPath_type") + " " + navigationPath.isMany();
+		String label = ((NavigationPath)object).getPath();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NavigationPath_type") :
+			getString("_UI_NavigationPath_type") + " " + label;
 	}
 	
 
@@ -189,6 +214,7 @@ public class NavigationPathItemProvider
 		switch (notification.getFeatureID(NavigationPath.class)) {
 			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
 			case DatatoolsPackage.NAVIGATION_PATH__MANY:
+			case DatatoolsPackage.NAVIGATION_PATH__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:

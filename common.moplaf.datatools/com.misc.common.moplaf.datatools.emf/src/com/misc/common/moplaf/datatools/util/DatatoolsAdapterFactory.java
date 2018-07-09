@@ -68,52 +68,40 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	protected DatatoolsSwitch<Adapter> modelSwitch =
 		new DatatoolsSwitch<Adapter>() {
 			@Override
-			public Adapter caseCategorizer(Categorizer object) {
-				return createCategorizerAdapter();
+			public Adapter caseNavigationPath(NavigationPath object) {
+				return createNavigationPathAdapter();
 			}
 			@Override
-			public Adapter caseCategory(Category object) {
-				return createCategoryAdapter();
+			public Adapter caseNavigationAxis(NavigationAxis object) {
+				return createNavigationAxisAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteria(CategoryCriteria object) {
-				return createCategoryCriteriaAdapter();
+			public Adapter caseNavigationReference(NavigationReference object) {
+				return createNavigationReferenceAdapter();
+			}
+			@Override
+			public Adapter caseNavigationDowncast(NavigationDowncast object) {
+				return createNavigationDowncastAdapter();
+			}
+			@Override
+			public Adapter caseDataTools(DataTools object) {
+				return createDataToolsAdapter();
+			}
+			@Override
+			public Adapter caseDataTool(DataTool object) {
+				return createDataToolAdapter();
+			}
+			@Override
+			public Adapter caseDataToolAbstract(DataToolAbstract object) {
+				return createDataToolAbstractAdapter();
 			}
 			@Override
 			public Adapter caseExtractor(Extractor object) {
 				return createExtractorAdapter();
 			}
 			@Override
-			public Adapter caseColumnizer(Columnizer object) {
-				return createColumnizerAdapter();
-			}
-			@Override
-			public Adapter caseCategoryAbstract(CategoryAbstract object) {
-				return createCategoryAbstractAdapter();
-			}
-			@Override
 			public Adapter caseExtractorType(ExtractorType object) {
 				return createExtractorTypeAdapter();
-			}
-			@Override
-			public Adapter caseExtractorCompound(ExtractorCompound object) {
-				return createExtractorCompoundAdapter();
-			}
-			@Override
-			public Adapter caseExtractorPipe(ExtractorPipe object) {
-				return createExtractorPipeAdapter();
-			}
-			@Override
-			public Adapter caseExtractorLogic(ExtractorLogic object) {
-				return createExtractorLogicAdapter();
-			}
-			@Override
-			public Adapter caseExtractorUnion(ExtractorUnion object) {
-				return createExtractorUnionAdapter();
-			}
-			@Override
-			public Adapter caseExtractorIntersection(ExtractorIntersection object) {
-				return createExtractorIntersectionAdapter();
 			}
 			@Override
 			public Adapter caseExtractorPath(ExtractorPath object) {
@@ -140,20 +128,36 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createExtractorFilterOclAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteriaStructuralFeature(CategoryCriteriaStructuralFeature object) {
-				return createCategoryCriteriaStructuralFeatureAdapter();
+			public Adapter caseExtractorCompound(ExtractorCompound object) {
+				return createExtractorCompoundAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteriaOcl(CategoryCriteriaOcl object) {
-				return createCategoryCriteriaOclAdapter();
+			public Adapter caseExtractorLogic(ExtractorLogic object) {
+				return createExtractorLogicAdapter();
 			}
 			@Override
-			public Adapter caseColumnizerExplicit(ColumnizerExplicit object) {
-				return createColumnizerExplicitAdapter();
+			public Adapter caseExtractorPipe(ExtractorPipe object) {
+				return createExtractorPipeAdapter();
+			}
+			@Override
+			public Adapter caseExtractorUnion(ExtractorUnion object) {
+				return createExtractorUnionAdapter();
+			}
+			@Override
+			public Adapter caseExtractorIntersection(ExtractorIntersection object) {
+				return createExtractorIntersectionAdapter();
+			}
+			@Override
+			public Adapter caseColumnizer(Columnizer object) {
+				return createColumnizerAdapter();
 			}
 			@Override
 			public Adapter caseColumnizerColumn(ColumnizerColumn object) {
 				return createColumnizerColumnAdapter();
+			}
+			@Override
+			public Adapter caseColumnizerExplicit(ColumnizerExplicit object) {
+				return createColumnizerExplicitAdapter();
 			}
 			@Override
 			public Adapter caseColumnizerColumnAttribute(ColumnizerColumnAttribute object) {
@@ -164,20 +168,28 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createColumnizerColumnOclAdapter();
 			}
 			@Override
-			public Adapter caseNavigationPath(NavigationPath object) {
-				return createNavigationPathAdapter();
+			public Adapter caseCategorizer(Categorizer object) {
+				return createCategorizerAdapter();
 			}
 			@Override
-			public Adapter caseNavigationReference(NavigationReference object) {
-				return createNavigationReferenceAdapter();
+			public Adapter caseCategory(Category object) {
+				return createCategoryAdapter();
 			}
 			@Override
-			public Adapter caseNavigationDowncast(NavigationDowncast object) {
-				return createNavigationDowncastAdapter();
+			public Adapter caseCategoryCriteria(CategoryCriteria object) {
+				return createCategoryCriteriaAdapter();
 			}
 			@Override
-			public Adapter caseNavigationAxis(NavigationAxis object) {
-				return createNavigationAxisAdapter();
+			public Adapter caseCategoryAbstract(CategoryAbstract object) {
+				return createCategoryAbstractAdapter();
+			}
+			@Override
+			public Adapter caseCategoryCriteriaStructuralFeature(CategoryCriteriaStructuralFeature object) {
+				return createCategoryCriteriaStructuralFeatureAdapter();
+			}
+			@Override
+			public Adapter caseCategoryCriteriaOcl(CategoryCriteriaOcl object) {
+				return createCategoryCriteriaOclAdapter();
 			}
 			@Override
 			public Adapter caseMatcher(Matcher object) {
@@ -186,14 +198,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMatch(Match object) {
 				return createMatchAdapter();
-			}
-			@Override
-			public Adapter caseDataTools(DataTools object) {
-				return createDataToolsAdapter();
-			}
-			@Override
-			public Adapter caseDataTool(DataTool object) {
-				return createDataToolAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -660,6 +664,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataToolAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataToolAbstract <em>Data Tool Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.DataToolAbstract
+	 * @generated
+	 */
+	public Adapter createDataToolAbstractAdapter() {
 		return null;
 	}
 

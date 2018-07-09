@@ -92,6 +92,15 @@ public class NavigationDowncastImpl extends NavigationAxisImpl implements Naviga
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getPathElement() {
+		return this.getDowncastType()==null ? "null" : this.getDowncastType().getName();
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDowncastType(EClass newDowncastType) {

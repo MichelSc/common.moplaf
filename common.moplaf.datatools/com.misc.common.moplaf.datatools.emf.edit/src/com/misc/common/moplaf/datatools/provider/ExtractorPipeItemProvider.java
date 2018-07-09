@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.ExtractorPipe;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,7 +63,10 @@ public class ExtractorPipeItemProvider extends ExtractorCompoundItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorPipe_type");
+		String label = ((ExtractorPipe)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorPipe_type") :
+			getString("_UI_ExtractorPipe_type") + " " + label;
 	}
 	
 

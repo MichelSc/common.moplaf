@@ -151,32 +151,12 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategorizer()));
+				 DatatoolsFactory.eINSTANCE.createNavigationPath()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -201,7 +181,22 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaStructuralFeature()));
+				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -216,7 +211,12 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createNavigationPath()));
+				 DatatoolsFactory.eINSTANCE.createCategorizer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaStructuralFeature()));
 	}
 
 	/**

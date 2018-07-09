@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
@@ -72,6 +73,16 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 * @ordered
 	 */
 	protected static final boolean MANY_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
@@ -212,6 +223,17 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPath() {
+		// TODO: implement this method to return the 'Path' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getAttribute() {
 		if (attribute != null && attribute.eIsProxy()) {
 			InternalEObject oldAttribute = (InternalEObject)attribute;
@@ -295,6 +317,8 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 				return basicGetTargetType();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY:
 				return isMany();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH:
+				return getPath();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
@@ -364,6 +388,8 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY:
 				return isMany() != MANY_EDEFAULT;
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				return attribute != null;
 		}
@@ -389,6 +415,7 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
 				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY: return DatatoolsPackage.NAVIGATION_PATH__MANY;
+				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH: return DatatoolsPackage.NAVIGATION_PATH__PATH;
 				default: return -1;
 			}
 		}
@@ -414,6 +441,7 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__MANY: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY;
+				case DatatoolsPackage.NAVIGATION_PATH__PATH: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH;
 				default: return -1;
 			}
 		}

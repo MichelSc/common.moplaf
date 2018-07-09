@@ -676,28 +676,28 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (categorizerItemProvider != null) categorizerItemProvider.dispose();
-		if (categoryItemProvider != null) categoryItemProvider.dispose();
+		if (navigationPathItemProvider != null) navigationPathItemProvider.dispose();
+		if (navigationReferenceItemProvider != null) navigationReferenceItemProvider.dispose();
+		if (navigationDowncastItemProvider != null) navigationDowncastItemProvider.dispose();
+		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
 		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
-		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
-		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
-		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
-		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
 		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
 		if (extractorOclItemProvider != null) extractorOclItemProvider.dispose();
 		if (extractorFilterAttributeIntItemProvider != null) extractorFilterAttributeIntItemProvider.dispose();
 		if (extractorFilterOclItemProvider != null) extractorFilterOclItemProvider.dispose();
-		if (categoryCriteriaStructuralFeatureItemProvider != null) categoryCriteriaStructuralFeatureItemProvider.dispose();
-		if (categoryCriteriaOclItemProvider != null) categoryCriteriaOclItemProvider.dispose();
+		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
+		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
+		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
+		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
 		if (columnizerExplicitItemProvider != null) columnizerExplicitItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
 		if (columnizerColumnOclItemProvider != null) columnizerColumnOclItemProvider.dispose();
-		if (navigationPathItemProvider != null) navigationPathItemProvider.dispose();
-		if (navigationReferenceItemProvider != null) navigationReferenceItemProvider.dispose();
-		if (navigationDowncastItemProvider != null) navigationDowncastItemProvider.dispose();
+		if (categorizerItemProvider != null) categorizerItemProvider.dispose();
+		if (categoryItemProvider != null) categoryItemProvider.dispose();
+		if (categoryCriteriaStructuralFeatureItemProvider != null) categoryCriteriaStructuralFeatureItemProvider.dispose();
+		if (categoryCriteriaOclItemProvider != null) categoryCriteriaOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
-		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
 	}
 
 }

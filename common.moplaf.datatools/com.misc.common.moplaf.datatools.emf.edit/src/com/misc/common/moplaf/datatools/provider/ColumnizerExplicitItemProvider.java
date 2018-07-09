@@ -99,7 +99,10 @@ public class ColumnizerExplicitItemProvider extends ColumnizerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ColumnizerExplicit_type");
+		String label = ((ColumnizerExplicit)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ColumnizerExplicit_type") :
+			getString("_UI_ColumnizerExplicit_type") + " " + label;
 	}
 	
 

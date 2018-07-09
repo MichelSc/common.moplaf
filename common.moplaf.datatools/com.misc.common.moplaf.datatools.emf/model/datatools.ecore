@@ -2,28 +2,51 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="datatools" nsURI="http://www.misc.com/common/moplaf/datatools/model/0.1"
     nsPrefix="datatools">
-  <eClassifiers xsi:type="ecore:EClass" name="Categorizer" eSuperTypes="#//CategoryAbstract #//DataTool">
-    <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="refreshCats" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
-      <eParameters name="ins" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" upperBound="-1"
-        eType="#//CategoryCriteria" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationPath" eSuperTypes="#//DataTool">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PathElements" upperBound="-1"
+        eType="#//NavigationAxis" containment="true" eOpposite="#//NavigationAxis/Path"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TargetType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" lowerBound="1"
-        eType="#//CategoryCriteria"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationAxis" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TargetType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Path" lowerBound="1" eType="#//NavigationPath"
+        eOpposite="#//NavigationPath/PathElements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//NavigationAxis"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PathElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteria" abstract="true">
-    <eOperations name="getCategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
-      <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="constructCategory"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationReference" eSuperTypes="#//NavigationAxis">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Reference" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Extractor" abstract="true" eSuperTypes="#//DataTool">
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationDowncast" eSuperTypes="#//NavigationAxis">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DowncastType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTools">
+    <eOperations name="getDomainTypes" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
+        eType="#//DataTool" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTool" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Context" eType="#//DataTools"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataToolAbstract" abstract="true" eSuperTypes="#//DataTool">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Extractor" abstract="true" eSuperTypes="#//DataToolAbstract">
     <eOperations name="refreshOuts" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
       <eParameters name="ins" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
@@ -31,32 +54,9 @@
       <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Columnizer" abstract="true" eSuperTypes="#//DataTool"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract" abstract="true">
-    <eOperations name="getSubcategory">
-      <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
-        eType="#//Category" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="#//Columnizer"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorType" eSuperTypes="#//Extractor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="TargetType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorCompound" eSuperTypes="#//Extractor">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Extractors" upperBound="-1"
-        eType="#//Extractor" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorPipe" eSuperTypes="#//ExtractorCompound"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorLogic" abstract="true" eSuperTypes="#//ExtractorCompound"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorUnion" eSuperTypes="#//ExtractorLogic"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorIntersection" eSuperTypes="#//ExtractorLogic"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorPath" eSuperTypes="#//Extractor #//NavigationPath"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorOcl" eSuperTypes="#//Extractor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -79,23 +79,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterOcl" eSuperTypes="#//ExtractorFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteriaStructuralFeature" eSuperTypes="#//CategoryCriteria #//NavigationPath">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" lowerBound="1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorCompound" eSuperTypes="#//Extractor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Extractors" upperBound="-1"
+        eType="#//Extractor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteriaOcl" eSuperTypes="#//CategoryCriteria">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerExplicit" eSuperTypes="#//Columnizer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
-        eType="#//ColumnizerColumn" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorLogic" abstract="true" eSuperTypes="#//ExtractorCompound"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorPipe" eSuperTypes="#//ExtractorCompound"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorUnion" eSuperTypes="#//ExtractorLogic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorIntersection" eSuperTypes="#//ExtractorLogic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Columnizer" abstract="true" eSuperTypes="#//DataToolAbstract"/>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumn" abstract="true">
     <eOperations name="getValue">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerExplicit" eSuperTypes="#//Columnizer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
+        eType="#//ColumnizerColumn" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnAttribute" eSuperTypes="#//ColumnizerColumn #//NavigationPath">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
@@ -104,31 +106,47 @@
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnOcl" eSuperTypes="#//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NavigationPath" eSuperTypes="#//DataTool">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PathElements" upperBound="-1"
-        eType="#//NavigationAxis" containment="true" eOpposite="#//NavigationAxis/Path"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TargetType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Categorizer" eSuperTypes="#//CategoryAbstract #//DataToolAbstract">
+    <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="refreshCats" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="ins" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" upperBound="-1"
+        eType="#//CategoryCriteria" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NavigationReference" eSuperTypes="#//NavigationAxis">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Reference" lowerBound="1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" lowerBound="1"
+        eType="#//CategoryCriteria"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NavigationDowncast" eSuperTypes="#//NavigationAxis">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DowncastType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteria" abstract="true">
+    <eOperations name="getCategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="constructCategory"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NavigationAxis" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract" abstract="true">
+    <eOperations name="getSubcategory">
+      <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
+        eType="#//Category" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TargetType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Path" lowerBound="1" eType="#//NavigationPath"
-        eOpposite="#//NavigationPath/PathElements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//NavigationAxis"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="#//Columnizer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteriaStructuralFeature" eSuperTypes="#//CategoryCriteria #//NavigationPath">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteriaOcl" eSuperTypes="#//CategoryCriteria">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Matcher">
     <eOperations name="refreshMatches">
@@ -141,14 +159,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Match">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataTools">
-    <eOperations name="getDomainTypes" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
-        eType="#//DataTool" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataTool" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Context" eType="#//DataTools"
-        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -108,7 +108,10 @@ public class NavigationDowncastItemProvider extends NavigationAxisItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NavigationDowncast_type");
+		String label = ((NavigationDowncast)object).getPathElement();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NavigationDowncast_type") :
+			getString("_UI_NavigationDowncast_type") + " " + label;
 	}
 	
 

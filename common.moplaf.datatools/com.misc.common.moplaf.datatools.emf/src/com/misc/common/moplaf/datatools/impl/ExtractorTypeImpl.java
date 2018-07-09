@@ -81,6 +81,17 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 		return targetType;
 	}
 
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String getDescription() {
+		String type = this.getTargetType()==null ? "null" : this.getTargetType().getName();
+		String description = String.format("type: %s", type);
+		return description;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

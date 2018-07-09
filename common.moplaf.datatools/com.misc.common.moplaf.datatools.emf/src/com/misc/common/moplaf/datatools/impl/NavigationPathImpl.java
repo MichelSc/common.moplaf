@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +68,16 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 	 * @ordered
 	 */
 	protected static final boolean MANY_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,6 +180,14 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getPath() {
+		return Util.getNavigationPath(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -213,6 +232,8 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 				return basicGetTargetType();
 			case DatatoolsPackage.NAVIGATION_PATH__MANY:
 				return isMany();
+			case DatatoolsPackage.NAVIGATION_PATH__PATH:
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,6 +292,8 @@ public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.NAVIGATION_PATH__MANY:
 				return isMany() != MANY_EDEFAULT;
+			case DatatoolsPackage.NAVIGATION_PATH__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 		}
 		return super.eIsSet(featureID);
 	}

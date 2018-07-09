@@ -1,5 +1,7 @@
 package com.misc.common.moplaf.datatools.util;
 
+import java.util.stream.Collectors;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
@@ -46,5 +48,13 @@ public class Util {
 		NavigationAxis last_element = path.getPathElements().get(nb_elements-1);
 		return last_element.getTargetType();
 		
+	}
+	
+	static public String getNavigationPath(NavigationPath path) {
+		String string = path.getPathElements()
+				.stream()
+	            .map( e -> e.getPathElement() )
+	            .collect( Collectors.joining( "," ) );
+			return string;
 	}
 }

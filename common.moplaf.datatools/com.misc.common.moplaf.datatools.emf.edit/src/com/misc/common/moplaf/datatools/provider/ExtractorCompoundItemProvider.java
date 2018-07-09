@@ -99,7 +99,10 @@ public class ExtractorCompoundItemProvider extends ExtractorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorCompound_type");
+		String label = ((ExtractorCompound)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorCompound_type") :
+			getString("_UI_ExtractorCompound_type") + " " + label;
 	}
 	
 
@@ -141,26 +144,6 @@ public class ExtractorCompoundItemProvider extends ExtractorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
 				 DatatoolsFactory.eINSTANCE.createExtractorPath()));
 
 		newChildDescriptors.add
@@ -177,6 +160,26 @@ public class ExtractorCompoundItemProvider extends ExtractorItemProvider {
 			(createChildParameter
 				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
+				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
+				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
+				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
+				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
 	}
 
 }

@@ -12,5 +12,5 @@ package com.misc.common.moplaf.datatools;
  * @model abstract="true"
  * @generated
  */
-public interface Columnizer extends DataTool {
+public interface Columnizer extends DataToolAbstract {
 } // Columnizer

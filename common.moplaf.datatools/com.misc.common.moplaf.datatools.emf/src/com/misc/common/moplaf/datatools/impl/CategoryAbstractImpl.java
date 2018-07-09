@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getSubCategories <em>Sub Categories</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getNbElements <em>Nb Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getCategoryLabel <em>Category Label</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
@@ -76,14 +76,14 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	protected static final int NB_ELEMENTS_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The default value of the '{@link #getCategoryLabel() <em>Category Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getCategoryLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String CATEGORY_LABEL_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getColumnizer() <em>Columnizer</em>}' reference.
@@ -154,8 +154,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDescription() {
-		// TODO: implement this method to return the 'Description' attribute
+	public String getCategoryLabel() {
+		// TODO: implement this method to return the 'Category Label' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -237,8 +237,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				return getElements();
 			case DatatoolsPackage.CATEGORY_ABSTRACT__NB_ELEMENTS:
 				return getNbElements();
-			case DatatoolsPackage.CATEGORY_ABSTRACT__DESCRIPTION:
-				return getDescription();
+			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_LABEL:
+				return getCategoryLabel();
 			case DatatoolsPackage.CATEGORY_ABSTRACT__COLUMNIZER:
 				if (resolve) return getColumnizer();
 				return basicGetColumnizer();
@@ -305,8 +305,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				return elements != null && !elements.isEmpty();
 			case DatatoolsPackage.CATEGORY_ABSTRACT__NB_ELEMENTS:
 				return getNbElements() != NB_ELEMENTS_EDEFAULT;
-			case DatatoolsPackage.CATEGORY_ABSTRACT__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_LABEL:
+				return CATEGORY_LABEL_EDEFAULT == null ? getCategoryLabel() != null : !CATEGORY_LABEL_EDEFAULT.equals(getCategoryLabel());
 			case DatatoolsPackage.CATEGORY_ABSTRACT__COLUMNIZER:
 				return columnizer != null;
 		}

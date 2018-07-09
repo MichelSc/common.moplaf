@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +70,16 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 	 * @ordered
 	 */
 	protected static final boolean MANY_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,6 +179,14 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getPath() {
+		return Util.getNavigationPath(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getAttributeValue() {
@@ -223,6 +242,8 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 				return basicGetTargetType();
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__MANY:
 				return isMany();
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH:
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -281,6 +302,8 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__MANY:
 				return isMany() != MANY_EDEFAULT;
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -298,6 +321,7 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 				case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
 				case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__MANY: return DatatoolsPackage.NAVIGATION_PATH__MANY;
+				case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH: return DatatoolsPackage.NAVIGATION_PATH__PATH;
 				default: return -1;
 			}
 		}
@@ -317,6 +341,7 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__TARGET_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__MANY: return DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__MANY;
+				case DatatoolsPackage.NAVIGATION_PATH__PATH: return DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH;
 				default: return -1;
 			}
 		}

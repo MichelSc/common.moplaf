@@ -109,7 +109,10 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NavigationReference_type");
+		String label = ((NavigationReference)object).getPathElement();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NavigationReference_type") :
+			getString("_UI_NavigationReference_type") + " " + label;
 	}
 	
 

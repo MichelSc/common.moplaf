@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getFeature <em>Feature</em>}</li>
  * </ul>
  *
@@ -73,6 +74,16 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 	 * @ordered
 	 */
 	protected static final boolean MANY_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference.
@@ -210,6 +221,17 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPath() {
+		// TODO: implement this method to return the 'Path' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EStructuralFeature getFeature() {
 		if (feature != null && feature.eIsProxy()) {
 			InternalEObject oldFeature = (InternalEObject)feature;
@@ -293,6 +315,8 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 				return basicGetTargetType();
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY:
 				return isMany();
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH:
+				return getPath();
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE:
 				if (resolve) return getFeature();
 				return basicGetFeature();
@@ -362,6 +386,8 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY:
 				return isMany() != MANY_EDEFAULT;
+			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH:
+				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE:
 				return feature != null;
 		}
@@ -387,6 +413,7 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
 				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
 				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY: return DatatoolsPackage.NAVIGATION_PATH__MANY;
+				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH: return DatatoolsPackage.NAVIGATION_PATH__PATH;
 				default: return -1;
 			}
 		}
@@ -412,6 +439,7 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE;
 				case DatatoolsPackage.NAVIGATION_PATH__MANY: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY;
+				case DatatoolsPackage.NAVIGATION_PATH__PATH: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH;
 				default: return -1;
 			}
 		}

@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.ExtractorUnion;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,7 +63,10 @@ public class ExtractorUnionItemProvider extends ExtractorLogicItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorUnion_type");
+		String label = ((ExtractorUnion)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorUnion_type") :
+			getString("_UI_ExtractorUnion_type") + " " + label;
 	}
 	
 

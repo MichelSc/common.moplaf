@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.Columnizer;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class ColumnizerItemProvider 
-	extends DataToolItemProvider {
+	extends DataToolAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -51,7 +52,10 @@ public class ColumnizerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Columnizer_type");
+		String label = ((Columnizer)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Columnizer_type") :
+			getString("_UI_Columnizer_type") + " " + label;
 	}
 	
 
