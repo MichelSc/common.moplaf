@@ -9,13 +9,14 @@ import com.misc.common.moplaf.datatools.NavigationPath;
 import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -345,5 +346,30 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isValidRoot(EObject doc) {
+		EClass source_type = this.getSourceType();
+		if ( source_type==null ) {
+			return false;
+		}
+		if ( !source_type.isInstance(doc)) {
+			return false;
+		}
+		return true;
+	}
+
+
+	/**
+	 * 
+	 * @param in
+	 * @param outs
+	 */
+	protected  void extractImpl(EObject in, Set<EObject> outs) {
+	}
+	
 
 } //ExtractorPathImpl

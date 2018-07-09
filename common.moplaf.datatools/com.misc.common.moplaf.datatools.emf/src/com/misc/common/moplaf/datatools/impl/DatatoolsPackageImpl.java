@@ -449,7 +449,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExtractor__RefreshOuts__EList() {
+	public EOperation getExtractor__Extract__EList() {
 		return extractorEClass.getEOperations().get(0);
 	}
 
@@ -998,6 +998,24 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getNavigationAxis__Naviguate__EObject() {
+		return navigationAxisEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNavigationAxis__NaviguateMany__EObject() {
+		return navigationAxisEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMatcher() {
 		return matcherEClass;
 	}
@@ -1160,6 +1178,8 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(navigationAxisEClass, NAVIGATION_AXIS__PATH);
 		createEReference(navigationAxisEClass, NAVIGATION_AXIS__PREVIOUS);
 		createEAttribute(navigationAxisEClass, NAVIGATION_AXIS__PATH_ELEMENT);
+		createEOperation(navigationAxisEClass, NAVIGATION_AXIS___NAVIGUATE__EOBJECT);
+		createEOperation(navigationAxisEClass, NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT);
 
 		navigationReferenceEClass = createEClass(NAVIGATION_REFERENCE);
 		createEReference(navigationReferenceEClass, NAVIGATION_REFERENCE__REFERENCE);
@@ -1179,7 +1199,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEAttribute(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__DESCRIPTION);
 
 		extractorEClass = createEClass(EXTRACTOR);
-		createEOperation(extractorEClass, EXTRACTOR___REFRESH_OUTS__ELIST);
+		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__ELIST);
 		createEOperation(extractorEClass, EXTRACTOR___IS_VALID_ROOT__EOBJECT);
 
 		extractorTypeEClass = createEClass(EXTRACTOR_TYPE);
@@ -1341,6 +1361,12 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEReference(getNavigationAxis_Previous(), this.getNavigationAxis(), null, "Previous", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNavigationAxis_PathElement(), ecorePackage.getEString(), "PathElement", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getNavigationAxis__Naviguate__EObject(), ecorePackage.getEObject(), "naviguate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "in", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getNavigationAxis__NaviguateMany__EObject(), ecorePackage.getEObject(), "naviguateMany", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "in", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(navigationReferenceEClass, NavigationReference.class, "NavigationReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNavigationReference_Reference(), ecorePackage.getEReference(), null, "Reference", null, 1, 1, NavigationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1361,7 +1387,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		initEClass(extractorEClass, Extractor.class, "Extractor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getExtractor__RefreshOuts__EList(), ecorePackage.getEObject(), "refreshOuts", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExtractor__Extract__EList(), ecorePackage.getEObject(), "extract", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "ins", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getExtractor__IsValidRoot__EObject(), ecorePackage.getEBoolean(), "isValidRoot", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -6,8 +6,10 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationReference;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -175,4 +177,43 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EObject naviguate(EObject in) {
+		EReference reference = this.getReference();
+		if ( reference==null ) {
+			return null;
+		} else if ( reference.isMany() ) {
+			return null;
+		}
+		
+		EObject out = (EObject) in.eGet(this.getReference());
+		return out;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<EObject> naviguateMany(EObject in) {
+		BasicEList<EObject> list = new BasicEList<EObject>();
+		EReference reference = this.getReference();
+		if ( reference==null ) {
+			return list;
+		}
+		Object value = in.eGet(reference);
+		if ( reference.isMany()) {
+			EList<?> outs = (EList<?>)value;
+			for( Object out : outs){
+				list.add((EObject) out);
+			}
+		} else {
+			if ( value!=null) {
+				list.add((EObject) value);
+			}
+		}
+		return list;
+	}
 } //NavigationReferenceImpl

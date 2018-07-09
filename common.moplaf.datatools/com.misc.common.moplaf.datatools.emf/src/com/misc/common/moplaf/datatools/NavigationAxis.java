@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -113,5 +114,21 @@ public interface NavigationAxis extends EObject {
 	 * @generated
 	 */
 	String getPathElement();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObject naviguate(EObject in);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<EObject> naviguateMany(EObject in);
 
 } // NavigationAxis

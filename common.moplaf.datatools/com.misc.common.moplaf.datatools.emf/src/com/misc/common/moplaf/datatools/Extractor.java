@@ -23,7 +23,7 @@ public interface Extractor extends DataToolAbstract {
 	 * @model insMany="true"
 	 * @generated
 	 */
-	EList<EObject> refreshOuts(EList<EObject> ins);
+	EList<EObject> extract(EList<EObject> ins);
 
 	/**
 	 * <!-- begin-user-doc -->

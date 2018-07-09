@@ -481,13 +481,31 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_AXIS_FEATURE_COUNT = 5;
 
 	/**
+	 * The operation id for the '<em>Naviguate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS___NAVIGUATE__EOBJECT = 0;
+
+	/**
+	 * The operation id for the '<em>Naviguate Many</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT = 1;
+
+	/**
 	 * The number of operations of the '<em>Navigation Axis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS_OPERATION_COUNT = 0;
+	int NAVIGATION_AXIS_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationReferenceImpl <em>Navigation Reference</em>}' class.
@@ -561,6 +579,24 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAVIGATION_REFERENCE_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Naviguate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE___NAVIGUATE__EOBJECT = NAVIGATION_AXIS___NAVIGUATE__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Naviguate Many</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE___NAVIGUATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Navigation Reference</em>' class.
@@ -643,6 +679,24 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAVIGATION_DOWNCAST_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Naviguate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST___NAVIGUATE__EOBJECT = NAVIGATION_AXIS___NAVIGUATE__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Naviguate Many</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST___NAVIGUATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Navigation Downcast</em>' class.
@@ -812,13 +866,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR___REFRESH_OUTS__ELIST = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
+	int EXTRACTOR___EXTRACT__ELIST = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -884,13 +938,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_TYPE_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_TYPE___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_TYPE___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -992,13 +1046,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PATH_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_PATH___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1064,13 +1118,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_OCL_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_OCL___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_OCL___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1127,13 +1181,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_FILTER___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1244,13 +1298,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT = EXTRACTOR_FILTER_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___REFRESH_OUTS__ELIST = EXTRACTOR_FILTER___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__ELIST = EXTRACTOR_FILTER___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1397,13 +1451,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT_FEATURE_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___REFRESH_OUTS__ELIST = EXTRACTOR_FILTER_ATTRIBUTE___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__ELIST = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1487,13 +1541,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL_FEATURE_COUNT = EXTRACTOR_FILTER_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_OCL___REFRESH_OUTS__ELIST = EXTRACTOR_FILTER___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_FILTER_OCL___EXTRACT__ELIST = EXTRACTOR_FILTER___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1568,13 +1622,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_COMPOUND___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1640,13 +1694,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_LOGIC_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_LOGIC___REFRESH_OUTS__ELIST = EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_LOGIC___EXTRACT__ELIST = EXTRACTOR_COMPOUND___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1712,13 +1766,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PIPE_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PIPE___REFRESH_OUTS__ELIST = EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_PIPE___EXTRACT__ELIST = EXTRACTOR_COMPOUND___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1784,13 +1838,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_UNION_FEATURE_COUNT = EXTRACTOR_LOGIC_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_UNION___REFRESH_OUTS__ELIST = EXTRACTOR_LOGIC___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_UNION___EXTRACT__ELIST = EXTRACTOR_LOGIC___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1856,13 +1910,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_INTERSECTION_FEATURE_COUNT = EXTRACTOR_LOGIC_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_INTERSECTION___REFRESH_OUTS__ELIST = EXTRACTOR_LOGIC___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_INTERSECTION___EXTRACT__ELIST = EXTRACTOR_LOGIC___EXTRACT__ELIST;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2842,14 +2896,14 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractor();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#refreshOuts(org.eclipse.emf.common.util.EList) <em>Refresh Outs</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(org.eclipse.emf.common.util.EList) <em>Extract</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Outs</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Extractor#refreshOuts(org.eclipse.emf.common.util.EList)
+	 * @return the meta object for the '<em>Extract</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Extractor#extract(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getExtractor__RefreshOuts__EList();
+	EOperation getExtractor__Extract__EList();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
@@ -3483,6 +3537,26 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getNavigationAxis_PathElement();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#naviguate(org.eclipse.emf.ecore.EObject) <em>Naviguate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Naviguate</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#naviguate(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getNavigationAxis__Naviguate__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#naviguateMany(org.eclipse.emf.ecore.EObject) <em>Naviguate Many</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Naviguate Many</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#naviguateMany(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getNavigationAxis__NaviguateMany__EObject();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Matcher <em>Matcher</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3749,12 +3823,12 @@ public interface DatatoolsPackage extends EPackage {
 		EClass EXTRACTOR = eINSTANCE.getExtractor();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh Outs</b></em>' operation.
+		 * The meta object literal for the '<em><b>Extract</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR___REFRESH_OUTS__ELIST = eINSTANCE.getExtractor__RefreshOuts__EList();
+		EOperation EXTRACTOR___EXTRACT__ELIST = eINSTANCE.getExtractor__Extract__EList();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.
@@ -4283,6 +4357,22 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAVIGATION_AXIS__PATH_ELEMENT = eINSTANCE.getNavigationAxis_PathElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Naviguate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NAVIGATION_AXIS___NAVIGUATE__EOBJECT = eINSTANCE.getNavigationAxis__Naviguate__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Naviguate Many</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT = eINSTANCE.getNavigationAxis__NaviguateMany__EObject();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.MatcherImpl <em>Matcher</em>}' class.

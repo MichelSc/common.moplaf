@@ -5,9 +5,12 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorType;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Set;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -162,5 +165,33 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 		}
 		return super.eIsSet(featureID);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isValidRoot(EObject doc) {
+		// valid for any type
+		return true;
+	}
+
+
+	/**
+	 * 
+	 * @param in
+	 * @param outs
+	 */
+	protected  void extractImpl(EObject in, Set<EObject> outs) {
+		EClass target_type = this.getTargetType();
+		TreeIterator<EObject> content_iterator = in.eAllContents();
+		while ( content_iterator.hasNext()) {
+			EObject object = content_iterator.next();
+			if ( target_type.isInstance(object)) {
+				outs.add(object);
+			}
+		}
+	}
+	
+
 
 } //ExtractorTypeImpl
