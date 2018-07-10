@@ -143,8 +143,8 @@
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryLabel" ordered="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="#//Columnizer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteriaStructuralFeature" eSuperTypes="#//CategoryCriteria #//NavigationPath">

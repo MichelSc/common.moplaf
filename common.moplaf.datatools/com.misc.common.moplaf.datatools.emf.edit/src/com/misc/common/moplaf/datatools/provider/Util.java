@@ -26,5 +26,5 @@ public class Util {
 		for ( Extractor new_object : new_objects) {
 			newChildDescriptors.add(new CommandParameter(null, feature, new_object));
 		}
-	}  // method collectNewChildRunDescriptors2
+	}  // method collectNewChildRunDescriptors
 }

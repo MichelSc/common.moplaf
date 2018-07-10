@@ -47,13 +47,9 @@ public abstract class ExtractorImpl extends DataToolAbstractImpl implements Extr
 	 * <!-- end-user-doc -->
 	 */
 	public EList<EObject> extract(EList<EObject> ins) {
-		HashSet<EObject> outs = new HashSet<EObject>();
-		for ( EObject in : ins) {
-			if ( this.isValidRoot(in)) {
-				this.extractImpl(in, outs);
-			}
-		}
-		BasicEList<EObject> list = new BasicEList<EObject>(outs);
+		HashSet<EObject> ins_set = new HashSet<EObject>(ins);
+		Set<EObject> outs_set = this.extractImpl(ins_set);
+		BasicEList<EObject> list = new BasicEList<EObject>(outs_set);
 		return list;
 	}
 
@@ -62,7 +58,8 @@ public abstract class ExtractorImpl extends DataToolAbstractImpl implements Extr
 	 * @param in
 	 * @param outs
 	 */
-	protected  void extractImpl(EObject in, Set<EObject> outs) {
+	protected  Set<EObject> extractImpl(Set<EObject> ins) {
+		return new HashSet<EObject>();
 	}
 	
 	/**

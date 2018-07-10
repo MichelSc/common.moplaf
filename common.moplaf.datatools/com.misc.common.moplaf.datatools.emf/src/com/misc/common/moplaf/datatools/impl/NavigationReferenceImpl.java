@@ -187,6 +187,8 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 			return null;
 		} else if ( reference.isMany() ) {
 			return null;
+		} else if ( in ==null) {
+			return null;
 		}
 		
 		EObject out = (EObject) in.eGet(this.getReference());
@@ -197,23 +199,25 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<EObject> naviguateMany(EObject in) {
-		BasicEList<EObject> list = new BasicEList<EObject>();
 		EReference reference = this.getReference();
 		if ( reference==null ) {
-			return list;
+			return null;
+		} else if ( in ==null ) {
+			return null;
 		}
 		Object value = in.eGet(reference);
 		if ( reference.isMany()) {
-			EList<?> outs = (EList<?>)value;
-			for( Object out : outs){
-				list.add((EObject) out);
-			}
+			EList<EObject> outs = (EList<EObject>)value;
+			return outs;
 		} else {
 			if ( value!=null) {
+				BasicEList<EObject> list = new BasicEList<EObject>();
 				list.add((EObject) value);
+				return list;
 			}
 		}
-		return list;
+		return null;
 	}
 } //NavigationReferenceImpl

@@ -192,10 +192,11 @@ public class NavigationDowncastImpl extends NavigationAxisImpl implements Naviga
 	 */
 	public EList<EObject> naviguateMany(EObject in) {
 		EObject out = this.naviguate(in);
-		BasicEList<EObject> list = new BasicEList<EObject>();
-		if( out!=null) {
-			list.add(out);
+		if( out==null) {
+			return null;
 		}
+		BasicEList<EObject> list = new BasicEList<EObject>();
+		list.add(out);
 		return list;
 	}
 
