@@ -66,7 +66,7 @@ public class CategoryAbstractItemProvider
 			addElementsPropertyDescriptor(object);
 			addNbElementsPropertyDescriptor(object);
 			addCategoryLabelPropertyDescriptor(object);
-			addColumnizerPropertyDescriptor(object);
+			addCategoryColumnizerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,19 +138,19 @@ public class CategoryAbstractItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Columnizer feature.
+	 * This adds a property descriptor for the Category Columnizer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addColumnizerPropertyDescriptor(Object object) {
+	protected void addCategoryColumnizerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_Columnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_Columnizer_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__COLUMNIZER,
+				 getString("_UI_CategoryAbstract_CategoryColumnizer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_CategoryColumnizer_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER,
 				 true,
 				 false,
 				 true,

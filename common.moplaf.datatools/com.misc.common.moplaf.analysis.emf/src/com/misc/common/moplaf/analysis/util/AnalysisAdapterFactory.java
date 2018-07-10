@@ -4,6 +4,9 @@ package com.misc.common.moplaf.analysis.util;
 
 import com.misc.common.moplaf.analysis.*;
 
+import com.misc.common.moplaf.datatools.Categorizer;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
+import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.job.DocRef;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -74,8 +77,24 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createDocAnalysisAdapter();
 			}
 			@Override
+			public Adapter caseDocComparison(DocComparison object) {
+				return createDocComparisonAdapter();
+			}
+			@Override
 			public Adapter caseDocRef(DocRef object) {
 				return createDocRefAdapter();
+			}
+			@Override
+			public Adapter caseCategoryAbstract(CategoryAbstract object) {
+				return createCategoryAbstractAdapter();
+			}
+			@Override
+			public Adapter caseCategorizer(Categorizer object) {
+				return createCategorizerAdapter();
+			}
+			@Override
+			public Adapter caseMatcher(Matcher object) {
+				return createMatcherAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -112,6 +131,20 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.DocComparison <em>Doc Comparison</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.analysis.DocComparison
+	 * @generated
+	 */
+	public Adapter createDocComparisonAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.DocRef <em>Doc Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -122,6 +155,48 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryAbstract <em>Category Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract
+	 * @generated
+	 */
+	public Adapter createCategoryAbstractAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.Categorizer
+	 * @generated
+	 */
+	public Adapter createCategorizerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.Matcher <em>Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.Matcher
+	 * @generated
+	 */
+	public Adapter createMatcherAdapter() {
 		return null;
 	}
 

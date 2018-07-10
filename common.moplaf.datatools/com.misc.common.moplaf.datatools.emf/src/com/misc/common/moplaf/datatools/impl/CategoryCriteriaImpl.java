@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryCriteria;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -12,8 +13,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Category Criteria</b></em>'.
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class CategoryCriteriaImpl extends MinimalEObjectImpl.Container implements CategoryCriteria {
+public abstract class CategoryCriteriaImpl extends DataToolAbstractImpl implements CategoryCriteria {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,7 +56,7 @@ public abstract class CategoryCriteriaImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void constructCategory() {
+	public Category constructCategory() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -74,8 +73,7 @@ public abstract class CategoryCriteriaImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT:
 				return getCategoryValue((EObject)arguments.get(0));
 			case DatatoolsPackage.CATEGORY_CRITERIA___CONSTRUCT_CATEGORY:
-				constructCategory();
-				return null;
+				return constructCategory();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

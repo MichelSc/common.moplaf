@@ -22,9 +22,9 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Categorizer extends CategoryAbstract, DataToolAbstract {
+public interface Categorizer extends CategoryAbstract {
 	/**
-	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Criteria</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.CategoryCriteria}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -32,9 +32,9 @@ public interface Categorizer extends CategoryAbstract, DataToolAbstract {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Criteria</em>' containment reference list.
+	 * @return the value of the '<em>Criteria</em>' reference list.
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategorizer_Criteria()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<CategoryCriteria> getCriteria();
@@ -50,9 +50,9 @@ public interface Categorizer extends CategoryAbstract, DataToolAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model insMany="true"
 	 * @generated
 	 */
-	EList<EObject> refreshCats(EObject ins);
+	EList<EObject> refreshCats(EList<EObject> ins);
 
 } // Categorizer

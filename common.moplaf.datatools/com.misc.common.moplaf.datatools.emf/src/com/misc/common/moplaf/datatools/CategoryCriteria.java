@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface CategoryCriteria extends EObject {
+public interface CategoryCriteria extends DataToolAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29,6 +29,6 @@ public interface CategoryCriteria extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void constructCategory();
+	Category constructCategory();
 
 } // CategoryCriteria

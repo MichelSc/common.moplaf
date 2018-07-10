@@ -48,7 +48,6 @@ public class CategoryCriteriaStructuralFeatureItemProvider extends CategoryCrite
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContextPropertyDescriptor(object);
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
@@ -56,28 +55,6 @@ public class CategoryCriteriaStructuralFeatureItemProvider extends CategoryCrite
 			addFeaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataTool_Context_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataTool_Context_feature", "_UI_DataTool_type"),
-				 DatatoolsPackage.Literals.DATA_TOOL__CONTEXT,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -239,8 +216,10 @@ public class CategoryCriteriaStructuralFeatureItemProvider extends CategoryCrite
 	 */
 	@Override
 	public String getText(Object object) {
-		CategoryCriteriaStructuralFeature categoryCriteriaStructuralFeature = (CategoryCriteriaStructuralFeature)object;
-		return getString("_UI_CategoryCriteriaStructuralFeature_type") + " " + categoryCriteriaStructuralFeature.isMany();
+		String label = ((CategoryCriteriaStructuralFeature)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CategoryCriteriaStructuralFeature_type") :
+			getString("_UI_CategoryCriteriaStructuralFeature_type") + " " + label;
 	}
 	
 

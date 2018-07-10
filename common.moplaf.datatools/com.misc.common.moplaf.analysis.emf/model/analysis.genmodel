@@ -10,8 +10,15 @@
       ecorePackage="analysis.ecore#/">
     <genClasses ecoreClass="analysis.ecore#//DocAnalysis">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Extractor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Categorizer"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Columnizer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/columnizer"/>
+      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
+    </genClasses>
+    <genClasses ecoreClass="analysis.ecore#//DocComparison">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/extractor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Columnizer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Doc1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Doc2"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Categorizer"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

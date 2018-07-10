@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryLabel <em>Category Label</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer <em>Category Columnizer</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract()
@@ -84,36 +84,36 @@ public interface CategoryAbstract extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Category Label</em>' attribute.
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_CategoryLabel()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model changeable="false" ordered="false"
 	 * @generated
 	 */
 	String getCategoryLabel();
 
 	/**
-	 * Returns the value of the '<em><b>Columnizer</b></em>' reference.
+	 * Returns the value of the '<em><b>Category Columnizer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Columnizer</em>' reference isn't clear,
+	 * If the meaning of the '<em>Category Columnizer</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Columnizer</em>' reference.
-	 * @see #setColumnizer(Columnizer)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_Columnizer()
+	 * @return the value of the '<em>Category Columnizer</em>' reference.
+	 * @see #setCategoryColumnizer(Columnizer)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_CategoryColumnizer()
 	 * @model
 	 * @generated
 	 */
-	Columnizer getColumnizer();
+	Columnizer getCategoryColumnizer();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer <em>Columnizer</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer <em>Category Columnizer</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Columnizer</em>' reference.
-	 * @see #getColumnizer()
+	 * @param value the new value of the '<em>Category Columnizer</em>' reference.
+	 * @see #getCategoryColumnizer()
 	 * @generated
 	 */
-	void setColumnizer(Columnizer value);
+	void setCategoryColumnizer(Columnizer value);
 
 	/**
 	 * <!-- begin-user-doc -->

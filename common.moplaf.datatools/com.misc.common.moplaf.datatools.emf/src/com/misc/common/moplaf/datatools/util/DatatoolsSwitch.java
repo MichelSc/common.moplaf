@@ -284,8 +284,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				Categorizer categorizer = (Categorizer)theEObject;
 				T result = caseCategorizer(categorizer);
 				if (result == null) result = caseCategoryAbstract(categorizer);
-				if (result == null) result = caseDataToolAbstract(categorizer);
-				if (result == null) result = caseDataTool(categorizer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -299,6 +297,8 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.CATEGORY_CRITERIA: {
 				CategoryCriteria categoryCriteria = (CategoryCriteria)theEObject;
 				T result = caseCategoryCriteria(categoryCriteria);
+				if (result == null) result = caseDataToolAbstract(categoryCriteria);
+				if (result == null) result = caseDataTool(categoryCriteria);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -313,6 +313,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseCategoryCriteriaStructuralFeature(categoryCriteriaStructuralFeature);
 				if (result == null) result = caseCategoryCriteria(categoryCriteriaStructuralFeature);
 				if (result == null) result = caseNavigationPath(categoryCriteriaStructuralFeature);
+				if (result == null) result = caseDataToolAbstract(categoryCriteriaStructuralFeature);
 				if (result == null) result = caseDataTool(categoryCriteriaStructuralFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -321,6 +322,8 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				CategoryCriteriaOcl categoryCriteriaOcl = (CategoryCriteriaOcl)theEObject;
 				T result = caseCategoryCriteriaOcl(categoryCriteriaOcl);
 				if (result == null) result = caseCategoryCriteria(categoryCriteriaOcl);
+				if (result == null) result = caseDataToolAbstract(categoryCriteriaOcl);
+				if (result == null) result = caseDataTool(categoryCriteriaOcl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

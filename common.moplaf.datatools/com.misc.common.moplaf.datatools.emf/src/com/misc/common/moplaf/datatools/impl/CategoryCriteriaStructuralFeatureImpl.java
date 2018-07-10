@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature;
-import com.misc.common.moplaf.datatools.DataTool;
-import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
@@ -33,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getContext <em>Context</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getPathElements <em>Path Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaStructuralFeatureImpl#getTargetType <em>Target Type</em>}</li>
@@ -112,28 +109,6 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 	@Override
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.CATEGORY_CRITERIA_STRUCTURAL_FEATURE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataTools getContext() {
-		DataTools context = basicGetContext();
-		return context != null && context.eIsProxy() ? (DataTools)eResolveProxy((InternalEObject)context) : context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataTools basicGetContext() {
-		// TODO: implement this method to return the 'Context' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -302,9 +277,6 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT:
-				if (resolve) return getContext();
-				return basicGetContext();
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				return getPathElements();
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
@@ -376,8 +348,6 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT:
-				return basicGetContext() != null;
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				return pathElements != null && !pathElements.isEmpty();
 			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE:
@@ -401,12 +371,6 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == DataTool.class) {
-			switch (derivedFeatureID) {
-				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT: return DatatoolsPackage.DATA_TOOL__CONTEXT;
-				default: return -1;
-			}
-		}
 		if (baseClass == NavigationPath.class) {
 			switch (derivedFeatureID) {
 				case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS: return DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS;
@@ -427,12 +391,6 @@ public class CategoryCriteriaStructuralFeatureImpl extends CategoryCriteriaImpl 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == DataTool.class) {
-			switch (baseFeatureID) {
-				case DatatoolsPackage.DATA_TOOL__CONTEXT: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT;
-				default: return -1;
-			}
-		}
 		if (baseClass == NavigationPath.class) {
 			switch (baseFeatureID) {
 				case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS: return DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS;

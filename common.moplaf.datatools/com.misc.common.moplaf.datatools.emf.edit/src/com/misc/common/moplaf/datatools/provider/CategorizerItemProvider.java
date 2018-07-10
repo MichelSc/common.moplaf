@@ -14,10 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,77 +45,8 @@ public class CategorizerItemProvider extends CategoryAbstractItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContextPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataTool_Context_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataTool_Context_feature", "_UI_DataTool_type"),
-				 DatatoolsPackage.Literals.DATA_TOOL__CONTEXT,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataToolAbstract_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Name_feature", "_UI_DataToolAbstract_type"),
-				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataToolAbstract_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Description_feature", "_UI_DataToolAbstract_type"),
-				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__DESCRIPTION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -170,7 +98,7 @@ public class CategorizerItemProvider extends CategoryAbstractItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Categorizer)object).getDescription();
+		String label = ((Categorizer)object).getCategoryLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Categorizer_type") :
 			getString("_UI_Categorizer_type") + " " + label;
@@ -189,10 +117,6 @@ public class CategorizerItemProvider extends CategoryAbstractItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Categorizer.class)) {
-			case DatatoolsPackage.CATEGORIZER__NAME:
-			case DatatoolsPackage.CATEGORIZER__DESCRIPTION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case DatatoolsPackage.CATEGORIZER__CRITERIA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

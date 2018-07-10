@@ -18,7 +18,6 @@ import com.misc.common.moplaf.job.DocRef;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategorizer <em>Categorizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
@@ -26,7 +25,7 @@ import com.misc.common.moplaf.job.DocRef;
  * @model
  * @generated
  */
-public interface DocAnalysis extends DocRef {
+public interface DocAnalysis extends DocRef, Categorizer {
 	/**
 	 * Returns the value of the '<em><b>Extractor</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -54,32 +53,6 @@ public interface DocAnalysis extends DocRef {
 	void setExtractor(Extractor value);
 
 	/**
-	 * Returns the value of the '<em><b>Categorizer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Categorizer</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Categorizer</em>' reference.
-	 * @see #setCategorizer(Categorizer)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Categorizer()
-	 * @model
-	 * @generated
-	 */
-	Categorizer getCategorizer();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategorizer <em>Categorizer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Categorizer</em>' reference.
-	 * @see #getCategorizer()
-	 * @generated
-	 */
-	void setCategorizer(Categorizer value);
-
-	/**
 	 * Returns the value of the '<em><b>Columnizer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -104,5 +77,13 @@ public interface DocAnalysis extends DocRef {
 	 * @generated
 	 */
 	void setColumnizer(Columnizer value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
 
 } // DocAnalysis

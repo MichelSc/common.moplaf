@@ -2279,13 +2279,13 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT__CATEGORY_LABEL = 3;
 
 	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT__COLUMNIZER = 4;
+	int CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER = 4;
 
 	/**
 	 * The number of structural features of the '<em>Category Abstract</em>' class.
@@ -2351,49 +2351,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER__CATEGORY_LABEL = CATEGORY_ABSTRACT__CATEGORY_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER__COLUMNIZER = CATEGORY_ABSTRACT__COLUMNIZER;
+	int CATEGORIZER__CATEGORY_COLUMNIZER = CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * The feature id for the '<em><b>Criteria</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER__CONTEXT = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__NAME = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__DESCRIPTION = CATEGORY_ABSTRACT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Criteria</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__CRITERIA = CATEGORY_ABSTRACT_FEATURE_COUNT + 3;
+	int CATEGORIZER__CRITERIA = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Categorizer</em>' class.
@@ -2402,7 +2375,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER_FEATURE_COUNT = CATEGORY_ABSTRACT_FEATURE_COUNT + 4;
+	int CATEGORIZER_FEATURE_COUNT = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -2429,7 +2402,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER___REFRESH_CATS__EOBJECT = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
+	int CATEGORIZER___REFRESH_CATS__ELIST = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Categorizer</em>' class.
@@ -2477,13 +2450,13 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY__CATEGORY_LABEL = CATEGORY_ABSTRACT__CATEGORY_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__COLUMNIZER = CATEGORY_ABSTRACT__COLUMNIZER;
+	int CATEGORY__CATEGORY_COLUMNIZER = CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER;
 
 	/**
 	 * The feature id for the '<em><b>Criteria</b></em>' reference.
@@ -2531,13 +2504,40 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_OPERATION_COUNT = CATEGORY_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA__CONTEXT = DATA_TOOL_ABSTRACT__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA__NAME = DATA_TOOL_ABSTRACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA__DESCRIPTION = DATA_TOOL_ABSTRACT__DESCRIPTION;
+
+	/**
 	 * The number of structural features of the '<em>Category Criteria</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_FEATURE_COUNT = 0;
+	int CATEGORY_CRITERIA_FEATURE_COUNT = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Category Value</em>' operation.
@@ -2546,7 +2546,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT = 0;
+	int CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Construct Category</em>' operation.
@@ -2555,7 +2555,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA___CONSTRUCT_CATEGORY = 1;
+	int CATEGORY_CRITERIA___CONSTRUCT_CATEGORY = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Category Criteria</em>' class.
@@ -2564,7 +2564,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_OPERATION_COUNT = 2;
+	int CATEGORY_CRITERIA_OPERATION_COUNT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -2573,7 +2573,25 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__CONTEXT = CATEGORY_CRITERIA__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__NAME = CATEGORY_CRITERIA__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__DESCRIPTION = CATEGORY_CRITERIA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -2582,7 +2600,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH_ELEMENTS = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -2591,7 +2609,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 2;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__SOURCE_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -2600,7 +2618,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 3;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__TARGET_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -2609,7 +2627,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY = CATEGORY_CRITERIA_FEATURE_COUNT + 4;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__MANY = CATEGORY_CRITERIA_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2618,7 +2636,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH = CATEGORY_CRITERIA_FEATURE_COUNT + 5;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__PATH = CATEGORY_CRITERIA_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Feature</b></em>' reference.
@@ -2627,7 +2645,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE = CATEGORY_CRITERIA_FEATURE_COUNT + 6;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE__FEATURE = CATEGORY_CRITERIA_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Category Criteria Structural Feature</em>' class.
@@ -2636,7 +2654,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 7;
+	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Category Value</em>' operation.
@@ -2664,6 +2682,33 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY_CRITERIA_STRUCTURAL_FEATURE_OPERATION_COUNT = CATEGORY_CRITERIA_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA_OCL__CONTEXT = CATEGORY_CRITERIA__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA_OCL__NAME = CATEGORY_CRITERIA__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_CRITERIA_OCL__DESCRIPTION = CATEGORY_CRITERIA__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -2793,10 +2838,10 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getCategorizer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.Categorizer#getCriteria <em>Criteria</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.datatools.Categorizer#getCriteria <em>Criteria</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Criteria</em>'.
+	 * @return the meta object for the reference list '<em>Criteria</em>'.
 	 * @see com.misc.common.moplaf.datatools.Categorizer#getCriteria()
 	 * @see #getCategorizer()
 	 * @generated
@@ -2814,14 +2859,14 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getCategorizer__IsValidRoot__EObject();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.ecore.EObject) <em>Refresh Cats</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.common.util.EList) <em>Refresh Cats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Cats</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.ecore.EObject)
+	 * @see com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getCategorizer__RefreshCats__EObject();
+	EOperation getCategorizer__RefreshCats__EList();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Category <em>Category</em>}'.
@@ -2980,15 +3025,15 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getCategoryAbstract_CategoryLabel();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer <em>Columnizer</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer <em>Category Columnizer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Columnizer</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer()
+	 * @return the meta object for the reference '<em>Category Columnizer</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer()
 	 * @see #getCategoryAbstract()
 	 * @generated
 	 */
-	EReference getCategoryAbstract_Columnizer();
+	EReference getCategoryAbstract_CategoryColumnizer();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject) <em>Get Subcategory</em>}' operation.
@@ -3737,7 +3782,7 @@ public interface DatatoolsPackage extends EPackage {
 		EClass CATEGORIZER = eINSTANCE.getCategorizer();
 
 		/**
-		 * The meta object literal for the '<em><b>Criteria</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Criteria</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3758,7 +3803,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORIZER___REFRESH_CATS__EOBJECT = eINSTANCE.getCategorizer__RefreshCats__EObject();
+		EOperation CATEGORIZER___REFRESH_CATS__ELIST = eINSTANCE.getCategorizer__RefreshCats__EList();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryImpl <em>Category</em>}' class.
@@ -3891,12 +3936,12 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute CATEGORY_ABSTRACT__CATEGORY_LABEL = eINSTANCE.getCategoryAbstract_CategoryLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Columnizer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Category Columnizer</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY_ABSTRACT__COLUMNIZER = eINSTANCE.getCategoryAbstract_Columnizer();
+		EReference CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER = eINSTANCE.getCategoryAbstract_CategoryColumnizer();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Subcategory</b></em>' operation.

@@ -6,6 +6,7 @@ import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
 
+import com.misc.common.moplaf.analysis.DocComparison;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import com.misc.common.moplaf.file.FilePackage;
@@ -13,6 +14,7 @@ import com.misc.common.moplaf.file.FilePackage;
 import com.misc.common.moplaf.job.JobPackage;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -31,6 +33,13 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	private EClass docAnalysisEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass docComparisonEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -60,7 +69,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link AnalysisPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -74,7 +83,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		if (isInited) return (AnalysisPackage)EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
 
 		// Obtain or create and register package
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AnalysisPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AnalysisPackageImpl());
+		Object registeredAnalysisPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = registeredAnalysisPackage instanceof AnalysisPackageImpl ? (AnalysisPackageImpl)registeredAnalysisPackage : new AnalysisPackageImpl();
 
 		isInited = true;
 
@@ -92,7 +102,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Mark meta-data to indicate it can't be changed
 		theAnalysisPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(AnalysisPackage.eNS_URI, theAnalysisPackage);
 		return theAnalysisPackage;
@@ -121,7 +130,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocAnalysis_Categorizer() {
+	public EReference getDocAnalysis_Columnizer() {
 		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -130,8 +139,62 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocAnalysis_Columnizer() {
-		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(2);
+	public EOperation getDocAnalysis__Refresh() {
+		return docAnalysisEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDocComparison() {
+		return docComparisonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocComparison_Extractor() {
+		return (EReference)docComparisonEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocComparison_Columnizer() {
+		return (EReference)docComparisonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocComparison_Doc1() {
+		return (EReference)docComparisonEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocComparison_Doc2() {
+		return (EReference)docComparisonEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocComparison_Categorizer() {
+		return (EReference)docComparisonEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -164,8 +227,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Create classes and their features
 		docAnalysisEClass = createEClass(DOC_ANALYSIS);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__EXTRACTOR);
-		createEReference(docAnalysisEClass, DOC_ANALYSIS__CATEGORIZER);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__COLUMNIZER);
+		createEOperation(docAnalysisEClass, DOC_ANALYSIS___REFRESH);
+
+		docComparisonEClass = createEClass(DOC_COMPARISON);
+		createEReference(docComparisonEClass, DOC_COMPARISON__EXTRACTOR);
+		createEReference(docComparisonEClass, DOC_COMPARISON__COLUMNIZER);
+		createEReference(docComparisonEClass, DOC_COMPARISON__DOC1);
+		createEReference(docComparisonEClass, DOC_COMPARISON__DOC2);
+		createEReference(docComparisonEClass, DOC_COMPARISON__CATEGORIZER);
 	}
 
 	/**
@@ -201,12 +271,22 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		// Add supertypes to classes
 		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
+		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getCategorizer());
+		docComparisonEClass.getESuperTypes().add(theDatatoolsPackage.getMatcher());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(docAnalysisEClass, DocAnalysis.class, "DocAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocAnalysis_Extractor(), theDatatoolsPackage.getExtractor(), null, "Extractor", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocAnalysis_Categorizer(), theDatatoolsPackage.getCategorizer(), null, "Categorizer", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocAnalysis_Columnizer(), theDatatoolsPackage.getColumnizer(), null, "Columnizer", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocAnalysis_Columnizer(), theDatatoolsPackage.getColumnizer(), null, "columnizer", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getDocAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(docComparisonEClass, DocComparison.class, "DocComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDocComparison_Extractor(), theDatatoolsPackage.getExtractor(), null, "extractor", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocComparison_Columnizer(), theDatatoolsPackage.getColumnizer(), null, "Columnizer", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocComparison_Doc1(), theJobPackage.getDocRef(), null, "Doc1", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocComparison_Doc2(), theJobPackage.getDocRef(), null, "Doc2", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocComparison_Categorizer(), theDatatoolsPackage.getCategorizer(), null, "Categorizer", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

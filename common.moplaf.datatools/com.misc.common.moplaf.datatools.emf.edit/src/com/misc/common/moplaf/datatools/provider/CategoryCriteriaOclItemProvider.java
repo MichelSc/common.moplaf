@@ -91,7 +91,7 @@ public class CategoryCriteriaOclItemProvider extends CategoryCriteriaItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CategoryCriteriaOcl)object).getExpression();
+		String label = ((CategoryCriteriaOcl)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CategoryCriteriaOcl_type") :
 			getString("_UI_CategoryCriteriaOcl_type") + " " + label;
