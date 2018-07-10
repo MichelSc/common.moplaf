@@ -480,7 +480,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_vV-CsINHEei7d_RxwsL7qg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_43kf0IR7EeiFdvSrB_sBtQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -493,7 +493,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Ddl9EHuZEeidFuGEkYQFRA" name="refreshCats(ins EObject) : EObject" tooltipText="refreshCats(ins) : EObject">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Ddl9EHuZEeidFuGEkYQFRA" name="refreshCats(ins EObject)" tooltipText="refreshCats(ins)">
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//Categorizer/refreshCats"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Categorizer/refreshCats"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Categorizer/refreshCats/ins"/>
@@ -2314,7 +2314,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_vV1f0INHEei7d_RxwsL7qg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_43XrgIR7EeiFdvSrB_sBtQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -2327,7 +2327,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_v_3jonuZEeidFuGEkYQFRA" name="refreshCats(ins EObject) : EObject" tooltipText="refreshCats(ins) : EObject">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_v_3jonuZEeidFuGEkYQFRA" name="refreshCats(ins EObject)" tooltipText="refreshCats(ins)">
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//Categorizer/refreshCats"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Categorizer/refreshCats"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Categorizer/refreshCats/ins"/>
@@ -2518,13 +2518,13 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_wAB7sHuZEeidFuGEkYQFRA" sourceNode="_v_xdAHuZEeidFuGEkYQFRA" targetNode="_v_yrIXuZEeidFuGEkYQFRA">
       <target xmi:type="ecore:EClass" href="datatools.ecore#//Categorizer"/>
       <semanticElements xmi:type="ecore:EClass" href="datatools.ecore#//Categorizer"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_vV5xQINHEei7d_RxwsL7qg" targetArrow="InputClosedArrow">
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_43g1cIR7EeiFdvSrB_sBtQ" targetArrow="InputClosedArrow">
         <customFeatures>routingStyle</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_vV5xQYNHEei7d_RxwsL7qg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_43g1cYR7EeiFdvSrB_sBtQ" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_vV5xQoNHEei7d_RxwsL7qg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_43g1coR7EeiFdvSrB_sBtQ" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>

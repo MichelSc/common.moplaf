@@ -357,7 +357,7 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> refreshCats(EList<EObject> ins) {
+	public void refreshCats(EList<EObject> ins) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -601,7 +601,8 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 			case AnalysisPackage.DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT:
 				return isValidRoot((EObject)arguments.get(0));
 			case AnalysisPackage.DOC_ANALYSIS___REFRESH_CATS__ELIST:
-				return refreshCats((EList<EObject>)arguments.get(0));
+				refreshCats((EList<EObject>)arguments.get(0));
+				return null;
 			case AnalysisPackage.DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT:
 				getSubcategory((EObject)arguments.get(0));
 				return null;

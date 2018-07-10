@@ -1453,7 +1453,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		op = initEOperation(getCategorizer__IsValidRoot__EObject(), ecorePackage.getEBoolean(), "isValidRoot", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "doc", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getCategorizer__RefreshCats__EList(), ecorePackage.getEObject(), "refreshCats", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCategorizer__RefreshCats__EList(), null, "refreshCats", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "ins", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

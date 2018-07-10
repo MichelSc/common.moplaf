@@ -116,7 +116,7 @@
     <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
-    <eOperations name="refreshCats" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+    <eOperations name="refreshCats">
       <eParameters name="ins" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" upperBound="-1"

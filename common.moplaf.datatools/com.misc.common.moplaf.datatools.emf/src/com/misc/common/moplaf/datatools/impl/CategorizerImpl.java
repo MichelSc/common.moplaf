@@ -9,6 +9,8 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.HashSet;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -84,12 +86,10 @@ public class CategorizerImpl extends CategoryAbstractImpl implements Categorizer
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public EList<EObject> refreshCats(EList<EObject> ins) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void refreshCats(EList<EObject> ins) {
+		HashSet<EObject> ins_set = new HashSet<>(ins); 
+		this.refreshImpl(ins_set, this, 0);
 	}
 
 	/**
@@ -164,7 +164,8 @@ public class CategorizerImpl extends CategoryAbstractImpl implements Categorizer
 			case DatatoolsPackage.CATEGORIZER___IS_VALID_ROOT__EOBJECT:
 				return isValidRoot((EObject)arguments.get(0));
 			case DatatoolsPackage.CATEGORIZER___REFRESH_CATS__ELIST:
-				return refreshCats((EList<EObject>)arguments.get(0));
+				refreshCats((EList<EObject>)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

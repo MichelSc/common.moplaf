@@ -53,6 +53,6 @@ public interface Categorizer extends CategoryAbstract {
 	 * @model insMany="true"
 	 * @generated
 	 */
-	EList<EObject> refreshCats(EList<EObject> ins);
+	void refreshCats(EList<EObject> ins);
 
 } // Categorizer
