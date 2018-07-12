@@ -25,7 +25,7 @@ import com.misc.common.moplaf.job.DocRef;
  * @model
  * @generated
  */
-public interface DocAnalysis extends DocRef, Categorizer {
+public interface DocAnalysis extends Categorizer, DocRef {
 	/**
 	 * Returns the value of the '<em><b>Extractor</b></em>' reference.
 	 * <!-- begin-user-doc -->

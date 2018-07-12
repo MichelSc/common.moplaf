@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.analysis;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-import com.misc.common.moplaf.job.JobPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -70,22 +68,13 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Doc</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__DOC = JobPackage.DOC_REF__DOC;
-
-	/**
 	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__SUB_CATEGORIES = JobPackage.DOC_REF_FEATURE_COUNT + 0;
+	int DOC_ANALYSIS__SUB_CATEGORIES = DatatoolsPackage.CATEGORIZER__SUB_CATEGORIES;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -94,7 +83,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__ELEMENTS = JobPackage.DOC_REF_FEATURE_COUNT + 1;
+	int DOC_ANALYSIS__ELEMENTS = DatatoolsPackage.CATEGORIZER__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
@@ -103,7 +92,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__NB_ELEMENTS = JobPackage.DOC_REF_FEATURE_COUNT + 2;
+	int DOC_ANALYSIS__NB_ELEMENTS = DatatoolsPackage.CATEGORIZER__NB_ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Category Label</b></em>' attribute.
@@ -112,7 +101,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__CATEGORY_LABEL = JobPackage.DOC_REF_FEATURE_COUNT + 3;
+	int DOC_ANALYSIS__CATEGORY_LABEL = DatatoolsPackage.CATEGORIZER__CATEGORY_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
@@ -121,7 +110,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__CATEGORY_COLUMNIZER = JobPackage.DOC_REF_FEATURE_COUNT + 4;
+	int DOC_ANALYSIS__CATEGORY_COLUMNIZER = DatatoolsPackage.CATEGORIZER__CATEGORY_COLUMNIZER;
 
 	/**
 	 * The feature id for the '<em><b>Criteria</b></em>' reference list.
@@ -130,7 +119,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__CRITERIA = JobPackage.DOC_REF_FEATURE_COUNT + 5;
+	int DOC_ANALYSIS__CRITERIA = DatatoolsPackage.CATEGORIZER__CRITERIA;
+
+	/**
+	 * The feature id for the '<em><b>Doc</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__DOC = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Extractor</b></em>' reference.
@@ -139,7 +137,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__EXTRACTOR = JobPackage.DOC_REF_FEATURE_COUNT + 6;
+	int DOC_ANALYSIS__EXTRACTOR = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
@@ -148,7 +146,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__COLUMNIZER = JobPackage.DOC_REF_FEATURE_COUNT + 7;
+	int DOC_ANALYSIS__COLUMNIZER = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Doc Analysis</em>' class.
@@ -157,7 +155,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_FEATURE_COUNT = JobPackage.DOC_REF_FEATURE_COUNT + 8;
+	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -166,7 +164,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = JobPackage.DOC_REF_OPERATION_COUNT + 0;
+	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.CATEGORIZER___GET_SUBCATEGORY__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
@@ -175,7 +173,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__SET_CATEGORIZER_INT = JobPackage.DOC_REF_OPERATION_COUNT + 1;
+	int DOC_ANALYSIS___REFRESH_CATS__SET_CATEGORIZER_INT = DatatoolsPackage.CATEGORIZER___REFRESH_CATS__SET_CATEGORIZER_INT;
+
+	/**
+	 * The operation id for the '<em>Set Columnizer All</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZER = DatatoolsPackage.CATEGORIZER___SET_COLUMNIZER_ALL__COLUMNIZER;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -184,7 +191,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT = JobPackage.DOC_REF_OPERATION_COUNT + 2;
+	int DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT = DatatoolsPackage.CATEGORIZER___IS_VALID_ROOT__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
@@ -193,7 +200,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__SET = JobPackage.DOC_REF_OPERATION_COUNT + 3;
+	int DOC_ANALYSIS___REFRESH_CATS__SET = DatatoolsPackage.CATEGORIZER___REFRESH_CATS__SET;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -202,7 +209,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH = JobPackage.DOC_REF_OPERATION_COUNT + 4;
+	int DOC_ANALYSIS___REFRESH = DatatoolsPackage.CATEGORIZER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Doc Analysis</em>' class.
@@ -211,7 +218,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 5;
+	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORIZER_OPERATION_COUNT + 1;
 
 
 	/**

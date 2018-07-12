@@ -81,16 +81,16 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createDocComparisonAdapter();
 			}
 			@Override
-			public Adapter caseDocRef(DocRef object) {
-				return createDocRefAdapter();
-			}
-			@Override
 			public Adapter caseCategoryAbstract(CategoryAbstract object) {
 				return createCategoryAbstractAdapter();
 			}
 			@Override
 			public Adapter caseCategorizer(Categorizer object) {
 				return createCategorizerAdapter();
+			}
+			@Override
+			public Adapter caseDocRef(DocRef object) {
+				return createDocRefAdapter();
 			}
 			@Override
 			public Adapter caseMatcher(Matcher object) {

@@ -6,22 +6,24 @@ package com.misc.common.moplaf.analysis.provider;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.DocAnalysis;
-import com.misc.common.moplaf.datatools.DatatoolsFactory;
-import com.misc.common.moplaf.datatools.DatatoolsPackage;
-import com.misc.common.moplaf.job.provider.DocRefItemProvider;
+import com.misc.common.moplaf.datatools.provider.CategorizerItemProvider;
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.job.JobPackage;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -30,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocAnalysisItemProvider extends DocRefItemProvider {
+public class DocAnalysisItemProvider extends CategorizerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -52,10 +54,7 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addElementsPropertyDescriptor(object);
-			addNbElementsPropertyDescriptor(object);
-			addCategoryLabelPropertyDescriptor(object);
-			addCategoryColumnizerPropertyDescriptor(object);
+			addDocPropertyDescriptor(object);
 			addExtractorPropertyDescriptor(object);
 			addColumnizerPropertyDescriptor(object);
 		}
@@ -63,85 +62,19 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Elements feature.
+	 * This adds a property descriptor for the Doc feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addElementsPropertyDescriptor(Object object) {
+	protected void addDocPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_Elements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_Elements_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__ELEMENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Nb Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNbElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_NbElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_NbElements_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Category Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCategoryLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_CategoryLabel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_CategoryLabel_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_LABEL,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Category Columnizer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCategoryColumnizerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_CategoryColumnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_CategoryColumnizer_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER,
+				 getString("_UI_DocRef_Doc_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocRef_Doc_feature", "_UI_DocRef_type"),
+				 JobPackage.Literals.DOC_REF__DOC,
 				 true,
 				 false,
 				 true,
@@ -206,8 +139,7 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES);
-			childrenFeatures.add(DatatoolsPackage.Literals.CATEGORIZER__CRITERIA);
+			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
 		}
 		return childrenFeatures;
 	}
@@ -261,12 +193,7 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DocAnalysis.class)) {
-			case AnalysisPackage.DOC_ANALYSIS__NB_ELEMENTS:
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORY_LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case AnalysisPackage.DOC_ANALYSIS__SUB_CATEGORIES:
-			case AnalysisPackage.DOC_ANALYSIS__CRITERIA:
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -283,21 +210,6 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES,
-				 DatatoolsFactory.eINSTANCE.createCategory()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.CATEGORIZER__CRITERIA,
-				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaStructuralFeature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.CATEGORIZER__CRITERIA,
-				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaOcl()));
 	}
 
 	/**
@@ -311,4 +223,35 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 		return AnalysisEditPlugin.INSTANCE;
 	}
 
+	public class DocAnalysisRefreshCommand extends RefreshCommand{
+		private DocAnalysis analysis;
+		
+		public DocAnalysisRefreshCommand(DocAnalysis analysis)	{
+			super();
+			this.analysis = analysis;
+			
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+			}
+
+		@Override
+		public void execute() {
+			this.analysis.refresh();
+		}
+	} // class TotalDemandRefreshCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if  ( commandClass == RefreshCommand.class){
+			return new DocAnalysisRefreshCommand((DocAnalysis) object); 
+		}
+
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

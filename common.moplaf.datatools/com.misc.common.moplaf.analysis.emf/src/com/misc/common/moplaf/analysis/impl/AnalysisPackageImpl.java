@@ -262,16 +262,16 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
 		DatatoolsPackage theDatatoolsPackage = (DatatoolsPackage)EPackage.Registry.INSTANCE.getEPackage(DatatoolsPackage.eNS_URI);
+		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
 		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getCategorizer());
+		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
 		docComparisonEClass.getESuperTypes().add(theDatatoolsPackage.getMatcher());
 
 		// Initialize classes, features, and operations; add parameters

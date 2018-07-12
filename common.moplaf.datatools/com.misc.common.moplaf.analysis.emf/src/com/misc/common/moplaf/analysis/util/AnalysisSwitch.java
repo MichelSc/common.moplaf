@@ -74,8 +74,8 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			case AnalysisPackage.DOC_ANALYSIS: {
 				DocAnalysis docAnalysis = (DocAnalysis)theEObject;
 				T result = caseDocAnalysis(docAnalysis);
-				if (result == null) result = caseDocRef(docAnalysis);
 				if (result == null) result = caseCategorizer(docAnalysis);
+				if (result == null) result = caseDocRef(docAnalysis);
 				if (result == null) result = caseCategoryAbstract(docAnalysis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
