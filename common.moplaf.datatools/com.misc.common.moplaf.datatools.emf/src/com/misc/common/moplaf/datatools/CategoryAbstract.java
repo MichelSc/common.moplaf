@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -122,5 +123,21 @@ public interface CategoryAbstract extends EObject {
 	 * @generated
 	 */
 	void getSubcategory(EObject value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model tobeDataType="com.misc.common.moplaf.datatools.EObjectsSet"
+	 * @generated
+	 */
+	void refreshCats(Set<EObject> tobe, Categorizer categorizer, int level);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setColumnizerAll(Columnizer columnizer);
 
 } // CategoryAbstract

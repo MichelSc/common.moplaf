@@ -46,7 +46,7 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCriteriaPropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addCategoryValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,19 +74,19 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Category Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addCategoryValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Category_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_value_feature", "_UI_Category_type"),
-				 DatatoolsPackage.Literals.CATEGORY__VALUE,
+				 getString("_UI_Category_CategoryValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Category_CategoryValue_feature", "_UI_Category_type"),
+				 DatatoolsPackage.Literals.CATEGORY__CATEGORY_VALUE,
 				 true,
 				 false,
 				 false,
@@ -131,7 +131,7 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Category.class)) {
-			case DatatoolsPackage.CATEGORY__VALUE:
+			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

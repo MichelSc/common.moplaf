@@ -6,10 +6,7 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashSet;
 import java.util.Set;
-
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -45,23 +42,14 @@ public abstract class ExtractorImpl extends DataToolAbstractImpl implements Extr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public EList<EObject> extract(EList<EObject> ins) {
-		HashSet<EObject> ins_set = new HashSet<EObject>(ins);
-		Set<EObject> outs_set = this.extractImpl(ins_set);
-		BasicEList<EObject> list = new BasicEList<EObject>(outs_set);
-		return list;
+	public Set<EObject> extract(Set<EObject> ins) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param in
-	 * @param outs
-	 */
-	protected  Set<EObject> extractImpl(Set<EObject> ins) {
-		return new HashSet<EObject>();
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,8 +70,8 @@ public abstract class ExtractorImpl extends DataToolAbstractImpl implements Extr
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.EXTRACTOR___EXTRACT__ELIST:
-				return extract((EList<EObject>)arguments.get(0));
+			case DatatoolsPackage.EXTRACTOR___EXTRACT__SET:
+				return extract((Set<EObject>)arguments.get(0));
 			case DatatoolsPackage.EXTRACTOR___IS_VALID_ROOT__EOBJECT:
 				return isValidRoot((EObject)arguments.get(0));
 		}

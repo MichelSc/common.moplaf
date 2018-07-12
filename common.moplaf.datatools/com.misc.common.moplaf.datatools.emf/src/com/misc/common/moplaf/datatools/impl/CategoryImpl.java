@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryImpl#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryImpl#getCategoryValue <em>Category Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,24 +39,24 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	protected CategoryCriteria criteria;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getCategoryValue() <em>Category Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getCategoryValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object VALUE_EDEFAULT = null;
+	protected static final Object CATEGORY_VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getCategoryValue() <em>Category Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getCategoryValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected Object value = VALUE_EDEFAULT;
+	protected Object categoryValue = CATEGORY_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,8 +120,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getValue() {
-		return value;
+	public Object getCategoryValue() {
+		return categoryValue;
 	}
 
 	/**
@@ -129,11 +129,11 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Object newValue) {
-		Object oldValue = value;
-		value = newValue;
+	public void setCategoryValue(Object newCategoryValue) {
+		Object oldCategoryValue = categoryValue;
+		categoryValue = newCategoryValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY__CATEGORY_VALUE, oldCategoryValue, categoryValue));
 	}
 
 	/**
@@ -147,8 +147,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 			case DatatoolsPackage.CATEGORY__CRITERIA:
 				if (resolve) return getCriteria();
 				return basicGetCriteria();
-			case DatatoolsPackage.CATEGORY__VALUE:
-				return getValue();
+			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
+				return getCategoryValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,8 +164,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 			case DatatoolsPackage.CATEGORY__CRITERIA:
 				setCriteria((CategoryCriteria)newValue);
 				return;
-			case DatatoolsPackage.CATEGORY__VALUE:
-				setValue(newValue);
+			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
+				setCategoryValue(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -182,8 +182,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 			case DatatoolsPackage.CATEGORY__CRITERIA:
 				setCriteria((CategoryCriteria)null);
 				return;
-			case DatatoolsPackage.CATEGORY__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
+				setCategoryValue(CATEGORY_VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -199,8 +199,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 		switch (featureID) {
 			case DatatoolsPackage.CATEGORY__CRITERIA:
 				return criteria != null;
-			case DatatoolsPackage.CATEGORY__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
+				return CATEGORY_VALUE_EDEFAULT == null ? categoryValue != null : !CATEGORY_VALUE_EDEFAULT.equals(categoryValue);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,9 +214,9 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (CategoryValue: ");
+		result.append(categoryValue);
 		result.append(')');
 		return result.toString();
 	}

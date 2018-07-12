@@ -13,7 +13,7 @@ package com.misc.common.moplaf.datatools;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.Category#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.Category#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.Category#getCategoryValue <em>Category Value</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory()
@@ -48,29 +48,29 @@ public interface Category extends CategoryAbstract {
 	void setCriteria(CategoryCriteria value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Category Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Category Value</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Object)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_Value()
+	 * @return the value of the '<em>Category Value</em>' attribute.
+	 * @see #setCategoryValue(Object)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_CategoryValue()
 	 * @model
 	 * @generated
 	 */
-	Object getValue();
+	Object getCategoryValue();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getCategoryValue <em>Category Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>Category Value</em>' attribute.
+	 * @see #getCategoryValue()
 	 * @generated
 	 */
-	void setValue(Object value);
+	void setCategoryValue(Object value);
 
 } // Category

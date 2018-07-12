@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -50,9 +51,9 @@ public interface Categorizer extends CategoryAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model insMany="true"
+	 * @model insDataType="com.misc.common.moplaf.datatools.EObjectsSet"
 	 * @generated
 	 */
-	void refreshCats(EList<EObject> ins);
+	void refreshCats(Set<EObject> ins);
 
 } // Categorizer

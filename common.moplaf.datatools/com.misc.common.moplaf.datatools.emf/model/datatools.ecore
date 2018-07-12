@@ -53,8 +53,8 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Extractor" abstract="true" eSuperTypes="#//DataToolAbstract">
-    <eOperations name="extract" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
-      <eParameters name="ins" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eOperations name="extract" eType="#//EObjectsSet">
+      <eParameters name="ins" eType="#//EObjectsSet"/>
     </eOperations>
     <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -117,7 +117,7 @@
       <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="refreshCats">
-      <eParameters name="ins" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="ins" eType="#//EObjectsSet"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" upperBound="-1"
         eType="#//CategoryCriteria"/>
@@ -125,7 +125,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" lowerBound="1"
         eType="#//CategoryCriteria"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteria" abstract="true" eSuperTypes="#//DataToolAbstract">
     <eOperations name="getCategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
@@ -136,6 +136,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract" abstract="true">
     <eOperations name="getSubcategory">
       <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="refreshCats">
+      <eParameters name="tobe" eType="#//EObjectsSet"/>
+      <eParameters name="categorizer" eType="#//Categorizer"/>
+      <eParameters name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setColumnizerAll">
+      <eParameters name="columnizer" eType="#//Columnizer"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
         eType="#//Category" containment="true"/>
@@ -166,4 +174,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EObjectsSet" instanceClassName="java.util.Set&lt;org.eclipse.emf.ecore.EObject>"/>
 </ecore:EPackage>

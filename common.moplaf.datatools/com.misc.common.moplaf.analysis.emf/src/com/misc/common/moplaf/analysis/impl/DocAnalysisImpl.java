@@ -12,11 +12,14 @@ import com.misc.common.moplaf.datatools.CategoryCriteria;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
-
+import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.impl.DocRefImpl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -333,12 +336,22 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void refresh() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Extractor extractor = this.getExtractor();
+		Columnizer columnizer = this.getColumnizer();
+		Doc doc = this.getDoc();
+		
+		// input
+		HashSet<EObject> ins = new HashSet<>();
+		ins.add(doc);
+		
+		// extracted
+		Set<EObject> outs = extractor.extract(ins);
+		
+		// categorize
+		this.refreshCats(outs);
+		this.setColumnizerAll(columnizer);
 	}
 
 	/**
@@ -357,7 +370,7 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void refreshCats(EList<EObject> ins) {
+	public void refreshCats(Set<EObject> ins) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -369,6 +382,17 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 	 * @generated
 	 */
 	public void getSubcategory(EObject value) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refreshCats(Set<EObject> tobe, Categorizer categorizer, int level) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -573,13 +597,14 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 		if (baseClass == CategoryAbstract.class) {
 			switch (baseOperationID) {
 				case DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT: return AnalysisPackage.DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT;
+				case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH_CATS__SET_CATEGORIZER_INT: return AnalysisPackage.DOC_ANALYSIS___REFRESH_CATS__SET_CATEGORIZER_INT;
 				default: return -1;
 			}
 		}
 		if (baseClass == Categorizer.class) {
 			switch (baseOperationID) {
 				case DatatoolsPackage.CATEGORIZER___IS_VALID_ROOT__EOBJECT: return AnalysisPackage.DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT;
-				case DatatoolsPackage.CATEGORIZER___REFRESH_CATS__ELIST: return AnalysisPackage.DOC_ANALYSIS___REFRESH_CATS__ELIST;
+				case DatatoolsPackage.CATEGORIZER___REFRESH_CATS__SET: return AnalysisPackage.DOC_ANALYSIS___REFRESH_CATS__SET;
 				default: return -1;
 			}
 		}
@@ -600,11 +625,14 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 				return null;
 			case AnalysisPackage.DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT:
 				return isValidRoot((EObject)arguments.get(0));
-			case AnalysisPackage.DOC_ANALYSIS___REFRESH_CATS__ELIST:
-				refreshCats((EList<EObject>)arguments.get(0));
+			case AnalysisPackage.DOC_ANALYSIS___REFRESH_CATS__SET:
+				refreshCats((Set<EObject>)arguments.get(0));
 				return null;
 			case AnalysisPackage.DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT:
 				getSubcategory((EObject)arguments.get(0));
+				return null;
+			case AnalysisPackage.DOC_ANALYSIS___REFRESH_CATS__SET_CATEGORIZER_INT:
+				refreshCats((Set<EObject>)arguments.get(0), (Categorizer)arguments.get(1), (Integer)arguments.get(2));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -619,7 +647,7 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (CategoryLabel: ");
 		result.append(categoryLabel);
 		result.append(')');

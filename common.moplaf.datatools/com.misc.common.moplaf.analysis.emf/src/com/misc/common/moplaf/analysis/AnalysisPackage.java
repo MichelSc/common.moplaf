@@ -169,13 +169,22 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = JobPackage.DOC_REF_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Refresh Cats</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___REFRESH_CATS__SET_CATEGORIZER_INT = JobPackage.DOC_REF_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT = JobPackage.DOC_REF_OPERATION_COUNT + 1;
+	int DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT = JobPackage.DOC_REF_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
@@ -184,7 +193,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__ELIST = JobPackage.DOC_REF_OPERATION_COUNT + 2;
+	int DOC_ANALYSIS___REFRESH_CATS__SET = JobPackage.DOC_REF_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -193,7 +202,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH = JobPackage.DOC_REF_OPERATION_COUNT + 3;
+	int DOC_ANALYSIS___REFRESH = JobPackage.DOC_REF_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Doc Analysis</em>' class.
@@ -202,7 +211,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 4;
+	int DOC_ANALYSIS_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 5;
 
 
 	/**

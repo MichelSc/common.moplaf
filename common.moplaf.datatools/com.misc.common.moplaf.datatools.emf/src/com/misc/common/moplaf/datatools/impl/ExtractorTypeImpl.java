@@ -183,7 +183,7 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 	 * @param outs
 	 */
 	@Override
-	protected  Set<EObject> extractImpl(Set<EObject> ins) {
+	public Set<EObject> extract(Set<EObject> ins) {
 		EClass target_type = this.getTargetType();
 		HashSet<EObject> result = new HashSet<EObject>();
 		for(EObject in : ins) {
@@ -197,7 +197,5 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 		}  // traverse the ins
 		return result;
 	}
-	
-
 
 } //ExtractorTypeImpl

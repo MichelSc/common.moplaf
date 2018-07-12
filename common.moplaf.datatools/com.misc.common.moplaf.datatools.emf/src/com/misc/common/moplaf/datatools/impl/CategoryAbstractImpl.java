@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import java.util.Set;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -225,6 +226,74 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void refreshCats(Set<EObject> tobes, Categorizer categorizer, int level) {
+		// update the elements of this category
+		Iterator<EObject> iterator_asis = this.getElements().iterator();
+		while ( iterator_asis.hasNext()) {
+			EObject asis = iterator_asis.next();
+			if ( !tobes.remove(asis)) {
+				// the asis is not tobe
+				iterator_asis.remove();
+			}
+		}
+		this.getElements().addAll(tobes);
+		
+		// update the subcategories
+		if ( categorizer.getCriteria().size()>level ) {
+			CategoryCriteria criteria = categorizer.getCriteria().get(level);
+			HashMap<Object, HashSet<EObject>> cats_tobe  = new HashMap<>();
+			// collect the cats
+			for ( EObject element : this.getElements()) {
+				Object cat_value = criteria.getCategoryValue(element);
+				if ( cat_value!=null ) {
+					HashSet<EObject> cat_set = cats_tobe.get(cat_value);
+					if ( cat_set==null ) {
+						cat_set = new HashSet<>();
+						cats_tobe.put(cat_value, cat_set);
+					}
+					cat_set.add(element);
+				}
+			}
+			// traverse the cats asis
+			Iterator<Category> cat_iterator_asis = this.getSubCategories().iterator();
+			while ( cat_iterator_asis.hasNext()){
+				Category cat_asis = cat_iterator_asis.next();
+				Object cat_value = cat_asis.getCategoryValue();
+				HashSet<EObject> cat_tobe = cats_tobe.remove(cat_value);
+				if ( cat_tobe==null ) {
+					// category no longer populated
+					// delete
+					cat_iterator_asis.remove();
+				} else {
+					// update
+					cat_asis.refreshCats(cat_tobe, categorizer, level+1);
+				}
+			}
+			for (  Entry<Object, HashSet<EObject>> cat_tobe : cats_tobe.entrySet()) {
+				// create the cat
+				Category new_cat = criteria.constructCategory();
+				new_cat.setCategoryValue(cat_tobe.getKey());
+				// fill the cat
+				new_cat.refreshCats(cat_tobe.getValue(), categorizer, level+1);
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void setColumnizerAll(Columnizer columnizer) {
+		this.setCategoryColumnizer(columnizer);
+		for ( Category subcategory : this.getSubCategories()) {
+			subcategory.setColumnizerAll(columnizer);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -332,10 +401,17 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT:
 				getSubcategory((EObject)arguments.get(0));
+				return null;
+			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH_CATS__SET_CATEGORIZER_INT:
+				refreshCats((Set<EObject>)arguments.get(0), (Categorizer)arguments.get(1), (Integer)arguments.get(2));
+				return null;
+			case DatatoolsPackage.CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER:
+				setColumnizerAll((Columnizer)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -350,63 +426,11 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (CategoryLabel: ");
 		result.append(categoryLabel);
 		result.append(')');
 		return result.toString();
 	}
 	
-	protected void refreshImpl(HashSet<EObject> tobes, Categorizer categorizer, int level) {
-		// update the elements of this category
-		Iterator<EObject> iterator_asis = this.getElements().iterator();
-		while ( iterator_asis.hasNext()) {
-			EObject asis = iterator_asis.next();
-			if ( !tobes.remove(asis)) {
-				// the asis is not tobe
-				iterator_asis.remove();
-			}
-		}
-		this.getElements().addAll(tobes);
-		
-		// update the subcategories
-		if ( categorizer.getCriteria().size()>level ) {
-			CategoryCriteria criteria = categorizer.getCriteria().get(level);
-			HashMap<Object, HashSet<EObject>> cats_tobe  = new HashMap<>();
-			// collect the cats
-			for ( EObject element : this.getElements()) {
-				Object cat_value = criteria.getCategoryValue(element);
-				if ( cat_value!=null ) {
-					HashSet<EObject> cat_set = cats_tobe.get(cat_value);
-					if ( cat_set==null ) {
-						cat_set = new HashSet<>();
-						cats_tobe.put(cat_value, cat_set);
-					}
-					cat_set.add(element);
-				}
-			}
-			// traverse the cats asis
-			Iterator<Category> cat_iterator_asis = this.getSubCategories().iterator();
-			while ( cat_iterator_asis.hasNext()){
-				CategoryImpl cat_asis = (CategoryImpl) cat_iterator_asis.next();
-				Object cat_value = cat_asis.getValue();
-				HashSet<EObject> cat_tobe = cats_tobe.remove(cat_value);
-				if ( cat_tobe==null ) {
-					// category no longer populated
-					// delete
-					cat_iterator_asis.remove();
-				} else {
-					// update
-					cat_asis.refreshImpl(cat_tobe, categorizer, level+1);
-				}
-			}
-			for (  Entry<Object, HashSet<EObject>> cat_tobe : cats_tobe.entrySet()) {
-				// create the cat
-				CategoryImpl new_cat = (CategoryImpl) criteria.constructCategory();
-				new_cat.setValue(cat_tobe.getKey());
-				// fill the cat
-				new_cat.refreshImpl(cat_tobe.getValue(), categorizer, level+1);
-			}
-		}
-	}
 } //CategoryAbstractImpl

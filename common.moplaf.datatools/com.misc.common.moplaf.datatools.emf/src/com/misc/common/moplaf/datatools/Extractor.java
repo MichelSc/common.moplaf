@@ -2,8 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
-import org.eclipse.emf.common.util.EList;
-
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,10 +19,10 @@ public interface Extractor extends DataToolAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model insMany="true"
+	 * @model dataType="com.misc.common.moplaf.datatools.EObjectsSet" insDataType="com.misc.common.moplaf.datatools.EObjectsSet"
 	 * @generated
 	 */
-	EList<EObject> extract(EList<EObject> ins);
+	Set<EObject> extract(Set<EObject> ins);
 
 	/**
 	 * <!-- begin-user-doc -->

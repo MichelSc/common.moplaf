@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -872,7 +873,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR___EXTRACT__ELIST = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
+	int EXTRACTOR___EXTRACT__SET = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -944,7 +945,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_TYPE___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
+	int EXTRACTOR_TYPE___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1052,7 +1053,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
+	int EXTRACTOR_PATH___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1124,7 +1125,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_OCL___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
+	int EXTRACTOR_OCL___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1187,7 +1188,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
+	int EXTRACTOR_FILTER___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1304,7 +1305,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__ELIST = EXTRACTOR_FILTER___EXTRACT__ELIST;
+	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET = EXTRACTOR_FILTER___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1457,7 +1458,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__ELIST = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__ELIST;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1547,7 +1548,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_OCL___EXTRACT__ELIST = EXTRACTOR_FILTER___EXTRACT__ELIST;
+	int EXTRACTOR_FILTER_OCL___EXTRACT__SET = EXTRACTOR_FILTER___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1628,7 +1629,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND___EXTRACT__ELIST = EXTRACTOR___EXTRACT__ELIST;
+	int EXTRACTOR_COMPOUND___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1700,7 +1701,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_LOGIC___EXTRACT__ELIST = EXTRACTOR_COMPOUND___EXTRACT__ELIST;
+	int EXTRACTOR_LOGIC___EXTRACT__SET = EXTRACTOR_COMPOUND___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1772,7 +1773,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PIPE___EXTRACT__ELIST = EXTRACTOR_COMPOUND___EXTRACT__ELIST;
+	int EXTRACTOR_PIPE___EXTRACT__SET = EXTRACTOR_COMPOUND___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1844,7 +1845,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_UNION___EXTRACT__ELIST = EXTRACTOR_LOGIC___EXTRACT__ELIST;
+	int EXTRACTOR_UNION___EXTRACT__SET = EXTRACTOR_LOGIC___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1916,7 +1917,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_INTERSECTION___EXTRACT__ELIST = EXTRACTOR_LOGIC___EXTRACT__ELIST;
+	int EXTRACTOR_INTERSECTION___EXTRACT__SET = EXTRACTOR_LOGIC___EXTRACT__SET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2306,13 +2307,31 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = 0;
 
 	/**
+	 * The operation id for the '<em>Refresh Cats</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___REFRESH_CATS__SET_CATEGORIZER_INT = 1;
+
+	/**
+	 * The operation id for the '<em>Set Columnizer All</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER = 2;
+
+	/**
 	 * The number of operations of the '<em>Category Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT_OPERATION_COUNT = 1;
+	int CATEGORY_ABSTRACT_OPERATION_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
@@ -2387,6 +2406,24 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER___GET_SUBCATEGORY__EOBJECT = CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
 
 	/**
+	 * The operation id for the '<em>Refresh Cats</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___REFRESH_CATS__SET_CATEGORIZER_INT = CATEGORY_ABSTRACT___REFRESH_CATS__SET_CATEGORIZER_INT;
+
+	/**
+	 * The operation id for the '<em>Set Columnizer All</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___SET_COLUMNIZER_ALL__COLUMNIZER = CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER;
+
+	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2402,7 +2439,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER___REFRESH_CATS__ELIST = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
+	int CATEGORIZER___REFRESH_CATS__SET = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Categorizer</em>' class.
@@ -2468,13 +2505,13 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY__CRITERIA = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Category Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__VALUE = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
+	int CATEGORY__CATEGORY_VALUE = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Category</em>' class.
@@ -2493,6 +2530,24 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY___GET_SUBCATEGORY__EOBJECT = CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Refresh Cats</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___REFRESH_CATS__SET_CATEGORIZER_INT = CATEGORY_ABSTRACT___REFRESH_CATS__SET_CATEGORIZER_INT;
+
+	/**
+	 * The operation id for the '<em>Set Columnizer All</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZER = CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.
@@ -2828,6 +2883,16 @@ public interface DatatoolsPackage extends EPackage {
 	int MATCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '<em>EObjects Set</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Set
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
+	 * @generated
+	 */
+	int EOBJECTS_SET = 33;
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2859,14 +2924,14 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getCategorizer__IsValidRoot__EObject();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.common.util.EList) <em>Refresh Cats</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#refreshCats(java.util.Set) <em>Refresh Cats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Cats</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.common.util.EList)
+	 * @see com.misc.common.moplaf.datatools.Categorizer#refreshCats(java.util.Set)
 	 * @generated
 	 */
-	EOperation getCategorizer__RefreshCats__EList();
+	EOperation getCategorizer__RefreshCats__Set();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Category <em>Category</em>}'.
@@ -2890,15 +2955,15 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getCategory_Criteria();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Category#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Category#getCategoryValue <em>Category Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see com.misc.common.moplaf.datatools.Category#getValue()
+	 * @return the meta object for the attribute '<em>Category Value</em>'.
+	 * @see com.misc.common.moplaf.datatools.Category#getCategoryValue()
 	 * @see #getCategory()
 	 * @generated
 	 */
-	EAttribute getCategory_Value();
+	EAttribute getCategory_CategoryValue();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryCriteria <em>Category Criteria</em>}'.
@@ -2941,14 +3006,14 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractor();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(org.eclipse.emf.common.util.EList) <em>Extract</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set) <em>Extract</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Extract</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Extractor#extract(org.eclipse.emf.common.util.EList)
+	 * @see com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set)
 	 * @generated
 	 */
-	EOperation getExtractor__Extract__EList();
+	EOperation getExtractor__Extract__Set();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
@@ -3044,6 +3109,26 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCategoryAbstract__GetSubcategory__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#refreshCats(java.util.Set, com.misc.common.moplaf.datatools.Categorizer, int) <em>Refresh Cats</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Cats</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#refreshCats(java.util.Set, com.misc.common.moplaf.datatools.Categorizer, int)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__RefreshCats__Set_Categorizer_int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#setColumnizerAll(com.misc.common.moplaf.datatools.Columnizer) <em>Set Columnizer All</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Columnizer All</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#setColumnizerAll(com.misc.common.moplaf.datatools.Columnizer)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__SetColumnizerAll__Columnizer();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorType <em>Extractor Type</em>}'.
@@ -3665,6 +3750,17 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getMatch_Object2();
 
 	/**
+	 * Returns the meta object for data type '{@link java.util.Set <em>EObjects Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EObjects Set</em>'.
+	 * @see java.util.Set
+	 * @model instanceClass="java.util.Set&lt;org.eclipse.emf.ecore.EObject&gt;"
+	 * @generated
+	 */
+	EDataType getEObjectsSet();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTools <em>Data Tools</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3803,7 +3899,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORIZER___REFRESH_CATS__ELIST = eINSTANCE.getCategorizer__RefreshCats__EList();
+		EOperation CATEGORIZER___REFRESH_CATS__SET = eINSTANCE.getCategorizer__RefreshCats__Set();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryImpl <em>Category</em>}' class.
@@ -3824,12 +3920,12 @@ public interface DatatoolsPackage extends EPackage {
 		EReference CATEGORY__CRITERIA = eINSTANCE.getCategory_Criteria();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Category Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CATEGORY__VALUE = eINSTANCE.getCategory_Value();
+		EAttribute CATEGORY__CATEGORY_VALUE = eINSTANCE.getCategory_CategoryValue();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaImpl <em>Category Criteria</em>}' class.
@@ -3873,7 +3969,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR___EXTRACT__ELIST = eINSTANCE.getExtractor__Extract__EList();
+		EOperation EXTRACTOR___EXTRACT__SET = eINSTANCE.getExtractor__Extract__Set();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.
@@ -3950,6 +4046,22 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = eINSTANCE.getCategoryAbstract__GetSubcategory__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Cats</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___REFRESH_CATS__SET_CATEGORIZER_INT = eINSTANCE.getCategoryAbstract__RefreshCats__Set_Categorizer_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Columnizer All</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER = eINSTANCE.getCategoryAbstract__SetColumnizerAll__Columnizer();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorTypeImpl <em>Extractor Type</em>}' class.
@@ -4470,6 +4582,16 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MATCH__OBJECT2 = eINSTANCE.getMatch_Object2();
+
+		/**
+		 * The meta object literal for the '<em>EObjects Set</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Set
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
+		 * @generated
+		 */
+		EDataType EOBJECTS_SET = eINSTANCE.getEObjectsSet();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolsImpl <em>Data Tools</em>}' class.

@@ -9,8 +9,7 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.HashSet;
-
+import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -87,10 +86,10 @@ public class CategorizerImpl extends CategoryAbstractImpl implements Categorizer
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void refreshCats(EList<EObject> ins) {
-		HashSet<EObject> ins_set = new HashSet<>(ins); 
-		this.refreshImpl(ins_set, this, 0);
+	public void refreshCats(Set<EObject> ins) {
+		this.refreshCats(ins, this, 0);
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,8 +162,8 @@ public class CategorizerImpl extends CategoryAbstractImpl implements Categorizer
 		switch (operationID) {
 			case DatatoolsPackage.CATEGORIZER___IS_VALID_ROOT__EOBJECT:
 				return isValidRoot((EObject)arguments.get(0));
-			case DatatoolsPackage.CATEGORIZER___REFRESH_CATS__ELIST:
-				refreshCats((EList<EObject>)arguments.get(0));
+			case DatatoolsPackage.CATEGORIZER___REFRESH_CATS__SET:
+				refreshCats((Set<EObject>)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

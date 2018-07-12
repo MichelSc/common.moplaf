@@ -363,15 +363,11 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	}
 
 
-	/**
-	 * 
-	 * @param in
-	 * @param outs
-	 */
+	
 	@Override
-	protected  Set<EObject> extractImpl(Set<EObject> ins) {
+	public Set<EObject> extract(Set<EObject> ins) {
 		return Util.naviguate(this,  ins);
 	}
-	
+
 
 } //ExtractorPathImpl
