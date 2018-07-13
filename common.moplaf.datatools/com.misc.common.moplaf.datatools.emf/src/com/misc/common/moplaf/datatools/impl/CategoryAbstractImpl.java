@@ -157,12 +157,9 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public int getNbElements() {
-		// TODO: implement this method to return the 'Nb Elements' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.getElements().size();
 	}
 
 	/**

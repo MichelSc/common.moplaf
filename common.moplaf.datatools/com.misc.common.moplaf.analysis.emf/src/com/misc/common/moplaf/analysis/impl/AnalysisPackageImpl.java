@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisFactory;
+import com.misc.common.moplaf.analysis.AnalysisHolder;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
 
@@ -40,6 +41,13 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	private EClass docComparisonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass analysisHolderEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -202,6 +210,24 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAnalysisHolder() {
+		return analysisHolderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnalysisHolder_Analysis() {
+		return (EReference)analysisHolderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AnalysisFactory getAnalysisFactory() {
 		return (AnalysisFactory)getEFactoryInstance();
 	}
@@ -236,6 +262,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(docComparisonEClass, DOC_COMPARISON__DOC1);
 		createEReference(docComparisonEClass, DOC_COMPARISON__DOC2);
 		createEReference(docComparisonEClass, DOC_COMPARISON__CATEGORIZER);
+
+		analysisHolderEClass = createEClass(ANALYSIS_HOLDER);
+		createEReference(analysisHolderEClass, ANALYSIS_HOLDER__ANALYSIS);
 	}
 
 	/**
@@ -287,6 +316,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getDocComparison_Doc1(), theJobPackage.getDocRef(), null, "Doc1", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocComparison_Doc2(), theJobPackage.getDocRef(), null, "Doc2", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocComparison_Categorizer(), theDatatoolsPackage.getCategorizer(), null, "Categorizer", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(analysisHolderEClass, AnalysisHolder.class, "AnalysisHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnalysisHolder_Analysis(), this.getDocAnalysis(), null, "Analysis", null, 0, -1, AnalysisHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

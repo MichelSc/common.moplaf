@@ -314,6 +314,44 @@ public interface AnalysisPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl <em>Holder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl
+	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisHolder()
+	 * @generated
+	 */
+	int ANALYSIS_HOLDER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Analysis</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_HOLDER__ANALYSIS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_HOLDER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_HOLDER_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.DocAnalysis <em>Doc Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,6 +459,27 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocComparison_Categorizer();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisHolder <em>Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Holder</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisHolder
+	 * @generated
+	 */
+	EClass getAnalysisHolder();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisHolder#getAnalysis <em>Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Analysis</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisHolder#getAnalysis()
+	 * @see #getAnalysisHolder()
+	 * @generated
+	 */
+	EReference getAnalysisHolder_Analysis();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,6 +585,24 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOC_COMPARISON__CATEGORIZER = eINSTANCE.getDocComparison_Categorizer();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl <em>Holder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl
+		 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisHolder()
+		 * @generated
+		 */
+		EClass ANALYSIS_HOLDER = eINSTANCE.getAnalysisHolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Analysis</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS_HOLDER__ANALYSIS = eINSTANCE.getAnalysisHolder_Analysis();
 
 	}
 

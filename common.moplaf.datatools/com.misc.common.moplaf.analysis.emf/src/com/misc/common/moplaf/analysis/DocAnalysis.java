@@ -5,7 +5,6 @@ package com.misc.common.moplaf.analysis;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.Extractor;
-
 import com.misc.common.moplaf.job.DocRef;
 
 /**

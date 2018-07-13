@@ -16,4 +16,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" upperBound="-1"
+        eType="#//DocAnalysis" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
