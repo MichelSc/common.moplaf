@@ -63,6 +63,7 @@ public class ColumnizerExplicitItemProvider extends ColumnizerItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZER_EXPLICIT__COLUMNS);
+			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZER_EXPLICIT__GRIDS);
 		}
 		return childrenFeatures;
 	}
@@ -119,6 +120,7 @@ public class ColumnizerExplicitItemProvider extends ColumnizerItemProvider {
 
 		switch (notification.getFeatureID(ColumnizerExplicit.class)) {
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS:
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -145,6 +147,11 @@ public class ColumnizerExplicitItemProvider extends ColumnizerItemProvider {
 			(createChildParameter
 				(DatatoolsPackage.Literals.COLUMNIZER_EXPLICIT__COLUMNS,
 				 DatatoolsFactory.eINSTANCE.createColumnizerColumnOcl()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.COLUMNIZER_EXPLICIT__GRIDS,
+				 DatatoolsFactory.eINSTANCE.createColumnizerGrid()));
 	}
 
 }

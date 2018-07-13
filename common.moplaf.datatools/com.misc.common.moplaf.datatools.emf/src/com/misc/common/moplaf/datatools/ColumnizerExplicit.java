@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerExplicit#getColumns <em>Columns</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerExplicit#getGrids <em>Grids</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerExplicit()
@@ -36,5 +37,21 @@ public interface ColumnizerExplicit extends Columnizer {
 	 * @generated
 	 */
 	EList<ColumnizerColumn> getColumns();
+
+	/**
+	 * Returns the value of the '<em><b>Grids</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.datatools.ColumnizerGrid}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Grids</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Grids</em>' containment reference list.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerExplicit_Grids()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ColumnizerGrid> getGrids();
 
 } // ColumnizerExplicit

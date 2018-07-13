@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getWidth <em>Width</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn()
@@ -73,6 +74,34 @@ public interface ColumnizerColumn extends EObject {
 	 * @generated
 	 */
 	void setWidth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Grids</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.ColumnizerGrid#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Grids</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Grids</em>' reference.
+	 * @see #setGrids(ColumnizerGrid)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_Grids()
+	 * @see com.misc.common.moplaf.datatools.ColumnizerGrid#getColumns
+	 * @model opposite="Columns"
+	 * @generated
+	 */
+	ColumnizerGrid getGrids();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Grids</em>' reference.
+	 * @see #getGrids()
+	 * @generated
+	 */
+	void setGrids(ColumnizerGrid value);
 
 	/**
 	 * <!-- begin-user-doc -->

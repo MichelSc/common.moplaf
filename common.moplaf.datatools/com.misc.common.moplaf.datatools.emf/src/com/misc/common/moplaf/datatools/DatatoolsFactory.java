@@ -211,6 +211,15 @@ public interface DatatoolsFactory extends EFactory {
 	Match createMatch();
 
 	/**
+	 * Returns a new object of class '<em>Columnizer Grid</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Columnizer Grid</em>'.
+	 * @generated
+	 */
+	ColumnizerGrid createColumnizerGrid();
+
+	/**
 	 * Returns a new object of class '<em>Data Tools</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

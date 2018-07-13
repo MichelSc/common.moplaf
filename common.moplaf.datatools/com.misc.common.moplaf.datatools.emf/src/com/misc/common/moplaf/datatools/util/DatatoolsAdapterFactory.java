@@ -200,6 +200,10 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createMatchAdapter();
 			}
 			@Override
+			public Adapter caseColumnizerGrid(ColumnizerGrid object) {
+				return createColumnizerGridAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -636,6 +640,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMatchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ColumnizerGrid <em>Columnizer Grid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerGrid
+	 * @generated
+	 */
+	public Adapter createColumnizerGridAdapter() {
 		return null;
 	}
 

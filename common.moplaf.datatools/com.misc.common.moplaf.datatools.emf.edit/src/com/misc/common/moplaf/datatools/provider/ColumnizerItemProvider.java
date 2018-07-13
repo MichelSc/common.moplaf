@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class ColumnizerItemProvider 
-	extends DataToolAbstractItemProvider {
+	extends DataToolAbstractItemProvider  {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

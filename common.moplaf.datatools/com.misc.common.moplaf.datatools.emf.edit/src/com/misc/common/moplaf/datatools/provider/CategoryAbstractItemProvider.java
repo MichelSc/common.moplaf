@@ -4,8 +4,10 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.CategoryAbstract;
+import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -31,17 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.CategoryAbstract} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class CategoryAbstractItemProvider 
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -253,4 +252,20 @@ public class CategoryAbstractItemProvider
 		return DatatoolsEditPlugin.INSTANCE;
 	}
 
+	/**
+	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
+	 */
+	@Override
+	public Object getGrids(Object element) {
+		CategoryAbstract cat = (CategoryAbstract)element;
+		Columnizer columnizer = cat.getCategoryColumnizer();
+		if ( columnizer==null) {
+			return null;
+		}
+		// TODO: instantiate an object (to be implemented) 
+		//  receiving a Columnizer and a collection of objects of the type accepted by the columnizer
+		//  implementing IItemGridsProvider
+		IItemGridsProvider gridsProvider = null;
+		return gridsProvider;
+	}
 }

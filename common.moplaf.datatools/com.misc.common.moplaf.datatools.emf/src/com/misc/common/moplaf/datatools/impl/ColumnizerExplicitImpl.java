@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.ColumnizerExplicit;
+import com.misc.common.moplaf.datatools.ColumnizerGrid;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.util.Collection;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerExplicitImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerExplicitImpl#getGrids <em>Grids</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +43,16 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 	 * @ordered
 	 */
 	protected EList<ColumnizerColumn> columns;
+
+	/**
+	 * The cached value of the '{@link #getGrids() <em>Grids</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGrids()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ColumnizerGrid> grids;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,6 +85,18 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 		return columns;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ColumnizerGrid> getGrids() {
+		if (grids == null) {
+			grids = new EObjectContainmentEList<ColumnizerGrid>(ColumnizerGrid.class, this, DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS);
+		}
+		return grids;
+	}
+
 	@Override
 	public String getDescription() {
 		return String.format("columnizer %s", this.getName());
@@ -88,6 +112,8 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS:
 				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS:
+				return ((InternalEList<?>)getGrids()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -102,6 +128,8 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS:
 				return getColumns();
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS:
+				return getGrids();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -119,6 +147,10 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 				getColumns().clear();
 				getColumns().addAll((Collection<? extends ColumnizerColumn>)newValue);
 				return;
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS:
+				getGrids().clear();
+				getGrids().addAll((Collection<? extends ColumnizerGrid>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -134,6 +166,9 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS:
 				getColumns().clear();
 				return;
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS:
+				getGrids().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -148,6 +183,8 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS:
 				return columns != null && !columns.isEmpty();
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS:
+				return grids != null && !grids.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

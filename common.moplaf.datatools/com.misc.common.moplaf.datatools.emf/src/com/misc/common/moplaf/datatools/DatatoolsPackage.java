@@ -2001,13 +2001,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN__WIDTH = 1;
 
 	/**
+	 * The feature id for the '<em><b>Grids</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__GRIDS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_FEATURE_COUNT = 2;
+	int COLUMNIZER_COLUMN_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -2064,13 +2073,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_EXPLICIT__COLUMNS = COLUMNIZER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Grids</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_EXPLICIT__GRIDS = COLUMNIZER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Explicit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_EXPLICIT_FEATURE_COUNT = COLUMNIZER_FEATURE_COUNT + 1;
+	int COLUMNIZER_EXPLICIT_FEATURE_COUNT = COLUMNIZER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Columnizer Explicit</em>' class.
@@ -2098,6 +2116,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_ATTRIBUTE__WIDTH = COLUMNIZER_COLUMN__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Grids</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__GRIDS = COLUMNIZER_COLUMN__GRIDS;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -2206,6 +2233,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_OCL__WIDTH = COLUMNIZER_COLUMN__WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Grids</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__GRIDS = COLUMNIZER_COLUMN__GRIDS;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -2883,6 +2919,52 @@ public interface DatatoolsPackage extends EPackage {
 	int MATCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerGridImpl <em>Columnizer Grid</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerGridImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerGrid()
+	 * @generated
+	 */
+	int COLUMNIZER_GRID = 33;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_GRID__COLUMNS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_GRID__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Columnizer Grid</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_GRID_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Columnizer Grid</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_GRID_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2890,7 +2972,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 33;
+	int EOBJECTS_SET = 34;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -3411,6 +3493,17 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getColumnizerExplicit_Columns();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit#getGrids <em>Grids</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Grids</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerExplicit#getGrids()
+	 * @see #getColumnizerExplicit()
+	 * @generated
+	 */
+	EReference getColumnizerExplicit_Grids();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerColumn <em>Columnizer Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3441,6 +3534,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColumnizerColumn_Width();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Grids</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EReference getColumnizerColumn_Grids();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getValue(org.eclipse.emf.ecore.EObject) <em>Get Value</em>}' operation.
@@ -3748,6 +3852,38 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMatch_Object2();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerGrid <em>Columnizer Grid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Columnizer Grid</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerGrid
+	 * @generated
+	 */
+	EClass getColumnizerGrid();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.datatools.ColumnizerGrid#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Columns</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerGrid#getColumns()
+	 * @see #getColumnizerGrid()
+	 * @generated
+	 */
+	EReference getColumnizerGrid_Columns();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerGrid#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerGrid#getName()
+	 * @see #getColumnizerGrid()
+	 * @generated
+	 */
+	EAttribute getColumnizerGrid_Name();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.Set <em>EObjects Set</em>}'.
@@ -4310,6 +4446,14 @@ public interface DatatoolsPackage extends EPackage {
 		EReference COLUMNIZER_EXPLICIT__COLUMNS = eINSTANCE.getColumnizerExplicit_Columns();
 
 		/**
+		 * The meta object literal for the '<em><b>Grids</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMNIZER_EXPLICIT__GRIDS = eINSTANCE.getColumnizerExplicit_Grids();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl <em>Columnizer Column</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4334,6 +4478,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMNIZER_COLUMN__WIDTH = eINSTANCE.getColumnizerColumn_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Grids</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMNIZER_COLUMN__GRIDS = eINSTANCE.getColumnizerColumn_Grids();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
@@ -4582,6 +4734,32 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MATCH__OBJECT2 = eINSTANCE.getMatch_Object2();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerGridImpl <em>Columnizer Grid</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ColumnizerGridImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerGrid()
+		 * @generated
+		 */
+		EClass COLUMNIZER_GRID = eINSTANCE.getColumnizerGrid();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMNIZER_GRID__COLUMNS = eINSTANCE.getColumnizerGrid_Columns();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_GRID__NAME = eINSTANCE.getColumnizerGrid_Name();
 
 		/**
 		 * The meta object literal for the '<em>EObjects Set</em>' data type.

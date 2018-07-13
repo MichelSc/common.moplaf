@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.util.DatatoolsAdapterFactory;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,7 +62,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public DatatoolsItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +69,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemGridsProvider.class);
 	}
 
 	/**
@@ -555,6 +556,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerGrid} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColumnizerGridItemProvider columnizerGridItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ColumnizerGrid}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColumnizerGridAdapter() {
+		if (columnizerGridItemProvider == null) {
+			columnizerGridItemProvider = new ColumnizerGridItemProvider(this);
+		}
+
+		return columnizerGridItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.DataTools} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -698,6 +722,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (categoryCriteriaOclItemProvider != null) categoryCriteriaOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
+		if (columnizerGridItemProvider != null) columnizerGridItemProvider.dispose();
 	}
 
 }

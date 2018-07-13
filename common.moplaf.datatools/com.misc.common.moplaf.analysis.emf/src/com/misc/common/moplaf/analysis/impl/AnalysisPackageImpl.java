@@ -77,7 +77,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link AnalysisPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -91,7 +91,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		if (isInited) return (AnalysisPackage)EPackage.Registry.INSTANCE.getEPackage(AnalysisPackage.eNS_URI);
 
 		// Obtain or create and register package
-		AnalysisPackageImpl theAnalysisPackage = (AnalysisPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AnalysisPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AnalysisPackageImpl());
+		Object registeredAnalysisPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		AnalysisPackageImpl theAnalysisPackage = registeredAnalysisPackage instanceof AnalysisPackageImpl ? (AnalysisPackageImpl)registeredAnalysisPackage : new AnalysisPackageImpl();
 
 		isInited = true;
 
@@ -109,7 +110,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Mark meta-data to indicate it can't be changed
 		theAnalysisPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(AnalysisPackage.eNS_URI, theAnalysisPackage);
 		return theAnalysisPackage;

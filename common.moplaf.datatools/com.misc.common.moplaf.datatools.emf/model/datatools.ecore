@@ -100,18 +100,18 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Grids" upperBound="-1"
-        eType="#//ColumnizerGrid" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Grids" eType="#//ColumnizerGrid"
+        eOpposite="#//ColumnizerGrid/Columns"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerExplicit" eSuperTypes="#//Columnizer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
         eType="#//ColumnizerColumn" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Grids" upperBound="-1"
+        eType="#//ColumnizerGrid" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnAttribute" eSuperTypes="#//ColumnizerColumn #//NavigationPath">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Grid" upperBound="-1" eType="#//ColumnizerGrid"
-        eOpposite="#//ColumnizerGrid/Column"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnOcl" eSuperTypes="#//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -180,8 +180,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EObjectsSet" instanceClassName="java.util.Set&lt;org.eclipse.emf.ecore.EObject>"/>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerGrid">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Column" upperBound="-1"
-        eType="#//ColumnizerColumnAttribute" eOpposite="#//ColumnizerColumnAttribute/Grid"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
+        eType="#//ColumnizerColumn" eOpposite="#//ColumnizerColumn/Grids"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

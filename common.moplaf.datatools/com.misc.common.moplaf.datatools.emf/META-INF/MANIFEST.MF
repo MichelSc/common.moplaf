@@ -14,7 +14,7 @@ Export-Package: com.misc.common.moplaf.dataextractor,
  com.misc.common.moplaf.datatools,
  com.misc.common.moplaf.datatools.impl,
  com.misc.common.moplaf.datatools.util
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
- com.misc.common.moplaf.emf;bundle-version="1.0.0"
+ com.misc.common.moplaf.emf;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
