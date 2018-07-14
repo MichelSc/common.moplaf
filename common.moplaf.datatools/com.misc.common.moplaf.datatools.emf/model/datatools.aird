@@ -493,7 +493,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Ddl9EHuZEeidFuGEkYQFRA" name="refreshCats(ins EObject)" tooltipText="refreshCats(ins)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Ddl9EHuZEeidFuGEkYQFRA" name="refreshCats(ins EObjectsSet)" tooltipText="refreshCats(ins)">
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//Categorizer/refreshCats"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Categorizer/refreshCats"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Categorizer/refreshCats/ins"/>
@@ -553,7 +553,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_DdnyQHuZEeidFuGEkYQFRA" name="extract(ins EObject) : EObject" tooltipText="extract(ins) : EObject">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_DdnyQHuZEeidFuGEkYQFRA" name="extract(ins EObjectsSet) : EObjectsSet" tooltipText="extract(ins) : EObjectsSet">
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//Extractor/extract"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Extractor/extract"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Extractor/extract/ins"/>

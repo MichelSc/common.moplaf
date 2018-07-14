@@ -15,11 +15,12 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.Columnizer} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class ColumnizerItemProvider 
-	extends DataToolAbstractItemProvider  {
+	extends DataToolAbstractItemProvider implements IItemGridsProvider  {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

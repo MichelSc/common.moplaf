@@ -258,14 +258,18 @@ public class CategoryAbstractItemProvider
 	@Override
 	public Object getGrids(Object element) {
 		CategoryAbstract cat = (CategoryAbstract)element;
+		
 		Columnizer columnizer = cat.getCategoryColumnizer();
 		if ( columnizer==null) {
 			return null;
 		}
-		// TODO: instantiate an object (to be implemented) 
-		//  receiving a Columnizer and a collection of objects of the type accepted by the columnizer
-		//  implementing IItemGridsProvider
-		IItemGridsProvider gridsProvider = null;
+
+		IItemGridsProvider adapter = (IItemGridsProvider)com.misc.common.moplaf.common.util.Util.adapt(columnizer, false);
+		if ( adapter==null) {
+			return null;
+		}
+
+		IItemGridsProvider gridsProvider = new ColumnizerItemGridsProvider(adapter, cat.getElements());	
 		return gridsProvider;
 	}
 }
