@@ -2952,7 +2952,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_9WdKQnuZEeidFuGEkYQFRA" name="getValue(object EObject)" tooltipText="getValue(object)">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_9WdKQnuZEeidFuGEkYQFRA" name="getValue(object EObject) : EJavaObject" tooltipText="getValue(object) : EJavaObject">
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//ColumnizerColumn/getValue"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//ColumnizerColumn/getValue"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//ColumnizerColumn/getValue/object"/>

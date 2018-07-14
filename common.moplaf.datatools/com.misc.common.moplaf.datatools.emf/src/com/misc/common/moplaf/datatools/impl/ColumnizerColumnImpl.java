@@ -212,7 +212,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void getValue(EObject object) {
+	public Object getValue(EObject object) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -336,8 +336,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN___GET_VALUE__EOBJECT:
-				getValue((EObject)arguments.get(0));
-				return null;
+				return getValue((EObject)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

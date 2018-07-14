@@ -95,7 +95,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorIntersection" eSuperTypes="#//ExtractorLogic"/>
   <eClassifiers xsi:type="ecore:EClass" name="Columnizer" abstract="true" eSuperTypes="#//DataToolAbstract"/>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumn" abstract="true">
-    <eOperations name="getValue">
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

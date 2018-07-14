@@ -109,6 +109,6 @@ public interface ColumnizerColumn extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void getValue(EObject object);
+	Object getValue(EObject object);
 
 } // ColumnizerColumn

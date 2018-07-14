@@ -264,12 +264,7 @@ public class CategoryAbstractItemProvider
 			return null;
 		}
 
-		IItemGridsProvider adapter = (IItemGridsProvider)com.misc.common.moplaf.common.util.Util.adapt(columnizer, false);
-		if ( adapter==null) {
-			return null;
-		}
-
-		IItemGridsProvider gridsProvider = new ColumnizerItemGridsProvider(adapter, cat.getElements());	
+		IItemGridsProvider gridsProvider = new ColumnizerItemGridsProvider(columnizer, cat.getElements());	
 		return gridsProvider;
 	}
 }
