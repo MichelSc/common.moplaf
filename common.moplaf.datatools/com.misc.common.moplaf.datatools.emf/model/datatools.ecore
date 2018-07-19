@@ -116,7 +116,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnOcl" eSuperTypes="#//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Categorizer" eSuperTypes="#//CategoryAbstract">
+  <eClassifiers xsi:type="ecore:EClass" name="SuperCategory" eSuperTypes="#//CategoryAbstract">
     <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
@@ -124,14 +124,14 @@
       <eParameters name="ins" eType="#//EObjectsSet"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" upperBound="-1"
-        eType="#//CategoryCriteria"/>
+        eType="#//Categorizer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" lowerBound="1"
-        eType="#//CategoryCriteria"/>
+        eType="#//Categorizer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteria" abstract="true" eSuperTypes="#//DataToolAbstract">
+  <eClassifiers xsi:type="ecore:EClass" name="Categorizer" abstract="true" eSuperTypes="#//DataToolAbstract">
     <eOperations name="getCategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
@@ -143,7 +143,7 @@
     </eOperations>
     <eOperations name="refreshCats">
       <eParameters name="tobe" eType="#//EObjectsSet"/>
-      <eParameters name="categorizer" eType="#//Categorizer"/>
+      <eParameters name="categorizer" eType="#//SuperCategory"/>
       <eParameters name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="setColumnizerAll">
@@ -159,11 +159,11 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CategoryColumnizer" eType="#//Columnizer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteriaStructuralFeature" eSuperTypes="#//CategoryCriteria #//NavigationPath">
+  <eClassifiers xsi:type="ecore:EClass" name="CategorizerStructuralFeature" eSuperTypes="#//Categorizer #//NavigationPath">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryCriteriaOcl" eSuperTypes="#//CategoryCriteria">
+  <eClassifiers xsi:type="ecore:EClass" name="CategorizerOcl" eSuperTypes="#//Categorizer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Matcher">
