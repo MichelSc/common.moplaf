@@ -2,9 +2,9 @@
  */
 package com.misc.common.moplaf.analysis;
 
-import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.Extractor;
+import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
 
 /**
@@ -24,7 +24,7 @@ import com.misc.common.moplaf.job.DocRef;
  * @model
  * @generated
  */
-public interface DocAnalysis extends Categorizer, DocRef {
+public interface DocAnalysis extends SuperCategory, DocRef {
 	/**
 	 * Returns the value of the '<em><b>Extractor</b></em>' reference.
 	 * <!-- begin-user-doc -->

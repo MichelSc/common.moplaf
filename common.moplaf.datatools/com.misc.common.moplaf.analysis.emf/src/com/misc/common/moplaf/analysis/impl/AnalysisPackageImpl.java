@@ -299,7 +299,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getCategorizer());
+		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getSuperCategory());
 		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
 		docComparisonEClass.getESuperTypes().add(theDatatoolsPackage.getMatcher());
 

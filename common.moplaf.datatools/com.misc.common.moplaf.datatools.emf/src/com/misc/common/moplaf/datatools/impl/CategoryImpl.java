@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
-import com.misc.common.moplaf.datatools.CategoryCriteria;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryImpl#getCriteria <em>Criteria</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryImpl#getCategorizer <em>Categorizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryImpl#getCategoryValue <em>Category Value</em>}</li>
  * </ul>
  *
@@ -29,14 +29,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	/**
-	 * The cached value of the '{@link #getCriteria() <em>Criteria</em>}' reference.
+	 * The cached value of the '{@link #getCategorizer() <em>Categorizer</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCriteria()
+	 * @see #getCategorizer()
 	 * @generated
 	 * @ordered
 	 */
-	protected CategoryCriteria criteria;
+	protected Categorizer categorizer;
 
 	/**
 	 * The default value of the '{@link #getCategoryValue() <em>Category Value</em>}' attribute.
@@ -82,16 +82,16 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CategoryCriteria getCriteria() {
-		if (criteria != null && criteria.eIsProxy()) {
-			InternalEObject oldCriteria = (InternalEObject)criteria;
-			criteria = (CategoryCriteria)eResolveProxy(oldCriteria);
-			if (criteria != oldCriteria) {
+	public Categorizer getCategorizer() {
+		if (categorizer != null && categorizer.eIsProxy()) {
+			InternalEObject oldCategorizer = (InternalEObject)categorizer;
+			categorizer = (Categorizer)eResolveProxy(oldCategorizer);
+			if (categorizer != oldCategorizer) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORY__CRITERIA, oldCriteria, criteria));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORY__CATEGORIZER, oldCategorizer, categorizer));
 			}
 		}
-		return criteria;
+		return categorizer;
 	}
 
 	/**
@@ -99,8 +99,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CategoryCriteria basicGetCriteria() {
-		return criteria;
+	public Categorizer basicGetCategorizer() {
+		return categorizer;
 	}
 
 	/**
@@ -108,11 +108,11 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCriteria(CategoryCriteria newCriteria) {
-		CategoryCriteria oldCriteria = criteria;
-		criteria = newCriteria;
+	public void setCategorizer(Categorizer newCategorizer) {
+		Categorizer oldCategorizer = categorizer;
+		categorizer = newCategorizer;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY__CRITERIA, oldCriteria, criteria));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY__CATEGORIZER, oldCategorizer, categorizer));
 	}
 
 	/**
@@ -144,9 +144,9 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY__CRITERIA:
-				if (resolve) return getCriteria();
-				return basicGetCriteria();
+			case DatatoolsPackage.CATEGORY__CATEGORIZER:
+				if (resolve) return getCategorizer();
+				return basicGetCategorizer();
 			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
 				return getCategoryValue();
 		}
@@ -161,8 +161,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY__CRITERIA:
-				setCriteria((CategoryCriteria)newValue);
+			case DatatoolsPackage.CATEGORY__CATEGORIZER:
+				setCategorizer((Categorizer)newValue);
 				return;
 			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
 				setCategoryValue(newValue);
@@ -179,8 +179,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY__CRITERIA:
-				setCriteria((CategoryCriteria)null);
+			case DatatoolsPackage.CATEGORY__CATEGORIZER:
+				setCategorizer((Categorizer)null);
 				return;
 			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
 				setCategoryValue(CATEGORY_VALUE_EDEFAULT);
@@ -197,8 +197,8 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.CATEGORY__CRITERIA:
-				return criteria != null;
+			case DatatoolsPackage.CATEGORY__CATEGORIZER:
+				return categorizer != null;
 			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
 				return CATEGORY_VALUE_EDEFAULT == null ? categoryValue != null : !CATEGORY_VALUE_EDEFAULT.equals(categoryValue);
 		}

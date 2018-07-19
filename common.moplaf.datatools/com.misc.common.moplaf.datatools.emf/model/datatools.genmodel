@@ -106,26 +106,26 @@
     <genClasses ecoreClass="datatools.ecore#//ColumnizerColumnOcl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumnOcl/Expression"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//Categorizer" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Categorizer/Criteria"/>
-      <genOperations ecoreOperation="datatools.ecore#//Categorizer/isValidRoot">
-        <genParameters ecoreParameter="datatools.ecore#//Categorizer/isValidRoot/doc"/>
+    <genClasses ecoreClass="datatools.ecore#//SuperCategory" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//SuperCategory/Categorizers"/>
+      <genOperations ecoreOperation="datatools.ecore#//SuperCategory/isValidRoot">
+        <genParameters ecoreParameter="datatools.ecore#//SuperCategory/isValidRoot/doc"/>
       </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//Categorizer/refreshCats">
-        <genParameters ecoreParameter="datatools.ecore#//Categorizer/refreshCats/ins"/>
+      <genOperations ecoreOperation="datatools.ecore#//SuperCategory/refreshCats">
+        <genParameters ecoreParameter="datatools.ecore#//SuperCategory/refreshCats/ins"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//Category">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Category/Criteria"/>
+    <genClasses ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Category/Categorizer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryValue"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//CategoryCriteria">
-      <genOperations ecoreOperation="datatools.ecore#//CategoryCriteria/getCategoryValue">
-        <genParameters ecoreParameter="datatools.ecore#//CategoryCriteria/getCategoryValue/object"/>
+    <genClasses ecoreClass="datatools.ecore#//Categorizer" labelFeature="#//datatools/DataToolAbstract/Description">
+      <genOperations ecoreOperation="datatools.ecore#//Categorizer/getCategoryValue">
+        <genParameters ecoreParameter="datatools.ecore#//Categorizer/getCategoryValue/object"/>
       </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryCriteria/constructCategory"/>
+      <genOperations ecoreOperation="datatools.ecore#//Categorizer/constructCategory"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//CategoryAbstract">
+    <genClasses image="false" ecoreClass="datatools.ecore#//CategoryAbstract" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SubCategories"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/Elements"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/NbElements"/>
@@ -143,11 +143,11 @@
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/setColumnizerAll/columnizer"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//CategoryCriteriaStructuralFeature">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryCriteriaStructuralFeature/Feature"/>
+    <genClasses ecoreClass="datatools.ecore#//CategorizerStructuralFeature">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategorizerStructuralFeature/Feature"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//CategoryCriteriaOcl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryCriteriaOcl/Expression"/>
+    <genClasses ecoreClass="datatools.ecore#//CategorizerOcl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategorizerOcl/Expression"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Matcher">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Matcher/Matches"/>

@@ -6,7 +6,7 @@ import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.Extractor;
-import com.misc.common.moplaf.datatools.impl.CategorizerImpl;
+import com.misc.common.moplaf.datatools.impl.SuperCategoryImpl;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.DocRef;
 import com.misc.common.moplaf.job.JobPackage;
@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DocAnalysisImpl extends CategorizerImpl implements DocAnalysis {
+public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	/**
 	 * The cached value of the '{@link #getDoc() <em>Doc</em>}' reference.
 	 * <!-- begin-user-doc -->

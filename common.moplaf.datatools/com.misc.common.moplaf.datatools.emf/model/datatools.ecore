@@ -138,7 +138,7 @@
     <eOperations name="constructCategory" eType="#//Category"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract" abstract="true">
-    <eOperations name="getSubcategory">
+    <eOperations name="getSubcategory" eType="#//Category">
       <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="refreshCats">

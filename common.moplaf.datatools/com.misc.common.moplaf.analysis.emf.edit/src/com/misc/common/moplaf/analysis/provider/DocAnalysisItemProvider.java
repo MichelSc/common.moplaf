@@ -6,10 +6,9 @@ package com.misc.common.moplaf.analysis.provider;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.DocAnalysis;
-import com.misc.common.moplaf.datatools.provider.CategorizerItemProvider;
+import com.misc.common.moplaf.datatools.provider.SuperCategoryItemProvider;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.job.JobPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocAnalysisItemProvider extends CategorizerItemProvider {
+public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -176,8 +175,10 @@ public class DocAnalysisItemProvider extends CategorizerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		DocAnalysis docAnalysis = (DocAnalysis)object;
-		return getString("_UI_DocAnalysis_type") + " " + docAnalysis.getNbElements();
+		String label = ((DocAnalysis)object).getCategoryLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DocAnalysis_type") :
+			getString("_UI_DocAnalysis_type") + " " + label;
 	}
 	
 

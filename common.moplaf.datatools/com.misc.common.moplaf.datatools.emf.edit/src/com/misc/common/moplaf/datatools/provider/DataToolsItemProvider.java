@@ -211,12 +211,12 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaStructuralFeature()));
+				 DatatoolsFactory.eINSTANCE.createCategorizerStructuralFeature()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategoryCriteriaOcl()));
+				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
 	}
 
 	/**

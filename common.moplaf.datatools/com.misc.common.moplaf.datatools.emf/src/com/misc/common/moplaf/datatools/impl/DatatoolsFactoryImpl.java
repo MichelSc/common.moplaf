@@ -74,10 +74,10 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT: return createColumnizerExplicit();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_OCL: return createColumnizerColumnOcl();
-			case DatatoolsPackage.CATEGORIZER: return createCategorizer();
+			case DatatoolsPackage.SUPER_CATEGORY: return createSuperCategory();
 			case DatatoolsPackage.CATEGORY: return createCategory();
-			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: return createCategoryCriteriaStructuralFeature();
-			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: return createCategoryCriteriaOcl();
+			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: return createCategorizerStructuralFeature();
+			case DatatoolsPackage.CATEGORIZER_OCL: return createCategorizerOcl();
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
 			case DatatoolsPackage.COLUMNIZER_GRID: return createColumnizerGrid();
@@ -121,9 +121,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Categorizer createCategorizer() {
-		CategorizerImpl categorizer = new CategorizerImpl();
-		return categorizer;
+	public Category createCategory() {
+		CategoryImpl category = new CategoryImpl();
+		return category;
 	}
 
 	/**
@@ -131,9 +131,19 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Category createCategory() {
-		CategoryImpl category = new CategoryImpl();
-		return category;
+	public CategorizerStructuralFeature createCategorizerStructuralFeature() {
+		CategorizerStructuralFeatureImpl categorizerStructuralFeature = new CategorizerStructuralFeatureImpl();
+		return categorizerStructuralFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CategorizerOcl createCategorizerOcl() {
+		CategorizerOclImpl categorizerOcl = new CategorizerOclImpl();
+		return categorizerOcl;
 	}
 
 	/**
@@ -231,26 +241,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CategoryCriteriaStructuralFeature createCategoryCriteriaStructuralFeature() {
-		CategoryCriteriaStructuralFeatureImpl categoryCriteriaStructuralFeature = new CategoryCriteriaStructuralFeatureImpl();
-		return categoryCriteriaStructuralFeature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CategoryCriteriaOcl createCategoryCriteriaOcl() {
-		CategoryCriteriaOclImpl categoryCriteriaOcl = new CategoryCriteriaOclImpl();
-		return categoryCriteriaOcl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ColumnizerExplicit createColumnizerExplicit() {
 		ColumnizerExplicitImpl columnizerExplicit = new ColumnizerExplicitImpl();
 		return columnizerExplicit;
@@ -274,6 +264,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ColumnizerColumnOcl createColumnizerColumnOcl() {
 		ColumnizerColumnOclImpl columnizerColumnOcl = new ColumnizerColumnOclImpl();
 		return columnizerColumnOcl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SuperCategory createSuperCategory() {
+		SuperCategoryImpl superCategory = new SuperCategoryImpl();
+		return superCategory;
 	}
 
 	/**

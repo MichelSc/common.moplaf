@@ -45,26 +45,26 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCriteriaPropertyDescriptor(object);
+			addCategorizerPropertyDescriptor(object);
 			addCategoryValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Criteria feature.
+	 * This adds a property descriptor for the Categorizer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCriteriaPropertyDescriptor(Object object) {
+	protected void addCategorizerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Category_Criteria_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_Criteria_feature", "_UI_Category_type"),
-				 DatatoolsPackage.Literals.CATEGORY__CRITERIA,
+				 getString("_UI_Category_Categorizer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Category_Categorizer_feature", "_UI_Category_type"),
+				 DatatoolsPackage.Literals.CATEGORY__CATEGORIZER,
 				 true,
 				 false,
 				 true,
@@ -114,8 +114,10 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Category category = (Category)object;
-		return getString("_UI_Category_type") + " " + category.getNbElements();
+		String label = ((Category)object).getCategoryLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Category_type") :
+			getString("_UI_Category_type") + " " + label;
 	}
 	
 

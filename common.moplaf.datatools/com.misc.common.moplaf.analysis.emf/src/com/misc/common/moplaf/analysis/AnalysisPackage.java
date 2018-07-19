@@ -74,7 +74,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__SUB_CATEGORIES = DatatoolsPackage.CATEGORIZER__SUB_CATEGORIES;
+	int DOC_ANALYSIS__SUB_CATEGORIES = DatatoolsPackage.SUPER_CATEGORY__SUB_CATEGORIES;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -83,7 +83,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__ELEMENTS = DatatoolsPackage.CATEGORIZER__ELEMENTS;
+	int DOC_ANALYSIS__ELEMENTS = DatatoolsPackage.SUPER_CATEGORY__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
@@ -92,7 +92,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__NB_ELEMENTS = DatatoolsPackage.CATEGORIZER__NB_ELEMENTS;
+	int DOC_ANALYSIS__NB_ELEMENTS = DatatoolsPackage.SUPER_CATEGORY__NB_ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Category Label</b></em>' attribute.
@@ -101,7 +101,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__CATEGORY_LABEL = DatatoolsPackage.CATEGORIZER__CATEGORY_LABEL;
+	int DOC_ANALYSIS__CATEGORY_LABEL = DatatoolsPackage.SUPER_CATEGORY__CATEGORY_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
@@ -110,16 +110,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__CATEGORY_COLUMNIZER = DatatoolsPackage.CATEGORIZER__CATEGORY_COLUMNIZER;
+	int DOC_ANALYSIS__CATEGORY_COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY__CATEGORY_COLUMNIZER;
 
 	/**
-	 * The feature id for the '<em><b>Criteria</b></em>' reference list.
+	 * The feature id for the '<em><b>Categorizers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__CRITERIA = DatatoolsPackage.CATEGORIZER__CRITERIA;
+	int DOC_ANALYSIS__CATEGORIZERS = DatatoolsPackage.SUPER_CATEGORY__CATEGORIZERS;
 
 	/**
 	 * The feature id for the '<em><b>Doc</b></em>' reference.
@@ -128,7 +128,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__DOC = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 0;
+	int DOC_ANALYSIS__DOC = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Extractor</b></em>' reference.
@@ -137,7 +137,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__EXTRACTOR = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 1;
+	int DOC_ANALYSIS__EXTRACTOR = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
@@ -146,7 +146,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__COLUMNIZER = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 2;
+	int DOC_ANALYSIS__COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Doc Analysis</em>' class.
@@ -155,7 +155,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.CATEGORIZER_FEATURE_COUNT + 3;
+	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -164,7 +164,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.CATEGORIZER___GET_SUBCATEGORY__EOBJECT;
+	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.SUPER_CATEGORY___GET_SUBCATEGORY__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
@@ -173,7 +173,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__SET_CATEGORIZER_INT = DatatoolsPackage.CATEGORIZER___REFRESH_CATS__SET_CATEGORIZER_INT;
+	int DOC_ANALYSIS___REFRESH_CATS__SET_SUPERCATEGORY_INT = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__SET_SUPERCATEGORY_INT;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -182,7 +182,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZER = DatatoolsPackage.CATEGORIZER___SET_COLUMNIZER_ALL__COLUMNIZER;
+	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZER;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -191,7 +191,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT = DatatoolsPackage.CATEGORIZER___IS_VALID_ROOT__EOBJECT;
+	int DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT = DatatoolsPackage.SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
@@ -200,7 +200,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__SET = DatatoolsPackage.CATEGORIZER___REFRESH_CATS__SET;
+	int DOC_ANALYSIS___REFRESH_CATS__SET = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__SET;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -209,7 +209,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH = DatatoolsPackage.CATEGORIZER_OPERATION_COUNT + 0;
+	int DOC_ANALYSIS___REFRESH = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Doc Analysis</em>' class.
@@ -218,7 +218,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORIZER_OPERATION_COUNT + 1;
+	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 1;
 
 
 	/**

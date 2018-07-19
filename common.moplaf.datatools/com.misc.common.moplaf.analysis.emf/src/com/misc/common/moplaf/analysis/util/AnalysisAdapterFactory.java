@@ -3,10 +3,9 @@
 package com.misc.common.moplaf.analysis.util;
 
 import com.misc.common.moplaf.analysis.*;
-
-import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.Matcher;
+import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -89,8 +88,8 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createCategoryAbstractAdapter();
 			}
 			@Override
-			public Adapter caseCategorizer(Categorizer object) {
-				return createCategorizerAdapter();
+			public Adapter caseSuperCategory(SuperCategory object) {
+				return createSuperCategoryAdapter();
 			}
 			@Override
 			public Adapter caseDocRef(DocRef object) {
@@ -191,16 +190,16 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.SuperCategory <em>Super Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.Categorizer
+	 * @see com.misc.common.moplaf.datatools.SuperCategory
 	 * @generated
 	 */
-	public Adapter createCategorizerAdapter() {
+	public Adapter createSuperCategoryAdapter() {
 		return null;
 	}
 

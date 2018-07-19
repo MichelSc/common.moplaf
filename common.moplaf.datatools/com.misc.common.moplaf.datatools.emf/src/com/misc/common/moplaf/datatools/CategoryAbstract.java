@@ -122,7 +122,7 @@ public interface CategoryAbstract extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void getSubcategory(EObject value);
+	Category getSubcategory(EObject value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,7 +130,7 @@ public interface CategoryAbstract extends EObject {
 	 * @model tobeDataType="com.misc.common.moplaf.datatools.EObjectsSet"
 	 * @generated
 	 */
-	void refreshCats(Set<EObject> tobe, Categorizer categorizer, int level);
+	void refreshCats(Set<EObject> tobe, SuperCategory categorizer, int level);
 
 	/**
 	 * <!-- begin-user-doc -->

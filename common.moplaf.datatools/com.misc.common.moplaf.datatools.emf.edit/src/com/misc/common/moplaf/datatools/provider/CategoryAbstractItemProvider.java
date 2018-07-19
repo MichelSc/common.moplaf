@@ -196,8 +196,10 @@ public class CategoryAbstractItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		CategoryAbstract categoryAbstract = (CategoryAbstract)object;
-		return getString("_UI_CategoryAbstract_type") + " " + categoryAbstract.getNbElements();
+		String label = ((CategoryAbstract)object).getCategoryLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CategoryAbstract_type") :
+			getString("_UI_CategoryAbstract_type") + " " + label;
 	}
 	
 

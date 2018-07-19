@@ -168,28 +168,28 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createColumnizerColumnOclAdapter();
 			}
 			@Override
-			public Adapter caseCategorizer(Categorizer object) {
-				return createCategorizerAdapter();
+			public Adapter caseSuperCategory(SuperCategory object) {
+				return createSuperCategoryAdapter();
 			}
 			@Override
 			public Adapter caseCategory(Category object) {
 				return createCategoryAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteria(CategoryCriteria object) {
-				return createCategoryCriteriaAdapter();
+			public Adapter caseCategorizer(Categorizer object) {
+				return createCategorizerAdapter();
 			}
 			@Override
 			public Adapter caseCategoryAbstract(CategoryAbstract object) {
 				return createCategoryAbstractAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteriaStructuralFeature(CategoryCriteriaStructuralFeature object) {
-				return createCategoryCriteriaStructuralFeatureAdapter();
+			public Adapter caseCategorizerStructuralFeature(CategorizerStructuralFeature object) {
+				return createCategorizerStructuralFeatureAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteriaOcl(CategoryCriteriaOcl object) {
-				return createCategoryCriteriaOclAdapter();
+			public Adapter caseCategorizerOcl(CategorizerOcl object) {
+				return createCategorizerOclAdapter();
 			}
 			@Override
 			public Adapter caseMatcher(Matcher object) {
@@ -252,20 +252,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteria <em>Category Criteria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteria
-	 * @generated
-	 */
-	public Adapter createCategoryCriteriaAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.Extractor <em>Extractor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -304,6 +290,34 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCategoryAbstractAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategorizerStructuralFeature <em>Categorizer Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategorizerStructuralFeature
+	 * @generated
+	 */
+	public Adapter createCategorizerStructuralFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategorizerOcl <em>Categorizer Ocl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategorizerOcl
+	 * @generated
+	 */
+	public Adapter createCategorizerOclAdapter() {
 		return null;
 	}
 
@@ -476,34 +490,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature <em>Category Criteria Structural Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature
-	 * @generated
-	 */
-	public Adapter createCategoryCriteriaStructuralFeatureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaOcl <em>Category Criteria Ocl</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaOcl
-	 * @generated
-	 */
-	public Adapter createCategoryCriteriaOclAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit <em>Columnizer Explicit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -556,6 +542,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnizerColumnOclAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.SuperCategory <em>Super Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.SuperCategory
+	 * @generated
+	 */
+	public Adapter createSuperCategoryAdapter() {
 		return null;
 	}
 

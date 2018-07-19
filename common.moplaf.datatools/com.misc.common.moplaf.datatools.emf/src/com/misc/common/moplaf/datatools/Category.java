@@ -12,7 +12,7 @@ package com.misc.common.moplaf.datatools;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.Category#getCriteria <em>Criteria</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.Category#getCategorizer <em>Categorizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.Category#getCategoryValue <em>Category Value</em>}</li>
  * </ul>
  *
@@ -22,30 +22,30 @@ package com.misc.common.moplaf.datatools;
  */
 public interface Category extends CategoryAbstract {
 	/**
-	 * Returns the value of the '<em><b>Criteria</b></em>' reference.
+	 * Returns the value of the '<em><b>Categorizer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Criteria</em>' reference isn't clear,
+	 * If the meaning of the '<em>Categorizer</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Criteria</em>' reference.
-	 * @see #setCriteria(CategoryCriteria)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_Criteria()
+	 * @return the value of the '<em>Categorizer</em>' reference.
+	 * @see #setCategorizer(Categorizer)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_Categorizer()
 	 * @model required="true"
 	 * @generated
 	 */
-	CategoryCriteria getCriteria();
+	Categorizer getCategorizer();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getCriteria <em>Criteria</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getCategorizer <em>Categorizer</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Criteria</em>' reference.
-	 * @see #getCriteria()
+	 * @param value the new value of the '<em>Categorizer</em>' reference.
+	 * @see #getCategorizer()
 	 * @generated
 	 */
-	void setCriteria(CategoryCriteria value);
+	void setCategorizer(Categorizer value);
 
 	/**
 	 * Returns the value of the '<em><b>Category Value</b></em>' attribute.

@@ -73,29 +73,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Categorizer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategorizerItemProvider categorizerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.Categorizer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategorizerAdapter() {
-		if (categorizerItemProvider == null) {
-			categorizerItemProvider = new CategorizerItemProvider(this);
-		}
-
-		return categorizerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Category} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +93,52 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		}
 
 		return categoryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategorizerStructuralFeature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CategorizerStructuralFeatureItemProvider categorizerStructuralFeatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategorizerStructuralFeature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCategorizerStructuralFeatureAdapter() {
+		if (categorizerStructuralFeatureItemProvider == null) {
+			categorizerStructuralFeatureItemProvider = new CategorizerStructuralFeatureItemProvider(this);
+		}
+
+		return categorizerStructuralFeatureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategorizerOcl} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CategorizerOclItemProvider categorizerOclItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategorizerOcl}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCategorizerOclAdapter() {
+		if (categorizerOclItemProvider == null) {
+			categorizerOclItemProvider = new CategorizerOclItemProvider(this);
+		}
+
+		return categorizerOclItemProvider;
 	}
 
 	/**
@@ -326,52 +349,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoryCriteriaStructuralFeatureItemProvider categoryCriteriaStructuralFeatureItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategoryCriteriaStructuralFeature}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategoryCriteriaStructuralFeatureAdapter() {
-		if (categoryCriteriaStructuralFeatureItemProvider == null) {
-			categoryCriteriaStructuralFeatureItemProvider = new CategoryCriteriaStructuralFeatureItemProvider(this);
-		}
-
-		return categoryCriteriaStructuralFeatureItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategoryCriteriaOcl} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoryCriteriaOclItemProvider categoryCriteriaOclItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategoryCriteriaOcl}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategoryCriteriaOclAdapter() {
-		if (categoryCriteriaOclItemProvider == null) {
-			categoryCriteriaOclItemProvider = new CategoryCriteriaOclItemProvider(this);
-		}
-
-		return categoryCriteriaOclItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerExplicit} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,6 +415,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		}
 
 		return columnizerColumnOclItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.SuperCategory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SuperCategoryItemProvider superCategoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.SuperCategory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSuperCategoryAdapter() {
+		if (superCategoryItemProvider == null) {
+			superCategoryItemProvider = new SuperCategoryItemProvider(this);
+		}
+
+		return superCategoryItemProvider;
 	}
 
 	/**
@@ -716,10 +716,10 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (columnizerExplicitItemProvider != null) columnizerExplicitItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
 		if (columnizerColumnOclItemProvider != null) columnizerColumnOclItemProvider.dispose();
-		if (categorizerItemProvider != null) categorizerItemProvider.dispose();
+		if (superCategoryItemProvider != null) superCategoryItemProvider.dispose();
 		if (categoryItemProvider != null) categoryItemProvider.dispose();
-		if (categoryCriteriaStructuralFeatureItemProvider != null) categoryCriteriaStructuralFeatureItemProvider.dispose();
-		if (categoryCriteriaOclItemProvider != null) categoryCriteriaOclItemProvider.dispose();
+		if (categorizerStructuralFeatureItemProvider != null) categorizerStructuralFeatureItemProvider.dispose();
+		if (categorizerOclItemProvider != null) categorizerOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (columnizerGridItemProvider != null) columnizerGridItemProvider.dispose();

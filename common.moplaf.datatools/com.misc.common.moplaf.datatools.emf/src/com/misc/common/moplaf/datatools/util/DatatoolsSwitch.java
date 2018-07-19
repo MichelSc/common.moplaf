@@ -280,10 +280,10 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORIZER: {
-				Categorizer categorizer = (Categorizer)theEObject;
-				T result = caseCategorizer(categorizer);
-				if (result == null) result = caseCategoryAbstract(categorizer);
+			case DatatoolsPackage.SUPER_CATEGORY: {
+				SuperCategory superCategory = (SuperCategory)theEObject;
+				T result = caseSuperCategory(superCategory);
+				if (result == null) result = caseCategoryAbstract(superCategory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -294,11 +294,11 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_CRITERIA: {
-				CategoryCriteria categoryCriteria = (CategoryCriteria)theEObject;
-				T result = caseCategoryCriteria(categoryCriteria);
-				if (result == null) result = caseDataToolAbstract(categoryCriteria);
-				if (result == null) result = caseDataTool(categoryCriteria);
+			case DatatoolsPackage.CATEGORIZER: {
+				Categorizer categorizer = (Categorizer)theEObject;
+				T result = caseCategorizer(categorizer);
+				if (result == null) result = caseDataToolAbstract(categorizer);
+				if (result == null) result = caseDataTool(categorizer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -308,22 +308,22 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_CRITERIA_STRUCTURAL_FEATURE: {
-				CategoryCriteriaStructuralFeature categoryCriteriaStructuralFeature = (CategoryCriteriaStructuralFeature)theEObject;
-				T result = caseCategoryCriteriaStructuralFeature(categoryCriteriaStructuralFeature);
-				if (result == null) result = caseCategoryCriteria(categoryCriteriaStructuralFeature);
-				if (result == null) result = caseNavigationPath(categoryCriteriaStructuralFeature);
-				if (result == null) result = caseDataToolAbstract(categoryCriteriaStructuralFeature);
-				if (result == null) result = caseDataTool(categoryCriteriaStructuralFeature);
+			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: {
+				CategorizerStructuralFeature categorizerStructuralFeature = (CategorizerStructuralFeature)theEObject;
+				T result = caseCategorizerStructuralFeature(categorizerStructuralFeature);
+				if (result == null) result = caseCategorizer(categorizerStructuralFeature);
+				if (result == null) result = caseNavigationPath(categorizerStructuralFeature);
+				if (result == null) result = caseDataToolAbstract(categorizerStructuralFeature);
+				if (result == null) result = caseDataTool(categorizerStructuralFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: {
-				CategoryCriteriaOcl categoryCriteriaOcl = (CategoryCriteriaOcl)theEObject;
-				T result = caseCategoryCriteriaOcl(categoryCriteriaOcl);
-				if (result == null) result = caseCategoryCriteria(categoryCriteriaOcl);
-				if (result == null) result = caseDataToolAbstract(categoryCriteriaOcl);
-				if (result == null) result = caseDataTool(categoryCriteriaOcl);
+			case DatatoolsPackage.CATEGORIZER_OCL: {
+				CategorizerOcl categorizerOcl = (CategorizerOcl)theEObject;
+				T result = caseCategorizerOcl(categorizerOcl);
+				if (result == null) result = caseCategorizer(categorizerOcl);
+				if (result == null) result = caseDataToolAbstract(categorizerOcl);
+				if (result == null) result = caseDataTool(categorizerOcl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -380,21 +380,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Category Criteria</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCategoryCriteria(CategoryCriteria object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Extractor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -436,6 +421,36 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCategoryAbstract(CategoryAbstract object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorizer Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorizer Structural Feature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorizerStructuralFeature(CategorizerStructuralFeature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorizer Ocl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorizer Ocl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorizerOcl(CategorizerOcl object) {
 		return null;
 	}
 
@@ -620,36 +635,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria Structural Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Category Criteria Structural Feature</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCategoryCriteriaStructuralFeature(CategoryCriteriaStructuralFeature object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Category Criteria Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Category Criteria Ocl</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCategoryCriteriaOcl(CategoryCriteriaOcl object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Columnizer Explicit</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -706,6 +691,21 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumnizerColumnOcl(ColumnizerColumnOcl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Super Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Super Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSuperCategory(SuperCategory object) {
 		return null;
 	}
 

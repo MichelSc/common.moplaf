@@ -5,10 +5,10 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
-import com.misc.common.moplaf.datatools.CategoryCriteria;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
+import com.misc.common.moplaf.datatools.SuperCategory;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -212,19 +212,16 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void getSubcategory(EObject value) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Category getSubcategory(EObject value) {
+		return this.getSubCategories().stream().filter(c -> c.getCategoryValue().equals(value)).findAny().orElse(null);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void refreshCats(Set<EObject> tobes, Categorizer categorizer, int level) {
+	public void refreshCats(Set<EObject> tobes, SuperCategory categorizer, int level) {
 		// update the elements of this category
 		Iterator<EObject> iterator_asis = this.getElements().iterator();
 		while ( iterator_asis.hasNext()) {
@@ -237,8 +234,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 		this.getElements().addAll(tobes);
 		
 		// update the subcategories
-		if ( categorizer.getCriteria().size()>level ) {
-			CategoryCriteria criteria = categorizer.getCriteria().get(level);
+		if ( categorizer.getCategorizers().size()>level ) {
+			Categorizer criteria = categorizer.getCategorizers().get(level);
 			HashMap<Object, HashSet<EObject>> cats_tobe  = new HashMap<>();
 			// collect the cats
 			for ( EObject element : this.getElements()) {
@@ -402,10 +399,9 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT:
-				getSubcategory((EObject)arguments.get(0));
-				return null;
-			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH_CATS__SET_CATEGORIZER_INT:
-				refreshCats((Set<EObject>)arguments.get(0), (Categorizer)arguments.get(1), (Integer)arguments.get(2));
+				return getSubcategory((EObject)arguments.get(0));
+			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT:
+				refreshCats((Set<EObject>)arguments.get(0), (SuperCategory)arguments.get(1), (Integer)arguments.get(2));
 				return null;
 			case DatatoolsPackage.CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER:
 				setColumnizerAll((Columnizer)arguments.get(0));

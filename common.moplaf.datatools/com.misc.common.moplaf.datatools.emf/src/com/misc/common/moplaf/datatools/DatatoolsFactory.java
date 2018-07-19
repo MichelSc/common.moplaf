@@ -22,15 +22,6 @@ public interface DatatoolsFactory extends EFactory {
 	DatatoolsFactory eINSTANCE = com.misc.common.moplaf.datatools.impl.DatatoolsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Categorizer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Categorizer</em>'.
-	 * @generated
-	 */
-	Categorizer createCategorizer();
-
-	/**
 	 * Returns a new object of class '<em>Category</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,6 +29,24 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	Category createCategory();
+
+	/**
+	 * Returns a new object of class '<em>Categorizer Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Categorizer Structural Feature</em>'.
+	 * @generated
+	 */
+	CategorizerStructuralFeature createCategorizerStructuralFeature();
+
+	/**
+	 * Returns a new object of class '<em>Categorizer Ocl</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Categorizer Ocl</em>'.
+	 * @generated
+	 */
+	CategorizerOcl createCategorizerOcl();
 
 	/**
 	 * Returns a new object of class '<em>Extractor Type</em>'.
@@ -121,24 +130,6 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorFilterOcl createExtractorFilterOcl();
 
 	/**
-	 * Returns a new object of class '<em>Category Criteria Structural Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category Criteria Structural Feature</em>'.
-	 * @generated
-	 */
-	CategoryCriteriaStructuralFeature createCategoryCriteriaStructuralFeature();
-
-	/**
-	 * Returns a new object of class '<em>Category Criteria Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category Criteria Ocl</em>'.
-	 * @generated
-	 */
-	CategoryCriteriaOcl createCategoryCriteriaOcl();
-
-	/**
 	 * Returns a new object of class '<em>Columnizer Explicit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,6 +155,15 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	ColumnizerColumnOcl createColumnizerColumnOcl();
+
+	/**
+	 * Returns a new object of class '<em>Super Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Super Category</em>'.
+	 * @generated
+	 */
+	SuperCategory createSuperCategory();
 
 	/**
 	 * Returns a new object of class '<em>Navigation Path</em>'.
