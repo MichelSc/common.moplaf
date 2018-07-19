@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analysis" nsURI="http://www.misc.com/common/moplaf/analysis/model/0.1"
     nsPrefix="analysis">
-  <eClassifiers xsi:type="ecore:EClass" name="DocAnalysis" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer ../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef">
+  <eClassifiers xsi:type="ecore:EClass" name="DocAnalysis" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//SuperCategory">
     <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columnizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Columnizer"/>

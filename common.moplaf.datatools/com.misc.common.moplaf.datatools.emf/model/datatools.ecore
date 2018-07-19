@@ -123,11 +123,11 @@
     <eOperations name="refreshCats">
       <eParameters name="ins" eType="#//EObjectsSet"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizers" upperBound="-1"
         eType="#//Categorizer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" lowerBound="1"
         eType="#//Categorizer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
