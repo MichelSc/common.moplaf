@@ -12,7 +12,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -172,11 +172,10 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 	 * This adds a property descriptor for the Attribute feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addAttributePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			( new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_ColumnizerColumnAttribute_Attribute_feature"),
@@ -187,7 +186,19 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						ColumnizerColumnAttribute column = (ColumnizerColumnAttribute)object;
+						EClass target_type = column.getTargetType();
+						if ( target_type==null ) { 
+							return null;
+						}
+						return target_type.getEAllAttributes();
+					}
+				
+			});
 	}
 
 	/**
