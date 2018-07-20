@@ -102,10 +102,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Grids" eType="#//ColumnizerGrid"
         eOpposite="#//ColumnizerGrid/Columns"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" lowerBound="1"
+        eType="#//ColumnizerExplicit" eOpposite="#//ColumnizerExplicit/Columns"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerExplicit" eSuperTypes="#//Columnizer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
-        eType="#//ColumnizerColumn" containment="true"/>
+        eType="#//ColumnizerColumn" containment="true" eOpposite="#//ColumnizerColumn/Columnizer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Grids" upperBound="-1"
         eType="#//ColumnizerGrid" containment="true"/>
   </eClassifiers>

@@ -25,6 +25,7 @@ public interface ColumnizerExplicit extends Columnizer {
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.ColumnizerColumn}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
@@ -33,7 +34,8 @@ public interface ColumnizerExplicit extends Columnizer {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columns</em>' containment reference list.
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerExplicit_Columns()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer
+	 * @model opposite="Columnizer" containment="true"
 	 * @generated
 	 */
 	EList<ColumnizerColumn> getColumns();

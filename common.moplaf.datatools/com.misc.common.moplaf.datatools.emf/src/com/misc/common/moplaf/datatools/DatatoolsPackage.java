@@ -1980,13 +1980,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN__GRIDS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__COLUMNIZER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_FEATURE_COUNT = 3;
+	int COLUMNIZER_COLUMN_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -2095,6 +2104,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_ATTRIBUTE__GRIDS = COLUMNIZER_COLUMN__GRIDS;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER = COLUMNIZER_COLUMN__COLUMNIZER;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -2212,6 +2230,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_OCL__GRIDS = COLUMNIZER_COLUMN__GRIDS;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__COLUMNIZER = COLUMNIZER_COLUMN__COLUMNIZER;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -3506,6 +3533,17 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getColumnizerColumn_Grids();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Columnizer</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EReference getColumnizerColumn_Columnizer();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getValue(org.eclipse.emf.ecore.EObject) <em>Get Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4452,6 +4490,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLUMNIZER_COLUMN__GRIDS = eINSTANCE.getColumnizerColumn_Grids();
+
+		/**
+		 * The meta object literal for the '<em><b>Columnizer</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMNIZER_COLUMN__COLUMNIZER = eINSTANCE.getColumnizerColumn_Columnizer();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.

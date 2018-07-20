@@ -8,6 +8,7 @@ import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
+import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
 
@@ -126,13 +127,9 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public DataTools basicGetContext() {
-		// TODO: implement this method to return the 'Context' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.getColumnizer().getContext();
 	}
 
 	/**
@@ -198,35 +195,25 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetTargetType() {
-		// TODO: implement this method to return the 'Target Type' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Util.NavigationPathGetTargetType(this);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean isMany() {
-		// TODO: implement this method to return the 'Many' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return false;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getPath() {
-		// TODO: implement this method to return the 'Path' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Util.getNavigationPath(this);
 	}
 
 	/**

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getWidth <em>Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn()
@@ -102,6 +103,34 @@ public interface ColumnizerColumn extends EObject {
 	 * @generated
 	 */
 	void setGrids(ColumnizerGrid value);
+
+	/**
+	 * Returns the value of the '<em><b>Columnizer</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Columnizer</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Columnizer</em>' container reference.
+	 * @see #setColumnizer(ColumnizerExplicit)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_Columnizer()
+	 * @see com.misc.common.moplaf.datatools.ColumnizerExplicit#getColumns
+	 * @model opposite="Columns" required="true" transient="false"
+	 * @generated
+	 */
+	ColumnizerExplicit getColumnizer();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Columnizer</em>' container reference.
+	 * @see #getColumnizer()
+	 * @generated
+	 */
+	void setColumnizer(ColumnizerExplicit value);
 
 	/**
 	 * <!-- begin-user-doc -->

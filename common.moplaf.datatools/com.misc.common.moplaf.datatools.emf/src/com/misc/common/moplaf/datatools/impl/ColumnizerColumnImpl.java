@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
+import com.misc.common.moplaf.datatools.ColumnizerExplicit;
 import com.misc.common.moplaf.datatools.ColumnizerGrid;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getGrids <em>Grids</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
  * @generated
@@ -212,6 +215,47 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ColumnizerExplicit getColumnizer() {
+		if (eContainerFeatureID() != DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER) return null;
+		return (ColumnizerExplicit)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetColumnizer(ColumnizerExplicit newColumnizer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newColumnizer, DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumnizer(ColumnizerExplicit newColumnizer) {
+		if (newColumnizer != eInternalContainer() || (eContainerFeatureID() != DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER && newColumnizer != null)) {
+			if (EcoreUtil.isAncestor(this, newColumnizer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newColumnizer != null)
+				msgs = ((InternalEObject)newColumnizer).eInverseAdd(this, DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS, ColumnizerExplicit.class, msgs);
+			msgs = basicSetColumnizer(newColumnizer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER, newColumnizer, newColumnizer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object getValue(EObject object) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -230,6 +274,10 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				if (grids != null)
 					msgs = ((InternalEObject)grids).eInverseRemove(this, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS, ColumnizerGrid.class, msgs);
 				return basicSetGrids((ColumnizerGrid)otherEnd, msgs);
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetColumnizer((ColumnizerExplicit)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -244,8 +292,24 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				return basicSetGrids(null, msgs);
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
+				return basicSetColumnizer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
+				return eInternalContainer().eInverseRemove(this, DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS, ColumnizerExplicit.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -263,6 +327,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				if (resolve) return getGrids();
 				return basicGetGrids();
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
+				return getColumnizer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -283,6 +349,9 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				setGrids((ColumnizerGrid)newValue);
+				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
+				setColumnizer((ColumnizerExplicit)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -305,6 +374,9 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				setGrids((ColumnizerGrid)null);
 				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
+				setColumnizer((ColumnizerExplicit)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -323,6 +395,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return width != WIDTH_EDEFAULT;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				return grids != null;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
+				return getColumnizer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

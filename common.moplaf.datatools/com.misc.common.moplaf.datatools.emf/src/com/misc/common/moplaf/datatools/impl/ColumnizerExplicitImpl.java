@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -80,7 +81,7 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 	 */
 	public EList<ColumnizerColumn> getColumns() {
 		if (columns == null) {
-			columns = new EObjectContainmentEList<ColumnizerColumn>(ColumnizerColumn.class, this, DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS);
+			columns = new EObjectContainmentWithInverseEList<ColumnizerColumn>(ColumnizerColumn.class, this, DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS, DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER);
 		}
 		return columns;
 	}
@@ -95,6 +96,21 @@ public class ColumnizerExplicitImpl extends ColumnizerImpl implements Columnizer
 			grids = new EObjectContainmentEList<ColumnizerGrid>(ColumnizerGrid.class, this, DatatoolsPackage.COLUMNIZER_EXPLICIT__GRIDS);
 		}
 		return grids;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColumns()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	@Override
