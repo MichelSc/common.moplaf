@@ -163,6 +163,13 @@ public class ColumnizerExplicitItemProvider extends ColumnizerItemProvider {
 		return columnizer.getGrids();
 	}
 
+	
+	@Override
+	public String getGridText(Object element, Object grid) {
+		ColumnizerGrid grid_columnizer = (ColumnizerGrid)grid;
+		return grid_columnizer.getName();
+	}
+
 	@Override
 	public Collection<?> getColumns(Object element, Object grid) {
 		ColumnizerGrid grid_columnizer = (ColumnizerGrid)grid;

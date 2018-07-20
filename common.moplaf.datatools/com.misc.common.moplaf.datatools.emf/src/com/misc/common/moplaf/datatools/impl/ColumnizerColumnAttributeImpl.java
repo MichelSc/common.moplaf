@@ -249,6 +249,13 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	@Override
 	public Object getValue(EObject object) {
+		EClass target_type = this.getTargetType();
+		if ( target_type==null ) {
+			return null;
+		}
+		if ( !target_type.isSuperTypeOf(object.eClass())) {
+			return null;
+		}
 		EAttribute attribute = this.getAttribute();
 		if ( attribute == null ) {
 			return null;
