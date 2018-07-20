@@ -266,7 +266,7 @@ public class CategoryAbstractItemProvider
 			return null;
 		}
 
-		IItemGridsProvider gridsProvider = new ColumnizerItemGridsProvider(columnizer, cat.getElements());	
+		IItemGridsProvider gridsProvider = new ColumnizerItemGridsProvider(this.getRootAdapterFactory(), columnizer, cat.getElements());	
 		return gridsProvider;
 	}
 }

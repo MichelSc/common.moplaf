@@ -2,20 +2,22 @@ package com.misc.common.moplaf.datatools.provider;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
+
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProviderBase;
 
 public class ColumnizerItemGridsProvider implements IItemGridsProvider {
 	private Columnizer columnizer;
 	private Collection<?> rowSet;
-	private IItemGridsProviderBase adapter;
+	private IItemGridsProvider adapter;
 	
-	public ColumnizerItemGridsProvider(Columnizer columnizer, Collection<?> rowSet) {
+	public ColumnizerItemGridsProvider(AdapterFactory factory, Columnizer columnizer, Collection<?> rowSet) {
 		super();
 		this.columnizer = columnizer;
 		this.rowSet = rowSet;
-		this.adapter = (IItemGridsProviderBase)com.misc.common.moplaf.common.util.Util.adapt(columnizer, IItemGridsProviderBase.class);
+		this.adapter = (IItemGridsProvider)factory.adapt(columnizer, IItemGridsProvider.class);
+//		this.adapter = (IItemGridsProvider)com.misc.common.moplaf.common.util.Util.adapt(columnizer, IItemGridsProvider.class);
 	}
 	
 	// grids
