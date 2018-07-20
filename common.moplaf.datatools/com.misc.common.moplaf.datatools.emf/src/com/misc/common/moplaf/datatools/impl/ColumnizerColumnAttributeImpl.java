@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -240,6 +241,19 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	public EAttribute basicGetAttribute() {
 		return attribute;
+	}
+	
+	
+	/**
+	 * Specified by ColumnizerColumn
+	 */
+	@Override
+	public Object getValue(EObject object) {
+		EAttribute attribute = this.getAttribute();
+		if ( attribute == null ) {
+			return null;
+		}
+		return object.eGet(attribute);
 	}
 
 	/**

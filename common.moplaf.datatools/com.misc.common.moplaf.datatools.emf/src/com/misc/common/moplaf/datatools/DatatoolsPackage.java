@@ -273,7 +273,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerExplicit()
 	 * @generated
 	 */
-	int COLUMNIZER_EXPLICIT = 22;
+	int COLUMNIZER_EXPLICIT = 21;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl <em>Columnizer Column</em>}' class.
@@ -283,7 +283,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumn()
 	 * @generated
 	 */
-	int COLUMNIZER_COLUMN = 21;
+	int COLUMNIZER_COLUMN = 22;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.
@@ -1953,69 +1953,6 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_OPERATION_COUNT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN__WIDTH = 1;
-
-	/**
-	 * The feature id for the '<em><b>Grids</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN__GRIDS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN__COLUMNIZER = 3;
-
-	/**
-	 * The number of structural features of the '<em>Columnizer Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN_FEATURE_COUNT = 4;
-
-	/**
-	 * The operation id for the '<em>Get Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = 0;
-
-	/**
-	 * The number of operations of the '<em>Columnizer Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN_OPERATION_COUNT = 1;
-
-	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2085,6 +2022,69 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int COLUMNIZER_COLUMN__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__WIDTH = 1;
+
+	/**
+	 * The feature id for the '<em><b>Grids</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__GRIDS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__COLUMNIZER = 3;
+
+	/**
+	 * The number of structural features of the '<em>Columnizer Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = 0;
+
+	/**
+	 * The number of operations of the '<em>Columnizer Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OPERATION_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int COLUMNIZER_COLUMN_ATTRIBUTE__NAME = COLUMNIZER_COLUMN__NAME;
 
 	/**
@@ -2097,7 +2097,7 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE__WIDTH = COLUMNIZER_COLUMN__WIDTH;
 
 	/**
-	 * The feature id for the '<em><b>Grids</b></em>' reference.
+	 * The feature id for the '<em><b>Grids</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2223,7 +2223,7 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_OCL__WIDTH = COLUMNIZER_COLUMN__WIDTH;
 
 	/**
-	 * The feature id for the '<em><b>Grids</b></em>' reference.
+	 * The feature id for the '<em><b>Grids</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3522,10 +3522,10 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getColumnizerColumn_Width();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Grids</em>'.
+	 * @return the meta object for the reference list '<em>Grids</em>'.
 	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids()
 	 * @see #getColumnizerColumn()
 	 * @generated
@@ -4484,7 +4484,7 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute COLUMNIZER_COLUMN__WIDTH = eINSTANCE.getColumnizerColumn_Width();
 
 		/**
-		 * The meta object literal for the '<em><b>Grids</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Grids</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

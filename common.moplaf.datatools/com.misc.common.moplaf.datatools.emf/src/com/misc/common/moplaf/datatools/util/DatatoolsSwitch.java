@@ -249,18 +249,18 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.COLUMNIZER_COLUMN: {
-				ColumnizerColumn columnizerColumn = (ColumnizerColumn)theEObject;
-				T result = caseColumnizerColumn(columnizerColumn);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DatatoolsPackage.COLUMNIZER_EXPLICIT: {
 				ColumnizerExplicit columnizerExplicit = (ColumnizerExplicit)theEObject;
 				T result = caseColumnizerExplicit(columnizerExplicit);
 				if (result == null) result = caseColumnizer(columnizerExplicit);
 				if (result == null) result = caseDataToolAbstract(columnizerExplicit);
 				if (result == null) result = caseDataTool(columnizerExplicit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.COLUMNIZER_COLUMN: {
+				ColumnizerColumn columnizerColumn = (ColumnizerColumn)theEObject;
+				T result = caseColumnizerColumn(columnizerColumn);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

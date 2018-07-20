@@ -4,17 +4,18 @@ import java.util.Collection;
 
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProviderBase;
 
 public class ColumnizerItemGridsProvider implements IItemGridsProvider {
 	private Columnizer columnizer;
 	private Collection<?> rowSet;
-	private IItemGridsProvider adapter;
+	private IItemGridsProviderBase adapter;
 	
 	public ColumnizerItemGridsProvider(Columnizer columnizer, Collection<?> rowSet) {
 		super();
 		this.columnizer = columnizer;
 		this.rowSet = rowSet;
-		this.adapter = (IItemGridsProvider)com.misc.common.moplaf.common.util.Util.adapt(columnizer, false);
+		this.adapter = (IItemGridsProviderBase)com.misc.common.moplaf.common.util.Util.adapt(columnizer, IItemGridsProviderBase.class);
 	}
 	
 	// grids

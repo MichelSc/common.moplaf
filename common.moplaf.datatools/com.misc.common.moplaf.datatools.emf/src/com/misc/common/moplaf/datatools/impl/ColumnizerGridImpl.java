@@ -93,7 +93,7 @@ public class ColumnizerGridImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<ColumnizerColumn> getColumns() {
 		if (columns == null) {
-			columns = new EObjectWithInverseResolvingEList<ColumnizerColumn>(ColumnizerColumn.class, this, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS, DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS);
+			columns = new EObjectWithInverseResolvingEList.ManyInverse<ColumnizerColumn>(ColumnizerColumn.class, this, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS, DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS);
 		}
 		return columns;
 	}

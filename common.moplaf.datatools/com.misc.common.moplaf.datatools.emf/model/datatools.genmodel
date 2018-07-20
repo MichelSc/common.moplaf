@@ -88,6 +88,10 @@
     <genClasses ecoreClass="datatools.ecore#//ExtractorUnion" labelFeature="#//datatools/DataToolAbstract/Description"/>
     <genClasses ecoreClass="datatools.ecore#//ExtractorIntersection" labelFeature="#//datatools/DataToolAbstract/Description"/>
     <genClasses image="false" ecoreClass="datatools.ecore#//Columnizer" labelFeature="#//datatools/DataToolAbstract/Description"/>
+    <genClasses ecoreClass="datatools.ecore#//ColumnizerExplicit" labelFeature="#//datatools/DataToolAbstract/Description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerExplicit/Columns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerExplicit/Grids"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerColumn">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/Width"/>
@@ -96,10 +100,6 @@
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/getValue">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerColumn/getValue/object"/>
       </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//ColumnizerExplicit" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerExplicit/Columns"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerExplicit/Grids"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerColumnAttribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumnAttribute/Attribute"/>

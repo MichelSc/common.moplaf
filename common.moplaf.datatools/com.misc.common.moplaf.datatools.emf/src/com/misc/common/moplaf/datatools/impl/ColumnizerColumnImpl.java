@@ -9,6 +9,7 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,7 +21,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,14 +83,14 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	protected int width = WIDTH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGrids() <em>Grids</em>}' reference.
+	 * The cached value of the '{@link #getGrids() <em>Grids</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGrids()
 	 * @generated
 	 * @ordered
 	 */
-	protected ColumnizerGrid grids;
+	protected EList<ColumnizerGrid> grids;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,59 +158,11 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColumnizerGrid getGrids() {
-		if (grids != null && grids.eIsProxy()) {
-			InternalEObject oldGrids = (InternalEObject)grids;
-			grids = (ColumnizerGrid)eResolveProxy(oldGrids);
-			if (grids != oldGrids) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS, oldGrids, grids));
-			}
+	public EList<ColumnizerGrid> getGrids() {
+		if (grids == null) {
+			grids = new EObjectWithInverseResolvingEList.ManyInverse<ColumnizerGrid>(ColumnizerGrid.class, this, DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS);
 		}
 		return grids;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerGrid basicGetGrids() {
-		return grids;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGrids(ColumnizerGrid newGrids, NotificationChain msgs) {
-		ColumnizerGrid oldGrids = grids;
-		grids = newGrids;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS, oldGrids, newGrids);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGrids(ColumnizerGrid newGrids) {
-		if (newGrids != grids) {
-			NotificationChain msgs = null;
-			if (grids != null)
-				msgs = ((InternalEObject)grids).eInverseRemove(this, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS, ColumnizerGrid.class, msgs);
-			if (newGrids != null)
-				msgs = ((InternalEObject)newGrids).eInverseAdd(this, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS, ColumnizerGrid.class, msgs);
-			msgs = basicSetGrids(newGrids, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS, newGrids, newGrids));
 	}
 
 	/**
@@ -267,13 +222,12 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				if (grids != null)
-					msgs = ((InternalEObject)grids).eInverseRemove(this, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS, ColumnizerGrid.class, msgs);
-				return basicSetGrids((ColumnizerGrid)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGrids()).basicAdd(otherEnd, msgs);
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -291,7 +245,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				return basicSetGrids(null, msgs);
+				return ((InternalEList<?>)getGrids()).basicRemove(otherEnd, msgs);
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return basicSetColumnizer(null, msgs);
 		}
@@ -325,8 +279,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH:
 				return getWidth();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				if (resolve) return getGrids();
-				return basicGetGrids();
+				return getGrids();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return getColumnizer();
 		}
@@ -338,6 +291,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -348,7 +302,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				setWidth((Integer)newValue);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				setGrids((ColumnizerGrid)newValue);
+				getGrids().clear();
+				getGrids().addAll((Collection<? extends ColumnizerGrid>)newValue);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				setColumnizer((ColumnizerExplicit)newValue);
@@ -372,7 +327,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				setWidth(WIDTH_EDEFAULT);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				setGrids((ColumnizerGrid)null);
+				getGrids().clear();
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				setColumnizer((ColumnizerExplicit)null);
@@ -394,7 +349,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH:
 				return width != WIDTH_EDEFAULT;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				return grids != null;
+				return grids != null && !grids.isEmpty();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return getColumnizer() != null;
 		}

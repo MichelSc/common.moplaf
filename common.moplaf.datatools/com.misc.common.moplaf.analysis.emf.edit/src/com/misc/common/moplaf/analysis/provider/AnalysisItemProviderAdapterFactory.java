@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.analysis.provider;
 
 import com.misc.common.moplaf.analysis.util.AnalysisAdapterFactory;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,7 +62,6 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public AnalysisItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +69,7 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemGridsProvider.class);
 	}
 
 	/**

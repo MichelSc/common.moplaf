@@ -152,12 +152,12 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createColumnizerAdapter();
 			}
 			@Override
-			public Adapter caseColumnizerColumn(ColumnizerColumn object) {
-				return createColumnizerColumnAdapter();
-			}
-			@Override
 			public Adapter caseColumnizerExplicit(ColumnizerExplicit object) {
 				return createColumnizerExplicitAdapter();
+			}
+			@Override
+			public Adapter caseColumnizerColumn(ColumnizerColumn object) {
+				return createColumnizerColumnAdapter();
 			}
 			@Override
 			public Adapter caseColumnizerColumnAttribute(ColumnizerColumnAttribute object) {
