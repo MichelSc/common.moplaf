@@ -29,6 +29,14 @@ public interface Categorizer extends DataTool {
 	 * @model
 	 * @generated
 	 */
+	String getCategoryLabel(Object value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Category constructCategory();
 
 } // Categorizer

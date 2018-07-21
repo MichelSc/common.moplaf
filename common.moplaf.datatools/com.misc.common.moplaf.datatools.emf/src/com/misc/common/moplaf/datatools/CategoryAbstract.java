@@ -84,11 +84,22 @@ public interface CategoryAbstract extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Category Label</em>' attribute.
+	 * @see #setCategoryLabel(String)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_CategoryLabel()
-	 * @model changeable="false" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	String getCategoryLabel();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryLabel <em>Category Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Category Label</em>' attribute.
+	 * @see #getCategoryLabel()
+	 * @generated
+	 */
+	void setCategoryLabel(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Category Columnizer</b></em>' reference.

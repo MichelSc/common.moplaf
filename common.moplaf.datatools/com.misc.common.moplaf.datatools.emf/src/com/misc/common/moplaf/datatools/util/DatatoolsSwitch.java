@@ -286,6 +286,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatoolsPackage.CATEGORY_ABSTRACT: {
+				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
+				T result = caseCategoryAbstract(categoryAbstract);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DatatoolsPackage.SUPER_CATEGORY: {
 				SuperCategory superCategory = (SuperCategory)theEObject;
 				T result = caseSuperCategory(superCategory);
@@ -305,12 +311,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseCategorizer(categorizer);
 				if (result == null) result = caseDataTool(categorizer);
 				if (result == null) result = caseDataToolAbstract(categorizer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.CATEGORY_ABSTRACT: {
-				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
-				T result = caseCategoryAbstract(categoryAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

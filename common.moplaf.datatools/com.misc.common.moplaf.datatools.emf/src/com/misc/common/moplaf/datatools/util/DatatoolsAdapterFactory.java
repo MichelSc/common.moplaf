@@ -172,6 +172,10 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createColumnizerColumnOclAdapter();
 			}
 			@Override
+			public Adapter caseCategoryAbstract(CategoryAbstract object) {
+				return createCategoryAbstractAdapter();
+			}
+			@Override
 			public Adapter caseSuperCategory(SuperCategory object) {
 				return createSuperCategoryAdapter();
 			}
@@ -182,10 +186,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCategorizer(Categorizer object) {
 				return createCategorizerAdapter();
-			}
-			@Override
-			public Adapter caseCategoryAbstract(CategoryAbstract object) {
-				return createCategoryAbstractAdapter();
 			}
 			@Override
 			public Adapter caseCategorizerStructuralFeature(CategorizerStructuralFeature object) {

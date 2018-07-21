@@ -176,6 +176,18 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setCategoryLabel(String newCategoryLabel) {
+		String oldCategoryLabel = categoryLabel;
+		categoryLabel = newCategoryLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_LABEL, oldCategoryLabel, categoryLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ColumnizerAbstract getCategoryColumnizer() {
 		if (categoryColumnizer != null && categoryColumnizer.eIsProxy()) {
 			InternalEObject oldCategoryColumnizer = (InternalEObject)categoryColumnizer;
@@ -268,6 +280,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				// create the cat
 				Category new_cat = criteria.constructCategory();
 				new_cat.setCategoryValue(cat_tobe.getKey());
+				new_cat.setCategoryLabel(criteria.getCategoryLabel(cat_tobe.getKey()));
 				this.getSubCategories().add(new_cat); // owning
 				// fill the cat
 				new_cat.refreshCats(cat_tobe.getValue(), categorizer, level+1);
@@ -336,6 +349,9 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				getElements().clear();
 				getElements().addAll((Collection<? extends EObject>)newValue);
 				return;
+			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_LABEL:
+				setCategoryLabel((String)newValue);
+				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER:
 				setCategoryColumnizer((ColumnizerAbstract)newValue);
 				return;
@@ -356,6 +372,9 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__ELEMENTS:
 				getElements().clear();
+				return;
+			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_LABEL:
+				setCategoryLabel(CATEGORY_LABEL_EDEFAULT);
 				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER:
 				setCategoryColumnizer((ColumnizerAbstract)null);

@@ -55,6 +55,14 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public String getCategoryLabel(Object value) {
+		return value.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public Category constructCategory() {
 		return DatatoolsFactory.eINSTANCE.createCategory();
 	}
@@ -69,10 +77,12 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT:
-				return getCategoryValue((EObject)arguments.get(0));
 			case DatatoolsPackage.CATEGORIZER___CONSTRUCT_CATEGORY:
 				return constructCategory();
+			case DatatoolsPackage.CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT:
+				return getCategoryValue((EObject)arguments.get(0));
+			case DatatoolsPackage.CATEGORIZER___GET_CATEGORY_LABEL__OBJECT:
+				return getCategoryLabel(arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
