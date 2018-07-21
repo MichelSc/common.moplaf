@@ -268,6 +268,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				// create the cat
 				Category new_cat = criteria.constructCategory();
 				new_cat.setCategoryValue(cat_tobe.getKey());
+				this.getSubCategories().add(new_cat); // owning
 				// fill the cat
 				new_cat.refreshCats(cat_tobe.getValue(), categorizer, level+1);
 			}

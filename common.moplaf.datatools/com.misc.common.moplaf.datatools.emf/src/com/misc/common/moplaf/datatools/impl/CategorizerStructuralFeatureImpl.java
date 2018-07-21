@@ -6,6 +6,7 @@ import com.misc.common.moplaf.datatools.CategorizerStructuralFeature;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
+import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
 
@@ -13,8 +14,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -174,13 +176,9 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetTargetType() {
-		// TODO: implement this method to return the 'Target Type' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Util.NavigationPathGetTargetType(this);
 	}
 
 	/**
@@ -195,12 +193,43 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getPath() {
-		// TODO: implement this method to return the 'Path' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return Util.getNavigationPath(this);
+	}
+	
+	
+
+	/**
+	 * 
+	 */
+	@Override
+	public String getDescription() {
+		String path = this.getPath();
+		String feature = this.getFeature()==null ? "null" : this.getFeature().getName();
+		String description = String.format("categorizer: %s/%s", path, feature);
+		return description;
+	}
+	
+	
+
+	/** specified by Categorizer
+	 * 
+	 */
+	@Override
+	public Object getCategoryValue(EObject object) {
+		EClass target_type = this.getTargetType();
+		if ( target_type==null ) {
+			return null;
+		}
+		if ( !target_type.isSuperTypeOf(object.eClass())) {
+			return null;
+		}
+		EStructuralFeature feature = this.getFeature();
+		if ( feature == null ) {
+			return null;
+		}
+		return object.eGet(feature);
 	}
 
 	/**

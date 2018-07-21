@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.CategorizerStructuralFeature;
+import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -149,11 +150,10 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 	 * This adds a property descriptor for the Feature feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addFeaturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_CategorizerStructuralFeature_Feature_feature"),
@@ -164,7 +164,19 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						CategorizerStructuralFeature categorizer= (CategorizerStructuralFeature)object;
+						EClass target_type = categorizer.getTargetType();
+						if ( target_type==null ) { 
+							return null;
+						}
+						return target_type.getEAllStructuralFeatures();
+					}
+				
+			});
 	}
 
 	/**

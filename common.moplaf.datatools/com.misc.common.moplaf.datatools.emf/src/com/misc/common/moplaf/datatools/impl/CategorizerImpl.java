@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
+import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -53,12 +54,9 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Category constructCategory() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return DatatoolsFactory.eINSTANCE.createCategory();
 	}
 
 
