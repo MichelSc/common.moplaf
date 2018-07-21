@@ -12,9 +12,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -52,6 +52,7 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
+			addAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -154,6 +155,42 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Attribute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void addAttributePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExtractorFilterAttribute_Attribute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtractorFilterAttribute_Attribute_feature", "_UI_ExtractorFilterAttribute_type"),
+				 DatatoolsPackage.Literals.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null) {
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					ExtractorFilterAttribute filter = (ExtractorFilterAttribute)object;
+					EClass target_type = filter.getTargetType();
+					if ( target_type==null ) {
+						return null;
+					}
+					return ExtractorFilterAttributeItemProvider.this.getChoiceOfAttributes(filter);
+				}
+				
+			});
+	}
+	
+	protected List<EAttribute> getChoiceOfAttributes(ExtractorFilterAttribute filter){
+		return filter.getTargetType().getEAllAttributes();
 	}
 
 	/**

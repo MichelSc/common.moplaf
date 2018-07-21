@@ -3,9 +3,12 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorPipe;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +35,23 @@ public class ExtractorPipeImpl extends ExtractorCompoundImpl implements Extracto
 	@Override
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.EXTRACTOR_PIPE;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String getDescription() {
+		String description = "pipe";
+		return description;
+	}
+
+	@Override
+	public Set<EObject> extract(Set<EObject> ins) {
+		for( Extractor extractor: this.getExtractors()) {
+			ins = extractor.extract(ins);
+		}
+		return ins;
 	}
 
 } //ExtractorPipeImpl

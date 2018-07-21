@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -45,5 +47,13 @@ public interface ExtractorFilterOcl extends ExtractorFilter {
 	 * @generated
 	 */
 	void setExpression(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean satisfiesExpression(EObject object);
 
 } // ExtractorFilterOcl

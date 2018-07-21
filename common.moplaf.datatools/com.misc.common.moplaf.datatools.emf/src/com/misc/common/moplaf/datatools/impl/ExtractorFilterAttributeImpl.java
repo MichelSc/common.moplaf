@@ -16,7 +16,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -36,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#isMany <em>Many</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +83,16 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 	 * @ordered
 	 */
 	protected static final String PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected EAttribute attribute;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,11 +202,56 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getAttributeValue() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public EAttribute getAttribute() {
+		if (attribute != null && attribute.eIsProxy()) {
+			InternalEObject oldAttribute = (InternalEObject)attribute;
+			attribute = (EAttribute)eResolveProxy(oldAttribute);
+			if (attribute != oldAttribute) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE, oldAttribute, attribute));
+			}
+		}
+		return attribute;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute basicGetAttribute() {
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAttribute(EAttribute newAttribute) {
+		EAttribute oldAttribute = attribute;
+		attribute = newAttribute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE, oldAttribute, attribute));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Object getAttributeValue(EObject object) {
+		EObject target_object = Util.naviguate(this, object);
+		if ( target_object==null) {
+			return null;
+		}
+		EAttribute attribute = this.getAttribute();
+		if ( attribute == null ) {
+			return null;
+		}
+		Object value = target_object.eGet(attribute);
+		return value;
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,6 +302,9 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 				return isMany();
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH:
 				return getPath();
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE:
+				if (resolve) return getAttribute();
+				return basicGetAttribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,6 +325,9 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE:
 				setSourceType((EClass)newValue);
 				return;
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE:
+				setAttribute((EAttribute)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -281,6 +345,9 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 				return;
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE:
 				setSourceType((EClass)null);
+				return;
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE:
+				setAttribute((EAttribute)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -304,6 +371,8 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 				return isMany() != MANY_EDEFAULT;
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__PATH:
 				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE:
+				return attribute != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -356,8 +425,8 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE:
-				return getAttributeValue();
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT:
+				return getAttributeValue((EObject)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

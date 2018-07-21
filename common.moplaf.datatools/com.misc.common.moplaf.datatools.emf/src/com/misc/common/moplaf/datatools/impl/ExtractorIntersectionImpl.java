@@ -3,9 +3,13 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorIntersection;
 
+import java.util.Set;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,5 +37,33 @@ public class ExtractorIntersectionImpl extends ExtractorLogicImpl implements Ext
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.EXTRACTOR_INTERSECTION;
 	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String getDescription() {
+		String description = "intersection";
+		return description;
+	}
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public Set<EObject> extract(Set<EObject> ins) {
+		Set<EObject> outs = null;
+		for( Extractor extractor: this.getExtractors()) {
+			Set<EObject> extracted = extractor.extract(ins);
+			if ( outs==null ) {
+				outs = extracted; 
+			} else {
+				outs.retainAll(extracted);
+			}
+		}
+		return outs;
+	}
+
 
 } //ExtractorIntersectionImpl

@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.ExtractorFilterAttribute;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt;
 
 import java.util.Collection;
@@ -13,7 +14,6 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -50,7 +50,6 @@ public class ExtractorFilterAttributeIntItemProvider extends ExtractorFilterAttr
 
 			addMinValuePropertyDescriptor(object);
 			addMaxValuePropertyDescriptor(object);
-			addAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,40 +99,15 @@ public class ExtractorFilterAttributeIntItemProvider extends ExtractorFilterAttr
 	}
 
 	/**
-	 * This adds a property descriptor for the Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * specified by ExtractorFilterAttributeItemProvider
 	 */
-	protected void addAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExtractorFilterAttributeInt_Attribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExtractorFilterAttributeInt_Attribute_feature", "_UI_ExtractorFilterAttributeInt_type"),
-				 DatatoolsPackage.Literals.EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null) {
-
-					@Override
-					public Collection<?> getChoiceOfValues(Object object) {
-						ExtractorFilterAttributeInt extractor = (ExtractorFilterAttributeInt)object;
-						EClass target_type = extractor.getTargetType();
-						if ( target_type==null ) {
-							return null;
-						}
-						List<EAttribute> attributes = target_type.getEAllAttributes()
-								.stream()
-								.filter(a -> a.getEAttributeType()==EcorePackage.Literals.EINT)
-								.collect(Collectors.toList());
-						return attributes;
-					}
-				
-			});
+	@Override
+	protected List<EAttribute> getChoiceOfAttributes(ExtractorFilterAttribute filter){
+		List<EAttribute> attributes = filter.getTargetType().getEAllAttributes()
+				.stream()
+				.filter(a -> a.getEAttributeType()==EcorePackage.Literals.EINT)
+				.collect(Collectors.toList());
+		return attributes;
 	}
 
 	/**

@@ -184,15 +184,6 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 		return Util.getNavigationPath(this);
 	}
 
-	/**
-	 * 
-	 */
-	@Override
-	public String getDescription() {
-		String description = String.format("path: %s", this.getPath());
-		return description;
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -362,8 +353,15 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 		return true;
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public String getDescription() {
+		String description = String.format("path: %s", this.getPath());
+		return description;
+	}
 
-	
 	@Override
 	public Set<EObject> extract(Set<EObject> ins) {
 		return Util.naviguate(this,  ins);

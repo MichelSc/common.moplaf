@@ -1249,13 +1249,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE__PATH = EXTRACTOR_FILTER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE = EXTRACTOR_FILTER_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Extractor Filter Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT = EXTRACTOR_FILTER_FEATURE_COUNT + 5;
+	int EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT = EXTRACTOR_FILTER_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -1291,7 +1300,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
+	int EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Extractor Filter Attribute</em>' class.
@@ -1375,6 +1384,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__PATH = EXTRACTOR_FILTER_ATTRIBUTE__PATH;
 
 	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE = EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE;
+
+	/**
 	 * The feature id for the '<em><b>Min Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1393,22 +1411,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Extractor Filter Attribute Int</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_FEATURE_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 3;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_FEATURE_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -1444,7 +1453,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___GET_ATTRIBUTE_VALUE = EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT___GET_ATTRIBUTE_VALUE__EOBJECT = EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Extractor Filter Attribute Int</em>' class.
@@ -1528,13 +1537,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL___IS_FILTERED__EOBJECT = EXTRACTOR_FILTER___IS_FILTERED__EOBJECT;
 
 	/**
+	 * The operation id for the '<em>Satisfies Expression</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OCL___SATISFIES_EXPRESSION__EOBJECT = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Extractor Filter Ocl</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_OCL_OPERATION_COUNT = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
+	int EXTRACTOR_FILTER_OCL_OPERATION_COUNT = EXTRACTOR_FILTER_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3452,14 +3470,25 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractorFilterAttribute();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttributeValue() <em>Get Attribute Value</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttribute()
+	 * @see #getExtractorFilterAttribute()
+	 * @generated
+	 */
+	EReference getExtractorFilterAttribute_Attribute();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttributeValue(org.eclipse.emf.ecore.EObject) <em>Get Attribute Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Attribute Value</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttributeValue()
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttributeValue(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getExtractorFilterAttribute__GetAttributeValue();
+	EOperation getExtractorFilterAttribute__GetAttributeValue__EObject();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt <em>Extractor Filter Attribute Int</em>}'.
@@ -3494,17 +3523,6 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getExtractorFilterAttributeInt_MaxValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getAttribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getAttribute()
-	 * @see #getExtractorFilterAttributeInt()
-	 * @generated
-	 */
-	EReference getExtractorFilterAttributeInt_Attribute();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterOcl <em>Extractor Filter Ocl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3524,6 +3542,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getExtractorFilterOcl_Expression();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ExtractorFilterOcl#satisfiesExpression(org.eclipse.emf.ecore.EObject) <em>Satisfies Expression</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Satisfies Expression</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterOcl#satisfiesExpression(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getExtractorFilterOcl__SatisfiesExpression__EObject();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerColumn <em>Columnizer Column</em>}'.
@@ -4442,12 +4470,20 @@ public interface DatatoolsPackage extends EPackage {
 		EClass EXTRACTOR_FILTER_ATTRIBUTE = eINSTANCE.getExtractorFilterAttribute();
 
 		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getExtractorFilterAttribute_Attribute();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Attribute Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE = eINSTANCE.getExtractorFilterAttribute__GetAttributeValue();
+		EOperation EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT = eINSTANCE.getExtractorFilterAttribute__GetAttributeValue__EObject();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl <em>Extractor Filter Attribute Int</em>}' class.
@@ -4476,14 +4512,6 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE = eINSTANCE.getExtractorFilterAttributeInt_MaxValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE = eINSTANCE.getExtractorFilterAttributeInt_Attribute();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterOclImpl <em>Extractor Filter Ocl</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4500,6 +4528,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXTRACTOR_FILTER_OCL__EXPRESSION = eINSTANCE.getExtractorFilterOcl_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Satisfies Expression</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXTRACTOR_FILTER_OCL___SATISFIES_EXPRESSION__EOBJECT = eINSTANCE.getExtractorFilterOcl__SatisfiesExpression__EObject();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl <em>Columnizer Column</em>}' class.

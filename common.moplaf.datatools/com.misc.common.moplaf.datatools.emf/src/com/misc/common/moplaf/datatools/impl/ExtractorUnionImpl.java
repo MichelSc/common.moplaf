@@ -3,9 +3,14 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorUnion;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +37,28 @@ public class ExtractorUnionImpl extends ExtractorLogicImpl implements ExtractorU
 	@Override
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.EXTRACTOR_UNION;
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public String getDescription() {
+		String description = "union";
+		return description;
+	}
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public Set<EObject> extract(Set<EObject> ins) {
+		HashSet<EObject> outs = new HashSet<EObject>();
+		for( Extractor extractor: this.getExtractors()) {
+			outs.addAll(extractor.extract(ins));
+		}
+		return outs;
 	}
 
 } //ExtractorUnionImpl
