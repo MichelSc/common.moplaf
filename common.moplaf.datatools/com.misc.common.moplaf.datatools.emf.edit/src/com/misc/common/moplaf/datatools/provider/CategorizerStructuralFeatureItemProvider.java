@@ -216,7 +216,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CategorizerStructuralFeature)object).getName();
+		String label = ((CategorizerStructuralFeature)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CategorizerStructuralFeature_type") :
 			getString("_UI_CategorizerStructuralFeature_type") + " " + label;

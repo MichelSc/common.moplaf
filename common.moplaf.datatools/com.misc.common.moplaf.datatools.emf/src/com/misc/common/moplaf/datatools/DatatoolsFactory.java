@@ -94,6 +94,15 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorIntersection createExtractorIntersection();
 
 	/**
+	 * Returns a new object of class '<em>Columnizer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Columnizer</em>'.
+	 * @generated
+	 */
+	Columnizer createColumnizer();
+
+	/**
 	 * Returns a new object of class '<em>Extractor Path</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,15 +139,6 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorFilterOcl createExtractorFilterOcl();
 
 	/**
-	 * Returns a new object of class '<em>Columnizer Explicit</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer Explicit</em>'.
-	 * @generated
-	 */
-	ColumnizerExplicit createColumnizerExplicit();
-
-	/**
 	 * Returns a new object of class '<em>Columnizer Column Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,15 +164,6 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	SuperCategory createSuperCategory();
-
-	/**
-	 * Returns a new object of class '<em>Navigation Path</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Navigation Path</em>'.
-	 * @generated
-	 */
-	NavigationPath createNavigationPath();
 
 	/**
 	 * Returns a new object of class '<em>Navigation Reference</em>'.

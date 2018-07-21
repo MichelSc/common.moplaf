@@ -6,6 +6,7 @@ import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import com.misc.common.moplaf.datatools.SuperCategory;
@@ -109,7 +110,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected Columnizer categoryColumnizer;
+	protected ColumnizerAbstract categoryColumnizer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,10 +177,10 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columnizer getCategoryColumnizer() {
+	public ColumnizerAbstract getCategoryColumnizer() {
 		if (categoryColumnizer != null && categoryColumnizer.eIsProxy()) {
 			InternalEObject oldCategoryColumnizer = (InternalEObject)categoryColumnizer;
-			categoryColumnizer = (Columnizer)eResolveProxy(oldCategoryColumnizer);
+			categoryColumnizer = (ColumnizerAbstract)eResolveProxy(oldCategoryColumnizer);
 			if (categoryColumnizer != oldCategoryColumnizer) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER, oldCategoryColumnizer, categoryColumnizer));
@@ -193,7 +194,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columnizer basicGetCategoryColumnizer() {
+	public ColumnizerAbstract basicGetCategoryColumnizer() {
 		return categoryColumnizer;
 	}
 
@@ -202,8 +203,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategoryColumnizer(Columnizer newCategoryColumnizer) {
-		Columnizer oldCategoryColumnizer = categoryColumnizer;
+	public void setCategoryColumnizer(ColumnizerAbstract newCategoryColumnizer) {
+		ColumnizerAbstract oldCategoryColumnizer = categoryColumnizer;
 		categoryColumnizer = newCategoryColumnizer;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER, oldCategoryColumnizer, categoryColumnizer));
@@ -277,6 +278,17 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumnizerAll(ColumnizerAbstract columnizer) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void setColumnizerAll(Columnizer columnizer) {
 		this.setCategoryColumnizer(columnizer);
@@ -340,7 +352,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				getElements().addAll((Collection<? extends EObject>)newValue);
 				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER:
-				setCategoryColumnizer((Columnizer)newValue);
+				setCategoryColumnizer((ColumnizerAbstract)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -361,7 +373,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				getElements().clear();
 				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER:
-				setCategoryColumnizer((Columnizer)null);
+				setCategoryColumnizer((ColumnizerAbstract)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -403,8 +415,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT:
 				refreshCats((Set<EObject>)arguments.get(0), (SuperCategory)arguments.get(1), (Integer)arguments.get(2));
 				return null;
-			case DatatoolsPackage.CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER:
-				setColumnizerAll((Columnizer)arguments.get(0));
+			case DatatoolsPackage.CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT:
+				setColumnizerAll((ColumnizerAbstract)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

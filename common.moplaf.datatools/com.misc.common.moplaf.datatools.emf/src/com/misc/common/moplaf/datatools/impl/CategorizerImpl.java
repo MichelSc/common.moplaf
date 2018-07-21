@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @generated
  */
-public abstract class CategorizerImpl extends DataToolAbstractImpl implements Categorizer {
+public abstract class CategorizerImpl extends DataToolImpl implements Categorizer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

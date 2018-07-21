@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
-import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolAbstract;
 import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
@@ -411,9 +411,9 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == DataTool.class) {
+		if (baseClass == DataToolAbstract.class) {
 			switch (derivedFeatureID) {
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT: return DatatoolsPackage.DATA_TOOL__CONTEXT;
+				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT: return DatatoolsPackage.DATA_TOOL_ABSTRACT__CONTEXT;
 				default: return -1;
 			}
 		}
@@ -437,9 +437,9 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == DataTool.class) {
+		if (baseClass == DataToolAbstract.class) {
 			switch (baseFeatureID) {
-				case DatatoolsPackage.DATA_TOOL__CONTEXT: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT;
+				case DatatoolsPackage.DATA_TOOL_ABSTRACT__CONTEXT: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT;
 				default: return -1;
 			}
 		}

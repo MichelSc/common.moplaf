@@ -151,11 +151,6 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createNavigationPath()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createExtractorType()));
 
 		newChildDescriptors.add
@@ -201,12 +196,7 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createColumnizerExplicit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createColumnizerColumnAttribute()));
+				 DatatoolsFactory.eINSTANCE.createColumnizer()));
 
 		newChildDescriptors.add
 			(createChildParameter

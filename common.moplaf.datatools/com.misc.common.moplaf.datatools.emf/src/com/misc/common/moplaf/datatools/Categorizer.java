@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Categorizer extends DataToolAbstract {
+public interface Categorizer extends DataTool {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

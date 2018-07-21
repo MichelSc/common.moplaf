@@ -4,7 +4,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.CategoryAbstract;
-import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
@@ -261,7 +261,7 @@ public class CategoryAbstractItemProvider
 	public Object getGrids(Object element) {
 		CategoryAbstract cat = (CategoryAbstract)element;
 		
-		Columnizer columnizer = cat.getCategoryColumnizer();
+		ColumnizerAbstract columnizer = cat.getCategoryColumnizer();
 		if ( columnizer==null) {
 			return null;
 		}

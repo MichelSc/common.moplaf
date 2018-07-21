@@ -97,7 +97,7 @@ public interface ColumnizerColumn extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Columnizer</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit#getColumns <em>Columns</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.Columnizer#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columnizer</em>' container reference isn't clear,
@@ -105,13 +105,13 @@ public interface ColumnizerColumn extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columnizer</em>' container reference.
-	 * @see #setColumnizer(ColumnizerExplicit)
+	 * @see #setColumnizer(Columnizer)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_Columnizer()
-	 * @see com.misc.common.moplaf.datatools.ColumnizerExplicit#getColumns
+	 * @see com.misc.common.moplaf.datatools.Columnizer#getColumns
 	 * @model opposite="Columns" required="true" transient="false"
 	 * @generated
 	 */
-	ColumnizerExplicit getColumnizer();
+	Columnizer getColumnizer();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}' container reference.
@@ -121,7 +121,7 @@ public interface ColumnizerColumn extends EObject {
 	 * @see #getColumnizer()
 	 * @generated
 	 */
-	void setColumnizer(ColumnizerExplicit value);
+	void setColumnizer(Columnizer value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -58,7 +58,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DatatoolsPackage.NAVIGATION_PATH: return createNavigationPath();
 			case DatatoolsPackage.NAVIGATION_REFERENCE: return createNavigationReference();
 			case DatatoolsPackage.NAVIGATION_DOWNCAST: return createNavigationDowncast();
 			case DatatoolsPackage.DATA_TOOLS: return createDataTools();
@@ -71,7 +70,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
 			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
-			case DatatoolsPackage.COLUMNIZER_EXPLICIT: return createColumnizerExplicit();
+			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
+			case DatatoolsPackage.COLUMNIZER_GRID: return createColumnizerGrid();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_OCL: return createColumnizerColumnOcl();
 			case DatatoolsPackage.SUPER_CATEGORY: return createSuperCategory();
@@ -80,7 +80,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.CATEGORIZER_OCL: return createCategorizerOcl();
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
-			case DatatoolsPackage.COLUMNIZER_GRID: return createColumnizerGrid();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -201,6 +200,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Columnizer createColumnizer() {
+		ColumnizerImpl columnizer = new ColumnizerImpl();
+		return columnizer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExtractorPath createExtractorPath() {
 		ExtractorPathImpl extractorPath = new ExtractorPathImpl();
 		return extractorPath;
@@ -241,16 +250,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColumnizerExplicit createColumnizerExplicit() {
-		ColumnizerExplicitImpl columnizerExplicit = new ColumnizerExplicitImpl();
-		return columnizerExplicit;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ColumnizerColumnAttribute createColumnizerColumnAttribute() {
 		ColumnizerColumnAttributeImpl columnizerColumnAttribute = new ColumnizerColumnAttributeImpl();
 		return columnizerColumnAttribute;
@@ -274,16 +273,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public SuperCategory createSuperCategory() {
 		SuperCategoryImpl superCategory = new SuperCategoryImpl();
 		return superCategory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NavigationPath createNavigationPath() {
-		NavigationPathImpl navigationPath = new NavigationPathImpl();
-		return navigationPath;
 	}
 
 	/**

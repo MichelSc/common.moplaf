@@ -18,7 +18,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class ExtractorItemProvider 
-	extends DataToolAbstractItemProvider {
+	extends DataToolItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

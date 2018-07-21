@@ -8,10 +8,10 @@ import com.misc.common.moplaf.datatools.CategorizerStructuralFeature;
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
 import com.misc.common.moplaf.datatools.ColumnizerColumnOcl;
-import com.misc.common.moplaf.datatools.ColumnizerExplicit;
 import com.misc.common.moplaf.datatools.ColumnizerGrid;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolAbstract;
@@ -152,6 +152,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass columnizerAbstractEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass extractorPathEClass = null;
 
 	/**
@@ -188,13 +195,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EClass extractorFilterOclEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass columnizerExplicitEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -457,6 +457,24 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getColumnizer_Columns() {
+		return (EReference)columnizerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColumnizer_Grids() {
+		return (EReference)columnizerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCategoryAbstract() {
 		return categoryAbstractEClass;
 	}
@@ -529,7 +547,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCategoryAbstract__SetColumnizerAll__Columnizer() {
+	public EOperation getCategoryAbstract__SetColumnizerAll__ColumnizerAbstract() {
 		return categoryAbstractEClass.getEOperations().get(2);
 	}
 
@@ -639,6 +657,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EClass getExtractorIntersection() {
 		return extractorIntersectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getColumnizerAbstract() {
+		return columnizerAbstractEClass;
 	}
 
 	/**
@@ -756,33 +783,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EAttribute getExtractorFilterOcl_Expression() {
 		return (EAttribute)extractorFilterOclEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getColumnizerExplicit() {
-		return columnizerExplicitEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getColumnizerExplicit_Columns() {
-		return (EReference)columnizerExplicitEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getColumnizerExplicit_Grids() {
-		return (EReference)columnizerExplicitEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1204,8 +1204,17 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataTool_Context() {
-		return (EReference)dataToolEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDataTool_Description() {
+		return (EAttribute)dataToolEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataTool_Name() {
+		return (EAttribute)dataToolEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1222,17 +1231,8 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataToolAbstract_Name() {
-		return (EAttribute)dataToolAbstractEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDataToolAbstract_Description() {
-		return (EAttribute)dataToolAbstractEClass.getEStructuralFeatures().get(1);
+	public EReference getDataToolAbstract_Context() {
+		return (EReference)dataToolAbstractEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1290,11 +1290,11 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEOperation(dataToolsEClass, DATA_TOOLS___GET_DOMAIN_TYPES);
 
 		dataToolEClass = createEClass(DATA_TOOL);
-		createEReference(dataToolEClass, DATA_TOOL__CONTEXT);
+		createEAttribute(dataToolEClass, DATA_TOOL__DESCRIPTION);
+		createEAttribute(dataToolEClass, DATA_TOOL__NAME);
 
 		dataToolAbstractEClass = createEClass(DATA_TOOL_ABSTRACT);
-		createEAttribute(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__NAME);
-		createEAttribute(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__DESCRIPTION);
+		createEReference(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__CONTEXT);
 
 		extractorEClass = createEClass(EXTRACTOR);
 		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__SET);
@@ -1333,11 +1333,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		extractorIntersectionEClass = createEClass(EXTRACTOR_INTERSECTION);
 
-		columnizerEClass = createEClass(COLUMNIZER);
+		columnizerAbstractEClass = createEClass(COLUMNIZER_ABSTRACT);
 
-		columnizerExplicitEClass = createEClass(COLUMNIZER_EXPLICIT);
-		createEReference(columnizerExplicitEClass, COLUMNIZER_EXPLICIT__COLUMNS);
-		createEReference(columnizerExplicitEClass, COLUMNIZER_EXPLICIT__GRIDS);
+		columnizerEClass = createEClass(COLUMNIZER);
+		createEReference(columnizerEClass, COLUMNIZER__COLUMNS);
+		createEReference(columnizerEClass, COLUMNIZER__GRIDS);
+
+		columnizerGridEClass = createEClass(COLUMNIZER_GRID);
+		createEReference(columnizerGridEClass, COLUMNIZER_GRID__COLUMNS);
+		createEAttribute(columnizerGridEClass, COLUMNIZER_GRID__NAME);
 
 		columnizerColumnEClass = createEClass(COLUMNIZER_COLUMN);
 		createEAttribute(columnizerColumnEClass, COLUMNIZER_COLUMN__NAME);
@@ -1373,7 +1377,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT);
-		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZER);
+		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT);
 
 		categorizerStructuralFeatureEClass = createEClass(CATEGORIZER_STRUCTURAL_FEATURE);
 		createEReference(categorizerStructuralFeatureEClass, CATEGORIZER_STRUCTURAL_FEATURE__FEATURE);
@@ -1388,10 +1392,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		matchEClass = createEClass(MATCH);
 		createEReference(matchEClass, MATCH__OBJECT1);
 		createEReference(matchEClass, MATCH__OBJECT2);
-
-		columnizerGridEClass = createEClass(COLUMNIZER_GRID);
-		createEReference(columnizerGridEClass, COLUMNIZER_GRID__COLUMNS);
-		createEAttribute(columnizerGridEClass, COLUMNIZER_GRID__NAME);
 
 		// Create data types
 		eObjectsSetEDataType = createEDataType(EOBJECTS_SET);
@@ -1425,11 +1425,11 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		navigationPathEClass.getESuperTypes().add(this.getDataTool());
+		navigationPathEClass.getESuperTypes().add(this.getDataToolAbstract());
 		navigationReferenceEClass.getESuperTypes().add(this.getNavigationAxis());
 		navigationDowncastEClass.getESuperTypes().add(this.getNavigationAxis());
-		dataToolAbstractEClass.getESuperTypes().add(this.getDataTool());
-		extractorEClass.getESuperTypes().add(this.getDataToolAbstract());
+		dataToolEClass.getESuperTypes().add(this.getDataToolAbstract());
+		extractorEClass.getESuperTypes().add(this.getDataTool());
 		extractorTypeEClass.getESuperTypes().add(this.getExtractor());
 		extractorPathEClass.getESuperTypes().add(this.getExtractor());
 		extractorPathEClass.getESuperTypes().add(this.getNavigationPath());
@@ -1444,20 +1444,20 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		extractorPipeEClass.getESuperTypes().add(this.getExtractorCompound());
 		extractorUnionEClass.getESuperTypes().add(this.getExtractorLogic());
 		extractorIntersectionEClass.getESuperTypes().add(this.getExtractorLogic());
-		columnizerEClass.getESuperTypes().add(this.getDataToolAbstract());
-		columnizerExplicitEClass.getESuperTypes().add(this.getColumnizer());
+		columnizerAbstractEClass.getESuperTypes().add(this.getDataTool());
+		columnizerEClass.getESuperTypes().add(this.getColumnizerAbstract());
 		columnizerColumnAttributeEClass.getESuperTypes().add(this.getColumnizerColumn());
 		columnizerColumnAttributeEClass.getESuperTypes().add(this.getNavigationPath());
 		columnizerColumnOclEClass.getESuperTypes().add(this.getColumnizerColumn());
 		superCategoryEClass.getESuperTypes().add(this.getCategoryAbstract());
 		categoryEClass.getESuperTypes().add(this.getCategoryAbstract());
-		categorizerEClass.getESuperTypes().add(this.getDataToolAbstract());
+		categorizerEClass.getESuperTypes().add(this.getDataTool());
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getCategorizer());
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getNavigationPath());
 		categorizerOclEClass.getESuperTypes().add(this.getCategorizer());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(navigationPathEClass, NavigationPath.class, "NavigationPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(navigationPathEClass, NavigationPath.class, "NavigationPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNavigationPath_PathElements(), this.getNavigationAxis(), this.getNavigationAxis_Path(), "PathElements", null, 0, -1, NavigationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNavigationPath_SourceType(), ecorePackage.getEClass(), null, "SourceType", null, 0, 1, NavigationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNavigationPath_TargetType(), ecorePackage.getEClass(), null, "TargetType", null, 0, 1, NavigationPath.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1489,11 +1489,11 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEOperation(getDataTools__GetDomainTypes(), ecorePackage.getEClass(), "getDomainTypes", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataToolEClass, DataTool.class, "DataTool", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataTool_Context(), this.getDataTools(), null, "Context", null, 0, 1, DataTool.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataTool_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DataTool.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataTool_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DataTool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataToolAbstractEClass, DataToolAbstract.class, "DataToolAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataToolAbstract_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DataToolAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataToolAbstract_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DataToolAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataToolAbstract_Context(), this.getDataTools(), null, "Context", null, 0, 1, DataToolAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(extractorEClass, Extractor.class, "Extractor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1539,17 +1539,21 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		initEClass(extractorIntersectionEClass, ExtractorIntersection.class, "ExtractorIntersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(columnizerEClass, Columnizer.class, "Columnizer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(columnizerAbstractEClass, ColumnizerAbstract.class, "ColumnizerAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(columnizerExplicitEClass, ColumnizerExplicit.class, "ColumnizerExplicit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColumnizerExplicit_Columns(), this.getColumnizerColumn(), this.getColumnizerColumn_Columnizer(), "Columns", null, 0, -1, ColumnizerExplicit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColumnizerExplicit_Grids(), this.getColumnizerGrid(), null, "Grids", null, 0, -1, ColumnizerExplicit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(columnizerEClass, Columnizer.class, "Columnizer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColumnizer_Columns(), this.getColumnizerColumn(), this.getColumnizerColumn_Columnizer(), "Columns", null, 0, -1, Columnizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumnizer_Grids(), this.getColumnizerGrid(), null, "Grids", null, 0, -1, Columnizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(columnizerGridEClass, ColumnizerGrid.class, "ColumnizerGrid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColumnizerGrid_Columns(), this.getColumnizerColumn(), this.getColumnizerColumn_Grids(), "Columns", null, 0, -1, ColumnizerGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumnizerGrid_Name(), ecorePackage.getEString(), "Name", null, 0, 1, ColumnizerGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnizerColumnEClass, ColumnizerColumn.class, "ColumnizerColumn", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumnizerColumn_Name(), ecorePackage.getEString(), "Name", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumnizerColumn_Width(), ecorePackage.getEInt(), "Width", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumnizerColumn_Grids(), this.getColumnizerGrid(), this.getColumnizerGrid_Columns(), "Grids", null, 0, -1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColumnizerColumn_Columnizer(), this.getColumnizerExplicit(), this.getColumnizerExplicit_Columns(), "Columnizer", null, 1, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumnizerColumn_Columnizer(), this.getColumnizer(), this.getColumnizer_Columns(), "Columnizer", null, 1, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getColumnizerColumn__GetValue__EObject(), ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1585,7 +1589,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEReference(getCategoryAbstract_Elements(), ecorePackage.getEObject(), null, "Elements", null, 0, -1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCategoryAbstract_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCategoryAbstract_CategoryLabel(), ecorePackage.getEString(), "CategoryLabel", null, 0, 1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCategoryAbstract_CategoryColumnizer(), this.getColumnizer(), null, "CategoryColumnizer", null, 0, 1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoryAbstract_CategoryColumnizer(), this.getColumnizerAbstract(), null, "CategoryColumnizer", null, 0, 1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCategoryAbstract__GetSubcategory__EObject(), this.getCategory(), "getSubcategory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1595,8 +1599,8 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		addEParameter(op, this.getSuperCategory(), "categorizer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "level", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getCategoryAbstract__SetColumnizerAll__Columnizer(), null, "setColumnizerAll", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getColumnizer(), "columnizer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCategoryAbstract__SetColumnizerAll__ColumnizerAbstract(), null, "setColumnizerAll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getColumnizerAbstract(), "columnizer", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(categorizerStructuralFeatureEClass, CategorizerStructuralFeature.class, "CategorizerStructuralFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCategorizerStructuralFeature_Feature(), ecorePackage.getEStructuralFeature(), null, "Feature", null, 1, 1, CategorizerStructuralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1614,10 +1618,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMatch_Object1(), ecorePackage.getEObject(), null, "Object1", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatch_Object2(), ecorePackage.getEObject(), null, "Object2", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(columnizerGridEClass, ColumnizerGrid.class, "ColumnizerGrid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColumnizerGrid_Columns(), this.getColumnizerColumn(), this.getColumnizerColumn_Grids(), "Columns", null, 0, -1, ColumnizerGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColumnizerGrid_Name(), ecorePackage.getEString(), "Name", null, 0, 1, ColumnizerGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(eObjectsSetEDataType, Set.class, "EObjectsSet", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.Set<org.eclipse.emf.ecore.EObject>");

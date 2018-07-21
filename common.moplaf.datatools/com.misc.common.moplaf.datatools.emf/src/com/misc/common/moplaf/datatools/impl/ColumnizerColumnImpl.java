@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
-import com.misc.common.moplaf.datatools.ColumnizerExplicit;
 import com.misc.common.moplaf.datatools.ColumnizerGrid;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -170,9 +170,9 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColumnizerExplicit getColumnizer() {
+	public Columnizer getColumnizer() {
 		if (eContainerFeatureID() != DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER) return null;
-		return (ColumnizerExplicit)eInternalContainer();
+		return (Columnizer)eInternalContainer();
 	}
 
 	/**
@@ -180,7 +180,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetColumnizer(ColumnizerExplicit newColumnizer, NotificationChain msgs) {
+	public NotificationChain basicSetColumnizer(Columnizer newColumnizer, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newColumnizer, DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER, msgs);
 		return msgs;
 	}
@@ -190,7 +190,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColumnizer(ColumnizerExplicit newColumnizer) {
+	public void setColumnizer(Columnizer newColumnizer) {
 		if (newColumnizer != eInternalContainer() || (eContainerFeatureID() != DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER && newColumnizer != null)) {
 			if (EcoreUtil.isAncestor(this, newColumnizer))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -198,7 +198,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newColumnizer != null)
-				msgs = ((InternalEObject)newColumnizer).eInverseAdd(this, DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS, ColumnizerExplicit.class, msgs);
+				msgs = ((InternalEObject)newColumnizer).eInverseAdd(this, DatatoolsPackage.COLUMNIZER__COLUMNS, Columnizer.class, msgs);
 			msgs = basicSetColumnizer(newColumnizer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -231,7 +231,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetColumnizer((ColumnizerExplicit)otherEnd, msgs);
+				return basicSetColumnizer((Columnizer)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -261,7 +261,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
-				return eInternalContainer().eInverseRemove(this, DatatoolsPackage.COLUMNIZER_EXPLICIT__COLUMNS, ColumnizerExplicit.class, msgs);
+				return eInternalContainer().eInverseRemove(this, DatatoolsPackage.COLUMNIZER__COLUMNS, Columnizer.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -306,7 +306,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				getGrids().addAll((Collection<? extends ColumnizerGrid>)newValue);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
-				setColumnizer((ColumnizerExplicit)newValue);
+				setColumnizer((Columnizer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,7 +330,7 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				getGrids().clear();
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
-				setColumnizer((ColumnizerExplicit)null);
+				setColumnizer((Columnizer)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -99,12 +99,12 @@ public interface CategoryAbstract extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Category Columnizer</em>' reference.
-	 * @see #setCategoryColumnizer(Columnizer)
+	 * @see #setCategoryColumnizer(ColumnizerAbstract)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_CategoryColumnizer()
 	 * @model
 	 * @generated
 	 */
-	Columnizer getCategoryColumnizer();
+	ColumnizerAbstract getCategoryColumnizer();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer <em>Category Columnizer</em>}' reference.
@@ -114,7 +114,7 @@ public interface CategoryAbstract extends EObject {
 	 * @see #getCategoryColumnizer()
 	 * @generated
 	 */
-	void setCategoryColumnizer(Columnizer value);
+	void setCategoryColumnizer(ColumnizerAbstract value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +138,6 @@ public interface CategoryAbstract extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void setColumnizerAll(Columnizer columnizer);
+	void setColumnizerAll(ColumnizerAbstract columnizer);
 
 } // CategoryAbstract

@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.util.Collection;
@@ -10,17 +11,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.DataTool} object.
@@ -29,13 +23,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class DataToolItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends DataToolAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -57,29 +45,52 @@ public class DataToolItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContextPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Context feature.
+	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContextPropertyDescriptor(Object object) {
+	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataTool_Context_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataTool_Context_feature", "_UI_DataTool_type"),
-				 DatatoolsPackage.Literals.DATA_TOOL__CONTEXT,
+				 getString("_UI_DataTool_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataTool_Description_feature", "_UI_DataTool_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL__DESCRIPTION,
 				 false,
 				 false,
 				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataTool_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataTool_Name_feature", "_UI_DataTool_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -92,7 +103,10 @@ public class DataToolItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataTool_type");
+		String label = ((DataTool)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataTool_type") :
+			getString("_UI_DataTool_type") + " " + label;
 	}
 	
 
@@ -106,6 +120,13 @@ public class DataToolItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DataTool.class)) {
+			case DatatoolsPackage.DATA_TOOL__DESCRIPTION:
+			case DatatoolsPackage.DATA_TOOL__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -119,17 +140,6 @@ public class DataToolItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DatatoolsEditPlugin.INSTANCE;
 	}
 
 }

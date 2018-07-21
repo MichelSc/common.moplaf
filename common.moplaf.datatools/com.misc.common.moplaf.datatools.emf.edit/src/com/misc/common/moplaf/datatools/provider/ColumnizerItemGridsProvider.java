@@ -4,15 +4,15 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 
-import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 public class ColumnizerItemGridsProvider implements IItemGridsProvider {
-	private Columnizer columnizer;
+	private ColumnizerAbstract columnizer;
 	private Collection<?> rowSet;
 	private IItemGridsProvider adapter;
 	
-	public ColumnizerItemGridsProvider(AdapterFactory factory, Columnizer columnizer, Collection<?> rowSet) {
+	public ColumnizerItemGridsProvider(AdapterFactory factory, ColumnizerAbstract columnizer, Collection<?> rowSet) {
 		super();
 		this.columnizer = columnizer;
 		this.rowSet = rowSet;

@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.EClass;
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationPath()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface NavigationPath extends DataTool {
+public interface NavigationPath extends DataToolAbstract {
 	/**
 	 * Returns the value of the '<em><b>Path Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.NavigationAxis}.

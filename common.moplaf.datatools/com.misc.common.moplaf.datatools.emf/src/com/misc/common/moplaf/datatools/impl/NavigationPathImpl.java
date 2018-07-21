@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class NavigationPathImpl extends DataToolImpl implements NavigationPath {
+public abstract class NavigationPathImpl extends DataToolAbstractImpl implements NavigationPath {
 	/**
 	 * The cached value of the '{@link #getPathElements() <em>Path Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

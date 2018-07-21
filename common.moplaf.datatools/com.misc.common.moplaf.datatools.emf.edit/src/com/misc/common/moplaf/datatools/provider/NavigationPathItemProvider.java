@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class NavigationPathItemProvider 
-	extends DataToolItemProvider {
+	extends DataToolAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

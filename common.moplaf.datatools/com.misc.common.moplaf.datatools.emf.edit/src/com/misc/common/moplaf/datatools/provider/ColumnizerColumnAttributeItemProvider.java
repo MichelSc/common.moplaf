@@ -69,9 +69,9 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataTool_Context_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataTool_Context_feature", "_UI_DataTool_type"),
-				 DatatoolsPackage.Literals.DATA_TOOL__CONTEXT,
+				 getString("_UI_DataToolAbstract_Context_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Context_feature", "_UI_DataToolAbstract_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__CONTEXT,
 				 false,
 				 false,
 				 false,

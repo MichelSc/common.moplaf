@@ -257,6 +257,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Columnizer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColumnizerItemProvider columnizerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.Columnizer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColumnizerAdapter() {
+		if (columnizerItemProvider == null) {
+			columnizerItemProvider = new ColumnizerItemProvider(this);
+		}
+
+		return columnizerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorPath} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,29 +372,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerExplicit} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ColumnizerExplicitItemProvider columnizerExplicitItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ColumnizerExplicit}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createColumnizerExplicitAdapter() {
-		if (columnizerExplicitItemProvider == null) {
-			columnizerExplicitItemProvider = new ColumnizerExplicitItemProvider(this);
-		}
-
-		return columnizerExplicitItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerColumnAttribute} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,29 +438,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		}
 
 		return superCategoryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.NavigationPath} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NavigationPathItemProvider navigationPathItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.NavigationPath}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNavigationPathAdapter() {
-		if (navigationPathItemProvider == null) {
-			navigationPathItemProvider = new NavigationPathItemProvider(this);
-		}
-
-		return navigationPathItemProvider;
 	}
 
 	/**
@@ -700,7 +677,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (navigationPathItemProvider != null) navigationPathItemProvider.dispose();
 		if (navigationReferenceItemProvider != null) navigationReferenceItemProvider.dispose();
 		if (navigationDowncastItemProvider != null) navigationDowncastItemProvider.dispose();
 		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
@@ -713,7 +689,8 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
 		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
 		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
-		if (columnizerExplicitItemProvider != null) columnizerExplicitItemProvider.dispose();
+		if (columnizerItemProvider != null) columnizerItemProvider.dispose();
+		if (columnizerGridItemProvider != null) columnizerGridItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
 		if (columnizerColumnOclItemProvider != null) columnizerColumnOclItemProvider.dispose();
 		if (superCategoryItemProvider != null) superCategoryItemProvider.dispose();
@@ -722,7 +699,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (categorizerOclItemProvider != null) categorizerOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
-		if (columnizerGridItemProvider != null) columnizerGridItemProvider.dispose();
 	}
 
 }

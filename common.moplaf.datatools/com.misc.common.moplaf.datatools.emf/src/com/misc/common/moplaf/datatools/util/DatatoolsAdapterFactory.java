@@ -148,12 +148,16 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createExtractorIntersectionAdapter();
 			}
 			@Override
+			public Adapter caseColumnizerAbstract(ColumnizerAbstract object) {
+				return createColumnizerAbstractAdapter();
+			}
+			@Override
 			public Adapter caseColumnizer(Columnizer object) {
 				return createColumnizerAdapter();
 			}
 			@Override
-			public Adapter caseColumnizerExplicit(ColumnizerExplicit object) {
-				return createColumnizerExplicitAdapter();
+			public Adapter caseColumnizerGrid(ColumnizerGrid object) {
+				return createColumnizerGridAdapter();
 			}
 			@Override
 			public Adapter caseColumnizerColumn(ColumnizerColumn object) {
@@ -198,10 +202,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMatch(Match object) {
 				return createMatchAdapter();
-			}
-			@Override
-			public Adapter caseColumnizerGrid(ColumnizerGrid object) {
-				return createColumnizerGridAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -406,6 +406,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract <em>Columnizer Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract
+	 * @generated
+	 */
+	public Adapter createColumnizerAbstractAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorPath <em>Extractor Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -486,20 +500,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExtractorFilterOclAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit <em>Columnizer Explicit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ColumnizerExplicit
-	 * @generated
-	 */
-	public Adapter createColumnizerExplicitAdapter() {
 		return null;
 	}
 

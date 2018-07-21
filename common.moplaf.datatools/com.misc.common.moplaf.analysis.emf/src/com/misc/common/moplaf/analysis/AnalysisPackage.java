@@ -182,7 +182,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZER;
+	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.

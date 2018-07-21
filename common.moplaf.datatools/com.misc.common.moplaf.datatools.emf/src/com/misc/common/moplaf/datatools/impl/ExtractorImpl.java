@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @generated
  */
-public abstract class ExtractorImpl extends DataToolAbstractImpl implements Extractor {
+public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
