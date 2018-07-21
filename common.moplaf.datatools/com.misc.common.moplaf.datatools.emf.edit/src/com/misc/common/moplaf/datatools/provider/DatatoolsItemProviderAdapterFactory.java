@@ -533,6 +533,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterRegex} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtractorFilterRegexItemProvider extractorFilterRegexItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterRegex}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtractorFilterRegexAdapter() {
+		if (extractorFilterRegexItemProvider == null) {
+			extractorFilterRegexItemProvider = new ExtractorFilterRegexItemProvider(this);
+		}
+
+		return extractorFilterRegexItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerGrid} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -699,6 +722,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (categorizerOclItemProvider != null) categorizerOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
+		if (extractorFilterRegexItemProvider != null) extractorFilterRegexItemProvider.dispose();
 	}
 
 }

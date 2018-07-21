@@ -129,13 +129,6 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE, oldMaxValue, maxValue));
 	}
 
-	@Override
-	public String getDescription() {
-		String attribute = this.getAttribute()==null ? "null" : this.getAttribute().getName();
-		String description = String.format("attribute %s: %s", this.getPath(), attribute);
-		return description;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +215,9 @@ public class ExtractorFilterAttributeIntImpl extends ExtractorFilterAttributeImp
 		return result.toString();
 	}
 
+	/**
+	 * Specified by Extractor
+	 */
 	@Override
 	public Set<EObject> extract(Set<EObject> ins) {
 		Set<EObject> outs = new HashSet<EObject>();

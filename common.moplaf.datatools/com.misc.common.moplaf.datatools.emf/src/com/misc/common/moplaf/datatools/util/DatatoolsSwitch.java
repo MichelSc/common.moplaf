@@ -345,6 +345,18 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: {
+				ExtractorFilterRegex extractorFilterRegex = (ExtractorFilterRegex)theEObject;
+				T result = caseExtractorFilterRegex(extractorFilterRegex);
+				if (result == null) result = caseExtractorFilterAttribute(extractorFilterRegex);
+				if (result == null) result = caseExtractorFilter(extractorFilterRegex);
+				if (result == null) result = caseNavigationPath(extractorFilterRegex);
+				if (result == null) result = caseExtractor(extractorFilterRegex);
+				if (result == null) result = caseDataTool(extractorFilterRegex);
+				if (result == null) result = caseDataToolAbstract(extractorFilterRegex);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -796,6 +808,21 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMatch(Match object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter Regex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter Regex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilterRegex(ExtractorFilterRegex object) {
 		return null;
 	}
 

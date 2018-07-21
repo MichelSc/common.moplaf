@@ -24,6 +24,7 @@ import com.misc.common.moplaf.datatools.ExtractorFilter;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttribute;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt;
 import com.misc.common.moplaf.datatools.ExtractorFilterOcl;
+import com.misc.common.moplaf.datatools.ExtractorFilterRegex;
 import com.misc.common.moplaf.datatools.ExtractorIntersection;
 import com.misc.common.moplaf.datatools.ExtractorLogic;
 import com.misc.common.moplaf.datatools.ExtractorOcl;
@@ -265,6 +266,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EClass matchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass extractorFilterRegexEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1150,6 +1158,24 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExtractorFilterRegex() {
+		return extractorFilterRegexEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExtractorFilterRegex_Pattern() {
+		return (EAttribute)extractorFilterRegexEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColumnizerGrid() {
 		return columnizerGridEClass;
 	}
@@ -1413,6 +1439,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(matchEClass, MATCH__OBJECT1);
 		createEReference(matchEClass, MATCH__OBJECT2);
 
+		extractorFilterRegexEClass = createEClass(EXTRACTOR_FILTER_REGEX);
+		createEAttribute(extractorFilterRegexEClass, EXTRACTOR_FILTER_REGEX__PATTERN);
+
 		// Create data types
 		eObjectsSetEDataType = createEDataType(EOBJECTS_SET);
 	}
@@ -1475,6 +1504,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getCategorizer());
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getNavigationPath());
 		categorizerOclEClass.getESuperTypes().add(this.getCategorizer());
+		extractorFilterRegexEClass.getESuperTypes().add(this.getExtractorFilterAttribute());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(navigationPathEClass, NavigationPath.class, "NavigationPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1645,6 +1675,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMatch_Object1(), ecorePackage.getEObject(), null, "Object1", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatch_Object2(), ecorePackage.getEObject(), null, "Object2", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(extractorFilterRegexEClass, ExtractorFilterRegex.class, "ExtractorFilterRegex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExtractorFilterRegex_Pattern(), ecorePackage.getEString(), "Pattern", null, 0, 1, ExtractorFilterRegex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(eObjectsSetEDataType, Set.class, "EObjectsSet", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.Set<org.eclipse.emf.ecore.EObject>");

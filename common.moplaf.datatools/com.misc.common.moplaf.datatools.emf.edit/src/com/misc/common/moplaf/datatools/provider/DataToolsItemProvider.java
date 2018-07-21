@@ -207,6 +207,11 @@ public class DataToolsItemProvider
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
 	}
 
 	/**

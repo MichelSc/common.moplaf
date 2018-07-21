@@ -3036,6 +3036,160 @@ public interface DatatoolsPackage extends EPackage {
 	int MATCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterRegexImpl <em>Extractor Filter Regex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterRegexImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterRegex()
+	 * @generated
+	 */
+	int EXTRACTOR_FILTER_REGEX = 34;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__CONTEXT = EXTRACTOR_FILTER_ATTRIBUTE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__DESCRIPTION = EXTRACTOR_FILTER_ATTRIBUTE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__NAME = EXTRACTOR_FILTER_ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__PATH_ELEMENTS = EXTRACTOR_FILTER_ATTRIBUTE__PATH_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__SOURCE_TYPE = EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__TARGET_TYPE = EXTRACTOR_FILTER_ATTRIBUTE__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__MANY = EXTRACTOR_FILTER_ATTRIBUTE__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__PATH = EXTRACTOR_FILTER_ATTRIBUTE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__ATTRIBUTE = EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__PATTERN = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Filter Regex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX_FEATURE_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX___IS_VALID_ROOT__EOBJECT = EXTRACTOR_FILTER_ATTRIBUTE___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Is Filtered</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX___IS_FILTERED__EOBJECT = EXTRACTOR_FILTER_ATTRIBUTE___IS_FILTERED__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX___GET_ATTRIBUTE_VALUE__EOBJECT = EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Extractor Filter Regex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX_OPERATION_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3043,7 +3197,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 34;
+	int EOBJECTS_SET = 35;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -3956,6 +4110,27 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getMatch_Object2();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterRegex <em>Extractor Filter Regex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Extractor Filter Regex</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterRegex
+	 * @generated
+	 */
+	EClass getExtractorFilterRegex();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ExtractorFilterRegex#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pattern</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterRegex#getPattern()
+	 * @see #getExtractorFilterRegex()
+	 * @generated
+	 */
+	EAttribute getExtractorFilterRegex_Pattern();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerGrid <em>Columnizer Grid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4860,6 +5035,24 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MATCH__OBJECT2 = eINSTANCE.getMatch_Object2();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterRegexImpl <em>Extractor Filter Regex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterRegexImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterRegex()
+		 * @generated
+		 */
+		EClass EXTRACTOR_FILTER_REGEX = eINSTANCE.getExtractorFilterRegex();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTRACTOR_FILTER_REGEX__PATTERN = eINSTANCE.getExtractorFilterRegex_Pattern();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerGridImpl <em>Columnizer Grid</em>}' class.

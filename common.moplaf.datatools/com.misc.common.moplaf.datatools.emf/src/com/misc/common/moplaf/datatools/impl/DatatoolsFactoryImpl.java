@@ -80,6 +80,7 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.CATEGORIZER_OCL: return createCategorizerOcl();
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
+			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: return createExtractorFilterRegex();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -313,6 +314,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public Match createMatch() {
 		MatchImpl match = new MatchImpl();
 		return match;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExtractorFilterRegex createExtractorFilterRegex() {
+		ExtractorFilterRegexImpl extractorFilterRegex = new ExtractorFilterRegexImpl();
+		return extractorFilterRegex;
 	}
 
 	/**

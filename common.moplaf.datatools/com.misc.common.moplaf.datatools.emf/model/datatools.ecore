@@ -195,4 +195,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EObjectsSet" instanceClassName="java.util.Set&lt;org.eclipse.emf.ecore.EObject>"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterRegex" eSuperTypes="#//ExtractorFilterAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -180,6 +180,11 @@ public class ExtractorCompoundItemProvider extends ExtractorItemProvider {
 			(createChildParameter
 				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
 				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
 	}
 
 }

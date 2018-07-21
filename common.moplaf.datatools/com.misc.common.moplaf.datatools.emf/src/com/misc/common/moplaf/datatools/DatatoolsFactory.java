@@ -202,6 +202,15 @@ public interface DatatoolsFactory extends EFactory {
 	Match createMatch();
 
 	/**
+	 * Returns a new object of class '<em>Extractor Filter Regex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Extractor Filter Regex</em>'.
+	 * @generated
+	 */
+	ExtractorFilterRegex createExtractorFilterRegex();
+
+	/**
 	 * Returns a new object of class '<em>Columnizer Grid</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

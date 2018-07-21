@@ -173,5 +173,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object1"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object2"/>
     </genClasses>
+    <genClasses ecoreClass="datatools.ecore#//ExtractorFilterRegex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterRegex/Pattern"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
