@@ -115,8 +115,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_columnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_columnizer_feature", "_UI_DocAnalysis_type"),
+				 getString("_UI_DocAnalysis_Columnizer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Columnizer_feature", "_UI_DocAnalysis_type"),
 				 AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,
 				 true,
 				 false,

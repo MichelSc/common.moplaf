@@ -10,7 +10,7 @@
       ecorePackage="analysis.ecore#/">
     <genClasses ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="../../com.misc.common.moplaf.datatools.emf/model/datatools.genmodel#//datatools/CategoryAbstract/CategoryLabel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Extractor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/columnizer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Columnizer"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//DocComparison">

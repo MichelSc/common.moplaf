@@ -5,7 +5,6 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
-import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -275,22 +274,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void setColumnizerAll(ColumnizerAbstract columnizer) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void setColumnizerAll(Columnizer columnizer) {
 		this.setCategoryColumnizer(columnizer);
 		for ( Category subcategory : this.getSubCategories()) {
 			subcategory.setColumnizerAll(columnizer);

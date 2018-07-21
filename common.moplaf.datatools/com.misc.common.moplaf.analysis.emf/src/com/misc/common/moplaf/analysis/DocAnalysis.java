@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.analysis;
 
-import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
@@ -60,12 +60,12 @@ public interface DocAnalysis extends SuperCategory, DocRef {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columnizer</em>' reference.
-	 * @see #setColumnizer(Columnizer)
+	 * @see #setColumnizer(ColumnizerAbstract)
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Columnizer()
 	 * @model
 	 * @generated
 	 */
-	Columnizer getColumnizer();
+	ColumnizerAbstract getColumnizer();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}' reference.
@@ -75,7 +75,7 @@ public interface DocAnalysis extends SuperCategory, DocRef {
 	 * @see #getColumnizer()
 	 * @generated
 	 */
-	void setColumnizer(Columnizer value);
+	void setColumnizer(ColumnizerAbstract value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -4,7 +4,7 @@ package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
-import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.impl.SuperCategoryImpl;
 import com.misc.common.moplaf.job.Doc;
@@ -68,7 +68,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @generated
 	 * @ordered
 	 */
-	protected Columnizer columnizer;
+	protected ColumnizerAbstract columnizer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,10 +192,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columnizer getColumnizer() {
+	public ColumnizerAbstract getColumnizer() {
 		if (columnizer != null && columnizer.eIsProxy()) {
 			InternalEObject oldColumnizer = (InternalEObject)columnizer;
-			columnizer = (Columnizer)eResolveProxy(oldColumnizer);
+			columnizer = (ColumnizerAbstract)eResolveProxy(oldColumnizer);
 			if (columnizer != oldColumnizer) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, oldColumnizer, columnizer));
@@ -209,7 +209,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columnizer basicGetColumnizer() {
+	public ColumnizerAbstract basicGetColumnizer() {
 		return columnizer;
 	}
 
@@ -218,8 +218,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColumnizer(Columnizer newColumnizer) {
-		Columnizer oldColumnizer = columnizer;
+	public void setColumnizer(ColumnizerAbstract newColumnizer) {
+		ColumnizerAbstract oldColumnizer = columnizer;
 		columnizer = newColumnizer;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, oldColumnizer, columnizer));
@@ -230,18 +230,17 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
-		Extractor extractor = this.getExtractor();
-		Columnizer columnizer = this.getColumnizer();
-		Doc doc = this.getDoc();
-		
 		// input
+		Doc doc = this.getDoc();
 		HashSet<EObject> ins = new HashSet<>();
 		ins.add(doc);
 		
-		// extracted
+		// extract
+		Extractor extractor = this.getExtractor();
 		Set<EObject> outs = extractor.extract(ins);
 		
 		// categorize
+		ColumnizerAbstract columnizer = this.getColumnizer();
 		this.refreshCats(outs);
 		this.setColumnizerAll(columnizer);
 	}
@@ -313,7 +312,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				setExtractor((Extractor)newValue);
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				setColumnizer((Columnizer)newValue);
+				setColumnizer((ColumnizerAbstract)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -334,7 +333,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				setExtractor((Extractor)null);
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				setColumnizer((Columnizer)null);
+				setColumnizer((ColumnizerAbstract)null);
 				return;
 		}
 		super.eUnset(featureID);

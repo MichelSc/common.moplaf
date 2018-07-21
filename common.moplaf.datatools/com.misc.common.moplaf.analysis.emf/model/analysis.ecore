@@ -5,7 +5,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DocAnalysis" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//SuperCategory ../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef">
     <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columnizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Columnizer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//ColumnizerAbstract"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocComparison" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Matcher">
     <eStructuralFeatures xsi:type="ecore:EReference" name="extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"/>
