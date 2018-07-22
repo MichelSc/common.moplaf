@@ -21,6 +21,6 @@ public interface ExtractorFilter extends Extractor {
 	 * @model
 	 * @generated
 	 */
-	void isFiltered(EObject object);
+	boolean satisfiesFilter(EObject object);
 
 } // ExtractorFilter

@@ -208,6 +208,14 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createExtractorFilterRegexAdapter();
 			}
 			@Override
+			public Adapter caseExtractorFilterAttributeString(ExtractorFilterAttributeString object) {
+				return createExtractorFilterAttributeStringAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterAttributeIntRange(ExtractorFilterAttributeIntRange object) {
+				return createExtractorFilterAttributeIntRangeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -658,6 +666,34 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExtractorFilterRegexAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeString <em>Extractor Filter Attribute String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeString
+	 * @generated
+	 */
+	public Adapter createExtractorFilterAttributeStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange <em>Extractor Filter Attribute Int Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange
+	 * @generated
+	 */
+	public Adapter createExtractorFilterAttributeIntRangeAdapter() {
 		return null;
 	}
 

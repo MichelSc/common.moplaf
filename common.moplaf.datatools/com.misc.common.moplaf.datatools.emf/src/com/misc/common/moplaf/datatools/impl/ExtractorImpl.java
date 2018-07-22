@@ -42,14 +42,28 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Set<EObject> extract(Set<EObject> ins) {
+		Set<EObject> ins2 = this.extractImplInit(ins);
+		Set<EObject> outs = this.extractImpl(ins2);
+		Set<EObject> outs2 = this.extractImplFinal(outs);
+		return outs2;
+	}
+	
+	protected Set<EObject> extractImplInit(Set<EObject> ins) {
+		return ins;
+	}
+	
+	protected Set<EObject> extractImpl(Set<EObject> ins) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
+	protected Set<EObject> extractImplFinal(Set<EObject> outs) {
+		return outs;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

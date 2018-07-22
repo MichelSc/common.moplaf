@@ -64,7 +64,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
 			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT: return createExtractorFilterAttributeInt();
 			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: return createExtractorFilterOcl();
 			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
 			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
@@ -81,6 +80,7 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
 			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: return createExtractorFilterRegex();
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE: return createExtractorFilterAttributeIntRange();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -231,16 +231,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorFilterAttributeInt createExtractorFilterAttributeInt() {
-		ExtractorFilterAttributeIntImpl extractorFilterAttributeInt = new ExtractorFilterAttributeIntImpl();
-		return extractorFilterAttributeInt;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ExtractorFilterOcl createExtractorFilterOcl() {
 		ExtractorFilterOclImpl extractorFilterOcl = new ExtractorFilterOclImpl();
 		return extractorFilterOcl;
@@ -324,6 +314,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ExtractorFilterRegex createExtractorFilterRegex() {
 		ExtractorFilterRegexImpl extractorFilterRegex = new ExtractorFilterRegexImpl();
 		return extractorFilterRegex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExtractorFilterAttributeIntRange createExtractorFilterAttributeIntRange() {
+		ExtractorFilterAttributeIntRangeImpl extractorFilterAttributeIntRange = new ExtractorFilterAttributeIntRangeImpl();
+		return extractorFilterAttributeIntRange;
 	}
 
 	/**

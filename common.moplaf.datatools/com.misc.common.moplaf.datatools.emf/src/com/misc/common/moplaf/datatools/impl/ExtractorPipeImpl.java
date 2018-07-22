@@ -47,7 +47,7 @@ public class ExtractorPipeImpl extends ExtractorCompoundImpl implements Extracto
 	}
 
 	@Override
-	public Set<EObject> extract(Set<EObject> ins) {
+	protected Set<EObject> extractImpl(Set<EObject> ins) {
 		for( Extractor extractor: this.getExtractors()) {
 			ins = extractor.extract(ins);
 		}

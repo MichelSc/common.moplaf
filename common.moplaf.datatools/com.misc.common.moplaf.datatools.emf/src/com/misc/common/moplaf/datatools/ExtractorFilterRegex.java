@@ -19,7 +19,7 @@ package com.misc.common.moplaf.datatools;
  * @model
  * @generated
  */
-public interface ExtractorFilterRegex extends ExtractorFilterAttribute {
+public interface ExtractorFilterRegex extends ExtractorFilterAttributeString {
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' attribute.
 	 * <!-- begin-user-doc -->

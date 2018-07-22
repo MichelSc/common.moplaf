@@ -52,7 +52,7 @@ public class ExtractorIntersectionImpl extends ExtractorLogicImpl implements Ext
 	 * 
 	 */
 	@Override
-	public Set<EObject> extract(Set<EObject> ins) {
+	protected Set<EObject> extractImpl(Set<EObject> ins) {
 		Set<EObject> outs = null;
 		for( Extractor extractor: this.getExtractors()) {
 			Set<EObject> extracted = extractor.extract(ins);

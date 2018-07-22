@@ -5,7 +5,6 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterRegex;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ExtractorFilterRegexImpl extends ExtractorFilterAttributeImpl implements ExtractorFilterRegex {
+public class ExtractorFilterRegexImpl extends ExtractorFilterAttributeStringImpl implements ExtractorFilterRegex {
 	/**
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -163,21 +162,27 @@ public class ExtractorFilterRegexImpl extends ExtractorFilterAttributeImpl imple
 		return result.toString();
 	}
 
+	
+	@Override
+	protected Set<EObject> extractImplInit(Set<EObject> ins) {
+		Pattern p = null;
+		if ( this.getPattern()!=null ) {
+			 p = Pattern.compile(this.getPattern());
+		}
+		this.regex = p;
+		
+		return super.extractImplInit(ins);
+	}
+	
+	private Pattern regex = null;
+
 	/**
-	 * Specified by Extractor
+	 * 
 	 */
 	@Override
-	public Set<EObject> extract(Set<EObject> ins) {
-		Set<EObject> outs = new HashSet<EObject>();
-		if ( this.getPattern()!=null ) {
-			Pattern p = Pattern.compile(this.getPattern());
-			for ( EObject in : ins) {
-				String value = (String)this.getAttributeValue(in);
-				if ( p.matcher(value).matches()) {
-					outs.add(in);
-				}
-			}
-		}
-		return outs;
+	public boolean satisfiesFilter(EObject object) {
+		String value = (String)this.getAttributeValue(object);
+		return this.regex.matcher(value).matches();
 	}
+
 } //ExtractorFilterRegexImpl

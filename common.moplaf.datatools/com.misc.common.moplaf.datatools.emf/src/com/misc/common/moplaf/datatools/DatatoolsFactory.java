@@ -121,15 +121,6 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorOcl createExtractorOcl();
 
 	/**
-	 * Returns a new object of class '<em>Extractor Filter Attribute Int</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter Attribute Int</em>'.
-	 * @generated
-	 */
-	ExtractorFilterAttributeInt createExtractorFilterAttributeInt();
-
-	/**
 	 * Returns a new object of class '<em>Extractor Filter Ocl</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +200,15 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	ExtractorFilterRegex createExtractorFilterRegex();
+
+	/**
+	 * Returns a new object of class '<em>Extractor Filter Attribute Int Range</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Extractor Filter Attribute Int Range</em>'.
+	 * @generated
+	 */
+	ExtractorFilterAttributeIntRange createExtractorFilterAttributeIntRange();
 
 	/**
 	 * Returns a new object of class '<em>Columnizer Grid</em>'.

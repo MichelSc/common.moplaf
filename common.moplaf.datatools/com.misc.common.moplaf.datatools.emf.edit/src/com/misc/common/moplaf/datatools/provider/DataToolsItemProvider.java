@@ -166,11 +166,6 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeInt()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
 
 		newChildDescriptors.add
@@ -212,6 +207,11 @@ public class DataToolsItemProvider
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeIntRange()));
 	}
 
 	/**

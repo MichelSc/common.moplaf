@@ -53,7 +53,7 @@ public class ExtractorUnionImpl extends ExtractorLogicImpl implements ExtractorU
 	 * 
 	 */
 	@Override
-	public Set<EObject> extract(Set<EObject> ins) {
+	protected Set<EObject> extractImpl(Set<EObject> ins) {
 		HashSet<EObject> outs = new HashSet<EObject>();
 		for( Extractor extractor: this.getExtractors()) {
 			outs.addAll(extractor.extract(ins));

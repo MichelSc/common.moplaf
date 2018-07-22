@@ -326,29 +326,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExtractorFilterAttributeIntItemProvider extractorFilterAttributeIntItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExtractorFilterAttributeIntAdapter() {
-		if (extractorFilterAttributeIntItemProvider == null) {
-			extractorFilterAttributeIntItemProvider = new ExtractorFilterAttributeIntItemProvider(this);
-		}
-
-		return extractorFilterAttributeIntItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterOcl} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -556,6 +533,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtractorFilterAttributeIntRangeItemProvider extractorFilterAttributeIntRangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtractorFilterAttributeIntRangeAdapter() {
+		if (extractorFilterAttributeIntRangeItemProvider == null) {
+			extractorFilterAttributeIntRangeItemProvider = new ExtractorFilterAttributeIntRangeItemProvider(this);
+		}
+
+		return extractorFilterAttributeIntRangeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerGrid} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -706,7 +706,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
 		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
 		if (extractorOclItemProvider != null) extractorOclItemProvider.dispose();
-		if (extractorFilterAttributeIntItemProvider != null) extractorFilterAttributeIntItemProvider.dispose();
 		if (extractorFilterOclItemProvider != null) extractorFilterOclItemProvider.dispose();
 		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
 		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
@@ -723,6 +722,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (extractorFilterRegexItemProvider != null) extractorFilterRegexItemProvider.dispose();
+		if (extractorFilterAttributeIntRangeItemProvider != null) extractorFilterAttributeIntRangeItemProvider.dispose();
 	}
 
 }
