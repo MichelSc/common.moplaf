@@ -463,25 +463,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExtractor_Partial() {
-		return (EAttribute)extractorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExtractor_MaxNbSelected() {
-		return (EAttribute)extractorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExtractor__Extract__Set() {
+	public EOperation getExtractor__Extract__Set_Set_int() {
 		return extractorEClass.getEOperations().get(0);
 	}
 
@@ -1393,9 +1375,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__CONTEXT);
 
 		extractorEClass = createEClass(EXTRACTOR);
-		createEAttribute(extractorEClass, EXTRACTOR__PARTIAL);
-		createEAttribute(extractorEClass, EXTRACTOR__MAX_NB_SELECTED);
-		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__SET);
+		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__SET_SET_INT);
 		createEOperation(extractorEClass, EXTRACTOR___IS_VALID_ROOT__EOBJECT);
 
 		extractorTypeEClass = createEClass(EXTRACTOR_TYPE);
@@ -1606,11 +1586,11 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEReference(getDataToolAbstract_Context(), this.getDataTools(), null, "Context", null, 0, 1, DataToolAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(extractorEClass, Extractor.class, "Extractor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExtractor_Partial(), ecorePackage.getEBoolean(), "Partial", null, 0, 1, Extractor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExtractor_MaxNbSelected(), ecorePackage.getEInt(), "MaxNbSelected", "1000000", 0, 1, Extractor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getExtractor__Extract__Set(), this.getEObjectsSet(), "extract", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExtractor__Extract__Set_Set_int(), ecorePackage.getEBoolean(), "extract", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEObjectsSet(), "ins", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getEObjectsSet(), "outs", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "max_elements", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getExtractor__IsValidRoot__EObject(), ecorePackage.getEBoolean(), "isValidRoot", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "doc", 1, 1, IS_UNIQUE, IS_ORDERED);

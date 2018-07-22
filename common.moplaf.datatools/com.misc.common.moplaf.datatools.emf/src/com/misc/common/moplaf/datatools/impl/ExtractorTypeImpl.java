@@ -182,24 +182,22 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 	 * @param outs
 	 */
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
+	protected boolean extractImpl(Set<EObject> ins, Set<EObject> outs, int max_elements) {
 		EClass target_type = this.getTargetType();
-		HashSet<EObject> result = new HashSet<EObject>();
 		for(EObject in : ins) {
 			TreeIterator<EObject> content_iterator = in.eAllContents();
 			while ( content_iterator.hasNext()) {
 				EObject object = content_iterator.next();
 				if ( target_type.isInstance(object)) {
-					if ( result.size()<this.getMaxNbSelected() ) {
-						result.add(object);
+					if ( outs.size()<max_elements ) {
+						outs.add(object);
 					} else {
-						this.setPartial(true);
-						return result;
+						return false;
 					}
 				}
 			}  // traverse the content
 		}  // traverse the ins
-		return result;
+		return true;
 	}
 
 } //ExtractorTypeImpl

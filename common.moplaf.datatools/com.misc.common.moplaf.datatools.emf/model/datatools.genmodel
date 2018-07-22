@@ -49,10 +49,10 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//DataToolAbstract/Context"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//Extractor" labelFeature="#//datatools/DataTool/Description">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Extractor/Partial"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Extractor/MaxNbSelected"/>
       <genOperations ecoreOperation="datatools.ecore#//Extractor/extract">
         <genParameters ecoreParameter="datatools.ecore#//Extractor/extract/ins"/>
+        <genParameters ecoreParameter="datatools.ecore#//Extractor/extract/outs"/>
+        <genParameters ecoreParameter="datatools.ecore#//Extractor/extract/max_elements"/>
       </genOperations>
       <genOperations ecoreOperation="datatools.ecore#//Extractor/isValidRoot">
         <genParameters ecoreParameter="datatools.ecore#//Extractor/isValidRoot/doc"/>

@@ -817,31 +817,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR__NAME = DATA_TOOL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR__PARTIAL = DATA_TOOL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR__MAX_NB_SELECTED = DATA_TOOL_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Extractor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 2;
+	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -850,7 +832,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR___EXTRACT__SET = DATA_TOOL_OPERATION_COUNT + 0;
+	int EXTRACTOR___EXTRACT__SET_SET_INT = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -898,24 +880,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_TYPE__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_TYPE__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_TYPE__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -940,7 +904,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_TYPE___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_TYPE___EXTRACT__SET_SET_INT = EXTRACTOR___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -986,24 +950,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_PATH__NAME = EXTRACTOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PATH__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PATH__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -1066,7 +1012,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_PATH___EXTRACT__SET_SET_INT = EXTRACTOR___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1114,24 +1060,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_OCL__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_OCL__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_OCL__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1156,7 +1084,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_OCL___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_OCL___EXTRACT__SET_SET_INT = EXTRACTOR___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1204,24 +1132,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1246,7 +1156,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_FILTER___EXTRACT__SET_SET_INT = EXTRACTOR___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1301,24 +1211,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE__NAME = EXTRACTOR_FILTER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__PARTIAL = EXTRACTOR_FILTER__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__MAX_NB_SELECTED = EXTRACTOR_FILTER__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1399,7 +1291,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET = EXTRACTOR_FILTER___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET_SET_INT = EXTRACTOR_FILTER___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1525,24 +1417,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__NAME = EXTRACTOR_FILTER_ATTRIBUTE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1621,7 +1495,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__SET_SET_INT = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1695,24 +1569,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_REGEX__NAME = EXTRACTOR_FILTER_ATTRIBUTE_STRING__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_REGEX__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE_STRING__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_REGEX__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE_STRING__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1802,7 +1658,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_REGEX___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__SET;
+	int EXTRACTOR_FILTER_REGEX___EXTRACT__SET_SET_INT = EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1866,24 +1722,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__NAME = EXTRACTOR_FILTER_ATTRIBUTE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1964,7 +1802,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__SET_SET_INT = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2038,24 +1876,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__NAME = EXTRACTOR_FILTER_ATTRIBUTE_INT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE_INT__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2154,7 +1974,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___EXTRACT__SET_SET_INT = EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2220,24 +2040,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL__NAME = EXTRACTOR_FILTER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL__PARTIAL = EXTRACTOR_FILTER__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL__MAX_NB_SELECTED = EXTRACTOR_FILTER__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2271,7 +2073,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_OCL___EXTRACT__SET = EXTRACTOR_FILTER___EXTRACT__SET;
+	int EXTRACTOR_FILTER_OCL___EXTRACT__SET_SET_INT = EXTRACTOR_FILTER___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2328,24 +2130,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_COMPOUND__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_COMPOUND__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2370,7 +2154,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_COMPOUND___EXTRACT__SET_SET_INT = EXTRACTOR___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2418,24 +2202,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_LOGIC__NAME = EXTRACTOR_COMPOUND__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC__PARTIAL = EXTRACTOR_COMPOUND__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC__MAX_NB_SELECTED = EXTRACTOR_COMPOUND__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2460,7 +2226,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_LOGIC___EXTRACT__SET = EXTRACTOR_COMPOUND___EXTRACT__SET;
+	int EXTRACTOR_LOGIC___EXTRACT__SET_SET_INT = EXTRACTOR_COMPOUND___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2508,24 +2274,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PIPE__NAME = EXTRACTOR_COMPOUND__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PIPE__PARTIAL = EXTRACTOR_COMPOUND__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PIPE__MAX_NB_SELECTED = EXTRACTOR_COMPOUND__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2550,7 +2298,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PIPE___EXTRACT__SET = EXTRACTOR_COMPOUND___EXTRACT__SET;
+	int EXTRACTOR_PIPE___EXTRACT__SET_SET_INT = EXTRACTOR_COMPOUND___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2598,24 +2346,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_UNION__NAME = EXTRACTOR_LOGIC__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION__PARTIAL = EXTRACTOR_LOGIC__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION__MAX_NB_SELECTED = EXTRACTOR_LOGIC__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2640,7 +2370,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_UNION___EXTRACT__SET = EXTRACTOR_LOGIC___EXTRACT__SET;
+	int EXTRACTOR_UNION___EXTRACT__SET_SET_INT = EXTRACTOR_LOGIC___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2688,24 +2418,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_INTERSECTION__NAME = EXTRACTOR_LOGIC__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION__PARTIAL = EXTRACTOR_LOGIC__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION__MAX_NB_SELECTED = EXTRACTOR_LOGIC__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2730,7 +2442,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_INTERSECTION___EXTRACT__SET = EXTRACTOR_LOGIC___EXTRACT__SET;
+	int EXTRACTOR_INTERSECTION___EXTRACT__SET_SET_INT = EXTRACTOR_LOGIC___EXTRACT__SET_SET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -3914,36 +3626,14 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Extractor#isPartial <em>Partial</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Partial</em>'.
-	 * @see com.misc.common.moplaf.datatools.Extractor#isPartial()
-	 * @see #getExtractor()
-	 * @generated
-	 */
-	EAttribute getExtractor_Partial();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Extractor#getMaxNbSelected <em>Max Nb Selected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Nb Selected</em>'.
-	 * @see com.misc.common.moplaf.datatools.Extractor#getMaxNbSelected()
-	 * @see #getExtractor()
-	 * @generated
-	 */
-	EAttribute getExtractor_MaxNbSelected();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set) <em>Extract</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set, java.util.Set, int) <em>Extract</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Extract</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set)
+	 * @see com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set, java.util.Set, int)
 	 * @generated
 	 */
-	EOperation getExtractor__Extract__Set();
+	EOperation getExtractor__Extract__Set_Set_int();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
@@ -5026,28 +4716,12 @@ public interface DatatoolsPackage extends EPackage {
 		EClass EXTRACTOR = eINSTANCE.getExtractor();
 
 		/**
-		 * The meta object literal for the '<em><b>Partial</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTRACTOR__PARTIAL = eINSTANCE.getExtractor_Partial();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Nb Selected</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTRACTOR__MAX_NB_SELECTED = eINSTANCE.getExtractor_MaxNbSelected();
-
-		/**
 		 * The meta object literal for the '<em><b>Extract</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR___EXTRACT__SET = eINSTANCE.getExtractor__Extract__Set();
+		EOperation EXTRACTOR___EXTRACT__SET_SET_INT = eINSTANCE.getExtractor__Extract__Set_Set_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.

@@ -363,7 +363,7 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	}
 
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
+	protected boolean extractImpl(Set<EObject> ins, Set<EObject> outs, int max_elements) {
 		return Util.naviguate(this,  ins);
 	}
 

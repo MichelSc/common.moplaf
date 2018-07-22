@@ -456,10 +456,12 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_DdnyQHuZEeidFuGEkYQFRA" name="extract(ins EObjectsSet) : EObjectsSet" tooltipText="extract(ins) : EObjectsSet">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_DdnyQHuZEeidFuGEkYQFRA" name="extract(ins EObjectsSet, outs EObjectsSet, max_elements EInt) : EBoolean" tooltipText="extract(ins, outs, max_elements) : EBoolean">
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//Extractor/extract"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Extractor/extract"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Extractor/extract/ins"/>
+        <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Extractor/extract/max_elements"/>
+        <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Extractor/extract/outs"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_DdnyQXuZEeidFuGEkYQFRA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
@@ -887,14 +889,6 @@
             <children xmi:type="notation:Node" xmi:id="_s9iBwIy1Eei4mMIfhQClPQ" type="3010" element="_s9BrcIy1Eei4mMIfhQClPQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_s9iBwYy1Eei4mMIfhQClPQ" fontColor="7490599" fontName="Noto Sans" fontHeight="8" italic="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_s9iBwoy1Eei4mMIfhQClPQ"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_pCLMUI2uEei4mMIfhQClPQ" type="3010" element="_pB7UsI2uEei4mMIfhQClPQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_pCLMUY2uEei4mMIfhQClPQ" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_pCLMUo2uEei4mMIfhQClPQ"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_wzAEUI2uEei4mMIfhQClPQ" type="3010" element="_wywzwI2uEei4mMIfhQClPQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_wzAEUY2uEei4mMIfhQClPQ" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_wzAEUo2uEei4mMIfhQClPQ"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_K8bGInuZEeidFuGEkYQFRA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_K8bGI3uZEeidFuGEkYQFRA"/>
@@ -1481,10 +1475,12 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_K8LOgHuZEeidFuGEkYQFRA" name="extract(ins EObjectsSet) : EObjectsSet" tooltipText="extract(ins) : EObjectsSet">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_K8LOgHuZEeidFuGEkYQFRA" name="extract(ins EObjectsSet, outs EObjectsSet, max_elements EInt) : EBoolean" tooltipText="extract(ins, outs, max_elements) : EBoolean">
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//Extractor/extract"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Extractor/extract"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Extractor/extract/ins"/>
+        <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Extractor/extract/max_elements"/>
+        <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Extractor/extract/outs"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_K8LOgXuZEeidFuGEkYQFRA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
@@ -1506,22 +1502,6 @@
           <labelFormat>italic</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_pB7UsI2uEei4mMIfhQClPQ" name="Partial : EBoolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="datatools.ecore#//Extractor/Partial"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="datatools.ecore#//Extractor/Partial"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_sbhtwI2uEei4mMIfhQClPQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wywzwI2uEei4mMIfhQClPQ" name="MaxNbSelected : EInt = 1000000" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="datatools.ecore#//Extractor/MaxNbSelected"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="datatools.ecore#//Extractor/MaxNbSelected"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2fXxQI2uEei4mMIfhQClPQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_K77W4HuZEeidFuGEkYQFRA" name="ExtractorCompound" tooltipText="" outgoingEdges="_K8TKUHuZEeidFuGEkYQFRA _K8UYcHuZEeidFuGEkYQFRA" incomingEdges="_K8Xbw3uZEeidFuGEkYQFRA _hwTGkHuZEeidFuGEkYQFRA" width="12" height="10">
