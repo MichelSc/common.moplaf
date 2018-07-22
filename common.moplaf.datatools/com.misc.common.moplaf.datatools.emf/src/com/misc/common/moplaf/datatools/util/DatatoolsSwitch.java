@@ -168,6 +168,31 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_STRING: {
+				ExtractorFilterAttributeString extractorFilterAttributeString = (ExtractorFilterAttributeString)theEObject;
+				T result = caseExtractorFilterAttributeString(extractorFilterAttributeString);
+				if (result == null) result = caseExtractorFilterAttribute(extractorFilterAttributeString);
+				if (result == null) result = caseExtractorFilter(extractorFilterAttributeString);
+				if (result == null) result = caseNavigationPath(extractorFilterAttributeString);
+				if (result == null) result = caseExtractor(extractorFilterAttributeString);
+				if (result == null) result = caseDataTool(extractorFilterAttributeString);
+				if (result == null) result = caseDataToolAbstract(extractorFilterAttributeString);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: {
+				ExtractorFilterRegex extractorFilterRegex = (ExtractorFilterRegex)theEObject;
+				T result = caseExtractorFilterRegex(extractorFilterRegex);
+				if (result == null) result = caseExtractorFilterAttributeString(extractorFilterRegex);
+				if (result == null) result = caseExtractorFilterAttribute(extractorFilterRegex);
+				if (result == null) result = caseExtractorFilter(extractorFilterRegex);
+				if (result == null) result = caseNavigationPath(extractorFilterRegex);
+				if (result == null) result = caseExtractor(extractorFilterRegex);
+				if (result == null) result = caseDataTool(extractorFilterRegex);
+				if (result == null) result = caseDataToolAbstract(extractorFilterRegex);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT: {
 				ExtractorFilterAttributeInt extractorFilterAttributeInt = (ExtractorFilterAttributeInt)theEObject;
 				T result = caseExtractorFilterAttributeInt(extractorFilterAttributeInt);
@@ -177,6 +202,19 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractor(extractorFilterAttributeInt);
 				if (result == null) result = caseDataTool(extractorFilterAttributeInt);
 				if (result == null) result = caseDataToolAbstract(extractorFilterAttributeInt);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE: {
+				ExtractorFilterAttributeIntRange extractorFilterAttributeIntRange = (ExtractorFilterAttributeIntRange)theEObject;
+				T result = caseExtractorFilterAttributeIntRange(extractorFilterAttributeIntRange);
+				if (result == null) result = caseExtractorFilterAttributeInt(extractorFilterAttributeIntRange);
+				if (result == null) result = caseExtractorFilterAttribute(extractorFilterAttributeIntRange);
+				if (result == null) result = caseExtractorFilter(extractorFilterAttributeIntRange);
+				if (result == null) result = caseNavigationPath(extractorFilterAttributeIntRange);
+				if (result == null) result = caseExtractor(extractorFilterAttributeIntRange);
+				if (result == null) result = caseDataTool(extractorFilterAttributeIntRange);
+				if (result == null) result = caseDataToolAbstract(extractorFilterAttributeIntRange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -342,44 +380,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.MATCH: {
 				Match match = (Match)theEObject;
 				T result = caseMatch(match);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: {
-				ExtractorFilterRegex extractorFilterRegex = (ExtractorFilterRegex)theEObject;
-				T result = caseExtractorFilterRegex(extractorFilterRegex);
-				if (result == null) result = caseExtractorFilterAttributeString(extractorFilterRegex);
-				if (result == null) result = caseExtractorFilterAttribute(extractorFilterRegex);
-				if (result == null) result = caseExtractorFilter(extractorFilterRegex);
-				if (result == null) result = caseNavigationPath(extractorFilterRegex);
-				if (result == null) result = caseExtractor(extractorFilterRegex);
-				if (result == null) result = caseDataTool(extractorFilterRegex);
-				if (result == null) result = caseDataToolAbstract(extractorFilterRegex);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_STRING: {
-				ExtractorFilterAttributeString extractorFilterAttributeString = (ExtractorFilterAttributeString)theEObject;
-				T result = caseExtractorFilterAttributeString(extractorFilterAttributeString);
-				if (result == null) result = caseExtractorFilterAttribute(extractorFilterAttributeString);
-				if (result == null) result = caseExtractorFilter(extractorFilterAttributeString);
-				if (result == null) result = caseNavigationPath(extractorFilterAttributeString);
-				if (result == null) result = caseExtractor(extractorFilterAttributeString);
-				if (result == null) result = caseDataTool(extractorFilterAttributeString);
-				if (result == null) result = caseDataToolAbstract(extractorFilterAttributeString);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE: {
-				ExtractorFilterAttributeIntRange extractorFilterAttributeIntRange = (ExtractorFilterAttributeIntRange)theEObject;
-				T result = caseExtractorFilterAttributeIntRange(extractorFilterAttributeIntRange);
-				if (result == null) result = caseExtractorFilterAttributeInt(extractorFilterAttributeIntRange);
-				if (result == null) result = caseExtractorFilterAttribute(extractorFilterAttributeIntRange);
-				if (result == null) result = caseExtractorFilter(extractorFilterAttributeIntRange);
-				if (result == null) result = caseNavigationPath(extractorFilterAttributeIntRange);
-				if (result == null) result = caseExtractor(extractorFilterAttributeIntRange);
-				if (result == null) result = caseDataTool(extractorFilterAttributeIntRange);
-				if (result == null) result = caseDataToolAbstract(extractorFilterAttributeIntRange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

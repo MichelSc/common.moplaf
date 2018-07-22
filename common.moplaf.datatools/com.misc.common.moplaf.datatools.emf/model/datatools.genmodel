@@ -49,6 +49,8 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//DataToolAbstract/Context"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//Extractor" labelFeature="#//datatools/DataTool/Description">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Extractor/Partial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Extractor/MaxNbSelected"/>
       <genOperations ecoreOperation="datatools.ecore#//Extractor/extract">
         <genParameters ecoreParameter="datatools.ecore#//Extractor/extract/ins"/>
       </genOperations>
@@ -64,6 +66,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorOcl/Expression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorFilter" labelFeature="#//datatools/DataTool/Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilter/Enabled"/>
       <genOperations ecoreOperation="datatools.ecore#//ExtractorFilter/satisfiesFilter">
         <genParameters ecoreParameter="datatools.ecore#//ExtractorFilter/satisfiesFilter/object"/>
       </genOperations>
@@ -75,7 +78,15 @@
         <genParameters ecoreParameter="datatools.ecore#//ExtractorFilterAttribute/getAttributeValue/object"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorFilterAttributeString"/>
+    <genClasses ecoreClass="datatools.ecore#//ExtractorFilterRegex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterRegex/Pattern"/>
+    </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ExtractorFilterAttributeInt" labelFeature="#//datatools/DataTool/Description"/>
+    <genClasses ecoreClass="datatools.ecore#//ExtractorFilterAttributeIntRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterAttributeIntRange/MinValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterAttributeIntRange/MaxValue"/>
+    </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ExtractorFilterOcl" labelFeature="#//datatools/DataTool/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterOcl/Expression"/>
     </genClasses>
@@ -166,14 +177,6 @@
     <genClasses ecoreClass="datatools.ecore#//Match">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object1"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object2"/>
-    </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//ExtractorFilterRegex">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterRegex/Pattern"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorFilterAttributeString"/>
-    <genClasses ecoreClass="datatools.ecore#//ExtractorFilterAttributeIntRange">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterAttributeIntRange/MinValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorFilterAttributeIntRange/MaxValue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

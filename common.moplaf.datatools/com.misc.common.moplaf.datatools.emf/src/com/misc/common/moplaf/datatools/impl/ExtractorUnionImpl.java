@@ -57,6 +57,9 @@ public class ExtractorUnionImpl extends ExtractorLogicImpl implements ExtractorU
 		HashSet<EObject> outs = new HashSet<EObject>();
 		for( Extractor extractor: this.getExtractors()) {
 			outs.addAll(extractor.extract(ins));
+			if ( extractor.isPartial()) {
+				this.setPartial(true);
+			}
 		}
 		return outs;
 	}

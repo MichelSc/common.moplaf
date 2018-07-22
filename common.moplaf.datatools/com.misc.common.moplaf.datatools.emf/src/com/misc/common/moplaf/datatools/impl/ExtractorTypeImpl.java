@@ -190,7 +190,12 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 			while ( content_iterator.hasNext()) {
 				EObject object = content_iterator.next();
 				if ( target_type.isInstance(object)) {
-					result.add(object);
+					if ( result.size()<this.getMaxNbSelected() ) {
+						result.add(object);
+					} else {
+						this.setPartial(true);
+						return result;
+					}
 				}
 			}  // traverse the content
 		}  // traverse the ins

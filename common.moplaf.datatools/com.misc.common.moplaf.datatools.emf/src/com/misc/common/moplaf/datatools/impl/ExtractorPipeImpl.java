@@ -50,6 +50,9 @@ public class ExtractorPipeImpl extends ExtractorCompoundImpl implements Extracto
 	protected Set<EObject> extractImpl(Set<EObject> ins) {
 		for( Extractor extractor: this.getExtractors()) {
 			ins = extractor.extract(ins);
+			if ( extractor.isPartial()) {
+				this.setPartial(true);
+			}
 		}
 		return ins;
 	}

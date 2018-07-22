@@ -59,6 +59,9 @@
     <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Partial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxNbSelected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1000000"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorType" eSuperTypes="#//Extractor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="TargetType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
@@ -71,6 +74,8 @@
     <eOperations name="satisfiesFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttribute" abstract="true"
       eSuperTypes="#//ExtractorFilter #//NavigationPath">
@@ -80,8 +85,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttributeString" abstract="true"
+      eSuperTypes="#//ExtractorFilterAttribute"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterRegex" eSuperTypes="#//ExtractorFilterAttributeString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttributeInt" abstract="true"
       eSuperTypes="#//ExtractorFilterAttribute"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttributeIntRange" eSuperTypes="#//ExtractorFilterAttributeInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterOcl" eSuperTypes="#//ExtractorFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -190,13 +204,4 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EObjectsSet" instanceClassName="java.util.Set&lt;org.eclipse.emf.ecore.EObject>"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterRegex" eSuperTypes="#//ExtractorFilterAttributeString">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttributeString" abstract="true"
-      eSuperTypes="#//ExtractorFilterAttribute"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttributeIntRange" eSuperTypes="#//ExtractorFilterAttributeInt">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
 </ecore:EPackage>

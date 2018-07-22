@@ -61,6 +61,9 @@ public class ExtractorIntersectionImpl extends ExtractorLogicImpl implements Ext
 			} else {
 				outs.retainAll(extracted);
 			}
+			if ( extractor.isPartial()) {
+				this.setPartial(true);
+			}
 		}
 		return outs;
 	}

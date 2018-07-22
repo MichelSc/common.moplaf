@@ -120,8 +120,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createExtractorFilterAttributeAdapter();
 			}
 			@Override
+			public Adapter caseExtractorFilterAttributeString(ExtractorFilterAttributeString object) {
+				return createExtractorFilterAttributeStringAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterRegex(ExtractorFilterRegex object) {
+				return createExtractorFilterRegexAdapter();
+			}
+			@Override
 			public Adapter caseExtractorFilterAttributeInt(ExtractorFilterAttributeInt object) {
 				return createExtractorFilterAttributeIntAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterAttributeIntRange(ExtractorFilterAttributeIntRange object) {
+				return createExtractorFilterAttributeIntRangeAdapter();
 			}
 			@Override
 			public Adapter caseExtractorFilterOcl(ExtractorFilterOcl object) {
@@ -202,18 +214,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMatch(Match object) {
 				return createMatchAdapter();
-			}
-			@Override
-			public Adapter caseExtractorFilterRegex(ExtractorFilterRegex object) {
-				return createExtractorFilterRegexAdapter();
-			}
-			@Override
-			public Adapter caseExtractorFilterAttributeString(ExtractorFilterAttributeString object) {
-				return createExtractorFilterAttributeStringAdapter();
-			}
-			@Override
-			public Adapter caseExtractorFilterAttributeIntRange(ExtractorFilterAttributeIntRange object) {
-				return createExtractorFilterAttributeIntRangeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
