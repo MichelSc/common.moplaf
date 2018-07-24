@@ -181,7 +181,8 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EObject naviguate(EObject in) {
+	@Override
+	public EObject navigate(EObject in) {
 		EReference reference = this.getReference();
 		if ( reference==null ) {
 			return null;
@@ -200,7 +201,7 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<EObject> naviguateMany(EObject in) {
+	public EList<EObject> navigateMany(EObject in) {
 		EReference reference = this.getReference();
 		if ( reference==null ) {
 			return null;

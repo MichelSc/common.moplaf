@@ -9,6 +9,7 @@ import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import com.misc.common.moplaf.datatools.SuperCategory;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -233,7 +234,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void refreshCats(Set<EObject> tobes, SuperCategory categorizer, int level) {
+	public void refreshCats(ObjectSet tobes, SuperCategory categorizer, int level) {
 		// update the elements of this category
 		Iterator<EObject> iterator_asis = this.getElements().iterator();
 		while ( iterator_asis.hasNext()) {
@@ -248,14 +249,14 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 		// update the subcategories
 		if ( categorizer.getCategorizers().size()>level ) {
 			Categorizer criteria = categorizer.getCategorizers().get(level);
-			HashMap<Object, HashSet<EObject>> cats_tobe  = new HashMap<>();
+			HashMap<Object, ObjectSet> cats_tobe  = new HashMap<>();
 			// collect the cats
 			for ( EObject element : this.getElements()) {
 				Object cat_value = criteria.getCategoryValue(element);
 				if ( cat_value!=null ) {
-					HashSet<EObject> cat_set = cats_tobe.get(cat_value);
+					ObjectSet cat_set = cats_tobe.get(cat_value);
 					if ( cat_set==null ) {
-						cat_set = new HashSet<>();
+						cat_set = new ObjectSet();
 						cats_tobe.put(cat_value, cat_set);
 					}
 					cat_set.add(element);
@@ -266,7 +267,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 			while ( cat_iterator_asis.hasNext()){
 				Category cat_asis = cat_iterator_asis.next();
 				Object cat_value = cat_asis.getCategoryValue();
-				HashSet<EObject> cat_tobe = cats_tobe.remove(cat_value);
+				ObjectSet cat_tobe = cats_tobe.remove(cat_value);
 				if ( cat_tobe==null ) {
 					// category no longer populated
 					// delete
@@ -276,7 +277,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 					cat_asis.refreshCats(cat_tobe, categorizer, level+1);
 				}
 			}
-			for (  Entry<Object, HashSet<EObject>> cat_tobe : cats_tobe.entrySet()) {
+			for (  Entry<Object, ObjectSet> cat_tobe : cats_tobe.entrySet()) {
 				// create the cat
 				Category new_cat = criteria.constructCategory();
 				new_cat.setCategoryValue(cat_tobe.getKey());
@@ -416,8 +417,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 		switch (operationID) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT:
 				return getSubcategory((EObject)arguments.get(0));
-			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT:
-				refreshCats((Set<EObject>)arguments.get(0), (SuperCategory)arguments.get(1), (Integer)arguments.get(2));
+			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT:
+				refreshCats((ObjectSet)arguments.get(0), (SuperCategory)arguments.get(1), (Integer)arguments.get(2));
 				return null;
 			case DatatoolsPackage.CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT:
 				setColumnizerAll((ColumnizerAbstract)arguments.get(0));

@@ -6,6 +6,7 @@ import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.SuperCategory;
 
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -88,7 +89,7 @@ public class SuperCategoryImpl extends CategoryAbstractImpl implements SuperCate
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void refreshCats(Set<EObject> ins) {
+	public void refreshCats(ObjectSet ins) {
 		this.refreshCats(ins, this, 0);
 	}
 
@@ -164,8 +165,8 @@ public class SuperCategoryImpl extends CategoryAbstractImpl implements SuperCate
 		switch (operationID) {
 			case DatatoolsPackage.SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT:
 				return isValidRoot((EObject)arguments.get(0));
-			case DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__SET:
-				refreshCats((Set<EObject>)arguments.get(0));
+			case DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET:
+				refreshCats((ObjectSet)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

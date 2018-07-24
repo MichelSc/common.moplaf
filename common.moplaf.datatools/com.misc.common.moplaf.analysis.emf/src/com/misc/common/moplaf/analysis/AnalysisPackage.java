@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.analysis;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -149,13 +150,31 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Complete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__COMPLETE = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Max Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__MAX_ELEMENTS = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Doc Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 3;
+	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -173,7 +192,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__SET_SUPERCATEGORY_INT = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__SET_SUPERCATEGORY_INT;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -200,7 +219,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__SET = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__SET;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -384,6 +403,28 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocAnalysis_Columnizer();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#isComplete <em>Complete</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Complete</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isComplete()
+	 * @see #getDocAnalysis()
+	 * @generated
+	 */
+	EAttribute getDocAnalysis_Complete();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements <em>Max Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Elements</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements()
+	 * @see #getDocAnalysis()
+	 * @generated
+	 */
+	EAttribute getDocAnalysis_MaxElements();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -527,6 +568,22 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOC_ANALYSIS__COLUMNIZER = eINSTANCE.getDocAnalysis_Columnizer();
+
+		/**
+		 * The meta object literal for the '<em><b>Complete</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC_ANALYSIS__COMPLETE = eINSTANCE.getDocAnalysis_Complete();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Elements</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOC_ANALYSIS__MAX_ELEMENTS = eINSTANCE.getDocAnalysis_MaxElements();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.

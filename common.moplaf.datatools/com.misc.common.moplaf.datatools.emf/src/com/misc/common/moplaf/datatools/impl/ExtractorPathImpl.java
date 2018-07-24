@@ -6,11 +6,10 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorPath;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
-import java.util.Set;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -363,8 +362,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	}
 
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
-		return Util.naviguate(this,  ins);
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
+		return Util.navigate(this,  ins, max_elements);
 	}
 
 

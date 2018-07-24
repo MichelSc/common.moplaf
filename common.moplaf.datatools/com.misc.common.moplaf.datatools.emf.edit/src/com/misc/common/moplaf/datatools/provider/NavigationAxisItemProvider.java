@@ -64,6 +64,7 @@ public class NavigationAxisItemProvider
 			addTargetTypePropertyDescriptor(object);
 			addPreviousPropertyDescriptor(object);
 			addPathElementPropertyDescriptor(object);
+			addNextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -152,6 +153,28 @@ public class NavigationAxisItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Next feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationAxis_Next_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_Next_feature", "_UI_NavigationAxis_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_AXIS__NEXT,
+				 false,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

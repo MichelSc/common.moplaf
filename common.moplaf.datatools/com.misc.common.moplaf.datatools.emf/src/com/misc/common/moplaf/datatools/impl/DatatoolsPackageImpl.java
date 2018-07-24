@@ -42,7 +42,7 @@ import com.misc.common.moplaf.datatools.NavigationPath;
 import com.misc.common.moplaf.datatools.NavigationReference;
 
 import com.misc.common.moplaf.datatools.SuperCategory;
-import java.util.Set;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -463,25 +463,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExtractor_Partial() {
-		return (EAttribute)extractorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExtractor_MaxNbSelected() {
-		return (EAttribute)extractorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExtractor__Extract__Set() {
+	public EOperation getExtractor__Extract__ObjectSet() {
 		return extractorEClass.getEOperations().get(0);
 	}
 
@@ -589,7 +571,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCategoryAbstract__RefreshCats__Set_SuperCategory_int() {
+	public EOperation getCategoryAbstract__RefreshCats__ObjectSet_SuperCategory_int() {
 		return categoryAbstractEClass.getEOperations().get(1);
 	}
 
@@ -949,7 +931,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSuperCategory__RefreshCats__Set() {
+	public EOperation getSuperCategory__RefreshCats__ObjectSet() {
 		return superCategoryEClass.getEOperations().get(1);
 	}
 
@@ -1102,7 +1084,16 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getNavigationAxis__Naviguate__EObject() {
+	public EReference getNavigationAxis_Next() {
+		return (EReference)navigationAxisEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNavigationAxis__Navigate__EObject() {
 		return navigationAxisEClass.getEOperations().get(0);
 	}
 
@@ -1111,7 +1102,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getNavigationAxis__NaviguateMany__EObject() {
+	public EOperation getNavigationAxis__NavigateMany__EObject() {
 		return navigationAxisEClass.getEOperations().get(1);
 	}
 
@@ -1372,8 +1363,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(navigationAxisEClass, NAVIGATION_AXIS__PATH);
 		createEReference(navigationAxisEClass, NAVIGATION_AXIS__PREVIOUS);
 		createEAttribute(navigationAxisEClass, NAVIGATION_AXIS__PATH_ELEMENT);
-		createEOperation(navigationAxisEClass, NAVIGATION_AXIS___NAVIGUATE__EOBJECT);
-		createEOperation(navigationAxisEClass, NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT);
+		createEReference(navigationAxisEClass, NAVIGATION_AXIS__NEXT);
+		createEOperation(navigationAxisEClass, NAVIGATION_AXIS___NAVIGATE__EOBJECT);
+		createEOperation(navigationAxisEClass, NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT);
 
 		navigationReferenceEClass = createEClass(NAVIGATION_REFERENCE);
 		createEReference(navigationReferenceEClass, NAVIGATION_REFERENCE__REFERENCE);
@@ -1393,9 +1385,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__CONTEXT);
 
 		extractorEClass = createEClass(EXTRACTOR);
-		createEAttribute(extractorEClass, EXTRACTOR__PARTIAL);
-		createEAttribute(extractorEClass, EXTRACTOR__MAX_NB_SELECTED);
-		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__SET);
+		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__OBJECTSET);
 		createEOperation(extractorEClass, EXTRACTOR___IS_VALID_ROOT__EOBJECT);
 
 		extractorTypeEClass = createEClass(EXTRACTOR_TYPE);
@@ -1469,13 +1459,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEAttribute(categoryAbstractEClass, CATEGORY_ABSTRACT__CATEGORY_LABEL);
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT);
-		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT);
+		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT);
 
 		superCategoryEClass = createEClass(SUPER_CATEGORY);
 		createEReference(superCategoryEClass, SUPER_CATEGORY__CATEGORIZERS);
 		createEOperation(superCategoryEClass, SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT);
-		createEOperation(superCategoryEClass, SUPER_CATEGORY___REFRESH_CATS__SET);
+		createEOperation(superCategoryEClass, SUPER_CATEGORY___REFRESH_CATS__OBJECTSET);
 
 		categoryEClass = createEClass(CATEGORY);
 		createEReference(categoryEClass, CATEGORY__CATEGORIZER);
@@ -1580,11 +1570,12 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEReference(getNavigationAxis_Path(), this.getNavigationPath(), this.getNavigationPath_PathElements(), "Path", null, 1, 1, NavigationAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNavigationAxis_Previous(), this.getNavigationAxis(), null, "Previous", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNavigationAxis_PathElement(), ecorePackage.getEString(), "PathElement", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getNavigationAxis_Next(), this.getNavigationAxis(), null, "Next", null, 0, 1, NavigationAxis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getNavigationAxis__Naviguate__EObject(), ecorePackage.getEObject(), "naviguate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getNavigationAxis__Navigate__EObject(), ecorePackage.getEObject(), "navigate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "in", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNavigationAxis__NaviguateMany__EObject(), ecorePackage.getEObject(), "naviguateMany", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNavigationAxis__NavigateMany__EObject(), ecorePackage.getEObject(), "navigateMany", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "in", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(navigationReferenceEClass, NavigationReference.class, "NavigationReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1606,11 +1597,10 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEReference(getDataToolAbstract_Context(), this.getDataTools(), null, "Context", null, 0, 1, DataToolAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(extractorEClass, Extractor.class, "Extractor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExtractor_Partial(), ecorePackage.getEBoolean(), "Partial", null, 0, 1, Extractor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExtractor_MaxNbSelected(), ecorePackage.getEInt(), "MaxNbSelected", "1000000", 0, 1, Extractor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getExtractor__Extract__Set(), this.getEObjectsSet(), "extract", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExtractor__Extract__ObjectSet(), this.getEObjectsSet(), "extract", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEObjectsSet(), "ins", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "max_elements", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getExtractor__IsValidRoot__EObject(), ecorePackage.getEBoolean(), "isValidRoot", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "doc", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1695,7 +1685,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		op = initEOperation(getCategoryAbstract__GetSubcategory__EObject(), this.getCategory(), "getSubcategory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getCategoryAbstract__RefreshCats__Set_SuperCategory_int(), null, "refreshCats", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCategoryAbstract__RefreshCats__ObjectSet_SuperCategory_int(), null, "refreshCats", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEObjectsSet(), "tobe", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSuperCategory(), "categorizer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "level", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1709,7 +1699,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		op = initEOperation(getSuperCategory__IsValidRoot__EObject(), ecorePackage.getEBoolean(), "isValidRoot", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "doc", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSuperCategory__RefreshCats__Set(), null, "refreshCats", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSuperCategory__RefreshCats__ObjectSet(), null, "refreshCats", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEObjectsSet(), "ins", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1744,7 +1734,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEReference(getMatch_Object2(), ecorePackage.getEObject(), null, "Object2", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
-		initEDataType(eObjectsSetEDataType, Set.class, "EObjectsSet", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.Set<org.eclipse.emf.ecore.EObject>");
+		initEDataType(eObjectsSetEDataType, ObjectSet.class, "EObjectsSet", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

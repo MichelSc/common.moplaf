@@ -493,31 +493,40 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_AXIS__PATH_ELEMENT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__NEXT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Navigation Axis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS_FEATURE_COUNT = 5;
+	int NAVIGATION_AXIS_FEATURE_COUNT = 6;
 
 	/**
-	 * The operation id for the '<em>Naviguate</em>' operation.
+	 * The operation id for the '<em>Navigate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS___NAVIGUATE__EOBJECT = 0;
+	int NAVIGATION_AXIS___NAVIGATE__EOBJECT = 0;
 
 	/**
-	 * The operation id for the '<em>Naviguate Many</em>' operation.
+	 * The operation id for the '<em>Navigate Many</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT = 1;
+	int NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT = 1;
 
 	/**
 	 * The number of operations of the '<em>Navigation Axis</em>' class.
@@ -574,6 +583,15 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_REFERENCE__PATH_ELEMENT = NAVIGATION_AXIS__PATH_ELEMENT;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__NEXT = NAVIGATION_AXIS__NEXT;
+
+	/**
 	 * The feature id for the '<em><b>Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -592,22 +610,22 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_REFERENCE_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Naviguate</em>' operation.
+	 * The operation id for the '<em>Navigate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_REFERENCE___NAVIGUATE__EOBJECT = NAVIGATION_AXIS___NAVIGUATE__EOBJECT;
+	int NAVIGATION_REFERENCE___NAVIGATE__EOBJECT = NAVIGATION_AXIS___NAVIGATE__EOBJECT;
 
 	/**
-	 * The operation id for the '<em>Naviguate Many</em>' operation.
+	 * The operation id for the '<em>Navigate Many</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_REFERENCE___NAVIGUATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT;
+	int NAVIGATION_REFERENCE___NAVIGATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Navigation Reference</em>' class.
@@ -664,6 +682,15 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_DOWNCAST__PATH_ELEMENT = NAVIGATION_AXIS__PATH_ELEMENT;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__NEXT = NAVIGATION_AXIS__NEXT;
+
+	/**
 	 * The feature id for the '<em><b>Downcast Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -682,22 +709,22 @@ public interface DatatoolsPackage extends EPackage {
 	int NAVIGATION_DOWNCAST_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Naviguate</em>' operation.
+	 * The operation id for the '<em>Navigate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_DOWNCAST___NAVIGUATE__EOBJECT = NAVIGATION_AXIS___NAVIGUATE__EOBJECT;
+	int NAVIGATION_DOWNCAST___NAVIGATE__EOBJECT = NAVIGATION_AXIS___NAVIGATE__EOBJECT;
 
 	/**
-	 * The operation id for the '<em>Naviguate Many</em>' operation.
+	 * The operation id for the '<em>Navigate Many</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_DOWNCAST___NAVIGUATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT;
+	int NAVIGATION_DOWNCAST___NAVIGATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Navigation Downcast</em>' class.
@@ -817,31 +844,13 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR__NAME = DATA_TOOL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR__PARTIAL = DATA_TOOL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR__MAX_NB_SELECTED = DATA_TOOL_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Extractor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 2;
+	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -850,7 +859,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR___EXTRACT__SET = DATA_TOOL_OPERATION_COUNT + 0;
+	int EXTRACTOR___EXTRACT__OBJECTSET = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -898,24 +907,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_TYPE__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_TYPE__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_TYPE__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -940,7 +931,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_TYPE___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_TYPE___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -986,24 +977,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_PATH__NAME = EXTRACTOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PATH__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PATH__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -1066,7 +1039,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_PATH___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1114,24 +1087,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_OCL__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_OCL__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_OCL__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1156,7 +1111,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_OCL___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_OCL___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1204,24 +1159,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1246,7 +1183,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_FILTER___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1301,24 +1238,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE__NAME = EXTRACTOR_FILTER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__PARTIAL = EXTRACTOR_FILTER__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__MAX_NB_SELECTED = EXTRACTOR_FILTER__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1399,7 +1318,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET = EXTRACTOR_FILTER___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET = EXTRACTOR_FILTER___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1525,24 +1444,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__NAME = EXTRACTOR_FILTER_ATTRIBUTE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1621,7 +1522,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1695,24 +1596,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_REGEX__NAME = EXTRACTOR_FILTER_ATTRIBUTE_STRING__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_REGEX__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE_STRING__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_REGEX__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE_STRING__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1802,7 +1685,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_REGEX___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__SET;
+	int EXTRACTOR_FILTER_REGEX___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1866,24 +1749,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__NAME = EXTRACTOR_FILTER_ATTRIBUTE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1964,7 +1829,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2038,24 +1903,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__NAME = EXTRACTOR_FILTER_ATTRIBUTE_INT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__PARTIAL = EXTRACTOR_FILTER_ATTRIBUTE_INT__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__MAX_NB_SELECTED = EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_NB_SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2154,7 +2001,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___EXTRACT__SET = EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__SET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2220,24 +2067,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL__NAME = EXTRACTOR_FILTER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL__PARTIAL = EXTRACTOR_FILTER__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL__MAX_NB_SELECTED = EXTRACTOR_FILTER__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2271,7 +2100,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_OCL___EXTRACT__SET = EXTRACTOR_FILTER___EXTRACT__SET;
+	int EXTRACTOR_FILTER_OCL___EXTRACT__OBJECTSET = EXTRACTOR_FILTER___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2328,24 +2157,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_COMPOUND__PARTIAL = EXTRACTOR__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_COMPOUND__MAX_NB_SELECTED = EXTRACTOR__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2370,7 +2181,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND___EXTRACT__SET = EXTRACTOR___EXTRACT__SET;
+	int EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2418,24 +2229,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_LOGIC__NAME = EXTRACTOR_COMPOUND__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC__PARTIAL = EXTRACTOR_COMPOUND__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC__MAX_NB_SELECTED = EXTRACTOR_COMPOUND__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2460,7 +2253,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_LOGIC___EXTRACT__SET = EXTRACTOR_COMPOUND___EXTRACT__SET;
+	int EXTRACTOR_LOGIC___EXTRACT__OBJECTSET = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2508,24 +2301,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PIPE__NAME = EXTRACTOR_COMPOUND__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PIPE__PARTIAL = EXTRACTOR_COMPOUND__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PIPE__MAX_NB_SELECTED = EXTRACTOR_COMPOUND__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2550,7 +2325,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PIPE___EXTRACT__SET = EXTRACTOR_COMPOUND___EXTRACT__SET;
+	int EXTRACTOR_PIPE___EXTRACT__OBJECTSET = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2598,24 +2373,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_UNION__NAME = EXTRACTOR_LOGIC__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION__PARTIAL = EXTRACTOR_LOGIC__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION__MAX_NB_SELECTED = EXTRACTOR_LOGIC__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2640,7 +2397,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_UNION___EXTRACT__SET = EXTRACTOR_LOGIC___EXTRACT__SET;
+	int EXTRACTOR_UNION___EXTRACT__OBJECTSET = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2688,24 +2445,6 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_INTERSECTION__NAME = EXTRACTOR_LOGIC__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Partial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION__PARTIAL = EXTRACTOR_LOGIC__PARTIAL;
-
-	/**
-	 * The feature id for the '<em><b>Max Nb Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION__MAX_NB_SELECTED = EXTRACTOR_LOGIC__MAX_NB_SELECTED;
-
-	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2730,7 +2469,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_INTERSECTION___EXTRACT__SET = EXTRACTOR_LOGIC___EXTRACT__SET;
+	int EXTRACTOR_INTERSECTION___EXTRACT__OBJECTSET = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -3225,7 +2964,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT = 1;
+	int CATEGORY_ABSTRACT___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT = 1;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -3324,7 +3063,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPER_CATEGORY___REFRESH_CATS__SET_SUPERCATEGORY_INT = CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT;
+	int SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT = CATEGORY_ABSTRACT___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -3351,7 +3090,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPER_CATEGORY___REFRESH_CATS__SET = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
+	int SUPER_CATEGORY___REFRESH_CATS__OBJECTSET = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Super Category</em>' class.
@@ -3450,7 +3189,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY___REFRESH_CATS__SET_SUPERCATEGORY_INT = CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT;
+	int CATEGORY___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT = CATEGORY_ABSTRACT___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -3825,7 +3564,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.util.Set
+	 * @see com.misc.common.moplaf.datatools.util.ObjectSet
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
@@ -3914,36 +3653,14 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Extractor#isPartial <em>Partial</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Partial</em>'.
-	 * @see com.misc.common.moplaf.datatools.Extractor#isPartial()
-	 * @see #getExtractor()
-	 * @generated
-	 */
-	EAttribute getExtractor_Partial();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Extractor#getMaxNbSelected <em>Max Nb Selected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Nb Selected</em>'.
-	 * @see com.misc.common.moplaf.datatools.Extractor#getMaxNbSelected()
-	 * @see #getExtractor()
-	 * @generated
-	 */
-	EAttribute getExtractor_MaxNbSelected();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set) <em>Extract</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(com.misc.common.moplaf.datatools.util.ObjectSet, int) <em>Extract</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Extract</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Extractor#extract(java.util.Set)
+	 * @see com.misc.common.moplaf.datatools.Extractor#extract(com.misc.common.moplaf.datatools.util.ObjectSet, int)
 	 * @generated
 	 */
-	EOperation getExtractor__Extract__Set();
+	EOperation getExtractor__Extract__ObjectSet();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
@@ -4063,14 +3780,14 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getCategoryAbstract__GetSubcategory__EObject();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#refreshCats(java.util.Set, com.misc.common.moplaf.datatools.SuperCategory, int) <em>Refresh Cats</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#refreshCats(com.misc.common.moplaf.datatools.util.ObjectSet, com.misc.common.moplaf.datatools.SuperCategory, int) <em>Refresh Cats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Cats</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#refreshCats(java.util.Set, com.misc.common.moplaf.datatools.SuperCategory, int)
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#refreshCats(com.misc.common.moplaf.datatools.util.ObjectSet, com.misc.common.moplaf.datatools.SuperCategory, int)
 	 * @generated
 	 */
-	EOperation getCategoryAbstract__RefreshCats__Set_SuperCategory_int();
+	EOperation getCategoryAbstract__RefreshCats__ObjectSet_SuperCategory_int();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#setColumnizerAll(com.misc.common.moplaf.datatools.ColumnizerAbstract) <em>Set Columnizer All</em>}' operation.
@@ -4478,14 +4195,14 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getSuperCategory__IsValidRoot__EObject();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.SuperCategory#refreshCats(java.util.Set) <em>Refresh Cats</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.SuperCategory#refreshCats(com.misc.common.moplaf.datatools.util.ObjectSet) <em>Refresh Cats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Cats</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.SuperCategory#refreshCats(java.util.Set)
+	 * @see com.misc.common.moplaf.datatools.SuperCategory#refreshCats(com.misc.common.moplaf.datatools.util.ObjectSet)
 	 * @generated
 	 */
-	EOperation getSuperCategory__RefreshCats__Set();
+	EOperation getSuperCategory__RefreshCats__ObjectSet();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.NavigationPath <em>Navigation Path</em>}'.
@@ -4660,24 +4377,35 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getNavigationAxis_PathElement();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#naviguate(org.eclipse.emf.ecore.EObject) <em>Naviguate</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.NavigationAxis#getNext <em>Next</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Naviguate</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.NavigationAxis#naviguate(org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for the reference '<em>Next</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getNext()
+	 * @see #getNavigationAxis()
 	 * @generated
 	 */
-	EOperation getNavigationAxis__Naviguate__EObject();
+	EReference getNavigationAxis_Next();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#naviguateMany(org.eclipse.emf.ecore.EObject) <em>Naviguate Many</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#navigate(org.eclipse.emf.ecore.EObject) <em>Navigate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Naviguate Many</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.NavigationAxis#naviguateMany(org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for the '<em>Navigate</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#navigate(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getNavigationAxis__NaviguateMany__EObject();
+	EOperation getNavigationAxis__Navigate__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#navigateMany(org.eclipse.emf.ecore.EObject) <em>Navigate Many</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Navigate Many</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#navigateMany(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getNavigationAxis__NavigateMany__EObject();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Matcher <em>Matcher</em>}'.
@@ -4838,12 +4566,12 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getColumnizerGrid_Name();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.Set <em>EObjects Set</em>}'.
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.datatools.util.ObjectSet <em>EObjects Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>EObjects Set</em>'.
-	 * @see java.util.Set
-	 * @model instanceClass="java.util.Set&lt;org.eclipse.emf.ecore.EObject&gt;"
+	 * @see com.misc.common.moplaf.datatools.util.ObjectSet
+	 * @model instanceClass="com.misc.common.moplaf.datatools.util.ObjectSet" serializeable="false"
 	 * @generated
 	 */
 	EDataType getEObjectsSet();
@@ -5026,28 +4754,12 @@ public interface DatatoolsPackage extends EPackage {
 		EClass EXTRACTOR = eINSTANCE.getExtractor();
 
 		/**
-		 * The meta object literal for the '<em><b>Partial</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTRACTOR__PARTIAL = eINSTANCE.getExtractor_Partial();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Nb Selected</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTRACTOR__MAX_NB_SELECTED = eINSTANCE.getExtractor_MaxNbSelected();
-
-		/**
 		 * The meta object literal for the '<em><b>Extract</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR___EXTRACT__SET = eINSTANCE.getExtractor__Extract__Set();
+		EOperation EXTRACTOR___EXTRACT__OBJECTSET = eINSTANCE.getExtractor__Extract__ObjectSet();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.
@@ -5147,7 +4859,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORY_ABSTRACT___REFRESH_CATS__SET_SUPERCATEGORY_INT = eINSTANCE.getCategoryAbstract__RefreshCats__Set_SuperCategory_int();
+		EOperation CATEGORY_ABSTRACT___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT = eINSTANCE.getCategoryAbstract__RefreshCats__ObjectSet_SuperCategory_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Columnizer All</b></em>' operation.
@@ -5505,7 +5217,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SUPER_CATEGORY___REFRESH_CATS__SET = eINSTANCE.getSuperCategory__RefreshCats__Set();
+		EOperation SUPER_CATEGORY___REFRESH_CATS__OBJECTSET = eINSTANCE.getSuperCategory__RefreshCats__ObjectSet();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl <em>Navigation Path</em>}' class.
@@ -5644,20 +5356,28 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute NAVIGATION_AXIS__PATH_ELEMENT = eINSTANCE.getNavigationAxis_PathElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Naviguate</b></em>' operation.
+		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NAVIGATION_AXIS___NAVIGUATE__EOBJECT = eINSTANCE.getNavigationAxis__Naviguate__EObject();
+		EReference NAVIGATION_AXIS__NEXT = eINSTANCE.getNavigationAxis_Next();
 
 		/**
-		 * The meta object literal for the '<em><b>Naviguate Many</b></em>' operation.
+		 * The meta object literal for the '<em><b>Navigate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT = eINSTANCE.getNavigationAxis__NaviguateMany__EObject();
+		EOperation NAVIGATION_AXIS___NAVIGATE__EOBJECT = eINSTANCE.getNavigationAxis__Navigate__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Navigate Many</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT = eINSTANCE.getNavigationAxis__NavigateMany__EObject();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.MatcherImpl <em>Matcher</em>}' class.
@@ -5795,7 +5515,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * The meta object literal for the '<em>EObjects Set</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.util.Set
+		 * @see com.misc.common.moplaf.datatools.util.ObjectSet
 		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 		 * @generated
 		 */

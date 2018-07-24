@@ -4,10 +4,9 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilter;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -192,17 +191,20 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 	 * Specified by Extractor
 	 */
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
-		Set<EObject> outs = new HashSet<EObject>();
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
+		ObjectSet outs = new ObjectSet();
 		for ( EObject in : ins) {
 			if ( !this.isEnabled() || this.satisfiesFilter(in)) {
-				if ( outs.size()<this.getMaxNbSelected() ) {
+				if ( outs.size()<max_elements ) {
 					outs.add(in);
 				} else {
-					this.setPartial(true);
+					outs.setComplete(false);
 					return outs;
 				}
 			}
+		}
+		if ( !ins.isComplete() ) {
+			outs.setComplete(false);
 		}
 		return outs;
 	}

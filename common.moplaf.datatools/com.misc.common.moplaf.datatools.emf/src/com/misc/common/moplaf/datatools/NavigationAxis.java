@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPathElement <em>Path Element</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getNext <em>Next</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis()
@@ -116,12 +117,19 @@ public interface NavigationAxis extends EObject {
 	String getPathElement();
 
 	/**
+	 * Returns the value of the '<em><b>Next</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Next</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @return the value of the '<em>Next</em>' reference.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_Next()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	EObject naviguate(EObject in);
+	NavigationAxis getNext();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,6 +137,14 @@ public interface NavigationAxis extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EList<EObject> naviguateMany(EObject in);
+	EObject navigate(EObject in);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<EObject> navigateMany(EObject in);
 
 } // NavigationAxis

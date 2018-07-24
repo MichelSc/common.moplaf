@@ -249,7 +249,7 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	@Override
 	public Object getValue(EObject object) {
-		EObject target_object = Util.naviguate(this, object);
+		EObject target_object = Util.navigate(this, object);
 		if ( target_object==null ) {
 			return null;
 		}

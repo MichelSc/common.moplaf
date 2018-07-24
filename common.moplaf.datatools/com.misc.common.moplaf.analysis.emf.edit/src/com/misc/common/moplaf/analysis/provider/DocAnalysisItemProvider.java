@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -56,6 +57,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			addDocPropertyDescriptor(object);
 			addExtractorPropertyDescriptor(object);
 			addColumnizerPropertyDescriptor(object);
+			addCompletePropertyDescriptor(object);
+			addMaxElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,6 +125,50 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Complete feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompletePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Complete_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Complete_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__COMPLETE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_MaxElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_MaxElements_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__MAX_ELEMENTS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -194,6 +241,10 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DocAnalysis.class)) {
+			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
+			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

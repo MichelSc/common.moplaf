@@ -4,9 +4,7 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorType;
-
-import java.util.HashSet;
-import java.util.Set;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -182,23 +180,26 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 	 * @param outs
 	 */
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
 		EClass target_type = this.getTargetType();
-		HashSet<EObject> result = new HashSet<EObject>();
+		ObjectSet result = new ObjectSet();
 		for(EObject in : ins) {
 			TreeIterator<EObject> content_iterator = in.eAllContents();
 			while ( content_iterator.hasNext()) {
 				EObject object = content_iterator.next();
 				if ( target_type.isInstance(object)) {
-					if ( result.size()<this.getMaxNbSelected() ) {
+					if ( result.size()<max_elements ) {
 						result.add(object);
 					} else {
-						this.setPartial(true);
+						result.setComplete(false);
 						return result;
 					}
 				}
 			}  // traverse the content
 		}  // traverse the ins
+		if ( !ins.isComplete() ) {
+			result.setComplete(false);
+		}
 		return result;
 	}
 

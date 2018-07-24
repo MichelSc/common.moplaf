@@ -61,33 +61,43 @@ public class Util {
 			return string;
 	}
 	
-	static public EObject naviguate(NavigationPath path, EObject in) {
+	static public EObject navigate(NavigationPath path, EObject in) {
 		EObject out = in;
 		for ( NavigationAxis path_element : path.getPathElements()) {
-			out = path_element.naviguate(out);
+			out = path_element.navigate(out);
 		}
 		return out;
 	}
 	
-	static public Set<EObject> naviguate(NavigationPath path, Set<EObject> ins) {
-		Set<EObject> ins_current = ins;
-		for ( NavigationAxis path_element : path.getPathElements()) {
-			HashSet<EObject> outs_current = new HashSet<EObject>();
-			for ( EObject in_current : ins_current) {
-				EList<EObject> outs_list = path_element.naviguateMany(in_current);
-				if ( outs_list!=null ) {
-					outs_current.addAll(outs_list);
-				}
-			}
-			ins_current = outs_current;
+	static public ObjectSet navigate(NavigationPath path, ObjectSet ins, int max_elements) {
+		if ( path.getPathElements().isEmpty() ) {
+			return ins;
 		}
-		return ins_current;
+		ObjectSet result = new ObjectSet();
+		boolean ins_complete = ins.isComplete();
+		for ( EObject in : ins) {
+			Util.navigate(path.getPathElements().get(0), in, max_elements, result);
+		}
+		if ( !ins_complete ) {
+			result.setComplete(false);
+		}
+		return result;
 	}
 	
-	static public BasicEList<EObject> naviguate(NavigationPath path, BasicEList<EObject> ins) {
-		Set<EObject> ins_set = new HashSet<EObject>(ins);
-		Set<EObject> outs_set = Util.naviguate(path,  ins_set);
-		BasicEList<EObject> outs_list = new BasicEList<EObject>(outs_set);
-		return outs_list;
+	static private void navigate(NavigationAxis axis, EObject in, int max_elements, ObjectSet result) {
+		EList<EObject> outs = axis.navigateMany(in);
+		NavigationAxis next_axis = axis.getNext();
+		for ( EObject out : outs) {
+			if ( next_axis==null) {
+				if ( result.size()>=max_elements) {
+					result.setComplete(false);
+					break;
+				} else {
+					result.add(out);
+				}
+			} else {
+				Util.navigate(next_axis, out, max_elements, result);
+			}
+		}
 	}
 }

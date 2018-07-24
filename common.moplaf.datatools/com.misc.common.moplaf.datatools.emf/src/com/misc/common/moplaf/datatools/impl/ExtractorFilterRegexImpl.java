@@ -4,8 +4,8 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterRegex;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
-import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -164,14 +164,14 @@ public class ExtractorFilterRegexImpl extends ExtractorFilterAttributeStringImpl
 
 	
 	@Override
-	protected Set<EObject> extractImplInit(Set<EObject> ins) {
-		Pattern p = null;
+	protected ObjectSet extractImplInit(ObjectSet ins, int max_elements) {
+ 		Pattern p = null;
 		if ( this.getPattern()!=null ) {
 			 p = Pattern.compile(this.getPattern());
 		}
 		this.regex = p;
 		
-		return super.extractImplInit(ins);
+		return super.extractImplInit(ins, max_elements);
 	}
 	
 	private Pattern regex = null;

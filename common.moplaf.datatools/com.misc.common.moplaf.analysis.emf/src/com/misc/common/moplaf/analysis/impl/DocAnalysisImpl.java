@@ -7,19 +7,16 @@ import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.impl.SuperCategoryImpl;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.DocRef;
 import com.misc.common.moplaf.job.JobPackage;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -35,6 +32,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDoc <em>Doc</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getExtractor <em>Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#isComplete <em>Complete</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +68,46 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @ordered
 	 */
 	protected ColumnizerAbstract columnizer;
+
+	/**
+	 * The default value of the '{@link #isComplete() <em>Complete</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isComplete()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean COMPLETE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isComplete() <em>Complete</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isComplete()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean complete = COMPLETE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxElements() <em>Max Elements</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_ELEMENTS_EDEFAULT = 1000000;
+
+	/**
+	 * The cached value of the '{@link #getMaxElements() <em>Max Elements</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxElements = MAX_ELEMENTS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,16 +267,58 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isComplete() {
+		return complete;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComplete(boolean newComplete) {
+		boolean oldComplete = complete;
+		complete = newComplete;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__COMPLETE, oldComplete, complete));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMaxElements() {
+		return maxElements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxElements(int newMaxElements) {
+		int oldMaxElements = maxElements;
+		maxElements = newMaxElements;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS, oldMaxElements, maxElements));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
 		// input
 		Doc doc = this.getDoc();
-		HashSet<EObject> ins = new HashSet<>();
+		ObjectSet ins = new ObjectSet();
 		ins.add(doc);
 		
 		// extract
 		Extractor extractor = this.getExtractor();
-		Set<EObject> outs = extractor.extract(ins);
+		ObjectSet outs = extractor.extract(ins, this.getMaxElements());
 		
 		// categorize
 		ColumnizerAbstract columnizer = this.getColumnizer();
@@ -292,6 +373,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
 				if (resolve) return getColumnizer();
 				return basicGetColumnizer();
+			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
+				return isComplete();
+			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
+				return getMaxElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -314,6 +399,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
 				setColumnizer((ColumnizerAbstract)newValue);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
+				setComplete((Boolean)newValue);
+				return;
+			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
+				setMaxElements((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -335,6 +426,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
 				setColumnizer((ColumnizerAbstract)null);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
+				setComplete(COMPLETE_EDEFAULT);
+				return;
+			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
+				setMaxElements(MAX_ELEMENTS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -353,6 +450,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				return extractor != null;
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
 				return columnizer != null;
+			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
+				return complete != COMPLETE_EDEFAULT;
+			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
+				return maxElements != MAX_ELEMENTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -403,6 +504,24 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (Complete: ");
+		result.append(complete);
+		result.append(", MaxElements: ");
+		result.append(maxElements);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DocAnalysisImpl

@@ -5,11 +5,9 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorIntersection;
-
-import java.util.Set;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,19 +50,19 @@ public class ExtractorIntersectionImpl extends ExtractorLogicImpl implements Ext
 	 * 
 	 */
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
-		Set<EObject> outs = null;
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
+		ObjectSet outs = null;
+		boolean complete = ins.isComplete();
 		for( Extractor extractor: this.getExtractors()) {
-			Set<EObject> extracted = extractor.extract(ins);
+			ObjectSet extracted = extractor.extract(ins, max_elements);
 			if ( outs==null ) {
 				outs = extracted; 
 			} else {
 				outs.retainAll(extracted);
 			}
-			if ( extractor.isPartial()) {
-				this.setPartial(true);
-			}
+			complete = complete && extracted.isComplete();
 		}
+		outs.setComplete(complete);
 		return outs;
 	}
 

@@ -5,10 +5,9 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorPipe;
-import java.util.Set;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,12 +46,9 @@ public class ExtractorPipeImpl extends ExtractorCompoundImpl implements Extracto
 	}
 
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
 		for( Extractor extractor: this.getExtractors()) {
-			ins = extractor.extract(ins);
-			if ( extractor.isPartial()) {
-				this.setPartial(true);
-			}
+			ins = extractor.extract(ins, max_elements);
 		}
 		return ins;
 	}

@@ -175,7 +175,8 @@ public class NavigationDowncastImpl extends NavigationAxisImpl implements Naviga
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EObject naviguate(EObject in) {
+	@Override
+	public EObject navigate(EObject in) {
 		EClass type = this.getDowncastType();
 		if ( type == null ) {
 			return null;
@@ -190,8 +191,9 @@ public class NavigationDowncastImpl extends NavigationAxisImpl implements Naviga
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<EObject> naviguateMany(EObject in) {
-		EObject out = this.naviguate(in);
+	@Override
+	public EList<EObject> navigateMany(EObject in) {
+		EObject out = this.navigate(in);
 		if( out==null) {
 			return null;
 		}

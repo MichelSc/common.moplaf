@@ -5,12 +5,9 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorUnion;
-
-import java.util.HashSet;
-import java.util.Set;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,14 +50,16 @@ public class ExtractorUnionImpl extends ExtractorLogicImpl implements ExtractorU
 	 * 
 	 */
 	@Override
-	protected Set<EObject> extractImpl(Set<EObject> ins) {
-		HashSet<EObject> outs = new HashSet<EObject>();
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
+		ObjectSet outs = new ObjectSet();
+		boolean complete = ins.isComplete();
 		for( Extractor extractor: this.getExtractors()) {
-			outs.addAll(extractor.extract(ins));
-			if ( extractor.isPartial()) {
-				this.setPartial(true);
-			}
+			ObjectSet out_this_extractor = extractor.extract(ins, max_elements); 
+			outs.addAll(out_this_extractor);
+			complete = complete && out_this_extractor.isComplete();
 		}
+		
+		outs.setComplete(complete);
 		return outs;
 	}
 

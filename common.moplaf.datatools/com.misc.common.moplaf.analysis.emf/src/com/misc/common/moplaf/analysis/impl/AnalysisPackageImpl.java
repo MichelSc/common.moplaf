@@ -14,6 +14,7 @@ import com.misc.common.moplaf.file.FilePackage;
 
 import com.misc.common.moplaf.job.JobPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -147,6 +148,24 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDocAnalysis_Complete() {
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocAnalysis_MaxElements() {
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDocAnalysis__Refresh() {
 		return docAnalysisEClass.getEOperations().get(0);
 	}
@@ -254,6 +273,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		docAnalysisEClass = createEClass(DOC_ANALYSIS);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__EXTRACTOR);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__COLUMNIZER);
+		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__COMPLETE);
+		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__MAX_ELEMENTS);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___REFRESH);
 
 		docComparisonEClass = createEClass(DOC_COMPARISON);
@@ -307,6 +328,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEClass(docAnalysisEClass, DocAnalysis.class, "DocAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocAnalysis_Extractor(), theDatatoolsPackage.getExtractor(), null, "Extractor", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocAnalysis_Columnizer(), theDatatoolsPackage.getColumnizerAbstract(), null, "Columnizer", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocAnalysis_Complete(), ecorePackage.getEBoolean(), "Complete", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocAnalysis_MaxElements(), ecorePackage.getEInt(), "MaxElements", "1000000", 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDocAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -11,6 +11,8 @@
     <genClasses ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="../../com.misc.common.moplaf.datatools.emf/model/datatools.genmodel#//datatools/CategoryAbstract/CategoryLabel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Extractor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Columnizer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Complete"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/MaxElements"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//DocComparison">

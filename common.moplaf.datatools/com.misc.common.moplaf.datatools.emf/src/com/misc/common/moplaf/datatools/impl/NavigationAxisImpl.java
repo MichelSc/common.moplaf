@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPathElement <em>Path Element</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getNext <em>Next</em>}</li>
  * </ul>
  *
  * @generated
@@ -185,7 +186,30 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject naviguate(EObject in) {
+	public NavigationAxis getNext() {
+		NavigationAxis next = basicGetNext();
+		return next != null && next.eIsProxy() ? (NavigationAxis)eResolveProxy((InternalEObject)next) : next;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public NavigationAxis basicGetNext() {
+		NavigationPath path = this.getPath();
+		int index_this_element = path.getPathElements().indexOf(this);
+		if ( index_this_element==path.getPathElements().size()-1 ) {
+			return null;
+		}
+		return path.getPathElements().get(index_this_element+1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject navigate(EObject in) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -196,7 +220,7 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EObject> naviguateMany(EObject in) {
+	public EList<EObject> navigateMany(EObject in) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -267,6 +291,9 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 				return basicGetPrevious();
 			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
 				return getPathElement();
+			case DatatoolsPackage.NAVIGATION_AXIS__NEXT:
+				if (resolve) return getNext();
+				return basicGetNext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -319,6 +346,8 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 				return basicGetPrevious() != null;
 			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
 				return PATH_ELEMENT_EDEFAULT == null ? getPathElement() != null : !PATH_ELEMENT_EDEFAULT.equals(getPathElement());
+			case DatatoolsPackage.NAVIGATION_AXIS__NEXT:
+				return basicGetNext() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,10 +360,10 @@ public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.NAVIGATION_AXIS___NAVIGUATE__EOBJECT:
-				return naviguate((EObject)arguments.get(0));
-			case DatatoolsPackage.NAVIGATION_AXIS___NAVIGUATE_MANY__EOBJECT:
-				return naviguateMany((EObject)arguments.get(0));
+			case DatatoolsPackage.NAVIGATION_AXIS___NAVIGATE__EOBJECT:
+				return navigate((EObject)arguments.get(0));
+			case DatatoolsPackage.NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT:
+				return navigateMany((EObject)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
