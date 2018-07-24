@@ -324,6 +324,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 		ColumnizerAbstract columnizer = this.getColumnizer();
 		this.refreshCats(outs);
 		this.setColumnizerAll(columnizer);
+		this.setComplete(outs.isComplete());
 	}
 
 	/**
