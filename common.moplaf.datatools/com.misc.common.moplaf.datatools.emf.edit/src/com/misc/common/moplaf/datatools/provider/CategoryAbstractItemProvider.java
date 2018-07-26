@@ -8,6 +8,7 @@ import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.RowSetItemGridsProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -266,7 +267,10 @@ public class CategoryAbstractItemProvider
 			return null;
 		}
 
-		IItemGridsProvider gridsProvider = new ColumnizerItemGridsProvider(this.getRootAdapterFactory(), columnizer, cat.getElements());	
-		return gridsProvider;
+		//IItemGridsProvider gridsProvider = new ColumnizerItemGridsProvider(this.getRootAdapterFactory(), columnizer, cat.getElements());
+		IItemGridsProvider columnizer_grids_provider = (IItemGridsProvider)this.getRootAdapterFactory().adapt(columnizer, IItemGridsProvider.class);
+		IItemGridsProvider grids_provider = new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements());
+		
+		return grids_provider;
 	}
 }
