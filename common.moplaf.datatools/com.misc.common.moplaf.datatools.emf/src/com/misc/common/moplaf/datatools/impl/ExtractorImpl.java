@@ -95,7 +95,7 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.EXTRACTOR___EXTRACT__OBJECTSET:
+			case DatatoolsPackage.EXTRACTOR___EXTRACT__OBJECTSET_INT:
 				return extract((ObjectSet)arguments.get(0), (Integer)arguments.get(1));
 			case DatatoolsPackage.EXTRACTOR___IS_VALID_ROOT__EOBJECT:
 				return isValidRoot((EObject)arguments.get(0));

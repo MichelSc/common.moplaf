@@ -79,6 +79,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Negated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAttribute" abstract="true"
       eSuperTypes="#//ExtractorFilter #//NavigationPath">
@@ -102,6 +104,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterOcl" eSuperTypes="#//ExtractorFilter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterCompound" abstract="true"
+      eSuperTypes="#//ExtractorFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Filters" upperBound="-1"
+        eType="#//ExtractorFilter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAND" eSuperTypes="#//ExtractorFilterCompound"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterOR" eSuperTypes="#//ExtractorFilterCompound"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorCompound" eSuperTypes="#//Extractor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Extractors" upperBound="-1"
         eType="#//Extractor" containment="true"/>

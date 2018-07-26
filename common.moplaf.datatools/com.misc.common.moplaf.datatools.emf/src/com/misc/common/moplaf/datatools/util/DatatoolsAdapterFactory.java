@@ -216,6 +216,18 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createMatchAdapter();
 			}
 			@Override
+			public Adapter caseExtractorFilterCompound(ExtractorFilterCompound object) {
+				return createExtractorFilterCompoundAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterAND(ExtractorFilterAND object) {
+				return createExtractorFilterANDAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterOR(ExtractorFilterOR object) {
+				return createExtractorFilterORAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -652,6 +664,48 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMatchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterCompound <em>Extractor Filter Compound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterCompound
+	 * @generated
+	 */
+	public Adapter createExtractorFilterCompoundAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAND <em>Extractor Filter AND</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAND
+	 * @generated
+	 */
+	public Adapter createExtractorFilterANDAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterOR <em>Extractor Filter OR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterOR
+	 * @generated
+	 */
+	public Adapter createExtractorFilterORAdapter() {
 		return null;
 	}
 

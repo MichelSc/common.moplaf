@@ -45,6 +45,7 @@ public class ExtractorFilterItemProvider extends ExtractorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
+			addNegatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -63,6 +64,28 @@ public class ExtractorFilterItemProvider extends ExtractorItemProvider {
 				 getString("_UI_ExtractorFilter_Enabled_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExtractorFilter_Enabled_feature", "_UI_ExtractorFilter_type"),
 				 DatatoolsPackage.Literals.EXTRACTOR_FILTER__ENABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Negated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNegatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExtractorFilter_Negated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtractorFilter_Negated_feature", "_UI_ExtractorFilter_type"),
+				 DatatoolsPackage.Literals.EXTRACTOR_FILTER__NEGATED,
 				 true,
 				 false,
 				 false,
@@ -99,6 +122,7 @@ public class ExtractorFilterItemProvider extends ExtractorItemProvider {
 
 		switch (notification.getFeatureID(ExtractorFilter.class)) {
 			case DatatoolsPackage.EXTRACTOR_FILTER__ENABLED:
+			case DatatoolsPackage.EXTRACTOR_FILTER__NEGATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

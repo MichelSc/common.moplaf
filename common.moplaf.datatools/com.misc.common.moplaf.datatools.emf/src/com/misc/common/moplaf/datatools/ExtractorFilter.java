@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.ExtractorFilter#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ExtractorFilter#isNegated <em>Negated</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getExtractorFilter()
@@ -47,6 +48,33 @@ public interface ExtractorFilter extends Extractor {
 	 * @generated
 	 */
 	void setEnabled(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Negated</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Negated</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Negated</em>' attribute.
+	 * @see #setNegated(boolean)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getExtractorFilter_Negated()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isNegated();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ExtractorFilter#isNegated <em>Negated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Negated</em>' attribute.
+	 * @see #isNegated()
+	 * @generated
+	 */
+	void setNegated(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

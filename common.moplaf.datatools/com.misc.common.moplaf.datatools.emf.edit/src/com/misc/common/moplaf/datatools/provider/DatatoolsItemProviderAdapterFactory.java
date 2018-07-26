@@ -510,6 +510,52 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterAND} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtractorFilterANDItemProvider extractorFilterANDItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterAND}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtractorFilterANDAdapter() {
+		if (extractorFilterANDItemProvider == null) {
+			extractorFilterANDItemProvider = new ExtractorFilterANDItemProvider(this);
+		}
+
+		return extractorFilterANDItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterOR} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtractorFilterORItemProvider extractorFilterORItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterOR}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtractorFilterORAdapter() {
+		if (extractorFilterORItemProvider == null) {
+			extractorFilterORItemProvider = new ExtractorFilterORItemProvider(this);
+		}
+
+		return extractorFilterORItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterRegex} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +769,8 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (categorizerOclItemProvider != null) categorizerOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
+		if (extractorFilterANDItemProvider != null) extractorFilterANDItemProvider.dispose();
+		if (extractorFilterORItemProvider != null) extractorFilterORItemProvider.dispose();
 	}
 
 }

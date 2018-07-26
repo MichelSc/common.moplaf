@@ -21,10 +21,13 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorCompound;
 import com.misc.common.moplaf.datatools.ExtractorFilter;
+import com.misc.common.moplaf.datatools.ExtractorFilterAND;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttribute;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeString;
+import com.misc.common.moplaf.datatools.ExtractorFilterCompound;
+import com.misc.common.moplaf.datatools.ExtractorFilterOR;
 import com.misc.common.moplaf.datatools.ExtractorFilterOcl;
 import com.misc.common.moplaf.datatools.ExtractorFilterRegex;
 import com.misc.common.moplaf.datatools.ExtractorIntersection;
@@ -274,6 +277,27 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass extractorFilterCompoundEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass extractorFilterANDEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass extractorFilterOREClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass extractorFilterRegexEClass = null;
 
 	/**
@@ -463,7 +487,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExtractor__Extract__ObjectSet() {
+	public EOperation getExtractor__Extract__ObjectSet_int() {
 		return extractorEClass.getEOperations().get(0);
 	}
 
@@ -744,6 +768,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EAttribute getExtractorFilter_Enabled() {
 		return (EAttribute)extractorFilterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExtractorFilter_Negated() {
+		return (EAttribute)extractorFilterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1165,6 +1198,42 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExtractorFilterCompound() {
+		return extractorFilterCompoundEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExtractorFilterCompound_Filters() {
+		return (EReference)extractorFilterCompoundEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExtractorFilterAND() {
+		return extractorFilterANDEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExtractorFilterOR() {
+		return extractorFilterOREClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExtractorFilterRegex() {
 		return extractorFilterRegexEClass;
 	}
@@ -1385,7 +1454,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__CONTEXT);
 
 		extractorEClass = createEClass(EXTRACTOR);
-		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__OBJECTSET);
+		createEOperation(extractorEClass, EXTRACTOR___EXTRACT__OBJECTSET_INT);
 		createEOperation(extractorEClass, EXTRACTOR___IS_VALID_ROOT__EOBJECT);
 
 		extractorTypeEClass = createEClass(EXTRACTOR_TYPE);
@@ -1398,6 +1467,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		extractorFilterEClass = createEClass(EXTRACTOR_FILTER);
 		createEAttribute(extractorFilterEClass, EXTRACTOR_FILTER__ENABLED);
+		createEAttribute(extractorFilterEClass, EXTRACTOR_FILTER__NEGATED);
 		createEOperation(extractorFilterEClass, EXTRACTOR_FILTER___SATISFIES_FILTER__EOBJECT);
 
 		extractorFilterAttributeEClass = createEClass(EXTRACTOR_FILTER_ATTRIBUTE);
@@ -1490,6 +1560,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(matchEClass, MATCH__OBJECT1);
 		createEReference(matchEClass, MATCH__OBJECT2);
 
+		extractorFilterCompoundEClass = createEClass(EXTRACTOR_FILTER_COMPOUND);
+		createEReference(extractorFilterCompoundEClass, EXTRACTOR_FILTER_COMPOUND__FILTERS);
+
+		extractorFilterANDEClass = createEClass(EXTRACTOR_FILTER_AND);
+
+		extractorFilterOREClass = createEClass(EXTRACTOR_FILTER_OR);
+
 		// Create data types
 		eObjectsSetEDataType = createEDataType(EOBJECTS_SET);
 	}
@@ -1555,6 +1632,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getCategorizer());
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getNavigationPath());
 		categorizerOclEClass.getESuperTypes().add(this.getCategorizer());
+		extractorFilterCompoundEClass.getESuperTypes().add(this.getExtractorFilter());
+		extractorFilterANDEClass.getESuperTypes().add(this.getExtractorFilterCompound());
+		extractorFilterOREClass.getESuperTypes().add(this.getExtractorFilterCompound());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(navigationPathEClass, NavigationPath.class, "NavigationPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1598,7 +1678,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		initEClass(extractorEClass, Extractor.class, "Extractor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getExtractor__Extract__ObjectSet(), this.getEObjectsSet(), "extract", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExtractor__Extract__ObjectSet_int(), this.getEObjectsSet(), "extract", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEObjectsSet(), "ins", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "max_elements", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1615,6 +1695,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		initEClass(extractorFilterEClass, ExtractorFilter.class, "ExtractorFilter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExtractorFilter_Enabled(), ecorePackage.getEBoolean(), "Enabled", "true", 0, 1, ExtractorFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExtractorFilter_Negated(), ecorePackage.getEBoolean(), "Negated", "true", 0, 1, ExtractorFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getExtractorFilter__SatisfiesFilter__EObject(), ecorePackage.getEBoolean(), "satisfiesFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1732,6 +1813,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMatch_Object1(), ecorePackage.getEObject(), null, "Object1", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatch_Object2(), ecorePackage.getEObject(), null, "Object2", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(extractorFilterCompoundEClass, ExtractorFilterCompound.class, "ExtractorFilterCompound", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExtractorFilterCompound_Filters(), this.getExtractorFilter(), null, "Filters", null, 0, -1, ExtractorFilterCompound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(extractorFilterANDEClass, ExtractorFilterAND.class, "ExtractorFilterAND", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(extractorFilterOREClass, ExtractorFilterOR.class, "ExtractorFilterOR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(eObjectsSetEDataType, ObjectSet.class, "EObjectsSet", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

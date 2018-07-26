@@ -10,8 +10,6 @@ import com.misc.common.moplaf.datatools.util.ObjectSet;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-import java.util.Set;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;

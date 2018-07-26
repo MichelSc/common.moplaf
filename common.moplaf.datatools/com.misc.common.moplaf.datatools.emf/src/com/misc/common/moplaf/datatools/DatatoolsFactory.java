@@ -193,6 +193,24 @@ public interface DatatoolsFactory extends EFactory {
 	Match createMatch();
 
 	/**
+	 * Returns a new object of class '<em>Extractor Filter AND</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Extractor Filter AND</em>'.
+	 * @generated
+	 */
+	ExtractorFilterAND createExtractorFilterAND();
+
+	/**
+	 * Returns a new object of class '<em>Extractor Filter OR</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Extractor Filter OR</em>'.
+	 * @generated
+	 */
+	ExtractorFilterOR createExtractorFilterOR();
+
+	/**
 	 * Returns a new object of class '<em>Extractor Filter Regex</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

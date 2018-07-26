@@ -859,7 +859,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR___EXTRACT__OBJECTSET = DATA_TOOL_OPERATION_COUNT + 0;
+	int EXTRACTOR___EXTRACT__OBJECTSET_INT = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -931,7 +931,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_TYPE___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
+	int EXTRACTOR_TYPE___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1039,7 +1039,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
+	int EXTRACTOR_PATH___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1111,7 +1111,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_OCL___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
+	int EXTRACTOR_OCL___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1168,13 +1168,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER__ENABLED = EXTRACTOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER__NEGATED = EXTRACTOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Extractor Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
+	int EXTRACTOR_FILTER_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -1183,7 +1192,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
+	int EXTRACTOR_FILTER___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1247,6 +1256,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE__ENABLED = EXTRACTOR_FILTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE__NEGATED = EXTRACTOR_FILTER__NEGATED;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -1318,7 +1336,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET = EXTRACTOR_FILTER___EXTRACT__OBJECTSET;
+	int EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1453,6 +1471,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__ENABLED = EXTRACTOR_FILTER_ATTRIBUTE__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__NEGATED = EXTRACTOR_FILTER_ATTRIBUTE__NEGATED;
+
+	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1522,7 +1549,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1607,6 +1634,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_REGEX__ENABLED = EXTRACTOR_FILTER_ATTRIBUTE_STRING__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__NEGATED = EXTRACTOR_FILTER_ATTRIBUTE_STRING__NEGATED;
+
+	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1685,7 +1721,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_REGEX___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__OBJECTSET;
+	int EXTRACTOR_FILTER_REGEX___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER_ATTRIBUTE_STRING___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1760,6 +1796,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ENABLED = EXTRACTOR_FILTER_ATTRIBUTE__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT__NEGATED = EXTRACTOR_FILTER_ATTRIBUTE__NEGATED;
+
+	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1829,7 +1874,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER_ATTRIBUTE___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -1912,6 +1957,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__ENABLED = EXTRACTOR_FILTER_ATTRIBUTE_INT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__NEGATED = EXTRACTOR_FILTER_ATTRIBUTE_INT__NEGATED;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -2001,7 +2055,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___EXTRACT__OBJECTSET = EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__OBJECTSET;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER_ATTRIBUTE_INT___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2076,6 +2130,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL__ENABLED = EXTRACTOR_FILTER__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OCL__NEGATED = EXTRACTOR_FILTER__NEGATED;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2100,7 +2163,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_OCL___EXTRACT__OBJECTSET = EXTRACTOR_FILTER___EXTRACT__OBJECTSET;
+	int EXTRACTOR_FILTER_OCL___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2181,7 +2244,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET = EXTRACTOR___EXTRACT__OBJECTSET;
+	int EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2253,7 +2316,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_LOGIC___EXTRACT__OBJECTSET = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET;
+	int EXTRACTOR_LOGIC___EXTRACT__OBJECTSET_INT = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2325,7 +2388,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PIPE___EXTRACT__OBJECTSET = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET;
+	int EXTRACTOR_PIPE___EXTRACT__OBJECTSET_INT = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2397,7 +2460,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_UNION___EXTRACT__OBJECTSET = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET;
+	int EXTRACTOR_UNION___EXTRACT__OBJECTSET_INT = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -2469,7 +2532,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_INTERSECTION___EXTRACT__OBJECTSET = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET;
+	int EXTRACTOR_INTERSECTION___EXTRACT__OBJECTSET_INT = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -3561,6 +3624,333 @@ public interface DatatoolsPackage extends EPackage {
 	int MATCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterCompoundImpl <em>Extractor Filter Compound</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterCompoundImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterCompound()
+	 * @generated
+	 */
+	int EXTRACTOR_FILTER_COMPOUND = 37;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND__CONTEXT = EXTRACTOR_FILTER__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND__DESCRIPTION = EXTRACTOR_FILTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND__NAME = EXTRACTOR_FILTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND__ENABLED = EXTRACTOR_FILTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND__NEGATED = EXTRACTOR_FILTER__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND__FILTERS = EXTRACTOR_FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Filter Compound</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND_FEATURE_COUNT = EXTRACTOR_FILTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND___IS_VALID_ROOT__EOBJECT = EXTRACTOR_FILTER___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND___SATISFIES_FILTER__EOBJECT = EXTRACTOR_FILTER___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Extractor Filter Compound</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND_OPERATION_COUNT = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterANDImpl <em>Extractor Filter AND</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterANDImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAND()
+	 * @generated
+	 */
+	int EXTRACTOR_FILTER_AND = 38;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND__CONTEXT = EXTRACTOR_FILTER_COMPOUND__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND__DESCRIPTION = EXTRACTOR_FILTER_COMPOUND__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND__NAME = EXTRACTOR_FILTER_COMPOUND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND__ENABLED = EXTRACTOR_FILTER_COMPOUND__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND__NEGATED = EXTRACTOR_FILTER_COMPOUND__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND__FILTERS = EXTRACTOR_FILTER_COMPOUND__FILTERS;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Filter AND</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND_FEATURE_COUNT = EXTRACTOR_FILTER_COMPOUND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER_COMPOUND___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND___IS_VALID_ROOT__EOBJECT = EXTRACTOR_FILTER_COMPOUND___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND___SATISFIES_FILTER__EOBJECT = EXTRACTOR_FILTER_COMPOUND___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Extractor Filter AND</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND_OPERATION_COUNT = EXTRACTOR_FILTER_COMPOUND_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterORImpl <em>Extractor Filter OR</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterORImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterOR()
+	 * @generated
+	 */
+	int EXTRACTOR_FILTER_OR = 39;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR__CONTEXT = EXTRACTOR_FILTER_COMPOUND__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR__DESCRIPTION = EXTRACTOR_FILTER_COMPOUND__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR__NAME = EXTRACTOR_FILTER_COMPOUND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR__ENABLED = EXTRACTOR_FILTER_COMPOUND__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR__NEGATED = EXTRACTOR_FILTER_COMPOUND__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR__FILTERS = EXTRACTOR_FILTER_COMPOUND__FILTERS;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Filter OR</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR_FEATURE_COUNT = EXTRACTOR_FILTER_COMPOUND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR___EXTRACT__OBJECTSET_INT = EXTRACTOR_FILTER_COMPOUND___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR___IS_VALID_ROOT__EOBJECT = EXTRACTOR_FILTER_COMPOUND___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR___SATISFIES_FILTER__EOBJECT = EXTRACTOR_FILTER_COMPOUND___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Extractor Filter OR</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR_OPERATION_COUNT = EXTRACTOR_FILTER_COMPOUND_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3568,7 +3958,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 37;
+	int EOBJECTS_SET = 40;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -3660,7 +4050,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.Extractor#extract(com.misc.common.moplaf.datatools.util.ObjectSet, int)
 	 * @generated
 	 */
-	EOperation getExtractor__Extract__ObjectSet();
+	EOperation getExtractor__Extract__ObjectSet_int();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
@@ -3984,6 +4374,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getExtractorFilter_Enabled();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ExtractorFilter#isNegated <em>Negated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Negated</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilter#isNegated()
+	 * @see #getExtractorFilter()
+	 * @generated
+	 */
+	EAttribute getExtractorFilter_Negated();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ExtractorFilter#satisfiesFilter(org.eclipse.emf.ecore.EObject) <em>Satisfies Filter</em>}' operation.
@@ -4471,6 +4872,47 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getMatch_Object2();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterCompound <em>Extractor Filter Compound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Extractor Filter Compound</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterCompound
+	 * @generated
+	 */
+	EClass getExtractorFilterCompound();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.ExtractorFilterCompound#getFilters <em>Filters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Filters</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterCompound#getFilters()
+	 * @see #getExtractorFilterCompound()
+	 * @generated
+	 */
+	EReference getExtractorFilterCompound_Filters();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAND <em>Extractor Filter AND</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Extractor Filter AND</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAND
+	 * @generated
+	 */
+	EClass getExtractorFilterAND();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterOR <em>Extractor Filter OR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Extractor Filter OR</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorFilterOR
+	 * @generated
+	 */
+	EClass getExtractorFilterOR();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterRegex <em>Extractor Filter Regex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4759,7 +5201,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR___EXTRACT__OBJECTSET = eINSTANCE.getExtractor__Extract__ObjectSet();
+		EOperation EXTRACTOR___EXTRACT__OBJECTSET_INT = eINSTANCE.getExtractor__Extract__ObjectSet_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.
@@ -5036,6 +5478,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXTRACTOR_FILTER__ENABLED = eINSTANCE.getExtractorFilter_Enabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Negated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTRACTOR_FILTER__NEGATED = eINSTANCE.getExtractorFilter_Negated();
 
 		/**
 		 * The meta object literal for the '<em><b>Satisfies Filter</b></em>' operation.
@@ -5430,6 +5880,44 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MATCH__OBJECT2 = eINSTANCE.getMatch_Object2();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterCompoundImpl <em>Extractor Filter Compound</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterCompoundImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterCompound()
+		 * @generated
+		 */
+		EClass EXTRACTOR_FILTER_COMPOUND = eINSTANCE.getExtractorFilterCompound();
+
+		/**
+		 * The meta object literal for the '<em><b>Filters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTRACTOR_FILTER_COMPOUND__FILTERS = eINSTANCE.getExtractorFilterCompound_Filters();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterANDImpl <em>Extractor Filter AND</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterANDImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAND()
+		 * @generated
+		 */
+		EClass EXTRACTOR_FILTER_AND = eINSTANCE.getExtractorFilterAND();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterORImpl <em>Extractor Filter OR</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterORImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterOR()
+		 * @generated
+		 */
+		EClass EXTRACTOR_FILTER_OR = eINSTANCE.getExtractorFilterOR();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterRegexImpl <em>Extractor Filter Regex</em>}' class.

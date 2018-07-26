@@ -3,9 +3,9 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
-import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.ExtractorFilterCompound;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,40 +13,25 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.DataTools} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterCompound} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataToolsItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ExtractorFilterCompoundItemProvider extends ExtractorFilterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataToolsItemProvider(AdapterFactory adapterFactory) {
+	public ExtractorFilterCompoundItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,7 +62,7 @@ public class DataToolsItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS);
+			childrenFeatures.add(DatatoolsPackage.Literals.EXTRACTOR_FILTER_COMPOUND__FILTERS);
 		}
 		return childrenFeatures;
 	}
@@ -96,17 +81,6 @@ public class DataToolsItemProvider
 	}
 
 	/**
-	 * This returns DataTools.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataTools"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,9 +88,12 @@ public class DataToolsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataTools_type");
+		String label = ((ExtractorFilterCompound)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorFilterCompound_type") :
+			getString("_UI_ExtractorFilterCompound_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -129,8 +106,8 @@ public class DataToolsItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DataTools.class)) {
-			case DatatoolsPackage.DATA_TOOLS__DATA_TOOLS:
+		switch (notification.getFeatureID(ExtractorFilterCompound.class)) {
+			case DatatoolsPackage.EXTRACTOR_FILTER_COMPOUND__FILTERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,89 +127,28 @@ public class DataToolsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorPath()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				(DatatoolsPackage.Literals.EXTRACTOR_FILTER_COMPOUND__FILTERS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				(DatatoolsPackage.Literals.EXTRACTOR_FILTER_COMPOUND__FILTERS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeIntRange()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				(DatatoolsPackage.Literals.EXTRACTOR_FILTER_COMPOUND__FILTERS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createColumnizer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategorizerStructuralFeature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				(DatatoolsPackage.Literals.EXTRACTOR_FILTER_COMPOUND__FILTERS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				(DatatoolsPackage.Literals.EXTRACTOR_FILTER_COMPOUND__FILTERS,
 				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return DatatoolsEditPlugin.INSTANCE;
 	}
 
 }

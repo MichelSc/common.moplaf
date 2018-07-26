@@ -383,6 +383,38 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_COMPOUND: {
+				ExtractorFilterCompound extractorFilterCompound = (ExtractorFilterCompound)theEObject;
+				T result = caseExtractorFilterCompound(extractorFilterCompound);
+				if (result == null) result = caseExtractorFilter(extractorFilterCompound);
+				if (result == null) result = caseExtractor(extractorFilterCompound);
+				if (result == null) result = caseDataTool(extractorFilterCompound);
+				if (result == null) result = caseDataToolAbstract(extractorFilterCompound);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_AND: {
+				ExtractorFilterAND extractorFilterAND = (ExtractorFilterAND)theEObject;
+				T result = caseExtractorFilterAND(extractorFilterAND);
+				if (result == null) result = caseExtractorFilterCompound(extractorFilterAND);
+				if (result == null) result = caseExtractorFilter(extractorFilterAND);
+				if (result == null) result = caseExtractor(extractorFilterAND);
+				if (result == null) result = caseDataTool(extractorFilterAND);
+				if (result == null) result = caseDataToolAbstract(extractorFilterAND);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.EXTRACTOR_FILTER_OR: {
+				ExtractorFilterOR extractorFilterOR = (ExtractorFilterOR)theEObject;
+				T result = caseExtractorFilterOR(extractorFilterOR);
+				if (result == null) result = caseExtractorFilterCompound(extractorFilterOR);
+				if (result == null) result = caseExtractorFilter(extractorFilterOR);
+				if (result == null) result = caseExtractor(extractorFilterOR);
+				if (result == null) result = caseDataTool(extractorFilterOR);
+				if (result == null) result = caseDataToolAbstract(extractorFilterOR);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -834,6 +866,51 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMatch(Match object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter Compound</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter Compound</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilterCompound(ExtractorFilterCompound object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter AND</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter AND</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilterAND(ExtractorFilterAND object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extractor Filter OR</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extractor Filter OR</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtractorFilterOR(ExtractorFilterOR object) {
 		return null;
 	}
 

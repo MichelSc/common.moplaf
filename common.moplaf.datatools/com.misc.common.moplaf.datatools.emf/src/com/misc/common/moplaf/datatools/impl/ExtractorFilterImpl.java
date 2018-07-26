@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterImpl#isNegated <em>Negated</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,25 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 	 * @ordered
 	 */
 	protected boolean enabled = ENABLED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isNegated() <em>Negated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNegated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NEGATED_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isNegated() <em>Negated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNegated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean negated = NEGATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,6 +113,27 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNegated() {
+		return negated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNegated(boolean newNegated) {
+		boolean oldNegated = negated;
+		negated = newNegated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR_FILTER__NEGATED, oldNegated, negated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean satisfiesFilter(EObject object) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -109,6 +150,8 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 		switch (featureID) {
 			case DatatoolsPackage.EXTRACTOR_FILTER__ENABLED:
 				return isEnabled();
+			case DatatoolsPackage.EXTRACTOR_FILTER__NEGATED:
+				return isNegated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +166,9 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 		switch (featureID) {
 			case DatatoolsPackage.EXTRACTOR_FILTER__ENABLED:
 				setEnabled((Boolean)newValue);
+				return;
+			case DatatoolsPackage.EXTRACTOR_FILTER__NEGATED:
+				setNegated((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,6 +185,9 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 			case DatatoolsPackage.EXTRACTOR_FILTER__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
+			case DatatoolsPackage.EXTRACTOR_FILTER__NEGATED:
+				setNegated(NEGATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,6 +202,8 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 		switch (featureID) {
 			case DatatoolsPackage.EXTRACTOR_FILTER__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
+			case DatatoolsPackage.EXTRACTOR_FILTER__NEGATED:
+				return negated != NEGATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -183,6 +234,8 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Enabled: ");
 		result.append(enabled);
+		result.append(", Negated: ");
+		result.append(negated);
 		result.append(')');
 		return result.toString();
 	}
@@ -194,7 +247,7 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
 		ObjectSet outs = new ObjectSet();
 		for ( EObject in : ins) {
-			if ( !this.isEnabled() || this.satisfiesFilter(in)) {
+			if ( !this.isEnabled() || this.satisfiesFilter(in)==!this.isNegated() ) {
 				if ( outs.size()<max_elements ) {
 					outs.add(in);
 				} else {
