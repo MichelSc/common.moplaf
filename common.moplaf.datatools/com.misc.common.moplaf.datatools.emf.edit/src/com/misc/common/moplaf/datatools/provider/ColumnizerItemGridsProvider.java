@@ -99,7 +99,6 @@ public class ColumnizerItemGridsProvider implements IItemGridsProvider {
 	}
 	@Override
 	public String getCellFormat(Object element, Object grid, Object row, Object column) {
-		// TODO Auto-generated method stub
 		return this.adapter.getCellFormat(this.columnizer, grid, row, column);
 	}
 }
