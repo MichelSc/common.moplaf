@@ -244,7 +244,11 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 		this.getElements().addAll(tobes);
 		
 		// update the subcategories
-		if ( categorizer.getCategorizers().size()>level ) {
+		if ( categorizer.getCategorizers().size()<=level ) {
+			// there are no deeper levels
+			this.getSubCategories().clear();
+		} else {
+			// there are deeper levels than the current level
 			Categorizer criteria = categorizer.getCategorizers().get(level);
 			HashMap<Object, ObjectSet> cats_tobe  = new HashMap<>();
 			// collect the cats
