@@ -29,8 +29,11 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.gridview.TablesProvider;
 import com.misc.common.moplaf.gridview.Wrapper;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.TableColumnProvider;
+import com.misc.common.moplaf.gridview.TableRowProvider; 
 
 
 /**
@@ -44,7 +47,7 @@ import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
  * @author michel
  *
  */
-public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvider {
+public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvider implements TablesProvider{
 	private Color foregroundColor = null;
 	private Color backgroundColor = null;
 
@@ -94,54 +97,17 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	}
 
 	/**
-	 * Specified by ITreeContentProvider 
-	 */
-	@Override
-	public Object[] getChildren(Object object) {
-		// super children
-		Object[] super_children = super.getChildren(object);
-		int nof_super_children = super_children.length;
-		// providers
-		ArrayList<?> providers = this.getTableProviders(object);
-		if ( providers==null){
-			return super_children;
-		}
-		// concatenate
-		Object[] children = new Object[providers.size()+nof_super_children];
-		System.arraycopy(super_children, 0, children, 0, nof_super_children);
-		int i = nof_super_children;
-		for ( Object provider : providers) {
-			children[i]= provider;
-			i++;
-		}
-		return children;
-	}
-
-	/**
-	 * Specified by ITreeContentProvider 
-	 */
-	@Override
-	public Object getParent(Object object) {
-		if ( object instanceof TableProvider){
-			TableProvider provider = (TableProvider) object;
-			return provider.element;
-		}
-			
-		return super.getParent(object);
-	}
-	
-	/**
 	 * Return a collection of object extending the private class  {@link TableProvider}, and implementing 
 	 * the interfaces  {@link IStructuredContentProvider}, {@link ITableColorProvider}, {@link ITableLabelProvider}, 
 	 * <p>
 	 */
-	private ArrayList<TableProvider> getTableProviders(Object element){
+	public ArrayList<com.misc.common.moplaf.gridview.TableProvider> getTableProviders(Object element){
 		AdapterFactory adapterFactory = this.getAdapterFactory();
 		IItemGridsProvider gridsProvider = (IItemGridsProvider) adapterFactory.adapt(element, IItemGridsProvider.class);
 		
 		if ( gridsProvider == null ){ return null; }
 		
-		ArrayList<TableProvider> providers = new ArrayList<TableProvider>();
+		ArrayList<com.misc.common.moplaf.gridview.TableProvider> providers = new ArrayList<com.misc.common.moplaf.gridview.TableProvider>();
 		
 		Object grids_asobject = gridsProvider.getGrids(element);
 		while ( grids_asobject instanceof IItemGridsProvider ) {
@@ -166,8 +132,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	}
 	
 
-	private TableProvider createTableProvider(Object nativeObject, Object timePlotKey, IItemGridsProvider provider){
-			return new TableProvider(nativeObject, timePlotKey, provider);
+	private TableProvider createTableProvider(Object element, Object grid, IItemGridsProvider provider){
+			return new TableProvider(element, grid, provider);
 	}
 
 
@@ -177,19 +143,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	 * @author michel
 	 *
 	 */
-	public class TableProvider implements IStructuredContentProvider, ITableLabelProvider, ITableColorProvider {
-		/**
-		 * 
-		 * @author michel
-		 *
-		 */
-		public abstract class TableRowProvider  {
-			public abstract String getText(Object columnObject);
-			public abstract Object getForeground(Object columnObject);
-			public abstract Object getBackground(Object columnObject); 
-			public abstract Object getRowObject();
-		};
-		public class TableRowData extends TableRowProvider implements Wrapper {
+	private class TableProvider implements com.misc.common.moplaf.gridview.TableProvider {
+		public class TableRowData implements TableRowProvider, Wrapper {
 			private Object gridRow;
 			public TableRowData(Object gridRow) {
 				super();
@@ -240,20 +195,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			}
 			
 		}
-		/**
-		 * 
-		 * @author michel
-		 *
-		 */
-		public abstract class TableColumnProvider  {
-			public abstract String getText(TableRowProvider row);
-			public abstract int getWidth();
-			public abstract Color getForeground(TableRowProvider row);
-			public abstract Color getBackground(TableRowProvider row); 
-			public abstract int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending);
-			public abstract int getAlignemet();
-		};
-		private class TableColumnHeader extends TableColumnProvider {
+		private class TableColumnHeader implements TableColumnProvider {
 			public TableColumnHeader() {
 				
 			};
@@ -291,7 +233,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				return SWT.LEFT;
 			}
 		};
-		private class TableColumnData extends TableColumnProvider {
+		private class TableColumnData implements TableColumnProvider {
 			private Object gridColumn;
 			public TableColumnData(Object gridColummn) {
 				super();

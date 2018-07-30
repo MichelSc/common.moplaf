@@ -42,10 +42,11 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.misc.common.moplaf.gridview.TableColumnProvider;
+import com.misc.common.moplaf.gridview.TableProvider;
+import com.misc.common.moplaf.gridview.TablesProvider;
 import com.misc.common.moplaf.gridview.Wrapper;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
-import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider;
-import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider.TableColumnProvider;
 
 
 
@@ -103,6 +104,7 @@ public class GridViewer extends ContentViewer {
 	private Object          selectedElement = null;
 	private ISelection      currentSelection = null;
 	private IColorProvider  colorProvider = null;
+	private TablesProvider  tablesProvider = null;
 	private TabFolder       tabFolder = null;
 	
 	private class Grid  {
@@ -204,6 +206,10 @@ public class GridViewer extends ContentViewer {
 		super.setLabelProvider(provider);
 	}
 	
+	public void setTablesProvider(TablesProvider provider) {
+		this.tablesProvider = provider;
+	}
+	
 	public void setColorProvider(IColorProvider provider) {
 		this.colorProvider = provider;
 	}
@@ -287,18 +293,19 @@ public class GridViewer extends ContentViewer {
 	}
 	
 	private void collectTableProviders(ArrayList<TableProvider> tables, Object element, int depth) {
-		// the element
-		if (element instanceof TableProvider ) {
-			tables.add((TableProvider)element);
+		ArrayList<TableProvider> tableProviders = this.tablesProvider.getTableProviders(element);
+		if ( tableProviders!=null && tableProviders.size()>0 ) {
+			tables.addAll(tableProviders);
 		}
-		// the children
-		if ( depth<3) {
-			Object[] children_element= this.getTreeContentProvider().getChildren(element);
-			for (Object child_element : children_element) {
-				// the parent of child is modelElement, this is an actual child
-				// this restriction avoids recursion
-				if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
-					this.collectTableProviders(tables,  child_element, depth+1);
+		else {
+			if ( depth<2) {
+				Object[] children_element= this.getTreeContentProvider().getChildren(element);
+				for (Object child_element : children_element) {
+					// the parent of child is modelElement, this is an actual child
+					// this restriction avoids recursion
+					if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
+						this.collectTableProviders(tables,  child_element, depth+1);
+					}
 				}
 			}
 		}

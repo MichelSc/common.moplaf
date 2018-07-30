@@ -79,9 +79,10 @@ public class GridView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		AdapterFactoryGridProvider contentProvider = new AdapterFactoryGridProvider(this.adapterFactory, parent.getForeground(), parent.getBackground());
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider           (contentProvider);
-		this.viewer.setLabelProvider        (new AdapterFactoryLabelProvider   (this.adapterFactory));
-//		this.viewer.setColorProvider        (new AdapterFactoryLabelProvider   (this.adapterFactory));
+        this.viewer.setContentProvider (contentProvider);
+		this.viewer.setTablesProvider  (contentProvider);
+		this.viewer.setLabelProvider   (new AdapterFactoryLabelProvider   (this.adapterFactory));
+//		this.viewer.setColorProvider   (new AdapterFactoryLabelProvider   (this.adapterFactory));
 
  		// register the selection listener
 		this.selectionListener = new SiteSelectionListener();
