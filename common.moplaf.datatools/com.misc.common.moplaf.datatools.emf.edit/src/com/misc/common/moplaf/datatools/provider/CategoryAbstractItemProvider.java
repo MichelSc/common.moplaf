@@ -267,7 +267,7 @@ public class CategoryAbstractItemProvider
 			;
 	
 	static GridSheetsProvider CATEGORY_SHEETS = GridSheetsProvider.constructGridSheetsProvider()
-			.addSheet(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, CATEGORY_COLUMNS)
+			.addSheet(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, CATEGORY_COLUMNS, IItemGridsProvider.SHEET_TRAITS_BARCHART)
 			;
 
 
@@ -285,8 +285,10 @@ public class CategoryAbstractItemProvider
 
 		IItemGridsProvider columnizer_grids_provider = (IItemGridsProvider)this.getRootAdapterFactory().adapt(columnizer, IItemGridsProvider.class);
 //		IItemGridsProvider grids_provider = new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements());
-		IItemGridsProvider grids_provider = new CompoundItemGridsProvider(new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()),
-				CATEGORY_SHEETS);
+		IItemGridsProvider grids_provider = new CompoundItemGridsProvider(
+				new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()),
+				CATEGORY_SHEETS
+				);
 		
 		
 		return grids_provider;

@@ -23,23 +23,31 @@ public class GridSheetsProvider implements IItemGridsProvider {
 	/**
 	 * 
 	 */
-	private LinkedList<com.misc.common.moplaf.gridview.emf.edit.util.GridSheetsProvider.SheetDelegate> sheets;
+	private LinkedList<SheetDelegate> sheets;
 	private static final long serialVersionUID = 1L;
 
 	public interface SheetDelegate {
-		Collection<?> getRows(Object sheet);
-		String getSheetText();
-		GridColumnsProvider getColumns();
+		public Collection<?> getRows(Object sheet);
+		public String getSheetText();
+		public GridColumnsProvider getColumns();
+		public int getTraits();
 	}
 	
 	private class SheetFeature implements SheetDelegate{
 		
 		private EReference reference;
 		private GridColumnsProvider columns;
+		private int traits;
 		
 		public SheetFeature(EReference path, GridColumnsProvider columns) {
 			this.reference = path;
 			this.columns = columns;
+			this.traits = IItemGridsProvider.SHEET_TRAITS_NONE;
+		}
+		public SheetFeature(EReference path, GridColumnsProvider columns, int traits) {
+			this.reference = path;
+			this.columns = columns;
+			this.traits = traits;
 		}
 
 		@Override
@@ -62,6 +70,11 @@ public class GridSheetsProvider implements IItemGridsProvider {
 		public String getSheetText() {
 			return this.reference.getName();
 		}
+
+		@Override
+		public int getTraits() {
+			return this.traits;
+		}
 		
 	}
 	
@@ -74,7 +87,8 @@ public class GridSheetsProvider implements IItemGridsProvider {
 	 * Convenience methods for constructing GridColumnProvider
 	 */
 	static public GridSheetsProvider constructGridSheetsProvider(){
-		return new GridSheetsProvider();
+		GridSheetsProvider provider = new GridSheetsProvider();
+		return provider;
 	};
 
 	/*
@@ -82,6 +96,10 @@ public class GridSheetsProvider implements IItemGridsProvider {
 	 */
 	public GridSheetsProvider addSheet(EReference reference, GridColumnsProvider columns) {
 		this.sheets.add(new SheetFeature(reference, columns));
+		return this;
+	}
+	public GridSheetsProvider addSheet(EReference reference, GridColumnsProvider columns, int traits) {
+		this.sheets.add(new SheetFeature(reference, columns, traits));
 		return this;
 	}
 	
@@ -94,6 +112,11 @@ public class GridSheetsProvider implements IItemGridsProvider {
 	public String getGridText(Object element, Object grid) {
 		SheetDelegate delegate = (SheetDelegate)grid;
 		return delegate.getSheetText();
+	}
+	@Override
+	public int getGridTraits(Object element, Object grid) {
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.getTraits();
 	}
 
 	@Override

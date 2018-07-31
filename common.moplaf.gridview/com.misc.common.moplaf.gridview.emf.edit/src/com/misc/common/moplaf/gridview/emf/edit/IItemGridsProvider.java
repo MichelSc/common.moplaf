@@ -67,7 +67,12 @@ import java.util.Date;
 public interface IItemGridsProvider {
 	static int NO_ALIGN = 0;
 	
-	static int SHEET_TYPE_NONE   = 0;
+	// sheet traits are hint for the consumer how to best display the grid
+	static int SHEET_TRAITS_NONE     = 0;
+	static int SHEET_TRAITS_ROWS     = 1; // a bunch of rows with a few columns 
+	static int SHEET_TRAITS_COLUMNS  = 2; // a bunch of columns with a few rows
+	static int SHEET_TRAITS_GRID     = 4; // no dominant between rows and columns
+	static int SHEET_TRAITS_BARCHART = 4; // rows are categories and columns are series
 	
 	static int HORIZONTAl_ALIGN_LEFT   = 1;
 	static int HORIZONTAl_ALIGN_RIGHT  = 2;
@@ -111,6 +116,16 @@ public interface IItemGridsProvider {
 	 */
 	default String getGridText(Object element, Object grid) {
 		return "";
+	}
+
+	/**
+	 * Return the traits about the grid. These grids are hints for the consumer how to best display/exploit the grid data.
+	 * @param element
+	 * @param grid
+	 * @return
+	 */
+	default int getGridTraits(Object element, Object grid) {
+		return IItemGridsProvider.SHEET_TRAITS_NONE;
 	}
 
 	/**
