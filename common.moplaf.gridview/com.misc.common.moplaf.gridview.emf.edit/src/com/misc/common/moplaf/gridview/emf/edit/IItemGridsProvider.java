@@ -67,6 +67,8 @@ import java.util.Date;
 public interface IItemGridsProvider {
 	static int NO_ALIGN = 0;
 	
+	static int SHEET_TYPE_NONE   = 0;
+	
 	static int HORIZONTAl_ALIGN_LEFT   = 1;
 	static int HORIZONTAl_ALIGN_RIGHT  = 2;
 	static int HORIZONTAl_ALIGN_CENTER = 4;
