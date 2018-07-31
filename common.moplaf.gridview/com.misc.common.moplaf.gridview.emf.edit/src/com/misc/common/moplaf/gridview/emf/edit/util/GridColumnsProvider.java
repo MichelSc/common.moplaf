@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.misc.common.moplaf.gridview.emf.edit.util;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -33,12 +32,12 @@ public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridv
 	
 	private class ColumnFeature implements ColumnDelegate{
 		
-		private LinkedList<EReference> path;
+		private EReference[] path;
 		private EAttribute attribute;
 		private int width;
 		
-		public ColumnFeature(LinkedList<EReference> path, EAttribute attribute, int width) {
-			this.path = (LinkedList<EReference>) path.clone();
+		public ColumnFeature(EReference[] path, EAttribute attribute, int width) {
+			this.path = path;
 			this.attribute = attribute;
 			this.width = width;
 		}
@@ -46,9 +45,9 @@ public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridv
 		@Override
 		public Object getCellValue(Object row) {
 			EObject object = (EObject)row;
-			Iterator<EReference> iterator = this.path.iterator();
-			while ( iterator.hasNext() && object!=null) {
-				object  = (EObject) object.eGet(iterator.next());
+			for ( int i=0; i<this.path.length && object!=null; i++) {
+				EReference ref = this.path[i];
+				object  = (EObject) object.eGet(ref);
 			}
 			if ( object == null ) { return null; }
 			return object.eGet(this.attribute);
@@ -81,8 +80,8 @@ public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridv
 	 * Convenience method for adding an attribute column
 	 */
 	public GridColumnsProvider addColumn(EAttribute attribute, int width) {
-		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path 
-		this.add(new ColumnFeature(path, attribute, width));
+		EReference[] empty_path = {};
+		this.addColumn(empty_path , attribute, width);
 		return this;
 	}
 
@@ -94,53 +93,14 @@ public class GridColumnsProvider extends LinkedList<com.misc.common.moplaf.gridv
 	/*
 	 * Convenience method for adding an path/attribute column
 	 */
-	public GridColumnsProvider addColumn(EReference ref1, EAttribute attribute, int width) {
-		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
-		path.add(ref1);
-		this.add(new ColumnFeature(path, attribute, width));
+	public GridColumnsProvider addColumn(EReference[] refs, EAttribute attribute, int width) {
+		ColumnFeature column_provider = new ColumnFeature(refs, attribute, width);
+		this.add(column_provider);
 		return this;
 	}
-	public GridColumnsProvider addColumn(EReference ref1, EAttribute attribute) {
-		return this.addColumn(ref1, attribute, DEFAULT_WIDTH);
+	public GridColumnsProvider addColumn(EReference[] refs, EAttribute attribute) {
+		return this.addColumn(refs, attribute, DEFAULT_WIDTH);
 	}
 	
-	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EAttribute attribute, int width) {
-		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
-		path.add(ref1);
-		path.add(ref2);
-		this.add(new ColumnFeature(path, attribute, width));
-		return this;
-	}
-	
-	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EAttribute attribute) {
-		return this.addColumn(ref1, ref2, attribute);
-	}
-	
-	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EReference ref3, EAttribute attribute, int width) {
-		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
-		path.add(ref1);
-		path.add(ref2);
-		path.add(ref3);
-		this.add(new ColumnFeature(path, attribute, width));
-		return this;
-	}
-
-	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EReference ref3, EAttribute attribute) {
-		return this.addColumn(ref1, ref2, ref3, attribute, DEFAULT_WIDTH);
-	}
-	
-	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EReference ref3, EReference ref4, EAttribute attribute, int width) {
-		LinkedList<EReference> path = new LinkedList<EReference>(); // empty path
-		path.add(ref1);
-		path.add(ref2);
-		path.add(ref3);
-		path.add(ref4);
-		this.add(new ColumnFeature(path, attribute, width));
-		return this;
-	}
-
-	public GridColumnsProvider addColumn(EReference ref1, EReference ref2, EReference ref3, EReference ref4, EAttribute attribute) {
-		return this.addColumn(ref1, ref2, ref3, ref4, attribute, DEFAULT_WIDTH);
-	}
 
 }

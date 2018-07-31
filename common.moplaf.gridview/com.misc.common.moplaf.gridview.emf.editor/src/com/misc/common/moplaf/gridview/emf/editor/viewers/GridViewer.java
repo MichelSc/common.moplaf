@@ -46,7 +46,6 @@ import com.misc.common.moplaf.gridview.TableColumnProvider;
 import com.misc.common.moplaf.gridview.TableProvider;
 import com.misc.common.moplaf.gridview.TablesProvider;
 import com.misc.common.moplaf.gridview.Wrapper;
-import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
 
 
 
