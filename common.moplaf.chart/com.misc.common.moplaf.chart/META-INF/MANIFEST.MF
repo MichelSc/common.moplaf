@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Chart
-Bundle-SymbolicName: com.misc.common.moplaf.chart
+Bundle-SymbolicName: com.misc.common.moplaf.chart;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.misc.common.moplaf.chart.Plugin
 Require-Bundle: org.eclipse.core.runtime,
