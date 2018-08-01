@@ -67,7 +67,7 @@ import java.util.Date;
 public interface IItemGridsProvider {
 	static int NO_ALIGN = 0;
 	
-	// sheet traits are hint for the consumer how to best display the grid
+	// sheet traits are hints for the consumer how to best display the grid
 	static int SHEET_TRAITS_NONE     = 0;
 	static int SHEET_TRAITS_ROWS     = 1; // a bunch of rows with a few columns 
 	static int SHEET_TRAITS_COLUMNS  = 2; // a bunch of columns with a few rows

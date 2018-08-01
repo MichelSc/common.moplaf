@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Chart
+Bundle-SymbolicName: com.misc.common.moplaf.chart
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.misc.common.moplaf.chart.Plugin
+Require-Bundle: org.eclipse.core.runtime,
+  org.eclipse.ui,
+  org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: com.misc.common.moplaf.chart
+Bundle-ActivationPolicy: lazy
