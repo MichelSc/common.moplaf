@@ -32,6 +32,7 @@ import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProv
 import com.misc.common.moplaf.gridview.TablesProvider;
 import com.misc.common.moplaf.gridview.Wrapper;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.Util;
 import com.misc.common.moplaf.gridview.TableColumnProvider;
 import com.misc.common.moplaf.gridview.TableRowProvider; 
 
@@ -73,29 +74,6 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		return color;
 	}
 	
-	private String getTextFromValue(Object cellValue, int cellType, String format) {
-		if ( format!=null) {
-			return String.format(format, cellValue);
-		} else {
-			switch ( cellType ) {
-			case IItemGridsProvider.CELL_TYPE_STRING: 
-				return cellValue == null ? "" : (String)cellValue;
-			case IItemGridsProvider.CELL_TYPE_DATE: 
-				return String.format("%1$tF %1$tT", cellValue);
-			case IItemGridsProvider.CELL_TYPE_FLOAT:
-			case IItemGridsProvider.CELL_TYPE_DOUBLE:
-				return String.format("%1$.2f", cellValue);
-			case IItemGridsProvider.CELL_TYPE_INT:
-			case IItemGridsProvider.CELL_TYPE_LONG:
-				return String.format("%1$d", cellValue);
-			case IItemGridsProvider.CELL_TYPE_BOOLEAN:
-				return String.format("%1$b", cellValue);
-			default: 
-				return "";
-			}
-		}
-	}
-
 	/**
 	 * Return a collection of object extending the private class  {@link TableProvider}, and implementing 
 	 * the interfaces  {@link IStructuredContentProvider}, {@link ITableColorProvider}, {@link ITableLabelProvider}, 
@@ -124,7 +102,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			}
 		} else if ( grids_asobject!=null ){
 			// a single grid for the element
-			TableProvider provider = this.createTableProvider(element, null, gridsProvider);
+			TableProvider provider = this.createTableProvider(element, grids_asobject, gridsProvider);
 			providers.add(provider);
 		} 
 		
@@ -161,7 +139,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				Object cellValue  = provider.gridsProvider.getCellValue(provider.element, provider.grid, this.gridRow, columnObject);
 				int    cellType   = provider.gridsProvider.getCellType(provider.element, provider.grid, this.gridRow, columnObject);
 				String cellFormat = provider.gridsProvider.getCellFormat(provider.element, provider.grid, this.gridRow, columnObject);
-				return AdapterFactoryGridProvider.this.getTextFromValue(cellValue, cellType, cellFormat);
+				return Util.getTextFromValue(cellValue, cellType, cellFormat);
 			}
 			
 			@Override

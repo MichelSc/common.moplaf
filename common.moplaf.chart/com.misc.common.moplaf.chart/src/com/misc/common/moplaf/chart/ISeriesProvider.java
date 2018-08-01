@@ -26,11 +26,13 @@ package com.misc.common.moplaf.chart;
  * </ul>
  * 
  * <p>
- * An element may provide Series, and will be recognized by the method {@link #isSeriesProvider(Object)}. 
- * In this case, the method {@link #getSeries(Object)} can be used to retrieve the Series associated 
- * with the element and the method the method {@link #getCategories(Object)} can be used to retrieve the Categories associated 
- * with the element. The method {@link #getCategoryAmount(Object, Object, Object)}
- * can then be used to retrieve the amount:Float of a Category for a given Series. 
+ * An element may provide Series providers, and will return them by the method {@link #getSeriesProviders(Object)}. 
+ * In this case
+ * <ul>
+ * <li> the method {@link #getSeries(Object, Object)} can be used to retrieve the Series associated with the element and the provider </li>
+ * <li> the method the method {@link #getCategories(Object, Object)} can be used to retrieve the Categories associated the element and the provider </li> 
+ * <li> the method {@link #getCategoryAmount(Object, Object, Object, Object)} can then be used to retrieve the amount:Float of a Category for a given Series and a given provider </li>
+ * </ul> 
  * <p>
  * 
  * @author michel
@@ -39,9 +41,9 @@ package com.misc.common.moplaf.chart;
 
 public interface ISeriesProvider {
 	// collection of series
-	boolean isSeriesProvider(Object element);
-	Object[] getSeries(Object element);
-	Object[] getCategories(Object element);
+	Object[] getSeriesProviders(Object element);
+	Object[] getSeries(Object element, Object provider);
+	Object[] getCategories(Object element, Object provider);
 	// Category/Series properties
-	float getCategoryAmount(Object element, Object series, Object category);
+	float getCategoryAmount(Object element, Object provider, Object series, Object category);
 }
