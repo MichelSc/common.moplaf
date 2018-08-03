@@ -114,15 +114,6 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__CATEGORY_COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY__CATEGORY_COLUMNIZER;
 
 	/**
-	 * The feature id for the '<em><b>Categorizers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__CATEGORIZERS = DatatoolsPackage.SUPER_CATEGORY__CATEGORIZERS;
-
-	/**
 	 * The feature id for the '<em><b>Doc</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,7 +123,7 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__DOC = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Extractor</b></em>' reference.
+	 * The feature id for the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -141,7 +132,7 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__EXTRACTOR = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Columnizer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -168,13 +159,22 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__MAX_ELEMENTS = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Categorizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__CATEGORIZERS = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Doc Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 5;
+	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -192,7 +192,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_SUPERCATEGORY_INT;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST_INT = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST_INT;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -202,6 +202,15 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
+
+	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___FLUSH = DatatoolsPackage.SUPER_CATEGORY___FLUSH;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -219,7 +228,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___GET_DOMAIN_TYPES = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -228,7 +246,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 0;
+	int DOC_ANALYSIS___REFRESH = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Doc Analysis</em>' class.
@@ -237,7 +264,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 1;
+	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 3;
 
 
 	/**
@@ -381,10 +408,10 @@ public interface AnalysisPackage extends EPackage {
 	EClass getDocAnalysis();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Extractor</em>'.
+	 * @return the meta object for the containment reference '<em>Extractor</em>'.
 	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getExtractor()
 	 * @see #getDocAnalysis()
 	 * @generated
@@ -392,10 +419,10 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocAnalysis_Extractor();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Columnizer</em>'.
+	 * @return the meta object for the containment reference '<em>Columnizer</em>'.
 	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer()
 	 * @see #getDocAnalysis()
 	 * @generated
@@ -425,6 +452,17 @@ public interface AnalysisPackage extends EPackage {
 	EAttribute getDocAnalysis_MaxElements();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategorizers <em>Categorizers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Categorizers</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getCategorizers()
+	 * @see #getDocAnalysis()
+	 * @generated
+	 */
+	EReference getDocAnalysis_Categorizers();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,6 +471,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDocAnalysis__Refresh();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#addTool(com.misc.common.moplaf.datatools.DataTool) <em>Add Tool</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Tool</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#addTool(com.misc.common.moplaf.datatools.DataTool)
+	 * @generated
+	 */
+	EOperation getDocAnalysis__AddTool__DataTool();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.DocComparison <em>Doc Comparison</em>}'.
@@ -554,7 +602,7 @@ public interface AnalysisPackage extends EPackage {
 		EClass DOC_ANALYSIS = eINSTANCE.getDocAnalysis();
 
 		/**
-		 * The meta object literal for the '<em><b>Extractor</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Extractor</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -562,7 +610,7 @@ public interface AnalysisPackage extends EPackage {
 		EReference DOC_ANALYSIS__EXTRACTOR = eINSTANCE.getDocAnalysis_Extractor();
 
 		/**
-		 * The meta object literal for the '<em><b>Columnizer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Columnizer</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -586,12 +634,28 @@ public interface AnalysisPackage extends EPackage {
 		EAttribute DOC_ANALYSIS__MAX_ELEMENTS = eINSTANCE.getDocAnalysis_MaxElements();
 
 		/**
+		 * The meta object literal for the '<em><b>Categorizers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC_ANALYSIS__CATEGORIZERS = eINSTANCE.getDocAnalysis_Categorizers();
+
+		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation DOC_ANALYSIS___REFRESH = eINSTANCE.getDocAnalysis__Refresh();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Tool</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC_ANALYSIS___ADD_TOOL__DATATOOL = eINSTANCE.getDocAnalysis__AddTool__DataTool();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl <em>Doc Comparison</em>}' class.

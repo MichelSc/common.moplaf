@@ -84,6 +84,10 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createNavigationDowncastAdapter();
 			}
 			@Override
+			public Adapter caseDataToolContext(DataToolContext object) {
+				return createDataToolContextAdapter();
+			}
+			@Override
 			public Adapter caseDataTools(DataTools object) {
 				return createDataToolsAdapter();
 			}
@@ -138,6 +142,18 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseExtractorFilterOcl(ExtractorFilterOcl object) {
 				return createExtractorFilterOclAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterCompound(ExtractorFilterCompound object) {
+				return createExtractorFilterCompoundAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterAND(ExtractorFilterAND object) {
+				return createExtractorFilterANDAdapter();
+			}
+			@Override
+			public Adapter caseExtractorFilterOR(ExtractorFilterOR object) {
+				return createExtractorFilterORAdapter();
 			}
 			@Override
 			public Adapter caseExtractorCompound(ExtractorCompound object) {
@@ -214,18 +230,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMatch(Match object) {
 				return createMatchAdapter();
-			}
-			@Override
-			public Adapter caseExtractorFilterCompound(ExtractorFilterCompound object) {
-				return createExtractorFilterCompoundAdapter();
-			}
-			@Override
-			public Adapter caseExtractorFilterAND(ExtractorFilterAND object) {
-				return createExtractorFilterANDAdapter();
-			}
-			@Override
-			public Adapter caseExtractorFilterOR(ExtractorFilterOR object) {
-				return createExtractorFilterORAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -622,6 +626,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNavigationDowncastAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataToolContext <em>Data Tool Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.DataToolContext
+	 * @generated
+	 */
+	public Adapter createDataToolContextAdapter() {
 		return null;
 	}
 

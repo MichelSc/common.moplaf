@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
-import com.misc.common.moplaf.datatools.DataTools;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationDowncast;
 
@@ -78,7 +78,7 @@ public class NavigationDowncastItemProvider extends NavigationAxisItemProvider {
 						if ( source_type==null ) {
 							return null;
 						}
-						DataTools context = this_element.getPath().getContext();
+						DataToolContext context = this_element.getPath().getContext();
 						List<EClass> list_to_return = context.getDomainTypes()
 								.stream()
 								.filter( c -> source_type.isSuperTypeOf(c))

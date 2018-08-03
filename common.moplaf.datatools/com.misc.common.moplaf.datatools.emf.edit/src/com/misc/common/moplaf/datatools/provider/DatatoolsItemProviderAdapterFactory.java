@@ -464,6 +464,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.DataToolContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataToolContextItemProvider dataToolContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.DataToolContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataToolContextAdapter() {
+		if (dataToolContextItemProvider == null) {
+			dataToolContextItemProvider = new DataToolContextItemProvider(this);
+		}
+
+		return dataToolContextItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Matcher} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -748,6 +771,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	public void dispose() {
 		if (navigationReferenceItemProvider != null) navigationReferenceItemProvider.dispose();
 		if (navigationDowncastItemProvider != null) navigationDowncastItemProvider.dispose();
+		if (dataToolContextItemProvider != null) dataToolContextItemProvider.dispose();
 		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
 		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
 		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
@@ -755,6 +779,8 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (extractorFilterRegexItemProvider != null) extractorFilterRegexItemProvider.dispose();
 		if (extractorFilterAttributeIntRangeItemProvider != null) extractorFilterAttributeIntRangeItemProvider.dispose();
 		if (extractorFilterOclItemProvider != null) extractorFilterOclItemProvider.dispose();
+		if (extractorFilterANDItemProvider != null) extractorFilterANDItemProvider.dispose();
+		if (extractorFilterORItemProvider != null) extractorFilterORItemProvider.dispose();
 		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
 		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
 		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
@@ -769,8 +795,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (categorizerOclItemProvider != null) categorizerOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
-		if (extractorFilterANDItemProvider != null) extractorFilterANDItemProvider.dispose();
-		if (extractorFilterORItemProvider != null) extractorFilterORItemProvider.dispose();
 	}
 
 }

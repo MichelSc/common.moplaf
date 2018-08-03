@@ -476,7 +476,7 @@ public class RunItemProvider
 		public void execute() {
 			this.run.copyParams(this.runParams);
 		}
-	} // class RunResetCommand
+	} // class RunCopyParamsCommand
 	
 	protected Command createDropCommandSingle(EditingDomain domain, Run owner, Object droppedObject){ 
 		if ( droppedObject instanceof RunParams){

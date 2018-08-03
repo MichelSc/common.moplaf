@@ -7,6 +7,7 @@ import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 import com.misc.common.moplaf.gridview.emf.edit.util.CompoundItemGridsProvider;
 import com.misc.common.moplaf.gridview.emf.edit.util.GridColumnsProvider;
@@ -16,13 +17,15 @@ import com.misc.common.moplaf.gridview.emf.edit.util.RowSetItemGridsProvider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -269,6 +272,43 @@ public class CategoryAbstractItemProvider
 	static GridSheetsProvider CATEGORY_SHEETS = GridSheetsProvider.constructGridSheetsProvider()
 			.addSheet(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, CATEGORY_COLUMNS, IItemGridsProvider.SHEET_TRAITS_BARCHART)
 			;
+
+	/**
+	 * Class CategoryFlushCommand
+	 * @author MiSc
+	 *
+	 */
+	public class CategoryFlushCommand extends FlushCommand{
+		private CategoryAbstract category;
+		
+		public CategoryFlushCommand(CategoryAbstract category)	{
+			super();
+			this.category = category;
+			
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+			}
+
+		@Override
+		public void execute() {
+			this.category.flush();
+		}
+	} // class CategoryFlushCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if  ( commandClass == FlushCommand.class){
+			return new CategoryFlushCommand((CategoryAbstract) object); 
+		}
+
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 
 	/**

@@ -168,7 +168,7 @@ public abstract class DocImpl extends KeyIndicatorsImpl implements Doc, IMoplafO
 			return new_doc;
 		} else {
 			// this is an error
-			Plugin.INSTANCE.logError("Doc.clone: no owning feature, object no cloned");
+			Plugin.INSTANCE.logError("Doc.clone: no owning feature, object not cloned");
 			return null;
 		}
 	}

@@ -40,18 +40,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="NavigationDowncast" eSuperTypes="#//NavigationAxis">
     <eStructuralFeatures xsi:type="ecore:EReference" name="DowncastType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataTools">
+  <eClassifiers xsi:type="ecore:EClass" name="DataToolContext">
     <eOperations name="getDomainTypes" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTools" eSuperTypes="#//DataToolContext">
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
         eType="#//DataTool" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataTool" abstract="true" eSuperTypes="#//DataToolAbstract">
+    <eOperations name="clone" eType="#//DataTool"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataToolAbstract" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Context" eType="#//DataTools"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Context" eType="#//DataToolContext"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Extractor" abstract="true" eSuperTypes="#//DataTool">
@@ -155,13 +158,14 @@
       <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="refreshCats">
-      <eParameters name="tobe" eType="#//EObjectsSet"/>
-      <eParameters name="categorizer" eType="#//SuperCategory"/>
+      <eParameters name="ins" eType="#//EObjectsSet"/>
+      <eParameters name="categorizers" upperBound="-1" eType="#//Categorizer"/>
       <eParameters name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="setColumnizerAll">
       <eParameters name="columnizer" eType="#//ColumnizerAbstract"/>
     </eOperations>
+    <eOperations name="flush"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
         eType="#//Category" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
@@ -178,9 +182,8 @@
     </eOperations>
     <eOperations name="refreshCats">
       <eParameters name="ins" eType="#//EObjectsSet"/>
+      <eParameters name="categorizers" upperBound="-1" eType="#//Categorizer"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizers" upperBound="-1"
-        eType="#//Categorizer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" lowerBound="1"

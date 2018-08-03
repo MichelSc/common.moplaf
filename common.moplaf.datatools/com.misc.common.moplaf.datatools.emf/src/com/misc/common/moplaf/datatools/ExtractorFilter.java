@@ -51,7 +51,7 @@ public interface ExtractorFilter extends Extractor {
 
 	/**
 	 * Returns the value of the '<em><b>Negated</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Negated</em>' attribute isn't clear,
@@ -61,7 +61,7 @@ public interface ExtractorFilter extends Extractor {
 	 * @return the value of the '<em>Negated</em>' attribute.
 	 * @see #setNegated(boolean)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getExtractorFilter_Negated()
-	 * @model default="true"
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isNegated();

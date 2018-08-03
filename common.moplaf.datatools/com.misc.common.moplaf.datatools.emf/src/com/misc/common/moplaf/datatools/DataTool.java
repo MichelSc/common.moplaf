@@ -61,4 +61,12 @@ public interface DataTool extends DataToolAbstract {
 	 */
 	void setName(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	DataTool clone();
+
 } // DataTool

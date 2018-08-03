@@ -4,9 +4,6 @@ package com.misc.common.moplaf.datatools;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Tools</b></em>'.
@@ -23,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DataTools extends EObject {
+public interface DataTools extends DataToolContext {
 	/**
 	 * Returns the value of the '<em><b>Data Tools</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.DataTool}.
@@ -39,13 +36,5 @@ public interface DataTools extends EObject {
 	 * @generated
 	 */
 	EList<DataTool> getDataTools();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<EClass> getDomainTypes();
 
 } // DataTools

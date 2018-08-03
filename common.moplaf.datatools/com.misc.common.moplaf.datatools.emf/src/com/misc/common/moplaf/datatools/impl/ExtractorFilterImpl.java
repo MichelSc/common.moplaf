@@ -57,7 +57,7 @@ public abstract class ExtractorFilterImpl extends ExtractorImpl implements Extra
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean NEGATED_EDEFAULT = true;
+	protected static final boolean NEGATED_EDEFAULT = false;
 	/**
 	 * The cached value of the '{@link #isNegated() <em>Negated</em>}' attribute.
 	 * <!-- begin-user-doc -->

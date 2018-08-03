@@ -3,27 +3,23 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -33,13 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DataToolsItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends DataToolContextItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -181,6 +171,16 @@ public class DataToolsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
 
 		newChildDescriptors.add
@@ -212,27 +212,91 @@ public class DataToolsItemProvider
 			(createChildParameter
 				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
 	}
 
+	/*
+	 * AddDataToolCommand
+	 */
+	public class AddDataToolCommand extends BaseCommand{
+		private DataTools datatools;
+		private DataTool datatool;
+		
+		// constructor
+		public AddDataToolCommand(DataTools tools, DataTool tool)	{
+			super("AddDataTool", "Add the DataTool");
+			this.datatools = tools;
+			this.datatool = tool;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.datatools.getDataTools().add(this.datatool.clone());
+		}
+	} // class AddDataToolCommand
+	
+	protected Command createDropCommandSingle(EditingDomain domain, DataTools owner, Object droppedObject){ 
+		if ( droppedObject instanceof DataTool){
+			DataTool dropped_tool = (DataTool) droppedObject;
+  	   		AddDataToolCommand cmd = new AddDataToolCommand(owner, dropped_tool);
+		   	return cmd;
+		} 
+		return null;
+	}
+	
+	protected Command createDropCommandMulti(EditingDomain domain, DataTools owner, Collection<?> droppedObjects) {
+    	CompoundCommand compound = new CompoundCommand();
+		for (Object droppedObject : droppedObjects){
+			Command cmd = DataToolsItemProvider.this.createDropCommandSingle(domain, owner, droppedObject);
+			if ( cmd !=null ) {
+				compound.append(cmd);
+			}
+		}
+		if ( !compound.isEmpty() ) {
+			return compound;
+		}
+		return null;
+	}
+
+	
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Create a drag and drop command for this Run
+	 */
+	private class DataToolsDropCommand extends DragAndDropCommand {
+
+		public DataToolsDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+			Command cmd = DataToolsItemProvider.this.createDropCommandMulti(this.domain, (DataTools) this.owner, this.collection);
+			if ( cmd == null ){
+				return super.prepare();
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = cmd;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
 	 */
 	@Override
-	public ResourceLocator getResourceLocator() {
-		return DatatoolsEditPlugin.INSTANCE;
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new DataToolsDropCommand(domain, owner, location, operations, operation, collection);
 	}
 
 }

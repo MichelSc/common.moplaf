@@ -175,6 +175,15 @@ public interface DatatoolsFactory extends EFactory {
 	NavigationDowncast createNavigationDowncast();
 
 	/**
+	 * Returns a new object of class '<em>Data Tool Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Tool Context</em>'.
+	 * @generated
+	 */
+	DataToolContext createDataToolContext();
+
+	/**
 	 * Returns a new object of class '<em>Matcher</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -138,10 +138,10 @@ public interface CategoryAbstract extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model tobeDataType="com.misc.common.moplaf.datatools.EObjectsSet"
+	 * @model insDataType="com.misc.common.moplaf.datatools.EObjectsSet" categorizersMany="true"
 	 * @generated
 	 */
-	void refreshCats(ObjectSet tobe, SuperCategory categorizer, int level);
+	void refreshCats(ObjectSet ins, EList<Categorizer> categorizers, int level);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,5 +150,13 @@ public interface CategoryAbstract extends EObject {
 	 * @generated
 	 */
 	void setColumnizerAll(ColumnizerAbstract columnizer);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
 
 } // CategoryAbstract

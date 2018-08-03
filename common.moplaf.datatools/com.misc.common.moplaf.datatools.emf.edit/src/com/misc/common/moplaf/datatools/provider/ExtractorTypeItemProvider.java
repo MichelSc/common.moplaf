@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
-import com.misc.common.moplaf.datatools.DataTools;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorType;
 
@@ -74,7 +74,7 @@ public class ExtractorTypeItemProvider extends ExtractorItemProvider {
 					@Override
 					public Collection<?> getChoiceOfValues(Object object) {
 						ExtractorType extractor = (ExtractorType)object;
-						DataTools context = extractor.getContext();
+						DataToolContext context = extractor.getContext();
 						return context.getDomainTypes();
 					}
 				

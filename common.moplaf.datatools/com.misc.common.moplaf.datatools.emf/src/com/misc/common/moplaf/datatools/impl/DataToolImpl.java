@@ -4,14 +4,16 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.datatools.DataTool;
-import com.misc.common.moplaf.datatools.DataTools;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,15 +113,24 @@ public abstract class DataToolImpl extends DataToolAbstractImpl implements DataT
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public DataTools basicGetContext() {
-		InternalEObject container = this.eContainer;
-		if ( container instanceof DataTools ) {
-			return (DataTools)container;
+	public DataTool clone() {
+		DataTool datatool = (DataTool)EcoreUtil.copy(this);
+		return datatool;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DataToolContext basicGetContext() {
+		EObject container = this.eContainer();
+		if ( container instanceof DataToolContext ) {
+			return (DataToolContext)container;
 		} else if ( container instanceof DataTool ) {
 			DataTool container_as_datatool = (DataTool) container;
 			return container_as_datatool.getContext();
 		}
-		Plugin.INSTANCE.logWarning(String.format("The container of a %s must be a DataTools or a DataTool", this.eClass().getName()));
+		Plugin.INSTANCE.logWarning(String.format("The container of a %s must be a DataTools or a DataToolContext", this.eClass().getName()));
 		return null;
 	}
 
@@ -183,6 +194,20 @@ public abstract class DataToolImpl extends DataToolAbstractImpl implements DataT
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case DatatoolsPackage.DATA_TOOL___CLONE:
+				return clone();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

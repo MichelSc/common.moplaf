@@ -35,6 +35,6 @@ public interface DataToolAbstract extends EObject {
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	DataTools getContext();
+	DataToolContext getContext();
 
 } // DataToolAbstract

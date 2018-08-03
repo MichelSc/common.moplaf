@@ -4,6 +4,7 @@ package com.misc.common.moplaf.analysis.util;
 
 import com.misc.common.moplaf.analysis.*;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
@@ -96,6 +97,10 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createDocRefAdapter();
 			}
 			@Override
+			public Adapter caseDataToolContext(DataToolContext object) {
+				return createDataToolContextAdapter();
+			}
+			@Override
 			public Adapter caseMatcher(Matcher object) {
 				return createMatcherAdapter();
 			}
@@ -172,6 +177,20 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataToolContext <em>Data Tool Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.DataToolContext
+	 * @generated
+	 */
+	public Adapter createDataToolContextAdapter() {
 		return null;
 	}
 

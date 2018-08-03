@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DataToolAbstract;
-import com.misc.common.moplaf.datatools.DataTools;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import org.eclipse.emf.ecore.EClass;
 
@@ -48,9 +48,9 @@ public abstract class DataToolAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataTools getContext() {
-		DataTools context = basicGetContext();
-		return context != null && context.eIsProxy() ? (DataTools)eResolveProxy((InternalEObject)context) : context;
+	public DataToolContext getContext() {
+		DataToolContext context = basicGetContext();
+		return context != null && context.eIsProxy() ? (DataToolContext)eResolveProxy((InternalEObject)context) : context;
 	}
 
 	/**
@@ -58,7 +58,7 @@ public abstract class DataToolAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataTools basicGetContext() {
+	public DataToolContext basicGetContext() {
 		// TODO: implement this method to return the 'Context' reference
 		// -> do not perform proxy resolution
 		// Ensure that you remove @generated or mark it @generated NOT

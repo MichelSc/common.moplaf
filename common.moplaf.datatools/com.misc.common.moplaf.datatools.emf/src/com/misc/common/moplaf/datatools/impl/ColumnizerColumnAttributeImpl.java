@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
 import com.misc.common.moplaf.datatools.DataToolAbstract;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
@@ -120,16 +121,16 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataTools getContext() {
-		DataTools context = basicGetContext();
-		return context != null && context.eIsProxy() ? (DataTools)eResolveProxy((InternalEObject)context) : context;
+	public DataToolContext getContext() {
+		DataToolContext context = basicGetContext();
+		return context != null && context.eIsProxy() ? (DataToolContext)eResolveProxy((InternalEObject)context) : context;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public DataTools basicGetContext() {
+	public DataToolContext basicGetContext() {
 		return this.getColumnizer().getContext();
 	}
 

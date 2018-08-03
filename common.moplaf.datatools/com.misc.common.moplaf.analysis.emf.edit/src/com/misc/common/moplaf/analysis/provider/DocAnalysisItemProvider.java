@@ -6,13 +6,17 @@ package com.misc.common.moplaf.analysis.provider;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.provider.SuperCategoryItemProvider;
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.job.JobPackage;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,6 +24,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -186,6 +191,9 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS);
 		}
 		return childrenFeatures;
 	}
@@ -246,6 +254,9 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
+			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
+			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -262,6 +273,81 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorPath()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorOcl()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeIntRange()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,
+				 DatatoolsFactory.eINSTANCE.createColumnizer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
+				 DatatoolsFactory.eINSTANCE.createCategorizerStructuralFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
+				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
 	}
 
 	/**
@@ -306,4 +392,91 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+
+	/*
+	 * AddDataToolCommand
+	 */
+	public class AddDataToolCommand extends BaseCommand{
+		private DocAnalysis analysis;
+		private DataTool datatool;
+		
+		// constructor
+		public AddDataToolCommand(DocAnalysis analysis, DataTool datatool)	{
+			super("AddDataTool", "Add the DataTool");
+			this.analysis = analysis;
+			this.datatool = datatool;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.analysis.addTool(this.datatool.clone());
+		}
+	} // class AddDataToolCommand
+	
+	protected Command createDropCommandSingle(EditingDomain domain, DocAnalysis owner, Object droppedObject){ 
+		if ( droppedObject instanceof DataTool){
+			DataTool dropped_tool = (DataTool) droppedObject;
+  	   		AddDataToolCommand cmd = new AddDataToolCommand(owner, dropped_tool);
+		   	return cmd;
+		} 
+		return null;
+	}
+	
+	protected Command createDropCommandMulti(EditingDomain domain, DocAnalysis owner, Collection<?> droppedObjects) {
+    	CompoundCommand compound = new CompoundCommand();
+		for (Object droppedObject : droppedObjects){
+			Command cmd = DocAnalysisItemProvider.this.createDropCommandSingle(domain, owner, droppedObject);
+			if ( cmd !=null ) {
+				compound.append(cmd);
+			}
+		}
+		if ( !compound.isEmpty() ) {
+			return compound;
+		}
+		return null;
+	}
+
+	
+	/**
+	 * Create a drag and drop command for this Run
+	 */
+	private class DataToolsDropCommand extends DragAndDropCommand {
+
+		public DataToolsDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+			Command cmd = DocAnalysisItemProvider.this.createDropCommandMulti(this.domain, (DocAnalysis) this.owner, this.collection);
+			if ( cmd == null ){
+				return super.prepare();
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = cmd;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Run
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new DataToolsDropCommand(domain, owner, location, operations, operation, collection);
+	}
+
+
 }

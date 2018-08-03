@@ -4,22 +4,32 @@ package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolContext;
+import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.impl.SuperCategoryImpl;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.DocRef;
 import com.misc.common.moplaf.job.JobPackage;
+
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getColumnizer <em>Columnizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,7 +61,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	protected Doc doc;
 
 	/**
-	 * The cached value of the '{@link #getExtractor() <em>Extractor</em>}' reference.
+	 * The cached value of the '{@link #getExtractor() <em>Extractor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExtractor()
@@ -60,7 +71,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	protected Extractor extractor;
 
 	/**
-	 * The cached value of the '{@link #getColumnizer() <em>Columnizer</em>}' reference.
+	 * The cached value of the '{@link #getColumnizer() <em>Columnizer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getColumnizer()
@@ -108,6 +119,16 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @ordered
 	 */
 	protected int maxElements = MAX_ELEMENTS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCategorizers() <em>Categorizers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategorizers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Categorizer> categorizers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,14 +215,6 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @generated
 	 */
 	public Extractor getExtractor() {
-		if (extractor != null && extractor.eIsProxy()) {
-			InternalEObject oldExtractor = (InternalEObject)extractor;
-			extractor = (Extractor)eResolveProxy(oldExtractor);
-			if (extractor != oldExtractor) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.DOC_ANALYSIS__EXTRACTOR, oldExtractor, extractor));
-			}
-		}
 		return extractor;
 	}
 
@@ -210,8 +223,14 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Extractor basicGetExtractor() {
-		return extractor;
+	public NotificationChain basicSetExtractor(Extractor newExtractor, NotificationChain msgs) {
+		Extractor oldExtractor = extractor;
+		extractor = newExtractor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__EXTRACTOR, oldExtractor, newExtractor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -220,10 +239,17 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @generated
 	 */
 	public void setExtractor(Extractor newExtractor) {
-		Extractor oldExtractor = extractor;
-		extractor = newExtractor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__EXTRACTOR, oldExtractor, extractor));
+		if (newExtractor != extractor) {
+			NotificationChain msgs = null;
+			if (extractor != null)
+				msgs = ((InternalEObject)extractor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_ANALYSIS__EXTRACTOR, null, msgs);
+			if (newExtractor != null)
+				msgs = ((InternalEObject)newExtractor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_ANALYSIS__EXTRACTOR, null, msgs);
+			msgs = basicSetExtractor(newExtractor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__EXTRACTOR, newExtractor, newExtractor));
 	}
 
 	/**
@@ -232,14 +258,6 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @generated
 	 */
 	public ColumnizerAbstract getColumnizer() {
-		if (columnizer != null && columnizer.eIsProxy()) {
-			InternalEObject oldColumnizer = (InternalEObject)columnizer;
-			columnizer = (ColumnizerAbstract)eResolveProxy(oldColumnizer);
-			if (columnizer != oldColumnizer) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, oldColumnizer, columnizer));
-			}
-		}
 		return columnizer;
 	}
 
@@ -248,8 +266,14 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColumnizerAbstract basicGetColumnizer() {
-		return columnizer;
+	public NotificationChain basicSetColumnizer(ColumnizerAbstract newColumnizer, NotificationChain msgs) {
+		ColumnizerAbstract oldColumnizer = columnizer;
+		columnizer = newColumnizer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, oldColumnizer, newColumnizer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -258,10 +282,17 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @generated
 	 */
 	public void setColumnizer(ColumnizerAbstract newColumnizer) {
-		ColumnizerAbstract oldColumnizer = columnizer;
-		columnizer = newColumnizer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, oldColumnizer, columnizer));
+		if (newColumnizer != columnizer) {
+			NotificationChain msgs = null;
+			if (columnizer != null)
+				msgs = ((InternalEObject)columnizer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, null, msgs);
+			if (newColumnizer != null)
+				msgs = ((InternalEObject)newColumnizer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, null, msgs);
+			msgs = basicSetColumnizer(newColumnizer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, newColumnizer, newColumnizer));
 	}
 
 	/**
@@ -309,6 +340,18 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Categorizer> getCategorizers() {
+		if (categorizers == null) {
+			categorizers = new EObjectContainmentEList<Categorizer>(Categorizer.class, this, AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS);
+		}
+		return categorizers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
 		// input
@@ -322,9 +365,44 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 		
 		// categorize
 		ColumnizerAbstract columnizer = this.getColumnizer();
-		this.refreshCats(outs);
+		this.refreshCats(outs, this.getCategorizers());
 		this.setColumnizerAll(columnizer);
 		this.setComplete(outs.isComplete());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addTool(DataTool tool) {
+		this.flush();
+		DataTool new_tool = tool.clone();
+		if ( new_tool instanceof Categorizer ) {
+			this.getCategorizers().add((Categorizer)new_tool);
+		} else if ( new_tool instanceof ColumnizerAbstract ) {
+			this.setColumnizer((ColumnizerAbstract)new_tool);
+		} else if ( new_tool instanceof Extractor ) {
+		this.setExtractor((Extractor)new_tool);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<EClass> getDomainTypes() {
+		BasicEList<EClass> classes = new BasicEList<EClass>();
+		Doc doc = this.getDoc();
+		if ( doc != null ) {
+			EList<EClassifier> classifiers = doc.eClass().getEPackage().getEClassifiers();
+			for ( EClassifier classifier : classifiers) {
+				if ( classifier instanceof EClass ) {
+					classes.add((EClass)classifier);
+				}
+			}
+			return classes;
+		}
+		return classes;
 	}
 
 	/**
@@ -353,6 +431,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 		switch (featureID) {
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				return basicSetDoc(null, msgs);
+			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
+				return basicSetExtractor(null, msgs);
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
+				return basicSetColumnizer(null, msgs);
+			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+				return ((InternalEList<?>)getCategorizers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -369,15 +453,15 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				if (resolve) return getDoc();
 				return basicGetDoc();
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
-				if (resolve) return getExtractor();
-				return basicGetExtractor();
+				return getExtractor();
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				if (resolve) return getColumnizer();
-				return basicGetColumnizer();
+				return getColumnizer();
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 				return isComplete();
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 				return getMaxElements();
+			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+				return getCategorizers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -406,6 +490,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 				setMaxElements((Integer)newValue);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+				getCategorizers().clear();
+				getCategorizers().addAll((Collection<? extends Categorizer>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -433,6 +521,9 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 				setMaxElements(MAX_ELEMENTS_EDEFAULT);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+				getCategorizers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -455,6 +546,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				return complete != COMPLETE_EDEFAULT;
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 				return maxElements != MAX_ELEMENTS_EDEFAULT;
+			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+				return categorizers != null && !categorizers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -469,6 +562,11 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 		if (baseClass == DocRef.class) {
 			switch (derivedFeatureID) {
 				case AnalysisPackage.DOC_ANALYSIS__DOC: return JobPackage.DOC_REF__DOC;
+				default: return -1;
+			}
+		}
+		if (baseClass == DataToolContext.class) {
+			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
@@ -488,7 +586,33 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				default: return -1;
 			}
 		}
+		if (baseClass == DataToolContext.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == DocRef.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == DataToolContext.class) {
+			switch (baseOperationID) {
+				case DatatoolsPackage.DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES: return AnalysisPackage.DOC_ANALYSIS___GET_DOMAIN_TYPES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**
@@ -503,6 +627,11 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 			case AnalysisPackage.DOC_ANALYSIS___REFRESH:
 				refresh();
 				return null;
+			case AnalysisPackage.DOC_ANALYSIS___ADD_TOOL__DATATOOL:
+				addTool((DataTool)arguments.get(0));
+				return null;
+			case AnalysisPackage.DOC_ANALYSIS___GET_DOMAIN_TYPES:
+				return getDomainTypes();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -2,10 +2,14 @@
  */
 package com.misc.common.moplaf.analysis;
 
+import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,60 +24,61 @@ import com.misc.common.moplaf.job.DocRef;
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements <em>Max Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategorizers <em>Categorizers</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis()
  * @model
  * @generated
  */
-public interface DocAnalysis extends SuperCategory, DocRef {
+public interface DocAnalysis extends SuperCategory, DocRef, DataToolContext {
 	/**
-	 * Returns the value of the '<em><b>Extractor</b></em>' reference.
+	 * Returns the value of the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Extractor</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extractor</em>' reference.
+	 * @return the value of the '<em>Extractor</em>' containment reference.
 	 * @see #setExtractor(Extractor)
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Extractor()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Extractor getExtractor();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Extractor</em>' reference.
+	 * @param value the new value of the '<em>Extractor</em>' containment reference.
 	 * @see #getExtractor()
 	 * @generated
 	 */
 	void setExtractor(Extractor value);
 
 	/**
-	 * Returns the value of the '<em><b>Columnizer</b></em>' reference.
+	 * Returns the value of the '<em><b>Columnizer</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columnizer</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Columnizer</em>' reference.
+	 * @return the value of the '<em>Columnizer</em>' containment reference.
 	 * @see #setColumnizer(ColumnizerAbstract)
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Columnizer()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	ColumnizerAbstract getColumnizer();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Columnizer</em>' reference.
+	 * @param value the new value of the '<em>Columnizer</em>' containment reference.
 	 * @see #getColumnizer()
 	 * @generated
 	 */
@@ -133,11 +138,35 @@ public interface DocAnalysis extends SuperCategory, DocRef {
 	void setMaxElements(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Categorizers</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.datatools.Categorizer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Categorizers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Categorizers</em>' containment reference list.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Categorizers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Categorizer> getCategorizers();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	void refresh();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addTool(DataTool tool);
 
 } // DocAnalysis

@@ -58,6 +58,7 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 		switch (eClass.getClassifierID()) {
 			case DatatoolsPackage.NAVIGATION_REFERENCE: return createNavigationReference();
 			case DatatoolsPackage.NAVIGATION_DOWNCAST: return createNavigationDowncast();
+			case DatatoolsPackage.DATA_TOOL_CONTEXT: return createDataToolContext();
 			case DatatoolsPackage.DATA_TOOLS: return createDataTools();
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
@@ -65,6 +66,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: return createExtractorFilterRegex();
 			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE: return createExtractorFilterAttributeIntRange();
 			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: return createExtractorFilterOcl();
+			case DatatoolsPackage.EXTRACTOR_FILTER_AND: return createExtractorFilterAND();
+			case DatatoolsPackage.EXTRACTOR_FILTER_OR: return createExtractorFilterOR();
 			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
 			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
@@ -79,8 +82,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.CATEGORIZER_OCL: return createCategorizerOcl();
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
-			case DatatoolsPackage.EXTRACTOR_FILTER_AND: return createExtractorFilterAND();
-			case DatatoolsPackage.EXTRACTOR_FILTER_OR: return createExtractorFilterOR();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -280,6 +281,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public NavigationDowncast createNavigationDowncast() {
 		NavigationDowncastImpl navigationDowncast = new NavigationDowncastImpl();
 		return navigationDowncast;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataToolContext createDataToolContext() {
+		DataToolContextImpl dataToolContext = new DataToolContextImpl();
+		return dataToolContext;
 	}
 
 	/**
