@@ -1386,6 +1386,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDataTools__GetNewDataTools__DataToolType() {
+		return dataToolsEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataTool() {
 		return dataToolEClass;
 	}
@@ -1415,6 +1424,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EOperation getDataTool__Clone() {
 		return dataToolEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDataTool__GetType() {
+		return dataToolEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1491,11 +1509,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		dataToolsEClass = createEClass(DATA_TOOLS);
 		createEReference(dataToolsEClass, DATA_TOOLS__DATA_TOOLS);
+		createEOperation(dataToolsEClass, DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE);
 
 		dataToolEClass = createEClass(DATA_TOOL);
 		createEAttribute(dataToolEClass, DATA_TOOL__DESCRIPTION);
 		createEAttribute(dataToolEClass, DATA_TOOL__NAME);
 		createEOperation(dataToolEClass, DATA_TOOL___CLONE);
+		createEOperation(dataToolEClass, DATA_TOOL___GET_TYPE);
 
 		dataToolAbstractEClass = createEClass(DATA_TOOL_ABSTRACT);
 		createEReference(dataToolAbstractEClass, DATA_TOOL_ABSTRACT__CONTEXT);
@@ -1722,11 +1742,16 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(dataToolsEClass, DataTools.class, "DataTools", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataTools_DataTools(), this.getDataTool(), null, "DataTools", null, 0, -1, DataTools.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getDataTools__GetNewDataTools__DataToolType(), this.getDataTool(), "getNewDataTools", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDataToolType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(dataToolEClass, DataTool.class, "DataTool", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataTool_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DataTool.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataTool_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DataTool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDataTool__Clone(), this.getDataTool(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDataTool__GetType(), this.getDataToolType(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataToolAbstractEClass, DataToolAbstract.class, "DataToolAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataToolAbstract_Context(), this.getDataToolContext(), null, "Context", null, 0, 1, DataToolAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

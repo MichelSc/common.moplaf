@@ -142,6 +142,29 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisDomain} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisDomainItemProvider analysisDomainItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisDomain}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysisDomainAdapter() {
+		if (analysisDomainItemProvider == null) {
+			analysisDomainItemProvider = new AnalysisDomainItemProvider(this);
+		}
+
+		return analysisDomainItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,6 +266,7 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 		if (docAnalysisItemProvider != null) docAnalysisItemProvider.dispose();
 		if (docComparisonItemProvider != null) docComparisonItemProvider.dispose();
 		if (analysisHolderItemProvider != null) analysisHolderItemProvider.dispose();
+		if (analysisDomainItemProvider != null) analysisDomainItemProvider.dispose();
 	}
 
 }

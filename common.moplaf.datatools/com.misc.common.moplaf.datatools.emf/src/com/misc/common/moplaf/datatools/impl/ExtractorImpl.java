@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 
@@ -102,5 +103,15 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public DataToolType getType() {
+		return DataToolType.EXTRACTOR;
+	}
+	
+	
 
 } //ExtractorImpl

@@ -392,7 +392,7 @@ public abstract class DocImpl extends KeyIndicatorsImpl implements Doc, IMoplafO
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Loaded: ");
 		result.append(loaded);
 		result.append(')');

@@ -31,4 +31,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" upperBound="-1"
         eType="#//DocAnalysis" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTools ../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain #//AnalysisHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperDomain" eType="#//AnalysisDomain"
+        eOpposite="#//AnalysisDomain/SubDomains"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubDomains" eType="#//AnalysisDomain"
+        containment="true" eOpposite="#//AnalysisDomain/SuperDomain"/>
+  </eClassifiers>
 </ecore:EPackage>

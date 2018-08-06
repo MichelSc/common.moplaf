@@ -420,7 +420,7 @@ public abstract class JobConsoleImpl extends JobImpl implements JobConsole {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Args: ");
 		result.append(args);
 		result.append(')');

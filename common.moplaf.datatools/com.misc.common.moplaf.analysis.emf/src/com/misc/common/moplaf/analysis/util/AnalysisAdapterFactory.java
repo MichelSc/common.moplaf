@@ -5,10 +5,14 @@ package com.misc.common.moplaf.analysis.util;
 import com.misc.common.moplaf.analysis.*;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.DataToolContext;
+import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
 
+import com.misc.common.moplaf.job.Docs;
+import com.misc.common.moplaf.job.TaskDomain;
+import com.misc.common.moplaf.job.Tasks;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -85,6 +89,10 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createAnalysisHolderAdapter();
 			}
 			@Override
+			public Adapter caseAnalysisDomain(AnalysisDomain object) {
+				return createAnalysisDomainAdapter();
+			}
+			@Override
 			public Adapter caseCategoryAbstract(CategoryAbstract object) {
 				return createCategoryAbstractAdapter();
 			}
@@ -103,6 +111,22 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMatcher(Matcher object) {
 				return createMatcherAdapter();
+			}
+			@Override
+			public Adapter caseDataTools(DataTools object) {
+				return createDataToolsAdapter();
+			}
+			@Override
+			public Adapter caseDocs(Docs object) {
+				return createDocsAdapter();
+			}
+			@Override
+			public Adapter caseTasks(Tasks object) {
+				return createTasksAdapter();
+			}
+			@Override
+			public Adapter caseTaskDomain(TaskDomain object) {
+				return createTaskDomainAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -163,6 +187,20 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnalysisHolderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.AnalysisDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDomain
+	 * @generated
+	 */
+	public Adapter createAnalysisDomainAdapter() {
 		return null;
 	}
 
@@ -233,6 +271,62 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMatcherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.DataTools
+	 * @generated
+	 */
+	public Adapter createDataToolsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Docs <em>Docs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.Docs
+	 * @generated
+	 */
+	public Adapter createDocsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Tasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.Tasks
+	 * @generated
+	 */
+	public Adapter createTasksAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.TaskDomain <em>Task Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.TaskDomain
+	 * @generated
+	 */
+	public Adapter createTaskDomainAdapter() {
 		return null;
 	}
 

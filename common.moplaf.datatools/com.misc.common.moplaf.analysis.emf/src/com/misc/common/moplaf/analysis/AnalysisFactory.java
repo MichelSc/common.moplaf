@@ -49,6 +49,15 @@ public interface AnalysisFactory extends EFactory {
 	AnalysisHolder createAnalysisHolder();
 
 	/**
+	 * Returns a new object of class '<em>Domain</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Domain</em>'.
+	 * @generated
+	 */
+	AnalysisDomain createAnalysisDomain();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -37,4 +37,15 @@ public interface DataTools extends DataToolContext {
 	 */
 	EList<DataTool> getDataTools();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Return an exemplar of every task type supported by this TaskDomain.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<DataTool> getNewDataTools(DataToolType type);
+
 } // DataTools

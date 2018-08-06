@@ -201,6 +201,10 @@
         <children xmi:type="notation:Node" xmi:id="_5W-jAH91EeilXtOjjEhBSg" type="2003" element="_5WL40H91EeilXtOjjEhBSg">
           <children xmi:type="notation:Node" xmi:id="_5XF3wH91EeilXtOjjEhBSg" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_5XHs8H91EeilXtOjjEhBSg" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_fCpMQJmPEeiQELb5Kxm--g" type="3010" element="_fCgCUJmPEeiQELb5Kxm--g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_fCpMQZmPEeiQELb5Kxm--g" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_fCpMQpmPEeiQELb5Kxm--g"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_5XHs8X91EeilXtOjjEhBSg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_5XHs8n91EeilXtOjjEhBSg"/>
           </children>
@@ -221,6 +225,10 @@
             <children xmi:type="notation:Node" xmi:id="_fj-uoJblEei7prtjonHNvQ" type="3010" element="_fjzvgJblEei7prtjonHNvQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_fj-uoZblEei7prtjonHNvQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_fj-uopblEei7prtjonHNvQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gN1NAJmPEeiQELb5Kxm--g" type="3010" element="_gNmjgJmPEeiQELb5Kxm--g">
+              <styles xmi:type="notation:FontStyle" xmi:id="_gN1NAZmPEeiQELb5Kxm--g" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gN1NApmPEeiQELb5Kxm--g"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_3syK4X-dEeilXtOjjEhBSg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_3syK4n-dEeilXtOjjEhBSg"/>
@@ -723,6 +731,15 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_fCgCUJmPEeiQELb5Kxm--g" name="getNewDataTools(type DataToolType) : DataTool" tooltipText="getNewDataTools(type) : DataTool">
+        <target xmi:type="ecore:EOperation" href="datatools.ecore#//DataTools/getNewDataTools"/>
+        <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//DataTools/getNewDataTools"/>
+        <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//DataTools/getNewDataTools/type"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_fCgpYJmPEeiQELb5Kxm--g" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ANmckH92EeilXtOjjEhBSg" name="[0..*] DataTools" sourceNode="_5WL40H91EeilXtOjjEhBSg" targetNode="_3snLwH-dEeilXtOjjEhBSg">
       <target xmi:type="ecore:EReference" href="datatools.ecore#//DataTools/DataTools"/>
@@ -791,6 +808,14 @@
         <target xmi:type="ecore:EOperation" href="datatools.ecore#//DataTool/clone"/>
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//DataTool/clone"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_fjzvgZblEei7prtjonHNvQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gNmjgJmPEeiQELb5Kxm--g" name="getType() : DataToolType" tooltipText="getType() : DataToolType">
+        <target xmi:type="ecore:EOperation" href="datatools.ecore#//DataTool/getType"/>
+        <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//DataTool/getType"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_gNmjgZmPEeiQELb5Kxm--g" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

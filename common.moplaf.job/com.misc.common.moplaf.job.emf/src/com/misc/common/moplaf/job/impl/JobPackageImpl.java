@@ -364,7 +364,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link JobPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -378,7 +378,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		if (isInited) return (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
 
 		// Obtain or create and register package
-		JobPackageImpl theJobPackage = (JobPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof JobPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new JobPackageImpl());
+		Object registeredJobPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		JobPackageImpl theJobPackage = registeredJobPackage instanceof JobPackageImpl ? (JobPackageImpl)registeredJobPackage : new JobPackageImpl();
 
 		isInited = true;
 
@@ -394,7 +395,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		// Mark meta-data to indicate it can't be changed
 		theJobPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(JobPackage.eNS_URI, theJobPackage);
 		return theJobPackage;

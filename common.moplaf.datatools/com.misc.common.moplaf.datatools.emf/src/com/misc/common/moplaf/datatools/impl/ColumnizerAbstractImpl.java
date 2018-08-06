@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -34,4 +35,11 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 		return DatatoolsPackage.Literals.COLUMNIZER_ABSTRACT;
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public DataToolType getType() {
+		return DataToolType.COLUMNIZER;
+	}
 } //ColumnizerAbstractImpl

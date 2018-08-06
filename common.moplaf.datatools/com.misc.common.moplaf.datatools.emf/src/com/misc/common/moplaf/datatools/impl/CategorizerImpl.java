@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -87,4 +88,11 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 		return super.eInvoke(operationID, arguments);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public DataToolType getType() {
+		return DataToolType.CATEGORIZER;
+	}
 } //CategorizerImpl

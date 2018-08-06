@@ -69,4 +69,12 @@ public interface DataTool extends DataToolAbstract {
 	 */
 	DataTool clone();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	DataToolType getType();
+
 } // DataTool

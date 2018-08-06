@@ -801,13 +801,22 @@ public interface DatatoolsPackage extends EPackage {
 	int DATA_TOOLS___GET_DOMAIN_TYPES = DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES;
 
 	/**
+	 * The operation id for the '<em>Get New Data Tools</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE = DATA_TOOL_CONTEXT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Data Tools</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TOOLS_OPERATION_COUNT = DATA_TOOL_CONTEXT_OPERATION_COUNT + 0;
+	int DATA_TOOLS_OPERATION_COUNT = DATA_TOOL_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -855,13 +864,22 @@ public interface DatatoolsPackage extends EPackage {
 	int DATA_TOOL___CLONE = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL___GET_TYPE = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Data Tool</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TOOL_OPERATION_COUNT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 1;
+	int DATA_TOOL_OPERATION_COUNT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -907,6 +925,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR___CLONE = DATA_TOOL___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR___GET_TYPE = DATA_TOOL___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -988,6 +1015,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_TYPE___CLONE = EXTRACTOR___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE___GET_TYPE = EXTRACTOR___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -1107,6 +1143,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PATH___CLONE = EXTRACTOR___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH___GET_TYPE = EXTRACTOR___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1186,6 +1231,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_OCL___CLONE = EXTRACTOR___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL___GET_TYPE = EXTRACTOR___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -1276,6 +1330,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER___CLONE = EXTRACTOR___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER___GET_TYPE = EXTRACTOR___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -1429,6 +1492,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE___CLONE = EXTRACTOR_FILTER___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE___GET_TYPE = EXTRACTOR_FILTER___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -1653,6 +1725,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___CLONE = EXTRACTOR_FILTER_ATTRIBUTE___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_STRING___GET_TYPE = EXTRACTOR_FILTER_ATTRIBUTE___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1834,6 +1915,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_REGEX___CLONE = EXTRACTOR_FILTER_ATTRIBUTE_STRING___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX___GET_TYPE = EXTRACTOR_FILTER_ATTRIBUTE_STRING___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1994,6 +2084,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT___CLONE = EXTRACTOR_FILTER_ATTRIBUTE___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT___GET_TYPE = EXTRACTOR_FILTER_ATTRIBUTE___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -2186,6 +2285,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___CLONE = EXTRACTOR_FILTER_ATTRIBUTE_INT___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE___GET_TYPE = EXTRACTOR_FILTER_ATTRIBUTE_INT___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2301,6 +2409,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_OCL___CLONE = EXTRACTOR_FILTER___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OCL___GET_TYPE = EXTRACTOR_FILTER___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -2421,6 +2538,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_COMPOUND___CLONE = EXTRACTOR_FILTER___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND___GET_TYPE = EXTRACTOR_FILTER___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2537,6 +2663,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_AND___CLONE = EXTRACTOR_FILTER_COMPOUND___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND___GET_TYPE = EXTRACTOR_FILTER_COMPOUND___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -2657,6 +2792,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OR___CLONE = EXTRACTOR_FILTER_COMPOUND___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR___GET_TYPE = EXTRACTOR_FILTER_COMPOUND___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2747,6 +2891,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND___CLONE = EXTRACTOR___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND___GET_TYPE = EXTRACTOR___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2826,6 +2979,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_LOGIC___CLONE = EXTRACTOR_COMPOUND___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC___GET_TYPE = EXTRACTOR_COMPOUND___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -2909,6 +3071,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PIPE___CLONE = EXTRACTOR_COMPOUND___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE___GET_TYPE = EXTRACTOR_COMPOUND___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2988,6 +3159,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_UNION___CLONE = EXTRACTOR_LOGIC___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION___GET_TYPE = EXTRACTOR_LOGIC___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Extract</em>' operation.
@@ -3071,6 +3251,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_INTERSECTION___CLONE = EXTRACTOR_LOGIC___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION___GET_TYPE = EXTRACTOR_LOGIC___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Extract</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3143,6 +3332,15 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_ABSTRACT___CLONE = DATA_TOOL___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT___GET_TYPE = DATA_TOOL___GET_TYPE;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3213,6 +3411,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER___CLONE = COLUMNIZER_ABSTRACT___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER___GET_TYPE = COLUMNIZER_ABSTRACT___GET_TYPE;
 
 	/**
 	 * The number of operations of the '<em>Columnizer</em>' class.
@@ -3899,6 +4106,15 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER___CLONE = DATA_TOOL___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___GET_TYPE = DATA_TOOL___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Construct Category</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4034,6 +4250,15 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER_STRUCTURAL_FEATURE___CLONE = CATEGORIZER___CLONE;
 
 	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE___GET_TYPE = CATEGORIZER___GET_TYPE;
+
+	/**
 	 * The operation id for the '<em>Construct Category</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4122,6 +4347,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORIZER_OCL___CLONE = CATEGORIZER___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL___GET_TYPE = CATEGORIZER___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Construct Category</em>' operation.
@@ -5360,6 +5594,16 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getDataTools_DataTools();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.DataTools#getNewDataTools(com.misc.common.moplaf.datatools.DataToolType) <em>Get New Data Tools</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get New Data Tools</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.DataTools#getNewDataTools(com.misc.common.moplaf.datatools.DataToolType)
+	 * @generated
+	 */
+	EOperation getDataTools__GetNewDataTools__DataToolType();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTool <em>Data Tool</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5400,6 +5644,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDataTool__Clone();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.DataTool#getType() <em>Get Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.DataTool#getType()
+	 * @generated
+	 */
+	EOperation getDataTool__GetType();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataToolAbstract <em>Data Tool Abstract</em>}'.
@@ -6376,6 +6630,14 @@ public interface DatatoolsPackage extends EPackage {
 		EReference DATA_TOOLS__DATA_TOOLS = eINSTANCE.getDataTools_DataTools();
 
 		/**
+		 * The meta object literal for the '<em><b>Get New Data Tools</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE = eINSTANCE.getDataTools__GetNewDataTools__DataToolType();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6408,6 +6670,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DATA_TOOL___CLONE = eINSTANCE.getDataTool__Clone();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_TOOL___GET_TYPE = eINSTANCE.getDataTool__GetType();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolAbstractImpl <em>Data Tool Abstract</em>}' class.

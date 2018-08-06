@@ -5,6 +5,7 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -121,6 +122,17 @@ public abstract class DataToolImpl extends DataToolAbstractImpl implements DataT
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataToolType getType() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public DataToolContext basicGetContext() {
 		EObject container = this.eContainer();
@@ -206,6 +218,8 @@ public abstract class DataToolImpl extends DataToolAbstractImpl implements DataT
 		switch (operationID) {
 			case DatatoolsPackage.DATA_TOOL___CLONE:
 				return clone();
+			case DatatoolsPackage.DATA_TOOL___GET_TYPE:
+				return getType();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

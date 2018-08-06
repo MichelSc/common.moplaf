@@ -3,8 +3,12 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.util.Util;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -69,6 +73,23 @@ public class DataToolsImpl extends DataToolContextImpl implements DataTools {
 			dataTools = new EObjectContainmentEList<DataTool>(DataTool.class, this, DatatoolsPackage.DATA_TOOLS__DATA_TOOLS);
 		}
 		return dataTools;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<DataTool> getNewDataTools(DataToolType type) {
+		// from the extensions
+		EList<DataTool> datatools = Util.getNewDataTools(type);
+		// copies for this domain
+		for ( DataTool datatool : this.getDataTools()) {
+			if ( datatool.getType()==type) {
+				DataTool new_tool = datatool.clone();
+				datatools.add(new_tool);
+			}
+		}
+		return datatools;
 	}
 
 	/**
@@ -143,6 +164,20 @@ public class DataToolsImpl extends DataToolContextImpl implements DataTools {
 				return dataTools != null && !dataTools.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case DatatoolsPackage.DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE:
+				return getNewDataTools((DataToolType)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //DataToolsImpl
