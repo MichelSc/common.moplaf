@@ -2,6 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="datatools" nsURI="http://www.misc.com/common/moplaf/datatools/model/0.1"
     nsPrefix="datatools">
+  <eClassifiers xsi:type="ecore:EDataType" name="EObjectsSet" instanceClassName="com.misc.common.moplaf.datatools.util.ObjectSet"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataToolType">
+    <eLiterals name="NONE"/>
+    <eLiterals name="EXTRACTOR" value="1"/>
+    <eLiterals name="COLUMNIZER" value="2"/>
+    <eLiterals name="CATEGORIZER" value="4"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NavigationPath" abstract="true" eSuperTypes="#//DataToolAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="PathElements" upperBound="-1"
         eType="#//NavigationAxis" containment="true" eOpposite="#//NavigationAxis/Path"/>
@@ -218,6 +226,4 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="EObjectsSet" instanceClassName="com.misc.common.moplaf.datatools.util.ObjectSet"
-      serializable="false"/>
 </ecore:EPackage>

@@ -10,8 +10,8 @@
  *******************************************************************************/
 package com.misc.common.moplaf.datatools.util;
 
-import com.misc.common.moplaf.datatools.Extractor;
+import com.misc.common.moplaf.datatools.DataTool;
 
-public interface ExtractorFactory {
-	public Extractor createExtractor();
+public interface DataToolFactory {
+	public DataTool createDataTool();
 }

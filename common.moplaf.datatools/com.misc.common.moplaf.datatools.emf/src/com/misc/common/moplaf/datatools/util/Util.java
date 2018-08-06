@@ -1,7 +1,5 @@
 package com.misc.common.moplaf.datatools.util;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.CoreException;
@@ -14,30 +12,34 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import com.misc.common.moplaf.common.Plugin;
-import com.misc.common.moplaf.datatools.Extractor;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
 
 
 public class Util {
 
-	static public EList<Extractor> getNewExtractors() {
-		BasicEList<Extractor> list = new BasicEList<Extractor>();
+	static public EList<DataTool> getNewDataTools(DataToolType type) {
+		BasicEList<DataTool> list = new BasicEList<DataTool>();
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.datatools.emf.extractor_factory");
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.datatools.emf.datatool_factory");
 		for ( IConfigurationElement element : elements){
 			Object value;
 			try {
-				value = element.createExecutableExtension("class");
-				if ( value instanceof ExtractorFactory) {
-					Extractor new_extractor = ((ExtractorFactory)value).createExtractor();
-					if ( new_extractor!=null){
-						list.add(new_extractor);
+				String type_as_string = element.getAttribute("type");
+				if ( type_as_string.equals(type.getLiteral())) {
+					value = element.createExecutableExtension("class");
+					if ( value instanceof DataToolFactory) {
+						DataTool new_tool = ((DataToolFactory)value).createDataTool();
+						if ( new_tool!=null){
+							list.add(new_tool);
+						}
 					}
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
-				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.Util.getNewRuns: exception caught "+e.getMessage());
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.datatools.Util.getNewDataTools: exception caught "+e.getMessage());
 			}
 		}
 		return list;

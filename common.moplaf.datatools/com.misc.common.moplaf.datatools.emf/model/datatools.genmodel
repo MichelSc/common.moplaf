@@ -7,6 +7,12 @@
   <foreignModel>datatools.ecore</foreignModel>
   <genPackages prefix="Datatools" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="datatools.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="datatools.ecore#//DataToolType">
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/EXTRACTOR"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/COLUMNIZER"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/CATEGORIZER"/>
+    </genEnums>
     <genDataTypes ecoreDataType="datatools.ecore#//EObjectsSet"/>
     <genClasses ecoreClass="datatools.ecore#//NavigationPath" labelFeature="#//datatools/NavigationPath/Path">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/PathElements"/>

@@ -5,6 +5,7 @@
 -->
 
 <plugin>
+   <extension-point id="datatool_factory" name="Datatool Factory" schema="schema/datatool_factory.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated dataextractor -->
