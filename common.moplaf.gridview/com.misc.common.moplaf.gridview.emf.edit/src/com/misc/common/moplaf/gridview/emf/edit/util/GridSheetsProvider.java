@@ -52,14 +52,14 @@ public class GridSheetsProvider implements IItemGridsProvider {
 
 		@Override
 		public Collection<?> getRows(Object element) {
-			if ( element instanceof EObject ) {
-				EObject object = (EObject)element;
-				if ( this.reference.isMany() ) {
-					return (Collection<?>) object.eGet(this.reference);
-				}
+			if ( this.reference==null || !this.reference.isMany()) {
 				return null;
 			}
-			return null;
+			if ( !(element instanceof EObject) ) {
+				return null;
+			}
+			EObject object = (EObject)element;
+			return (Collection<?>) object.eGet(this.reference);
 		}
 		
 		public GridColumnsProvider getColumns() {
@@ -68,6 +68,9 @@ public class GridSheetsProvider implements IItemGridsProvider {
 		
 		@Override
 		public String getSheetText() {
+			if ( this.reference==null) {
+				return "sheet";
+			}
 			return this.reference.getName();
 		}
 

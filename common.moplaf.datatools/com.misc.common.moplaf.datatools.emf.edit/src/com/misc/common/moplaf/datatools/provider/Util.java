@@ -16,14 +16,15 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 
-import com.misc.common.moplaf.datatools.Extractor;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolType;
 
 
 public class Util {
 
-	public static void collectNewChildExtractorDescriptors(Collection<Object> newChildDescriptors, Object object, EStructuralFeature feature) {
-		EList<Extractor> new_objects = com.misc.common.moplaf.datatools.util.Util.getNewExtractors();
-		for ( Extractor new_object : new_objects) {
+	public static void collectNewChildDataToolDescriptors(Collection<Object> newChildDescriptors, Object object, EStructuralFeature feature, DataToolType type) {
+		EList<DataTool> new_objects = com.misc.common.moplaf.datatools.util.Util.getNewDataTools(type);
+		for ( DataTool new_object : new_objects) {
 			newChildDescriptors.add(new CommandParameter(null, feature, new_object));
 		}
 	}  // method collectNewChildRunDescriptors

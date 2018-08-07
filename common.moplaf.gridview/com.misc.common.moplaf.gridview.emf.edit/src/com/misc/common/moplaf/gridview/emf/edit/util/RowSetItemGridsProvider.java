@@ -11,6 +11,12 @@ public class RowSetItemGridsProvider implements IItemGridsProvider {
 	
 	public RowSetItemGridsProvider(IItemGridsProvider adapter, Object delegated_element, Collection<?> rowSet) {
 		super();
+		Object grids_asobject = adapter.getGrids(delegated_element);
+		while ( grids_asobject instanceof IItemGridsProvider ) {
+			// delegated to 
+			adapter = (IItemGridsProvider) grids_asobject;
+			grids_asobject = adapter.getGrids(delegated_element);
+		} 
 		this.delegated_element = delegated_element;
 		this.rowSet = rowSet;
 		this.adapter = adapter;
@@ -19,6 +25,7 @@ public class RowSetItemGridsProvider implements IItemGridsProvider {
 	// grids
 	@Override
 	public Object getGrids(Object element) {
+		
 		return this.adapter.getGrids(this.delegated_element);
 	}
 	@Override

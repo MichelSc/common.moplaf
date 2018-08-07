@@ -42,8 +42,8 @@ public class CompoundItemGridsProvider implements IItemGridsProvider {
 			Object grids_asobject = provider.getGrids(element);
 //			while ( grids_asobject instanceof IItemGridsProvider ) {
 //				// delegated to 
-//				gridsProvider = (IItemGridsProvider) grids_asobject;
-//				grids_asobject = gridsProvider.getGrids(element);
+//				provider = (IItemGridsProvider) grids_asobject;
+//				grids_asobject = provider.getGrids(element);
 //			} 
 			if ( grids_asobject instanceof Collection<?> ) {
 				// a collections of grids for the element
