@@ -7,7 +7,6 @@ import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttribute;
-import com.misc.common.moplaf.datatools.ExtractorPath;
 
 import java.util.Collection;
 import java.util.List;
