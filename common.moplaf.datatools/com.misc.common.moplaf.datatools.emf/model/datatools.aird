@@ -1449,7 +1449,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9BrcIy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9BrcIy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9CSgIy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1470,7 +1470,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9CSgYy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9CSgYy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9CSgoy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1501,7 +1501,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9C5kIy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9C5kIy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9C5kYy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1517,7 +1517,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wXsJcJCwEei8hrraADCdjw" name="Negated : EBoolean = true" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wXsJcJCwEei8hrraADCdjw" name="Negated : EBoolean = false" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="datatools.ecore#//ExtractorFilter/Negated"/>
         <semanticElements xmi:type="ecore:EAttribute" href="datatools.ecore#//ExtractorFilter/Negated"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wXswgJCwEei8hrraADCdjw" labelAlignment="LEFT">
@@ -1536,7 +1536,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9F84Iy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9F84Iy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9F84Yy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1558,7 +1558,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9Gj8Iy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9Gj8Iy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9Gj8Yy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1585,7 +1585,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9Gj8oy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9Gj8oy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9HLAIy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1604,7 +1604,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9HLAYy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9HLAYy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9HLAoy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1649,7 +1649,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9HyEIy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9HyEIy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9IZIIy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1676,7 +1676,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9IZIYy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9IZIYy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9JAMIy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -1813,7 +1813,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9JAMYy1Eei4mMIfhQClPQ" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_s9JAMYy1Eei4mMIfhQClPQ" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_s9JAMoy1Eei4mMIfhQClPQ" labelColor="39,76,114" labelAlignment="LEFT" description="_fc5U4H-cEeilXtOjjEhBSg">
@@ -3644,7 +3644,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeF65CwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeF65CwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeF7JCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -3675,7 +3675,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeF9ZCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeF9ZCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeF9pCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -3691,7 +3691,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_phcDUJCwEei8hrraADCdjw" name="Negated : EBoolean = true" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_phcDUJCwEei8hrraADCdjw" name="Negated : EBoolean = false" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="datatools.ecore#//ExtractorFilter/Negated"/>
         <semanticElements xmi:type="ecore:EAttribute" href="datatools.ecore#//ExtractorFilter/Negated"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_phdRcJCwEei8hrraADCdjw" labelAlignment="LEFT">
@@ -3722,7 +3722,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeF_ZCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeF_ZCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeF_pCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -3776,7 +3776,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGCZCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGCZCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeGCpCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -3829,7 +3829,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGFZCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGFZCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeGFpCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -3908,7 +3908,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGdZCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGdZCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeGdpCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -3967,7 +3967,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGg5CwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGg5CwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeGhJCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -4025,7 +4025,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGkZCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BEeGkZCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BEeGkpCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -4100,7 +4100,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ZjfY4JCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ZjfY4JCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_ZjfY4ZCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -4146,7 +4146,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_k1PZ8JCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_k1PZ8JCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_k1PZ8ZCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">
@@ -4165,7 +4165,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_l0iTwJCwEei8hrraADCdjw" name=" /Context : DataTools" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_l0iTwJCwEei8hrraADCdjw" name=" /Context : DataToolContext" tooltipText="">
         <target xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <semanticElements xmi:type="ecore:EReference" href="datatools.ecore#//DataToolAbstract/Context"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_l0i60JCwEei8hrraADCdjw" labelColor="39,76,114" labelAlignment="LEFT" description="_BEdeNpCwEei8hrraADCdjw">

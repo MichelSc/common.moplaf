@@ -3,9 +3,11 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttribute;
+import com.misc.common.moplaf.datatools.ExtractorPath;
 
 import java.util.Collection;
 import java.util.List;
@@ -61,11 +63,10 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 	 * This adds a property descriptor for the Source Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addSourceTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_NavigationPath_SourceType_feature"),
@@ -76,7 +77,16 @@ public class ExtractorFilterAttributeItemProvider extends ExtractorFilterItemPro
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+				
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					ExtractorFilterAttribute filter = (ExtractorFilterAttribute)object;
+					DataToolContext context = filter.getContext();
+					return context.getDomainTypes();
+				}
+				
+			});
 	}
 
 	/**

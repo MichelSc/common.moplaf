@@ -81,12 +81,10 @@ public abstract class DataToolImpl extends DataToolAbstractImpl implements DataT
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getDescription() {
-		// TODO: implement this method to return the 'Description' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String description = String.format("%s %s", this.getType().getName(), this.getName());
+		return description;
 	}
 
 	/**
