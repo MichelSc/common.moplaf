@@ -121,7 +121,7 @@ public class GanttViewer extends GanttViewerAbstract {
 				color = ganttInterval.getForegroundToBe();
 			} 
 			if ( color == null){
-				color = Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
+				color = Display.getCurrent().getSystemColor(SWT.COLOR_RED);
 			}
 			return color;
 		}

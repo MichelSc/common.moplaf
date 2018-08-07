@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Swtchart
+Bundle-SymbolicName: com.misc.common.moplaf.chart.swtchart
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MISC
+Automatic-Module-Name: com.misc.common.moplaf.chart.swtchart
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
