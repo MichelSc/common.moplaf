@@ -10,5 +10,6 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: com.misc.common.moplaf.chart
 Bundle-ActivationPolicy: lazy
-Export-Package: com.misc.common.moplaf.chart
+Export-Package: com.misc.common.moplaf.chart,
+ com.misc.common.moplaf.chart.viewers
 Import-Package: com.misc.common.moplaf.timeview
