@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Editor
+Bundle-SymbolicName: com.misc.common.moplaf.chart.emf.editor
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: com.misc.common.moplaf.chart.emf.editor
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui;bundle-version="3.109.100",
+ org.eclipse.core.runtime;bundle-version="3.14.0",
+ org.eclipse.emf.edit.ui;bundle-version="2.14.0",
+ com.misc.common.moplaf.emf.editor;bundle-version="1.0.0",
+ com.misc.common.moplaf.emf.edit;bundle-version="1.0.0",
+ com.misc.common.moplaf.chart;bundle-version="1.0.0",
+ com.misc.common.moplaf.gridview.emf.edit
