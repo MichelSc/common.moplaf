@@ -11,3 +11,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: com.misc.common.moplaf.chart
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.chart
+Import-Package: com.misc.common.moplaf.timeview
