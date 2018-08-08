@@ -7,6 +7,7 @@ import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.provider.SuperCategoryItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
@@ -268,7 +269,6 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -348,6 +348,10 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
+		
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,   DataToolType.COLUMNIZER);
 	}
 
 	/**
