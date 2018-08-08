@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.job.design;
+package com.misc.common.moplaf.analysis.design;
 
 import org.eclipse.emf.ecore.EObject;
 
