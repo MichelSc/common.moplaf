@@ -4,9 +4,8 @@ Bundle-Name: Chart
 Bundle-SymbolicName: com.misc.common.moplaf.chart;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.misc.common.moplaf.chart.Plugin
-Require-Bundle: org.eclipse.core.runtime,
-  org.eclipse.ui,
-  org.eclipse.core.runtime
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime;bundle-version="3.14.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: com.misc.common.moplaf.chart
 Bundle-ActivationPolicy: lazy

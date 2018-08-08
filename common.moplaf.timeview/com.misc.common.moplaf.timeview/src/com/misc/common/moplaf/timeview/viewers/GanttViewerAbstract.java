@@ -140,6 +140,7 @@ public abstract class GanttViewerAbstract extends ContentViewer {
 		}
 	}
 	
+	@Override
 	public void refresh(){
 	}
 

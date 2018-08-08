@@ -6,19 +6,19 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Control;
 
-import com.misc.common.moplaf.timeview.IIntervalEventProvider;
+import com.misc.common.moplaf.chart.ISeriesProvider;
 
 public class ChartViewerAbstract extends ContentViewer {
 
 	private IColorProvider colorProvider = null;
-	private IIntervalEventProvider intervalEventProvider = null;
+	private ISeriesProvider seriesProvider = null;
 
-	public void setIntervalEventProvider(IIntervalEventProvider eventProvider){
-		this.intervalEventProvider = eventProvider;
+	public void setSeriesProvider(ISeriesProvider provider){
+		this.seriesProvider = provider;
 	}
 
-	protected IIntervalEventProvider getIIntervalEventProvider(){
-		return this.intervalEventProvider;
+	protected ISeriesProvider getISeriesProvider(){
+		return this.seriesProvider;
 	}
 	
 	public void setColorProvider(IColorProvider provider) {
