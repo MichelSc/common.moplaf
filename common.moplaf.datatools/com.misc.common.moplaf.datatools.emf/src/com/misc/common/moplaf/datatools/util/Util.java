@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
+import com.misc.common.moplaf.datatools.Plugin;
 
 
 public class Util {
@@ -23,7 +23,7 @@ public class Util {
 	static public EList<DataTool> getNewDataTools(DataToolType type) {
 		BasicEList<DataTool> list = new BasicEList<DataTool>();
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.datatools.emf.datatool_factory");
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor(Plugin.EXTENSION_DATATOOL_FACTORY);
 		for ( IConfigurationElement element : elements){
 			Object value;
 			try {

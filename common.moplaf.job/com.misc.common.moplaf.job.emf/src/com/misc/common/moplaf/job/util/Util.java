@@ -20,7 +20,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import com.misc.common.moplaf.file.Plugin;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.Docs;
 import com.misc.common.moplaf.job.JobFactory;
@@ -29,6 +28,7 @@ import com.misc.common.moplaf.job.KeyIndicatorDate;
 import com.misc.common.moplaf.job.KeyIndicatorDouble;
 import com.misc.common.moplaf.job.KeyIndicatorInt;
 import com.misc.common.moplaf.job.KeyIndicatorString;
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.Task;
 
@@ -36,7 +36,7 @@ public class Util {
 	static public RunFactory getRunFactory(String factory_id) {
 		
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.run_factory");
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor(Plugin.EXTENSION_RUN_FACTORY);
 		for ( IConfigurationElement element : elements){
 			// check the extension id 
 			String extension_id = element.getDeclaringExtension().getUniqueIdentifier();
@@ -72,7 +72,7 @@ public class Util {
 	static public EList<Run> getNewRuns() {
 		BasicEList<Run> list = new BasicEList<Run>();
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.run_factory");
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor(Plugin.EXTENSION_RUN_FACTORY);
 		for ( IConfigurationElement element : elements){
 			Object value;
 			try {
@@ -94,7 +94,7 @@ public class Util {
 	static public EList<Task> getNewTasks() {
 		BasicEList<Task> list = new BasicEList<Task>();
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.job.emf.run_factory");
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor(Plugin.EXTENSION_RUN_FACTORY);
 		for ( IConfigurationElement element : elements){
 			Object value;
 			try {
