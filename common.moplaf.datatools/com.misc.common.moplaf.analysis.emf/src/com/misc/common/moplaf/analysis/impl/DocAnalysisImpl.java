@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -129,6 +130,16 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * @ordered
 	 */
 	protected EList<Categorizer> categorizers;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -353,6 +364,18 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public String getDescription() {
+		Doc doc = this.getDoc();
+		String description = doc==null
+				           ? "null"
+				           : doc.getDescription();
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void refresh() {
 		// input
 		Doc doc = this.getDoc();
@@ -462,6 +485,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				return getMaxElements();
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				return getCategorizers();
+			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -548,6 +573,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				return maxElements != MAX_ELEMENTS_EDEFAULT;
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				return categorizers != null && !categorizers.isEmpty();
+			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}
