@@ -4,6 +4,7 @@ package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DataTool;
@@ -46,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDataTools <em>Data Tools</em>}</li>
  * </ul>
  *
  * @generated
@@ -376,6 +378,36 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public EList<DataTool> getDataTools() {
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		EList<DataTool> newList = new EObjectListDerived<DataTool>(DataTool.class, this, AnalysisPackage.DOC_ANALYSIS__DATA_TOOLS, true);
+		
+		// Extractor
+		Extractor extractor = this.getExtractor();
+		if ( extractor!=null) {
+			newList.add(extractor);
+		}
+		
+		// Columnizer
+		ColumnizerAbstract columnizer = this.getColumnizer();
+		if ( columnizer!=null ) {
+			newList.add(columnizer);
+		}
+		
+		// Categorizer
+		for ( Categorizer categorizer : this.getCategorizers()){
+			newList.add(categorizer);
+		}
+		
+		return newList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void refresh() {
 		// input
 		Doc doc = this.getDoc();
@@ -487,6 +519,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				return getCategorizers();
 			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
 				return getDescription();
+			case AnalysisPackage.DOC_ANALYSIS__DATA_TOOLS:
+				return getDataTools();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -575,6 +609,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
 				return categorizers != null && !categorizers.isEmpty();
 			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case AnalysisPackage.DOC_ANALYSIS__DATA_TOOLS:
+				return !getDataTools().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

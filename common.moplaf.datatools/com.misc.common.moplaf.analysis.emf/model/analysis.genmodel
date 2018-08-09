@@ -15,6 +15,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/MaxElements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Categorizers"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Description"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/DataTools"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/addTool">
         <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/addTool/tool"/>

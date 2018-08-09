@@ -66,6 +66,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addDataToolsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -198,6 +199,28 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Data Tools feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDataToolsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_DataTools_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_DataTools_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__DATA_TOOLS,
+				 false,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

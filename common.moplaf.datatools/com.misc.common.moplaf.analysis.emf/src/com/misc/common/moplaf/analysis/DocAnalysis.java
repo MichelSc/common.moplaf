@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements <em>Max Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategorizers <em>Categorizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDataTools <em>Data Tools</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis()
@@ -168,6 +169,22 @@ public interface DocAnalysis extends SuperCategory, DocRef, DataToolContext {
 	 * @generated
 	 */
 	String getDescription();
+
+	/**
+	 * Returns the value of the '<em><b>Data Tools</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.datatools.DataTool}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Tools</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Tools</em>' reference list.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_DataTools()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<DataTool> getDataTools();
 
 	/**
 	 * <!-- begin-user-doc -->

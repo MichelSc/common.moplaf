@@ -177,13 +177,22 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__DESCRIPTION = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Data Tools</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__DATA_TOOLS = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Doc Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 7;
+	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -602,6 +611,17 @@ public interface AnalysisPackage extends EPackage {
 	EAttribute getDocAnalysis_Description();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Data Tools</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getDataTools()
+	 * @see #getDocAnalysis()
+	 * @generated
+	 */
+	EReference getDocAnalysis_DataTools();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -819,6 +839,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOC_ANALYSIS__DESCRIPTION = eINSTANCE.getDocAnalysis_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Tools</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC_ANALYSIS__DATA_TOOLS = eINSTANCE.getDocAnalysis_DataTools();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
