@@ -5,7 +5,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.misc.common.moplaf.chart.emf.editor.views.ChartViewAbstract;
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 
-public abstract class ChartView extends ChartViewAbstract {
+public class ChartView extends ChartViewAbstract {
 	
 	/**
 	 * The ID of the view as specified by the extension.

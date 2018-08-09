@@ -206,7 +206,7 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 	 * Specified by com.misc.common.moplaf.chart.ISeriesProvider
 	 */
 	@Override
-	public SeriesProvider[] getSeriesProviders(Object element){
+	public Object[] getSeriesProviders(Object element){
 		ArrayList<SeriesProvider> charts = new ArrayList<SeriesProvider>();
 		
 		AdapterFactory adapterFactory = this.getAdapterFactory();
@@ -237,7 +237,8 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 			} 
 		}
 		
-		return (SeriesProvider[]) charts.toArray();
+		Object[] array = charts.toArray();
+		return array;
 	}
 	
 

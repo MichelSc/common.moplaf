@@ -1,9 +1,14 @@
 package com.misc.common.moplaf.chart.swtchart;
 
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Composite;
 
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 public class ChartViewer extends ChartViewerAbstract {
+
+	public ChartViewer(Composite parent) {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	protected void inputChanged(Object input, Object oldInput) {

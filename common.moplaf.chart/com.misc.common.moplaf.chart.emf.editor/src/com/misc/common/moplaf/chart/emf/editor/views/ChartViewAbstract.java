@@ -176,7 +176,7 @@ public abstract class ChartViewAbstract extends ViewPart {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					ChartViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+					ChartViewAbstract.this.viewer.setInput(structuredSelection);
 				} // there is a selection
 				else {
 					ChartViewAbstract.this.viewer.setInput(null);
