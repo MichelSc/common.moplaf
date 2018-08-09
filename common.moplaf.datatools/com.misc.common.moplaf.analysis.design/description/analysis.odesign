@@ -52,6 +52,14 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </containerMappings>
+        <containerMappings name="di_doctasks_analysis_container" label="anAnalysis container" semanticCandidatesExpression="feature:Analysis" domainClass="analysis::DocAnalysis" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="feature:Description">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </containerMappings>
         <toolSections name="di_doctasks_tools_taskload" label="Docs &amp; Tasks tools">
           <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrun2" label="Run  a Task " precondition="service:runRunEnabled">
             <view name="views"/>
