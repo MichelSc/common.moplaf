@@ -5,7 +5,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.misc.common.moplaf.chart.emf.editor.views.ChartViewAbstract;
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 
-public class ChartView extends ChartViewAbstract {
+public abstract class ChartView extends ChartViewAbstract {
 
 	@Override
 	protected ChartViewerAbstract createViewer(Composite parent) {
@@ -13,4 +13,5 @@ public class ChartView extends ChartViewAbstract {
 		return null;
 	}
 
+	
 }

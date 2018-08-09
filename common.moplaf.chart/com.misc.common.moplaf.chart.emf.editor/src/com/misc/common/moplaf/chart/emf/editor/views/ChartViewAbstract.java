@@ -1,7 +1,5 @@
 package com.misc.common.moplaf.chart.emf.editor.views;
 
-import java.awt.Color;
-
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -13,21 +11,25 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
 import com.misc.common.moplaf.chart.emf.editor.provider.AdapterFactorySeriesProvider;
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
+import org.eclipse.swt.graphics.Color;
 
 public abstract class ChartViewAbstract extends ViewPart {
 	
@@ -36,6 +38,7 @@ public abstract class ChartViewAbstract extends ViewPart {
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 	private Action action1;
 	private Action action2;
+	private ISelectionListener selectionListener;
 
 	
 	public ChartViewAbstract() {
@@ -50,13 +53,13 @@ public abstract class ChartViewAbstract extends ViewPart {
 	/**
 	 * This is a callback that will allow us
 	 * to create the viewer and initialize it.
-	 
+	 */
 	public void createPartControl(Composite parent) {
         //GridData gd = new GridData(GridData.FILL_BOTH);
-		AdapterFactoryIntervalEventProvider contentProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
+		AdapterFactorySeriesProvider contentProvider = new AdapterFactorySeriesProvider(this.adapterFactory, null, null);
 		//this.intervalEventProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
         this.viewer = this.createViewer(parent);
-		this.viewer.setIntervalEventProvider(contentProvider);
+		this.viewer.setSeriesProvider(contentProvider);
         this.viewer.setContentProvider      (contentProvider);
 		this.viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
 		this.viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
@@ -83,7 +86,7 @@ public abstract class ChartViewAbstract extends ViewPart {
 		   };
 	   ResourcesPlugin.getWorkspace().addResourceChangeListener(this.resourceListener);
 	} // createControl method
-	*/
+	
 
 	/**
 	 * This is how the framework determines which interfaces we implement.
@@ -159,4 +162,27 @@ public abstract class ChartViewAbstract extends ViewPart {
 		return propertySheetPage;
 	}
 	*/
+	
+	/**
+	 * Implement the interface ISelectionListener
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	class SiteSelectionListener implements ISelectionListener {
+		@Override
+		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+			
+			if (  ChartViewAbstract.this.viewer != null && part!= ChartViewAbstract.this) {
+				if (  !selection.isEmpty() 
+				  && selection instanceof IStructuredSelection) {
+					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+					ChartViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+				} // there is a selection
+				else {
+					ChartViewAbstract.this.viewer.setInput(null);
+				}
+			} // there is a viewer
+		}
+	}
+	
 }
