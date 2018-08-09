@@ -1,53 +1,36 @@
-/*******************************************************************************
- * Copyright (c) 2017, 2018 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
-package com.misc.common.moplaf.job;
-
+package com.misc.common.moplaf.datatools;
 
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import com.misc.common.moplaf.common.Logger;
-import com.misc.common.moplaf.common.Logger.Level;
-
 
 /**
- * This is the central singleton for the Job model plugin.
+ * This is the central singleton for the Datatools model plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
 public final class Plugin extends EMFPlugin {
-	private Logger logger = new Logger("Job");
-
-	public Logger getLogger(){
-		return this.logger;
-	}
-	
-	private boolean showMetadata = false;
-
-	public boolean getShowMetadata(){
-		return this.showMetadata;
-	}
-
-	public void setShowMetadata(boolean showMetadata) {
-		this.showMetadata = showMetadata;
-	}
 
 	/** estension ID's 
 	 * 
 	 */
-	public static String EXTENSION_RUN_FACTORY = "com.misc.common.moplaf.job.emf.run_factory";
+	public static String EXTENSION_DATATOOL_FACTORY = "com.misc.common.moplaf.datatools.emf.datatool_factory";
+	
+	public void logInfo(String message){
+		com.misc.common.moplaf.common.Plugin.INSTANCE.logInfo(message);
+	}
+	
+	public void logWarning(String message){
+		com.misc.common.moplaf.common.Plugin.INSTANCE.logWarning(message);
+	}
+	
+	public void logError(String message){
+		com.misc.common.moplaf.common.Plugin.INSTANCE.logError(message);
+	}
 	
 	/**
 	 * Keep track of the singleton.
@@ -87,19 +70,6 @@ public final class Plugin extends EMFPlugin {
 		return plugin;
 	}
 
-	public void logInfo(String message){
-		this.logger.log(Level.INFO, message);
-	}
-	
-	public void logWarning(String message){
-		this.logger.log(Level.WARNING, message);
-	}
-	
-	public void logError(String message){
-		this.logger.log(Level.ERROR, message);
-	}
-	
-
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -132,4 +102,5 @@ public final class Plugin extends EMFPlugin {
 			plugin = this;
 		}
 	}
+
 }

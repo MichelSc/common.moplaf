@@ -8,12 +8,14 @@
   <foreignModel>analysis.ecore</foreignModel>
   <genPackages prefix="Analysis" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="analysis.ecore#/">
-    <genClasses ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="../../com.misc.common.moplaf.datatools.emf/model/datatools.genmodel#//datatools/CategoryAbstract/CategoryLabel">
+    <genClasses ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="#//analysis/DocAnalysis/Description">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Extractor"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Columnizer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Complete"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/MaxElements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Categorizers"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Description"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/DataTools"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/addTool">
         <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/addTool/tool"/>

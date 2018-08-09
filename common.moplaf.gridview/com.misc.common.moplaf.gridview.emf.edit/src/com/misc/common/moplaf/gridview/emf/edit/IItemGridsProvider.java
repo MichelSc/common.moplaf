@@ -72,7 +72,7 @@ public interface IItemGridsProvider {
 	static int SHEET_TRAITS_ROWS     = 1; // a bunch of rows with a few columns 
 	static int SHEET_TRAITS_COLUMNS  = 2; // a bunch of columns with a few rows
 	static int SHEET_TRAITS_GRID     = 4; // no dominant between rows and columns
-	static int SHEET_TRAITS_BARCHART = 4; // rows are categories and columns are series
+	static int SHEET_TRAITS_BARCHART = 8; // rows are categories and columns are series
 	
 	static int HORIZONTAl_ALIGN_LEFT   = 1;
 	static int HORIZONTAl_ALIGN_RIGHT  = 2;

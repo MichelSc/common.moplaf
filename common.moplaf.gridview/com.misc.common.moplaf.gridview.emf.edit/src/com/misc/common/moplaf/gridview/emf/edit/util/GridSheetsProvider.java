@@ -11,6 +11,7 @@
 package com.misc.common.moplaf.gridview.emf.edit.util;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -35,31 +36,56 @@ public class GridSheetsProvider implements IItemGridsProvider {
 	
 	private class SheetFeature implements SheetDelegate{
 		
-		private EReference reference;
+		private EReference[] path;
 		private GridColumnsProvider columns;
 		private int traits;
+		private String sheet_name;
 		
-		public SheetFeature(EReference path, GridColumnsProvider columns) {
-			this.reference = path;
-			this.columns = columns;
-			this.traits = IItemGridsProvider.SHEET_TRAITS_NONE;
-		}
-		public SheetFeature(EReference path, GridColumnsProvider columns, int traits) {
-			this.reference = path;
+		public SheetFeature(String sheet_name, EReference[] path, GridColumnsProvider columns, int traits) {
+			this.path = path;
 			this.columns = columns;
 			this.traits = traits;
+			this.sheet_name = sheet_name;
 		}
-
 		@Override
 		public Collection<?> getRows(Object element) {
-			if ( this.reference==null || !this.reference.isMany()) {
+			if ( this.path.length==0 ) {
 				return null;
 			}
 			if ( !(element instanceof EObject) ) {
 				return null;
 			}
+			
 			EObject object = (EObject)element;
-			return (Collection<?>) object.eGet(this.reference);
+			HashSet<EObject> result = new HashSet<EObject>();
+			this.collectRows(object, result, 0);
+			
+			return result;
+		}
+		
+		private void collectRows(EObject from, HashSet<EObject> result, int level) {
+			EReference reference = this.path[level];
+			if ( reference.getEContainingClass().isSuperTypeOf(from.eClass())) {
+				if ( reference.isMany() ) {
+					Collection<EObject> tos = (Collection<EObject>)from.eGet(reference);
+					if ( level<this.path.length-1) {
+						for ( EObject to : tos) {
+							collectRows(to, result, level+1);
+						}
+					} else {
+						result.addAll(tos);
+					}
+				} else {
+					EObject object = (EObject)from.eGet(reference);
+					if ( object!=null ) {
+						if ( level<this.path.length-1) {
+							collectRows((EObject)object, result, level+1);
+						} else {
+							result.add(object);
+						}
+					}
+				}
+			}
 		}
 		
 		public GridColumnsProvider getColumns() {
@@ -68,10 +94,19 @@ public class GridSheetsProvider implements IItemGridsProvider {
 		
 		@Override
 		public String getSheetText() {
-			if ( this.reference==null) {
-				return "sheet";
+			if ( this.sheet_name!=null ) {
+				return this.sheet_name;
 			}
-			return this.reference.getName();
+			
+			// compose a name from the refs at hand
+			String path_asstring = "";
+			for ( int i=0; i<this.path.length; i++) {
+				if ( path_asstring.length()>0 ) {
+					path_asstring += "/";
+				}
+				path_asstring+= this.path[i].getName();  
+			}
+			return path_asstring;
 		}
 
 		@Override
@@ -97,12 +132,36 @@ public class GridSheetsProvider implements IItemGridsProvider {
 	/*
 	 * Convenience method for adding a sheet in the grid
 	 */
+	public GridSheetsProvider addSheet(GridColumnsProvider columns) {
+		this.sheets.add(new SheetFeature(null, new EReference[] {}, columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		return this;
+	}
+	public GridSheetsProvider addSheet(String sheet_name, GridColumnsProvider columns) {
+		this.sheets.add(new SheetFeature(sheet_name, new EReference[] {}, columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		return this;
+	}
 	public GridSheetsProvider addSheet(EReference reference, GridColumnsProvider columns) {
-		this.sheets.add(new SheetFeature(reference, columns));
+		this.sheets.add(new SheetFeature(null, new EReference[] {reference}, columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		return this;
+	}
+	public GridSheetsProvider addSheet(EReference[] path, GridColumnsProvider columns) {
+		this.sheets.add(new SheetFeature(null, path, columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		return this;
+	}
+	public GridSheetsProvider addSheet(GridColumnsProvider columns, int traits) {
+		this.sheets.add(new SheetFeature(null, new EReference[] {}, columns, traits));
+		return this;
+	}
+	public GridSheetsProvider addSheet(String sheet_name, GridColumnsProvider columns, int traits) {
+		this.sheets.add(new SheetFeature(sheet_name, new EReference[] {}, columns, traits));
+		return this;
+	}
+	public GridSheetsProvider addSheet(EReference[] path, GridColumnsProvider columns, int traits) {
+		this.sheets.add(new SheetFeature(null, path, columns, traits));
 		return this;
 	}
 	public GridSheetsProvider addSheet(EReference reference, GridColumnsProvider columns, int traits) {
-		this.sheets.add(new SheetFeature(reference, columns, traits));
+		this.sheets.add(new SheetFeature(null, new EReference[] {reference}, columns, traits));
 		return this;
 	}
 	

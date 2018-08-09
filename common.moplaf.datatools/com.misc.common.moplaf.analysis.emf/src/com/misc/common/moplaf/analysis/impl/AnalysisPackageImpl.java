@@ -183,6 +183,24 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDocAnalysis_Description() {
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocAnalysis_DataTools() {
+		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDocAnalysis__Refresh() {
 		return docAnalysisEClass.getEOperations().get(0);
 	}
@@ -329,6 +347,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__COMPLETE);
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__MAX_ELEMENTS);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__CATEGORIZERS);
+		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__DESCRIPTION);
+		createEReference(docAnalysisEClass, DOC_ANALYSIS__DATA_TOOLS);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___REFRESH);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___ADD_TOOL__DATATOOL);
 
@@ -394,6 +414,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getDocAnalysis_Complete(), ecorePackage.getEBoolean(), "Complete", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocAnalysis_MaxElements(), ecorePackage.getEInt(), "MaxElements", "1000000", 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocAnalysis_Categorizers(), theDatatoolsPackage.getCategorizer(), null, "Categorizers", null, 0, -1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocAnalysis_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDocAnalysis_DataTools(), theDatatoolsPackage.getDataTool(), null, "DataTools", null, 0, -1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDocAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 

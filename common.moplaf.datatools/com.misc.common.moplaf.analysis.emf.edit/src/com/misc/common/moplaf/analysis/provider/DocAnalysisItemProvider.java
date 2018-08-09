@@ -7,6 +7,7 @@ import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.provider.SuperCategoryItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
@@ -64,6 +65,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			addColumnizerPropertyDescriptor(object);
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addDataToolsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -179,6 +182,50 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Description_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Data Tools feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDataToolsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_DataTools_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_DataTools_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__DATA_TOOLS,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -230,7 +277,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DocAnalysis)object).getCategoryLabel();
+		String label = ((DocAnalysis)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DocAnalysis_type") :
 			getString("_UI_DocAnalysis_type") + " " + label;
@@ -251,6 +298,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		switch (notification.getFeatureID(DocAnalysis.class)) {
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
+			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
@@ -268,7 +316,6 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -348,6 +395,10 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
+		
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,   DataToolType.COLUMNIZER);
 	}
 
 	/**

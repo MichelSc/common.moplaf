@@ -5,6 +5,7 @@ Bundle-SymbolicName: com.misc.common.moplaf.datatools.emf;singleton:=true
 Automatic-Module-Name: com.misc.common.moplaf.datatools.emf
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
+Bundle-Activator: com.misc.common.moplaf.datatools.Plugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
