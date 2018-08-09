@@ -8,3 +8,4 @@ Automatic-Module-Name: com.misc.common.moplaf.chart.swtchart
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: com.misc.common.moplaf.chart,
  org.eclipse.ui;bundle-version="3.109.100"
+Import-Package: com.misc.common.moplaf.chart.emf.editor.views
