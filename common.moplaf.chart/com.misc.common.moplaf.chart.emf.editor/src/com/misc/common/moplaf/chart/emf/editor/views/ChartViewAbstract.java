@@ -143,8 +143,8 @@ public abstract class ChartViewAbstract extends ViewPart {
 		// unregister the selection listener
 		IWorkbenchPartSite site = getSite();
 		IWorkbenchWindow window = site.getWorkbenchWindow();
-		//window.getSelectionService().removeSelectionListener(this.selectionListener);
-		//this.selectionListener = null;
+		window.getSelectionService().removeSelectionListener(this.selectionListener);
+		this.selectionListener = null;
 		
 		// unregister the resource change listener
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.resourceListener);
@@ -176,7 +176,7 @@ public abstract class ChartViewAbstract extends ViewPart {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					ChartViewAbstract.this.viewer.setInput(structuredSelection);
+					ChartViewAbstract.this.viewer.setInput(structuredSelection.getFirstElement());
 				} // there is a selection
 				else {
 					ChartViewAbstract.this.viewer.setInput(null);

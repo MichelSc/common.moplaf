@@ -10,17 +10,17 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.swt.widgets.Control;
-
 import com.misc.common.moplaf.chart.ISeriesProvider;
 import com.misc.common.moplaf.chart.Wrapper;
+import com.misc.common.moplaf.timeview.IIntervalEventProvider;
 
-public class ChartViewerAbstract extends ContentViewer {
+public abstract class ChartViewerAbstract extends ContentViewer {
 
 	private Object                 selectedElement = null;
 	private ISelection             currentSelection = null;
 	private IColorProvider colorProvider = null;
 	private ISeriesProvider seriesProvider = null;
+	private IIntervalEventProvider intervalEventProvider = null;
 
 	// providers management
 	@Override
@@ -73,22 +73,10 @@ public class ChartViewerAbstract extends ContentViewer {
 		return this.colorProvider;
 	}
 	
-	@Override
-	public Control getControl() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public ISelection getSelection() {
-		// TODO Auto-generated method stub
 		return currentSelection;
-	}
-
-	@Override
-	public void refresh() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -114,6 +102,14 @@ public class ChartViewerAbstract extends ContentViewer {
 			this.setSelection(new StructuredSelection(selectedObject), false);
 			this.fireSelectionChanged(new SelectionChangedEvent(this, this.getSelection()));
 		}
+	}
+
+	public void setIntervalEventProvider(IIntervalEventProvider eventProvider){
+		this.intervalEventProvider = eventProvider;
+	}
+
+	protected IIntervalEventProvider getIIntervalEventProvider(){
+		return this.intervalEventProvider;
 	}
 
 }
