@@ -121,7 +121,7 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 			public String getText(Object element) {
 				SeriesProvider seriesprovider = this.getOuterType();
 				IItemGridsProvider gridsprovider = seriesprovider.gridsProvider;
-				return gridsprovider.getRowText(seriesprovider.element, seriesprovider.grid, this.series);
+				return gridsprovider.getColumnText(seriesprovider.element, seriesprovider.grid, this.series);
 			}
 		};
 		

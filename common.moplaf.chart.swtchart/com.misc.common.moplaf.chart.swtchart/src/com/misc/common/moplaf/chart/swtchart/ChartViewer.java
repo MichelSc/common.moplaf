@@ -16,9 +16,9 @@ public class ChartViewer extends ChartViewerAbstract {
 	public ChartViewer(Composite parent) {
 		chart = new Chart(parent, SWT.NONE);
 		// set titles
-		chart.getTitle().setText("Bar Chart Example");
-		chart.getAxisSet().getXAxis(0).getTitle().setText("Data Points");
-		chart.getAxisSet().getYAxis(0).getTitle().setText("Amplitude");
+		chart.getTitle().setText("");
+		chart.getAxisSet().getXAxis(0).getTitle().setText("");
+		chart.getAxisSet().getYAxis(0).getTitle().setText("");
 		
 		super.hookControl(chart);
 
@@ -41,12 +41,9 @@ public class ChartViewer extends ChartViewerAbstract {
 		// michel: receive the control when bar chart must be redrawn
 		// michel: this might be triggered, either by an input changed (see above), or by some other event
 		
-		Object input = this.getInput(); // michel: this is the content to be displayed (if something to be displayed)
-		
+		Object input = this.getInput(); // michel: this is the content to be displayed (if something to be displayed)		
 		Object[] bar_charts = this.getISeriesProvider().getSeriesProviders(input);
-		if( input != null ) {
-			System.out.println("** " + input.getClass().toString());
-		}
+		chart.setVisible(false);
 		
 		// michel: here follows all the call required to retrieve the bar chart information from the model
 		if ( bar_charts.length>0 ) {
@@ -59,36 +56,38 @@ public class ChartViewer extends ChartViewerAbstract {
 				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_bar_chart);
 				
 				double[] ySeries = new double[all_categories.length];
-				
+				String[] xSeries = new String[all_categories.length];
+								
 				for ( int i=0; i<all_categories.length; i++) {
 					Object category = all_categories[i];
 					String category_name = this.getILabelProvider().getText(category);
 					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, first_series, category);
 
 					System.out.format("category %s, amount %f \n", category_name, category_value);
-
-					// create bar series
-					//IBarSeries barSeries = (IBarSeries) chart.getSeriesSet().createSeries(SeriesType.BAR, category_name);
-					//barSeries.setYSeries(category_value);
-
-					// adjust the axis range
-					// chart.getAxisSet().adjustRange();
 					
 					ySeries[i] = category_value;
+					xSeries[i] = category_name;
 
 				}
 				
-				// create bar series
-				IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
-				    .createSeries(SeriesType.BAR, first_series_name);
-				barSeries.setYSeries(ySeries);
-
-				// adjust the axis range
-				chart.getAxisSet().adjustRange();			
+				System.out.println("** first_series_name : " + first_series_name);
+				
+				if( all_categories.length > 0 ) {
+					chart.setVisible(true);
+					// create bar series
+					IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
+					    .createSeries(SeriesType.BAR, first_series_name);
+					//barSeries.setXDateSeries(xSeries);
+					//barSeries.setDescription("description");
+					barSeries.setYSeries(ySeries);
+	
+					// adjust the axis range
+					chart.getAxisSet().getXAxis(0).enableCategory(true);
+					chart.getAxisSet().getXAxis(0).setCategorySeries(xSeries);
+					chart.getAxisSet().adjustRange();
+					chart.redraw();
+				}
 			}
-			
-			System.out.println("** ploum");
-			
 		}
 	}
 
