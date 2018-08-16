@@ -13,6 +13,8 @@ public class ChartView extends ChartViewAbstract {
 	public static final String ID = "com.misc.common.moplaf.chart.swtchart.ChartView";
 	
 	public ChartView() {
+		//pinAction = new
+		//this.contributeToActionBars();
 	}
 	
 	@Override
