@@ -57,20 +57,26 @@ public class ChartViewer extends ChartViewerAbstract {
 				String first_series_name = this.getILabelProvider().getText(first_series);
 				Color first_series_color = this.getIColorProvider().getBackground(first_series);
 				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_series);
+				
+				double[] ySeries = new double[all_categories.length];
+				
 				for ( int i=0; i<all_categories.length; i++) {
 					Object category = all_categories[i];
 					String category_name = this.getILabelProvider().getText(category);
 					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, first_series, category);
-				
-					// create bar series
-					IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
-					    .createSeries(SeriesType.BAR, category_name);
-					//barSeries.setYSeries(category_value);
-
-					// adjust the axis range
-					chart.getAxisSet().adjustRange();
-
+					
+					ySeries[i] = category_value;
+					
 				}								
+				
+				// create bar series
+				IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
+				    .createSeries(SeriesType.BAR, first_series_name);
+				barSeries.setYSeries(ySeries);
+
+				// adjust the axis range
+				chart.getAxisSet().adjustRange();
+
 			}
 			
 			System.out.println("** ploum");
