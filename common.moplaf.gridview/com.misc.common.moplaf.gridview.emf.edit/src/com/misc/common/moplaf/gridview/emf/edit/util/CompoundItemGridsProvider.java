@@ -65,6 +65,12 @@ public class CompoundItemGridsProvider implements IItemGridsProvider {
 		IItemGridsProvider provider = this.map_grip_to_provider.get(grid);
 		return provider.getGridText(element, grid);
 	}
+	
+	@Override
+	public int getGridTraits(Object element, Object grid) {
+		IItemGridsProvider provider = this.map_grip_to_provider.get(grid);
+		return provider.getGridTraits(element, grid);
+	}
 
 	// rows
 	@Override
