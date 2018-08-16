@@ -4,6 +4,7 @@ package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.common.IMoplafObject;
 import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Doc Analysis</b></em>'.
+ * @implements IMoplafObject
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -52,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis {
+public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, IMoplafObject {
 	/**
 	 * The cached value of the '{@link #getDoc() <em>Doc</em>}' reference.
 	 * <!-- begin-user-doc -->
