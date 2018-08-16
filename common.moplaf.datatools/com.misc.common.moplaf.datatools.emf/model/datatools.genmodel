@@ -63,6 +63,7 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//DataToolAbstract/Context"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//Extractor" labelFeature="#//datatools/DataTool/Description">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//Extractor/ExtractedType"/>
       <genOperations ecoreOperation="datatools.ecore#//Extractor/extract">
         <genParameters ecoreParameter="datatools.ecore#//Extractor/extract/ins"/>
         <genParameters ecoreParameter="datatools.ecore#//Extractor/extract/max_elements"/>
@@ -116,7 +117,11 @@
     <genClasses ecoreClass="datatools.ecore#//ExtractorPipe" labelFeature="#//datatools/DataTool/Description"/>
     <genClasses ecoreClass="datatools.ecore#//ExtractorUnion" labelFeature="#//datatools/DataTool/Description"/>
     <genClasses ecoreClass="datatools.ecore#//ExtractorIntersection" labelFeature="#//datatools/DataTool/Description"/>
-    <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerAbstract"/>
+    <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerAbstract">
+      <genOperations ecoreOperation="datatools.ecore#//ColumnizerAbstract/isValidElementType">
+        <genParameters ecoreParameter="datatools.ecore#//ColumnizerAbstract/isValidElementType/type"/>
+      </genOperations>
+    </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//Columnizer" labelFeature="#//datatools/DataTool/Description">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/Columns"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/Grids"/>
@@ -132,6 +137,9 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumn/Columnizer"/>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/getValue">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerColumn/getValue/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/isValidElementType">
+        <genParameters ecoreParameter="datatools.ecore#//ColumnizerColumn/isValidElementType/type"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerColumnAttribute">
@@ -179,6 +187,9 @@
       </genOperations>
       <genOperations ecoreOperation="datatools.ecore#//Categorizer/getCategoryLabel">
         <genParameters ecoreParameter="datatools.ecore#//Categorizer/getCategoryLabel/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="datatools.ecore#//Categorizer/isValidElementType">
+        <genParameters ecoreParameter="datatools.ecore#//Categorizer/isValidElementType/type"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//CategorizerStructuralFeature" labelFeature="#//datatools/DataTool/Description">

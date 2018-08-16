@@ -63,6 +63,17 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isValidElementType(EClass type) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public Category constructCategory() {
 		return DatatoolsFactory.eINSTANCE.createCategory();
@@ -84,6 +95,8 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 				return getCategoryValue((EObject)arguments.get(0));
 			case DatatoolsPackage.CATEGORIZER___GET_CATEGORY_LABEL__OBJECT:
 				return getCategoryLabel(arguments.get(0));
+			case DatatoolsPackage.CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS:
+				return isValidElementType((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

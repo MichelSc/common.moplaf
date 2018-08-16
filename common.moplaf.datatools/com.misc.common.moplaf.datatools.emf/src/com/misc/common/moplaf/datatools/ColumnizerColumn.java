@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -130,5 +131,13 @@ public interface ColumnizerColumn extends EObject {
 	 * @generated
 	 */
 	Object getValue(EObject object);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model typeRequired="true"
+	 * @generated
+	 */
+	boolean isValidElementType(EClass type);
 
 } // ColumnizerColumn

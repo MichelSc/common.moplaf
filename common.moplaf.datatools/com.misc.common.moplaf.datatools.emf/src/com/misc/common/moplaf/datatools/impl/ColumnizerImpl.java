@@ -89,6 +89,19 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 		return String.format("columnizer %s", this.getName());
 	}
 
+	/** 
+	 * Specified by ColumnizerAbstract
+	 * 
+	 */
+	@Override
+	public boolean isValidElementType(EClass type) {
+		for( ColumnizerColumn column : this.getColumns()) {
+			if ( !column.isValidElementType(type)) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

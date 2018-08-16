@@ -146,7 +146,7 @@ public class DataSelectorStringImpl extends DataSelectorFeatureImpl implements D
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Values: ");
 		result.append(values);
 		result.append(')');

@@ -219,6 +219,42 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDocAnalysis__IsValidTool__DataTool() {
+		return docAnalysisEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDocAnalysis__IsValidExtractor__Extractor() {
+		return docAnalysisEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDocAnalysis__IsValidColumnizer__ColumnizerAbstract() {
+		return docAnalysisEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDocAnalysis__IsValidCategorizer__Categorizer() {
+		return docAnalysisEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDocComparison() {
 		return docComparisonEClass;
 	}
@@ -282,7 +318,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnalysisHolder_Analysis() {
+	public EReference getAnalysisHolder_Analyses() {
 		return (EReference)analysisHolderEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -351,6 +387,10 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__DATA_TOOLS);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___REFRESH);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___ADD_TOOL__DATATOOL);
+		createEOperation(docAnalysisEClass, DOC_ANALYSIS___IS_VALID_TOOL__DATATOOL);
+		createEOperation(docAnalysisEClass, DOC_ANALYSIS___IS_VALID_EXTRACTOR__EXTRACTOR);
+		createEOperation(docAnalysisEClass, DOC_ANALYSIS___IS_VALID_COLUMNIZER__COLUMNIZERABSTRACT);
+		createEOperation(docAnalysisEClass, DOC_ANALYSIS___IS_VALID_CATEGORIZER__CATEGORIZER);
 
 		docComparisonEClass = createEClass(DOC_COMPARISON);
 		createEReference(docComparisonEClass, DOC_COMPARISON__EXTRACTOR);
@@ -360,7 +400,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(docComparisonEClass, DOC_COMPARISON__CATEGORIZER);
 
 		analysisHolderEClass = createEClass(ANALYSIS_HOLDER);
-		createEReference(analysisHolderEClass, ANALYSIS_HOLDER__ANALYSIS);
+		createEReference(analysisHolderEClass, ANALYSIS_HOLDER__ANALYSES);
 
 		analysisDomainEClass = createEClass(ANALYSIS_DOMAIN);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUPER_DOMAIN);
@@ -422,6 +462,18 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		EOperation op = initEOperation(getDocAnalysis__AddTool__DataTool(), null, "addTool", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatoolsPackage.getDataTool(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getDocAnalysis__IsValidTool__DataTool(), theJobPackage.getEnabledFeedback(), "isValidTool", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getDataTool(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDocAnalysis__IsValidExtractor__Extractor(), theJobPackage.getEnabledFeedback(), "isValidExtractor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getExtractor(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDocAnalysis__IsValidColumnizer__ColumnizerAbstract(), theJobPackage.getEnabledFeedback(), "isValidColumnizer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getColumnizerAbstract(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDocAnalysis__IsValidCategorizer__Categorizer(), theJobPackage.getEnabledFeedback(), "isValidCategorizer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getCategorizer(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(docComparisonEClass, DocComparison.class, "DocComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocComparison_Extractor(), theDatatoolsPackage.getExtractor(), null, "extractor", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocComparison_Columnizer(), theDatatoolsPackage.getColumnizer(), null, "Columnizer", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -430,11 +482,11 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getDocComparison_Categorizer(), theDatatoolsPackage.getCategorizer(), null, "Categorizer", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(analysisHolderEClass, AnalysisHolder.class, "AnalysisHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnalysisHolder_Analysis(), this.getDocAnalysis(), null, "Analysis", null, 0, -1, AnalysisHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysisHolder_Analyses(), this.getDocAnalysis(), null, "Analyses", null, 0, -1, AnalysisHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(analysisDomainEClass, AnalysisDomain.class, "AnalysisDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisDomain_SuperDomain(), this.getAnalysisDomain(), this.getAnalysisDomain_SubDomains(), "SuperDomain", null, 0, 1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnalysisDomain_SubDomains(), this.getAnalysisDomain(), this.getAnalysisDomain_SuperDomain(), "SubDomains", null, 0, 1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysisDomain_SubDomains(), this.getAnalysisDomain(), this.getAnalysisDomain_SuperDomain(), "SubDomains", null, 0, -1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

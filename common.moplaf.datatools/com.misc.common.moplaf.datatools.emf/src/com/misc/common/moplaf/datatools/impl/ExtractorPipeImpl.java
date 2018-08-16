@@ -8,6 +8,7 @@ import com.misc.common.moplaf.datatools.ExtractorPipe;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +45,32 @@ public class ExtractorPipeImpl extends ExtractorCompoundImpl implements Extracto
 		String description = "pipe";
 		return description;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isValidRoot(EObject doc) {
+		if ( this.getExtractors().size()==0 ) {
+			return false;
+		}
+		Extractor first_extractor = this.getExtractors().get(0);
+		return first_extractor.isValidRoot(doc);
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public EClass basicGetExtractedType() {
+		if ( this.getExtractors().size()==0 ) {
+			return null;
+		}
+		Extractor last_extractor = this.getExtractors().get(this.getExtractors().size()-1);
+		return last_extractor.getExtractedType();
+	}
+
+
 
 	@Override
 	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {

@@ -909,13 +909,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR__NAME = DATA_TOOL__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR__EXTRACTED_TYPE = DATA_TOOL_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Extractor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
+	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Clone</em>' operation.
@@ -988,6 +997,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_TYPE__NAME = EXTRACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -1078,6 +1096,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_PATH__NAME = EXTRACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -1206,6 +1233,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_OCL__NAME = EXTRACTOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1294,6 +1330,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER__NAME = EXTRACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1402,6 +1447,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE__NAME = EXTRACTOR_FILTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE__EXTRACTED_TYPE = EXTRACTOR_FILTER__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1635,6 +1689,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__NAME = EXTRACTOR_FILTER_ATTRIBUTE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_STRING__EXTRACTED_TYPE = EXTRACTOR_FILTER_ATTRIBUTE__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1814,6 +1877,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_REGEX__NAME = EXTRACTOR_FILTER_ATTRIBUTE_STRING__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_REGEX__EXTRACTED_TYPE = EXTRACTOR_FILTER_ATTRIBUTE_STRING__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1996,6 +2068,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT__NAME = EXTRACTOR_FILTER_ATTRIBUTE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT__EXTRACTED_TYPE = EXTRACTOR_FILTER_ATTRIBUTE__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2175,6 +2256,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__NAME = EXTRACTOR_FILTER_ATTRIBUTE_INT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE__EXTRACTED_TYPE = EXTRACTOR_FILTER_ATTRIBUTE_INT__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2366,6 +2456,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OCL__NAME = EXTRACTOR_FILTER__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OCL__EXTRACTED_TYPE = EXTRACTOR_FILTER__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2491,6 +2590,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_FILTER_COMPOUND__NAME = EXTRACTOR_FILTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_COMPOUND__EXTRACTED_TYPE = EXTRACTOR_FILTER__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2620,6 +2728,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_AND__NAME = EXTRACTOR_FILTER_COMPOUND__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_AND__EXTRACTED_TYPE = EXTRACTOR_FILTER_COMPOUND__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2747,6 +2864,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_FILTER_OR__NAME = EXTRACTOR_FILTER_COMPOUND__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FILTER_OR__EXTRACTED_TYPE = EXTRACTOR_FILTER_COMPOUND__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2864,6 +2990,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND__NAME = EXTRACTOR__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2952,6 +3087,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_LOGIC__NAME = EXTRACTOR_COMPOUND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__EXTRACTED_TYPE = EXTRACTOR_COMPOUND__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
@@ -3044,6 +3188,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PIPE__NAME = EXTRACTOR_COMPOUND__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE__EXTRACTED_TYPE = EXTRACTOR_COMPOUND__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3134,6 +3287,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_UNION__NAME = EXTRACTOR_LOGIC__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__EXTRACTED_TYPE = EXTRACTOR_LOGIC__EXTRACTED_TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3222,6 +3384,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_INTERSECTION__NAME = EXTRACTOR_LOGIC__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__EXTRACTED_TYPE = EXTRACTOR_LOGIC__EXTRACTED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
@@ -3341,13 +3512,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_ABSTRACT___GET_TYPE = DATA_TOOL___GET_TYPE;
 
 	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS = DATA_TOOL_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_ABSTRACT_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 0;
+	int COLUMNIZER_ABSTRACT_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3420,6 +3600,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER___GET_TYPE = COLUMNIZER_ABSTRACT___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER___IS_VALID_ELEMENT_TYPE__ECLASS = COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS;
 
 	/**
 	 * The number of operations of the '<em>Columnizer</em>' class.
@@ -3521,13 +3710,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = 0;
 
 	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN___IS_VALID_ELEMENT_TYPE__ECLASS = 1;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_OPERATION_COUNT = 1;
+	int COLUMNIZER_COLUMN_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3647,6 +3845,15 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT = COLUMNIZER_COLUMN___GET_VALUE__EOBJECT;
 
 	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE___IS_VALID_ELEMENT_TYPE__ECLASS = COLUMNIZER_COLUMN___IS_VALID_ELEMENT_TYPE__ECLASS;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Column Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3717,6 +3924,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_OCL___GET_VALUE__EOBJECT = COLUMNIZER_COLUMN___GET_VALUE__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL___IS_VALID_ELEMENT_TYPE__ECLASS = COLUMNIZER_COLUMN___IS_VALID_ELEMENT_TYPE__ECLASS;
 
 	/**
 	 * The number of operations of the '<em>Columnizer Column Ocl</em>' class.
@@ -4142,13 +4358,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER___GET_CATEGORY_LABEL__OBJECT = DATA_TOOL_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS = DATA_TOOL_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Categorizer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 3;
+	int CATEGORIZER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -4286,6 +4511,15 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER_STRUCTURAL_FEATURE___GET_CATEGORY_LABEL__OBJECT = CATEGORIZER___GET_CATEGORY_LABEL__OBJECT;
 
 	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE___IS_VALID_ELEMENT_TYPE__ECLASS = CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS;
+
+	/**
 	 * The number of operations of the '<em>Categorizer Structural Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4383,6 +4617,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORIZER_OCL___GET_CATEGORY_LABEL__OBJECT = CATEGORIZER___GET_CATEGORY_LABEL__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL___IS_VALID_ELEMENT_TYPE__ECLASS = CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS;
 
 	/**
 	 * The number of operations of the '<em>Categorizer Ocl</em>' class.
@@ -4516,6 +4759,16 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getCategorizer__GetCategoryLabel__Object();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#isValidElementType(org.eclipse.emf.ecore.EClass) <em>Is Valid Element Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Element Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Categorizer#isValidElementType(org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getCategorizer__IsValidElementType__EClass();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#constructCategory() <em>Construct Category</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4566,6 +4819,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExtractor();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Extractor#getExtractedType <em>Extracted Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Extracted Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.Extractor#getExtractedType()
+	 * @see #getExtractor()
+	 * @generated
+	 */
+	EReference getExtractor_ExtractedType();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(com.misc.common.moplaf.datatools.util.ObjectSet, int) <em>Extract</em>}' operation.
@@ -4859,6 +5123,16 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getColumnizerAbstract();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#isValidElementType(org.eclipse.emf.ecore.EClass) <em>Is Valid Element Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Element Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#isValidElementType(org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getColumnizerAbstract__IsValidElementType__EClass();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorPath <em>Extractor Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5056,6 +5330,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getColumnizerColumn__GetValue__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#isValidElementType(org.eclipse.emf.ecore.EClass) <em>Is Valid Element Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Element Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#isValidElementType(org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getColumnizerColumn__IsValidElementType__EClass();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerColumnAttribute <em>Columnizer Column Attribute</em>}'.
@@ -5726,6 +6010,14 @@ public interface DatatoolsPackage extends EPackage {
 		EOperation CATEGORIZER___GET_CATEGORY_LABEL__OBJECT = eINSTANCE.getCategorizer__GetCategoryLabel__Object();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Valid Element Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS = eINSTANCE.getCategorizer__IsValidElementType__EClass();
+
+		/**
 		 * The meta object literal for the '<em><b>Construct Category</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5768,6 +6060,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXTRACTOR = eINSTANCE.getExtractor();
+
+		/**
+		 * The meta object literal for the '<em><b>Extracted Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTRACTOR__EXTRACTED_TYPE = eINSTANCE.getExtractor_ExtractedType();
 
 		/**
 		 * The meta object literal for the '<em><b>Extract</b></em>' operation.
@@ -6016,6 +6316,14 @@ public interface DatatoolsPackage extends EPackage {
 		EClass COLUMNIZER_ABSTRACT = eINSTANCE.getColumnizerAbstract();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Valid Element Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS = eINSTANCE.getColumnizerAbstract__IsValidElementType__EClass();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl <em>Extractor Path</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6180,6 +6488,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = eINSTANCE.getColumnizerColumn__GetValue__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Element Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMNIZER_COLUMN___IS_VALID_ELEMENT_TYPE__ECLASS = eINSTANCE.getColumnizerColumn__IsValidElementType__EClass();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.

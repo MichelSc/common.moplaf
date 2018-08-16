@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -30,6 +31,14 @@ public interface Categorizer extends DataTool {
 	 * @generated
 	 */
 	String getCategoryLabel(Object value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model typeRequired="true"
+	 * @generated
+	 */
+	boolean isValidElementType(EClass type);
 
 	/**
 	 * <!-- begin-user-doc -->

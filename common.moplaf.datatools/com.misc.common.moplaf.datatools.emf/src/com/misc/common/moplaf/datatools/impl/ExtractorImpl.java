@@ -13,11 +13,18 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Extractor</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl#getExtractedType <em>Extracted Type</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -39,6 +46,28 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	@Override
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.EXTRACTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExtractedType() {
+		EClass extractedType = basicGetExtractedType();
+		return extractedType != null && extractedType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)extractedType) : extractedType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass basicGetExtractedType() {
+		// TODO: implement this method to return the 'Extracted Type' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -85,6 +114,35 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case DatatoolsPackage.EXTRACTOR__EXTRACTED_TYPE:
+				if (resolve) return getExtractedType();
+				return basicGetExtractedType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case DatatoolsPackage.EXTRACTOR__EXTRACTED_TYPE:
+				return basicGetExtractedType() != null;
+		}
+		return super.eIsSet(featureID);
 	}
 
 	/**

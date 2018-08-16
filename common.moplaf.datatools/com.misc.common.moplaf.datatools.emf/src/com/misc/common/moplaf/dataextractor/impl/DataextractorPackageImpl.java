@@ -147,7 +147,7 @@ public class DataextractorPackageImpl extends EPackageImpl implements Dataextrac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DataextractorPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -161,7 +161,8 @@ public class DataextractorPackageImpl extends EPackageImpl implements Dataextrac
 		if (isInited) return (DataextractorPackage)EPackage.Registry.INSTANCE.getEPackage(DataextractorPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DataextractorPackageImpl theDataextractorPackage = (DataextractorPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DataextractorPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DataextractorPackageImpl());
+		Object registeredDataextractorPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		DataextractorPackageImpl theDataextractorPackage = registeredDataextractorPackage instanceof DataextractorPackageImpl ? (DataextractorPackageImpl)registeredDataextractorPackage : new DataextractorPackageImpl();
 
 		isInited = true;
 
@@ -177,7 +178,6 @@ public class DataextractorPackageImpl extends EPackageImpl implements Dataextrac
 		// Mark meta-data to indicate it can't be changed
 		theDataextractorPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DataextractorPackage.eNS_URI, theDataextractorPackage);
 		return theDataextractorPackage;

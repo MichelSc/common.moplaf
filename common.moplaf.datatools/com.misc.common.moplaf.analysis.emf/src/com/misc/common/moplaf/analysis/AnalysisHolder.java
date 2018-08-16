@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.analysis.AnalysisHolder#getAnalysis <em>Analysis</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisHolder#getAnalyses <em>Analyses</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisHolder()
@@ -24,19 +24,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AnalysisHolder extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Analysis</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Analyses</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.analysis.DocAnalysis}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Analysis</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Analyses</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Analysis</em>' containment reference list.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisHolder_Analysis()
+	 * @return the value of the '<em>Analyses</em>' containment reference list.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisHolder_Analyses()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DocAnalysis> getAnalysis();
+	EList<DocAnalysis> getAnalyses();
 
 } // AnalysisHolder

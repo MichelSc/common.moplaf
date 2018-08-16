@@ -222,6 +222,17 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isValidElementType(EClass type) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -366,6 +377,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 		switch (operationID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN___GET_VALUE__EOBJECT:
 				return getValue((EObject)arguments.get(0));
+			case DatatoolsPackage.COLUMNIZER_COLUMN___IS_VALID_ELEMENT_TYPE__ECLASS:
+				return isValidElementType((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

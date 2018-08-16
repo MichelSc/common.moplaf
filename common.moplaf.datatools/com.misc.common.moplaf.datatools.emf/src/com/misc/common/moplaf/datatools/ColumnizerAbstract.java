@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import org.eclipse.emf.ecore.EClass;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -14,4 +16,12 @@ package com.misc.common.moplaf.datatools;
  * @generated
  */
 public interface ColumnizerAbstract extends DataTool {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model typeRequired="true"
+	 * @generated
+	 */
+	boolean isValidElementType(EClass type);
 } // ColumnizerAbstract

@@ -141,6 +141,21 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 		}
 		return sourceType;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isValidRoot(EObject doc) {
+		EClass source_type = this.getSourceType();
+		if ( source_type==null ) {
+			return false;
+		}
+		if ( !source_type.isInstance(doc)) {
+			return false;
+		}
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

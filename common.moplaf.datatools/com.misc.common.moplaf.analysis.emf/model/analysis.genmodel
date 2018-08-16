@@ -20,6 +20,18 @@
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/addTool">
         <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/addTool/tool"/>
       </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidTool">
+        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidTool/tool"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidExtractor">
+        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidExtractor/tool"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidColumnizer">
+        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidColumnizer/tool"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidCategorizer">
+        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidCategorizer/tool"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//DocComparison">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/extractor"/>
@@ -29,7 +41,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Categorizer"/>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//AnalysisHolder">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisHolder/Analysis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisHolder/Analyses"/>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//AnalysisDomain">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDomain/SuperDomain"/>

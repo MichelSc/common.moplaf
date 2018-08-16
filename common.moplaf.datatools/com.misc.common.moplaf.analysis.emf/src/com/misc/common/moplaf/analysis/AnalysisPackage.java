@@ -276,13 +276,49 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Is Valid Tool</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___IS_VALID_TOOL__DATATOOL = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Is Valid Extractor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___IS_VALID_EXTRACTOR__EXTRACTOR = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Is Valid Columnizer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___IS_VALID_COLUMNIZER__COLUMNIZERABSTRACT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Is Valid Categorizer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___IS_VALID_CATEGORIZER__CATEGORIZER = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Doc Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 3;
+	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 7;
 
 
 	/**
@@ -388,13 +424,13 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_HOLDER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Analysis</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Analyses</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_HOLDER__ANALYSIS = 0;
+	int ANALYSIS_HOLDER__ANALYSES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Holder</em>' class.
@@ -453,13 +489,13 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOMAIN__TASKS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Analysis</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Analyses</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__ANALYSIS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 2;
+	int ANALYSIS_DOMAIN__ANALYSES = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Super Domain</b></em>' container reference.
@@ -471,7 +507,7 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOMAIN__SUPER_DOMAIN = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Sub Domains</b></em>' containment reference.
+	 * The feature id for the '<em><b>Sub Domains</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -642,6 +678,46 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getDocAnalysis__AddTool__DataTool();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidTool(com.misc.common.moplaf.datatools.DataTool) <em>Is Valid Tool</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Tool</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidTool(com.misc.common.moplaf.datatools.DataTool)
+	 * @generated
+	 */
+	EOperation getDocAnalysis__IsValidTool__DataTool();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidExtractor(com.misc.common.moplaf.datatools.Extractor) <em>Is Valid Extractor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Extractor</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidExtractor(com.misc.common.moplaf.datatools.Extractor)
+	 * @generated
+	 */
+	EOperation getDocAnalysis__IsValidExtractor__Extractor();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidColumnizer(com.misc.common.moplaf.datatools.ColumnizerAbstract) <em>Is Valid Columnizer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Columnizer</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidColumnizer(com.misc.common.moplaf.datatools.ColumnizerAbstract)
+	 * @generated
+	 */
+	EOperation getDocAnalysis__IsValidColumnizer__ColumnizerAbstract();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidCategorizer(com.misc.common.moplaf.datatools.Categorizer) <em>Is Valid Categorizer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Categorizer</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidCategorizer(com.misc.common.moplaf.datatools.Categorizer)
+	 * @generated
+	 */
+	EOperation getDocAnalysis__IsValidCategorizer__Categorizer();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.DocComparison <em>Doc Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -717,15 +793,15 @@ public interface AnalysisPackage extends EPackage {
 	EClass getAnalysisHolder();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisHolder#getAnalysis <em>Analysis</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisHolder#getAnalyses <em>Analyses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Analysis</em>'.
-	 * @see com.misc.common.moplaf.analysis.AnalysisHolder#getAnalysis()
+	 * @return the meta object for the containment reference list '<em>Analyses</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisHolder#getAnalyses()
 	 * @see #getAnalysisHolder()
 	 * @generated
 	 */
-	EReference getAnalysisHolder_Analysis();
+	EReference getAnalysisHolder_Analyses();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisDomain <em>Domain</em>}'.
@@ -749,10 +825,10 @@ public interface AnalysisPackage extends EPackage {
 	EReference getAnalysisDomain_SuperDomain();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains <em>Sub Domains</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains <em>Sub Domains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Sub Domains</em>'.
+	 * @return the meta object for the containment reference list '<em>Sub Domains</em>'.
 	 * @see com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains()
 	 * @see #getAnalysisDomain()
 	 * @generated
@@ -865,6 +941,38 @@ public interface AnalysisPackage extends EPackage {
 		EOperation DOC_ANALYSIS___ADD_TOOL__DATATOOL = eINSTANCE.getDocAnalysis__AddTool__DataTool();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Valid Tool</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC_ANALYSIS___IS_VALID_TOOL__DATATOOL = eINSTANCE.getDocAnalysis__IsValidTool__DataTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Extractor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC_ANALYSIS___IS_VALID_EXTRACTOR__EXTRACTOR = eINSTANCE.getDocAnalysis__IsValidExtractor__Extractor();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Columnizer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC_ANALYSIS___IS_VALID_COLUMNIZER__COLUMNIZERABSTRACT = eINSTANCE.getDocAnalysis__IsValidColumnizer__ColumnizerAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Categorizer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DOC_ANALYSIS___IS_VALID_CATEGORIZER__CATEGORIZER = eINSTANCE.getDocAnalysis__IsValidCategorizer__Categorizer();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl <em>Doc Comparison</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -925,12 +1033,12 @@ public interface AnalysisPackage extends EPackage {
 		EClass ANALYSIS_HOLDER = eINSTANCE.getAnalysisHolder();
 
 		/**
-		 * The meta object literal for the '<em><b>Analysis</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Analyses</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ANALYSIS_HOLDER__ANALYSIS = eINSTANCE.getAnalysisHolder_Analysis();
+		EReference ANALYSIS_HOLDER__ANALYSES = eINSTANCE.getAnalysisHolder_Analyses();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
@@ -951,7 +1059,7 @@ public interface AnalysisPackage extends EPackage {
 		EReference ANALYSIS_DOMAIN__SUPER_DOMAIN = eINSTANCE.getAnalysisDomain_SuperDomain();
 
 		/**
-		 * The meta object literal for the '<em><b>Sub Domains</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Sub Domains</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

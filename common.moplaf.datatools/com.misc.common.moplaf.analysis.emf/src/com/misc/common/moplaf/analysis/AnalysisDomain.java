@@ -5,6 +5,7 @@ package com.misc.common.moplaf.analysis;
 import com.misc.common.moplaf.datatools.DataTools;
 
 import com.misc.common.moplaf.job.TaskDomain;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,7 +54,8 @@ public interface AnalysisDomain extends DataTools, TaskDomain, AnalysisHolder {
 	void setSuperDomain(AnalysisDomain value);
 
 	/**
-	 * Returns the value of the '<em><b>Sub Domains</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Sub Domains</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.AnalysisDomain}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSuperDomain <em>Super Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -61,23 +63,12 @@ public interface AnalysisDomain extends DataTools, TaskDomain, AnalysisHolder {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sub Domains</em>' containment reference.
-	 * @see #setSubDomains(AnalysisDomain)
+	 * @return the value of the '<em>Sub Domains</em>' containment reference list.
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDomain_SubDomains()
 	 * @see com.misc.common.moplaf.analysis.AnalysisDomain#getSuperDomain
 	 * @model opposite="SuperDomain" containment="true"
 	 * @generated
 	 */
-	AnalysisDomain getSubDomains();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains <em>Sub Domains</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sub Domains</em>' containment reference.
-	 * @see #getSubDomains()
-	 * @generated
-	 */
-	void setSubDomains(AnalysisDomain value);
+	EList<AnalysisDomain> getSubDomains();
 
 } // AnalysisDomain

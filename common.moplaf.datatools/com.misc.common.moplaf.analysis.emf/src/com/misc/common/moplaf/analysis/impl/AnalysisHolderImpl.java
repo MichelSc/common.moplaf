@@ -28,22 +28,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl#getAnalysis <em>Analysis</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl#getAnalyses <em>Analyses</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class AnalysisHolderImpl extends MinimalEObjectImpl.Container implements AnalysisHolder {
 	/**
-	 * The cached value of the '{@link #getAnalysis() <em>Analysis</em>}' containment reference list.
+	 * The cached value of the '{@link #getAnalyses() <em>Analyses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnalysis()
+	 * @see #getAnalyses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocAnalysis> analysis;
-
+	protected EList<DocAnalysis> analyses;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,11 +67,11 @@ public class AnalysisHolderImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DocAnalysis> getAnalysis() {
-		if (analysis == null) {
-			analysis = new EObjectContainmentEList<DocAnalysis>(DocAnalysis.class, this, AnalysisPackage.ANALYSIS_HOLDER__ANALYSIS);
+	public EList<DocAnalysis> getAnalyses() {
+		if (analyses == null) {
+			analyses = new EObjectContainmentEList<DocAnalysis>(DocAnalysis.class, this, AnalysisPackage.ANALYSIS_HOLDER__ANALYSES);
 		}
-		return analysis;
+		return analyses;
 	}
 
 	/**
@@ -83,8 +82,8 @@ public class AnalysisHolderImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSIS:
-				return ((InternalEList<?>)getAnalysis()).basicRemove(otherEnd, msgs);
+			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSES:
+				return ((InternalEList<?>)getAnalyses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +96,8 @@ public class AnalysisHolderImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSIS:
-				return getAnalysis();
+			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSES:
+				return getAnalyses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +111,9 @@ public class AnalysisHolderImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSIS:
-				getAnalysis().clear();
-				getAnalysis().addAll((Collection<? extends DocAnalysis>)newValue);
+			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSES:
+				getAnalyses().clear();
+				getAnalyses().addAll((Collection<? extends DocAnalysis>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +127,8 @@ public class AnalysisHolderImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSIS:
-				getAnalysis().clear();
+			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSES:
+				getAnalyses().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,8 +142,8 @@ public class AnalysisHolderImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSIS:
-				return analysis != null && !analysis.isEmpty();
+			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSES:
+				return analyses != null && !analyses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

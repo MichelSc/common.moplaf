@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.analysis;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DataTool;
@@ -201,5 +202,37 @@ public interface DocAnalysis extends SuperCategory, DocRef, DataToolContext {
 	 * @generated
 	 */
 	void addTool(DataTool tool);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback isValidTool(DataTool tool);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback isValidExtractor(Extractor tool);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback isValidColumnizer(ColumnizerAbstract tool);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback isValidCategorizer(Categorizer tool);
 
 } // DocAnalysis

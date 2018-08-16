@@ -77,7 +77,7 @@ public class AnalysisHolderItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_HOLDER__ANALYSIS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_HOLDER__ANALYSES);
 		}
 		return childrenFeatures;
 	}
@@ -130,7 +130,7 @@ public class AnalysisHolderItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AnalysisHolder.class)) {
-			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSIS:
+			case AnalysisPackage.ANALYSIS_HOLDER__ANALYSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,7 +150,7 @@ public class AnalysisHolderItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.ANALYSIS_HOLDER__ANALYSIS,
+				(AnalysisPackage.Literals.ANALYSIS_HOLDER__ANALYSES,
 				 AnalysisFactory.eINSTANCE.createDocAnalysis()));
 	}
 

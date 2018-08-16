@@ -174,6 +174,13 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	public boolean isMany() {
 		return true;
 	}
+	
+	@Override
+	public EClass basicGetExtractedType() {
+		return this.getTargetType();
+	}
+
+
 
 	/**
 	 * <!-- begin-user-doc -->

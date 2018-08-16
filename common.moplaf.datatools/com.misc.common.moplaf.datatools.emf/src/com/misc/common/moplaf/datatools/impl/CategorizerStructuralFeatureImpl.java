@@ -211,8 +211,13 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	}
 	
 	
+	/** Specified by Categorizer
+	 * 
+	 */
+	
 
-	/** specified by Categorizer
+	/** 
+	 * Specified by Categorizer
 	 * 
 	 */
 	@Override
@@ -229,6 +234,19 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 			return null;
 		}
 		return object.eGet(feature);
+	}
+
+	
+	/** 
+	 * Specified by Categorizer
+	 * 
+	 */
+	@Override
+	public boolean isValidElementType(EClass type) {
+		if ( this.getSourceType()==null ) {
+			return false;
+		}
+		return this.getSourceType().isSuperTypeOf(type);
 	}
 
 	/**

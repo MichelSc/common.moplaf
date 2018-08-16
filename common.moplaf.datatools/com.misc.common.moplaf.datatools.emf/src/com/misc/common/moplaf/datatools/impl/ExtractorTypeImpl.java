@@ -163,6 +163,11 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 		// valid for any type
 		return true;
 	}
+	
+	@Override
+	public EClass basicGetExtractedType() {
+		return this.getTargetType();
+	}
 
 	/**
 	 * 

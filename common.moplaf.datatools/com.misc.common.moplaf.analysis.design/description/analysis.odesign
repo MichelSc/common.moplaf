@@ -52,7 +52,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </containerMappings>
-        <containerMappings name="di_doctasks_analysis_container" label="anAnalysis container" semanticCandidatesExpression="feature:Analysis" domainClass="analysis::DocAnalysis" childrenPresentation="List">
+        <containerMappings name="di_doctasks_analysis_container" label="anAnalysis container" semanticCandidatesExpression="feature:Analyses" domainClass="analysis::DocAnalysis" childrenPresentation="List">
           <subNodeMappings name="di_doctasks_analysis_container_tools" label="DataTools" semanticCandidatesExpression="feature:DataTools" domainClass="datatools::DataTool">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:Description" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -98,13 +98,13 @@
               <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docClone"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Tasks" containerMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Task" containerMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self">
                 <subModelOperations xsi:type="tool:Let" variableName="tocreate">
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create new Tasks">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create new Task">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation/>
                     </buttons>
@@ -152,6 +152,13 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="Doc" valueExpression="aql:target"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="di_doctasks_tools_actionrun_createanalysis" label="Create Analysis" containerMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="analysis::DocAnalysis" referenceName="Analyses"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

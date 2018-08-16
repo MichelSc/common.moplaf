@@ -244,6 +244,18 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	}
 	
 	
+	/** 
+	 * Specified by ColumnizerColumn
+	 * 
+	 */
+	@Override
+	public boolean isValidElementType(EClass type) {
+		if ( this.getSourceType()==null ) {
+			return false;
+		}
+		return this.getSourceType().isSuperTypeOf(type);
+	}
+
 	/**
 	 * Specified by ColumnizerColumn
 	 */
