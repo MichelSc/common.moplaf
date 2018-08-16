@@ -22,7 +22,7 @@ public class AnalysisServices {
      * @param self
      * @return
      */
-    public EList<DataTool> getNewDataTools(AnalysisDomain domain, DocAnalysis analysis, DataToolType type) {
+    private EList<DataTool> getNewDataTools(AnalysisDomain domain, DocAnalysis analysis, DataToolType type) {
     	EList<DataTool> new_tools = domain.getNewDataTools(type);
     	Iterator<DataTool> iterator = new_tools.iterator();
     	while( iterator.hasNext() ) {
@@ -32,6 +32,18 @@ public class AnalysisServices {
     		}
     	}
   		return new_tools;
+    }
+    
+    public EList<DataTool> getNewExtractors(AnalysisDomain domain, DocAnalysis analysis) {
+  		return this.getNewDataTools(domain, analysis, DataToolType.EXTRACTOR);
+    }
+    
+    public EList<DataTool> getNewColumnizers(AnalysisDomain domain, DocAnalysis analysis) {
+  		return this.getNewDataTools(domain, analysis, DataToolType.COLUMNIZER);
+    }
+    
+    public EList<DataTool> getNewCategorizers(AnalysisDomain domain, DocAnalysis analysis) {
+  		return this.getNewDataTools(domain, analysis, DataToolType.CATEGORIZER);
     }
     
     /**

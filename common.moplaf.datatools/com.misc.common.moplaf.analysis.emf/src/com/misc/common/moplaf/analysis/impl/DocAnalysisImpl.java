@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.analysis.impl;
 
+import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.common.EnabledFeedback;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -51,6 +53,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDataTools <em>Data Tools</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDomain <em>Domain</em>}</li>
  * </ul>
  *
  * @generated
@@ -410,6 +413,47 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisDomain getDomain() {
+		if (eContainerFeatureID() != AnalysisPackage.DOC_ANALYSIS__DOMAIN) return null;
+		return (AnalysisDomain)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDomain(AnalysisDomain newDomain, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newDomain, AnalysisPackage.DOC_ANALYSIS__DOMAIN, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDomain(AnalysisDomain newDomain) {
+		if (newDomain != eInternalContainer() || (eContainerFeatureID() != AnalysisPackage.DOC_ANALYSIS__DOMAIN && newDomain != null)) {
+			if (EcoreUtil.isAncestor(this, newDomain))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newDomain != null)
+				msgs = ((InternalEObject)newDomain).eInverseAdd(this, AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES, AnalysisDomain.class, msgs);
+			msgs = basicSetDomain(newDomain, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__DOMAIN, newDomain, newDomain));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
 		// input
@@ -545,6 +589,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				if (doc != null)
 					msgs = ((InternalEObject)doc).eInverseRemove(this, JobPackage.DOC__REFS, Doc.class, msgs);
 				return basicSetDoc((Doc)otherEnd, msgs);
+			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetDomain((AnalysisDomain)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -565,8 +613,24 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				return basicSetColumnizer(null, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				return ((InternalEList<?>)getCategorizers()).basicRemove(otherEnd, msgs);
+			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
+				return basicSetDomain(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
+				return eInternalContainer().eInverseRemove(this, AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES, AnalysisDomain.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -594,6 +658,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				return getDescription();
 			case AnalysisPackage.DOC_ANALYSIS__DATA_TOOLS:
 				return getDataTools();
+			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
+				return getDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -626,6 +692,9 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				getCategorizers().clear();
 				getCategorizers().addAll((Collection<? extends Categorizer>)newValue);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
+				setDomain((AnalysisDomain)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -656,6 +725,9 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				getCategorizers().clear();
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
+				setDomain((AnalysisDomain)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -684,6 +756,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case AnalysisPackage.DOC_ANALYSIS__DATA_TOOLS:
 				return !getDataTools().isEmpty();
+			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
+				return getDomain() != null;
 		}
 		return super.eIsSet(featureID);
 	}

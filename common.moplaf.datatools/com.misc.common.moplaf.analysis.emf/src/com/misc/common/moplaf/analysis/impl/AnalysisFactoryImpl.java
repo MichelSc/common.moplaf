@@ -58,7 +58,6 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 		switch (eClass.getClassifierID()) {
 			case AnalysisPackage.DOC_ANALYSIS: return createDocAnalysis();
 			case AnalysisPackage.DOC_COMPARISON: return createDocComparison();
-			case AnalysisPackage.ANALYSIS_HOLDER: return createAnalysisHolder();
 			case AnalysisPackage.ANALYSIS_DOMAIN: return createAnalysisDomain();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -83,16 +82,6 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	public DocComparison createDocComparison() {
 		DocComparisonImpl docComparison = new DocComparisonImpl();
 		return docComparison;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AnalysisHolder createAnalysisHolder() {
-		AnalysisHolderImpl analysisHolder = new AnalysisHolderImpl();
-		return analysisHolder;
 	}
 
 	/**

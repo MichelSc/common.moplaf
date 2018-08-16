@@ -71,8 +71,8 @@ public class AnalysisDomainItemProvider extends DataToolsItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JobPackage.Literals.DOCS__DOCS);
 			childrenFeatures.add(JobPackage.Literals.TASKS__TASKS);
-			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_HOLDER__ANALYSES);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_DOMAIN__SUB_DOMAINS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_DOMAIN__ANALYSES);
 		}
 		return childrenFeatures;
 	}
@@ -127,8 +127,8 @@ public class AnalysisDomainItemProvider extends DataToolsItemProvider {
 		switch (notification.getFeatureID(AnalysisDomain.class)) {
 			case AnalysisPackage.ANALYSIS_DOMAIN__DOCS:
 			case AnalysisPackage.ANALYSIS_DOMAIN__TASKS:
-			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUB_DOMAINS:
+			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -153,13 +153,13 @@ public class AnalysisDomainItemProvider extends DataToolsItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.ANALYSIS_HOLDER__ANALYSES,
-				 AnalysisFactory.eINSTANCE.createDocAnalysis()));
+				(AnalysisPackage.Literals.ANALYSIS_DOMAIN__SUB_DOMAINS,
+				 AnalysisFactory.eINSTANCE.createAnalysisDomain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.ANALYSIS_DOMAIN__SUB_DOMAINS,
-				 AnalysisFactory.eINSTANCE.createAnalysisDomain()));
+				(AnalysisPackage.Literals.ANALYSIS_DOMAIN__ANALYSES,
+				 AnalysisFactory.eINSTANCE.createDocAnalysis()));
 	}
 
 	/**

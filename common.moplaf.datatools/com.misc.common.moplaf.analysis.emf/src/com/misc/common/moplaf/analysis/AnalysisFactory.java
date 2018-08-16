@@ -40,15 +40,6 @@ public interface AnalysisFactory extends EFactory {
 	DocComparison createDocComparison();
 
 	/**
-	 * Returns a new object of class '<em>Holder</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Holder</em>'.
-	 * @generated
-	 */
-	AnalysisHolder createAnalysisHolder();
-
-	/**
 	 * Returns a new object of class '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

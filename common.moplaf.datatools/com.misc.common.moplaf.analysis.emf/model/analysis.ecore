@@ -34,6 +34,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
         eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"
+        eType="#//AnalysisDomain" eOpposite="#//AnalysisDomain/Analyses"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocComparison" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Matcher">
     <eStructuralFeatures xsi:type="ecore:EReference" name="extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"/>
@@ -44,14 +46,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnalysisHolder">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Analyses" upperBound="-1"
-        eType="#//DocAnalysis" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTools ../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain #//AnalysisHolder">
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTools ../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain">
     <eStructuralFeatures xsi:type="ecore:EReference" name="SuperDomain" eType="#//AnalysisDomain"
         eOpposite="#//AnalysisDomain/SubDomains"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubDomains" upperBound="-1"
         eType="#//AnalysisDomain" containment="true" eOpposite="#//AnalysisDomain/SuperDomain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Analyses" upperBound="-1"
+        eType="#//DocAnalysis" containment="true" eOpposite="#//DocAnalysis/Domain"/>
   </eClassifiers>
 </ecore:EPackage>

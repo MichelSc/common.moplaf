@@ -18,13 +18,14 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSuperDomain <em>Super Domain</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains <em>Sub Domains</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDomain#getAnalyses <em>Analyses</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDomain()
  * @model
  * @generated
  */
-public interface AnalysisDomain extends DataTools, TaskDomain, AnalysisHolder {
+public interface AnalysisDomain extends DataTools, TaskDomain {
 	/**
 	 * Returns the value of the '<em><b>Super Domain</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains <em>Sub Domains</em>}'.
@@ -70,5 +71,23 @@ public interface AnalysisDomain extends DataTools, TaskDomain, AnalysisHolder {
 	 * @generated
 	 */
 	EList<AnalysisDomain> getSubDomains();
+
+	/**
+	 * Returns the value of the '<em><b>Analyses</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.DocAnalysis}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Analyses</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Analyses</em>' containment reference list.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDomain_Analyses()
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getDomain
+	 * @model opposite="Domain" containment="true"
+	 * @generated
+	 */
+	EList<DocAnalysis> getAnalyses();
 
 } // AnalysisDomain

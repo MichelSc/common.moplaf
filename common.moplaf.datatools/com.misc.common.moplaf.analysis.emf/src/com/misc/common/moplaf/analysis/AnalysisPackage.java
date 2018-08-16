@@ -186,13 +186,22 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__DATA_TOOLS = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Domain</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__DOMAIN = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Doc Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 8;
+	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -414,44 +423,6 @@ public interface AnalysisPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl <em>Holder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl
-	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisHolder()
-	 * @generated
-	 */
-	int ANALYSIS_HOLDER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Analyses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_HOLDER__ANALYSES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Holder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_HOLDER_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Holder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_HOLDER_OPERATION_COUNT = 0;
-
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,7 +430,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisDomain()
 	 * @generated
 	 */
-	int ANALYSIS_DOMAIN = 3;
+	int ANALYSIS_DOMAIN = 2;
 
 	/**
 	 * The feature id for the '<em><b>Data Tools</b></em>' containment reference list.
@@ -489,22 +460,13 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOMAIN__TASKS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Analyses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_DOMAIN__ANALYSES = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Super Domain</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__SUPER_DOMAIN = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 3;
+	int ANALYSIS_DOMAIN__SUPER_DOMAIN = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Sub Domains</b></em>' containment reference list.
@@ -513,7 +475,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__SUB_DOMAINS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 4;
+	int ANALYSIS_DOMAIN__SUB_DOMAINS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Analyses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOMAIN__ANALYSES = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
@@ -658,6 +629,17 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocAnalysis_DataTools();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Domain</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getDomain()
+	 * @see #getDocAnalysis()
+	 * @generated
+	 */
+	EReference getDocAnalysis_Domain();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -783,27 +765,6 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocComparison_Categorizer();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisHolder <em>Holder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Holder</em>'.
-	 * @see com.misc.common.moplaf.analysis.AnalysisHolder
-	 * @generated
-	 */
-	EClass getAnalysisHolder();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisHolder#getAnalyses <em>Analyses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Analyses</em>'.
-	 * @see com.misc.common.moplaf.analysis.AnalysisHolder#getAnalyses()
-	 * @see #getAnalysisHolder()
-	 * @generated
-	 */
-	EReference getAnalysisHolder_Analyses();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -834,6 +795,17 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAnalysisDomain_SubDomains();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getAnalyses <em>Analyses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Analyses</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDomain#getAnalyses()
+	 * @see #getAnalysisDomain()
+	 * @generated
+	 */
+	EReference getAnalysisDomain_Analyses();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -923,6 +895,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOC_ANALYSIS__DATA_TOOLS = eINSTANCE.getDocAnalysis_DataTools();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC_ANALYSIS__DOMAIN = eINSTANCE.getDocAnalysis_Domain();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
@@ -1023,24 +1003,6 @@ public interface AnalysisPackage extends EPackage {
 		EReference DOC_COMPARISON__CATEGORIZER = eINSTANCE.getDocComparison_Categorizer();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl <em>Holder</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.analysis.impl.AnalysisHolderImpl
-		 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisHolder()
-		 * @generated
-		 */
-		EClass ANALYSIS_HOLDER = eINSTANCE.getAnalysisHolder();
-
-		/**
-		 * The meta object literal for the '<em><b>Analyses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANALYSIS_HOLDER__ANALYSES = eINSTANCE.getAnalysisHolder_Analyses();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1065,6 +1027,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANALYSIS_DOMAIN__SUB_DOMAINS = eINSTANCE.getAnalysisDomain_SubDomains();
+
+		/**
+		 * The meta object literal for the '<em><b>Analyses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS_DOMAIN__ANALYSES = eINSTANCE.getAnalysisDomain_Analyses();
 
 	}
 

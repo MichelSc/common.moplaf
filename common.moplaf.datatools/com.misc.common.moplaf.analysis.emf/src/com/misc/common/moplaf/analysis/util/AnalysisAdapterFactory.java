@@ -85,10 +85,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createDocComparisonAdapter();
 			}
 			@Override
-			public Adapter caseAnalysisHolder(AnalysisHolder object) {
-				return createAnalysisHolderAdapter();
-			}
-			@Override
 			public Adapter caseAnalysisDomain(AnalysisDomain object) {
 				return createAnalysisDomainAdapter();
 			}
@@ -173,20 +169,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocComparisonAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.AnalysisHolder <em>Holder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.analysis.AnalysisHolder
-	 * @generated
-	 */
-	public Adapter createAnalysisHolderAdapter() {
 		return null;
 	}
 
