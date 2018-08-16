@@ -150,7 +150,7 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 			public String getText(Object element) {
 				SeriesProvider seriesprovider = this.getOuterType();
 				IItemGridsProvider gridsprovider = seriesprovider.gridsProvider;
-				return gridsprovider.getColumnText(seriesprovider.element, seriesprovider.grid, this.category);
+				return gridsprovider.getRowText(seriesprovider.element, seriesprovider.grid, this.category);
 			}
 		};
 		
@@ -179,23 +179,29 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 		}
 		
 		public Series[] getSeries() {
-			Collection<?> rows = this.gridsProvider.getRows(this.element, this.grid);
-			Series[] series = new Series[rows.size()];
+			Collection<?> columns = this.gridsProvider.getColumns(this.element, this.grid);
+			Series[] series = new Series[columns.size()];
 			int i = 0;
-			for ( Object row: rows) {
-				series[i++] = new Series(row);
+			for ( Object column: columns) {
+				series[i++] = new Series(column);
 			}
 			return series;
 		}
 
 		public Category[] getCategories() {
-			Collection<?> columns = this.gridsProvider.getColumns(this.element, this.grid);
-			Category[] categories = new Category[columns.size()];
+			Collection<?> rows = this.gridsProvider.getRows(this.element, this.grid);
+			Category[] categories = new Category[rows.size()];
 			int i = 0;
-			for ( Object column: columns) {
-				categories[i++] = new Category(column);
+			for ( Object row: rows) {
+				categories[i++] = new Category(row);
 			}
 			return categories;
+		}
+		
+		public float getCategoryAmount(Series series, Category category) {
+			Object value_as_object = this.gridsProvider.getCellValue(this.element, this.grid, category.category, series.series);
+			int value_type         = this.gridsProvider.getCellType (this.element, this.grid, category.category, series.series);
+			return Util.getFloatValue(value_as_object, value_type);
 		}
 
 	}
@@ -266,9 +272,7 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 	@Override
 	public float getCategoryAmount(Object element, Object provider, Object series, Object category) {
 		SeriesProvider series_provider = (SeriesProvider) provider;
-		Object value_as_object = series_provider.gridsProvider.getCellValue(series_provider.element, series_provider.grid, category, series);
-		int value_type         = series_provider.gridsProvider.getCellType(series_provider.element, series_provider.grid, category, series);
-		return Util.getFloatValue(value_as_object, value_type);
+		return series_provider.getCategoryAmount((SeriesProvider.Series) series, (SeriesProvider.Category) category);
 	};
 	
 }

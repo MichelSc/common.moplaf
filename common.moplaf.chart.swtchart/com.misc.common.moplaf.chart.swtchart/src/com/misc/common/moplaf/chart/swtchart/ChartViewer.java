@@ -56,19 +56,20 @@ public class ChartViewer extends ChartViewerAbstract {
 				Object first_series = all_series[0];
 				String first_series_name = this.getILabelProvider().getText(first_series);
 				Color first_series_color = this.getIColorProvider().getBackground(first_series);
-				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_series);
+				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_bar_chart);
 				for ( int i=0; i<all_categories.length; i++) {
 					Object category = all_categories[i];
 					String category_name = this.getILabelProvider().getText(category);
 					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, first_series, category);
-				
+
+					System.out.format("category %s, amount %f \n", category_name, category_value);
+
 					// create bar series
-					IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
-					    .createSeries(SeriesType.BAR, category_name);
+					//IBarSeries barSeries = (IBarSeries) chart.getSeriesSet().createSeries(SeriesType.BAR, category_name);
 					//barSeries.setYSeries(category_value);
 
 					// adjust the axis range
-					chart.getAxisSet().adjustRange();
+					// chart.getAxisSet().adjustRange();
 
 				}								
 			}

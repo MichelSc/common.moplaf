@@ -262,18 +262,6 @@ public class CategoryAbstractItemProvider
 	}
 	
 	/**
-	 * Implement the interface IItemGridsProvider
-	 */
-	static GridColumnsProvider CATEGORY_COLUMNS = GridColumnsProvider.constructGridColumnsProvider()
-			.addColumn(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_LABEL, 70)
-			.addColumn(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70)
-			;
-	
-	static GridSheetsProvider CATEGORY_SHEETS = GridSheetsProvider.constructGridSheetsProvider()
-			.addSheet(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, CATEGORY_COLUMNS, IItemGridsProvider.SHEET_TRAITS_BARCHART)
-			;
-
-	/**
 	 * Class CategoryFlushCommand
 	 * @author MiSc
 	 *
@@ -309,6 +297,21 @@ public class CategoryAbstractItemProvider
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+
+
+	/**
+	 * Implement the interface IItemGridsProvider
+	 */
+	static GridColumnsProvider CATEGORY_COLUMNS = GridColumnsProvider.constructGridColumnsProvider()
+			.addColumn(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70)
+			;
+	
+	static GridSheetsProvider CATEGORY_SHEETS = GridSheetsProvider.constructGridSheetsProvider()
+			.addSheet(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
+					  DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_LABEL, 
+					  CATEGORY_COLUMNS, 
+					  IItemGridsProvider.SHEET_TRAITS_BARCHART)
+			;
 
 
 	/**
