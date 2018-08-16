@@ -22,6 +22,14 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <edgeMappings name="di_doctasks_analysisdoc" sourceMapping="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']" targetMapping="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_doc_container']" targetFinderExpression="aql:self.Doc">
+          <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="di_doctasks_doc_container" label="aDoc container" semanticCandidatesExpression="feature:Docs" domainClass="job::Doc" childrenPresentation="List">
           <subNodeMappings name="di_doctasks_doc_container_ki" label="Key Indicator" semanticCandidatesExpression="feature:Indicators" domainClass="job::KeyIndicator">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:Description" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
