@@ -1,7 +1,7 @@
 package com.misc.common.moplaf.chart.swtchart;
 
 import org.eclipse.swt.widgets.Composite;
-
+import org.eclipse.ui.views.properties.PinPropertySheetAction;
 import com.misc.common.moplaf.chart.emf.editor.views.ChartViewAbstract;
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 
@@ -13,8 +13,6 @@ public class ChartView extends ChartViewAbstract {
 	public static final String ID = "com.misc.common.moplaf.chart.swtchart.ChartView";
 	
 	public ChartView() {
-		//pinAction = new
-		//this.contributeToActionBars();
 	}
 	
 	@Override
@@ -22,5 +20,4 @@ public class ChartView extends ChartViewAbstract {
 		return new ChartViewer(parent);
 	}
 
-	
 }

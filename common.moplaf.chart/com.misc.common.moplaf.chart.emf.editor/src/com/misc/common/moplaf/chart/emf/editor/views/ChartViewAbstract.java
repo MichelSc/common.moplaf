@@ -10,9 +10,11 @@ import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.views.properties.PinPropertySheetAction;
 
 import com.misc.common.moplaf.chart.emf.editor.provider.AdapterFactorySeriesProvider;
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
+import com.misc.common.moplaf.emf.editor.action.PinViewAction;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
 
@@ -66,7 +68,11 @@ public abstract class ChartViewAbstract extends ViewAbstract {
 		         System.out.println("Something changed in some resoure: "+event.toString());
 		      }
 		   };
-	   ResourcesPlugin.getWorkspace().addResourceChangeListener(this.resourceListener);
+	    ResourcesPlugin.getWorkspace().addResourceChangeListener(this.resourceListener);
+	   
+		pinAction = new PinViewAction();
+		this.contributeToActionBars();
+	   
 	} // createControl method
 	
 	/**
@@ -77,17 +83,18 @@ public abstract class ChartViewAbstract extends ViewAbstract {
 	class SiteSelectionListener implements ISelectionListener {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-			
-			if (  ChartViewAbstract.this.viewer != null && part!= ChartViewAbstract.this) {
-				if (  !selection.isEmpty() 
-				  && selection instanceof IStructuredSelection) {
-					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					ChartViewAbstract.this.viewer.setInput(structuredSelection.getFirstElement());
-				} // there is a selection
-				else {
-					ChartViewAbstract.this.viewer.setInput(null);
-				}
-			} // there is a viewer
+			if( !pinAction.isChecked() ) {
+				if (  ChartViewAbstract.this.viewer != null && part!= ChartViewAbstract.this) {
+					if (  !selection.isEmpty() 
+					  && selection instanceof IStructuredSelection) {
+						IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+						ChartViewAbstract.this.viewer.setInput(structuredSelection.getFirstElement());
+					} // there is a selection
+					else {
+						ChartViewAbstract.this.viewer.setInput(null);
+					}
+				} // there is a viewer
+			}
 		}
 	}
 	

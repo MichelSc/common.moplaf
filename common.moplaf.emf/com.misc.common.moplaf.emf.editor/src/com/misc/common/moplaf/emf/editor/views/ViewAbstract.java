@@ -9,6 +9,7 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -51,9 +52,16 @@ public abstract class ViewAbstract  extends ViewPart{
 	}	
 
 	protected void contributeToActionBars() {
-		IActionBars bars = getViewSite().getActionBars();
-		fillLocalPullDown(bars.getMenuManager());
-		fillLocalToolBar(bars.getToolBarManager());
+		IViewSite site = getViewSite();
+				
+		if( site != null ) {
+			IActionBars bars = site.getActionBars();
+			fillLocalPullDown(bars.getMenuManager());
+			fillLocalToolBar(bars.getToolBarManager());
+		}
+		else {
+			System.out.println("** site is null !");
+		}
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
