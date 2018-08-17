@@ -40,11 +40,15 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean isValidElementType(EClass type) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		if( type == null ) {
+			return false;
+		}
+		return this.isValidElementTypeImpl(type);
+	}
+
+	protected boolean isValidElementTypeImpl(EClass type) {
 		throw new UnsupportedOperationException();
 	}
 

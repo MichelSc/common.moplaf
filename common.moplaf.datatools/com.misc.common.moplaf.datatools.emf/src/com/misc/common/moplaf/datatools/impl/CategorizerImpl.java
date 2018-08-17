@@ -63,9 +63,21 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean isValidElementType(EClass type) {
+		if ( type == null ) {
+			return false;
+		}
+		return this.isValidElementTypeImpl(type);
+	}
+
+	/**
+	 * To be overloaded by the concrete class
+	 * Guaranteed that parameter type is non null
+	 * @param type
+	 * @return
+	 */
+	protected boolean isValidElementTypeImpl(EClass type) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

@@ -112,7 +112,7 @@
               <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:analysisRefresh"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Task" containerMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="di_doctasks_tools_createtask" label="Create Task" containerMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -129,9 +129,9 @@
                         </firstModelOperations>
                       </initialOperation>
                     </buttons>
-                    <page name="di_doctasks_tools_actionrun_createtask_page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_actionrun_createtask']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
-                    <groups name="di_doctasks_tools_actionrun_createtask_group" labelExpression="Select Task to create" domainClass="job::TaskDomain" semanticCandidateExpression="var:self">
-                      <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_actionrun_createtask_list" labelExpression="Tasks" valueExpression="service:getNewTasks" displayExpression="aql:value.Description">
+                    <page name="di_doctasks_tools_createtask_page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_createtask']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                    <groups name="di_doctasks_tools_createtask_group" labelExpression="Select Task to create" domainClass="job::TaskDomain" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_createtask_list" labelExpression="Tasks" valueExpression="service:getNewTasks" displayExpression="aql:value.Description">
                         <onClickOperation>
                           <firstModelOperations xsi:type="tool:Let" variableName="tocreate" valueExpression="aql:selection"/>
                         </onClickOperation>
@@ -197,7 +197,7 @@
                 <subModelOperations xsi:type="tool:Let" variableName="tocreate_extractor"/>
                 <subModelOperations xsi:type="tool:Let" variableName="tocreate_columnizer"/>
                 <subModelOperations xsi:type="tool:Let" variableName="tocreate_categorizers"/>
-                <subModelOperations xsi:type="properties:WizardModelOperation" windowTitleExpression="Wizard create Extractor / Columnizer / Categorizer" isPageCompleteExpression="[input. ancestors()/]">
+                <subModelOperations xsi:type="properties:WizardModelOperation" windowTitleExpression="Wizard create Extractor / Columnizer / Categorizer">
                   <pages name="di_doctasks_tools_wizard_createextractor" label="Select an Extractor" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.0"/>
                   <pages name="di_doctasks_tools_wizard_createcolumnizer" label="Select a Columnizer" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.1"/>
                   <pages name="di_doctasks_tools_wizard_createcolumnizers" label="Select Categorizers" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.2"/>

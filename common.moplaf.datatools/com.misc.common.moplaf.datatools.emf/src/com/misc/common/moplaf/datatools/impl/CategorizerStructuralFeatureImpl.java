@@ -242,7 +242,7 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	 * 
 	 */
 	@Override
-	public boolean isValidElementType(EClass type) {
+	protected boolean isValidElementTypeImpl(EClass type) {
 		if ( this.getSourceType()==null ) {
 			return false;
 		}

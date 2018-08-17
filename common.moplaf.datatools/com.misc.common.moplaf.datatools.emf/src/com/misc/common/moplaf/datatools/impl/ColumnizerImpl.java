@@ -94,7 +94,7 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 	 * 
 	 */
 	@Override
-	public boolean isValidElementType(EClass type) {
+	protected boolean isValidElementTypeImpl(EClass type) {
 		for( ColumnizerColumn column : this.getColumns()) {
 			if ( !column.isValidElementType(type)) {
 				return false;
