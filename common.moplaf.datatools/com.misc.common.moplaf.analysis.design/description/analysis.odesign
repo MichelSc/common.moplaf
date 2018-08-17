@@ -106,6 +106,12 @@
               <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docClone"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="di_doctasks_tools_actionrefresh" label="Refresh an Analysis" precondition="service:analysisRefreshEnabled">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:analysisRefresh"/>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="di_doctasks_tools_actionrun_createtask" label="Create Task" containerMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_task_container']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -180,37 +186,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_createextractor" label="Create Extractor" nodeMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']/@subNodeMappings[name='di_doctasks_analysis_container_tools']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self">
-                <subModelOperations xsi:type="tool:Let" variableName="domain" valueExpression="var:diagram"/>
-                <subModelOperations xsi:type="tool:Let" variableName="tocreate">
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create new Extractor">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation/>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:tocreate->first()">
-                          <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="aql:container" featureName="Extractor"/>
-                        </firstModelOperations>
-                      </initialOperation>
-                    </buttons>
-                    <page name="di_doctasks_tools_createextractor_page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_createextractor']/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@groups.0"/>
-                    <groups name="di_doctasks_tools_createextractor_group" labelExpression="Select Extractor to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container">
-                      <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_createextractor_list" labelExpression="Extractors" valueExpression="service:domain.getNewExtractors(self)" displayExpression="aql:value.Description">
-                        <onClickOperation>
-                          <firstModelOperations xsi:type="tool:Let" variableName="tocreate" valueExpression="aql:selection"/>
-                        </onClickOperation>
-                      </controls>
-                    </groups>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="di_doctasks_tools_wizard" label="Create Extractor / Columnizer / Categorizer" precondition="aql:container.Doc &lt;> null" nodeMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']/@subNodeMappings[name='di_doctasks_analysis_container_tools']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -221,10 +196,11 @@
                 <subModelOperations xsi:type="tool:Let" variableName="element_type"/>
                 <subModelOperations xsi:type="tool:Let" variableName="tocreate_extractor"/>
                 <subModelOperations xsi:type="tool:Let" variableName="tocreate_columnizer"/>
-                <subModelOperations xsi:type="tool:Let" variableName="tocreate_categorizer"/>
-                <subModelOperations xsi:type="properties:WizardModelOperation" windowTitleExpression="Wizard create Extractor / Columnizer / Categorizer" isPageCompleteExpression="aql: tocreate_extractor&lt;>null ">
+                <subModelOperations xsi:type="tool:Let" variableName="tocreate_categorizers"/>
+                <subModelOperations xsi:type="properties:WizardModelOperation" windowTitleExpression="Wizard create Extractor / Columnizer / Categorizer" isPageCompleteExpression="[input. ancestors()/]">
                   <pages name="di_doctasks_tools_wizard_createextractor" label="Select an Extractor" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.0"/>
                   <pages name="di_doctasks_tools_wizard_createcolumnizer" label="Select a Columnizer" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.1"/>
+                  <pages name="di_doctasks_tools_wizard_createcolumnizers" label="Select Categorizers" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.6/@groups.2"/>
                   <groups name="di_doctasks_tools_wizart_extractorgroup" labelExpression="Select Extractor to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container">
                     <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_extractorlist" labelExpression="Extractors" valueExpression="service:domain.getNewExtractors(doc)" displayExpression="aql:value.Description">
                       <onClickOperation>
@@ -241,6 +217,16 @@
                       </onClickOperation>
                     </controls>
                   </groups>
+                  <groups name="di_doctasks_tools_wizart_categorizergroup" labelExpression="Select Categorizers to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container">
+                    <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_categorizerlist" labelExpression="Categorizers" valueExpression="service:domain.getNewCategorizers(element_type)" displayExpression="aql:value.Description">
+                      <onClickOperation>
+                        <firstModelOperations xsi:type="tool:Let" variableName="tocreate_categorizer" valueExpression="aql:selection->first()"/>
+                      </onClickOperation>
+                    </controls>
+                  </groups>
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docAnalysisSetDataTools(tocreate_extractor, tocreate_columnizer, tocreate_categorizer)"/>
+                  </initialOperation>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

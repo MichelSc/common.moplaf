@@ -5,7 +5,6 @@ package com.misc.common.moplaf.analysis.impl;
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
-import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.IMoplafObject;
 import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.datatools.Categorizer;
@@ -492,76 +491,6 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EnabledFeedback isValidTool(DataTool tool) {
-		if ( tool instanceof Extractor ) {
-			return this.isValidExtractor((Extractor)tool);
-		} 
-		if ( tool instanceof ColumnizerAbstract ) {
-			return this.isValidColumnizer((ColumnizerAbstract)tool);
-		} 
-		if ( tool instanceof Categorizer ) {
-			return this.isValidCategorizer((Categorizer)tool);
-		} 
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EnabledFeedback isValidExtractor(Extractor tool) {
-		Doc doc = this.getDoc();
-		if ( doc==null ) {
-			return new EnabledFeedback(false, "No document");
-		}
-		if ( !tool.isValidRoot(doc)) {
-			return new EnabledFeedback(false, String.format("%s is no valid root for extractor %s", this.eClass().getName(), tool.getDescription()));
-		}
-		return EnabledFeedback.NOFEEDBACK;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EnabledFeedback isValidColumnizer(ColumnizerAbstract tool) {
-		Extractor extractor = this.getExtractor();
-		if ( extractor==null ) {
-			return new EnabledFeedback(false, "No extractor");
-		}
-		EClass extracted_type = extractor.getExtractedType();
-		if ( extracted_type==null ) {
-			return new EnabledFeedback(false, "No extracted type");
-		}
-		if ( !tool.isValidElementType(extracted_type)) {
-			return new EnabledFeedback(false, String.format("Extracted type %s is not valid type for columnizer %s", extracted_type.getName(), tool.getDescription()));
-		}
-		return EnabledFeedback.NOFEEDBACK;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EnabledFeedback isValidCategorizer(Categorizer tool) {
-		Extractor extractor = this.getExtractor();
-		if ( extractor==null ) {
-			return new EnabledFeedback(false, "No extractor");
-		}
-		EClass extracted_type = extractor.getExtractedType();
-		if ( extracted_type==null ) {
-			return new EnabledFeedback(false, "No extracted type");
-		}
-		if ( !tool.isValidElementType(extracted_type)) {
-			return new EnabledFeedback(false, String.format("Extracted type %s is not valid type for categorizer %s", extracted_type.getName(), tool.getDescription()));
-		}
-		return EnabledFeedback.NOFEEDBACK;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public EList<EClass> getDomainTypes() {
 		BasicEList<EClass> classes = new BasicEList<EClass>();
 		Doc doc = this.getDoc();
@@ -840,14 +769,6 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			case AnalysisPackage.DOC_ANALYSIS___ADD_TOOL__DATATOOL:
 				addTool((DataTool)arguments.get(0));
 				return null;
-			case AnalysisPackage.DOC_ANALYSIS___IS_VALID_TOOL__DATATOOL:
-				return isValidTool((DataTool)arguments.get(0));
-			case AnalysisPackage.DOC_ANALYSIS___IS_VALID_EXTRACTOR__EXTRACTOR:
-				return isValidExtractor((Extractor)arguments.get(0));
-			case AnalysisPackage.DOC_ANALYSIS___IS_VALID_COLUMNIZER__COLUMNIZERABSTRACT:
-				return isValidColumnizer((ColumnizerAbstract)arguments.get(0));
-			case AnalysisPackage.DOC_ANALYSIS___IS_VALID_CATEGORIZER__CATEGORIZER:
-				return isValidCategorizer((Categorizer)arguments.get(0));
 			case AnalysisPackage.DOC_ANALYSIS___GET_DOMAIN_TYPES:
 				return getDomainTypes();
 		}

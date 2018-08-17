@@ -7,18 +7,6 @@
     <eOperations name="addTool">
       <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"/>
     </eOperations>
-    <eOperations name="isValidTool" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
-      <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"/>
-    </eOperations>
-    <eOperations name="isValidExtractor" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
-      <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"/>
-    </eOperations>
-    <eOperations name="isValidColumnizer" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
-      <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//ColumnizerAbstract"/>
-    </eOperations>
-    <eOperations name="isValidCategorizer" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
-      <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//ColumnizerAbstract"

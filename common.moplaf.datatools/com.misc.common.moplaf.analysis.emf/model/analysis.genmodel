@@ -21,18 +21,6 @@
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/addTool">
         <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/addTool/tool"/>
       </genOperations>
-      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidTool">
-        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidTool/tool"/>
-      </genOperations>
-      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidExtractor">
-        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidExtractor/tool"/>
-      </genOperations>
-      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidColumnizer">
-        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidColumnizer/tool"/>
-      </genOperations>
-      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/isValidCategorizer">
-        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/isValidCategorizer/tool"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//DocComparison">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/extractor"/>

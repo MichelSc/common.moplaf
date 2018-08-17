@@ -240,15 +240,6 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS___FLUSH = DatatoolsPackage.SUPER_CATEGORY___FLUSH;
 
 	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS___IS_VALID_ROOT__EOBJECT = DatatoolsPackage.SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT;
-
-	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,49 +276,13 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS___IS_VALID_TOOL__DATATOOL = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Valid Extractor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS___IS_VALID_EXTRACTOR__EXTRACTOR = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Valid Columnizer</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS___IS_VALID_COLUMNIZER__COLUMNIZERABSTRACT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Is Valid Categorizer</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS___IS_VALID_CATEGORIZER__CATEGORIZER = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 6;
-
-	/**
 	 * The number of operations of the '<em>Doc Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 7;
+	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.SUPER_CATEGORY_OPERATION_COUNT + 3;
 
 
 	/**
@@ -660,46 +615,6 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getDocAnalysis__AddTool__DataTool();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidTool(com.misc.common.moplaf.datatools.DataTool) <em>Is Valid Tool</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Tool</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidTool(com.misc.common.moplaf.datatools.DataTool)
-	 * @generated
-	 */
-	EOperation getDocAnalysis__IsValidTool__DataTool();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidExtractor(com.misc.common.moplaf.datatools.Extractor) <em>Is Valid Extractor</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Extractor</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidExtractor(com.misc.common.moplaf.datatools.Extractor)
-	 * @generated
-	 */
-	EOperation getDocAnalysis__IsValidExtractor__Extractor();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidColumnizer(com.misc.common.moplaf.datatools.ColumnizerAbstract) <em>Is Valid Columnizer</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Columnizer</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidColumnizer(com.misc.common.moplaf.datatools.ColumnizerAbstract)
-	 * @generated
-	 */
-	EOperation getDocAnalysis__IsValidColumnizer__ColumnizerAbstract();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isValidCategorizer(com.misc.common.moplaf.datatools.Categorizer) <em>Is Valid Categorizer</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Categorizer</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isValidCategorizer(com.misc.common.moplaf.datatools.Categorizer)
-	 * @generated
-	 */
-	EOperation getDocAnalysis__IsValidCategorizer__Categorizer();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.DocComparison <em>Doc Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -919,38 +834,6 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DOC_ANALYSIS___ADD_TOOL__DATATOOL = eINSTANCE.getDocAnalysis__AddTool__DataTool();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid Tool</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DOC_ANALYSIS___IS_VALID_TOOL__DATATOOL = eINSTANCE.getDocAnalysis__IsValidTool__DataTool();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid Extractor</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DOC_ANALYSIS___IS_VALID_EXTRACTOR__EXTRACTOR = eINSTANCE.getDocAnalysis__IsValidExtractor__Extractor();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid Columnizer</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DOC_ANALYSIS___IS_VALID_COLUMNIZER__COLUMNIZERABSTRACT = eINSTANCE.getDocAnalysis__IsValidColumnizer__ColumnizerAbstract();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid Categorizer</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DOC_ANALYSIS___IS_VALID_CATEGORIZER__CATEGORIZER = eINSTANCE.getDocAnalysis__IsValidCategorizer__Categorizer();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl <em>Doc Comparison</em>}' class.
