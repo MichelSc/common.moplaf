@@ -201,9 +201,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CategoryColumnizer" eType="#//ColumnizerAbstract"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SuperCategory" eSuperTypes="#//CategoryAbstract">
-    <eOperations name="isValidRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="doc" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
     <eOperations name="refreshCats">
       <eParameters name="ins" eType="#//EObjectsSet"/>
       <eParameters name="categorizers" upperBound="-1" eType="#//Categorizer"/>
