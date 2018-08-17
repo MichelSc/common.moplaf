@@ -222,10 +222,18 @@
                 <subModelOperations xsi:type="tool:Let" variableName="tocreatecategorizer"/>
                 <subModelOperations xsi:type="properties:WizardModelOperation" windowTitleExpression="Wizard create Extractor / Columnizer / Categorizer">
                   <pages name="di_doctasks_tools_wizard_createextractor" label="Select an Extractor" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.4/@groups.0"/>
+                  <pages name="di_doctasks_tools_wizard_createcolumnizer" label="Select a Columnizer" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container" groups="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_wizard']/@initialOperation/@firstModelOperations/@subModelOperations.4/@groups.1"/>
                   <groups name="di_doctasks_tools_wizart_extractorgroup" labelExpression="Select Extractor to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container">
                     <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_extractorlist" labelExpression="Extractors" valueExpression="service:domain.getNewExtractors(self)" displayExpression="aql:value.Description">
                       <onClickOperation>
-                        <firstModelOperations xsi:type="tool:Let" variableName="tocreate" valueExpression="aql:selection"/>
+                        <firstModelOperations xsi:type="tool:Let" variableName="tocreateextractor" valueExpression="aql:selection"/>
+                      </onClickOperation>
+                    </controls>
+                  </groups>
+                  <groups name="di_doctasks_tools_wizart_columnizergroup" labelExpression="Select Columnizer to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container">
+                    <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_columnizerlist" labelExpression="Columnizers" valueExpression="service:domain.getNewColumnizers(self)" displayExpression="aql:value.Description">
+                      <onClickOperation>
+                        <firstModelOperations xsi:type="tool:Let" variableName="tocreatecolumnizer" valueExpression="aql:selection"/>
                       </onClickOperation>
                     </controls>
                   </groups>
