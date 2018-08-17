@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.ui.*;
 
+import com.misc.common.moplaf.emf.editor.Util;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryAmountEventProvider;
 import com.misc.common.moplaf.timeview.viewers.TimePlotViewerAbstract;
@@ -49,8 +50,7 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 			if (  viewer != null && part!= TimePlotViewAbstract.this) {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
-					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					TimePlotViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+					TimePlotViewAbstract.this.viewer.setInput(Util.getSelectedObjects(selection));
 				} // there is a selection
 				else {
 					TimePlotViewAbstract.this.viewer.setInput(null);
