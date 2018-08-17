@@ -1,5 +1,6 @@
 package com.misc.common.moplaf.chart.swtchart;
 
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
@@ -16,9 +17,9 @@ public class ChartViewer extends ChartViewerAbstract {
 	public ChartViewer(Composite parent) {
 		chart = new Chart(parent, SWT.NONE);
 		// set titles
-		chart.getTitle().setText("Bar Chart Example");
-		chart.getAxisSet().getXAxis(0).getTitle().setText("Data Points");
-		chart.getAxisSet().getYAxis(0).getTitle().setText("Amplitude");
+		chart.getTitle().setText("");
+		chart.getAxisSet().getXAxis(0).getTitle().setText("");
+		chart.getAxisSet().getYAxis(0).getTitle().setText("");
 		
 		super.hookControl(chart);
 
@@ -42,53 +43,54 @@ public class ChartViewer extends ChartViewerAbstract {
 		// michel: this might be triggered, either by an input changed (see above), or by some other event
 		
 		Object input = this.getInput(); // michel: this is the content to be displayed (if something to be displayed)
-		
-		Object[] bar_charts = this.getISeriesProvider().getSeriesProviders(input);
-		if( input != null ) {
-			System.out.println("** " + input.getClass().toString());
+		if( input instanceof Object[] ) {
+			input = ((Object[])input)[0];
 		}
+		Object[] bar_charts = this.getISeriesProvider().getSeriesProviders(input);
+		chart.setVisible(false);
 		
 		// michel: here follows all the call required to retrieve the bar chart information from the model
 		if ( bar_charts.length>0 ) {
 			Object first_bar_chart = bar_charts[0];
 			Object[] all_series = this.getISeriesProvider().getSeries(input, first_bar_chart);
-			if ( all_series.length>0 ) {
-				Object first_series = all_series[0];
-				String first_series_name = this.getILabelProvider().getText(first_series);
-				Color first_series_color = this.getIColorProvider().getBackground(first_series);
+			for ( int i = 0; i < all_series.length; i++ ) {
+				Object current_serie = all_series[i];
+				String serie_name = this.getILabelProvider().getText(current_serie);
+				Color serie_color = this.getIColorProvider().getBackground(current_serie);
 				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_bar_chart);
 				
 				double[] ySeries = new double[all_categories.length];
-				
-				for ( int i=0; i<all_categories.length; i++) {
-					Object category = all_categories[i];
+				String[] xSeries = new String[all_categories.length];
+								
+				for ( int j = 0; j < all_categories.length; j++) {
+					Object category = all_categories[j];
 					String category_name = this.getILabelProvider().getText(category);
-					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, first_series, category);
+					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, current_serie, category);
 
 					System.out.format("category %s, amount %f \n", category_name, category_value);
-
-					// create bar series
-					//IBarSeries barSeries = (IBarSeries) chart.getSeriesSet().createSeries(SeriesType.BAR, category_name);
-					//barSeries.setYSeries(category_value);
-
-					// adjust the axis range
-					// chart.getAxisSet().adjustRange();
 					
-					ySeries[i] = category_value;
-
+					ySeries[j] = category_value;
+					xSeries[j] = category_name;
 				}
-				
-				// create bar series
-				IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
-				    .createSeries(SeriesType.BAR, first_series_name);
-				barSeries.setYSeries(ySeries);
-
-				// adjust the axis range
-				chart.getAxisSet().adjustRange();			
+								
+				if( all_categories.length > 0 ) {
+					chart.setVisible(true);
+					// create bar series
+					IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
+					    .createSeries(SeriesType.BAR, serie_name);
+					//barSeries.setXDateSeries(xSeries);
+					//barSeries.setDescription("description");
+					barSeries.setYSeries(ySeries);
+	
+					// adjust the axis range
+					chart.getAxisSet().getXAxis(i).enableCategory(true);
+					chart.getAxisSet().getXAxis(i).setCategorySeries(xSeries);
+					chart.getAxisSet().adjustRange();
+				}
 			}
-			
-			System.out.println("** ploum");
-			
+			if ( all_series.length > 0 ) {
+				chart.redraw();
+			}
 		}
 	}
 

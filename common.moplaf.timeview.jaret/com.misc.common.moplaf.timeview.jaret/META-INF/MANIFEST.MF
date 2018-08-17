@@ -14,3 +14,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  lib/jaretutil-0.32.jar,
  lib/timebars-1.49.jar
+Import-Package: com.misc.common.moplaf.emf.editor.views
