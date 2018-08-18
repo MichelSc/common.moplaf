@@ -61,13 +61,9 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetExtractedType() {
-		// TODO: implement this method to return the 'Extracted Type' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return null;
 	}
 
 	/**

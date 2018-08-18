@@ -95,6 +95,16 @@ public class ExtractorFilterItemProvider extends ExtractorItemProvider {
 	}
 
 	/**
+	 * This returns ExtractorFilter.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/moplaf_filter.png"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

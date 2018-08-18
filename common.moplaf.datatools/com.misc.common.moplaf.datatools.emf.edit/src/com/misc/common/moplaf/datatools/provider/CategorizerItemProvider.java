@@ -47,11 +47,10 @@ public class CategorizerItemProvider extends DataToolItemProvider {
 	 * This returns Categorizer.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Categorizer"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/moplaf_categorizer.png"));
 	}
 
 	/**

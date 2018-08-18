@@ -48,6 +48,16 @@ public class ColumnizerAbstractItemProvider extends DataToolItemProvider impleme
 	}
 
 	/**
+	 * This returns ColumnizerAbstract.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/moplaf_columnizer.png"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
