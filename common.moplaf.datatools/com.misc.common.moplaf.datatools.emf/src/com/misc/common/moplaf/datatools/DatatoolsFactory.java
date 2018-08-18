@@ -247,15 +247,6 @@ public interface DatatoolsFactory extends EFactory {
 	ColumnizerGrid createColumnizerGrid();
 
 	/**
-	 * Returns a new object of class '<em>Data Tools</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Tools</em>'.
-	 * @generated
-	 */
-	DataTools createDataTools();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

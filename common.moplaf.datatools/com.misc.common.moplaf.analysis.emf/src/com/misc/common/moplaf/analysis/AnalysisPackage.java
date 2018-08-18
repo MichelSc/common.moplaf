@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.analysis;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.job.JobPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -210,7 +211,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.SUPER_CATEGORY___GET_SUBCATEGORY__EOBJECT;
+	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT_1 = DatatoolsPackage.SUPER_CATEGORY___GET_SUBCATEGORY__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
@@ -219,7 +220,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST_INT = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST_INT;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST_INT_1 = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST_INT;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -228,7 +229,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
+	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT_1 = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -246,7 +247,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST_1 = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST;
 
 	/**
 	 * The operation id for the '<em>Get Domain Types</em>' operation.
@@ -365,7 +366,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON___REFRESH_MATCHES__EOBJECT_EOBJECT = DatatoolsPackage.MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT;
+	int DOC_COMPARISON___REFRESH_MATCHES__EOBJECT_EOBJECT_1 = DatatoolsPackage.MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Doc Comparison</em>' class.
@@ -388,22 +389,13 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOMAIN = 2;
 
 	/**
-	 * The feature id for the '<em><b>Data Tools</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_DOMAIN__DATA_TOOLS = DatatoolsPackage.DATA_TOOLS__DATA_TOOLS;
-
-	/**
 	 * The feature id for the '<em><b>Docs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__DOCS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 0;
+	int ANALYSIS_DOMAIN__DOCS = JobPackage.TASK_DOMAIN__DOCS;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -412,7 +404,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__TASKS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 1;
+	int ANALYSIS_DOMAIN__TASKS = JobPackage.TASK_DOMAIN__TASKS;
 
 	/**
 	 * The feature id for the '<em><b>Super Domain</b></em>' container reference.
@@ -421,7 +413,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__SUPER_DOMAIN = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 2;
+	int ANALYSIS_DOMAIN__SUPER_DOMAIN = JobPackage.TASK_DOMAIN_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sub Domains</b></em>' containment reference list.
@@ -430,7 +422,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__SUB_DOMAINS = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 3;
+	int ANALYSIS_DOMAIN__SUB_DOMAINS = JobPackage.TASK_DOMAIN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Analyses</b></em>' containment reference list.
@@ -439,7 +431,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN__ANALYSES = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 4;
+	int ANALYSIS_DOMAIN__ANALYSES = JobPackage.TASK_DOMAIN_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Data Tools</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOMAIN__DATA_TOOLS = JobPackage.TASK_DOMAIN_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
@@ -448,25 +449,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN_FEATURE_COUNT = DatatoolsPackage.DATA_TOOLS_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Get Domain Types</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_DOMAIN___GET_DOMAIN_TYPES = DatatoolsPackage.DATA_TOOLS___GET_DOMAIN_TYPES;
-
-	/**
-	 * The operation id for the '<em>Get New Data Tools</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_DOMAIN___GET_NEW_DATA_TOOLS__DATATOOLTYPE = DatatoolsPackage.DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE;
+	int ANALYSIS_DOMAIN_FEATURE_COUNT = JobPackage.TASK_DOMAIN_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Garbage Collect</em>' operation.
@@ -475,7 +458,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN___GARBAGE_COLLECT = DatatoolsPackage.DATA_TOOLS_OPERATION_COUNT + 0;
+	int ANALYSIS_DOMAIN___GARBAGE_COLLECT = JobPackage.TASK_DOMAIN___GARBAGE_COLLECT;
 
 	/**
 	 * The operation id for the '<em>Get New Tasks</em>' operation.
@@ -484,7 +467,25 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN___GET_NEW_TASKS = DatatoolsPackage.DATA_TOOLS_OPERATION_COUNT + 1;
+	int ANALYSIS_DOMAIN___GET_NEW_TASKS = JobPackage.TASK_DOMAIN___GET_NEW_TASKS;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOMAIN___GET_DOMAIN_TYPES = JobPackage.TASK_DOMAIN_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get New Data Tools</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOMAIN___GET_NEW_DATA_TOOLS__DATATOOLTYPE = JobPackage.TASK_DOMAIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Domain</em>' class.
@@ -493,7 +494,63 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOMAIN_OPERATION_COUNT = DatatoolsPackage.DATA_TOOLS_OPERATION_COUNT + 2;
+	int ANALYSIS_DOMAIN_OPERATION_COUNT = JobPackage.TASK_DOMAIN_OPERATION_COUNT + 2;
+
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.DataToolsImpl <em>Data Tools</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.analysis.impl.DataToolsImpl
+	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getDataTools()
+	 * @generated
+	 */
+	int DATA_TOOLS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Domain</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS__DOMAIN = DatatoolsPackage.DATA_TOOL_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Tools</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS__DATA_TOOLS = DatatoolsPackage.DATA_TOOL_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Data Tools</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS_FEATURE_COUNT = DatatoolsPackage.DATA_TOOL_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS___GET_DOMAIN_TYPES = DatatoolsPackage.DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES;
+
+	/**
+	 * The number of operations of the '<em>Data Tools</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOLS_OPERATION_COUNT = DatatoolsPackage.DATA_TOOL_CONTEXT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -723,6 +780,59 @@ public interface AnalysisPackage extends EPackage {
 	EReference getAnalysisDomain_Analyses();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getDataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Tools</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDomain#getDataTools()
+	 * @see #getAnalysisDomain()
+	 * @generated
+	 */
+	EReference getAnalysisDomain_DataTools();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getNewDataTools(com.misc.common.moplaf.datatools.DataToolType) <em>Get New Data Tools</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get New Data Tools</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDomain#getNewDataTools(com.misc.common.moplaf.datatools.DataToolType)
+	 * @generated
+	 */
+	EOperation getAnalysisDomain__GetNewDataTools__DataToolType();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.DataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Tools</em>'.
+	 * @see com.misc.common.moplaf.analysis.DataTools
+	 * @generated
+	 */
+	EClass getDataTools();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.analysis.DataTools#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Domain</em>'.
+	 * @see com.misc.common.moplaf.analysis.DataTools#getDomain()
+	 * @see #getDataTools()
+	 * @generated
+	 */
+	EReference getDataTools_Domain();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.DataTools#getDataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Tools</em>'.
+	 * @see com.misc.common.moplaf.analysis.DataTools#getDataTools()
+	 * @see #getDataTools()
+	 * @generated
+	 */
+	EReference getDataTools_DataTools();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -918,6 +1028,48 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANALYSIS_DOMAIN__ANALYSES = eINSTANCE.getAnalysisDomain_Analyses();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Tools</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS_DOMAIN__DATA_TOOLS = eINSTANCE.getAnalysisDomain_DataTools();
+
+		/**
+		 * The meta object literal for the '<em><b>Get New Data Tools</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS_DOMAIN___GET_NEW_DATA_TOOLS__DATATOOLTYPE = eINSTANCE.getAnalysisDomain__GetNewDataTools__DataToolType();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.DataToolsImpl <em>Data Tools</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.analysis.impl.DataToolsImpl
+		 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getDataTools()
+		 * @generated
+		 */
+		EClass DATA_TOOLS = eINSTANCE.getDataTools();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TOOLS__DOMAIN = eINSTANCE.getDataTools_Domain();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Tools</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TOOLS__DATA_TOOLS = eINSTANCE.getDataTools_DataTools();
 
 	}
 

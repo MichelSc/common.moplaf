@@ -6,12 +6,7 @@ package com.misc.common.moplaf.analysis.provider;
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
-
-import com.misc.common.moplaf.datatools.provider.DataToolsItemProvider;
-
-import com.misc.common.moplaf.job.JobFactory;
-import com.misc.common.moplaf.job.JobPackage;
-
+import com.misc.common.moplaf.job.provider.TaskDomainItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnalysisDomainItemProvider extends DataToolsItemProvider {
+public class AnalysisDomainItemProvider extends TaskDomainItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -69,10 +64,9 @@ public class AnalysisDomainItemProvider extends DataToolsItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.DOCS__DOCS);
-			childrenFeatures.add(JobPackage.Literals.TASKS__TASKS);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_DOMAIN__SUB_DOMAINS);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_DOMAIN__ANALYSES);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_DOMAIN__DATA_TOOLS);
 		}
 		return childrenFeatures;
 	}
@@ -125,10 +119,9 @@ public class AnalysisDomainItemProvider extends DataToolsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AnalysisDomain.class)) {
-			case AnalysisPackage.ANALYSIS_DOMAIN__DOCS:
-			case AnalysisPackage.ANALYSIS_DOMAIN__TASKS:
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUB_DOMAINS:
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
+			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -148,11 +141,6 @@ public class AnalysisDomainItemProvider extends DataToolsItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(JobPackage.Literals.DOCS__DOCS,
-				 JobFactory.eINSTANCE.createCompoundDoc()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(AnalysisPackage.Literals.ANALYSIS_DOMAIN__SUB_DOMAINS,
 				 AnalysisFactory.eINSTANCE.createAnalysisDomain()));
 
@@ -160,6 +148,11 @@ public class AnalysisDomainItemProvider extends DataToolsItemProvider {
 			(createChildParameter
 				(AnalysisPackage.Literals.ANALYSIS_DOMAIN__ANALYSES,
 				 AnalysisFactory.eINSTANCE.createDocAnalysis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.ANALYSIS_DOMAIN__DATA_TOOLS,
+				 AnalysisFactory.eINSTANCE.createDataTools()));
 	}
 
 	/**

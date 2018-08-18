@@ -648,29 +648,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.DataTools} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataToolsItemProvider dataToolsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.DataTools}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDataToolsAdapter() {
-		if (dataToolsItemProvider == null) {
-			dataToolsItemProvider = new DataToolsItemProvider(this);
-		}
-
-		return dataToolsItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -772,7 +749,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (navigationReferenceItemProvider != null) navigationReferenceItemProvider.dispose();
 		if (navigationDowncastItemProvider != null) navigationDowncastItemProvider.dispose();
 		if (dataToolContextItemProvider != null) dataToolContextItemProvider.dispose();
-		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
 		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
 		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
 		if (extractorOclItemProvider != null) extractorOclItemProvider.dispose();

@@ -2,8 +2,9 @@
  */
 package com.misc.common.moplaf.analysis;
 
-import com.misc.common.moplaf.datatools.DataTools;
-
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolContext;
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.job.TaskDomain;
 import org.eclipse.emf.common.util.EList;
 
@@ -19,13 +20,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSuperDomain <em>Super Domain</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains <em>Sub Domains</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDomain#getAnalyses <em>Analyses</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDomain#getDataTools <em>Data Tools</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDomain()
  * @model
  * @generated
  */
-public interface AnalysisDomain extends DataTools, TaskDomain {
+public interface AnalysisDomain extends TaskDomain, DataToolContext {
 	/**
 	 * Returns the value of the '<em><b>Super Domain</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisDomain#getSubDomains <em>Sub Domains</em>}'.
@@ -89,5 +91,34 @@ public interface AnalysisDomain extends DataTools, TaskDomain {
 	 * @generated
 	 */
 	EList<DocAnalysis> getAnalyses();
+
+	/**
+	 * Returns the value of the '<em><b>Data Tools</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.DataTools}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.DataTools#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Tools</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Tools</em>' containment reference list.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDomain_DataTools()
+	 * @see com.misc.common.moplaf.analysis.DataTools#getDomain
+	 * @model opposite="Domain" containment="true"
+	 * @generated
+	 */
+	EList<com.misc.common.moplaf.analysis.DataTools> getDataTools();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Return an exemplar of every task type supported by this TaskDomain.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<DataTool> getNewDataTools(DataToolType type);
 
 } // AnalysisDomain

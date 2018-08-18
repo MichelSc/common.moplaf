@@ -11,7 +11,6 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,17 +42,6 @@ public class SuperCategoryImpl extends CategoryAbstractImpl implements SuperCate
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isValidRoot(EObject doc) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public void refreshCats(ObjectSet ins, EList<Categorizer> categorizers) {
 		this.refreshCats(ins, categorizers, 0);
@@ -69,8 +57,6 @@ public class SuperCategoryImpl extends CategoryAbstractImpl implements SuperCate
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT:
-				return isValidRoot((EObject)arguments.get(0));
 			case DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST:
 				refreshCats((ObjectSet)arguments.get(0), (EList<Categorizer>)arguments.get(1));
 				return null;

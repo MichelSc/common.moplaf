@@ -17,7 +17,6 @@ import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolAbstract;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DataToolType;
-import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
@@ -344,13 +343,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EDataType eObjectsSetEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dataToolsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1008,17 +1000,8 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSuperCategory__IsValidRoot__EObject() {
-		return superCategoryEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getSuperCategory__RefreshCats__ObjectSet_EList() {
-		return superCategoryEClass.getEOperations().get(1);
+		return superCategoryEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1404,33 +1387,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDataTools() {
-		return dataToolsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDataTools_DataTools() {
-		return (EReference)dataToolsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDataTools__GetNewDataTools__DataToolType() {
-		return dataToolsEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDataTool() {
 		return dataToolEClass;
 	}
@@ -1543,10 +1499,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		dataToolContextEClass = createEClass(DATA_TOOL_CONTEXT);
 		createEOperation(dataToolContextEClass, DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES);
 
-		dataToolsEClass = createEClass(DATA_TOOLS);
-		createEReference(dataToolsEClass, DATA_TOOLS__DATA_TOOLS);
-		createEOperation(dataToolsEClass, DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE);
-
 		dataToolEClass = createEClass(DATA_TOOL);
 		createEAttribute(dataToolEClass, DATA_TOOL__DESCRIPTION);
 		createEAttribute(dataToolEClass, DATA_TOOL__NAME);
@@ -1647,7 +1599,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___FLUSH);
 
 		superCategoryEClass = createEClass(SUPER_CATEGORY);
-		createEOperation(superCategoryEClass, SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT);
 		createEOperation(superCategoryEClass, SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST);
 
 		categoryEClass = createEClass(CATEGORY);
@@ -1712,7 +1663,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		navigationPathEClass.getESuperTypes().add(this.getDataToolAbstract());
 		navigationReferenceEClass.getESuperTypes().add(this.getNavigationAxis());
 		navigationDowncastEClass.getESuperTypes().add(this.getNavigationAxis());
-		dataToolsEClass.getESuperTypes().add(this.getDataToolContext());
 		dataToolEClass.getESuperTypes().add(this.getDataToolAbstract());
 		extractorEClass.getESuperTypes().add(this.getDataTool());
 		extractorTypeEClass.getESuperTypes().add(this.getExtractor());
@@ -1778,12 +1728,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(dataToolContextEClass, DataToolContext.class, "DataToolContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getDataToolContext__GetDomainTypes(), ecorePackage.getEClass(), "getDomainTypes", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(dataToolsEClass, DataTools.class, "DataTools", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataTools_DataTools(), this.getDataTool(), null, "DataTools", null, 0, -1, DataTools.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getDataTools__GetNewDataTools__DataToolType(), this.getDataTool(), "getNewDataTools", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getDataToolType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataToolEClass, DataTool.class, "DataTool", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataTool_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DataTool.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1911,9 +1855,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEOperation(getCategoryAbstract__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(superCategoryEClass, SuperCategory.class, "SuperCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getSuperCategory__IsValidRoot__EObject(), ecorePackage.getEBoolean(), "isValidRoot", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "doc", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getSuperCategory__RefreshCats__ObjectSet_EList(), null, "refreshCats", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEObjectsSet(), "ins", 0, 1, IS_UNIQUE, IS_ORDERED);

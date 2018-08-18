@@ -5,7 +5,6 @@ package com.misc.common.moplaf.analysis.util;
 import com.misc.common.moplaf.analysis.*;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.DataToolContext;
-import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
@@ -95,11 +94,17 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			case AnalysisPackage.ANALYSIS_DOMAIN: {
 				AnalysisDomain analysisDomain = (AnalysisDomain)theEObject;
 				T result = caseAnalysisDomain(analysisDomain);
-				if (result == null) result = caseDataTools(analysisDomain);
 				if (result == null) result = caseTaskDomain(analysisDomain);
 				if (result == null) result = caseDataToolContext(analysisDomain);
 				if (result == null) result = caseDocs(analysisDomain);
 				if (result == null) result = caseTasks(analysisDomain);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AnalysisPackage.DATA_TOOLS: {
+				DataTools dataTools = (DataTools)theEObject;
+				T result = caseDataTools(dataTools);
+				if (result == null) result = caseDataToolContext(dataTools);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,6 +154,21 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnalysisDomain(AnalysisDomain object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Tools</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Tools</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataTools(DataTools object) {
 		return null;
 	}
 
@@ -224,21 +244,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMatcher(Matcher object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Tools</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Tools</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataTools(DataTools object) {
 		return null;
 	}
 

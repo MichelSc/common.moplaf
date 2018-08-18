@@ -59,6 +59,7 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 			case AnalysisPackage.DOC_ANALYSIS: return createDocAnalysis();
 			case AnalysisPackage.DOC_COMPARISON: return createDocComparison();
 			case AnalysisPackage.ANALYSIS_DOMAIN: return createAnalysisDomain();
+			case AnalysisPackage.DATA_TOOLS: return createDataTools();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +93,16 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	public AnalysisDomain createAnalysisDomain() {
 		AnalysisDomainImpl analysisDomain = new AnalysisDomainImpl();
 		return analysisDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataTools createDataTools() {
+		DataToolsImpl dataTools = new DataToolsImpl();
+		return dataTools;
 	}
 
 	/**

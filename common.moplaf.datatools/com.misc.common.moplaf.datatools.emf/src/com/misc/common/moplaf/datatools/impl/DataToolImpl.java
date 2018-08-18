@@ -136,11 +136,8 @@ public abstract class DataToolImpl extends DataToolAbstractImpl implements DataT
 		EObject container = this.eContainer();
 		if ( container instanceof DataToolContext ) {
 			return (DataToolContext)container;
-		} else if ( container instanceof DataTool ) {
-			DataTool container_as_datatool = (DataTool) container;
-			return container_as_datatool.getContext();
-		}
-		Plugin.INSTANCE.logWarning(String.format("The container of a %s must be a DataTools or a DataToolContext", this.eClass().getName()));
+		} 
+		Plugin.INSTANCE.logWarning(String.format("The container of a %s must be a DataToolContext", this.eClass().getName()));
 		return null;
 	}
 

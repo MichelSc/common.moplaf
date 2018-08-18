@@ -59,7 +59,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.NAVIGATION_REFERENCE: return createNavigationReference();
 			case DatatoolsPackage.NAVIGATION_DOWNCAST: return createNavigationDowncast();
 			case DatatoolsPackage.DATA_TOOL_CONTEXT: return createDataToolContext();
-			case DatatoolsPackage.DATA_TOOLS: return createDataTools();
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
 			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
@@ -385,16 +384,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ColumnizerGrid createColumnizerGrid() {
 		ColumnizerGridImpl columnizerGrid = new ColumnizerGridImpl();
 		return columnizerGrid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataTools createDataTools() {
-		DataToolsImpl dataTools = new DataToolsImpl();
-		return dataTools;
 	}
 
 	/**

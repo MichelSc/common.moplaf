@@ -51,16 +51,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataToolContext">
     <eOperations name="getDomainTypes" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataTools" eSuperTypes="#//DataToolContext">
-    <eOperations name="getNewDataTools" upperBound="-1" eType="#//DataTool">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Return an exemplar of every task type supported by this TaskDomain."/>
-      </eAnnotations>
-      <eParameters name="type" eType="#//DataToolType"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
-        eType="#//DataTool" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataTool" abstract="true" eSuperTypes="#//DataToolAbstract">
     <eOperations name="clone" eType="#//DataTool"/>
     <eOperations name="getType" eType="#//DataToolType"/>

@@ -4,16 +4,15 @@ package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
+import com.misc.common.moplaf.analysis.DataTools;
 import com.misc.common.moplaf.analysis.DocAnalysis;
 
-import com.misc.common.moplaf.datatools.impl.DataToolsImpl;
-
-import com.misc.common.moplaf.job.Doc;
-import com.misc.common.moplaf.job.Docs;
-import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.datatools.DataTool;
+import com.misc.common.moplaf.datatools.DataToolContext;
+import com.misc.common.moplaf.datatools.DataToolType;
+import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.job.Task;
-import com.misc.common.moplaf.job.TaskDomain;
-import com.misc.common.moplaf.job.Tasks;
+import com.misc.common.moplaf.job.impl.TaskDomainImpl;
 import com.misc.common.moplaf.job.util.Util;
 
 import java.lang.reflect.InvocationTargetException;
@@ -29,8 +28,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -43,36 +40,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl#getDocs <em>Docs</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl#getSuperDomain <em>Super Domain</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl#getSubDomains <em>Sub Domains</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl#getAnalyses <em>Analyses</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl#getDataTools <em>Data Tools</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain {
-	/**
-	 * The cached value of the '{@link #getDocs() <em>Docs</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDocs()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Doc> docs;
-
-	/**
-	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTasks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Task> tasks;
-
+public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain {
 	/**
 	 * The cached value of the '{@link #getSubDomains() <em>Sub Domains</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -92,6 +68,16 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	 * @ordered
 	 */
 	protected EList<DocAnalysis> analyses;
+
+	/**
+	 * The cached value of the '{@link #getDataTools() <em>Data Tools</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataTools()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<com.misc.common.moplaf.analysis.DataTools> dataTools;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,35 +103,53 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Doc> getDocs() {
-		if (docs == null) {
-			docs = new EObjectContainmentEList<Doc>(Doc.class, this, AnalysisPackage.ANALYSIS_DOMAIN__DOCS);
-		}
-		return docs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Task> getTasks() {
-		if (tasks == null) {
-			tasks = new EObjectContainmentEList<Task>(Task.class, this, AnalysisPackage.ANALYSIS_DOMAIN__TASKS);
-		}
-		return tasks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<DocAnalysis> getAnalyses() {
 		if (analyses == null) {
 			analyses = new EObjectContainmentWithInverseEList<DocAnalysis>(DocAnalysis.class, this, AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES, AnalysisPackage.DOC_ANALYSIS__DOMAIN);
 		}
 		return analyses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<com.misc.common.moplaf.analysis.DataTools> getDataTools() {
+		if (dataTools == null) {
+			dataTools = new EObjectContainmentWithInverseEList<com.misc.common.moplaf.analysis.DataTools>(com.misc.common.moplaf.analysis.DataTools.class, this, AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS, AnalysisPackage.DATA_TOOLS__DOMAIN);
+		}
+		return dataTools;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<DataTool> getNewDataTools(DataToolType type) {
+		// from the extensions
+		EList<DataTool> datatools =  com.misc.common.moplaf.datatools.util.Util.getNewDataTools(type);
+		// copies for this domain
+		for ( DataTools tools : this.getDataTools()) {
+			for ( DataTool tool : tools.getDataTools() ) {
+				if ( tool.getType()==type) {
+					DataTool new_tool = tool.clone();
+					datatools.add(new_tool);
+				}
+			}
+		}
+		return datatools;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EClass> getDomainTypes() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -214,17 +218,6 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void garbageCollect() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -237,6 +230,8 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubDomains()).basicAdd(otherEnd, msgs);
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAnalyses()).basicAdd(otherEnd, msgs);
+			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataTools()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -249,16 +244,14 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_DOMAIN__DOCS:
-				return ((InternalEList<?>)getDocs()).basicRemove(otherEnd, msgs);
-			case AnalysisPackage.ANALYSIS_DOMAIN__TASKS:
-				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUPER_DOMAIN:
 				return basicSetSuperDomain(null, msgs);
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUB_DOMAINS:
 				return ((InternalEList<?>)getSubDomains()).basicRemove(otherEnd, msgs);
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				return ((InternalEList<?>)getAnalyses()).basicRemove(otherEnd, msgs);
+			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
+				return ((InternalEList<?>)getDataTools()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -285,16 +278,14 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_DOMAIN__DOCS:
-				return getDocs();
-			case AnalysisPackage.ANALYSIS_DOMAIN__TASKS:
-				return getTasks();
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUPER_DOMAIN:
 				return getSuperDomain();
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUB_DOMAINS:
 				return getSubDomains();
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				return getAnalyses();
+			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
+				return getDataTools();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,14 +299,6 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_DOMAIN__DOCS:
-				getDocs().clear();
-				getDocs().addAll((Collection<? extends Doc>)newValue);
-				return;
-			case AnalysisPackage.ANALYSIS_DOMAIN__TASKS:
-				getTasks().clear();
-				getTasks().addAll((Collection<? extends Task>)newValue);
-				return;
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUPER_DOMAIN:
 				setSuperDomain((AnalysisDomain)newValue);
 				return;
@@ -326,6 +309,10 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				getAnalyses().clear();
 				getAnalyses().addAll((Collection<? extends DocAnalysis>)newValue);
+				return;
+			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
+				getDataTools().clear();
+				getDataTools().addAll((Collection<? extends com.misc.common.moplaf.analysis.DataTools>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -339,12 +326,6 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_DOMAIN__DOCS:
-				getDocs().clear();
-				return;
-			case AnalysisPackage.ANALYSIS_DOMAIN__TASKS:
-				getTasks().clear();
-				return;
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUPER_DOMAIN:
 				setSuperDomain((AnalysisDomain)null);
 				return;
@@ -353,6 +334,9 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 				return;
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				getAnalyses().clear();
+				return;
+			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
+				getDataTools().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -366,16 +350,14 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AnalysisPackage.ANALYSIS_DOMAIN__DOCS:
-				return docs != null && !docs.isEmpty();
-			case AnalysisPackage.ANALYSIS_DOMAIN__TASKS:
-				return tasks != null && !tasks.isEmpty();
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUPER_DOMAIN:
 				return getSuperDomain() != null;
 			case AnalysisPackage.ANALYSIS_DOMAIN__SUB_DOMAINS:
 				return subDomains != null && !subDomains.isEmpty();
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				return analyses != null && !analyses.isEmpty();
+			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
+				return dataTools != null && !dataTools.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -386,75 +368,10 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Docs.class) {
-			switch (derivedFeatureID) {
-				case AnalysisPackage.ANALYSIS_DOMAIN__DOCS: return JobPackage.DOCS__DOCS;
-				default: return -1;
-			}
-		}
-		if (baseClass == Tasks.class) {
-			switch (derivedFeatureID) {
-				case AnalysisPackage.ANALYSIS_DOMAIN__TASKS: return JobPackage.TASKS__TASKS;
-				default: return -1;
-			}
-		}
-		if (baseClass == TaskDomain.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Docs.class) {
-			switch (baseFeatureID) {
-				case JobPackage.DOCS__DOCS: return AnalysisPackage.ANALYSIS_DOMAIN__DOCS;
-				default: return -1;
-			}
-		}
-		if (baseClass == Tasks.class) {
-			switch (baseFeatureID) {
-				case JobPackage.TASKS__TASKS: return AnalysisPackage.ANALYSIS_DOMAIN__TASKS;
-				default: return -1;
-			}
-		}
-		if (baseClass == TaskDomain.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Docs.class) {
+		if (baseClass == DataToolContext.class) {
 			switch (baseOperationID) {
-				case JobPackage.DOCS___GARBAGE_COLLECT: return AnalysisPackage.ANALYSIS_DOMAIN___GARBAGE_COLLECT;
-				default: return -1;
-			}
-		}
-		if (baseClass == Tasks.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == TaskDomain.class) {
-			switch (baseOperationID) {
-				case JobPackage.TASK_DOMAIN___GET_NEW_TASKS: return AnalysisPackage.ANALYSIS_DOMAIN___GET_NEW_TASKS;
+				case DatatoolsPackage.DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES: return AnalysisPackage.ANALYSIS_DOMAIN___GET_DOMAIN_TYPES;
 				default: return -1;
 			}
 		}
@@ -469,11 +386,10 @@ public class AnalysisDomainImpl extends DataToolsImpl implements AnalysisDomain 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AnalysisPackage.ANALYSIS_DOMAIN___GET_NEW_TASKS:
-				return getNewTasks();
-			case AnalysisPackage.ANALYSIS_DOMAIN___GARBAGE_COLLECT:
-				garbageCollect();
-				return null;
+			case AnalysisPackage.ANALYSIS_DOMAIN___GET_NEW_DATA_TOOLS__DATATOOLTYPE:
+				return getNewDataTools((DataToolType)arguments.get(0));
+			case AnalysisPackage.ANALYSIS_DOMAIN___GET_DOMAIN_TYPES:
+				return getDomainTypes();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

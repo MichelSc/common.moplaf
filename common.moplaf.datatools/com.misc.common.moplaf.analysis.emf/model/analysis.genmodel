@@ -33,6 +33,14 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDomain/SuperDomain"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDomain/SubDomains"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDomain/Analyses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDomain/DataTools"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisDomain/getNewDataTools">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisDomain/getNewDataTools/type"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="analysis.ecore#//DataTools">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DataTools/Domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DataTools/DataTools"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

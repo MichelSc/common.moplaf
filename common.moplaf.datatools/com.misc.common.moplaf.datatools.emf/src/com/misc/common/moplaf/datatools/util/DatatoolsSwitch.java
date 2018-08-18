@@ -99,13 +99,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.DATA_TOOLS: {
-				DataTools dataTools = (DataTools)theEObject;
-				T result = caseDataTools(dataTools);
-				if (result == null) result = caseDataToolContext(dataTools);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DatatoolsPackage.DATA_TOOL: {
 				DataTool dataTool = (DataTool)theEObject;
 				T result = caseDataTool(dataTool);
@@ -993,21 +986,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumnizerGrid(ColumnizerGrid object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Tools</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Tools</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataTools(DataTools object) {
 		return null;
 	}
 

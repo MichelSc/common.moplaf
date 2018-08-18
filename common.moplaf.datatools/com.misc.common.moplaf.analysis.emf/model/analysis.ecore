@@ -34,12 +34,27 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTools ../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain">
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext">
+    <eOperations name="getNewDataTools" upperBound="-1" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Return an exemplar of every task type supported by this TaskDomain."/>
+      </eAnnotations>
+      <eParameters name="type" eType="ecore:EEnum ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolType"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SuperDomain" eType="#//AnalysisDomain"
         eOpposite="#//AnalysisDomain/SubDomains"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubDomains" upperBound="-1"
         eType="#//AnalysisDomain" containment="true" eOpposite="#//AnalysisDomain/SuperDomain"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Analyses" upperBound="-1"
         eType="#//DocAnalysis" containment="true" eOpposite="#//DocAnalysis/Domain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
+        eType="#//DataTools" containment="true" eOpposite="#//DataTools/Domain"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTools" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"
+        eType="#//AnalysisDomain" eOpposite="#//AnalysisDomain/DataTools"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

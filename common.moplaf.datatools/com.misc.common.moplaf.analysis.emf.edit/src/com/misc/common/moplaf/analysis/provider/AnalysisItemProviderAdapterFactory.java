@@ -142,6 +142,29 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.DataTools} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataToolsItemProvider dataToolsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.DataTools}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataToolsAdapter() {
+		if (dataToolsItemProvider == null) {
+			dataToolsItemProvider = new DataToolsItemProvider(this);
+		}
+
+		return dataToolsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,6 +266,7 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 		if (docAnalysisItemProvider != null) docAnalysisItemProvider.dispose();
 		if (docComparisonItemProvider != null) docComparisonItemProvider.dispose();
 		if (analysisDomainItemProvider != null) analysisDomainItemProvider.dispose();
+		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
 	}
 
 }

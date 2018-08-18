@@ -47,12 +47,6 @@
     <genClasses ecoreClass="datatools.ecore#//DataToolContext">
       <genOperations ecoreOperation="datatools.ecore#//DataToolContext/getDomainTypes"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//DataTools">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//DataTools/DataTools"/>
-      <genOperations ecoreOperation="datatools.ecore#//DataTools/getNewDataTools">
-        <genParameters ecoreParameter="datatools.ecore#//DataTools/getNewDataTools/type"/>
-      </genOperations>
-    </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//DataTool">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//DataTool/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//DataTool/Name"/>

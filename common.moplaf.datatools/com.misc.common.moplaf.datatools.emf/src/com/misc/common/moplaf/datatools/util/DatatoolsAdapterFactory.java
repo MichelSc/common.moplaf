@@ -88,10 +88,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createDataToolContextAdapter();
 			}
 			@Override
-			public Adapter caseDataTools(DataTools object) {
-				return createDataToolsAdapter();
-			}
-			@Override
 			public Adapter caseDataTool(DataTool object) {
 				return createDataToolAdapter();
 			}
@@ -780,20 +776,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnizerGridAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataTools <em>Data Tools</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.DataTools
-	 * @generated
-	 */
-	public Adapter createDataToolsAdapter() {
 		return null;
 	}
 

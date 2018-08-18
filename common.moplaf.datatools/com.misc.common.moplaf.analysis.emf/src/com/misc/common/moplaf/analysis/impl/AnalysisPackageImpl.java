@@ -5,6 +5,7 @@ package com.misc.common.moplaf.analysis.impl;
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
+import com.misc.common.moplaf.analysis.DataTools;
 import com.misc.common.moplaf.analysis.DocAnalysis;
 
 import com.misc.common.moplaf.analysis.DocComparison;
@@ -49,6 +50,13 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	private EClass analysisDomainEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataToolsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -310,6 +318,51 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAnalysisDomain_DataTools() {
+		return (EReference)analysisDomainEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysisDomain__GetNewDataTools__DataToolType() {
+		return analysisDomainEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataTools() {
+		return dataToolsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataTools_Domain() {
+		return (EReference)dataToolsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataTools_DataTools() {
+		return (EReference)dataToolsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AnalysisFactory getAnalysisFactory() {
 		return (AnalysisFactory)getEFactoryInstance();
 	}
@@ -356,6 +409,12 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUPER_DOMAIN);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUB_DOMAINS);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__ANALYSES);
+		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__DATA_TOOLS);
+		createEOperation(analysisDomainEClass, ANALYSIS_DOMAIN___GET_NEW_DATA_TOOLS__DATATOOLTYPE);
+
+		dataToolsEClass = createEClass(DATA_TOOLS);
+		createEReference(dataToolsEClass, DATA_TOOLS__DOMAIN);
+		createEReference(dataToolsEClass, DATA_TOOLS__DATA_TOOLS);
 	}
 
 	/**
@@ -394,8 +453,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
 		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getDataToolContext());
 		docComparisonEClass.getESuperTypes().add(theDatatoolsPackage.getMatcher());
-		analysisDomainEClass.getESuperTypes().add(theDatatoolsPackage.getDataTools());
 		analysisDomainEClass.getESuperTypes().add(theJobPackage.getTaskDomain());
+		analysisDomainEClass.getESuperTypes().add(theDatatoolsPackage.getDataToolContext());
+		dataToolsEClass.getESuperTypes().add(theDatatoolsPackage.getDataToolContext());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(docAnalysisEClass, DocAnalysis.class, "DocAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -424,6 +484,14 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getAnalysisDomain_SuperDomain(), this.getAnalysisDomain(), this.getAnalysisDomain_SubDomains(), "SuperDomain", null, 0, 1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysisDomain_SubDomains(), this.getAnalysisDomain(), this.getAnalysisDomain_SuperDomain(), "SubDomains", null, 0, -1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysisDomain_Analyses(), this.getDocAnalysis(), this.getDocAnalysis_Domain(), "Analyses", null, 0, -1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysisDomain_DataTools(), this.getDataTools(), this.getDataTools_Domain(), "DataTools", null, 0, -1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getAnalysisDomain__GetNewDataTools__DataToolType(), theDatatoolsPackage.getDataTool(), "getNewDataTools", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getDataToolType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(dataToolsEClass, DataTools.class, "DataTools", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataTools_Domain(), this.getAnalysisDomain(), this.getAnalysisDomain_DataTools(), "Domain", null, 1, 1, DataTools.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataTools_DataTools(), theDatatoolsPackage.getDataTool(), null, "DataTools", null, 0, -1, DataTools.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

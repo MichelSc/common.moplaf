@@ -67,7 +67,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryAbstract()
 	 * @generated
 	 */
-	int CATEGORY_ABSTRACT = 33;
+	int CATEGORY_ABSTRACT = 32;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerImpl <em>Categorizer</em>}' class.
@@ -77,7 +77,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizer()
 	 * @generated
 	 */
-	int CATEGORIZER = 36;
+	int CATEGORIZER = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryImpl <em>Category</em>}' class.
@@ -87,7 +87,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 35;
+	int CATEGORY = 34;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.
@@ -97,7 +97,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTool()
 	 * @generated
 	 */
-	int DATA_TOOL = 6;
+	int DATA_TOOL = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl <em>Extractor</em>}' class.
@@ -107,7 +107,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractor()
 	 * @generated
 	 */
-	int EXTRACTOR = 8;
+	int EXTRACTOR = 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerImpl <em>Columnizer</em>}' class.
@@ -117,7 +117,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizer()
 	 * @generated
 	 */
-	int COLUMNIZER = 28;
+	int COLUMNIZER = 27;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorTypeImpl <em>Extractor Type</em>}' class.
@@ -127,7 +127,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorType()
 	 * @generated
 	 */
-	int EXTRACTOR_TYPE = 9;
+	int EXTRACTOR_TYPE = 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorCompoundImpl <em>Extractor Compound</em>}' class.
@@ -137,7 +137,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorCompound()
 	 * @generated
 	 */
-	int EXTRACTOR_COMPOUND = 22;
+	int EXTRACTOR_COMPOUND = 21;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl <em>Extractor Pipe</em>}' class.
@@ -147,7 +147,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPipe()
 	 * @generated
 	 */
-	int EXTRACTOR_PIPE = 24;
+	int EXTRACTOR_PIPE = 23;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl <em>Extractor Logic</em>}' class.
@@ -157,7 +157,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorLogic()
 	 * @generated
 	 */
-	int EXTRACTOR_LOGIC = 23;
+	int EXTRACTOR_LOGIC = 22;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorUnionImpl <em>Extractor Union</em>}' class.
@@ -167,7 +167,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorUnion()
 	 * @generated
 	 */
-	int EXTRACTOR_UNION = 25;
+	int EXTRACTOR_UNION = 24;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorIntersectionImpl <em>Extractor Intersection</em>}' class.
@@ -177,7 +177,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorIntersection()
 	 * @generated
 	 */
-	int EXTRACTOR_INTERSECTION = 26;
+	int EXTRACTOR_INTERSECTION = 25;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl <em>Extractor Path</em>}' class.
@@ -187,7 +187,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPath()
 	 * @generated
 	 */
-	int EXTRACTOR_PATH = 10;
+	int EXTRACTOR_PATH = 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorOclImpl <em>Extractor Ocl</em>}' class.
@@ -197,7 +197,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorOcl()
 	 * @generated
 	 */
-	int EXTRACTOR_OCL = 11;
+	int EXTRACTOR_OCL = 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterImpl <em>Extractor Filter</em>}' class.
@@ -207,7 +207,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilter()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER = 12;
+	int EXTRACTOR_FILTER = 11;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl <em>Extractor Filter Attribute</em>}' class.
@@ -217,7 +217,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttribute()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE = 13;
+	int EXTRACTOR_FILTER_ATTRIBUTE = 12;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl <em>Extractor Filter Attribute Int</em>}' class.
@@ -227,7 +227,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttributeInt()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT = 16;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT = 15;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterOclImpl <em>Extractor Filter Ocl</em>}' class.
@@ -237,7 +237,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterOcl()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_OCL = 18;
+	int EXTRACTOR_FILTER_OCL = 17;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl <em>Columnizer Column</em>}' class.
@@ -247,7 +247,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumn()
 	 * @generated
 	 */
-	int COLUMNIZER_COLUMN = 30;
+	int COLUMNIZER_COLUMN = 29;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.
@@ -257,7 +257,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnAttribute()
 	 * @generated
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE = 31;
+	int COLUMNIZER_COLUMN_ATTRIBUTE = 30;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnOclImpl <em>Columnizer Column Ocl</em>}' class.
@@ -267,7 +267,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnOcl()
 	 * @generated
 	 */
-	int COLUMNIZER_COLUMN_OCL = 32;
+	int COLUMNIZER_COLUMN_OCL = 31;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl <em>Navigation Path</em>}' class.
@@ -317,7 +317,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatcher()
 	 * @generated
 	 */
-	int MATCHER = 39;
+	int MATCHER = 38;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.MatchImpl <em>Match</em>}' class.
@@ -327,17 +327,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatch()
 	 * @generated
 	 */
-	int MATCH = 40;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolsImpl <em>Data Tools</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.DataToolsImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTools()
-	 * @generated
-	 */
-	int DATA_TOOLS = 5;
+	int MATCH = 39;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolAbstractImpl <em>Data Tool Abstract</em>}' class.
@@ -347,7 +337,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolAbstract()
 	 * @generated
 	 */
-	int DATA_TOOL_ABSTRACT = 7;
+	int DATA_TOOL_ABSTRACT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -772,51 +762,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_TOOL_CONTEXT_OPERATION_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Data Tools</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TOOLS__DATA_TOOLS = DATA_TOOL_CONTEXT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Data Tools</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TOOLS_FEATURE_COUNT = DATA_TOOL_CONTEXT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Domain Types</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TOOLS___GET_DOMAIN_TYPES = DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES;
-
-	/**
-	 * The operation id for the '<em>Get New Data Tools</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE = DATA_TOOL_CONTEXT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Data Tools</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TOOLS_OPERATION_COUNT = DATA_TOOL_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -1609,7 +1554,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerAbstract()
 	 * @generated
 	 */
-	int COLUMNIZER_ABSTRACT = 27;
+	int COLUMNIZER_ABSTRACT = 26;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.SuperCategoryImpl <em>Super Category</em>}' class.
@@ -1619,7 +1564,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getSuperCategory()
 	 * @generated
 	 */
-	int SUPER_CATEGORY = 34;
+	int SUPER_CATEGORY = 33;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl <em>Categorizer Structural Feature</em>}' class.
@@ -1629,7 +1574,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerStructuralFeature()
 	 * @generated
 	 */
-	int CATEGORIZER_STRUCTURAL_FEATURE = 37;
+	int CATEGORIZER_STRUCTURAL_FEATURE = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerOclImpl <em>Categorizer Ocl</em>}' class.
@@ -1639,7 +1584,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerOcl()
 	 * @generated
 	 */
-	int CATEGORIZER_OCL = 38;
+	int CATEGORIZER_OCL = 37;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerGridImpl <em>Columnizer Grid</em>}' class.
@@ -1649,7 +1594,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerGrid()
 	 * @generated
 	 */
-	int COLUMNIZER_GRID = 29;
+	int COLUMNIZER_GRID = 28;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeStringImpl <em>Extractor Filter Attribute String</em>}' class.
@@ -1659,7 +1604,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttributeString()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_STRING = 14;
+	int EXTRACTOR_FILTER_ATTRIBUTE_STRING = 13;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -1849,7 +1794,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterRegex()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_REGEX = 15;
+	int EXTRACTOR_FILTER_REGEX = 14;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -2228,7 +2173,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttributeIntRange()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE = 17;
+	int EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -2562,7 +2507,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterCompound()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_COMPOUND = 19;
+	int EXTRACTOR_FILTER_COMPOUND = 18;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -2698,7 +2643,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAND()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_AND = 20;
+	int EXTRACTOR_FILTER_AND = 19;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -2834,7 +2779,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterOR()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER_OR = 21;
+	int EXTRACTOR_FILTER_OR = 20;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -4133,22 +4078,13 @@ public interface DatatoolsPackage extends EPackage {
 	int SUPER_CATEGORY___FLUSH = CATEGORY_ABSTRACT___FLUSH;
 
 	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT = CATEGORY_ABSTRACT_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
+	int SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST = CATEGORY_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Super Category</em>' class.
@@ -4157,7 +4093,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPER_CATEGORY_OPERATION_COUNT = CATEGORY_ABSTRACT_OPERATION_COUNT + 2;
+	int SUPER_CATEGORY_OPERATION_COUNT = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
@@ -4716,7 +4652,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolType()
 	 * @generated
 	 */
-	int DATA_TOOL_TYPE = 41;
+	int DATA_TOOL_TYPE = 40;
 
 	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
@@ -4726,7 +4662,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 42;
+	int EOBJECTS_SET = 41;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -5394,16 +5330,6 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getSuperCategory();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.SuperCategory#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Root</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.SuperCategory#isValidRoot(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	EOperation getSuperCategory__IsValidRoot__EObject();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.SuperCategory#refreshCats(com.misc.common.moplaf.datatools.util.ObjectSet, org.eclipse.emf.common.util.EList) <em>Refresh Cats</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5855,37 +5781,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getEObjectsSet();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTools <em>Data Tools</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Data Tools</em>'.
-	 * @see com.misc.common.moplaf.datatools.DataTools
-	 * @generated
-	 */
-	EClass getDataTools();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.DataTools#getDataTools <em>Data Tools</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data Tools</em>'.
-	 * @see com.misc.common.moplaf.datatools.DataTools#getDataTools()
-	 * @see #getDataTools()
-	 * @generated
-	 */
-	EReference getDataTools_DataTools();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.DataTools#getNewDataTools(com.misc.common.moplaf.datatools.DataToolType) <em>Get New Data Tools</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get New Data Tools</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.DataTools#getNewDataTools(com.misc.common.moplaf.datatools.DataToolType)
-	 * @generated
-	 */
-	EOperation getDataTools__GetNewDataTools__DataToolType();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTool <em>Data Tool</em>}'.
@@ -6544,14 +6439,6 @@ public interface DatatoolsPackage extends EPackage {
 		EClass SUPER_CATEGORY = eINSTANCE.getSuperCategory();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SUPER_CATEGORY___IS_VALID_ROOT__EOBJECT = eINSTANCE.getSuperCategory__IsValidRoot__EObject();
-
-		/**
 		 * The meta object literal for the '<em><b>Refresh Cats</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6926,32 +6813,6 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EOBJECTS_SET = eINSTANCE.getEObjectsSet();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolsImpl <em>Data Tools</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.DataToolsImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTools()
-		 * @generated
-		 */
-		EClass DATA_TOOLS = eINSTANCE.getDataTools();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Tools</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_TOOLS__DATA_TOOLS = eINSTANCE.getDataTools_DataTools();
-
-		/**
-		 * The meta object literal for the '<em><b>Get New Data Tools</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATA_TOOLS___GET_NEW_DATA_TOOLS__DATATOOLTYPE = eINSTANCE.getDataTools__GetNewDataTools__DataToolType();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.

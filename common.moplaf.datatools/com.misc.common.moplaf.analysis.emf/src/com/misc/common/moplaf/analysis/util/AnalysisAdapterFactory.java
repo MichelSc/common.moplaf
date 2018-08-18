@@ -5,7 +5,6 @@ package com.misc.common.moplaf.analysis.util;
 import com.misc.common.moplaf.analysis.*;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.DataToolContext;
-import com.misc.common.moplaf.datatools.DataTools;
 import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.datatools.SuperCategory;
 import com.misc.common.moplaf.job.DocRef;
@@ -89,6 +88,10 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createAnalysisDomainAdapter();
 			}
 			@Override
+			public Adapter caseDataTools(DataTools object) {
+				return createDataToolsAdapter();
+			}
+			@Override
 			public Adapter caseCategoryAbstract(CategoryAbstract object) {
 				return createCategoryAbstractAdapter();
 			}
@@ -107,10 +110,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMatcher(Matcher object) {
 				return createMatcherAdapter();
-			}
-			@Override
-			public Adapter caseDataTools(DataTools object) {
-				return createDataToolsAdapter();
 			}
 			@Override
 			public Adapter caseDocs(Docs object) {
@@ -187,6 +186,20 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.DataTools <em>Data Tools</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.analysis.DataTools
+	 * @generated
+	 */
+	public Adapter createDataToolsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.DocRef <em>Doc Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -253,20 +266,6 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMatcherAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataTools <em>Data Tools</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.DataTools
-	 * @generated
-	 */
-	public Adapter createDataToolsAdapter() {
 		return null;
 	}
 

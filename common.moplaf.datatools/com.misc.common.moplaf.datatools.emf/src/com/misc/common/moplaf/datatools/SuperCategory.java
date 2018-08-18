@@ -5,8 +5,6 @@ package com.misc.common.moplaf.datatools;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Super Category</b></em>'.
@@ -18,14 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface SuperCategory extends CategoryAbstract {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model docRequired="true"
-	 * @generated
-	 */
-	boolean isValidRoot(EObject doc);
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
