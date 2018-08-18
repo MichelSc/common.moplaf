@@ -65,7 +65,6 @@ public class AnalysisServices {
     	analysis.setColumnizer(columnizer);
     	analysis.getCategorizers().clear();
     	analysis.getCategorizers().add(categorizer);
-    	analysis.refresh();
     	return true;
     }
 
