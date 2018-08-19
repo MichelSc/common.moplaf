@@ -1997,7 +1997,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_dGxnYpmNEeiQELb5Kxm--g"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_dGxAVJmNEeiQELb5Kxm--g" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dGxAVZmNEeiQELb5Kxm--g" x="324" y="-108"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dGxAVZmNEeiQELb5Kxm--g" x="180" y="-108"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_hagtcJmNEeiQELb5Kxm--g" type="2003" element="_haGdwJmNEeiQELb5Kxm--g">
           <children xmi:type="notation:Node" xmi:id="_hahUgJmNEeiQELb5Kxm--g" type="5007"/>

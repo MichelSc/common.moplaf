@@ -7,7 +7,12 @@ import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+
 import java.lang.reflect.InvocationTargetException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -83,8 +88,22 @@ public abstract class DataToolImpl extends DataToolAbstractImpl implements DataT
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("%s %s", this.getType().getName(), this.getName());
+		String type = this.getTypeDescription();
+		LinkedList<String> params = new LinkedList<String>(); this.collectParamsDescription(params);
+		String name = this.getName();
+		
+		String description = type   == null || type  .length()==0 ? this.getType().getName() : type;
+		description       += params == null || params.size()==0   ? "" : " ("+params.stream().collect(Collectors.joining(", "))+") ";
+		description       += name   == null || name  .length()==0 ? "" : (": "+ name);
+				        		   
 		return description;
+	}
+	
+	protected void collectParamsDescription(List<String> params) {
+	}
+	
+	protected String getTypeDescription() {
+		return null;
 	}
 
 	/**
