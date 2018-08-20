@@ -6,6 +6,7 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterRegex;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -183,6 +184,11 @@ public class ExtractorFilterRegexImpl extends ExtractorFilterAttributeStringImpl
 	public boolean satisfiesFilter(EObject object) {
 		String value = (String)this.getAttributeValue(object);
 		return this.regex.matcher(value).matches();
+	}
+
+	@Override
+	protected void collectParamsDescription(List<String> params) {
+		params.add(String.format("pattern %d", this.getPattern()));
 	}
 
 } //ExtractorFilterRegexImpl

@@ -5,6 +5,8 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange;
 
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -221,4 +223,11 @@ public class ExtractorFilterAttributeIntRangeImpl extends ExtractorFilterAttribu
 		Integer value = (Integer)this.getAttributeValue(object);
 		return this.getMinValue()<=value && value <= this.getMaxValue();
 	}
+
+	@Override
+	protected void collectParamsDescription(List<String> params) {
+		params.add(String.format("min %d", this.getMinValue()));
+		params.add(String.format("max %d", this.getMaxValue()));
+	}
+
 } //ExtractorFilterAttributeIntRangeImpl

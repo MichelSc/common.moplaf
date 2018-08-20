@@ -4,6 +4,10 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt;
+
+import java.util.List;
+
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -32,7 +36,6 @@ public abstract class ExtractorFilterAttributeIntImpl extends ExtractorFilterAtt
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.EXTRACTOR_FILTER_ATTRIBUTE_INT;
 	}
-
 
 
 } //ExtractorFilterAttributeIntImpl

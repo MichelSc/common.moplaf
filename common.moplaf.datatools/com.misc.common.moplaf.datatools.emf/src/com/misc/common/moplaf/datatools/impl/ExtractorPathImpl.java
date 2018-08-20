@@ -10,6 +10,8 @@ import com.misc.common.moplaf.datatools.util.ObjectSet;
 import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -359,14 +361,16 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 		return true;
 	}
 
-	/**
-	 * 
-	 */
 	@Override
-	public String getDescription() {
-		String description = String.format("path: %s", this.getPath());
-		return description;
+	protected void collectParamsDescription(List<String> params) {
+		params.add(String.format("path: %s", this.getPath()));
 	}
+
+	@Override
+	protected String getTypeDescription() {
+		return "Extractor path";
+	}
+
 
 	@Override
 	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {

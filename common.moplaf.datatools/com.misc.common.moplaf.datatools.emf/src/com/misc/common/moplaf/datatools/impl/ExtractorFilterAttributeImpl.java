@@ -230,11 +230,12 @@ public abstract class ExtractorFilterAttributeImpl extends ExtractorFilterImpl i
 	}
 	
 	@Override
-	public String getDescription() {
+	protected String getTypeDescription() {
 		String attribute = this.getAttribute()==null ? "null" : this.getAttribute().getName();
-		String description = String.format("attribute %s: %s", this.getPath(), attribute);
+		String description = String.format("Filter %s: %s", this.getPath(), attribute);
 		return description;
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

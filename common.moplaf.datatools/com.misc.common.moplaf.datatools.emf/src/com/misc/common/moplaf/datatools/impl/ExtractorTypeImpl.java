@@ -6,6 +6,8 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorType;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
 
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -169,15 +171,17 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 		return this.getTargetType();
 	}
 
-	/**
-	 * 
-	 */
 	@Override
-	public String getDescription() {
+	protected void collectParamsDescription(List<String> params) {
 		String type = this.getTargetType()==null ? "null" : this.getTargetType().getName();
-		String description = String.format("type: %s", type);
-		return description;
+		params.add(String.format("type %s", type));
 	}
+
+	@Override
+	protected String getTypeDescription() {
+		return "Extractor all";
+	}
+
 
 	/**
 	 * 
