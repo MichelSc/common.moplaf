@@ -1,6 +1,12 @@
 package com.misc.common.moplaf.chart.swtchart;
 
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
@@ -8,6 +14,7 @@ import org.eclipse.swt.widgets.Control;
 import org.swtchart.Chart;
 import org.swtchart.IBarSeries;
 import org.swtchart.ISeries.SeriesType;
+import org.swtchart.internal.PlotArea;
 
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 public class ChartViewer extends ChartViewerAbstract {
@@ -81,7 +88,11 @@ public class ChartViewer extends ChartViewerAbstract {
 					//barSeries.setXDateSeries(xSeries);
 					//barSeries.setDescription("description");
 					barSeries.setYSeries(ySeries);
-	
+					
+					chart.addMouseListener(new ChartSelectionListener());
+					Composite composite = chart.getPlotArea();
+					composite.addMouseListener(new ChartSelectionListener());
+					
 					// adjust the axis range
 					chart.getAxisSet().getXAxis(i).enableCategory(true);
 					chart.getAxisSet().getXAxis(i).setCategorySeries(xSeries);
@@ -98,4 +109,37 @@ public class ChartViewer extends ChartViewerAbstract {
 	public Control getControl() {
 		return chart;
 	}
+	
+	private class ChartSelectionListener implements MouseListener {
+
+		@Override
+		public void mouseDoubleClick(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseDown(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+			Object selection = e.getSource();
+			//Object selectedObject = selection.getFirstElement();
+			
+			System.out.println("** selection type : " + selection.getClass().toString());
+			
+			if( selection instanceof PlotArea ) {
+				PlotArea pa = (PlotArea)selection;
+				System.out.println("** serie : " + pa.getSeriesSet().getSeries()[0].getId());
+				
+			}
+			
+		}
+
+		@Override
+		public void mouseUp(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+
 }
