@@ -2,6 +2,7 @@ package com.misc.common.moplaf.chart.swtchart;
 
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.graphics.Rectangle;
 
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -13,10 +14,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.swtchart.Chart;
 import org.swtchart.IBarSeries;
+import org.swtchart.ISeries;
 import org.swtchart.ISeries.SeriesType;
 import org.swtchart.internal.PlotArea;
 
+//import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
+
 public class ChartViewer extends ChartViewerAbstract {
 	
 	private Chart chart;
@@ -29,7 +33,9 @@ public class ChartViewer extends ChartViewerAbstract {
 		chart.getAxisSet().getYAxis(0).getTitle().setText("");
 		
 		super.hookControl(chart);
-
+		chart.addMouseListener(new ChartSelectionListener());
+		Composite composite = chart.getPlotArea();
+		composite.addMouseListener(new ChartSelectionListener());
 	}
 
 	@Override
@@ -81,25 +87,25 @@ public class ChartViewer extends ChartViewerAbstract {
 				}
 								
 				if( all_categories.length > 0 ) {
-					chart.setVisible(true);
+					for( ISeries serie : chart.getSeriesSet().getSeries() ) {
+						String id = serie.getId();
+						chart.getSeriesSet().deleteSeries(id);
+					}
 					// create bar series
 					IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
 					    .createSeries(SeriesType.BAR, serie_name);
 					//barSeries.setXDateSeries(xSeries);
 					//barSeries.setDescription("description");
 					barSeries.setYSeries(ySeries);
-					
-					chart.addMouseListener(new ChartSelectionListener());
-					Composite composite = chart.getPlotArea();
-					composite.addMouseListener(new ChartSelectionListener());
-					
-					// adjust the axis range
+										
 					chart.getAxisSet().getXAxis(i).enableCategory(true);
 					chart.getAxisSet().getXAxis(i).setCategorySeries(xSeries);
-					chart.getAxisSet().adjustRange();
+					chart.setVisible(true);
 				}
 			}
 			if ( all_series.length > 0 ) {
+				// adjust the axis range
+				chart.getAxisSet().adjustRange();
 				chart.redraw();
 			}
 		}
@@ -123,14 +129,15 @@ public class ChartViewer extends ChartViewerAbstract {
 			// TODO Auto-generated method stub
 			
 			Object selection = e.getSource();
-			//Object selectedObject = selection.getFirstElement();
 			
 			System.out.println("** selection type : " + selection.getClass().toString());
 			
 			if( selection instanceof PlotArea ) {
 				PlotArea pa = (PlotArea)selection;
-				System.out.println("** serie : " + pa.getSeriesSet().getSeries()[0].getId());
-				
+				for (ISeries serie : pa.getSeriesSet().getSeries()) {
+					System.out.println("** serie : " + serie.getId());
+					System.out.println("** category : " + getCategoryName(e.x));
+				}
 			}
 			
 		}
@@ -140,6 +147,40 @@ public class ChartViewer extends ChartViewerAbstract {
 			// TODO Auto-generated method stub
 			
 		}
-	};
+	}
 
+	/*
+	private class ChartViewerBar {
+		private Object modelObject;
+		private IBarSeries serie;
+		private String category;
+
+		public ChartViewerBar(Object modelObject, IBarSeries serie, String category) {
+			this.modelObject = modelObject;
+			this.serie = serie;
+			this.category = category;
+		}
+		
+		public Object getModelObject(){
+			return this.modelObject;
+		}
+		
+	}
+	*/
+	
+	private String getCategoryName(int x) {
+		String result = "";
+		for (ISeries serie : chart.getSeriesSet().getSeries()) {
+			if( serie instanceof IBarSeries ) {
+				for ( int i = 0; i < ((IBarSeries)serie).getBounds().length; i++ ) {
+					Rectangle r = ((IBarSeries)serie).getBounds()[i];
+					if( x <= r.x + r.width && x >= r.x ) {
+						result = chart.getAxisSet().getXAxis(0).getCategorySeries()[i];
+					}
+				}
+			}
+		}
+		
+		return result;
+	}
 }
