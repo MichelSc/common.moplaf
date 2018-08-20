@@ -4,10 +4,6 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Rectangle;
 
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
@@ -24,6 +20,7 @@ import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 public class ChartViewer extends ChartViewerAbstract {
 	
 	private Chart chart;
+	private Object[] categories;
 
 	public ChartViewer(Composite parent) {
 		chart = new Chart(parent, SWT.NONE);
@@ -33,7 +30,7 @@ public class ChartViewer extends ChartViewerAbstract {
 		chart.getAxisSet().getYAxis(0).getTitle().setText("");
 		
 		super.hookControl(chart);
-		chart.addMouseListener(new ChartSelectionListener());
+		//chart.addMouseListener(new ChartSelectionListener());
 		Composite composite = chart.getPlotArea();
 		composite.addMouseListener(new ChartSelectionListener());
 	}
@@ -71,12 +68,14 @@ public class ChartViewer extends ChartViewerAbstract {
 				String serie_name = this.getILabelProvider().getText(current_serie);
 				Color serie_color = this.getIColorProvider().getBackground(current_serie);
 				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_bar_chart);
+				this.categories = new Object[all_categories.length];
 				
 				double[] ySeries = new double[all_categories.length];
 				String[] xSeries = new String[all_categories.length];
 								
 				for ( int j = 0; j < all_categories.length; j++) {
 					Object category = all_categories[j];
+					categories[j] = category;
 					String category_name = this.getILabelProvider().getText(category);
 					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, current_serie, category);
 
@@ -126,20 +125,20 @@ public class ChartViewer extends ChartViewerAbstract {
 
 		@Override
 		public void mouseDown(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-			Object selection = e.getSource();
-			
-			System.out.println("** selection type : " + selection.getClass().toString());
-			
+			Object selection = e.getSource();			
+			String category_name = getCategoryName(e.x);
 			if( selection instanceof PlotArea ) {
 				PlotArea pa = (PlotArea)selection;
 				for (ISeries serie : pa.getSeriesSet().getSeries()) {
 					System.out.println("** serie : " + serie.getId());
-					System.out.println("** category : " + getCategoryName(e.x));
+					System.out.println("** category : " + category_name);
 				}
 			}
-			
+			for( Object category : categories ) {
+				if( getILabelProvider().getText(category) == category_name ) {
+					setSelectedElement(category);
+				}
+			}
 		}
 
 		@Override
@@ -148,25 +147,6 @@ public class ChartViewer extends ChartViewerAbstract {
 			
 		}
 	}
-
-	/*
-	private class ChartViewerBar {
-		private Object modelObject;
-		private IBarSeries serie;
-		private String category;
-
-		public ChartViewerBar(Object modelObject, IBarSeries serie, String category) {
-			this.modelObject = modelObject;
-			this.serie = serie;
-			this.category = category;
-		}
-		
-		public Object getModelObject(){
-			return this.modelObject;
-		}
-		
-	}
-	*/
 	
 	private String getCategoryName(int x) {
 		String result = "";
