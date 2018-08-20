@@ -371,11 +371,9 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 		return "Extractor path";
 	}
 
-
 	@Override
 	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
 		return Util.navigate(this,  ins, max_elements);
 	}
-
 
 } //ExtractorPathImpl

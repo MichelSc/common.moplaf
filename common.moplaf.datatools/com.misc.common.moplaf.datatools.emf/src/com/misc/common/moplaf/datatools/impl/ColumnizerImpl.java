@@ -8,6 +8,8 @@ import com.misc.common.moplaf.datatools.ColumnizerGrid;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -81,13 +83,20 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 		return columns;
 	}
 
-	/**
-	 * 
-	 */
 	@Override
-	public String getDescription() {
-		return String.format("columnizer %s", this.getName());
+	protected void collectParamsDescription(List<String> params) {
+		for ( ColumnizerColumn column: this.getColumns()) {
+			String name = column.getName();
+			params.add(name==null ? "null" : name);
+		}
 	}
+
+	@Override
+	protected String getTypeDescription() {
+		return "Columnizer";
+	}
+
+
 
 	/** 
 	 * Specified by ColumnizerAbstract

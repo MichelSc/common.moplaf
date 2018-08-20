@@ -39,10 +39,10 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationReference/Reference"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationReference/Reference"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationDowncast">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationDowncast/DowncastType"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationDowncast/DowncastType"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//DataToolContext">
       <genOperations ecoreOperation="datatools.ecore#//DataToolContext/getDomainTypes"/>

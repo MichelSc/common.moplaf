@@ -140,12 +140,12 @@
                   <groups name="di_doctasks_tools_wizart_categorizergroup" labelExpression="Select Categorizers to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:container">
                     <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_categorizerlist" labelExpression="Categorizers" valueExpression="service:domain.getNewCategorizers(element_type)" displayExpression="aql:value.Description">
                       <onClickOperation>
-                        <firstModelOperations xsi:type="tool:Let" variableName="tocreate_categorizer" valueExpression="aql:selection->first()"/>
+                        <firstModelOperations xsi:type="tool:Let" variableName="tocreate_categorizers" valueExpression="aql:selection"/>
                       </onClickOperation>
                     </controls>
                   </groups>
                   <initialOperation>
-                    <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docAnalysisSetDataTools(tocreate_extractor, tocreate_columnizer, tocreate_categorizer)"/>
+                    <firstModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:docAnalysisSetDataTools(tocreate_extractor, tocreate_columnizer, tocreate_categorizers)"/>
                   </initialOperation>
                 </subModelOperations>
               </firstModelOperations>
