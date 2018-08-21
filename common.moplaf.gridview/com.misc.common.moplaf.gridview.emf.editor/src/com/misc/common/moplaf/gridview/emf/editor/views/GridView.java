@@ -11,16 +11,12 @@
 package com.misc.common.moplaf.gridview.emf.editor.views;
 
 
-import org.eclipse.ui.views.properties.IPropertySheetPage;
-import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.*;
 
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
-//import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
 import com.misc.common.moplaf.gridview.emf.editor.viewers.GridViewer;
 
 
@@ -63,34 +59,6 @@ public class GridView extends ViewAbstract {
 		this.setSelectionListener();
 		this.contributeToActionBars();
 	} // createControl method
-
-	/**
-	 * This is how the framework determines which interfaces we implement.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Object getAdapter(Class key) {
-		if (key.equals(IPropertySheetPage.class)) {
-			return getPropertySheetPage();
-		}
-		else {
-			return super.getAdapter(key);
-		}
-	}
-
-	/**
-	 * This creates a property sheet. Question: should we cache it?
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public IPropertySheetPage getPropertySheetPage() {
-		PropertySheetPage propertySheetPage = new PropertySheetPage();
-		AdapterFactoryContentProvider sourcePropertyProvider = new AdapterFactoryContentProvider(this.adapterFactory);
-		propertySheetPage.setPropertySourceProvider(sourcePropertyProvider);
-		return propertySheetPage;
-	}
 
 
 	@Override

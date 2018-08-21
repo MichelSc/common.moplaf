@@ -11,10 +11,7 @@
 package com.misc.common.moplaf.timeview.emf.editor.views;
 
 
-import org.eclipse.ui.views.properties.IPropertySheetPage;
-import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.ContentViewer;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
@@ -65,33 +62,5 @@ public abstract class GanttViewAbstract extends ViewAbstract {
 		this.setSelectionListener();
 		this.contributeToActionBars();
 	} // createControl method
-
-	/**
-	 * This is how the framework determines which interfaces we implement.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Object getAdapter(Class key) {
-		if (key.equals(IPropertySheetPage.class)) {
-			return getPropertySheetPage();
-		}
-		else {
-			return super.getAdapter(key);
-		}
-	}
-
-	/**
-	 * This creates a property sheet. Question: should we cache it?
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public IPropertySheetPage getPropertySheetPage() {
-		PropertySheetPage propertySheetPage = new PropertySheetPage();
-		AdapterFactoryContentProvider sourcePropertyProvider = new AdapterFactoryContentProvider(this.adapterFactory);
-		propertySheetPage.setPropertySourceProvider(sourcePropertyProvider);
-		return propertySheetPage;
-	}
 
 }

@@ -4,6 +4,7 @@ import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -21,6 +22,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.ui.views.properties.IPropertySheetPage;
+import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import com.misc.common.moplaf.emf.editor.Util;
 import com.misc.common.moplaf.emf.editor.action.PinViewAction;
@@ -138,6 +141,34 @@ public abstract class ViewAbstract extends ViewPart {
 		Menu menu = menuMgr.createContextMenu(this.getViewer().getControl());
 		getViewer().getControl().setMenu(menu);
 		getSite().registerContextMenu(menuMgr, this.getViewer());
+	}
+	
+	/**
+	 * This is how the framework determines which interfaces we implement.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Object getAdapter(Class key) {
+		if (key.equals(IPropertySheetPage.class)) {
+			return getPropertySheetPage();
+		}
+		else {
+			return super.getAdapter(key);
+		}
+	}
+
+	/**
+	 * This creates a property sheet. Question: should we cache it?
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public IPropertySheetPage getPropertySheetPage() {
+		PropertySheetPage propertySheetPage = new PropertySheetPage();
+		AdapterFactoryContentProvider sourcePropertyProvider = new AdapterFactoryContentProvider(this.adapterFactory);
+		propertySheetPage.setPropertySourceProvider(sourcePropertyProvider);
+		return propertySheetPage;
 	}
 
 }
