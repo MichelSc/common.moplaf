@@ -9,7 +9,7 @@ public class ChartView extends ChartViewAbstract {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "com.misc.common.moplaf.chart.swtchart.ChartView";
+	public static final String ID = "com.misc.common.moplaf.chart.swtchart.views.ChartView";
 	
 	public ChartView() {
 	}
