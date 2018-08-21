@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ExtractorCompound extends Extractor {
+public interface ExtractorCompound extends Extractor, DataToolContext {
 	/**
 	 * Returns the value of the '<em><b>Extractors</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.Extractor}.

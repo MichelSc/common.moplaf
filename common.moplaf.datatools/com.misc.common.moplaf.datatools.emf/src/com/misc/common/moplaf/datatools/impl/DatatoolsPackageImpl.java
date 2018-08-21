@@ -39,6 +39,7 @@ import com.misc.common.moplaf.datatools.ExtractorPipe;
 import com.misc.common.moplaf.datatools.ExtractorType;
 import com.misc.common.moplaf.datatools.ExtractorUnion;
 import com.misc.common.moplaf.datatools.Match;
+import com.misc.common.moplaf.datatools.MatchStatus;
 import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationDowncast;
@@ -287,6 +288,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EEnum dataToolTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum matchStatusEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1207,16 +1215,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMatcher_Matches() {
-		return (EReference)matcherEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMatcher__RefreshMatches__EObject_EObject() {
+	public EOperation getMatcher__GetMatch__EObject_EObject() {
 		return matcherEClass.getEOperations().get(0);
 	}
 
@@ -1254,6 +1253,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EEnum getDataToolType() {
 		return dataToolTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMatchStatus() {
+		return matchStatusEEnum;
 	}
 
 	/**
@@ -1618,8 +1626,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEAttribute(categorizerOclEClass, CATEGORIZER_OCL__EXPRESSION);
 
 		matcherEClass = createEClass(MATCHER);
-		createEReference(matcherEClass, MATCHER__MATCHES);
-		createEOperation(matcherEClass, MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT);
+		createEOperation(matcherEClass, MATCHER___GET_MATCH__EOBJECT_EOBJECT);
 
 		matchEClass = createEClass(MATCH);
 		createEReference(matchEClass, MATCH__OBJECT1);
@@ -1627,6 +1634,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		// Create enums
 		dataToolTypeEEnum = createEEnum(DATA_TOOL_TYPE);
+		matchStatusEEnum = createEEnum(MATCH_STATUS);
 
 		// Create data types
 		eObjectsSetEDataType = createEDataType(EOBJECTS_SET);
@@ -1681,6 +1689,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		extractorFilterANDEClass.getESuperTypes().add(this.getExtractorFilterCompound());
 		extractorFilterOREClass.getESuperTypes().add(this.getExtractorFilterCompound());
 		extractorCompoundEClass.getESuperTypes().add(this.getExtractor());
+		extractorCompoundEClass.getESuperTypes().add(this.getDataToolContext());
 		extractorLogicEClass.getESuperTypes().add(this.getExtractorCompound());
 		extractorPipeEClass.getESuperTypes().add(this.getExtractorCompound());
 		extractorUnionEClass.getESuperTypes().add(this.getExtractorLogic());
@@ -1696,6 +1705,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getCategorizer());
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getNavigationPath());
 		categorizerOclEClass.getESuperTypes().add(this.getCategorizer());
+		matcherEClass.getESuperTypes().add(this.getDataTool());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(navigationPathEClass, NavigationPath.class, "NavigationPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1884,9 +1894,8 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEAttribute(getCategorizerOcl_Expression(), ecorePackage.getEString(), "Expression", null, 0, 1, CategorizerOcl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(matcherEClass, Matcher.class, "Matcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMatcher_Matches(), this.getMatch(), null, "Matches", null, 0, -1, Matcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getMatcher__RefreshMatches__EObject_EObject(), null, "refreshMatches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getMatcher__GetMatch__EObject_EObject(), this.getMatchStatus(), "getMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "ins1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "ins2", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1900,6 +1909,11 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		addEEnumLiteral(dataToolTypeEEnum, DataToolType.EXTRACTOR);
 		addEEnumLiteral(dataToolTypeEEnum, DataToolType.COLUMNIZER);
 		addEEnumLiteral(dataToolTypeEEnum, DataToolType.CATEGORIZER);
+
+		initEEnum(matchStatusEEnum, MatchStatus.class, "MatchStatus");
+		addEEnumLiteral(matchStatusEEnum, MatchStatus.BEFORE);
+		addEEnumLiteral(matchStatusEEnum, MatchStatus.AFTER);
+		addEEnumLiteral(matchStatusEEnum, MatchStatus.MATCH);
 
 		// Initialize data types
 		initEDataType(eObjectsSetEDataType, ObjectSet.class, "EObjectsSet", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

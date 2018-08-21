@@ -8,11 +8,13 @@ Bundle-ClassPath: .
 Bundle-Activator: com.misc.common.moplaf.datatools.Plugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.misc.common.moplaf.datatools,
  com.misc.common.moplaf.datatools.impl,
  com.misc.common.moplaf.datatools.util
 Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.file.emf;visibility:=reexport,
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
  com.misc.common.moplaf.emf;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

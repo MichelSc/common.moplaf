@@ -2998,13 +2998,22 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT = EXTRACTOR___IS_VALID_ROOT__EOBJECT;
 
 	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES = EXTRACTOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Extractor Compound</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 0;
+	int EXTRACTOR_COMPOUND_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3095,6 +3104,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC___GET_DOMAIN_TYPES = EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES;
 
 	/**
 	 * The number of operations of the '<em>Extractor Logic</em>' class.
@@ -3196,6 +3214,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PIPE___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
 
 	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE___GET_DOMAIN_TYPES = EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES;
+
+	/**
 	 * The number of operations of the '<em>Extractor Pipe</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3295,6 +3322,15 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_UNION___IS_VALID_ROOT__EOBJECT = EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT;
 
 	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION___GET_DOMAIN_TYPES = EXTRACTOR_LOGIC___GET_DOMAIN_TYPES;
+
+	/**
 	 * The number of operations of the '<em>Extractor Union</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3392,6 +3428,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTRACTOR_INTERSECTION___IS_VALID_ROOT__EOBJECT = EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION___GET_DOMAIN_TYPES = EXTRACTOR_LOGIC___GET_DOMAIN_TYPES;
 
 	/**
 	 * The number of operations of the '<em>Extractor Intersection</em>' class.
@@ -4573,13 +4618,31 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER_OCL_OPERATION_COUNT = CATEGORIZER_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Matches</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCHER__MATCHES = 0;
+	int MATCHER__CONTEXT = DATA_TOOL__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER__DESCRIPTION = DATA_TOOL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER__NAME = DATA_TOOL__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Matcher</em>' class.
@@ -4588,16 +4651,34 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCHER_FEATURE_COUNT = 1;
+	int MATCHER_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Refresh Matches</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT = 0;
+	int MATCHER___CLONE = DATA_TOOL___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER___GET_TYPE = DATA_TOOL___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Get Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCHER___GET_MATCH__EOBJECT_EOBJECT = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Matcher</em>' class.
@@ -4606,7 +4687,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCHER_OPERATION_COUNT = 1;
+	int MATCHER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Object1</b></em>' reference.
@@ -4655,6 +4736,16 @@ public interface DatatoolsPackage extends EPackage {
 	int DATA_TOOL_TYPE = 40;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.MatchStatus <em>Match Status</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.MatchStatus
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatchStatus()
+	 * @generated
+	 */
+	int MATCH_STATUS = 41;
+
+	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4662,7 +4753,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 41;
+	int EOBJECTS_SET = 42;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -5573,25 +5664,14 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getMatcher();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.Matcher#getMatches <em>Matches</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Matcher#getMatch(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Get Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Matches</em>'.
-	 * @see com.misc.common.moplaf.datatools.Matcher#getMatches()
-	 * @see #getMatcher()
+	 * @return the meta object for the '<em>Get Match</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Matcher#getMatch(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EReference getMatcher_Matches();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Matcher#refreshMatches(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Refresh Matches</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Matches</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Matcher#refreshMatches(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	EOperation getMatcher__RefreshMatches__EObject_EObject();
+	EOperation getMatcher__GetMatch__EObject_EObject();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Match <em>Match</em>}'.
@@ -5634,6 +5714,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getDataToolType();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.MatchStatus <em>Match Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Match Status</em>'.
+	 * @see com.misc.common.moplaf.datatools.MatchStatus
+	 * @generated
+	 */
+	EEnum getMatchStatus();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterCompound <em>Extractor Filter Compound</em>}'.
@@ -6635,20 +6725,12 @@ public interface DatatoolsPackage extends EPackage {
 		EClass MATCHER = eINSTANCE.getMatcher();
 
 		/**
-		 * The meta object literal for the '<em><b>Matches</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Get Match</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MATCHER__MATCHES = eINSTANCE.getMatcher_Matches();
-
-		/**
-		 * The meta object literal for the '<em><b>Refresh Matches</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT = eINSTANCE.getMatcher__RefreshMatches__EObject_EObject();
+		EOperation MATCHER___GET_MATCH__EOBJECT_EOBJECT = eINSTANCE.getMatcher__GetMatch__EObject_EObject();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.MatchImpl <em>Match</em>}' class.
@@ -6685,6 +6767,16 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DATA_TOOL_TYPE = eINSTANCE.getDataToolType();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.MatchStatus <em>Match Status</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.MatchStatus
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatchStatus()
+		 * @generated
+		 */
+		EEnum MATCH_STATUS = eINSTANCE.getMatchStatus();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterCompoundImpl <em>Extractor Filter Compound</em>}' class.

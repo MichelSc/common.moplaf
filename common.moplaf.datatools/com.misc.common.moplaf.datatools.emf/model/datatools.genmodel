@@ -13,6 +13,11 @@
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/COLUMNIZER"/>
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/CATEGORIZER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="datatools.ecore#//MatchStatus">
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/BEFORE"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/AFTER"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/MATCH"/>
+    </genEnums>
     <genDataTypes ecoreDataType="datatools.ecore#//EObjectsSet"/>
     <genClasses ecoreClass="datatools.ecore#//NavigationPath" labelFeature="#//datatools/NavigationPath/Path">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/PathElements"/>
@@ -193,10 +198,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategorizerOcl/Expression"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Matcher">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Matcher/Matches"/>
-      <genOperations ecoreOperation="datatools.ecore#//Matcher/refreshMatches">
-        <genParameters ecoreParameter="datatools.ecore#//Matcher/refreshMatches/ins1"/>
-        <genParameters ecoreParameter="datatools.ecore#//Matcher/refreshMatches/ins2"/>
+      <genOperations ecoreOperation="datatools.ecore#//Matcher/getMatch">
+        <genParameters ecoreParameter="datatools.ecore#//Matcher/getMatch/ins1"/>
+        <genParameters ecoreParameter="datatools.ecore#//Matcher/getMatch/ins2"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Match">

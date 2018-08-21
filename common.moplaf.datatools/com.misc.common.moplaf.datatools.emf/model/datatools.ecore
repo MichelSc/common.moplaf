@@ -121,7 +121,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterAND" eSuperTypes="#//ExtractorFilterCompound"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorFilterOR" eSuperTypes="#//ExtractorFilterCompound"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorCompound" eSuperTypes="#//Extractor">
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorCompound" eSuperTypes="#//Extractor #//DataToolContext">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Extractors" upperBound="-1"
         eType="#//Extractor" containment="true"/>
   </eClassifiers>
@@ -220,13 +220,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="CategorizerOcl" eSuperTypes="#//Categorizer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Matcher">
-    <eOperations name="refreshMatches">
+  <eClassifiers xsi:type="ecore:EEnum" name="MatchStatus">
+    <eLiterals name="BEFORE"/>
+    <eLiterals name="AFTER" value="1"/>
+    <eLiterals name="MATCH" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Matcher" eSuperTypes="#//DataTool">
+    <eOperations name="getMatch" eType="#//MatchStatus">
       <eParameters name="ins1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       <eParameters name="ins2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Matches" upperBound="-1"
-        eType="#//Match" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Match">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>

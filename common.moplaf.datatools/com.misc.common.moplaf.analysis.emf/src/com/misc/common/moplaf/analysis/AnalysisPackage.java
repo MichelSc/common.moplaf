@@ -211,7 +211,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT_1 = DatatoolsPackage.SUPER_CATEGORY___GET_SUBCATEGORY__EOBJECT;
+	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.SUPER_CATEGORY___GET_SUBCATEGORY__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh Cats</em>' operation.
@@ -220,7 +220,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST_INT_1 = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST_INT;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST_INT = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST_INT;
 
 	/**
 	 * The operation id for the '<em>Set Columnizer All</em>' operation.
@@ -229,7 +229,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT_1 = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
+	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -247,7 +247,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST_1 = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST;
+	int DOC_ANALYSIS___REFRESH_CATS__OBJECTSET_ELIST = DatatoolsPackage.SUPER_CATEGORY___REFRESH_CATS__OBJECTSET_ELIST;
 
 	/**
 	 * The operation id for the '<em>Get Domain Types</em>' operation.
@@ -297,31 +297,22 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_COMPARISON = 1;
 
 	/**
-	 * The feature id for the '<em><b>Matches</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON__MATCHES = DatatoolsPackage.MATCHER__MATCHES;
+	int DOC_COMPARISON__EXTRACTOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Extractor</b></em>' reference.
+	 * The feature id for the '<em><b>Columnizer Compare</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON__EXTRACTOR = DatatoolsPackage.MATCHER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_COMPARISON__COLUMNIZER = DatatoolsPackage.MATCHER_FEATURE_COUNT + 1;
+	int DOC_COMPARISON__COLUMNIZER_COMPARE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Doc1</b></em>' containment reference.
@@ -330,7 +321,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON__DOC1 = DatatoolsPackage.MATCHER_FEATURE_COUNT + 2;
+	int DOC_COMPARISON__DOC1 = 2;
 
 	/**
 	 * The feature id for the '<em><b>Doc2</b></em>' containment reference.
@@ -339,16 +330,34 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON__DOC2 = DatatoolsPackage.MATCHER_FEATURE_COUNT + 3;
+	int DOC_COMPARISON__DOC2 = 3;
 
 	/**
-	 * The feature id for the '<em><b>Categorizer</b></em>' reference.
+	 * The feature id for the '<em><b>Matches</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON__CATEGORIZER = DatatoolsPackage.MATCHER_FEATURE_COUNT + 4;
+	int DOC_COMPARISON__MATCHES = 4;
+
+	/**
+	 * The feature id for the '<em><b>Matcher</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_COMPARISON__MATCHER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_COMPARISON__COLUMNIZER_KEY = 6;
 
 	/**
 	 * The number of structural features of the '<em>Doc Comparison</em>' class.
@@ -357,16 +366,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON_FEATURE_COUNT = DatatoolsPackage.MATCHER_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Refresh Matches</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_COMPARISON___REFRESH_MATCHES__EOBJECT_EOBJECT_1 = DatatoolsPackage.MATCHER___REFRESH_MATCHES__EOBJECT_EOBJECT;
+	int DOC_COMPARISON_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Doc Comparison</em>' class.
@@ -375,7 +375,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_COMPARISON_OPERATION_COUNT = DatatoolsPackage.MATCHER_OPERATION_COUNT + 0;
+	int DOC_COMPARISON_OPERATION_COUNT = 0;
 
 
 	/**
@@ -682,10 +682,10 @@ public interface AnalysisPackage extends EPackage {
 	EClass getDocComparison();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.analysis.DocComparison#getExtractor <em>Extractor</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocComparison#getExtractor <em>Extractor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Extractor</em>'.
+	 * @return the meta object for the containment reference '<em>Extractor</em>'.
 	 * @see com.misc.common.moplaf.analysis.DocComparison#getExtractor()
 	 * @see #getDocComparison()
 	 * @generated
@@ -693,15 +693,15 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocComparison_Extractor();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.analysis.DocComparison#getColumnizer <em>Columnizer</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocComparison#getColumnizerCompare <em>Columnizer Compare</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Columnizer</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocComparison#getColumnizer()
+	 * @return the meta object for the containment reference '<em>Columnizer Compare</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocComparison#getColumnizerCompare()
 	 * @see #getDocComparison()
 	 * @generated
 	 */
-	EReference getDocComparison_Columnizer();
+	EReference getDocComparison_ColumnizerCompare();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocComparison#getDoc1 <em>Doc1</em>}'.
@@ -726,15 +726,37 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocComparison_Doc2();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.analysis.DocComparison#getCategorizer <em>Categorizer</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.DocComparison#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Categorizer</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocComparison#getCategorizer()
+	 * @return the meta object for the containment reference list '<em>Matches</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocComparison#getMatches()
 	 * @see #getDocComparison()
 	 * @generated
 	 */
-	EReference getDocComparison_Categorizer();
+	EReference getDocComparison_Matches();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocComparison#getMatcher <em>Matcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Matcher</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocComparison#getMatcher()
+	 * @see #getDocComparison()
+	 * @generated
+	 */
+	EReference getDocComparison_Matcher();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocComparison#getColumnizerKey <em>Columnizer Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Columnizer Key</em>'.
+	 * @see com.misc.common.moplaf.analysis.DocComparison#getColumnizerKey()
+	 * @see #getDocComparison()
+	 * @generated
+	 */
+	EReference getDocComparison_ColumnizerKey();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisDomain <em>Domain</em>}'.
@@ -956,7 +978,7 @@ public interface AnalysisPackage extends EPackage {
 		EClass DOC_COMPARISON = eINSTANCE.getDocComparison();
 
 		/**
-		 * The meta object literal for the '<em><b>Extractor</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Extractor</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -964,12 +986,12 @@ public interface AnalysisPackage extends EPackage {
 		EReference DOC_COMPARISON__EXTRACTOR = eINSTANCE.getDocComparison_Extractor();
 
 		/**
-		 * The meta object literal for the '<em><b>Columnizer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Columnizer Compare</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOC_COMPARISON__COLUMNIZER = eINSTANCE.getDocComparison_Columnizer();
+		EReference DOC_COMPARISON__COLUMNIZER_COMPARE = eINSTANCE.getDocComparison_ColumnizerCompare();
 
 		/**
 		 * The meta object literal for the '<em><b>Doc1</b></em>' containment reference feature.
@@ -988,12 +1010,28 @@ public interface AnalysisPackage extends EPackage {
 		EReference DOC_COMPARISON__DOC2 = eINSTANCE.getDocComparison_Doc2();
 
 		/**
-		 * The meta object literal for the '<em><b>Categorizer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Matches</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOC_COMPARISON__CATEGORIZER = eINSTANCE.getDocComparison_Categorizer();
+		EReference DOC_COMPARISON__MATCHES = eINSTANCE.getDocComparison_Matches();
+
+		/**
+		 * The meta object literal for the '<em><b>Matcher</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC_COMPARISON__MATCHER = eINSTANCE.getDocComparison_Matcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Columnizer Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOC_COMPARISON__COLUMNIZER_KEY = eINSTANCE.getDocComparison_ColumnizerKey();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.

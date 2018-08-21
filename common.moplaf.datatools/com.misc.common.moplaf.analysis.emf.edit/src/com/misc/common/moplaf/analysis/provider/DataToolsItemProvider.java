@@ -93,7 +93,7 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/moplaf_folder.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataTools"));
 	}
 
 	/**
@@ -212,6 +212,11 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 			(createChildParameter
 				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
+				 DatatoolsFactory.eINSTANCE.createMatcher()));
 	}
 
 	/**

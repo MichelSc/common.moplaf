@@ -4,22 +4,25 @@ package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocComparison;
-
-import com.misc.common.moplaf.datatools.Categorizer;
-import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.Extractor;
 
-import com.misc.common.moplaf.datatools.impl.MatcherImpl;
-
+import com.misc.common.moplaf.datatools.Match;
+import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.job.DocRef;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,17 +33,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getExtractor <em>Extractor</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getColumnizerCompare <em>Columnizer Compare</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getDoc1 <em>Doc1</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getDoc2 <em>Doc2</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getCategorizer <em>Categorizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getMatches <em>Matches</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getMatcher <em>Matcher</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocComparisonImpl#getColumnizerKey <em>Columnizer Key</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DocComparisonImpl extends MatcherImpl implements DocComparison {
+public class DocComparisonImpl extends MinimalEObjectImpl.Container implements DocComparison {
 	/**
-	 * The cached value of the '{@link #getExtractor() <em>Extractor</em>}' reference.
+	 * The cached value of the '{@link #getExtractor() <em>Extractor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExtractor()
@@ -50,14 +55,14 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	protected Extractor extractor;
 
 	/**
-	 * The cached value of the '{@link #getColumnizer() <em>Columnizer</em>}' reference.
+	 * The cached value of the '{@link #getColumnizerCompare() <em>Columnizer Compare</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColumnizer()
+	 * @see #getColumnizerCompare()
 	 * @generated
 	 * @ordered
 	 */
-	protected Columnizer columnizer;
+	protected ColumnizerAbstract columnizerCompare;
 
 	/**
 	 * The cached value of the '{@link #getDoc1() <em>Doc1</em>}' containment reference.
@@ -80,14 +85,34 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	protected DocRef doc2;
 
 	/**
-	 * The cached value of the '{@link #getCategorizer() <em>Categorizer</em>}' reference.
+	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCategorizer()
+	 * @see #getMatches()
 	 * @generated
 	 * @ordered
 	 */
-	protected Categorizer categorizer;
+	protected EList<Match> matches;
+
+	/**
+	 * The cached value of the '{@link #getMatcher() <em>Matcher</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMatcher()
+	 * @generated
+	 * @ordered
+	 */
+	protected Matcher matcher;
+
+	/**
+	 * The cached value of the '{@link #getColumnizerKey() <em>Columnizer Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumnizerKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected ColumnizerAbstract columnizerKey;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,14 +139,6 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * @generated
 	 */
 	public Extractor getExtractor() {
-		if (extractor != null && extractor.eIsProxy()) {
-			InternalEObject oldExtractor = (InternalEObject)extractor;
-			extractor = (Extractor)eResolveProxy(oldExtractor);
-			if (extractor != oldExtractor) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.DOC_COMPARISON__EXTRACTOR, oldExtractor, extractor));
-			}
-		}
 		return extractor;
 	}
 
@@ -130,8 +147,14 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Extractor basicGetExtractor() {
-		return extractor;
+	public NotificationChain basicSetExtractor(Extractor newExtractor, NotificationChain msgs) {
+		Extractor oldExtractor = extractor;
+		extractor = newExtractor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__EXTRACTOR, oldExtractor, newExtractor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -140,27 +163,17 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * @generated
 	 */
 	public void setExtractor(Extractor newExtractor) {
-		Extractor oldExtractor = extractor;
-		extractor = newExtractor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__EXTRACTOR, oldExtractor, extractor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Columnizer getColumnizer() {
-		if (columnizer != null && columnizer.eIsProxy()) {
-			InternalEObject oldColumnizer = (InternalEObject)columnizer;
-			columnizer = (Columnizer)eResolveProxy(oldColumnizer);
-			if (columnizer != oldColumnizer) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.DOC_COMPARISON__COLUMNIZER, oldColumnizer, columnizer));
-			}
+		if (newExtractor != extractor) {
+			NotificationChain msgs = null;
+			if (extractor != null)
+				msgs = ((InternalEObject)extractor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__EXTRACTOR, null, msgs);
+			if (newExtractor != null)
+				msgs = ((InternalEObject)newExtractor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__EXTRACTOR, null, msgs);
+			msgs = basicSetExtractor(newExtractor, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return columnizer;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__EXTRACTOR, newExtractor, newExtractor));
 	}
 
 	/**
@@ -168,8 +181,8 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Columnizer basicGetColumnizer() {
-		return columnizer;
+	public ColumnizerAbstract getColumnizerCompare() {
+		return columnizerCompare;
 	}
 
 	/**
@@ -177,11 +190,33 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColumnizer(Columnizer newColumnizer) {
-		Columnizer oldColumnizer = columnizer;
-		columnizer = newColumnizer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__COLUMNIZER, oldColumnizer, columnizer));
+	public NotificationChain basicSetColumnizerCompare(ColumnizerAbstract newColumnizerCompare, NotificationChain msgs) {
+		ColumnizerAbstract oldColumnizerCompare = columnizerCompare;
+		columnizerCompare = newColumnizerCompare;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE, oldColumnizerCompare, newColumnizerCompare);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumnizerCompare(ColumnizerAbstract newColumnizerCompare) {
+		if (newColumnizerCompare != columnizerCompare) {
+			NotificationChain msgs = null;
+			if (columnizerCompare != null)
+				msgs = ((InternalEObject)columnizerCompare).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE, null, msgs);
+			if (newColumnizerCompare != null)
+				msgs = ((InternalEObject)newColumnizerCompare).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE, null, msgs);
+			msgs = basicSetColumnizerCompare(newColumnizerCompare, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE, newColumnizerCompare, newColumnizerCompare));
 	}
 
 	/**
@@ -275,16 +310,11 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Categorizer getCategorizer() {
-		if (categorizer != null && categorizer.eIsProxy()) {
-			InternalEObject oldCategorizer = (InternalEObject)categorizer;
-			categorizer = (Categorizer)eResolveProxy(oldCategorizer);
-			if (categorizer != oldCategorizer) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.DOC_COMPARISON__CATEGORIZER, oldCategorizer, categorizer));
-			}
+	public EList<Match> getMatches() {
+		if (matches == null) {
+			matches = new EObjectContainmentEList<Match>(Match.class, this, AnalysisPackage.DOC_COMPARISON__MATCHES);
 		}
-		return categorizer;
+		return matches;
 	}
 
 	/**
@@ -292,8 +322,8 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Categorizer basicGetCategorizer() {
-		return categorizer;
+	public Matcher getMatcher() {
+		return matcher;
 	}
 
 	/**
@@ -301,11 +331,76 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCategorizer(Categorizer newCategorizer) {
-		Categorizer oldCategorizer = categorizer;
-		categorizer = newCategorizer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__CATEGORIZER, oldCategorizer, categorizer));
+	public NotificationChain basicSetMatcher(Matcher newMatcher, NotificationChain msgs) {
+		Matcher oldMatcher = matcher;
+		matcher = newMatcher;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__MATCHER, oldMatcher, newMatcher);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMatcher(Matcher newMatcher) {
+		if (newMatcher != matcher) {
+			NotificationChain msgs = null;
+			if (matcher != null)
+				msgs = ((InternalEObject)matcher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__MATCHER, null, msgs);
+			if (newMatcher != null)
+				msgs = ((InternalEObject)newMatcher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__MATCHER, null, msgs);
+			msgs = basicSetMatcher(newMatcher, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__MATCHER, newMatcher, newMatcher));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColumnizerAbstract getColumnizerKey() {
+		return columnizerKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetColumnizerKey(ColumnizerAbstract newColumnizerKey, NotificationChain msgs) {
+		ColumnizerAbstract oldColumnizerKey = columnizerKey;
+		columnizerKey = newColumnizerKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY, oldColumnizerKey, newColumnizerKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumnizerKey(ColumnizerAbstract newColumnizerKey) {
+		if (newColumnizerKey != columnizerKey) {
+			NotificationChain msgs = null;
+			if (columnizerKey != null)
+				msgs = ((InternalEObject)columnizerKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY, null, msgs);
+			if (newColumnizerKey != null)
+				msgs = ((InternalEObject)newColumnizerKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY, null, msgs);
+			msgs = basicSetColumnizerKey(newColumnizerKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY, newColumnizerKey, newColumnizerKey));
 	}
 
 	/**
@@ -316,10 +411,20 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AnalysisPackage.DOC_COMPARISON__EXTRACTOR:
+				return basicSetExtractor(null, msgs);
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE:
+				return basicSetColumnizerCompare(null, msgs);
 			case AnalysisPackage.DOC_COMPARISON__DOC1:
 				return basicSetDoc1(null, msgs);
 			case AnalysisPackage.DOC_COMPARISON__DOC2:
 				return basicSetDoc2(null, msgs);
+			case AnalysisPackage.DOC_COMPARISON__MATCHES:
+				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
+			case AnalysisPackage.DOC_COMPARISON__MATCHER:
+				return basicSetMatcher(null, msgs);
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY:
+				return basicSetColumnizerKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -333,18 +438,19 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AnalysisPackage.DOC_COMPARISON__EXTRACTOR:
-				if (resolve) return getExtractor();
-				return basicGetExtractor();
-			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER:
-				if (resolve) return getColumnizer();
-				return basicGetColumnizer();
+				return getExtractor();
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE:
+				return getColumnizerCompare();
 			case AnalysisPackage.DOC_COMPARISON__DOC1:
 				return getDoc1();
 			case AnalysisPackage.DOC_COMPARISON__DOC2:
 				return getDoc2();
-			case AnalysisPackage.DOC_COMPARISON__CATEGORIZER:
-				if (resolve) return getCategorizer();
-				return basicGetCategorizer();
+			case AnalysisPackage.DOC_COMPARISON__MATCHES:
+				return getMatches();
+			case AnalysisPackage.DOC_COMPARISON__MATCHER:
+				return getMatcher();
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY:
+				return getColumnizerKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -354,14 +460,15 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AnalysisPackage.DOC_COMPARISON__EXTRACTOR:
 				setExtractor((Extractor)newValue);
 				return;
-			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER:
-				setColumnizer((Columnizer)newValue);
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE:
+				setColumnizerCompare((ColumnizerAbstract)newValue);
 				return;
 			case AnalysisPackage.DOC_COMPARISON__DOC1:
 				setDoc1((DocRef)newValue);
@@ -369,8 +476,15 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 			case AnalysisPackage.DOC_COMPARISON__DOC2:
 				setDoc2((DocRef)newValue);
 				return;
-			case AnalysisPackage.DOC_COMPARISON__CATEGORIZER:
-				setCategorizer((Categorizer)newValue);
+			case AnalysisPackage.DOC_COMPARISON__MATCHES:
+				getMatches().clear();
+				getMatches().addAll((Collection<? extends Match>)newValue);
+				return;
+			case AnalysisPackage.DOC_COMPARISON__MATCHER:
+				setMatcher((Matcher)newValue);
+				return;
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY:
+				setColumnizerKey((ColumnizerAbstract)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -387,8 +501,8 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 			case AnalysisPackage.DOC_COMPARISON__EXTRACTOR:
 				setExtractor((Extractor)null);
 				return;
-			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER:
-				setColumnizer((Columnizer)null);
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE:
+				setColumnizerCompare((ColumnizerAbstract)null);
 				return;
 			case AnalysisPackage.DOC_COMPARISON__DOC1:
 				setDoc1((DocRef)null);
@@ -396,8 +510,14 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 			case AnalysisPackage.DOC_COMPARISON__DOC2:
 				setDoc2((DocRef)null);
 				return;
-			case AnalysisPackage.DOC_COMPARISON__CATEGORIZER:
-				setCategorizer((Categorizer)null);
+			case AnalysisPackage.DOC_COMPARISON__MATCHES:
+				getMatches().clear();
+				return;
+			case AnalysisPackage.DOC_COMPARISON__MATCHER:
+				setMatcher((Matcher)null);
+				return;
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY:
+				setColumnizerKey((ColumnizerAbstract)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -413,14 +533,18 @@ public class DocComparisonImpl extends MatcherImpl implements DocComparison {
 		switch (featureID) {
 			case AnalysisPackage.DOC_COMPARISON__EXTRACTOR:
 				return extractor != null;
-			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER:
-				return columnizer != null;
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE:
+				return columnizerCompare != null;
 			case AnalysisPackage.DOC_COMPARISON__DOC1:
 				return doc1 != null;
 			case AnalysisPackage.DOC_COMPARISON__DOC2:
 				return doc2 != null;
-			case AnalysisPackage.DOC_COMPARISON__CATEGORIZER:
-				return categorizer != null;
+			case AnalysisPackage.DOC_COMPARISON__MATCHES:
+				return matches != null && !matches.isEmpty();
+			case AnalysisPackage.DOC_COMPARISON__MATCHER:
+				return matcher != null;
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY:
+				return columnizerKey != null;
 		}
 		return super.eIsSet(featureID);
 	}

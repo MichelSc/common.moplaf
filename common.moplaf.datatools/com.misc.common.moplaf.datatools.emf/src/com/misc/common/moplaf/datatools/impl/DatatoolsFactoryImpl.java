@@ -96,6 +96,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 		switch (eDataType.getClassifierID()) {
 			case DatatoolsPackage.DATA_TOOL_TYPE:
 				return createDataToolTypeFromString(eDataType, initialValue);
+			case DatatoolsPackage.MATCH_STATUS:
+				return createMatchStatusFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -111,6 +113,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 		switch (eDataType.getClassifierID()) {
 			case DatatoolsPackage.DATA_TOOL_TYPE:
 				return convertDataToolTypeToString(eDataType, instanceValue);
+			case DatatoolsPackage.MATCH_STATUS:
+				return convertMatchStatusToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -333,6 +337,26 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * @generated
 	 */
 	public String convertDataToolTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MatchStatus createMatchStatusFromString(EDataType eDataType, String initialValue) {
+		MatchStatus result = MatchStatus.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMatchStatusToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

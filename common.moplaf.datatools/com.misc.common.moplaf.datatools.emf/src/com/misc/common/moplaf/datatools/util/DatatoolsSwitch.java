@@ -264,6 +264,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				ExtractorCompound extractorCompound = (ExtractorCompound)theEObject;
 				T result = caseExtractorCompound(extractorCompound);
 				if (result == null) result = caseExtractor(extractorCompound);
+				if (result == null) result = caseDataToolContext(extractorCompound);
 				if (result == null) result = caseDataTool(extractorCompound);
 				if (result == null) result = caseDataToolAbstract(extractorCompound);
 				if (result == null) result = defaultCase(theEObject);
@@ -274,6 +275,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractorLogic(extractorLogic);
 				if (result == null) result = caseExtractorCompound(extractorLogic);
 				if (result == null) result = caseExtractor(extractorLogic);
+				if (result == null) result = caseDataToolContext(extractorLogic);
 				if (result == null) result = caseDataTool(extractorLogic);
 				if (result == null) result = caseDataToolAbstract(extractorLogic);
 				if (result == null) result = defaultCase(theEObject);
@@ -284,6 +286,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				T result = caseExtractorPipe(extractorPipe);
 				if (result == null) result = caseExtractorCompound(extractorPipe);
 				if (result == null) result = caseExtractor(extractorPipe);
+				if (result == null) result = caseDataToolContext(extractorPipe);
 				if (result == null) result = caseDataTool(extractorPipe);
 				if (result == null) result = caseDataToolAbstract(extractorPipe);
 				if (result == null) result = defaultCase(theEObject);
@@ -295,6 +298,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorLogic(extractorUnion);
 				if (result == null) result = caseExtractorCompound(extractorUnion);
 				if (result == null) result = caseExtractor(extractorUnion);
+				if (result == null) result = caseDataToolContext(extractorUnion);
 				if (result == null) result = caseDataTool(extractorUnion);
 				if (result == null) result = caseDataToolAbstract(extractorUnion);
 				if (result == null) result = defaultCase(theEObject);
@@ -306,6 +310,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExtractorLogic(extractorIntersection);
 				if (result == null) result = caseExtractorCompound(extractorIntersection);
 				if (result == null) result = caseExtractor(extractorIntersection);
+				if (result == null) result = caseDataToolContext(extractorIntersection);
 				if (result == null) result = caseDataTool(extractorIntersection);
 				if (result == null) result = caseDataToolAbstract(extractorIntersection);
 				if (result == null) result = defaultCase(theEObject);
@@ -406,6 +411,8 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.MATCHER: {
 				Matcher matcher = (Matcher)theEObject;
 				T result = caseMatcher(matcher);
+				if (result == null) result = caseDataTool(matcher);
+				if (result == null) result = caseDataToolAbstract(matcher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

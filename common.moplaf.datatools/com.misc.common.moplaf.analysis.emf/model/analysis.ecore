@@ -25,14 +25,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"
         eType="#//AnalysisDomain" eOpposite="#//AnalysisDomain/Analyses"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DocComparison" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Matcher">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Columnizer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DocComparison">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnizerCompare" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//ColumnizerAbstract"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Doc1" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Doc2" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Matches" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Match"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Matcher" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Matcher"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnizerKey" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//ColumnizerAbstract"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext">
     <eOperations name="getNewDataTools" upperBound="-1" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool">

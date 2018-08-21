@@ -2,10 +2,12 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorCompound;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -71,6 +73,15 @@ public class ExtractorCompoundImpl extends ExtractorImpl implements ExtractorCom
 			extractors = new EObjectContainmentEList<Extractor>(Extractor.class, this, DatatoolsPackage.EXTRACTOR_COMPOUND__EXTRACTORS);
 		}
 		return extractors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<EClass> getDomainTypes() {
+		DataToolContext context = this.getContext();
+		return context.getDomainTypes();
 	}
 
 	/**
@@ -145,6 +156,36 @@ public class ExtractorCompoundImpl extends ExtractorImpl implements ExtractorCom
 				return extractors != null && !extractors.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == DataToolContext.class) {
+			switch (baseOperationID) {
+				case DatatoolsPackage.DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES: return DatatoolsPackage.EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case DatatoolsPackage.EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES:
+				return getDomainTypes();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ExtractorCompoundImpl
