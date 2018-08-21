@@ -58,9 +58,6 @@ public abstract class ViewAbstract extends ViewPart {
 			fillLocalPullDown(bars.getMenuManager());
 			fillLocalToolBar(bars.getToolBarManager());
 		}
-		else {
-			System.out.println("** site is null !");
-		}
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {

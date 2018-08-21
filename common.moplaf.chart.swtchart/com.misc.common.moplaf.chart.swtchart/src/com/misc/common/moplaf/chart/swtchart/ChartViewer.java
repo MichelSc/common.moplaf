@@ -125,15 +125,7 @@ public class ChartViewer extends ChartViewerAbstract {
 
 		@Override
 		public void mouseDown(MouseEvent e) {
-			Object selection = e.getSource();			
 			String category_name = getCategoryName(e.x);
-			if( selection instanceof PlotArea ) {
-				PlotArea pa = (PlotArea)selection;
-				for (ISeries serie : pa.getSeriesSet().getSeries()) {
-					System.out.println("** serie : " + serie.getId());
-					System.out.println("** category : " + category_name);
-				}
-			}
 			for( Object category : categories ) {
 				if( getILabelProvider().getText(category) == category_name ) {
 					setSelectedElement(category);
@@ -155,6 +147,7 @@ public class ChartViewer extends ChartViewerAbstract {
 				for ( int i = 0; i < ((IBarSeries)serie).getBounds().length; i++ ) {
 					Rectangle r = ((IBarSeries)serie).getBounds()[i];
 					if( x <= r.x + r.width && x >= r.x ) {
+						// TODO : adapt it for several series
 						result = chart.getAxisSet().getXAxis(0).getCategorySeries()[i];
 					}
 				}
