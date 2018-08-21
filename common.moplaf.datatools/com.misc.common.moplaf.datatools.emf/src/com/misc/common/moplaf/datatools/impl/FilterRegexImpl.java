@@ -166,7 +166,7 @@ public class FilterRegexImpl extends FilterAttributeStringImpl implements Filter
 	 * 
 	 */
 	@Override
-	public boolean satisfiesFilter(EObject object) {
+	protected boolean satisfiesFilterImpl(EObject object) {
 		if ( this.getPattern()==null ) {
 			return false;
 		}
@@ -178,7 +178,7 @@ public class FilterRegexImpl extends FilterAttributeStringImpl implements Filter
 
 	@Override
 	protected void collectParamsDescription(List<String> params) {
-		params.add(String.format("pattern %d", this.getPattern()));
+		params.add(String.format("pattern %s", this.getPattern()));
 	}
 
 } //ExtractorFilterRegexImpl

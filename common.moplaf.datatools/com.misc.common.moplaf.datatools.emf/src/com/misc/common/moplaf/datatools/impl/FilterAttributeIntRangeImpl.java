@@ -218,7 +218,7 @@ public class FilterAttributeIntRangeImpl extends FilterAttributeIntImpl implemen
 	 * 
 	 */
 	@Override
-	public boolean satisfiesFilter(EObject object) {
+	protected boolean satisfiesFilterImpl(EObject object) {
 		Integer value = (Integer)this.getAttributeValue(object);
 		return this.getMinValue()<=value && value <= this.getMaxValue();
 	}

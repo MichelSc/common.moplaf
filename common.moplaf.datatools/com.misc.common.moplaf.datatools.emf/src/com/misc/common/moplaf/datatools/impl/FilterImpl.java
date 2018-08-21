@@ -186,9 +186,23 @@ public abstract class FilterImpl extends DataToolAbstractImpl implements Filter 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean satisfiesFilter(EObject object) {
+		if ( !this.isEnabled()) {
+			return true;
+		}
+		if ( this.isNegated()) {
+			return !this.satisfiesFilterImpl(object);
+		} else {
+			return this.satisfiesFilterImpl(object);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected boolean satisfiesFilterImpl(EObject object) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

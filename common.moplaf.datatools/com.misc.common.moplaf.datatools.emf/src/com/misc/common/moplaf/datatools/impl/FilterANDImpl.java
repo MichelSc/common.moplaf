@@ -34,7 +34,12 @@ public class FilterANDImpl extends FilterCompoundImpl implements FilterAND {
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.FILTER_AND;
 	}
-	
+
+	@Override
+	protected String getTypeDescription() {
+		return "Filter and";
+	}
+
 	@Override
 	public boolean satisfiesFilter(EObject object) {
 		for ( Filter filter: this.getFilters()) {

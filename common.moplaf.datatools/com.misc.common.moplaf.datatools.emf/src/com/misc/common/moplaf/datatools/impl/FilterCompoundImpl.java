@@ -8,6 +8,7 @@ import com.misc.common.moplaf.datatools.Filter;
 import com.misc.common.moplaf.datatools.FilterCompound;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -81,6 +82,17 @@ public abstract class FilterCompoundImpl extends FilterImpl implements FilterCom
 	public EList<EClass> getDomainTypes() {
 		return this.getContext().getDomainTypes();
 	}
+	
+	@Override
+	protected void collectParamsDescription(List<String> params) {
+		for ( Filter filter: this.getFilters()) {
+			String name = filter.getName();
+			if ( name!=null && name.length()>0 ) {
+				params.add(name);
+			}
+		}
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

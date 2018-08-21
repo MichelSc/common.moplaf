@@ -34,6 +34,12 @@ public class FilterORImpl extends FilterCompoundImpl implements FilterOR {
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.FILTER_OR;
 	}
+	
+	@Override
+	protected String getTypeDescription() {
+		return "Filter or";
+	}
+
 
 	@Override
 	public boolean satisfiesFilter(EObject object) {
