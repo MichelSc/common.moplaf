@@ -7,8 +7,7 @@ import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocComparison;
 
-import com.misc.common.moplaf.datatools.provider.MatcherItemProvider;
-
+import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.job.JobFactory;
 
 import java.util.Collection;
@@ -20,9 +19,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -31,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocComparisonItemProvider extends MatcherItemProvider {
+public class DocComparisonItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -53,77 +56,8 @@ public class DocComparisonItemProvider extends MatcherItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addExtractorPropertyDescriptor(object);
-			addColumnizerPropertyDescriptor(object);
-			addCategorizerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Extractor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExtractorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocComparison_extractor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocComparison_extractor_feature", "_UI_DocComparison_type"),
-				 AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Columnizer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColumnizerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocComparison_Columnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocComparison_Columnizer_feature", "_UI_DocComparison_type"),
-				 AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Categorizer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCategorizerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocComparison_Categorizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocComparison_Categorizer_feature", "_UI_DocComparison_type"),
-				 AnalysisPackage.Literals.DOC_COMPARISON__CATEGORIZER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -138,8 +72,13 @@ public class DocComparisonItemProvider extends MatcherItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_COMPARE);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_COMPARISON__DOC1);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_COMPARISON__DOC2);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_COMPARISON__MATCHES);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_COMPARISON__MATCHER);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_KEY);
 		}
 		return childrenFeatures;
 	}
@@ -192,8 +131,13 @@ public class DocComparisonItemProvider extends MatcherItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DocComparison.class)) {
+			case AnalysisPackage.DOC_COMPARISON__EXTRACTOR:
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_COMPARE:
 			case AnalysisPackage.DOC_COMPARISON__DOC1:
 			case AnalysisPackage.DOC_COMPARISON__DOC2:
+			case AnalysisPackage.DOC_COMPARISON__MATCHES:
+			case AnalysisPackage.DOC_COMPARISON__MATCHER:
+			case AnalysisPackage.DOC_COMPARISON__COLUMNIZER_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -213,6 +157,41 @@ public class DocComparisonItemProvider extends MatcherItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorPath()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
+				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_COMPARE,
+				 DatatoolsFactory.eINSTANCE.createColumnizer()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(AnalysisPackage.Literals.DOC_COMPARISON__DOC1,
 				 AnalysisFactory.eINSTANCE.createDocAnalysis()));
 
@@ -250,6 +229,21 @@ public class DocComparisonItemProvider extends MatcherItemProvider {
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_COMPARISON__DOC2,
 				 JobFactory.eINSTANCE.createTaskOutput()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__MATCHES,
+				 DatatoolsFactory.eINSTANCE.createMatch()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__MATCHER,
+				 DatatoolsFactory.eINSTANCE.createMatcher()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_KEY,
+				 DatatoolsFactory.eINSTANCE.createColumnizer()));
 	}
 
 	/**
@@ -264,6 +258,8 @@ public class DocComparisonItemProvider extends MatcherItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_COMPARE ||
+			childFeature == AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_KEY ||
 			childFeature == AnalysisPackage.Literals.DOC_COMPARISON__DOC1 ||
 			childFeature == AnalysisPackage.Literals.DOC_COMPARISON__DOC2;
 

@@ -40,15 +40,6 @@ public interface DatatoolsFactory extends EFactory {
 	CategorizerStructuralFeature createCategorizerStructuralFeature();
 
 	/**
-	 * Returns a new object of class '<em>Categorizer Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Categorizer Ocl</em>'.
-	 * @generated
-	 */
-	CategorizerOcl createCategorizerOcl();
-
-	/**
 	 * Returns a new object of class '<em>Extractor Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,22 +103,40 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorPath createExtractorPath();
 
 	/**
-	 * Returns a new object of class '<em>Extractor Ocl</em>'.
+	 * Returns a new object of class '<em>Filter Regex</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Ocl</em>'.
+	 * @return a new object of class '<em>Filter Regex</em>'.
 	 * @generated
 	 */
-	ExtractorOcl createExtractorOcl();
+	FilterRegex createFilterRegex();
 
 	/**
-	 * Returns a new object of class '<em>Extractor Filter Ocl</em>'.
+	 * Returns a new object of class '<em>Filter Attribute Int Range</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter Ocl</em>'.
+	 * @return a new object of class '<em>Filter Attribute Int Range</em>'.
 	 * @generated
 	 */
-	ExtractorFilterOcl createExtractorFilterOcl();
+	FilterAttributeIntRange createFilterAttributeIntRange();
+
+	/**
+	 * Returns a new object of class '<em>Filter AND</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filter AND</em>'.
+	 * @generated
+	 */
+	FilterAND createFilterAND();
+
+	/**
+	 * Returns a new object of class '<em>Filter OR</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filter OR</em>'.
+	 * @generated
+	 */
+	FilterOR createFilterOR();
 
 	/**
 	 * Returns a new object of class '<em>Columnizer Column Attribute</em>'.
@@ -137,15 +146,6 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	ColumnizerColumnAttribute createColumnizerColumnAttribute();
-
-	/**
-	 * Returns a new object of class '<em>Columnizer Column Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer Column Ocl</em>'.
-	 * @generated
-	 */
-	ColumnizerColumnOcl createColumnizerColumnOcl();
 
 	/**
 	 * Returns a new object of class '<em>Super Category</em>'.
@@ -200,51 +200,6 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	Match createMatch();
-
-	/**
-	 * Returns a new object of class '<em>Extractor Filter AND</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter AND</em>'.
-	 * @generated
-	 */
-	ExtractorFilterAND createExtractorFilterAND();
-
-	/**
-	 * Returns a new object of class '<em>Extractor Filter OR</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter OR</em>'.
-	 * @generated
-	 */
-	ExtractorFilterOR createExtractorFilterOR();
-
-	/**
-	 * Returns a new object of class '<em>Extractor Filter Regex</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter Regex</em>'.
-	 * @generated
-	 */
-	ExtractorFilterRegex createExtractorFilterRegex();
-
-	/**
-	 * Returns a new object of class '<em>Extractor Filter Attribute Int Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter Attribute Int Range</em>'.
-	 * @generated
-	 */
-	ExtractorFilterAttributeIntRange createExtractorFilterAttributeIntRange();
-
-	/**
-	 * Returns a new object of class '<em>Columnizer Grid</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer Grid</em>'.
-	 * @generated
-	 */
-	ColumnizerGrid createColumnizerGrid();
 
 	/**
 	 * Returns the package supported by this factory.

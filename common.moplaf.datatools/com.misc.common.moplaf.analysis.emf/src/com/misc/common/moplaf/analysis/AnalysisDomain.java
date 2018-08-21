@@ -108,7 +108,7 @@ public interface AnalysisDomain extends TaskDomain, DataToolContext {
 	 * @model opposite="Domain" containment="true"
 	 * @generated
 	 */
-	EList<com.misc.common.moplaf.analysis.DataTools> getDataTools();
+	EList<DataTools> getDataTools();
 
 	/**
 	 * <!-- begin-user-doc -->

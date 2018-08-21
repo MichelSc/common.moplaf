@@ -2,22 +2,19 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationPath;
 import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -48,16 +45,6 @@ public abstract class NavigationPathImpl extends DataToolAbstractImpl implements
 	 * @ordered
 	 */
 	protected EList<NavigationAxis> pathElements;
-
-	/**
-	 * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSourceType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass sourceType;
 
 	/**
 	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
@@ -116,15 +103,8 @@ public abstract class NavigationPathImpl extends DataToolAbstractImpl implements
 	 * @generated
 	 */
 	public EClass getSourceType() {
-		if (sourceType != null && sourceType.eIsProxy()) {
-			InternalEObject oldSourceType = (InternalEObject)sourceType;
-			sourceType = (EClass)eResolveProxy(oldSourceType);
-			if (sourceType != oldSourceType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE, oldSourceType, sourceType));
-			}
-		}
-		return sourceType;
+		EClass sourceType = basicGetSourceType();
+		return sourceType != null && sourceType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)sourceType) : sourceType;
 	}
 
 	/**
@@ -133,19 +113,10 @@ public abstract class NavigationPathImpl extends DataToolAbstractImpl implements
 	 * @generated
 	 */
 	public EClass basicGetSourceType() {
-		return sourceType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSourceType(EClass newSourceType) {
-		EClass oldSourceType = sourceType;
-		sourceType = newSourceType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE, oldSourceType, sourceType));
+		// TODO: implement this method to return the 'Source Type' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -169,12 +140,17 @@ public abstract class NavigationPathImpl extends DataToolAbstractImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public boolean isMany() {
 		// TODO: implement this method to return the 'Many' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	
+	@Override
+	public DataToolType getType() {
+		return DataToolType.PATH;
 	}
 
 	/**
@@ -251,9 +227,6 @@ public abstract class NavigationPathImpl extends DataToolAbstractImpl implements
 				getPathElements().clear();
 				getPathElements().addAll((Collection<? extends NavigationAxis>)newValue);
 				return;
-			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
-				setSourceType((EClass)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -268,9 +241,6 @@ public abstract class NavigationPathImpl extends DataToolAbstractImpl implements
 		switch (featureID) {
 			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
 				getPathElements().clear();
-				return;
-			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
-				setSourceType((EClass)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -287,7 +257,7 @@ public abstract class NavigationPathImpl extends DataToolAbstractImpl implements
 			case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS:
 				return pathElements != null && !pathElements.isEmpty();
 			case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE:
-				return sourceType != null;
+				return basicGetSourceType() != null;
 			case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE:
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.NAVIGATION_PATH__MANY:

@@ -16,7 +16,7 @@ package com.misc.common.moplaf.datatools;
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumnOcl()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ColumnizerColumnOcl extends ColumnizerColumn {

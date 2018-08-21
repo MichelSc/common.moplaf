@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ExtractorOclImpl extends ExtractorImpl implements ExtractorOcl {
+public abstract class ExtractorOclImpl extends ExtractorImpl implements ExtractorOcl {
 	/**
 	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->

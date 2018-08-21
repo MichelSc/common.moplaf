@@ -15,9 +15,11 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.provider.EReferenceItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.NavigationReference} object.
@@ -94,11 +96,16 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	 * This returns NavigationReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NavigationReference"));
+		EReferenceItemProvider provider = new EReferenceItemProvider(this.getAdapterFactory());
+		NavigationReference navigation = (NavigationReference)object;
+		EReference reference = navigation.getReference();
+		if ( reference == null) { 
+			return super.getImage(object); 
+		}
+		return provider.getImage(reference);
 	}
 
 	/**
@@ -126,6 +133,12 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(NavigationReference.class)) {
+			case DatatoolsPackage.NAVIGATION_REFERENCE__REFERENCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

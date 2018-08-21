@@ -1,6 +1,7 @@
 package com.misc.common.moplaf.analysis.util;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -60,11 +61,11 @@ public class AnalysisServices {
   		return new_tools;
     }
     
-    public boolean docAnalysisSetDataTools(DocAnalysis analysis, Extractor extractor, ColumnizerAbstract columnizer, Categorizer categorizer) {
+    public boolean docAnalysisSetDataTools(DocAnalysis analysis, Extractor extractor, ColumnizerAbstract columnizer, List<Categorizer> categorizers) {
     	analysis.setExtractor(extractor);
     	analysis.setColumnizer(columnizer);
     	analysis.getCategorizers().clear();
-    	analysis.getCategorizers().add(categorizer);
+    	analysis.getCategorizers().addAll(categorizers);
     	return true;
     }
 

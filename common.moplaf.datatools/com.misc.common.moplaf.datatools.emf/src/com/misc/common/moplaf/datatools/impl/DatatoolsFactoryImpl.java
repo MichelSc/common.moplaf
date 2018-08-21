@@ -61,24 +61,19 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.DATA_TOOL_CONTEXT: return createDataToolContext();
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
-			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
-			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: return createExtractorFilterRegex();
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE: return createExtractorFilterAttributeIntRange();
-			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: return createExtractorFilterOcl();
-			case DatatoolsPackage.EXTRACTOR_FILTER_AND: return createExtractorFilterAND();
-			case DatatoolsPackage.EXTRACTOR_FILTER_OR: return createExtractorFilterOR();
+			case DatatoolsPackage.FILTER_REGEX: return createFilterRegex();
+			case DatatoolsPackage.FILTER_ATTRIBUTE_INT_RANGE: return createFilterAttributeIntRange();
+			case DatatoolsPackage.FILTER_AND: return createFilterAND();
+			case DatatoolsPackage.FILTER_OR: return createFilterOR();
 			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
 			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
 			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
 			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
-			case DatatoolsPackage.COLUMNIZER_GRID: return createColumnizerGrid();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_OCL: return createColumnizerColumnOcl();
 			case DatatoolsPackage.SUPER_CATEGORY: return createSuperCategory();
 			case DatatoolsPackage.CATEGORY: return createCategory();
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: return createCategorizerStructuralFeature();
-			case DatatoolsPackage.CATEGORIZER_OCL: return createCategorizerOcl();
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
 			default:
@@ -96,6 +91,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 		switch (eDataType.getClassifierID()) {
 			case DatatoolsPackage.DATA_TOOL_TYPE:
 				return createDataToolTypeFromString(eDataType, initialValue);
+			case DatatoolsPackage.MATCH_STATUS:
+				return createMatchStatusFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -111,6 +108,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 		switch (eDataType.getClassifierID()) {
 			case DatatoolsPackage.DATA_TOOL_TYPE:
 				return convertDataToolTypeToString(eDataType, instanceValue);
+			case DatatoolsPackage.MATCH_STATUS:
+				return convertMatchStatusToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -134,16 +133,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public CategorizerStructuralFeature createCategorizerStructuralFeature() {
 		CategorizerStructuralFeatureImpl categorizerStructuralFeature = new CategorizerStructuralFeatureImpl();
 		return categorizerStructuralFeature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CategorizerOcl createCategorizerOcl() {
-		CategorizerOclImpl categorizerOcl = new CategorizerOclImpl();
-		return categorizerOcl;
 	}
 
 	/**
@@ -221,9 +210,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorOcl createExtractorOcl() {
-		ExtractorOclImpl extractorOcl = new ExtractorOclImpl();
-		return extractorOcl;
+	public FilterRegex createFilterRegex() {
+		FilterRegexImpl filterRegex = new FilterRegexImpl();
+		return filterRegex;
 	}
 
 	/**
@@ -231,9 +220,29 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorFilterOcl createExtractorFilterOcl() {
-		ExtractorFilterOclImpl extractorFilterOcl = new ExtractorFilterOclImpl();
-		return extractorFilterOcl;
+	public FilterAttributeIntRange createFilterAttributeIntRange() {
+		FilterAttributeIntRangeImpl filterAttributeIntRange = new FilterAttributeIntRangeImpl();
+		return filterAttributeIntRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FilterAND createFilterAND() {
+		FilterANDImpl filterAND = new FilterANDImpl();
+		return filterAND;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FilterOR createFilterOR() {
+		FilterORImpl filterOR = new FilterORImpl();
+		return filterOR;
 	}
 
 	/**
@@ -244,16 +253,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ColumnizerColumnAttribute createColumnizerColumnAttribute() {
 		ColumnizerColumnAttributeImpl columnizerColumnAttribute = new ColumnizerColumnAttributeImpl();
 		return columnizerColumnAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerColumnOcl createColumnizerColumnOcl() {
-		ColumnizerColumnOclImpl columnizerColumnOcl = new ColumnizerColumnOclImpl();
-		return columnizerColumnOcl;
 	}
 
 	/**
@@ -341,9 +340,10 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorFilterAND createExtractorFilterAND() {
-		ExtractorFilterANDImpl extractorFilterAND = new ExtractorFilterANDImpl();
-		return extractorFilterAND;
+	public MatchStatus createMatchStatusFromString(EDataType eDataType, String initialValue) {
+		MatchStatus result = MatchStatus.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
 	}
 
 	/**
@@ -351,39 +351,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorFilterOR createExtractorFilterOR() {
-		ExtractorFilterORImpl extractorFilterOR = new ExtractorFilterORImpl();
-		return extractorFilterOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExtractorFilterRegex createExtractorFilterRegex() {
-		ExtractorFilterRegexImpl extractorFilterRegex = new ExtractorFilterRegexImpl();
-		return extractorFilterRegex;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExtractorFilterAttributeIntRange createExtractorFilterAttributeIntRange() {
-		ExtractorFilterAttributeIntRangeImpl extractorFilterAttributeIntRange = new ExtractorFilterAttributeIntRangeImpl();
-		return extractorFilterAttributeIntRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerGrid createColumnizerGrid() {
-		ColumnizerGridImpl columnizerGrid = new ColumnizerGridImpl();
-		return columnizerGrid;
+	public String convertMatchStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

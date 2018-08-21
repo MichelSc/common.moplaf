@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ColumnizerColumnOclImpl extends ColumnizerColumnImpl implements ColumnizerColumnOcl {
+public abstract class ColumnizerColumnOclImpl extends ColumnizerColumnImpl implements ColumnizerColumnOcl {
 	/**
 	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -10,6 +10,8 @@ import com.misc.common.moplaf.datatools.util.ObjectSet;
 import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#isMany <em>Many</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl#getRootType <em>Root Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,16 +52,6 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @ordered
 	 */
 	protected EList<NavigationAxis> pathElements;
-
-	/**
-	 * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSourceType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass sourceType;
 
 	/**
 	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
@@ -79,6 +72,16 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @ordered
 	 */
 	protected static final String PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRootType() <em>Root Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EClass rootType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,37 +120,18 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 	 * @generated
 	 */
 	public EClass getSourceType() {
-		if (sourceType != null && sourceType.eIsProxy()) {
-			InternalEObject oldSourceType = (InternalEObject)sourceType;
-			sourceType = (EClass)eResolveProxy(oldSourceType);
-			if (sourceType != oldSourceType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE, oldSourceType, sourceType));
-			}
-		}
-		return sourceType;
+		EClass sourceType = basicGetSourceType();
+		return sourceType != null && sourceType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)sourceType) : sourceType;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetSourceType() {
-		return sourceType;
+		return this.getRootType();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSourceType(EClass newSourceType) {
-		EClass oldSourceType = sourceType;
-		sourceType = newSourceType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE, oldSourceType, sourceType));
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,6 +174,44 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 		return Util.getNavigationPath(this);
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRootType() {
+		if (rootType != null && rootType.eIsProxy()) {
+			InternalEObject oldRootType = (InternalEObject)rootType;
+			rootType = (EClass)eResolveProxy(oldRootType);
+			if (rootType != oldRootType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.EXTRACTOR_PATH__ROOT_TYPE, oldRootType, rootType));
+			}
+		}
+		return rootType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass basicGetRootType() {
+		return rootType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRootType(EClass newRootType) {
+		EClass oldRootType = rootType;
+		rootType = newRootType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR_PATH__ROOT_TYPE, oldRootType, rootType));
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,6 +262,9 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				return isMany();
 			case DatatoolsPackage.EXTRACTOR_PATH__PATH:
 				return getPath();
+			case DatatoolsPackage.EXTRACTOR_PATH__ROOT_TYPE:
+				if (resolve) return getRootType();
+				return basicGetRootType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,8 +282,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 				getPathElements().clear();
 				getPathElements().addAll((Collection<? extends NavigationAxis>)newValue);
 				return;
-			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
-				setSourceType((EClass)newValue);
+			case DatatoolsPackage.EXTRACTOR_PATH__ROOT_TYPE:
+				setRootType((EClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,8 +300,8 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
 				getPathElements().clear();
 				return;
-			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
-				setSourceType((EClass)null);
+			case DatatoolsPackage.EXTRACTOR_PATH__ROOT_TYPE:
+				setRootType((EClass)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -293,13 +318,15 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 			case DatatoolsPackage.EXTRACTOR_PATH__PATH_ELEMENTS:
 				return pathElements != null && !pathElements.isEmpty();
 			case DatatoolsPackage.EXTRACTOR_PATH__SOURCE_TYPE:
-				return sourceType != null;
+				return basicGetSourceType() != null;
 			case DatatoolsPackage.EXTRACTOR_PATH__TARGET_TYPE:
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.EXTRACTOR_PATH__MANY:
 				return isMany() != MANY_EDEFAULT;
 			case DatatoolsPackage.EXTRACTOR_PATH__PATH:
 				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
+			case DatatoolsPackage.EXTRACTOR_PATH__ROOT_TYPE:
+				return rootType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -359,19 +386,19 @@ public class ExtractorPathImpl extends ExtractorImpl implements ExtractorPath {
 		return true;
 	}
 
-	/**
-	 * 
-	 */
 	@Override
-	public String getDescription() {
-		String description = String.format("path: %s", this.getPath());
-		return description;
+	protected void collectParamsDescription(List<String> params) {
+		params.add(String.format("path: %s", this.getPath()));
+	}
+
+	@Override
+	protected String getTypeDescription() {
+		return "Extractor path";
 	}
 
 	@Override
 	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
 		return Util.navigate(this,  ins, max_elements);
 	}
-
 
 } //ExtractorPathImpl

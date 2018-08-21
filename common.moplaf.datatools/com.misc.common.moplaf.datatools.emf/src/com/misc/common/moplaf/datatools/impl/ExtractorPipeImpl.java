@@ -37,15 +37,11 @@ public class ExtractorPipeImpl extends ExtractorCompoundImpl implements Extracto
 		return DatatoolsPackage.Literals.EXTRACTOR_PIPE;
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
-	public String getDescription() {
-		String description = "pipe";
-		return description;
+	protected String getTypeDescription() {
+		return "Extractor pipe";
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

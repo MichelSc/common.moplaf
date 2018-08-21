@@ -77,7 +77,7 @@ public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<com.misc.common.moplaf.analysis.DataTools> dataTools;
+	protected EList<DataTools> dataTools;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,9 +115,9 @@ public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<com.misc.common.moplaf.analysis.DataTools> getDataTools() {
+	public EList<DataTools> getDataTools() {
 		if (dataTools == null) {
-			dataTools = new EObjectContainmentWithInverseEList<com.misc.common.moplaf.analysis.DataTools>(com.misc.common.moplaf.analysis.DataTools.class, this, AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS, AnalysisPackage.DATA_TOOLS__DOMAIN);
+			dataTools = new EObjectContainmentWithInverseEList<DataTools>(DataTools.class, this, AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS, AnalysisPackage.DATA_TOOLS__DOMAIN);
 		}
 		return dataTools;
 	}
@@ -312,7 +312,7 @@ public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain
 				return;
 			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
 				getDataTools().clear();
-				getDataTools().addAll((Collection<? extends com.misc.common.moplaf.analysis.DataTools>)newValue);
+				getDataTools().addAll((Collection<? extends DataTools>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CategorizerOclImpl extends CategorizerImpl implements CategorizerOcl {
+public abstract class CategorizerOclImpl extends CategorizerImpl implements CategorizerOcl {
 	/**
 	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->

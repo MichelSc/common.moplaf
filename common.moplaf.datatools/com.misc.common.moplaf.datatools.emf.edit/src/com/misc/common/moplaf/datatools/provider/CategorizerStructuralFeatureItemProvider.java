@@ -14,7 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.ecore.provider.EStructuralFeatureItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -71,7 +71,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 				 getString("_UI_NavigationPath_SourceType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_SourceType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__SOURCE_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -209,6 +209,22 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 	}
 
 	/**
+	 * This returns CategorizerStructuralFeature.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public Object getImage(Object object) {
+		EStructuralFeatureItemProvider provider = new EStructuralFeatureItemProvider(this.getAdapterFactory());
+		CategorizerStructuralFeature categorizer = (CategorizerStructuralFeature)object;
+		EStructuralFeature feature = categorizer.getFeature();
+		if ( feature == null) { 
+			return super.getImage(object); 
+		}
+		return provider.getImage(feature);
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,7 +232,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CategorizerStructuralFeature)object).getDescription();
+		String label = ((CategorizerStructuralFeature)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CategorizerStructuralFeature_type") :
 			getString("_UI_CategorizerStructuralFeature_type") + " " + label;

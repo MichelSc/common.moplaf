@@ -119,29 +119,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategorizerOcl} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategorizerOclItemProvider categorizerOclItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategorizerOcl}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategorizerOclAdapter() {
-		if (categorizerOclItemProvider == null) {
-			categorizerOclItemProvider = new CategorizerOclItemProvider(this);
-		}
-
-		return categorizerOclItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,49 +280,95 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorOcl} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.FilterRegex} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExtractorOclItemProvider extractorOclItemProvider;
+	protected FilterRegexItemProvider filterRegexItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorOcl}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.FilterRegex}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createExtractorOclAdapter() {
-		if (extractorOclItemProvider == null) {
-			extractorOclItemProvider = new ExtractorOclItemProvider(this);
+	public Adapter createFilterRegexAdapter() {
+		if (filterRegexItemProvider == null) {
+			filterRegexItemProvider = new FilterRegexItemProvider(this);
 		}
 
-		return extractorOclItemProvider;
+		return filterRegexItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterOcl} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.FilterAttributeIntRange} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExtractorFilterOclItemProvider extractorFilterOclItemProvider;
+	protected FilterAttributeIntRangeItemProvider filterAttributeIntRangeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterOcl}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.FilterAttributeIntRange}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createExtractorFilterOclAdapter() {
-		if (extractorFilterOclItemProvider == null) {
-			extractorFilterOclItemProvider = new ExtractorFilterOclItemProvider(this);
+	public Adapter createFilterAttributeIntRangeAdapter() {
+		if (filterAttributeIntRangeItemProvider == null) {
+			filterAttributeIntRangeItemProvider = new FilterAttributeIntRangeItemProvider(this);
 		}
 
-		return extractorFilterOclItemProvider;
+		return filterAttributeIntRangeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.FilterAND} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilterANDItemProvider filterANDItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.FilterAND}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilterANDAdapter() {
+		if (filterANDItemProvider == null) {
+			filterANDItemProvider = new FilterANDItemProvider(this);
+		}
+
+		return filterANDItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.FilterOR} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilterORItemProvider filterORItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.FilterOR}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilterORAdapter() {
+		if (filterORItemProvider == null) {
+			filterORItemProvider = new FilterORItemProvider(this);
+		}
+
+		return filterORItemProvider;
 	}
 
 	/**
@@ -369,29 +392,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		}
 
 		return columnizerColumnAttributeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerColumnOcl} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ColumnizerColumnOclItemProvider columnizerColumnOclItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ColumnizerColumnOcl}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createColumnizerColumnOclAdapter() {
-		if (columnizerColumnOclItemProvider == null) {
-			columnizerColumnOclItemProvider = new ColumnizerColumnOclItemProvider(this);
-		}
-
-		return columnizerColumnOclItemProvider;
 	}
 
 	/**
@@ -533,121 +533,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterAND} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExtractorFilterANDItemProvider extractorFilterANDItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterAND}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExtractorFilterANDAdapter() {
-		if (extractorFilterANDItemProvider == null) {
-			extractorFilterANDItemProvider = new ExtractorFilterANDItemProvider(this);
-		}
-
-		return extractorFilterANDItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterOR} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExtractorFilterORItemProvider extractorFilterORItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterOR}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExtractorFilterORAdapter() {
-		if (extractorFilterORItemProvider == null) {
-			extractorFilterORItemProvider = new ExtractorFilterORItemProvider(this);
-		}
-
-		return extractorFilterORItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterRegex} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExtractorFilterRegexItemProvider extractorFilterRegexItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterRegex}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExtractorFilterRegexAdapter() {
-		if (extractorFilterRegexItemProvider == null) {
-			extractorFilterRegexItemProvider = new ExtractorFilterRegexItemProvider(this);
-		}
-
-		return extractorFilterRegexItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExtractorFilterAttributeIntRangeItemProvider extractorFilterAttributeIntRangeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeIntRange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExtractorFilterAttributeIntRangeAdapter() {
-		if (extractorFilterAttributeIntRangeItemProvider == null) {
-			extractorFilterAttributeIntRangeItemProvider = new ExtractorFilterAttributeIntRangeItemProvider(this);
-		}
-
-		return extractorFilterAttributeIntRangeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerGrid} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ColumnizerGridItemProvider columnizerGridItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ColumnizerGrid}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createColumnizerGridAdapter() {
-		if (columnizerGridItemProvider == null) {
-			columnizerGridItemProvider = new ColumnizerGridItemProvider(this);
-		}
-
-		return columnizerGridItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -751,24 +636,19 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (dataToolContextItemProvider != null) dataToolContextItemProvider.dispose();
 		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
 		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
-		if (extractorOclItemProvider != null) extractorOclItemProvider.dispose();
-		if (extractorFilterRegexItemProvider != null) extractorFilterRegexItemProvider.dispose();
-		if (extractorFilterAttributeIntRangeItemProvider != null) extractorFilterAttributeIntRangeItemProvider.dispose();
-		if (extractorFilterOclItemProvider != null) extractorFilterOclItemProvider.dispose();
-		if (extractorFilterANDItemProvider != null) extractorFilterANDItemProvider.dispose();
-		if (extractorFilterORItemProvider != null) extractorFilterORItemProvider.dispose();
+		if (filterRegexItemProvider != null) filterRegexItemProvider.dispose();
+		if (filterAttributeIntRangeItemProvider != null) filterAttributeIntRangeItemProvider.dispose();
+		if (filterANDItemProvider != null) filterANDItemProvider.dispose();
+		if (filterORItemProvider != null) filterORItemProvider.dispose();
 		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
 		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
 		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
 		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
 		if (columnizerItemProvider != null) columnizerItemProvider.dispose();
-		if (columnizerGridItemProvider != null) columnizerGridItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
-		if (columnizerColumnOclItemProvider != null) columnizerColumnOclItemProvider.dispose();
 		if (superCategoryItemProvider != null) superCategoryItemProvider.dispose();
 		if (categoryItemProvider != null) categoryItemProvider.dispose();
 		if (categorizerStructuralFeatureItemProvider != null) categorizerStructuralFeatureItemProvider.dispose();
-		if (categorizerOclItemProvider != null) categorizerOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
 	}

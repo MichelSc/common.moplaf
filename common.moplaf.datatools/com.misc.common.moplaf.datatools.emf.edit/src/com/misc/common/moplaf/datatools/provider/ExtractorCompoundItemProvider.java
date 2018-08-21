@@ -138,36 +138,6 @@ public class ExtractorCompoundItemProvider extends ExtractorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeIntRange()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
 				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
 
 		newChildDescriptors.add
