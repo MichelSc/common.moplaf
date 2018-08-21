@@ -86,7 +86,7 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 	@Override
 	protected void collectParamsDescription(List<String> params) {
 		for ( ColumnizerColumn column: this.getColumns()) {
-			String name = column.getName();
+			String name = column.getColumnName();
 			params.add(name==null ? "null" : name);
 		}
 	}

@@ -33,8 +33,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getWidth <em>Width</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnName <em>Column Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnWidth <em>Column Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getGrids <em>Grids</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
@@ -43,44 +43,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container implements ColumnizerColumn {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getColumnName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String COLUMN_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getColumnName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String columnName = COLUMN_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
+	 * The default value of the '{@link #getColumnWidth() <em>Column Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWidth()
+	 * @see #getColumnWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int WIDTH_EDEFAULT = 0;
+	protected static final int COLUMN_WIDTH_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
+	 * The cached value of the '{@link #getColumnWidth() <em>Column Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWidth()
+	 * @see #getColumnWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected int width = WIDTH_EDEFAULT;
+	protected int columnWidth = COLUMN_WIDTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getGrids() <em>Grids</em>}' reference list.
@@ -116,8 +116,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public String getColumnName() {
+		return columnName;
 	}
 
 	/**
@@ -125,11 +125,11 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setColumnName(String newColumnName) {
+		String oldColumnName = columnName;
+		columnName = newColumnName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME, oldColumnName, columnName));
 	}
 
 	/**
@@ -137,8 +137,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getWidth() {
-		return width;
+	public int getColumnWidth() {
+		return columnWidth;
 	}
 
 	/**
@@ -146,11 +146,11 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWidth(int newWidth) {
-		int oldWidth = width;
-		width = newWidth;
+	public void setColumnWidth(int newColumnWidth) {
+		int oldColumnWidth = columnWidth;
+		columnWidth = newColumnWidth;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH, oldWidth, width));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH, oldColumnWidth, columnWidth));
 	}
 
 	/**
@@ -285,10 +285,10 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN__NAME:
-				return getName();
-			case DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH:
-				return getWidth();
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME:
+				return getColumnName();
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
+				return getColumnWidth();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				return getGrids();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
@@ -306,11 +306,11 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN__NAME:
-				setName((String)newValue);
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME:
+				setColumnName((String)newValue);
 				return;
-			case DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH:
-				setWidth((Integer)newValue);
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
+				setColumnWidth((Integer)newValue);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				getGrids().clear();
@@ -331,11 +331,11 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN__NAME:
-				setName(NAME_EDEFAULT);
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME:
+				setColumnName(COLUMN_NAME_EDEFAULT);
 				return;
-			case DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH:
-				setWidth(WIDTH_EDEFAULT);
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
+				setColumnWidth(COLUMN_WIDTH_EDEFAULT);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				getGrids().clear();
@@ -355,10 +355,10 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH:
-				return width != WIDTH_EDEFAULT;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME:
+				return COLUMN_NAME_EDEFAULT == null ? columnName != null : !COLUMN_NAME_EDEFAULT.equals(columnName);
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
+				return columnWidth != COLUMN_WIDTH_EDEFAULT;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
 				return grids != null && !grids.isEmpty();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
@@ -393,10 +393,10 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
-		result.append(", Width: ");
-		result.append(width);
+		result.append(" (ColumnName: ");
+		result.append(columnName);
+		result.append(", ColumnWidth: ");
+		result.append(columnWidth);
 		result.append(')');
 		return result.toString();
 	}

@@ -173,31 +173,6 @@ public class DocComparisonItemProvider extends ItemProviderAdapter implements IE
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeIntRange()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_COMPARISON__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
 
 		newChildDescriptors.add

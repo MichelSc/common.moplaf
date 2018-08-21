@@ -53,6 +53,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
+			addRootTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -61,30 +62,22 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 	 * This adds a property descriptor for the Source Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected void addSourceTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_NavigationPath_SourceType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_SourceType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__SOURCE_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
 				 null,
-				 null) {
-
-					@Override
-					public Collection<?> getChoiceOfValues(Object object) {
-						ExtractorPath extractor = (ExtractorPath)object;
-						DataToolContext context = extractor.getContext();
-						return context.getDomainTypes();
-					}
-				
-			});
+				 null));
 	}
 
 	/**
@@ -151,6 +144,37 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Root Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void addRootTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExtractorPath_RootType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExtractorPath_RootType_feature", "_UI_ExtractorPath_type"),
+				 DatatoolsPackage.Literals.EXTRACTOR_PATH__ROOT_TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null)
+			{
+
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					ExtractorPath extractor = (ExtractorPath)object;
+					DataToolContext context = extractor.getContext();
+					return context.getDomainTypes();
+				}
+			}
+			);
 	}
 
 	/**

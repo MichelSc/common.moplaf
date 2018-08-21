@@ -62,11 +62,11 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
 			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
-			case DatatoolsPackage.EXTRACTOR_FILTER_REGEX: return createExtractorFilterRegex();
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT_RANGE: return createExtractorFilterAttributeIntRange();
-			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: return createExtractorFilterOcl();
-			case DatatoolsPackage.EXTRACTOR_FILTER_AND: return createExtractorFilterAND();
-			case DatatoolsPackage.EXTRACTOR_FILTER_OR: return createExtractorFilterOR();
+			case DatatoolsPackage.FILTER_REGEX: return createFilterRegex();
+			case DatatoolsPackage.FILTER_ATTRIBUTE_INT_RANGE: return createFilterAttributeIntRange();
+			case DatatoolsPackage.FILTER_OCL: return createFilterOcl();
+			case DatatoolsPackage.FILTER_AND: return createFilterAND();
+			case DatatoolsPackage.FILTER_OR: return createFilterOR();
 			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
 			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
@@ -235,9 +235,49 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorFilterOcl createExtractorFilterOcl() {
-		ExtractorFilterOclImpl extractorFilterOcl = new ExtractorFilterOclImpl();
-		return extractorFilterOcl;
+	public FilterRegex createFilterRegex() {
+		FilterRegexImpl filterRegex = new FilterRegexImpl();
+		return filterRegex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FilterAttributeIntRange createFilterAttributeIntRange() {
+		FilterAttributeIntRangeImpl filterAttributeIntRange = new FilterAttributeIntRangeImpl();
+		return filterAttributeIntRange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FilterOcl createFilterOcl() {
+		FilterOclImpl filterOcl = new FilterOclImpl();
+		return filterOcl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FilterAND createFilterAND() {
+		FilterANDImpl filterAND = new FilterANDImpl();
+		return filterAND;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FilterOR createFilterOR() {
+		FilterORImpl filterOR = new FilterORImpl();
+		return filterOR;
 	}
 
 	/**
@@ -358,46 +398,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 */
 	public String convertMatchStatusToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExtractorFilterAND createExtractorFilterAND() {
-		ExtractorFilterANDImpl extractorFilterAND = new ExtractorFilterANDImpl();
-		return extractorFilterAND;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExtractorFilterOR createExtractorFilterOR() {
-		ExtractorFilterORImpl extractorFilterOR = new ExtractorFilterORImpl();
-		return extractorFilterOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExtractorFilterRegex createExtractorFilterRegex() {
-		ExtractorFilterRegexImpl extractorFilterRegex = new ExtractorFilterRegexImpl();
-		return extractorFilterRegex;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExtractorFilterAttributeIntRange createExtractorFilterAttributeIntRange() {
-		ExtractorFilterAttributeIntRangeImpl extractorFilterAttributeIntRange = new ExtractorFilterAttributeIntRangeImpl();
-		return extractorFilterAttributeIntRange;
 	}
 
 	/**

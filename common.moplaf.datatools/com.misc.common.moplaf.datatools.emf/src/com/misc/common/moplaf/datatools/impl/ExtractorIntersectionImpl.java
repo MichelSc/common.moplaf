@@ -40,9 +40,8 @@ public class ExtractorIntersectionImpl extends ExtractorLogicImpl implements Ext
 	 * 
 	 */
 	@Override
-	public String getDescription() {
-		String description = "intersection";
-		return description;
+	protected String getTypeDescription() {
+		return "Extractor Intersection";
 	}
 
 

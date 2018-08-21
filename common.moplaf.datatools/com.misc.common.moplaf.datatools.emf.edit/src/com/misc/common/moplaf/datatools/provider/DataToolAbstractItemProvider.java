@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.DataToolAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.util.Collection;
@@ -19,7 +20,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.DataToolAbstract} object.
@@ -50,6 +53,8 @@ public class DataToolAbstractItemProvider extends ItemProviderAdapter implements
 			super.getPropertyDescriptors(object);
 
 			addContextPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,6 +82,50 @@ public class DataToolAbstractItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataToolAbstract_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Description_feature", "_UI_DataToolAbstract_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataToolAbstract_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Name_feature", "_UI_DataToolAbstract_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,7 +133,10 @@ public class DataToolAbstractItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataToolAbstract_type");
+		String label = ((DataToolAbstract)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataToolAbstract_type") :
+			getString("_UI_DataToolAbstract_type") + " " + label;
 	}
 	
 
@@ -98,6 +150,13 @@ public class DataToolAbstractItemProvider extends ItemProviderAdapter implements
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DataToolAbstract.class)) {
+			case DatatoolsPackage.DATA_TOOL_ABSTRACT__DESCRIPTION:
+			case DatatoolsPackage.DATA_TOOL_ABSTRACT__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

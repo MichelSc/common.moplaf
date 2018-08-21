@@ -49,6 +49,8 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 			super.getPropertyDescriptors(object);
 
 			addContextPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
 			addManyPropertyDescriptor(object);
@@ -81,6 +83,50 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataToolAbstract_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Description_feature", "_UI_DataToolAbstract_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataToolAbstract_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Name_feature", "_UI_DataToolAbstract_type"),
+				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Source Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,7 +140,7 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 				 getString("_UI_NavigationPath_SourceType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_SourceType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__SOURCE_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -258,6 +304,8 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ColumnizerColumnAttribute.class)) {
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__DESCRIPTION:
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME:
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE:
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY:
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH:

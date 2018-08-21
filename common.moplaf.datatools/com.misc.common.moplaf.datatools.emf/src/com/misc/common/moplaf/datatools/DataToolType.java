@@ -56,7 +56,23 @@ public enum DataToolType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CATEGORIZER(4, "CATEGORIZER", "CATEGORIZER");
+	CATEGORIZER(4, "CATEGORIZER", "CATEGORIZER"), /**
+	 * The '<em><b>FILTER</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILTER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILTER(4, "FILTER", "FILTER"), /**
+	 * The '<em><b>PATH</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PATH_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PATH(5, "PATH", "PATH");
 
 	/**
 	 * The '<em><b>NONE</b></em>' literal value.
@@ -119,6 +135,36 @@ public enum DataToolType implements Enumerator {
 	public static final int CATEGORIZER_VALUE = 4;
 
 	/**
+	 * The '<em><b>FILTER</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>FILTER</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FILTER
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILTER_VALUE = 4;
+
+	/**
+	 * The '<em><b>PATH</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PATH</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PATH
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PATH_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Data Tool Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +176,8 @@ public enum DataToolType implements Enumerator {
 			EXTRACTOR,
 			COLUMNIZER,
 			CATEGORIZER,
+			FILTER,
+			PATH,
 		};
 
 	/**
@@ -190,6 +238,7 @@ public enum DataToolType implements Enumerator {
 			case EXTRACTOR_VALUE: return EXTRACTOR;
 			case COLUMNIZER_VALUE: return COLUMNIZER;
 			case CATEGORIZER_VALUE: return CATEGORIZER;
+			case PATH_VALUE: return PATH;
 		}
 		return null;
 	}

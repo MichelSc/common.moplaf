@@ -54,16 +54,6 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	protected EList<NavigationAxis> pathElements;
 
 	/**
-	 * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSourceType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass sourceType;
-
-	/**
 	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,15 +120,8 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	 * @generated
 	 */
 	public EClass getSourceType() {
-		if (sourceType != null && sourceType.eIsProxy()) {
-			InternalEObject oldSourceType = (InternalEObject)sourceType;
-			sourceType = (EClass)eResolveProxy(oldSourceType);
-			if (sourceType != oldSourceType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__SOURCE_TYPE, oldSourceType, sourceType));
-			}
-		}
-		return sourceType;
+		EClass sourceType = basicGetSourceType();
+		return sourceType != null && sourceType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)sourceType) : sourceType;
 	}
 
 	/**
@@ -147,19 +130,10 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	 * @generated
 	 */
 	public EClass basicGetSourceType() {
-		return sourceType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSourceType(EClass newSourceType) {
-		EClass oldSourceType = sourceType;
-		sourceType = newSourceType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__SOURCE_TYPE, oldSourceType, sourceType));
+		// TODO: implement this method to return the 'Source Type' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -356,9 +330,6 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 				getPathElements().clear();
 				getPathElements().addAll((Collection<? extends NavigationAxis>)newValue);
 				return;
-			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__SOURCE_TYPE:
-				setSourceType((EClass)newValue);
-				return;
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__FEATURE:
 				setFeature((EStructuralFeature)newValue);
 				return;
@@ -376,9 +347,6 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 		switch (featureID) {
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				getPathElements().clear();
-				return;
-			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__SOURCE_TYPE:
-				setSourceType((EClass)null);
 				return;
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__FEATURE:
 				setFeature((EStructuralFeature)null);
@@ -398,7 +366,7 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__PATH_ELEMENTS:
 				return pathElements != null && !pathElements.isEmpty();
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__SOURCE_TYPE:
-				return sourceType != null;
+				return basicGetSourceType() != null;
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__TARGET_TYPE:
 				return basicGetTargetType() != null;
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__MANY:

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.Extractor#getExtractedType <em>Extracted Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.Extractor#getFilter <em>Filter</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getExtractor()
@@ -37,6 +38,32 @@ public interface Extractor extends DataTool {
 	 * @generated
 	 */
 	EClass getExtractedType();
+
+	/**
+	 * Returns the value of the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Filter</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Filter</em>' containment reference.
+	 * @see #setFilter(Filter)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getExtractor_Filter()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Filter getFilter();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Extractor#getFilter <em>Filter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Filter</em>' containment reference.
+	 * @see #getFilter()
+	 * @generated
+	 */
+	void setFilter(Filter value);
 
 	/**
 	 * <!-- begin-user-doc -->

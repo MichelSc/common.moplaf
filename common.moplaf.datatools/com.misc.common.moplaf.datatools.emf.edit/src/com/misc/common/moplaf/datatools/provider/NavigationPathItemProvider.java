@@ -70,7 +70,7 @@ public class NavigationPathItemProvider
 				 getString("_UI_NavigationPath_SourceType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_SourceType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__SOURCE_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

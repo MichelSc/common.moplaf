@@ -80,7 +80,7 @@ public class CategorizerOclItemProvider extends CategorizerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CategorizerOcl)object).getDescription();
+		String label = ((CategorizerOcl)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CategorizerOcl_type") :
 			getString("_UI_CategorizerOcl_type") + " " + label;

@@ -54,22 +54,11 @@ public interface NavigationPath extends DataToolAbstract {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Type</em>' reference.
-	 * @see #setSourceType(EClass)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationPath_SourceType()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EClass getSourceType();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.NavigationPath#getSourceType <em>Source Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Type</em>' reference.
-	 * @see #getSourceType()
-	 * @generated
-	 */
-	void setSourceType(EClass value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Type</b></em>' reference.

@@ -40,9 +40,8 @@ public class ExtractorUnionImpl extends ExtractorLogicImpl implements ExtractorU
 	 * 
 	 */
 	@Override
-	public String getDescription() {
-		String description = "union";
-		return description;
+	protected String getTypeDescription() {
+		return "Extractor Union";
 	}
 
 

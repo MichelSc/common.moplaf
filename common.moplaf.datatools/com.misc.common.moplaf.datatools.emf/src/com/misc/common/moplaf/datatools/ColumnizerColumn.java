@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getWidth <em>Width</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnName <em>Column Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnWidth <em>Column Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
@@ -27,56 +27,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ColumnizerColumn extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Column Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Column Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_Name()
+	 * @return the value of the '<em>Column Name</em>' attribute.
+	 * @see #setColumnName(String)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_ColumnName()
 	 * @model
 	 * @generated
 	 */
-	String getName();
+	String getColumnName();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnName <em>Column Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Column Name</em>' attribute.
+	 * @see #getColumnName()
 	 * @generated
 	 */
-	void setName(String value);
+	void setColumnName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Width</b></em>' attribute.
+	 * Returns the value of the '<em><b>Column Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Column Width</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Width</em>' attribute.
-	 * @see #setWidth(int)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_Width()
+	 * @return the value of the '<em>Column Width</em>' attribute.
+	 * @see #setColumnWidth(int)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_ColumnWidth()
 	 * @model
 	 * @generated
 	 */
-	int getWidth();
+	int getColumnWidth();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getWidth <em>Width</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnWidth <em>Column Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Width</em>' attribute.
-	 * @see #getWidth()
+	 * @param value the new value of the '<em>Column Width</em>' attribute.
+	 * @see #getColumnWidth()
 	 * @generated
 	 */
-	void setWidth(int value);
+	void setColumnWidth(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Grids</b></em>' reference list.

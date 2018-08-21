@@ -9,6 +9,7 @@ import com.misc.common.moplaf.datatools.ExtractorCompound;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -83,6 +84,17 @@ public class ExtractorCompoundImpl extends ExtractorImpl implements ExtractorCom
 		DataToolContext context = this.getContext();
 		return context.getDomainTypes();
 	}
+
+	@Override
+	protected void collectParamsDescription(List<String> params) {
+		for ( Extractor extractor : this.getExtractors()) {
+			String name = extractor.getName();
+			if ( name!=null && name.length()>0 ) {
+				params.add(name);
+			}
+		}
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

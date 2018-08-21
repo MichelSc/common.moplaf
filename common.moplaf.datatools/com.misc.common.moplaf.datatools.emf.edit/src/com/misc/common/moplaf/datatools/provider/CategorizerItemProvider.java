@@ -61,7 +61,7 @@ public class CategorizerItemProvider extends DataToolItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Categorizer)object).getDescription();
+		String label = ((Categorizer)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Categorizer_type") :
 			getString("_UI_Categorizer_type") + " " + label;

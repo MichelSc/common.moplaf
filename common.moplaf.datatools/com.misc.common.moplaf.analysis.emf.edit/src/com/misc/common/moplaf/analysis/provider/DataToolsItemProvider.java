@@ -89,11 +89,10 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 	 * This returns DataTools.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataTools"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/moplaf_folder.png"));
 	}
 
 	/**
@@ -152,31 +151,6 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 			(createChildParameter
 				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createExtractorOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeIntRange()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
 
 		newChildDescriptors.add
 			(createChildParameter

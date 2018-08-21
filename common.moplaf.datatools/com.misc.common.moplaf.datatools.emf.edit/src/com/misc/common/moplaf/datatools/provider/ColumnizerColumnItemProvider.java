@@ -60,27 +60,27 @@ public class ColumnizerColumnItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addWidthPropertyDescriptor(object);
+			addColumnNamePropertyDescriptor(object);
+			addColumnWidthPropertyDescriptor(object);
 			addGridsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Column Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addColumnNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ColumnizerColumn_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_Name_feature", "_UI_ColumnizerColumn_type"),
-				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__NAME,
+				 getString("_UI_ColumnizerColumn_ColumnName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_ColumnName_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__COLUMN_NAME,
 				 true,
 				 false,
 				 false,
@@ -90,19 +90,19 @@ public class ColumnizerColumnItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Width feature.
+	 * This adds a property descriptor for the Column Width feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addWidthPropertyDescriptor(Object object) {
+	protected void addColumnWidthPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ColumnizerColumn_Width_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_Width_feature", "_UI_ColumnizerColumn_type"),
-				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__WIDTH,
+				 getString("_UI_ColumnizerColumn_ColumnWidth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_ColumnWidth_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__COLUMN_WIDTH,
 				 true,
 				 false,
 				 false,
@@ -152,7 +152,7 @@ public class ColumnizerColumnItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ColumnizerColumn)object).getName();
+		String label = ((ColumnizerColumn)object).getColumnName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ColumnizerColumn_type") :
 			getString("_UI_ColumnizerColumn_type") + " " + label;
@@ -171,8 +171,8 @@ public class ColumnizerColumnItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ColumnizerColumn.class)) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN__NAME:
-			case DatatoolsPackage.COLUMNIZER_COLUMN__WIDTH:
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME:
+			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

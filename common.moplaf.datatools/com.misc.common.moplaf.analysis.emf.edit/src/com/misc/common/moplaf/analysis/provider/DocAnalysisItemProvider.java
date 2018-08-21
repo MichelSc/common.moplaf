@@ -338,27 +338,27 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterRegex()));
+				 DatatoolsFactory.eINSTANCE.createFilterRegex()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAttributeIntRange()));
+				 DatatoolsFactory.eINSTANCE.createFilterAttributeIntRange()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOcl()));
+				 DatatoolsFactory.eINSTANCE.createFilterOcl()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterAND()));
+				 DatatoolsFactory.eINSTANCE.createFilterAND()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorFilterOR()));
+				 DatatoolsFactory.eINSTANCE.createFilterOR()));
 
 		newChildDescriptors.add
 			(createChildParameter

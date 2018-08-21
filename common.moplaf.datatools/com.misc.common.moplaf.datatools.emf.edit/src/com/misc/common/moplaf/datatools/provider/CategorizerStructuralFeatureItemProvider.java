@@ -71,7 +71,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 				 getString("_UI_NavigationPath_SourceType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_SourceType_feature", "_UI_NavigationPath_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_PATH__SOURCE_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -216,7 +216,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CategorizerStructuralFeature)object).getDescription();
+		String label = ((CategorizerStructuralFeature)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CategorizerStructuralFeature_type") :
 			getString("_UI_CategorizerStructuralFeature_type") + " " + label;

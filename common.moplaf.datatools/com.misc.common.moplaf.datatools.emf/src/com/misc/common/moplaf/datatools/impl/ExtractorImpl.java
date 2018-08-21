@@ -6,14 +6,18 @@ import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
 
+import com.misc.common.moplaf.datatools.Filter;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,11 +28,22 @@ import org.eclipse.emf.ecore.InternalEObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl#getExtractedType <em>Extracted Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
+	/**
+	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Filter filter;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,6 +79,49 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	 */
 	public EClass basicGetExtractedType() {
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Filter getFilter() {
+		return filter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFilter(Filter newFilter, NotificationChain msgs) {
+		Filter oldFilter = filter;
+		filter = newFilter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR__FILTER, oldFilter, newFilter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFilter(Filter newFilter) {
+		if (newFilter != filter) {
+			NotificationChain msgs = null;
+			if (filter != null)
+				msgs = ((InternalEObject)filter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatatoolsPackage.EXTRACTOR__FILTER, null, msgs);
+			if (newFilter != null)
+				msgs = ((InternalEObject)newFilter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatatoolsPackage.EXTRACTOR__FILTER, null, msgs);
+			msgs = basicSetFilter(newFilter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.EXTRACTOR__FILTER, newFilter, newFilter));
 	}
 
 	/**
@@ -118,13 +176,59 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatatoolsPackage.EXTRACTOR__FILTER:
+				return basicSetFilter(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DatatoolsPackage.EXTRACTOR__EXTRACTED_TYPE:
 				if (resolve) return getExtractedType();
 				return basicGetExtractedType();
+			case DatatoolsPackage.EXTRACTOR__FILTER:
+				return getFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case DatatoolsPackage.EXTRACTOR__FILTER:
+				setFilter((Filter)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case DatatoolsPackage.EXTRACTOR__FILTER:
+				setFilter((Filter)null);
+				return;
+		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -137,6 +241,8 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 		switch (featureID) {
 			case DatatoolsPackage.EXTRACTOR__EXTRACTED_TYPE:
 				return basicGetExtractedType() != null;
+			case DatatoolsPackage.EXTRACTOR__FILTER:
+				return filter != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -166,7 +166,7 @@ public class ColumnizerItemProvider
 	@Override
 	public String getColumnText(Object element, Object grid, Object column) {
 		ColumnizerColumn column_columnizer = (ColumnizerColumn)column;
-		return column_columnizer.getName();
+		return column_columnizer.getColumnName();
 	}
 
 	@Override

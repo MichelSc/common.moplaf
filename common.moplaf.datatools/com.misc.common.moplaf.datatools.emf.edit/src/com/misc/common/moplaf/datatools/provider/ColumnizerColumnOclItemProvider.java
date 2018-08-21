@@ -80,7 +80,7 @@ public class ColumnizerColumnOclItemProvider extends ColumnizerColumnItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ColumnizerColumnOcl)object).getName();
+		String label = ((ColumnizerColumnOcl)object).getColumnName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ColumnizerColumnOcl_type") :
 			getString("_UI_ColumnizerColumnOcl_type") + " " + label;

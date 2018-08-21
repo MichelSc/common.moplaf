@@ -10,8 +10,6 @@ import com.misc.common.moplaf.analysis.DocAnalysis;
 
 import com.misc.common.moplaf.analysis.DocComparison;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-
-import com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl;
 import com.misc.common.moplaf.file.FilePackage;
 
 import com.misc.common.moplaf.job.JobPackage;
@@ -107,20 +105,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		isInited = true;
 
 		// Initialize simple dependencies
+		DatatoolsPackage.eINSTANCE.eClass();
 		FilePackage.eINSTANCE.eClass();
 		JobPackage.eINSTANCE.eClass();
 
-		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DatatoolsPackage.eNS_URI);
-		DatatoolsPackageImpl theDatatoolsPackage = (DatatoolsPackageImpl)(registeredPackage instanceof DatatoolsPackageImpl ? registeredPackage : DatatoolsPackage.eINSTANCE);
-
 		// Create package meta-data objects
 		theAnalysisPackage.createPackageContents();
-		theDatatoolsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAnalysisPackage.initializePackageContents();
-		theDatatoolsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAnalysisPackage.freeze();
