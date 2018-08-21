@@ -146,16 +146,28 @@ public abstract class ExtractorImpl extends DataToolImpl implements Extractor {
 	}
 
 	protected ObjectSet extractImplFinal(ObjectSet outs, int max_elements) {
-		int too_many = outs.size()-max_elements;
-		if ( too_many>0 ) {
-			outs.setComplete(false);
-			Iterator<EObject> iterator = outs.iterator();
-			while ( too_many>0 && iterator.hasNext()) {
-				iterator.next();
+		int elements_kept = 0;
+		boolean full = false;
+		Filter filter = this.getFilter();
+		
+		Iterator<EObject> iterator = outs.iterator();
+		while ( iterator.hasNext()) {
+			EObject element = iterator.next();
+			if( full || filter!=null && !filter.satisfiesFilter(element)) {
+				// throw the element
 				iterator.remove();
-				too_many--;
+			} else {
+				// keep the element
+				elements_kept++;
+				if ( elements_kept>max_elements ) {
+					full = true;
+				}
 			}
 		}
+		if( full ) {
+			outs.setComplete(false);
+		}
+		
 		return outs;
 	}
 	
