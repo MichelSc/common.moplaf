@@ -16,7 +16,7 @@ package com.misc.common.moplaf.datatools;
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategorizerOcl()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface CategorizerOcl extends Categorizer {

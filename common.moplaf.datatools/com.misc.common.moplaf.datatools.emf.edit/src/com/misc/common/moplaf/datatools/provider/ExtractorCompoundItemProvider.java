@@ -138,11 +138,6 @@ public class ExtractorCompoundItemProvider extends ExtractorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
-				 DatatoolsFactory.eINSTANCE.createExtractorOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR_COMPOUND__EXTRACTORS,
 				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
 
 		newChildDescriptors.add

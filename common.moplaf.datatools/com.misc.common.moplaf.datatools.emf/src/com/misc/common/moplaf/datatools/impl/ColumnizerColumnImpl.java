@@ -4,12 +4,9 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
-import com.misc.common.moplaf.datatools.ColumnizerGrid;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -21,9 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnName <em>Column Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnWidth <em>Column Width</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getGrids <em>Grids</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
@@ -81,16 +75,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * @ordered
 	 */
 	protected int columnWidth = COLUMN_WIDTH_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getGrids() <em>Grids</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGrids()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ColumnizerGrid> grids;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,18 +142,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ColumnizerGrid> getGrids() {
-		if (grids == null) {
-			grids = new EObjectWithInverseResolvingEList.ManyInverse<ColumnizerGrid>(ColumnizerGrid.class, this, DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS, DatatoolsPackage.COLUMNIZER_GRID__COLUMNS);
-		}
-		return grids;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Columnizer getColumnizer() {
 		if (eContainerFeatureID() != DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER) return null;
 		return (Columnizer)eInternalContainer();
@@ -222,23 +194,10 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isValidElementType(EClass type) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGrids()).basicAdd(otherEnd, msgs);
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -255,8 +214,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				return ((InternalEList<?>)getGrids()).basicRemove(otherEnd, msgs);
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return basicSetColumnizer(null, msgs);
 		}
@@ -289,8 +246,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return getColumnName();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
 				return getColumnWidth();
-			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				return getGrids();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return getColumnizer();
 		}
@@ -311,10 +266,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
 				setColumnWidth((Integer)newValue);
-				return;
-			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				getGrids().clear();
-				getGrids().addAll((Collection<? extends ColumnizerGrid>)newValue);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				setColumnizer((Columnizer)newValue);
@@ -337,9 +288,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
 				setColumnWidth(COLUMN_WIDTH_EDEFAULT);
 				return;
-			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				getGrids().clear();
-				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				setColumnizer((Columnizer)null);
 				return;
@@ -359,8 +307,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return COLUMN_NAME_EDEFAULT == null ? columnName != null : !COLUMN_NAME_EDEFAULT.equals(columnName);
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
 				return columnWidth != COLUMN_WIDTH_EDEFAULT;
-			case DatatoolsPackage.COLUMNIZER_COLUMN__GRIDS:
-				return grids != null && !grids.isEmpty();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return getColumnizer() != null;
 		}
@@ -377,8 +323,6 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 		switch (operationID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN___GET_VALUE__EOBJECT:
 				return getValue((EObject)arguments.get(0));
-			case DatatoolsPackage.COLUMNIZER_COLUMN___IS_VALID_ELEMENT_TYPE__ECLASS:
-				return isValidElementType((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

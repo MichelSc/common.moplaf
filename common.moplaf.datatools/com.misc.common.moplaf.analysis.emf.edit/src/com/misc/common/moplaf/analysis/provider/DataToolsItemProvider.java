@@ -5,7 +5,7 @@ package com.misc.common.moplaf.analysis.provider;
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DataTools;
-
+import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 
 import com.misc.common.moplaf.datatools.provider.DataToolContextItemProvider;
@@ -131,7 +131,6 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -146,11 +145,6 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 			(createChildParameter
 				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createExtractorPath()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createExtractorOcl()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -185,12 +179,11 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createMatcher()));
+		
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS, DataToolType.EXTRACTOR);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS, DataToolType.COLUMNIZER);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS, DataToolType.CATEGORIZER);
 	}
 
 	/**

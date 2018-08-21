@@ -92,7 +92,7 @@
         <genParameters ecoreParameter="datatools.ecore#//Filter/satisfiesFilter/object"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//FilterAttribute" labelFeature="#//datatools/DataToolAbstract/Description">
+    <genClasses ecoreClass="datatools.ecore#//FilterAttribute" labelFeature="#//datatools/DataToolAbstract/Description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//FilterAttribute/Attribute"/>
       <genOperations ecoreOperation="datatools.ecore#//FilterAttribute/getAttributeValue">
         <genParameters ecoreParameter="datatools.ecore#//FilterAttribute/getAttributeValue/object"/>
@@ -132,28 +132,21 @@
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//Columnizer" labelFeature="#//datatools/DataToolAbstract/Description">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/Columns"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/Grids"/>
-    </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//ColumnizerGrid">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerGrid/Columns"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerGrid/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/ColumnizedType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Columnizer/SheetName"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerColumn">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnWidth"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumn/Grids"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumn/Columnizer"/>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/getValue">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerColumn/getValue/object"/>
       </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/isValidElementType">
-        <genParameters ecoreParameter="datatools.ecore#//ColumnizerColumn/isValidElementType/type"/>
-      </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerColumnAttribute">
+    <genClasses ecoreClass="datatools.ecore#//ColumnizerColumnAttribute" labelFeature="#//datatools/DataToolAbstract/Description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumnAttribute/Attribute"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerColumnOcl">
+    <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerColumnOcl" labelFeature="#//datatools/ColumnizerColumn/ColumnName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumnOcl/Expression"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//CategoryAbstract" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
@@ -197,7 +190,7 @@
         <genParameters ecoreParameter="datatools.ecore#//Categorizer/isValidElementType/type"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//CategorizerStructuralFeature">
+    <genClasses ecoreClass="datatools.ecore#//CategorizerStructuralFeature">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategorizerStructuralFeature/Feature"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//CategorizerOcl">

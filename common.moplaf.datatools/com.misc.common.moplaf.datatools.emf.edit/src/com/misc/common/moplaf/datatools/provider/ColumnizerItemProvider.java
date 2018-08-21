@@ -5,7 +5,6 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
-import com.misc.common.moplaf.datatools.ColumnizerGrid;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import java.util.Collection;
@@ -15,7 +14,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -47,8 +48,54 @@ public class ColumnizerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addColumnizedTypePropertyDescriptor(object);
+			addSheetNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Columnized Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColumnizedTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Columnizer_ColumnizedType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Columnizer_ColumnizedType_feature", "_UI_Columnizer_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER__COLUMNIZED_TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Sheet Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSheetNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Columnizer_SheetName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Columnizer_SheetName_feature", "_UI_Columnizer_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER__SHEET_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -64,7 +111,6 @@ public class ColumnizerItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZER__COLUMNS);
-			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZER__GRIDS);
 		}
 		return childrenFeatures;
 	}
@@ -109,8 +155,10 @@ public class ColumnizerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Columnizer.class)) {
+			case DatatoolsPackage.COLUMNIZER__SHEET_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DatatoolsPackage.COLUMNIZER__COLUMNS:
-			case DatatoolsPackage.COLUMNIZER__GRIDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -132,35 +180,22 @@ public class ColumnizerItemProvider
 			(createChildParameter
 				(DatatoolsPackage.Literals.COLUMNIZER__COLUMNS,
 				 DatatoolsFactory.eINSTANCE.createColumnizerColumnAttribute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.COLUMNIZER__COLUMNS,
-				 DatatoolsFactory.eINSTANCE.createColumnizerColumnOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.COLUMNIZER__GRIDS,
-				 DatatoolsFactory.eINSTANCE.createColumnizerGrid()));
 	}
 	// specified by IItemGridsProvider
 	@Override
 	public Object getGrids(Object element) {
-		Columnizer columnizer = (Columnizer)element;
-		return columnizer.getGrids();
+		return element;  // 1 grid for this columnizer
 	}
-
-	
 	@Override
 	public String getGridText(Object element, Object grid) {
-		ColumnizerGrid grid_columnizer = (ColumnizerGrid)grid;
-		return grid_columnizer.getName();
+		Columnizer columnizer = (Columnizer)element;
+		return columnizer.getSheetName();
 	}
 
 	@Override
 	public Collection<?> getColumns(Object element, Object grid) {
-		ColumnizerGrid grid_columnizer = (ColumnizerGrid)grid;
-		return grid_columnizer.getColumns();
+		Columnizer columnizer = (Columnizer)element;
+		return columnizer.getColumns();
 	}
 
 	@Override

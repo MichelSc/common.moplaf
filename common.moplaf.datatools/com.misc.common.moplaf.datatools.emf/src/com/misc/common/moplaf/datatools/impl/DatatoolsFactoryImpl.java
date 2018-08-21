@@ -61,10 +61,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.DATA_TOOL_CONTEXT: return createDataToolContext();
 			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
 			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
-			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
 			case DatatoolsPackage.FILTER_REGEX: return createFilterRegex();
 			case DatatoolsPackage.FILTER_ATTRIBUTE_INT_RANGE: return createFilterAttributeIntRange();
-			case DatatoolsPackage.FILTER_OCL: return createFilterOcl();
 			case DatatoolsPackage.FILTER_AND: return createFilterAND();
 			case DatatoolsPackage.FILTER_OR: return createFilterOR();
 			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
@@ -72,13 +70,10 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
 			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
 			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
-			case DatatoolsPackage.COLUMNIZER_GRID: return createColumnizerGrid();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_OCL: return createColumnizerColumnOcl();
 			case DatatoolsPackage.SUPER_CATEGORY: return createSuperCategory();
 			case DatatoolsPackage.CATEGORY: return createCategory();
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: return createCategorizerStructuralFeature();
-			case DatatoolsPackage.CATEGORIZER_OCL: return createCategorizerOcl();
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
 			default:
@@ -138,16 +133,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public CategorizerStructuralFeature createCategorizerStructuralFeature() {
 		CategorizerStructuralFeatureImpl categorizerStructuralFeature = new CategorizerStructuralFeatureImpl();
 		return categorizerStructuralFeature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CategorizerOcl createCategorizerOcl() {
-		CategorizerOclImpl categorizerOcl = new CategorizerOclImpl();
-		return categorizerOcl;
 	}
 
 	/**
@@ -225,16 +210,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorOcl createExtractorOcl() {
-		ExtractorOclImpl extractorOcl = new ExtractorOclImpl();
-		return extractorOcl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public FilterRegex createFilterRegex() {
 		FilterRegexImpl filterRegex = new FilterRegexImpl();
 		return filterRegex;
@@ -248,16 +223,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public FilterAttributeIntRange createFilterAttributeIntRange() {
 		FilterAttributeIntRangeImpl filterAttributeIntRange = new FilterAttributeIntRangeImpl();
 		return filterAttributeIntRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FilterOcl createFilterOcl() {
-		FilterOclImpl filterOcl = new FilterOclImpl();
-		return filterOcl;
 	}
 
 	/**
@@ -288,16 +253,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ColumnizerColumnAttribute createColumnizerColumnAttribute() {
 		ColumnizerColumnAttributeImpl columnizerColumnAttribute = new ColumnizerColumnAttributeImpl();
 		return columnizerColumnAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerColumnOcl createColumnizerColumnOcl() {
-		ColumnizerColumnOclImpl columnizerColumnOcl = new ColumnizerColumnOclImpl();
-		return columnizerColumnOcl;
 	}
 
 	/**
@@ -398,16 +353,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 */
 	public String convertMatchStatusToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerGrid createColumnizerGrid() {
-		ColumnizerGridImpl columnizerGrid = new ColumnizerGridImpl();
-		return columnizerGrid;
 	}
 
 	/**

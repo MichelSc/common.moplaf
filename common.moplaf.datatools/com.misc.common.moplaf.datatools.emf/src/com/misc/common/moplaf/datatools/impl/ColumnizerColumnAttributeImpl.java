@@ -2,17 +2,15 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.Columnizer;
+import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
-import com.misc.common.moplaf.datatools.DataToolAbstract;
 import com.misc.common.moplaf.datatools.DataToolContext;
-import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-import com.misc.common.moplaf.datatools.NavigationAxis;
-import com.misc.common.moplaf.datatools.NavigationPath;
 import com.misc.common.moplaf.datatools.util.Util;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -25,8 +23,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,79 +33,54 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getContext <em>Context</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getPathElements <em>Path Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getSourceType <em>Source Type</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getTargetType <em>Target Type</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#isMany <em>Many</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getColumnName <em>Column Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getColumnWidth <em>Column Width</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getColumnizer <em>Columnizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implements ColumnizerColumnAttribute {
+public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements ColumnizerColumnAttribute {
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The default value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getColumnName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String COLUMN_NAME_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getColumnName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected String columnName = COLUMN_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getColumnWidth() <em>Column Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getColumnWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected static final int COLUMN_WIDTH_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getPathElements() <em>Path Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getColumnWidth() <em>Column Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPathElements()
+	 * @see #getColumnWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NavigationAxis> pathElements;
-
-	/**
-	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMany()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MANY_EDEFAULT = false;
-
-	/**
-	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPath()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PATH_EDEFAULT = null;
+	protected int columnWidth = COLUMN_WIDTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
@@ -144,9 +116,82 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataToolContext getContext() {
-		DataToolContext context = basicGetContext();
-		return context != null && context.eIsProxy() ? (DataToolContext)eResolveProxy((InternalEObject)context) : context;
+	public String getColumnName() {
+		return columnName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumnName(String newColumnName) {
+		String oldColumnName = columnName;
+		columnName = newColumnName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME, oldColumnName, columnName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getColumnWidth() {
+		return columnWidth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumnWidth(int newColumnWidth) {
+		int oldColumnWidth = columnWidth;
+		columnWidth = newColumnWidth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH, oldColumnWidth, columnWidth));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Columnizer getColumnizer() {
+		if (eContainerFeatureID() != DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER) return null;
+		return (Columnizer)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetColumnizer(Columnizer newColumnizer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newColumnizer, DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumnizer(Columnizer newColumnizer) {
+		if (newColumnizer != eInternalContainer() || (eContainerFeatureID() != DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER && newColumnizer != null)) {
+			if (EcoreUtil.isAncestor(this, newColumnizer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newColumnizer != null)
+				msgs = ((InternalEObject)newColumnizer).eInverseAdd(this, DatatoolsPackage.COLUMNIZER__COLUMNS, Columnizer.class, msgs);
+			msgs = basicSetColumnizer(newColumnizer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER, newColumnizer, newColumnizer));
 	}
 
 	/**
@@ -157,80 +202,23 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 		return this.getColumnizer().getContext();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		// TODO: implement this method to return the 'Description' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	protected void collectParamsDescription(List<String> params) {
+		params.add(String.format("path: %s", this.getPath()));
+	}
+
+	@Override
+	protected String getTypeDescription() {
+		EAttribute attribute = this.getAttribute();
+		return String.format("Attribute %s", attribute==null ? "null" : attribute.getName());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<NavigationAxis> getPathElements() {
-		if (pathElements == null) {
-			pathElements = new EObjectContainmentWithInverseEList<NavigationAxis>(NavigationAxis.class, this, DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS, DatatoolsPackage.NAVIGATION_AXIS__PATH);
-		}
-		return pathElements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSourceType() {
-		EClass sourceType = basicGetSourceType();
-		return sourceType != null && sourceType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)sourceType) : sourceType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetSourceType() {
-		// TODO: implement this method to return the 'Source Type' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTargetType() {
-		EClass targetType = basicGetTargetType();
-		return targetType != null && targetType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)targetType) : targetType;
+		return this.getColumnizer().getColumnizedType();
 	}
 
 	/**
@@ -284,18 +272,6 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	}
 	
 	
-	/** 
-	 * Specified by ColumnizerColumn
-	 * 
-	 */
-	@Override
-	public boolean isValidElementType(EClass type) {
-		if ( this.getSourceType()==null ) {
-			return false;
-		}
-		return this.getSourceType().isSuperTypeOf(type);
-	}
-
 	/**
 	 * Specified by ColumnizerColumn
 	 */
@@ -329,23 +305,14 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataToolType getType() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPathElements()).basicAdd(otherEnd, msgs);
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetColumnizer((Columnizer)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -358,8 +325,8 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:
-				return ((InternalEList<?>)getPathElements()).basicRemove(otherEnd, msgs);
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
+				return basicSetColumnizer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -370,27 +337,28 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
+				return eInternalContainer().eInverseRemove(this, DatatoolsPackage.COLUMNIZER__COLUMNS, Columnizer.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT:
-				if (resolve) return getContext();
-				return basicGetContext();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__DESCRIPTION:
-				return getDescription();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME:
-				return getName();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:
-				return getPathElements();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE:
-				if (resolve) return getSourceType();
-				return basicGetSourceType();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE:
-				if (resolve) return getTargetType();
-				return basicGetTargetType();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY:
-				return isMany();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH:
-				return getPath();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME:
+				return getColumnName();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH:
+				return getColumnWidth();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
+				return getColumnizer();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
@@ -407,12 +375,14 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME:
-				setName((String)newValue);
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME:
+				setColumnName((String)newValue);
 				return;
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:
-				getPathElements().clear();
-				getPathElements().addAll((Collection<? extends NavigationAxis>)newValue);
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH:
+				setColumnWidth((Integer)newValue);
+				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
+				setColumnizer((Columnizer)newValue);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((EAttribute)newValue);
@@ -429,11 +399,14 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME:
-				setName(NAME_EDEFAULT);
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME:
+				setColumnName(COLUMN_NAME_EDEFAULT);
 				return;
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:
-				getPathElements().clear();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH:
+				setColumnWidth(COLUMN_WIDTH_EDEFAULT);
+				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
+				setColumnizer((Columnizer)null);
 				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((EAttribute)null);
@@ -450,22 +423,12 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT:
-				return basicGetContext() != null;
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS:
-				return pathElements != null && !pathElements.isEmpty();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE:
-				return basicGetSourceType() != null;
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE:
-				return basicGetTargetType() != null;
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY:
-				return isMany() != MANY_EDEFAULT;
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH:
-				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME:
+				return COLUMN_NAME_EDEFAULT == null ? columnName != null : !COLUMN_NAME_EDEFAULT.equals(columnName);
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH:
+				return columnWidth != COLUMN_WIDTH_EDEFAULT;
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
+				return getColumnizer() != null;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				return attribute != null;
 		}
@@ -479,21 +442,11 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == DataToolAbstract.class) {
+		if (baseClass == ColumnizerColumn.class) {
 			switch (derivedFeatureID) {
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT: return DatatoolsPackage.DATA_TOOL_ABSTRACT__CONTEXT;
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__DESCRIPTION: return DatatoolsPackage.DATA_TOOL_ABSTRACT__DESCRIPTION;
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME: return DatatoolsPackage.DATA_TOOL_ABSTRACT__NAME;
-				default: return -1;
-			}
-		}
-		if (baseClass == NavigationPath.class) {
-			switch (derivedFeatureID) {
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS: return DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS;
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE: return DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE;
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE: return DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE;
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY: return DatatoolsPackage.NAVIGATION_PATH__MANY;
-				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH: return DatatoolsPackage.NAVIGATION_PATH__PATH;
+				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME: return DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME;
+				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH: return DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH;
+				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER: return DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER;
 				default: return -1;
 			}
 		}
@@ -507,21 +460,11 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == DataToolAbstract.class) {
+		if (baseClass == ColumnizerColumn.class) {
 			switch (baseFeatureID) {
-				case DatatoolsPackage.DATA_TOOL_ABSTRACT__CONTEXT: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT;
-				case DatatoolsPackage.DATA_TOOL_ABSTRACT__DESCRIPTION: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__DESCRIPTION;
-				case DatatoolsPackage.DATA_TOOL_ABSTRACT__NAME: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__NAME;
-				default: return -1;
-			}
-		}
-		if (baseClass == NavigationPath.class) {
-			switch (baseFeatureID) {
-				case DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS;
-				case DatatoolsPackage.NAVIGATION_PATH__SOURCE_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE;
-				case DatatoolsPackage.NAVIGATION_PATH__TARGET_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE;
-				case DatatoolsPackage.NAVIGATION_PATH__MANY: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__MANY;
-				case DatatoolsPackage.NAVIGATION_PATH__PATH: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__PATH;
+				case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME;
+				case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH;
+				case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER;
 				default: return -1;
 			}
 		}
@@ -535,14 +478,9 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == DataToolAbstract.class) {
+		if (baseClass == ColumnizerColumn.class) {
 			switch (baseOperationID) {
-				case DatatoolsPackage.DATA_TOOL_ABSTRACT___GET_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_TYPE;
-				default: return -1;
-			}
-		}
-		if (baseClass == NavigationPath.class) {
-			switch (baseOperationID) {
+				case DatatoolsPackage.COLUMNIZER_COLUMN___GET_VALUE__EOBJECT: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT;
 				default: return -1;
 			}
 		}
@@ -557,8 +495,8 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_TYPE:
-				return getType();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT:
+				return getValue((EObject)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -573,8 +511,10 @@ public class ColumnizerColumnAttributeImpl extends ColumnizerColumnImpl implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
+		result.append(" (ColumnName: ");
+		result.append(columnName);
+		result.append(", ColumnWidth: ");
+		result.append(columnWidth);
 		result.append(')');
 		return result.toString();
 	}

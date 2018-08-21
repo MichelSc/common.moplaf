@@ -40,15 +40,6 @@ public interface DatatoolsFactory extends EFactory {
 	CategorizerStructuralFeature createCategorizerStructuralFeature();
 
 	/**
-	 * Returns a new object of class '<em>Categorizer Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Categorizer Ocl</em>'.
-	 * @generated
-	 */
-	CategorizerOcl createCategorizerOcl();
-
-	/**
 	 * Returns a new object of class '<em>Extractor Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,15 +103,6 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorPath createExtractorPath();
 
 	/**
-	 * Returns a new object of class '<em>Extractor Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Ocl</em>'.
-	 * @generated
-	 */
-	ExtractorOcl createExtractorOcl();
-
-	/**
 	 * Returns a new object of class '<em>Filter Regex</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,15 +119,6 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	FilterAttributeIntRange createFilterAttributeIntRange();
-
-	/**
-	 * Returns a new object of class '<em>Filter Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Filter Ocl</em>'.
-	 * @generated
-	 */
-	FilterOcl createFilterOcl();
 
 	/**
 	 * Returns a new object of class '<em>Filter AND</em>'.
@@ -173,15 +146,6 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	ColumnizerColumnAttribute createColumnizerColumnAttribute();
-
-	/**
-	 * Returns a new object of class '<em>Columnizer Column Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer Column Ocl</em>'.
-	 * @generated
-	 */
-	ColumnizerColumnOcl createColumnizerColumnOcl();
 
 	/**
 	 * Returns a new object of class '<em>Super Category</em>'.
@@ -236,15 +200,6 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	Match createMatch();
-
-	/**
-	 * Returns a new object of class '<em>Columnizer Grid</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer Grid</em>'.
-	 * @generated
-	 */
-	ColumnizerGrid createColumnizerGrid();
 
 	/**
 	 * Returns the package supported by this factory.

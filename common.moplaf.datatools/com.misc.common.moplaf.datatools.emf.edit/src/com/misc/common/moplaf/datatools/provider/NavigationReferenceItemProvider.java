@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.provider.EReferenceItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -95,11 +96,16 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	 * This returns NavigationReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NavigationReference"));
+		EReferenceItemProvider provider = new EReferenceItemProvider(this.getAdapterFactory());
+		NavigationReference navigation = (NavigationReference)object;
+		EReference reference = navigation.getReference();
+		if ( reference == null) { 
+			return super.getImage(object); 
+		}
+		return provider.getImage(reference);
 	}
 
 	/**

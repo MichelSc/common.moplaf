@@ -87,7 +87,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorPath" eSuperTypes="#//Extractor #//NavigationPath">
     <eStructuralFeatures xsi:type="ecore:EReference" name="RootType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExtractorOcl" eSuperTypes="#//Extractor">
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorOcl" abstract="true" eSuperTypes="#//Extractor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true" eSuperTypes="#//DataToolAbstract">
@@ -119,7 +119,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FilterOcl" eSuperTypes="#//Filter">
+  <eClassifiers xsi:type="ecore:EClass" name="FilterOcl" abstract="true" eSuperTypes="#//Filter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FilterCompound" abstract="true" eSuperTypes="#//Filter #//DataToolContext">
@@ -145,33 +145,24 @@
   <eClassifiers xsi:type="ecore:EClass" name="Columnizer" eSuperTypes="#//ColumnizerAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
         eType="#//ColumnizerColumn" containment="true" eOpposite="#//ColumnizerColumn/Columnizer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Grids" upperBound="-1"
-        eType="#//ColumnizerGrid" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerGrid">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
-        eType="#//ColumnizerColumn" eOpposite="#//ColumnizerColumn/Grids"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnizedType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SheetName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumn" abstract="true">
     <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
-    <eOperations name="isValidElementType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Grids" upperBound="-1"
-        eType="#//ColumnizerGrid" eOpposite="#//ColumnizerGrid/Columns"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" lowerBound="1"
         eType="#//Columnizer" eOpposite="#//Columnizer/Columns"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnAttribute" eSuperTypes="#//ColumnizerColumn #//NavigationPath">
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnAttribute" eSuperTypes="#//NavigationPath #//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnOcl" eSuperTypes="#//ColumnizerColumn">
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnOcl" abstract="true"
+      eSuperTypes="#//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract" abstract="true">
@@ -224,7 +215,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CategorizerOcl" eSuperTypes="#//Categorizer">
+  <eClassifiers xsi:type="ecore:EClass" name="CategorizerOcl" abstract="true" eSuperTypes="#//Categorizer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MatchStatus">

@@ -119,29 +119,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategorizerOcl} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategorizerOclItemProvider categorizerOclItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategorizerOcl}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategorizerOclAdapter() {
-		if (categorizerOclItemProvider == null) {
-			categorizerOclItemProvider = new CategorizerOclItemProvider(this);
-		}
-
-		return categorizerOclItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,29 +280,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ExtractorOcl} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExtractorOclItemProvider extractorOclItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ExtractorOcl}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExtractorOclAdapter() {
-		if (extractorOclItemProvider == null) {
-			extractorOclItemProvider = new ExtractorOclItemProvider(this);
-		}
-
-		return extractorOclItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.FilterRegex} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -369,29 +323,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		}
 
 		return filterAttributeIntRangeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.FilterOcl} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FilterOclItemProvider filterOclItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.FilterOcl}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFilterOclAdapter() {
-		if (filterOclItemProvider == null) {
-			filterOclItemProvider = new FilterOclItemProvider(this);
-		}
-
-		return filterOclItemProvider;
 	}
 
 	/**
@@ -461,29 +392,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		}
 
 		return columnizerColumnAttributeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerColumnOcl} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ColumnizerColumnOclItemProvider columnizerColumnOclItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ColumnizerColumnOcl}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createColumnizerColumnOclAdapter() {
-		if (columnizerColumnOclItemProvider == null) {
-			columnizerColumnOclItemProvider = new ColumnizerColumnOclItemProvider(this);
-		}
-
-		return columnizerColumnOclItemProvider;
 	}
 
 	/**
@@ -625,29 +533,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerGrid} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ColumnizerGridItemProvider columnizerGridItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ColumnizerGrid}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createColumnizerGridAdapter() {
-		if (columnizerGridItemProvider == null) {
-			columnizerGridItemProvider = new ColumnizerGridItemProvider(this);
-		}
-
-		return columnizerGridItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -751,10 +636,8 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (dataToolContextItemProvider != null) dataToolContextItemProvider.dispose();
 		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
 		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
-		if (extractorOclItemProvider != null) extractorOclItemProvider.dispose();
 		if (filterRegexItemProvider != null) filterRegexItemProvider.dispose();
 		if (filterAttributeIntRangeItemProvider != null) filterAttributeIntRangeItemProvider.dispose();
-		if (filterOclItemProvider != null) filterOclItemProvider.dispose();
 		if (filterANDItemProvider != null) filterANDItemProvider.dispose();
 		if (filterORItemProvider != null) filterORItemProvider.dispose();
 		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
@@ -762,13 +645,10 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
 		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
 		if (columnizerItemProvider != null) columnizerItemProvider.dispose();
-		if (columnizerGridItemProvider != null) columnizerGridItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
-		if (columnizerColumnOclItemProvider != null) columnizerColumnOclItemProvider.dispose();
 		if (superCategoryItemProvider != null) superCategoryItemProvider.dispose();
 		if (categoryItemProvider != null) categoryItemProvider.dispose();
 		if (categorizerStructuralFeatureItemProvider != null) categorizerStructuralFeatureItemProvider.dispose();
-		if (categorizerOclItemProvider != null) categorizerOclItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
 	}

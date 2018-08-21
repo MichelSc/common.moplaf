@@ -137,11 +137,6 @@ public class FilterCompoundItemProvider extends FilterItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.FILTER_COMPOUND__FILTERS,
-				 DatatoolsFactory.eINSTANCE.createFilterOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.FILTER_COMPOUND__FILTERS,
 				 DatatoolsFactory.eINSTANCE.createFilterAND()));
 
 		newChildDescriptors.add

@@ -170,11 +170,6 @@ public class ExtractorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.EXTRACTOR__FILTER,
-				 DatatoolsFactory.eINSTANCE.createFilterOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.EXTRACTOR__FILTER,
 				 DatatoolsFactory.eINSTANCE.createFilterAND()));
 
 		newChildDescriptors.add

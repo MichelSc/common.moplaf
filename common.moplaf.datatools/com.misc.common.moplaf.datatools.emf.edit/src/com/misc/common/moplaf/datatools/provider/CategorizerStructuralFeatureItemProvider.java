@@ -14,7 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.ecore.provider.EStructuralFeatureItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -206,6 +206,22 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns CategorizerStructuralFeature.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public Object getImage(Object object) {
+		EStructuralFeatureItemProvider provider = new EStructuralFeatureItemProvider(this.getAdapterFactory());
+		CategorizerStructuralFeature categorizer = (CategorizerStructuralFeature)object;
+		EStructuralFeature feature = categorizer.getFeature();
+		if ( feature == null) { 
+			return super.getImage(object); 
+		}
+		return provider.getImage(feature);
 	}
 
 	/**

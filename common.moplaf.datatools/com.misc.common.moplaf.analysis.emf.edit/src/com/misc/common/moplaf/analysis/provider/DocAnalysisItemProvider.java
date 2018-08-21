@@ -333,22 +333,12 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createExtractorOcl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterRegex()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterAttributeIntRange()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 DatatoolsFactory.eINSTANCE.createFilterOcl()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -390,11 +380,6 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerStructuralFeature()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
-				 DatatoolsFactory.eINSTANCE.createCategorizerOcl()));
-		
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,   DataToolType.COLUMNIZER);

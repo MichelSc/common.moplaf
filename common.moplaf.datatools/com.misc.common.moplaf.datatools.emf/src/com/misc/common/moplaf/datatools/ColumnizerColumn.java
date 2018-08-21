@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.datatools;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnName <em>Column Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnWidth <em>Column Width</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getGrids <em>Grids</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
@@ -79,24 +76,6 @@ public interface ColumnizerColumn extends EObject {
 	void setColumnWidth(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Grids</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.datatools.ColumnizerGrid}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.ColumnizerGrid#getColumns <em>Columns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Grids</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Grids</em>' reference list.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_Grids()
-	 * @see com.misc.common.moplaf.datatools.ColumnizerGrid#getColumns
-	 * @model opposite="Columns"
-	 * @generated
-	 */
-	EList<ColumnizerGrid> getGrids();
-
-	/**
 	 * Returns the value of the '<em><b>Columnizer</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.Columnizer#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
@@ -131,13 +110,5 @@ public interface ColumnizerColumn extends EObject {
 	 * @generated
 	 */
 	Object getValue(EObject object);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model typeRequired="true"
-	 * @generated
-	 */
-	boolean isValidElementType(EClass type);
 
 } // ColumnizerColumn

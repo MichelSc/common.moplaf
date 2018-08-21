@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EAttribute;
  * @model
  * @generated
  */
-public interface ColumnizerColumnAttribute extends ColumnizerColumn, NavigationPath {
+public interface ColumnizerColumnAttribute extends NavigationPath, ColumnizerColumn {
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
