@@ -75,7 +75,11 @@ public class AnalysisServices {
      * @return
      */
     public boolean analysisRefreshEnabled(DocAnalysis analysis) {
-		return true;
+    	if ( analysis==null) {
+    		return false;
+    	}
+    	
+		return analysis.getRefreshFeedback().isEnabled();
     }
 
     /**

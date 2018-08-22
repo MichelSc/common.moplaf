@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.analysis;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DataTool;
@@ -28,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDataTools <em>Data Tools</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis()
@@ -214,6 +216,21 @@ public interface DocAnalysis extends SuperCategory, DocRef, DataToolContext {
 	 * @generated
 	 */
 	void setDomain(AnalysisDomain value);
+
+	/**
+	 * Returns the value of the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refresh Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refresh Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_RefreshFeedback()
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getRefreshFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->

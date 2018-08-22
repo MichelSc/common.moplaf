@@ -209,6 +209,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDocAnalysis_RefreshFeedback() {
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDocAnalysis__Refresh() {
 		return docAnalysisEClass.getEOperations().get(0);
 	}
@@ -412,6 +421,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__DESCRIPTION);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__DATA_TOOLS);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__DOMAIN);
+		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__REFRESH_FEEDBACK);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___REFRESH);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___ADD_TOOL__DATATOOL);
 
@@ -485,6 +495,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getDocAnalysis_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocAnalysis_DataTools(), theDatatoolsPackage.getDataTool(), null, "DataTools", null, 0, -1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocAnalysis_Domain(), this.getAnalysisDomain(), this.getAnalysisDomain_Analyses(), "Domain", null, 1, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocAnalysis_RefreshFeedback(), theJobPackage.getEnabledFeedback(), "RefreshFeedback", null, 0, 1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDocAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 

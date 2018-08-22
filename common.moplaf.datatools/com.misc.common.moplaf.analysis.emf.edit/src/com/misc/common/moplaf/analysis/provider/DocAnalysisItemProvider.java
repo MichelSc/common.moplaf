@@ -67,6 +67,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			addMaxElementsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addDataToolsPropertyDescriptor(object);
+			addRefreshFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -226,6 +227,28 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Refresh Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefreshFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_RefreshFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_RefreshFeedback_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__REFRESH_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -298,6 +321,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
+			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
@@ -407,7 +431,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 		@Override
 		protected boolean prepare(){
-			boolean isExecutable = true;
+			boolean isExecutable = this.analysis.getRefreshFeedback().isEnabled();
 			return isExecutable;
 			}
 

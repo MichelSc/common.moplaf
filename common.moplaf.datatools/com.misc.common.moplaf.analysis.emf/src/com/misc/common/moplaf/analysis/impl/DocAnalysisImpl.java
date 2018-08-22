@@ -5,6 +5,7 @@ package com.misc.common.moplaf.analysis.impl;
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.IMoplafObject;
 import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.datatools.Categorizer;
@@ -53,6 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDataTools <em>Data Tools</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDomain <em>Domain</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -147,6 +149,16 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getRefreshFeedback() <em>Refresh Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRefreshFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback REFRESH_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -454,6 +466,25 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public EnabledFeedback getRefreshFeedback() {
+		Doc doc = this.getDoc();
+		if ( doc == null ) {
+			return new EnabledFeedback(false, "No document");
+		}
+		Extractor extractor = this.getExtractor();
+		if ( extractor==null ) {
+			return new EnabledFeedback(false, "No extractor");
+		}
+		if ( !extractor.isValidRoot(doc)) {
+			return new EnabledFeedback(false, "Extractor not valid for the document");
+		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void refresh() {
 		// input
 		Doc doc = this.getDoc();
@@ -589,6 +620,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				return getDataTools();
 			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
 				return getDomain();
+			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
+				return getRefreshFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -687,6 +720,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				return !getDataTools().isEmpty();
 			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
 				return getDomain() != null;
+			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
+				return REFRESH_FEEDBACK_EDEFAULT == null ? getRefreshFeedback() != null : !REFRESH_FEEDBACK_EDEFAULT.equals(getRefreshFeedback());
 		}
 		return super.eIsSet(featureID);
 	}

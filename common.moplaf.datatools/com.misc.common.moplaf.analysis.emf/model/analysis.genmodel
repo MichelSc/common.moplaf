@@ -17,6 +17,7 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Description"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/DataTools"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Domain"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/RefreshFeedback"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/addTool">
         <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/addTool/tool"/>
