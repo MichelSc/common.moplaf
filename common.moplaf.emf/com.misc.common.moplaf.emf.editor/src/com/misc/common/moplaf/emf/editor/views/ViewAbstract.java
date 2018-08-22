@@ -11,6 +11,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Menu;
@@ -28,15 +30,27 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 import com.misc.common.moplaf.emf.editor.Util;
 import com.misc.common.moplaf.emf.editor.action.PinViewAction;
 
-public abstract class ViewAbstract extends ViewPart {
+public abstract class ViewAbstract extends ViewPart implements IPropertyChangeListener {
+
 	protected IResourceChangeListener resourceListener;
 	protected ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 	protected Action pinAction;
-	//private Action action2;
 	protected ISelectionListener selectionListener;
+	private ISelection selection;
 	
 	abstract protected ContentViewer getViewer();
 		
+
+	@Override
+	public void propertyChange(PropertyChangeEvent event) {
+		// TODO Auto-generated method stub
+		if( event.getSource().equals(pinAction) ) {
+			if( !pinAction.isChecked() && selection != null ) {
+				this.getViewer().setInput(Util.getSelectedObjects(selection));
+			}
+		}
+	}
+
 
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(pinAction);
@@ -57,6 +71,7 @@ public abstract class ViewAbstract extends ViewPart {
 			IActionBars bars = site.getActionBars();
 			fillLocalPullDown(bars.getMenuManager());
 			fillLocalToolBar(bars.getToolBarManager());
+			pinAction.addPropertyChangeListener(this);
 		}
 	}
 
@@ -89,6 +104,7 @@ public abstract class ViewAbstract extends ViewPart {
 	class SiteSelectionListener implements ISelectionListener {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+			ViewAbstract.this.selection = selection; 
 			if( !pinAction.isChecked() ) {
 				if (  ViewAbstract.this.getViewer() != null && part!= ViewAbstract.this) {
 					if (  !selection.isEmpty() ) {
