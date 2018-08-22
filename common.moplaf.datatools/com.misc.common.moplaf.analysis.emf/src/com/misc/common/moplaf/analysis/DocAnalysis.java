@@ -30,6 +30,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDataTools <em>Data Tools</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getRemarks <em>Remarks</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis()
@@ -231,6 +233,58 @@ public interface DocAnalysis extends SuperCategory, DocRef, DataToolContext {
 	 * @generated
 	 */
 	EnabledFeedback getRefreshFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Remarks</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Remarks</em>' attribute.
+	 * @see #setRemarks(String)
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Remarks()
+	 * @model
+	 * @generated
+	 */
+	String getRemarks();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getRemarks <em>Remarks</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Remarks</em>' attribute.
+	 * @see #getRemarks()
+	 * @generated
+	 */
+	void setRemarks(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

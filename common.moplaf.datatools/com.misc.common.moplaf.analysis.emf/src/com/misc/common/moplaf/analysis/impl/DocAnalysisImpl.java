@@ -55,6 +55,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDataTools <em>Data Tools</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getRemarks <em>Remarks</em>}</li>
  * </ul>
  *
  * @generated
@@ -159,6 +161,46 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	 * @ordered
 	 */
 	protected static final EnabledFeedback REFRESH_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRemarks() <em>Remarks</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRemarks()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REMARKS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRemarks() <em>Remarks</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRemarks()
+	 * @generated
+	 * @ordered
+	 */
+	protected String remarks = REMARKS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,6 +430,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		String description = doc==null
 				           ? "null"
 				           : doc.getDescription();
+		String name = this.getName();
+		if ( name!=null && name.length()>0 ) {
+			description += String.format(": %s", name);
+		}
 		return description;
 	}
 
@@ -479,6 +525,48 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			return new EnabledFeedback(false, "Extractor not valid for the document");
 		}
 		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRemarks() {
+		return remarks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRemarks(String newRemarks) {
+		String oldRemarks = remarks;
+		remarks = newRemarks;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__REMARKS, oldRemarks, remarks));
 	}
 
 	/**
@@ -622,6 +710,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				return getDomain();
 			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
 				return getRefreshFeedback();
+			case AnalysisPackage.DOC_ANALYSIS__NAME:
+				return getName();
+			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
+				return getRemarks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -657,6 +749,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
 				setDomain((AnalysisDomain)newValue);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__NAME:
+				setName((String)newValue);
+				return;
+			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
+				setRemarks((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -690,6 +788,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
 				setDomain((AnalysisDomain)null);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
+				setRemarks(REMARKS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -722,6 +826,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				return getDomain() != null;
 			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
 				return REFRESH_FEEDBACK_EDEFAULT == null ? getRefreshFeedback() != null : !REFRESH_FEEDBACK_EDEFAULT.equals(getRefreshFeedback());
+			case AnalysisPackage.DOC_ANALYSIS__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
+				return REMARKS_EDEFAULT == null ? remarks != null : !REMARKS_EDEFAULT.equals(remarks);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -824,6 +932,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		result.append(complete);
 		result.append(", MaxElements: ");
 		result.append(maxElements);
+		result.append(", Name: ");
+		result.append(name);
+		result.append(", Remarks: ");
+		result.append(remarks);
 		result.append(')');
 		return result.toString();
 	}

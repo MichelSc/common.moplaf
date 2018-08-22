@@ -68,6 +68,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			addDescriptionPropertyDescriptor(object);
 			addDataToolsPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addRemarksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -249,6 +251,50 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Name_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Remarks feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRemarksPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Remarks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Remarks_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__REMARKS,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -322,6 +368,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
 			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
+			case AnalysisPackage.DOC_ANALYSIS__NAME:
+			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
