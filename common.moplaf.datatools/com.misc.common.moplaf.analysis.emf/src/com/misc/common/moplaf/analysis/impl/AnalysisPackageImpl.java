@@ -146,17 +146,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocAnalysis_Columnizer() {
-		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDocAnalysis_Complete() {
-		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -165,7 +156,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	public EAttribute getDocAnalysis_MaxElements() {
-		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -174,7 +165,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	public EReference getDocAnalysis_Categorizers() {
-		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(4);
+		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -183,7 +174,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	public EAttribute getDocAnalysis_Description() {
-		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -192,7 +183,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	public EReference getDocAnalysis_DataTools() {
-		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(6);
+		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -201,7 +192,34 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	public EReference getDocAnalysis_Domain() {
-		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(7);
+		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocAnalysis_RefreshFeedback() {
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocAnalysis_Name() {
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocAnalysis_Remarks() {
+		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -405,13 +423,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Create classes and their features
 		docAnalysisEClass = createEClass(DOC_ANALYSIS);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__EXTRACTOR);
-		createEReference(docAnalysisEClass, DOC_ANALYSIS__COLUMNIZER);
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__COMPLETE);
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__MAX_ELEMENTS);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__CATEGORIZERS);
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__DESCRIPTION);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__DATA_TOOLS);
 		createEReference(docAnalysisEClass, DOC_ANALYSIS__DOMAIN);
+		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__REFRESH_FEEDBACK);
+		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__NAME);
+		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__REMARKS);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___REFRESH);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___ADD_TOOL__DATATOOL);
 
@@ -471,6 +491,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getSuperCategory());
 		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
 		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getDataToolContext());
+		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getColumnizers());
 		analysisDomainEClass.getESuperTypes().add(theJobPackage.getTaskDomain());
 		analysisDomainEClass.getESuperTypes().add(theDatatoolsPackage.getDataToolContext());
 		dataToolsEClass.getESuperTypes().add(theDatatoolsPackage.getDataToolContext());
@@ -478,13 +499,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		// Initialize classes, features, and operations; add parameters
 		initEClass(docAnalysisEClass, DocAnalysis.class, "DocAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocAnalysis_Extractor(), theDatatoolsPackage.getExtractor(), null, "Extractor", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocAnalysis_Columnizer(), theDatatoolsPackage.getColumnizerAbstract(), null, "Columnizer", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocAnalysis_Complete(), ecorePackage.getEBoolean(), "Complete", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocAnalysis_MaxElements(), ecorePackage.getEInt(), "MaxElements", "1000000", 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocAnalysis_Categorizers(), theDatatoolsPackage.getCategorizer(), null, "Categorizers", null, 0, -1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocAnalysis_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocAnalysis_DataTools(), theDatatoolsPackage.getDataTool(), null, "DataTools", null, 0, -1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDocAnalysis_Domain(), this.getAnalysisDomain(), this.getAnalysisDomain_Analyses(), "Domain", null, 1, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocAnalysis_RefreshFeedback(), theJobPackage.getEnabledFeedback(), "RefreshFeedback", null, 0, 1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocAnalysis_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocAnalysis_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDocAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 

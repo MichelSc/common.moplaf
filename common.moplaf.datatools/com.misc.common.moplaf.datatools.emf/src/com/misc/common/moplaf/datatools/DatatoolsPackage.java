@@ -3807,13 +3807,13 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT__CATEGORY_LABEL = 3;
 
 	/**
-	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Category Columnizers</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER = 4;
+	int CATEGORY_ABSTRACT__CATEGORY_COLUMNIZERS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Category Abstract</em>' class.
@@ -3849,7 +3849,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = 2;
+	int CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERS = 2;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -3906,13 +3906,13 @@ public interface DatatoolsPackage extends EPackage {
 	int SUPER_CATEGORY__CATEGORY_LABEL = CATEGORY_ABSTRACT__CATEGORY_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Category Columnizers</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPER_CATEGORY__CATEGORY_COLUMNIZER = CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER;
+	int SUPER_CATEGORY__CATEGORY_COLUMNIZERS = CATEGORY_ABSTRACT__CATEGORY_COLUMNIZERS;
 
 	/**
 	 * The number of structural features of the '<em>Super Category</em>' class.
@@ -3948,7 +3948,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
+	int SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERS = CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERS;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -4014,13 +4014,13 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY__CATEGORY_LABEL = CATEGORY_ABSTRACT__CATEGORY_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Category Columnizers</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__CATEGORY_COLUMNIZER = CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER;
+	int CATEGORY__CATEGORY_COLUMNIZERS = CATEGORY_ABSTRACT__CATEGORY_COLUMNIZERS;
 
 	/**
 	 * The feature id for the '<em><b>Categorizer</b></em>' reference.
@@ -4074,7 +4074,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
+	int CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERS = CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERS;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -4563,6 +4563,43 @@ public interface DatatoolsPackage extends EPackage {
 	int MATCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizersImpl <em>Columnizers</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizersImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizers()
+	 * @generated
+	 */
+	int COLUMNIZERS = 39;
+
+	/**
+	 * The feature id for the '<em><b>Columnizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS__COLUMNIZERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Columnizers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Columnizers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4570,7 +4607,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolType()
 	 * @generated
 	 */
-	int DATA_TOOL_TYPE = 39;
+	int DATA_TOOL_TYPE = 40;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.MatchStatus <em>Match Status</em>}' enum.
@@ -4580,7 +4617,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatchStatus()
 	 * @generated
 	 */
-	int MATCH_STATUS = 40;
+	int MATCH_STATUS = 41;
 
 	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
@@ -4590,7 +4627,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 41;
+	int EOBJECTS_SET = 42;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -4824,15 +4861,15 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getCategoryAbstract_CategoryLabel();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer <em>Category Columnizer</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizers <em>Category Columnizers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Category Columnizer</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer()
+	 * @return the meta object for the reference '<em>Category Columnizers</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizers()
 	 * @see #getCategoryAbstract()
 	 * @generated
 	 */
-	EReference getCategoryAbstract_CategoryColumnizer();
+	EReference getCategoryAbstract_CategoryColumnizers();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject) <em>Get Subcategory</em>}' operation.
@@ -4855,14 +4892,14 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getCategoryAbstract__RefreshCats__ObjectSet_EList_int();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#setColumnizerAll(com.misc.common.moplaf.datatools.ColumnizerAbstract) <em>Set Columnizer All</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#setColumnizerAll(com.misc.common.moplaf.datatools.Columnizers) <em>Set Columnizer All</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Columnizer All</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#setColumnizerAll(com.misc.common.moplaf.datatools.ColumnizerAbstract)
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#setColumnizerAll(com.misc.common.moplaf.datatools.Columnizers)
 	 * @generated
 	 */
-	EOperation getCategoryAbstract__SetColumnizerAll__ColumnizerAbstract();
+	EOperation getCategoryAbstract__SetColumnizerAll__Columnizers();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#flush() <em>Flush</em>}' operation.
@@ -5670,6 +5707,27 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getMatch_Object2();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Columnizers <em>Columnizers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Columnizers</em>'.
+	 * @see com.misc.common.moplaf.datatools.Columnizers
+	 * @generated
+	 */
+	EClass getColumnizers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.Columnizers#getColumnizers <em>Columnizers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columnizers</em>'.
+	 * @see com.misc.common.moplaf.datatools.Columnizers#getColumnizers()
+	 * @see #getColumnizers()
+	 * @generated
+	 */
+	EReference getColumnizers_Columnizers();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5983,12 +6041,12 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute CATEGORY_ABSTRACT__CATEGORY_LABEL = eINSTANCE.getCategoryAbstract_CategoryLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Category Columnizer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Category Columnizers</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER = eINSTANCE.getCategoryAbstract_CategoryColumnizer();
+		EReference CATEGORY_ABSTRACT__CATEGORY_COLUMNIZERS = eINSTANCE.getCategoryAbstract_CategoryColumnizers();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Subcategory</b></em>' operation.
@@ -6012,7 +6070,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = eINSTANCE.getCategoryAbstract__SetColumnizerAll__ColumnizerAbstract();
+		EOperation CATEGORY_ABSTRACT___SET_COLUMNIZER_ALL__COLUMNIZERS = eINSTANCE.getCategoryAbstract__SetColumnizerAll__Columnizers();
 
 		/**
 		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
@@ -6693,6 +6751,24 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MATCH__OBJECT2 = eINSTANCE.getMatch_Object2();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizersImpl <em>Columnizers</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ColumnizersImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizers()
+		 * @generated
+		 */
+		EClass COLUMNIZERS = eINSTANCE.getColumnizers();
+
+		/**
+		 * The meta object literal for the '<em><b>Columnizers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMNIZERS__COLUMNIZERS = eINSTANCE.getColumnizers_Columnizers();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.

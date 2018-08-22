@@ -175,7 +175,7 @@
       <eParameters name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="setColumnizerAll">
-      <eParameters name="columnizer" eType="#//ColumnizerAbstract"/>
+      <eParameters name="columnizers" eType="#//Columnizers"/>
     </eOperations>
     <eOperations name="flush"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
@@ -186,7 +186,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryLabel" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CategoryColumnizer" eType="#//ColumnizerAbstract"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CategoryColumnizers" eType="#//Columnizers"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SuperCategory" eSuperTypes="#//CategoryAbstract">
     <eOperations name="refreshCats">
@@ -232,5 +232,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Match">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Columnizers">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizers" upperBound="-1"
+        eType="#//ColumnizerAbstract" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

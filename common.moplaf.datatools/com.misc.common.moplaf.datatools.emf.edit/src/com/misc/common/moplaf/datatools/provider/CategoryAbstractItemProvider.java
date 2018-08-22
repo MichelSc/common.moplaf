@@ -5,6 +5,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
+import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
@@ -72,7 +73,7 @@ public class CategoryAbstractItemProvider
 			addElementsPropertyDescriptor(object);
 			addNbElementsPropertyDescriptor(object);
 			addCategoryLabelPropertyDescriptor(object);
-			addCategoryColumnizerPropertyDescriptor(object);
+			addCategoryColumnizersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -144,19 +145,19 @@ public class CategoryAbstractItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Category Columnizer feature.
+	 * This adds a property descriptor for the Category Columnizers feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCategoryColumnizerPropertyDescriptor(Object object) {
+	protected void addCategoryColumnizersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_CategoryColumnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_CategoryColumnizer_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZER,
+				 getString("_UI_CategoryAbstract_CategoryColumnizers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_CategoryColumnizers_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_COLUMNIZERS,
 				 true,
 				 false,
 				 true,
@@ -330,19 +331,18 @@ public class CategoryAbstractItemProvider
 	@Override
 	public Object getGrids(Object element) {
 		CategoryAbstract cat = (CategoryAbstract)element;
-		
-		ColumnizerAbstract columnizer = cat.getCategoryColumnizer();
-		if ( columnizer==null) {
-			return null;
-		}
 
-		IItemGridsProvider columnizer_grids_provider = (IItemGridsProvider)this.getRootAdapterFactory().adapt(columnizer, IItemGridsProvider.class);
-//		IItemGridsProvider grids_provider = new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements());
-		IItemGridsProvider grids_provider = new CompoundItemGridsProvider(
-				new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()),
-				CATEGORY_SHEETS
-				);
+		CompoundItemGridsProvider grids_provider = new CompoundItemGridsProvider();
 		
+		Columnizers columnizers = cat.getCategoryColumnizers(); 
+		if ( columnizers!=null ) {
+			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
+				IItemGridsProvider columnizer_grids_provider = (IItemGridsProvider)this.getRootAdapterFactory().adapt(columnizer, IItemGridsProvider.class);
+				grids_provider.add(new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()));
+			}
+		}
+		
+		grids_provider.add(CATEGORY_SHEETS);
 		
 		return grids_provider;
 	}

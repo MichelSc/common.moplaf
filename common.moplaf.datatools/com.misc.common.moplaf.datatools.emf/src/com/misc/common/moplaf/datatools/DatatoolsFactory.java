@@ -202,6 +202,15 @@ public interface DatatoolsFactory extends EFactory {
 	Match createMatch();
 
 	/**
+	 * Returns a new object of class '<em>Columnizers</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Columnizers</em>'.
+	 * @generated
+	 */
+	Columnizers createColumnizers();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

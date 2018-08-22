@@ -119,7 +119,7 @@ public interface IItemGridsProvider {
 	}
 
 	/**
-	 * Return the traits about the grid. These grids are hints for the consumer how to best display/exploit the grid data.
+	 * Return the traits about the grid. These traits are hints for the consumer how to best display/exploit the grid data.
 	 * @param element
 	 * @param grid
 	 * @return

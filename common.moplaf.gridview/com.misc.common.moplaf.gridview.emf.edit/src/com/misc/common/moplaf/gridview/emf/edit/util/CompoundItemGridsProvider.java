@@ -15,11 +15,11 @@ public class CompoundItemGridsProvider implements IItemGridsProvider {
 		this.providers = new LinkedList<IItemGridsProvider>();
 	}
 	
-	public CompoundItemGridsProvider(Collection<IItemGridsProvider> providers) {
+	public CompoundItemGridsProvider() {
 		super();
-		this.providers = providers;
+		this.initProviders();
 	}
-
+	
 	public CompoundItemGridsProvider(IItemGridsProvider provider) {
 		super();
 		this.initProviders();
@@ -33,7 +33,16 @@ public class CompoundItemGridsProvider implements IItemGridsProvider {
 		this.providers.add(provider2);
 	}
 	
+	public CompoundItemGridsProvider(Collection<IItemGridsProvider> providers) {
+		super();
+		this.providers = providers;
+	}
 	
+	public void add(IItemGridsProvider provider) {
+		this.providers.add(provider);
+	}
+
+
 	// grids
 	@Override
 	public Object getGrids(Object element) {

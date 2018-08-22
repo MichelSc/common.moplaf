@@ -9,6 +9,7 @@ import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
+import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.provider.SuperCategoryItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
@@ -62,11 +63,13 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 			addDocPropertyDescriptor(object);
 			addExtractorPropertyDescriptor(object);
-			addColumnizerPropertyDescriptor(object);
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addDataToolsPropertyDescriptor(object);
+			addRefreshFeedbackPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addRemarksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,28 +110,6 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 				 getString("_UI_DocAnalysis_Extractor_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Extractor_feature", "_UI_DocAnalysis_type"),
 				 AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Columnizer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColumnizerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Columnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Columnizer_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,
 				 true,
 				 false,
 				 true,
@@ -226,6 +207,72 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Refresh Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefreshFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_RefreshFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_RefreshFeedback_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__REFRESH_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Name_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Remarks feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRemarksPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Remarks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Remarks_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__REMARKS,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -238,8 +285,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
+			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR);
-			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS);
 		}
 		return childrenFeatures;
@@ -298,11 +345,14 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
+			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
+			case AnalysisPackage.DOC_ANALYSIS__NAME:
+			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -372,7 +422,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,
+				(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,
 				 DatatoolsFactory.eINSTANCE.createColumnizer()));
 
 		newChildDescriptors.add
@@ -382,7 +432,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
-		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,   DataToolType.COLUMNIZER);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,  DataToolType.COLUMNIZER);
 	}
 
 	/**
@@ -407,7 +457,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 		@Override
 		protected boolean prepare(){
-			boolean isExecutable = true;
+			boolean isExecutable = this.analysis.getRefreshFeedback().isEnabled();
 			return isExecutable;
 			}
 
