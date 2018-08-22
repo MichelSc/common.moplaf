@@ -5,14 +5,13 @@ import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Rectangle;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
+//import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.swtchart.Chart;
 import org.swtchart.IBarSeries;
 import org.swtchart.ISeries;
 import org.swtchart.ISeries.SeriesType;
-import org.swtchart.internal.PlotArea;
 
 //import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
@@ -66,7 +65,7 @@ public class ChartViewer extends ChartViewerAbstract {
 			for ( int i = 0; i < all_series.length; i++ ) {
 				Object current_serie = all_series[i];
 				String serie_name = this.getILabelProvider().getText(current_serie);
-				Color serie_color = this.getIColorProvider().getBackground(current_serie);
+				//Color serie_color = this.getIColorProvider().getBackground(current_serie);
 				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_bar_chart);
 				this.categories = new Object[all_categories.length];
 				
@@ -78,9 +77,6 @@ public class ChartViewer extends ChartViewerAbstract {
 					categories[j] = category;
 					String category_name = this.getILabelProvider().getText(category);
 					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, current_serie, category);
-
-					System.out.format("category %s, amount %f \n", category_name, category_value);
-					
 					ySeries[j] = category_value;
 					xSeries[j] = category_name;
 				}

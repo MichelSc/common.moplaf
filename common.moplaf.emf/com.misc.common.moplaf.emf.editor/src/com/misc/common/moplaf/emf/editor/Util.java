@@ -20,6 +20,11 @@ import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.ui.IViewReference;
+import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 
 import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.IMoplafObject;
@@ -90,5 +95,27 @@ public class Util {
 			return objects_selected.toArray();
 		} // there is a selection
 		return null;
+	}
+	
+	public static int getMaxSecondaryIdFromView(String viewId) {
+		int result = 0;
+		for ( IViewReference vr : PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getViewReferences() )
+		{
+			IViewSite vs = vr.getView(false).getViewSite();
+			if( vs.getId().equals(viewId) ) {
+				int sec_id = Integer.parseInt( vs.getSecondaryId() );
+				if( sec_id > result ) {
+					result = sec_id;
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	public static void showView(IWorkbenchPage page, String viewId) 
+			throws PartInitException {
+		int sec_id = Util.getMaxSecondaryIdFromView(viewId) + 1;
+		page.showView(viewId, Integer.toString(sec_id), IWorkbenchPage.VIEW_VISIBLE);
 	}
 }
