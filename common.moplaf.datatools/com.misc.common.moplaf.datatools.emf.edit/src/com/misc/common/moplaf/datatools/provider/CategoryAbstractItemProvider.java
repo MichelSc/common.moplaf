@@ -332,7 +332,7 @@ public class CategoryAbstractItemProvider
 	public Object getGrids(Object element) {
 		CategoryAbstract cat = (CategoryAbstract)element;
 
-		CompoundItemGridsProvider grids_provider = new CompoundItemGridsProvider(CATEGORY_SHEETS);
+		CompoundItemGridsProvider grids_provider = new CompoundItemGridsProvider();
 		
 		Columnizers columnizers = cat.getCategoryColumnizers(); 
 		if ( columnizers!=null ) {
@@ -341,6 +341,8 @@ public class CategoryAbstractItemProvider
 				grids_provider.add(new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()));
 			}
 		}
+		
+		grids_provider.add(CATEGORY_SHEETS);
 		
 		return grids_provider;
 	}
