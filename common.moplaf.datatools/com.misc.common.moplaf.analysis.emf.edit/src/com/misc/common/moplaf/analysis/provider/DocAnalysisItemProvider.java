@@ -9,6 +9,7 @@ import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
+import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.provider.SuperCategoryItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
@@ -62,7 +63,6 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 			addDocPropertyDescriptor(object);
 			addExtractorPropertyDescriptor(object);
-			addColumnizerPropertyDescriptor(object);
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
@@ -110,28 +110,6 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 				 getString("_UI_DocAnalysis_Extractor_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Extractor_feature", "_UI_DocAnalysis_type"),
 				 AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Columnizer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColumnizerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Columnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Columnizer_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,
 				 true,
 				 false,
 				 true,
@@ -307,8 +285,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
+			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR);
-			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS);
 		}
 		return childrenFeatures;
@@ -373,8 +351,8 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -444,7 +422,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,
+				(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,
 				 DatatoolsFactory.eINSTANCE.createColumnizer()));
 
 		newChildDescriptors.add
@@ -454,7 +432,7 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
-		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__COLUMNIZER,   DataToolType.COLUMNIZER);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,  DataToolType.COLUMNIZER);
 	}
 
 	/**

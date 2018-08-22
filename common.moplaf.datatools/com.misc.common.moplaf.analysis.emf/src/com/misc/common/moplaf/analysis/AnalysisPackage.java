@@ -106,13 +106,13 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__CATEGORY_LABEL = DatatoolsPackage.SUPER_CATEGORY__CATEGORY_LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Category Columnizer</b></em>' reference.
+	 * The feature id for the '<em><b>Category Columnizers</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__CATEGORY_COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY__CATEGORY_COLUMNIZER;
+	int DOC_ANALYSIS__CATEGORY_COLUMNIZERS = DatatoolsPackage.SUPER_CATEGORY__CATEGORY_COLUMNIZERS;
 
 	/**
 	 * The feature id for the '<em><b>Doc</b></em>' reference.
@@ -124,22 +124,22 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS__DOC = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Columnizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__COLUMNIZERS = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__EXTRACTOR = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__COLUMNIZER = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 2;
+	int DOC_ANALYSIS__EXTRACTOR = DatatoolsPackage.SUPER_CATEGORY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Complete</b></em>' attribute.
@@ -256,7 +256,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERABSTRACT;
+	int DOC_ANALYSIS___SET_COLUMNIZER_ALL__COLUMNIZERS = DatatoolsPackage.SUPER_CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERS;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -602,17 +602,6 @@ public interface AnalysisPackage extends EPackage {
 	EReference getDocAnalysis_Extractor();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer <em>Columnizer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Columnizer</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getColumnizer()
-	 * @see #getDocAnalysis()
-	 * @generated
-	 */
-	EReference getDocAnalysis_Columnizer();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#isComplete <em>Complete</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -954,14 +943,6 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOC_ANALYSIS__EXTRACTOR = eINSTANCE.getDocAnalysis_Extractor();
-
-		/**
-		 * The meta object literal for the '<em><b>Columnizer</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOC_ANALYSIS__COLUMNIZER = eINSTANCE.getDocAnalysis_Columnizer();
 
 		/**
 		 * The meta object literal for the '<em><b>Complete</b></em>' attribute feature.

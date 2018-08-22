@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.DocAnalysis;
 import com.misc.common.moplaf.datatools.Categorizer;
-import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
@@ -61,9 +60,10 @@ public class AnalysisServices {
   		return new_tools;
     }
     
-    public boolean docAnalysisSetDataTools(DocAnalysis analysis, Extractor extractor, ColumnizerAbstract columnizer, List<Categorizer> categorizers) {
+    public boolean docAnalysisSetDataTools(DocAnalysis analysis, Extractor extractor, List<ColumnizerAbstract> columnizers, List<Categorizer> categorizers) {
     	analysis.setExtractor(extractor);
-    	analysis.setColumnizer(columnizer);
+    	analysis.getColumnizers().clear();
+    	analysis.getColumnizers().addAll(columnizers);
     	analysis.getCategorizers().clear();
     	analysis.getCategorizers().addAll(categorizers);
     	return true;

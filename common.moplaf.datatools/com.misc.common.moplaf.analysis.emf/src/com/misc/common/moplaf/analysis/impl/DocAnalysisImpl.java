@@ -10,6 +10,7 @@ import com.misc.common.moplaf.common.IMoplafObject;
 import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
+import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
@@ -46,8 +47,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDoc <em>Doc</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getColumnizers <em>Columnizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getExtractor <em>Extractor</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getColumnizer <em>Columnizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
@@ -73,6 +74,16 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	protected Doc doc;
 
 	/**
+	 * The cached value of the '{@link #getColumnizers() <em>Columnizers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumnizers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ColumnizerAbstract> columnizers;
+
+	/**
 	 * The cached value of the '{@link #getExtractor() <em>Extractor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,16 +92,6 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	 * @ordered
 	 */
 	protected Extractor extractor;
-
-	/**
-	 * The cached value of the '{@link #getColumnizer() <em>Columnizer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColumnizer()
-	 * @generated
-	 * @ordered
-	 */
-	protected ColumnizerAbstract columnizer;
 
 	/**
 	 * The default value of the '{@link #isComplete() <em>Complete</em>}' attribute.
@@ -286,6 +287,18 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ColumnizerAbstract> getColumnizers() {
+		if (columnizers == null) {
+			columnizers = new EObjectContainmentEList<ColumnizerAbstract>(ColumnizerAbstract.class, this, AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS);
+		}
+		return columnizers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Extractor getExtractor() {
 		return extractor;
 	}
@@ -322,49 +335,6 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__EXTRACTOR, newExtractor, newExtractor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerAbstract getColumnizer() {
-		return columnizer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetColumnizer(ColumnizerAbstract newColumnizer, NotificationChain msgs) {
-		ColumnizerAbstract oldColumnizer = columnizer;
-		columnizer = newColumnizer;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, oldColumnizer, newColumnizer);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColumnizer(ColumnizerAbstract newColumnizer) {
-		if (newColumnizer != columnizer) {
-			NotificationChain msgs = null;
-			if (columnizer != null)
-				msgs = ((InternalEObject)columnizer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, null, msgs);
-			if (newColumnizer != null)
-				msgs = ((InternalEObject)newColumnizer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, null, msgs);
-			msgs = basicSetColumnizer(newColumnizer, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__COLUMNIZER, newColumnizer, newColumnizer));
 	}
 
 	/**
@@ -454,8 +424,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		}
 		
 		// Columnizer
-		ColumnizerAbstract columnizer = this.getColumnizer();
-		if ( columnizer!=null ) {
+		for ( ColumnizerAbstract columnizer : this.getColumnizers()) {
 			newList.add(columnizer);
 		}
 		
@@ -584,9 +553,8 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		ObjectSet outs = extractor.extract(ins, this.getMaxElements());
 		
 		// categorize
-		ColumnizerAbstract columnizer = this.getColumnizer();
 		this.refreshCats(outs, this.getCategorizers());
-		this.setColumnizerAll(columnizer);
+		this.setColumnizerAll(this);
 		this.setComplete(outs.isComplete());
 	}
 
@@ -600,7 +568,7 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		if ( new_tool instanceof Categorizer ) {
 			this.getCategorizers().add((Categorizer)new_tool);
 		} else if ( new_tool instanceof ColumnizerAbstract ) {
-			this.setColumnizer((ColumnizerAbstract)new_tool);
+			this.getColumnizers().add((ColumnizerAbstract)new_tool);
 		} else if ( new_tool instanceof Extractor ) {
 		this.setExtractor((Extractor)new_tool);
 		}
@@ -655,10 +623,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		switch (featureID) {
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				return basicSetDoc(null, msgs);
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
+				return ((InternalEList<?>)getColumnizers()).basicRemove(otherEnd, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
 				return basicSetExtractor(null, msgs);
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				return basicSetColumnizer(null, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
 				return ((InternalEList<?>)getCategorizers()).basicRemove(otherEnd, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
@@ -692,10 +660,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				if (resolve) return getDoc();
 				return basicGetDoc();
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
+				return getColumnizers();
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
 				return getExtractor();
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				return getColumnizer();
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 				return isComplete();
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
@@ -730,11 +698,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				setDoc((Doc)newValue);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
+				getColumnizers().clear();
+				getColumnizers().addAll((Collection<? extends ColumnizerAbstract>)newValue);
+				return;
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
 				setExtractor((Extractor)newValue);
-				return;
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				setColumnizer((ColumnizerAbstract)newValue);
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 				setComplete((Boolean)newValue);
@@ -770,11 +739,11 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				setDoc((Doc)null);
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
+				getColumnizers().clear();
+				return;
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
 				setExtractor((Extractor)null);
-				return;
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				setColumnizer((ColumnizerAbstract)null);
 				return;
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 				setComplete(COMPLETE_EDEFAULT);
@@ -808,10 +777,10 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		switch (featureID) {
 			case AnalysisPackage.DOC_ANALYSIS__DOC:
 				return doc != null;
+			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
+				return columnizers != null && !columnizers.isEmpty();
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
 				return extractor != null;
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZER:
-				return columnizer != null;
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 				return complete != COMPLETE_EDEFAULT;
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
@@ -852,6 +821,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				default: return -1;
 			}
 		}
+		if (baseClass == Columnizers.class) {
+			switch (derivedFeatureID) {
+				case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS: return DatatoolsPackage.COLUMNIZERS__COLUMNIZERS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -873,6 +848,12 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 				default: return -1;
 			}
 		}
+		if (baseClass == Columnizers.class) {
+			switch (baseFeatureID) {
+				case DatatoolsPackage.COLUMNIZERS__COLUMNIZERS: return AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -891,6 +872,11 @@ public class DocAnalysisImpl extends SuperCategoryImpl implements DocAnalysis, I
 		if (baseClass == DataToolContext.class) {
 			switch (baseOperationID) {
 				case DatatoolsPackage.DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES: return AnalysisPackage.DOC_ANALYSIS___GET_DOMAIN_TYPES;
+				default: return -1;
+			}
+		}
+		if (baseClass == Columnizers.class) {
+			switch (baseOperationID) {
 				default: return -1;
 			}
 		}

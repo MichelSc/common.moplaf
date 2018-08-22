@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryLabel <em>Category Label</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer <em>Category Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizers <em>Category Columnizers</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract()
@@ -102,30 +102,30 @@ public interface CategoryAbstract extends EObject {
 	void setCategoryLabel(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Category Columnizer</b></em>' reference.
+	 * Returns the value of the '<em><b>Category Columnizers</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Category Columnizer</em>' reference isn't clear,
+	 * If the meaning of the '<em>Category Columnizers</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category Columnizer</em>' reference.
-	 * @see #setCategoryColumnizer(ColumnizerAbstract)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_CategoryColumnizer()
+	 * @return the value of the '<em>Category Columnizers</em>' reference.
+	 * @see #setCategoryColumnizers(Columnizers)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_CategoryColumnizers()
 	 * @model
 	 * @generated
 	 */
-	ColumnizerAbstract getCategoryColumnizer();
+	Columnizers getCategoryColumnizers();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizer <em>Category Columnizer</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getCategoryColumnizers <em>Category Columnizers</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category Columnizer</em>' reference.
-	 * @see #getCategoryColumnizer()
+	 * @param value the new value of the '<em>Category Columnizers</em>' reference.
+	 * @see #getCategoryColumnizers()
 	 * @generated
 	 */
-	void setCategoryColumnizer(ColumnizerAbstract value);
+	void setCategoryColumnizers(Columnizers value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,7 +149,7 @@ public interface CategoryAbstract extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void setColumnizerAll(ColumnizerAbstract columnizer);
+	void setColumnizerAll(Columnizers columnizers);
 
 	/**
 	 * <!-- begin-user-doc -->
