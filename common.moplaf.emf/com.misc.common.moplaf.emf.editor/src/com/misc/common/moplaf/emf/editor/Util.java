@@ -101,11 +101,19 @@ public class Util {
 		int result = 0;
 		for ( IViewReference vr : PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getViewReferences() )
 		{
-			IViewSite vs = vr.getView(false).getViewSite();
-			if( vs.getId().equals(viewId) ) {
-				int sec_id = Integer.parseInt( vs.getSecondaryId() );
-				if( sec_id > result ) {
-					result = sec_id;
+			if( vr.getView(false) != null ) {
+				IViewSite vs = vr.getView(false).getViewSite();
+				if( vs != null && vs.getId().equals(viewId) ) {
+					int sec_id = 0;
+					try {
+						sec_id = Integer.parseInt( vs.getSecondaryId() );
+					}
+					catch ( NumberFormatException e ) {
+						// do nothing
+					}
+					if( sec_id > result ) {
+						result = sec_id;
+					}
 				}
 			}
 		}
