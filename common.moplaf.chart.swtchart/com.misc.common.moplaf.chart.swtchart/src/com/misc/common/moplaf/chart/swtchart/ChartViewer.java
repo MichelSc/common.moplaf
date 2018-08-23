@@ -3,12 +3,16 @@ package com.misc.common.moplaf.chart.swtchart;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Rectangle;
-
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.SWT;
-//import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
 import org.swtchart.Chart;
+import org.swtchart.IAxisTick;
 import org.swtchart.IBarSeries;
 import org.swtchart.ISeries;
 import org.swtchart.ISeries.SeriesType;
@@ -18,11 +22,12 @@ import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
 
 public class ChartViewer extends ChartViewerAbstract {
 	
-	private Chart chart;
+	private Chart[] charts;
 	private Object[] categories;
+	private TabFolder tabFolder = null;
 
-	public ChartViewer(Composite parent) {
-		chart = new Chart(parent, SWT.NONE);
+	private Chart createChart( Composite parent ) {		
+		Chart chart = new Chart(parent, SWT.NONE);
 		// set titles
 		chart.getTitle().setText("");
 		chart.getAxisSet().getXAxis(0).getTitle().setText("");
@@ -32,6 +37,12 @@ public class ChartViewer extends ChartViewerAbstract {
 		//chart.addMouseListener(new ChartSelectionListener());
 		Composite composite = chart.getPlotArea();
 		composite.addMouseListener(new ChartSelectionListener());
+		
+		return chart;
+	}
+	
+	public ChartViewer(Composite parent) {
+		this.tabFolder = new TabFolder(parent, SWT.BOTTOM);
 	}
 
 	@Override
@@ -51,64 +62,102 @@ public class ChartViewer extends ChartViewerAbstract {
 		// michel: receive the control when bar chart must be redrawn
 		// michel: this might be triggered, either by an input changed (see above), or by some other event
 		
-		Object input = this.getInput(); // michel: this is the content to be displayed (if something to be displayed)
-		if( input instanceof Object[] ) {
-			input = ((Object[])input)[0];
+		/*
+		for( Chart chart : charts ) {
+			for( Control tab : chart.getTabList() ) {
+				tab.dispose();
+			}
 		}
-		Object[] bar_charts = this.getISeriesProvider().getSeriesProviders(input);
-		chart.setVisible(false);
+		*/
+		for( TabItem tab : this.tabFolder.getItems() ) {
+			tab.dispose();
+		}
 		
-		// michel: here follows all the call required to retrieve the bar chart information from the model
-		if ( bar_charts.length>0 ) {
-			Object first_bar_chart = bar_charts[0];
-			Object[] all_series = this.getISeriesProvider().getSeries(input, first_bar_chart);
-			for ( int i = 0; i < all_series.length; i++ ) {
-				Object current_serie = all_series[i];
-				String serie_name = this.getILabelProvider().getText(current_serie);
-				//Color serie_color = this.getIColorProvider().getBackground(current_serie);
-				Object[] all_categories = this.getISeriesProvider().getCategories(input, first_bar_chart);
-				this.categories = new Object[all_categories.length];
+		Object inputs = this.getInput(); // michel: this is the content to be displayed (if something to be displayed)
+		if( inputs instanceof Object[] ) {
+		charts = new Chart[((Object[])inputs).length];
+		int count = 0;
+		for( Object input : (Object[])inputs ) {
+			
+			Object[] bar_charts = this.getISeriesProvider().getSeriesProviders(input);
+			
+			// michel: here follows all the call required to retrieve the bar chart information from the model
+			if ( bar_charts.length>0 ) {
+				Object first_bar_chart = bar_charts[0];
+				Object[] all_series = this.getISeriesProvider().getSeries(input, first_bar_chart);
 				
-				double[] ySeries = new double[all_categories.length];
-				String[] xSeries = new String[all_categories.length];
-								
-				for ( int j = 0; j < all_categories.length; j++) {
-					Object category = all_categories[j];
-					categories[j] = category;
-					String category_name = this.getILabelProvider().getText(category);
-					float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, current_serie, category);
-					ySeries[j] = category_value;
-					xSeries[j] = category_name;
+				Chart chart = null;
+				if ( all_series.length > 0 ) {					
+					TabItem tabItem = new TabItem(this.tabFolder, SWT.NONE);
+					Composite composite = new Composite(tabFolder, SWT.NONE);
+				    composite.setLayout(new FillLayout());
+					tabItem.setControl(composite);
+					tabItem.setText(this.getILabelProvider().getText(first_bar_chart));
+					chart = this.createChart(composite);
+					tabItem.setData(chart);
+					chart.setVisible(false);
 				}
-								
-				if( all_categories.length > 0 ) {
-					for( ISeries serie : chart.getSeriesSet().getSeries() ) {
-						String id = serie.getId();
-						chart.getSeriesSet().deleteSeries(id);
+				
+				for ( int i = 0; i < all_series.length; i++ ) {
+					Object current_serie = all_series[i];
+					String serie_name = this.getILabelProvider().getText(current_serie);
+					//Color serie_color = this.getIColorProvider().getBackground(current_serie);
+					Object[] all_categories = this.getISeriesProvider().getCategories(input, first_bar_chart);
+					this.categories = new Object[all_categories.length];
+					
+					double[] ySeries = new double[all_categories.length];
+					String[] xSeries = new String[all_categories.length];
+									
+					for ( int j = 0; j < all_categories.length; j++) {
+						Object category = all_categories[j];
+						categories[j] = category;
+						String category_name = this.getILabelProvider().getText(category);
+						float category_value = this.getISeriesProvider().getCategoryAmount(input, first_bar_chart, current_serie, category);
+						ySeries[j] = category_value;
+						xSeries[j] = category_name;
 					}
-					// create bar series
-					IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
-					    .createSeries(SeriesType.BAR, serie_name);
-					//barSeries.setXDateSeries(xSeries);
-					//barSeries.setDescription("description");
-					barSeries.setYSeries(ySeries);
-										
-					chart.getAxisSet().getXAxis(i).enableCategory(true);
-					chart.getAxisSet().getXAxis(i).setCategorySeries(xSeries);
-					chart.setVisible(true);
+									
+					if( all_categories.length > 0 ) {
+						for( ISeries serie : chart.getSeriesSet().getSeries() ) {
+							String id = serie.getId();
+							chart.getSeriesSet().deleteSeries(id);
+						}
+						// create bar series
+						IBarSeries barSeries = (IBarSeries) chart.getSeriesSet()
+						    .createSeries(SeriesType.BAR, serie_name);
+						//barSeries.setXDateSeries(xSeries);
+						//barSeries.setDescription("description");
+						barSeries.setYSeries(ySeries);
+
+						/*
+						IAxisTick xTick = chart.getAxisSet().getXAxis(i).getTick();
+						IAxisTick yTick = chart.getAxisSet().getYAxis(i).getTick();
+						Color black = new Color(Display.getDefault(), 0, 0, 0);
+						Color white = new Color(Display.getDefault(), 255, 255, 255);
+						xTick.setForeground(black);
+						yTick.setForeground(black);
+						*/
+						
+						chart.getAxisSet().getXAxis(i).enableCategory(true);
+						chart.getAxisSet().getXAxis(i).setCategorySeries(xSeries);
+						chart.setVisible(true);
+					}
+				}
+				
+				if ( all_series.length > 0 ) {
+					// adjust the axis range
+					chart.getAxisSet().adjustRange();
+					chart.redraw();
+					charts[count++] = chart;
 				}
 			}
-			if ( all_series.length > 0 ) {
-				// adjust the axis range
-				chart.getAxisSet().adjustRange();
-				chart.redraw();
-			}
+		}
 		}
 	}
 
 	@Override
 	public Control getControl() {
-		return chart;
+		return this.tabFolder;
 	}
 	
 	private class ChartSelectionListener implements MouseListener {
@@ -121,7 +170,8 @@ public class ChartViewer extends ChartViewerAbstract {
 
 		@Override
 		public void mouseDown(MouseEvent e) {
-			String category_name = getCategoryName(e.x);
+			int tabIndex = ChartViewer.this.tabFolder.getSelectionIndex();
+			String category_name = getCategoryName(tabIndex, e.x);
 			for( Object category : categories ) {
 				if( getILabelProvider().getText(category) == category_name ) {
 					setSelectedElement(category);
@@ -136,15 +186,15 @@ public class ChartViewer extends ChartViewerAbstract {
 		}
 	}
 	
-	private String getCategoryName(int x) {
+	private String getCategoryName(int tabIndex, int x) {
 		String result = "";
-		for (ISeries serie : chart.getSeriesSet().getSeries()) {
+		for (ISeries serie : charts[tabIndex].getSeriesSet().getSeries()) {
 			if( serie instanceof IBarSeries ) {
 				for ( int i = 0; i < ((IBarSeries)serie).getBounds().length; i++ ) {
 					Rectangle r = ((IBarSeries)serie).getBounds()[i];
 					if( x <= r.x + r.width && x >= r.x ) {
 						// TODO : adapt it for several series
-						result = chart.getAxisSet().getXAxis(0).getCategorySeries()[i];
+						result = charts[tabIndex].getAxisSet().getXAxis(0).getCategorySeries()[i];
 					}
 				}
 			}
