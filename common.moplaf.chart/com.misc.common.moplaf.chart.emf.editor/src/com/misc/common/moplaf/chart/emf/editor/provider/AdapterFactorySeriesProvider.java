@@ -42,7 +42,7 @@ import com.misc.common.moplaf.gridview.emf.edit.util.Util;
  * @author michel
  *
  */
-public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProvider implements ISeriesProvider{
+public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProvider implements ISeriesProvider {
 	private Color foregroundColor = null;
 	private Color backgroundColor = null;
 
@@ -81,7 +81,7 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 	 * @author michel
 	 *
 	 */
-	private class SeriesProvider  {
+	private class SeriesProvider implements IItemLabelProvider {
 		protected class Series implements IItemLabelProvider, IItemColorProvider, Wrapper {
 			private Object series;
 			
@@ -102,14 +102,14 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 			public Object getForeground(Object element) {
 				SeriesProvider seriesprovider = this.getOuterType();
 				IItemGridsProvider gridsprovider = seriesprovider.gridsProvider;
-				return gridsprovider.getCellForeground(seriesprovider.element, seriesprovider.grid, this.series, null);
+				return gridsprovider.getCellForeground(seriesprovider.element, seriesprovider.grid, null, this.series);
 			}
 			
 			@Override
 			public Object getBackground(Object element) {
 				SeriesProvider seriesprovider = this.getOuterType();
 				IItemGridsProvider gridsprovider = seriesprovider.gridsProvider;
-				return gridsprovider.getCellBackground(seriesprovider.element, seriesprovider.grid, this.series, null);
+				return gridsprovider.getCellBackground(seriesprovider.element, seriesprovider.grid, null, this.series);
 			}
 			
 			@Override
@@ -204,6 +204,19 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 			return Util.getFloatValue(value_as_object, value_type);
 		}
 
+
+		@Override
+		public String getText(Object object) {
+			return this.getSeriesText();
+		}
+
+
+		@Override
+		public Object getImage(Object object) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 	}
 
 	/**
@@ -273,6 +286,6 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 	public float getCategoryAmount(Object element, Object provider, Object series, Object category) {
 		SeriesProvider series_provider = (SeriesProvider) provider;
 		return series_provider.getCategoryAmount((SeriesProvider.Series) series, (SeriesProvider.Category) category);
-	};
+	}
 	
 }
