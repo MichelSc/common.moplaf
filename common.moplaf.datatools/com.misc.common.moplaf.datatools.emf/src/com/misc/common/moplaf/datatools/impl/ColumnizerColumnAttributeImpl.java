@@ -286,7 +286,7 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 		if ( attribute == null ) {
 			return null;
 		}
-		return object.eGet(attribute);
+		return target_object.eGet(attribute);
 	}
 
 	/**
