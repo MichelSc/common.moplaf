@@ -4,11 +4,13 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.Categorizer;
+import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -39,8 +41,31 @@ public class CategorizerItemProvider extends DataToolItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCategorizedTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Categorized Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCategorizedTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Categorizer_CategorizedType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Categorizer_CategorizedType_feature", "_UI_Categorizer_type"),
+				 DatatoolsPackage.Literals.CATEGORIZER__CATEGORIZED_TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -61,7 +86,7 @@ public class CategorizerItemProvider extends DataToolItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Categorizer)object).getName();
+		String label = ((Categorizer)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Categorizer_type") :
 			getString("_UI_Categorizer_type") + " " + label;

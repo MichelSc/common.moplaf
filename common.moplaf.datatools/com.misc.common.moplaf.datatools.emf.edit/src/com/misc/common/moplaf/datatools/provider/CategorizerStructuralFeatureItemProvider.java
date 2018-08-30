@@ -209,22 +209,6 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 	}
 
 	/**
-	 * This returns CategorizerStructuralFeature.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@Override
-	public Object getImage(Object object) {
-		EStructuralFeatureItemProvider provider = new EStructuralFeatureItemProvider(this.getAdapterFactory());
-		CategorizerStructuralFeature categorizer = (CategorizerStructuralFeature)object;
-		EStructuralFeature feature = categorizer.getFeature();
-		if ( feature == null) { 
-			return super.getImage(object); 
-		}
-		return provider.getImage(feature);
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,7 +216,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CategorizerStructuralFeature)object).getName();
+		String label = ((CategorizerStructuralFeature)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CategorizerStructuralFeature_type") :
 			getString("_UI_CategorizerStructuralFeature_type") + " " + label;

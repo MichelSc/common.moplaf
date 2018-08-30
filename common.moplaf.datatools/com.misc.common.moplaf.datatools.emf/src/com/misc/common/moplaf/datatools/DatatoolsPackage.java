@@ -4122,13 +4122,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER__NAME = DATA_TOOL__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Categorized Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER__CATEGORIZED_TYPE = DATA_TOOL_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Categorizer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
+	int CATEGORIZER_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
@@ -4219,6 +4228,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORIZER_STRUCTURAL_FEATURE__NAME = CATEGORIZER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Categorized Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE = CATEGORIZER__CATEGORIZED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
@@ -4372,6 +4390,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORIZER_OCL__NAME = CATEGORIZER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Categorized Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL__CATEGORIZED_TYPE = CATEGORIZER__CATEGORIZED_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -4638,6 +4665,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCategorizer();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Categorizer#getCategorizedType <em>Categorized Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Categorized Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.Categorizer#getCategorizedType()
+	 * @see #getCategorizer()
+	 * @generated
+	 */
+	EReference getCategorizer_CategorizedType();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#getCategoryValue(org.eclipse.emf.ecore.EObject) <em>Get Category Value</em>}' operation.
@@ -5863,6 +5901,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CATEGORIZER = eINSTANCE.getCategorizer();
+
+		/**
+		 * The meta object literal for the '<em><b>Categorized Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORIZER__CATEGORIZED_TYPE = eINSTANCE.getCategorizer_CategorizedType();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Category Value</b></em>' operation.

@@ -210,6 +210,7 @@
     <eOperations name="isValidElementType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CategorizedType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategorizerStructuralFeature" eSuperTypes="#//Categorizer #//NavigationPath">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Feature" lowerBound="1"

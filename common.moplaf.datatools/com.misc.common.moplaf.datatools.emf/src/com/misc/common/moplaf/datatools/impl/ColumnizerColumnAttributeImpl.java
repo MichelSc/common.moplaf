@@ -217,6 +217,7 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public EClass basicGetSourceType() {
 		return this.getColumnizer().getColumnizedType();
 	}

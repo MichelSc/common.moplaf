@@ -9,6 +9,7 @@ import com.misc.common.moplaf.datatools.NavigationPath;
 import com.misc.common.moplaf.datatools.util.Util;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -127,13 +128,9 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetSourceType() {
-		// TODO: implement this method to return the 'Source Type' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.getCategorizedType();
 	}
 
 	/**
@@ -171,24 +168,16 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 		return Util.getNavigationPath(this);
 	}
 	
-	
-
-	/**
-	 * 
-	 */
 	@Override
-	public String getDescription() {
-		String path = this.getPath();
-		String feature = this.getFeature()==null ? "null" : this.getFeature().getName();
-		String description = String.format("categorizer: %s/%s", path, feature);
-		return description;
+	protected void collectParamsDescription(List<String> params) {
+		params.add(String.format("path: %s", this.getPath()));
 	}
-	
-	
-	/** Specified by Categorizer
-	 * 
-	 */
-	
+
+	@Override
+	protected String getTypeDescription() {
+		String feature = this.getFeature()==null ? "null" : this.getFeature().getName();
+		return String.format("Categorizer feature %s", feature);
+	}
 
 	/** 
 	 * Specified by Categorizer
@@ -210,6 +199,7 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 		return object.eGet(feature);
 	}
 
+	
 	
 	/** 
 	 * Specified by Categorizer
