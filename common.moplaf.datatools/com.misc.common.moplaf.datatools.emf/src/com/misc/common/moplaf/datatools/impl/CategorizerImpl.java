@@ -9,38 +9,19 @@ import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Categorizer</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.impl.CategorizerImpl#getCategorizedType <em>Categorized Type</em>}</li>
- * </ul>
  *
  * @generated
  */
 public abstract class CategorizerImpl extends DataToolImpl implements Categorizer {
-	/**
-	 * The cached value of the '{@link #getCategorizedType() <em>Categorized Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategorizedType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass categorizedType;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,44 +39,6 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	@Override
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.CATEGORIZER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCategorizedType() {
-		if (categorizedType != null && categorizedType.eIsProxy()) {
-			InternalEObject oldCategorizedType = (InternalEObject)categorizedType;
-			categorizedType = (EClass)eResolveProxy(oldCategorizedType);
-			if (categorizedType != oldCategorizedType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORIZER__CATEGORIZED_TYPE, oldCategorizedType, categorizedType));
-			}
-		}
-		return categorizedType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass basicGetCategorizedType() {
-		return categorizedType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCategorizedType(EClass newCategorizedType) {
-		EClass oldCategorizedType = categorizedType;
-		categorizedType = newCategorizedType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORIZER__CATEGORIZED_TYPE, oldCategorizedType, categorizedType));
 	}
 
 	/**
@@ -126,65 +69,6 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 			return false;
 		}
 		return this.isValidElementTypeImpl(type);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case DatatoolsPackage.CATEGORIZER__CATEGORIZED_TYPE:
-				if (resolve) return getCategorizedType();
-				return basicGetCategorizedType();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case DatatoolsPackage.CATEGORIZER__CATEGORIZED_TYPE:
-				setCategorizedType((EClass)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case DatatoolsPackage.CATEGORIZER__CATEGORIZED_TYPE:
-				setCategorizedType((EClass)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case DatatoolsPackage.CATEGORIZER__CATEGORIZED_TYPE:
-				return categorizedType != null;
-		}
-		return super.eIsSet(featureID);
 	}
 
 	/**

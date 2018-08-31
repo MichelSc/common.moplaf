@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl#isMany <em>Many</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl#getFeature <em>Feature</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl#getCategorizedType <em>Categorized Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +84,16 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	 * @ordered
 	 */
 	protected EStructuralFeature feature;
+
+	/**
+	 * The cached value of the '{@link #getCategorizedType() <em>Categorized Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategorizedType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EClass categorizedType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,6 +267,44 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCategorizedType() {
+		if (categorizedType != null && categorizedType.eIsProxy()) {
+			InternalEObject oldCategorizedType = (InternalEObject)categorizedType;
+			categorizedType = (EClass)eResolveProxy(oldCategorizedType);
+			if (categorizedType != oldCategorizedType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE, oldCategorizedType, categorizedType));
+			}
+		}
+		return categorizedType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass basicGetCategorizedType() {
+		return categorizedType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCategorizedType(EClass newCategorizedType) {
+		EClass oldCategorizedType = categorizedType;
+		categorizedType = newCategorizedType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE, oldCategorizedType, categorizedType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -303,6 +352,9 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__FEATURE:
 				if (resolve) return getFeature();
 				return basicGetFeature();
+			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE:
+				if (resolve) return getCategorizedType();
+				return basicGetCategorizedType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,6 +375,9 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__FEATURE:
 				setFeature((EStructuralFeature)newValue);
 				return;
+			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE:
+				setCategorizedType((EClass)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -340,6 +395,9 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 				return;
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__FEATURE:
 				setFeature((EStructuralFeature)null);
+				return;
+			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE:
+				setCategorizedType((EClass)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -365,6 +423,8 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__FEATURE:
 				return feature != null;
+			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE:
+				return categorizedType != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -3,7 +3,9 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.CategorizerStructuralFeature;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
@@ -14,7 +16,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.provider.EStructuralFeatureItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -53,6 +54,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 			addManyPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
 			addFeaturePropertyDescriptor(object);
+			addCategorizedTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -176,6 +178,35 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 					}
 				
 			});
+	}
+
+	/**
+	 * This adds a property descriptor for the Categorized Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void addCategorizedTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(new ItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CategorizerStructuralFeature_CategorizedType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategorizerStructuralFeature_CategorizedType_feature", "_UI_CategorizerStructuralFeature_type"),
+				 DatatoolsPackage.Literals.CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null)
+				{
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						Categorizer categorizer = (Categorizer)object;
+						DataToolContext context = categorizer.getContext();
+						return context.getDomainTypes();
+					}
+				});
 	}
 
 	/**
