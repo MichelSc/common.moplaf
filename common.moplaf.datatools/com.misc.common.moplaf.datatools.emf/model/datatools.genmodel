@@ -92,7 +92,7 @@
         <genParameters ecoreParameter="datatools.ecore#//Filter/satisfiesFilter/object"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//FilterAttribute" labelFeature="#//datatools/DataToolAbstract/Description">
+    <genClasses image="false" ecoreClass="datatools.ecore#//FilterAttribute" labelFeature="#//datatools/DataToolAbstract/Description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//FilterAttribute/Attribute"/>
       <genOperations ecoreOperation="datatools.ecore#//FilterAttribute/getAttributeValue">
         <genParameters ecoreParameter="datatools.ecore#//FilterAttribute/getAttributeValue/object"/>

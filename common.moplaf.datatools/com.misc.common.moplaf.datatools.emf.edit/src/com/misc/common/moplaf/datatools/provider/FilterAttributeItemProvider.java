@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.provider.EAttributeItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -231,22 +230,6 @@ public class FilterAttributeItemProvider extends FilterItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns FilterAttribute.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@Override
-	public Object getImage(Object object) {
-		EAttributeItemProvider provider = new EAttributeItemProvider(this.getAdapterFactory());
-		FilterAttribute columnizer = (FilterAttribute)object;
-		EAttribute attribute = columnizer.getAttribute();
-		if ( attribute == null) { 
-			return super.getImage(object); 
-		}
-		return provider.getImage(attribute);
 	}
 
 	/**
