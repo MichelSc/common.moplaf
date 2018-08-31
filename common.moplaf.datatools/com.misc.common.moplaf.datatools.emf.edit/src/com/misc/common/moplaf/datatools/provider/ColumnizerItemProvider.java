@@ -5,8 +5,10 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -58,11 +60,10 @@ public class ColumnizerItemProvider
 	 * This adds a property descriptor for the Columnized Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addColumnizedTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Columnizer_ColumnizedType_feature"),
@@ -73,7 +74,17 @@ public class ColumnizerItemProvider
 				 true,
 				 null,
 				 null,
-				 null));
+				 null)
+			{
+
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					Columnizer columnizer= (Columnizer)object;
+					DataToolContext context = columnizer.getContext();
+					return context.getDomainTypes();
+				}
+			}
+				);
 	}
 
 	/**

@@ -4,7 +4,9 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.Categorizer;
+import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.Categorizer} object.
@@ -50,11 +53,10 @@ public class CategorizerItemProvider extends DataToolItemProvider {
 	 * This adds a property descriptor for the Categorized Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addCategorizedTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Categorizer_CategorizedType_feature"),
@@ -65,7 +67,17 @@ public class CategorizerItemProvider extends DataToolItemProvider {
 				 true,
 				 null,
 				 null,
-				 null));
+				 null)
+			{
+
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					Categorizer categorizer = (Categorizer)object;
+					DataToolContext context = categorizer.getContext();
+					return context.getDomainTypes();
+				}
+			}
+				);
 	}
 
 	/**
