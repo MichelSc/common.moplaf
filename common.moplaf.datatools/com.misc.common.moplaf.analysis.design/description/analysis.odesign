@@ -430,7 +430,9 @@
         </controls>
         <controls xsi:type="properties:TextAreaDescription" name="pr_group_analysis_remarks" label="Field Analysis Remarks" labelExpression="Remarks" helpExpression="Remarks to be made about this analysis" valueExpression="aql:self.Remarks">
           <initialOperation>
-            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool:SetValue" featureName="Remarks" valueExpression="aql:newValue"/>
+            </firstModelOperations>
           </initialOperation>
         </controls>
         <controls xsi:type="properties:ListDescription" name="pr_group_analysis_tools" label="List Analysis Tools" labelExpression="Tools" isEnabledExpression="aql:false" valueExpression="aql:self.DataTools" displayExpression="aql:value.Description">
