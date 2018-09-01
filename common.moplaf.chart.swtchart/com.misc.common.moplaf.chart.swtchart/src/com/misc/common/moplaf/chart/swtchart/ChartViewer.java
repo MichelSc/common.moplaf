@@ -28,6 +28,7 @@ public class ChartViewer extends ChartViewerAbstract {
 
 	public ChartViewer(Composite parent) {
 		this.tabFolder = new TabFolder(parent, SWT.BOTTOM);
+		super.hookControl(this.tabFolder);
 	}
 
 	class BarChart {
@@ -52,7 +53,6 @@ public class ChartViewer extends ChartViewerAbstract {
 		chart.getAxisSet().getXAxis(0).getTitle().setText("");
 		chart.getAxisSet().getYAxis(0).getTitle().setText("");
 		
-		super.hookControl(chart);
 		//chart.addMouseListener(new ChartSelectionListener());
 		Composite composite = chart.getPlotArea();
 		composite.addMouseListener(new ChartSelectionListener());
