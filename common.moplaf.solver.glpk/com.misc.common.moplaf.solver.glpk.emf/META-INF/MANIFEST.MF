@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.solver.glpk.emf;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .,
- lib/glpk-java-1.0.37.jar
+ lib/glpk-java-1.11.0.jar
 Bundle-NativeCode: lib/x86_64-linux-gnu/jni/libglpk_java.so;osname = Linux;processor = x86-64,
  lib/x86_64-win/glpk_4_55_java.dll;osname=win32;processor = x86-64
 Bundle-Vendor: %providerName

@@ -28,6 +28,10 @@ glpk
     glpk 4.55 (this is version 36)
     glpk-java 1.0.37
   
+  the current version (20180902) is upgraded to
+    glpk 4.65 (this is version 40)
+    glpk-java 1.11.0
+  
   first aid
     if libglpk_java.so is not found, add its location to the env variable LD_LIBRARY_PATH in the run configurations
     if glpk_4_55.dll is not found, add it to the System32 folder
