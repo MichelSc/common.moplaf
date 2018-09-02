@@ -438,7 +438,7 @@
       </groups>
       <groups name="pr_group_analysis_tools" label="Group Analysis Tools" labelExpression="Set Up" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:LabelDescription" name="pr_group_analysis_tools_extractor" label="Extractor" labelExpression="Extractor" displayExpression="aql:self.Extractor.Description">
-          <actions labelExpression="New Extractor">
+          <actions labelExpression="New Extractor" imageExpression="/org.eclipse.sirius.ui/icons/full/others/add.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:Let" variableName="extractor_selected"/>
@@ -465,7 +465,7 @@
               </firstModelOperations>
             </initialOperation>
           </actions>
-          <actions labelExpression="Reset">
+          <actions labelExpression="Reset" imageExpression="/org.eclipse.sirius.ui/icons/full/others/delete.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:Unset" featureName="Extractor" elementExpression="aql:self.Extractor"/>
@@ -477,7 +477,7 @@
           <onClickOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
-          <actions labelExpression="Add a Columnizer">
+          <actions labelExpression="Add a Columnizer" imageExpression="/org.eclipse.sirius.ui/icons/full/others/add.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:Let" variableName="columnizers_selected"/>
@@ -506,7 +506,7 @@
               </firstModelOperations>
             </initialOperation>
           </actions>
-          <actions labelExpression="Remove a Columnizer">
+          <actions labelExpression="Remove a Columnizer" imageExpression="/org.eclipse.sirius.ui/icons/full/others/delete.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:Unset" featureName="Columnizers" elementExpression="aql:selection"/>
@@ -518,7 +518,7 @@
           <onClickOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
-          <actions labelExpression="Add a Categorizer">
+          <actions labelExpression="Add a Categorizer" imageExpression="/org.eclipse.sirius.ui/icons/full/others/add.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:Let" variableName="categorizers_selected"/>
@@ -547,7 +547,7 @@
               </firstModelOperations>
             </initialOperation>
           </actions>
-          <actions labelExpression="Remove a Categorizer">
+          <actions labelExpression="Remove a Categorizer" imageExpression="/org.eclipse.sirius.ui/icons/full/others/delete.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:Unset" featureName="Categorizers" elementExpression="aql:selection"/>
