@@ -1005,6 +1005,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 */
 	@Override
 	protected ReturnFeedback solveImpl() {
+		Plugin.INSTANCE.logInfo(String.format("GLPK version %s loaded", GLPK.glp_version()));
 		//super.solveSolver();
 
 		this.loadLp();
