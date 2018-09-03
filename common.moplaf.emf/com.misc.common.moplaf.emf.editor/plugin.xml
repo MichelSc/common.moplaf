@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.misc.common.moplaf.emf.editor.commands.ShowChartView"
+            name="Show Chart View">
+      </command>
+      <command
+            id="com.misc.common.moplaf.emf.editor.commands.ShowGanttView"
+            name="Show Gantt View">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.misc.common.moplaf.emf.editor.handlers.ShowChartView"
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowChartView">
+      </handler>
+      <handler
+            class="com.misc.common.moplaf.emf.editor.handlers.ShowGanttView"
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowGanttView">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowChartView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+1">
+      </key>
+      <key
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowGanttView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+2">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="com.misc.common.moplaf.emf.editor.menus.MoplafViewsMenu"
+               label="Moplaf Views"
+               mnemonic="M">
+            <command
+                  commandId="com.misc.common.moplaf.emf.editor.commands.ShowChartView"
+                  id="com.misc.common.moplaf.emf.editor.menus.ShowChartView"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.misc.common.moplaf.emf.editor.commands.ShowGanttView"
+                  id="com.misc.common.moplaf.emf.editor.menus.ShowGanttView"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
