@@ -215,10 +215,6 @@ public class GanttViewer extends GanttViewerAbstract {
 	// mouse management
 	// ******************************
 	protected class GanttViewerMouseListener implements MouseWheelListener, MouseTrackListener, MouseMoveListener, MouseListener{
-		private String formatMouseEvent(MouseEvent e){
-			String formattedEvent = String.format("event x=%d, y=%d, button=%d, count=%d", e.x, e.y, e.button, e.count);
-			return formattedEvent;
-		}
 		private boolean xMoving = false;
 		private int xAsFromStartMoving;
 		private JaretDate startDateAsStartMoving;
@@ -484,7 +480,7 @@ public class GanttViewer extends GanttViewerAbstract {
 	
 	private void refreshNodeLabel(GanttViewerRow row){
 		String labelToBe = row.getTextToBe();
-		String labelAsIs = row.getGanttRowHeader().getLabel();
+		//String labelAsIs = row.getGanttRowHeader().getLabel();
 //		if ( !labelToBe.equals(labelAsIs)){
 			row.getGanttRowHeader().setLabel(labelToBe);
 //		}

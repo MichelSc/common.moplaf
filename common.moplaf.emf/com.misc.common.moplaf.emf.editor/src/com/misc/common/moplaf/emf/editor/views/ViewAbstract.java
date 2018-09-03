@@ -57,12 +57,12 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 		manager.add(new Separator());
 	}
 
-	private void fillContextMenu(IMenuManager manager) {
+	protected void fillContextMenu(IMenuManager manager) {
 		manager.add(pinAction);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-	}	
-
+	}
+	
 	protected void contributeToActionBars() {
 		IViewSite site = getViewSite();
 				
@@ -143,7 +143,7 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 		this.getViewer().getControl().setFocus();
 	}
 	
-	private void hookContextMenu() {
+	protected void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
@@ -161,7 +161,7 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IPropertySheetPage.class)) {
