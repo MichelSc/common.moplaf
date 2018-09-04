@@ -11,6 +11,22 @@
             id="com.misc.common.moplaf.emf.editor.commands.ShowGanttView"
             name="Show Gantt View">
       </command>
+      <command
+            id="com.misc.common.moplaf.emf.editor.commands.ShowGridView"
+            name="Show Grid View">
+      </command>
+      <command
+            id="com.misc.common.moplaf.emf.editor.commands.ShowTimePlotView"
+            name="Show TimePlot View">
+      </command>
+      <command
+            id="com.misc.common.moplaf.emf.editor.commands.ShowPropertiesView"
+            name="Show Properties View">
+      </command>
+      <command
+            id="com.misc.common.moplaf.emf.editor.commands.ShowConsoleView"
+            name="Show Console View">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -21,6 +37,22 @@
       <handler
             class="com.misc.common.moplaf.emf.editor.handlers.ShowGanttView"
             commandId="com.misc.common.moplaf.emf.editor.commands.ShowGanttView">
+      </handler>
+      <handler
+            class="com.misc.common.moplaf.emf.editor.handlers.ShowGridView"
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowGridView">
+      </handler>
+      <handler
+            class="com.misc.common.moplaf.emf.editor.handlers.ShowTimePlotView"
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowTimePlotView">
+      </handler>
+      <handler
+            class="com.misc.common.moplaf.emf.editor.handlers.ShowPropertiesView"
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowPropertiesView">
+      </handler>
+      <handler
+            class="com.misc.common.moplaf.emf.editor.handlers.ShowConsoleView"
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowConsoleView">
       </handler>
    </extension>
    <extension
@@ -36,6 +68,30 @@
             contextId="org.eclipse.ui.contexts.window"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="M1+2">
+      </key>
+      <key
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowGridView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+4">
+      </key>
+      <key
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowTimePlotView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+5">
+      </key>
+      <key
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowPropertiesView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+      <key
+            commandId="com.misc.common.moplaf.emf.editor.commands.ShowConsoleView"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+7">
       </key>
    </extension>
    <extension
@@ -54,6 +110,26 @@
             <command
                   commandId="com.misc.common.moplaf.emf.editor.commands.ShowGanttView"
                   id="com.misc.common.moplaf.emf.editor.menus.ShowGanttView"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.misc.common.moplaf.emf.editor.commands.ShowGridView"
+                  id="com.misc.common.moplaf.emf.editor.menus.ShowGridView"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.misc.common.moplaf.emf.editor.commands.ShowTimePlotView"
+                  id="com.misc.common.moplaf.emf.editor.menus.ShowTimePlotView"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.misc.common.moplaf.emf.editor.commands.ShowPropertiesView"
+                  id="com.misc.common.moplaf.emf.editor.menus.ShowPropertiesView"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.misc.common.moplaf.emf.editor.commands.ShowConsoleView"
+                  id="com.misc.common.moplaf.emf.editor.menus.ShowConsoleView"
                   style="push">
             </command>
          </menu>

@@ -16,11 +16,10 @@ public class ShowGanttView extends AbstractHandler {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 
 		try {
-			String id = "com.misc.common.moplaf.timeview.jaret.views.GanttView";
-			Util.showView(window.getActivePage(), id);
+			Util.showView(window.getActivePage(), "com.misc.common.moplaf.timeview.jaret.views.GanttView");
 		}
 		catch (PartInitException exception) {
-			Plugin.INSTANCE.logError("ShowGanttView.execute: exception"+ exception.getMessage());
+			Plugin.INSTANCE.logError("ShowGanttView.execute: exception " + exception.getMessage());
 		}
 
 		return null;
