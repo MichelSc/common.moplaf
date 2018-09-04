@@ -13,8 +13,8 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISelectionListener;
@@ -29,6 +29,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import com.misc.common.moplaf.emf.editor.Util;
 import com.misc.common.moplaf.emf.editor.action.PinViewAction;
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 
 public abstract class ViewAbstract extends ViewPart implements IPropertyChangeListener {
 
@@ -38,8 +39,22 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 	protected ISelectionListener selectionListener;
 	private ISelection selection;
 	
-	abstract protected ContentViewer getViewer();
+	private ViewerAbstract viewer;
+	
+
+	protected ViewerAbstract getViewer() {
+		// TODO Auto-generated method stub
+		return this.viewer;
+	}
+	
+	protected void setViewer(ViewerAbstract viewer) {
+		this.viewer = viewer;
+	}
 		
+	/**
+	 * Create the viewer, abstract
+	 */
+	protected abstract ViewerAbstract createViewer(Composite parent);
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
@@ -77,7 +92,6 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(pinAction);
-		//manager.add(action2);
 	}
 	
 

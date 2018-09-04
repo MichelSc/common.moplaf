@@ -17,6 +17,7 @@ Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.emf.editor,
  com.misc.common.moplaf.emf.editor.action,
  com.misc.common.moplaf.emf.editor.provider,
+ com.misc.common.moplaf.emf.editor.viewers,
  com.misc.common.moplaf.emf.editor.views
 Bundle-ClassPath: lib/org.eclipse.nebula.widgets.cdatetime_1.0.0.201606281412.jar,
  .
