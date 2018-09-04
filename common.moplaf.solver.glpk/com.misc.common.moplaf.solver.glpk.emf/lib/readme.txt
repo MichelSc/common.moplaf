@@ -24,13 +24,14 @@ glpk
          usr/share/x86_64-linux-gnu/jni/libglpk_java(...).so
          the present bundle provides the same
 
-  the current version is upgraded to
-    glpk 4.55 (this is version 36)
-    glpk-java 1.0.37
-  
   the current version (20180902) is upgraded to
     glpk 4.65 (this is version 40)
     glpk-java 1.11.0
+    
+  note about the glpk-java.jar to be used
+    - the one shipped with the linux binaries (from ubuntu repositories) does not work with the windows libraries
+    - the one shipped with the windows binaries (from sourceforge) do work with the linux libraries
+    - so keep the one from the source forge   
   
   first aid
     if libglpk_java.so is not found, add its location to the env variable LD_LIBRARY_PATH in the run configurations
