@@ -14,6 +14,7 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
@@ -23,6 +24,7 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
@@ -49,6 +51,16 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 	
 	protected void setViewer(ViewerAbstract viewer) {
 		this.viewer = viewer;
+		
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+	    if (window != null)
+	    {
+			IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+			if( selection != null ) {
+				this.viewer.setInput(Util.getSelectedObjects(selection));
+			}
+	    }
+		
 	}
 		
 	/**
@@ -59,9 +71,9 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		// TODO Auto-generated method stub
-		if( event.getSource().equals(pinAction) ) {
-			if( !pinAction.isChecked() && selection != null ) {
-				this.getViewer().setInput(Util.getSelectedObjects(selection));
+		if( event.getSource().equals(this.pinAction) ) {
+			if( !this.pinAction.isChecked() && this.selection != null ) {
+				this.getViewer().setInput(Util.getSelectedObjects(this.selection));
 			}
 		}
 	}
