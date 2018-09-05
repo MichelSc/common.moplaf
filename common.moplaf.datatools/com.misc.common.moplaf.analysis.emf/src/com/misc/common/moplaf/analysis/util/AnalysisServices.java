@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DataTool;
@@ -55,6 +56,7 @@ public class AnalysisServices {
     }
     
     public EList<DataTool> getNewColumnizers(DocAnalysis analysis) {
+    	Plugin.INSTANCE.logInfo("Get new columniers");
     	AnalysisDomain domain = analysis.getDomain();
     	Extractor extractor = analysis.getExtractor();
     	if ( extractor == null ) { return null; }
