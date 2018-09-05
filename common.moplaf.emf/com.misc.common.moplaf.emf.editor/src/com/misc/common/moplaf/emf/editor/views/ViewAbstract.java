@@ -13,8 +13,9 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISelectionListener;
@@ -23,12 +24,14 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import com.misc.common.moplaf.emf.editor.Util;
 import com.misc.common.moplaf.emf.editor.action.PinViewAction;
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 
 public abstract class ViewAbstract extends ViewPart implements IPropertyChangeListener {
 
@@ -38,15 +41,39 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 	protected ISelectionListener selectionListener;
 	private ISelection selection;
 	
-	abstract protected ContentViewer getViewer();
+	private ViewerAbstract viewer;
+	
+
+	protected ViewerAbstract getViewer() {
+		// TODO Auto-generated method stub
+		return this.viewer;
+	}
+	
+	protected void setViewer(ViewerAbstract viewer) {
+		this.viewer = viewer;
 		
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+	    if (window != null)
+	    {
+			IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+			if( selection != null ) {
+				this.viewer.setInput(Util.getSelectedObjects(selection));
+			}
+	    }
+		
+	}
+		
+	/**
+	 * Create the viewer, abstract
+	 */
+	protected abstract ViewerAbstract createViewer(Composite parent);
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		// TODO Auto-generated method stub
-		if( event.getSource().equals(pinAction) ) {
-			if( !pinAction.isChecked() && selection != null ) {
-				this.getViewer().setInput(Util.getSelectedObjects(selection));
+		if( event.getSource().equals(this.pinAction) ) {
+			if( !this.pinAction.isChecked() && this.selection != null ) {
+				this.getViewer().setInput(Util.getSelectedObjects(this.selection));
 			}
 		}
 	}
@@ -57,12 +84,12 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 		manager.add(new Separator());
 	}
 
-	private void fillContextMenu(IMenuManager manager) {
+	protected void fillContextMenu(IMenuManager manager) {
 		manager.add(pinAction);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-	}	
-
+	}
+	
 	protected void contributeToActionBars() {
 		IViewSite site = getViewSite();
 				
@@ -77,7 +104,6 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(pinAction);
-		//manager.add(action2);
 	}
 	
 
@@ -143,7 +169,7 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 		this.getViewer().getControl().setFocus();
 	}
 	
-	private void hookContextMenu() {
+	protected void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
@@ -161,7 +187,7 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IPropertySheetPage.class)) {

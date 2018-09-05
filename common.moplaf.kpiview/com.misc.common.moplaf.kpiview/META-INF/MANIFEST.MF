@@ -12,3 +12,4 @@ Export-Package: com.misc.common.moplaf.kpiview,
  com.misc.common.moplaf.kpiview.viewers
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: com.misc.common.moplaf.kpiview.Plugin
+Import-Package: com.misc.common.moplaf.emf.editor.viewers

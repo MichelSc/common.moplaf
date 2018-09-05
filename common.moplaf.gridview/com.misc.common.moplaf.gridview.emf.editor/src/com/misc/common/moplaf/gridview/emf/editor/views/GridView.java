@@ -13,8 +13,8 @@ package com.misc.common.moplaf.gridview.emf.editor.views;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.jface.viewers.*;
 
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
 import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
 import com.misc.common.moplaf.gridview.emf.editor.viewers.GridViewer;
@@ -27,8 +27,6 @@ public class GridView extends ViewAbstract {
 	 */
 	public static final String ID = "com.misc.common.moplaf.gridview.views.GridView";
 
-	private GridViewer viewer;
-
 
 	/**
 	 * The constructor.
@@ -39,7 +37,8 @@ public class GridView extends ViewAbstract {
 	/**
 	 * Create the viewer, abstract
 	 */
-	protected  GridViewer createViewer(Composite parent) {
+	@Override
+	protected ViewerAbstract createViewer(Composite parent) {
 		return new GridViewer(parent);
 	}
 	
@@ -50,20 +49,15 @@ public class GridView extends ViewAbstract {
 	@Override
 	public void createPartControl(Composite parent) {
 		AdapterFactoryGridProvider contentProvider = new AdapterFactoryGridProvider(this.adapterFactory, parent.getForeground(), parent.getBackground());
-        this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider (contentProvider);
-		this.viewer.setTablesProvider  (contentProvider);
-		this.viewer.setLabelProvider   (new AdapterFactoryLabelProvider   (this.adapterFactory));
+		GridViewer viewer = (GridViewer)this.createViewer(parent);
+        viewer.setContentProvider (contentProvider);
+		viewer.setTablesProvider  (contentProvider);
+		viewer.setLabelProvider   (new AdapterFactoryLabelProvider   (this.adapterFactory));
 //		this.viewer.setColorProvider   (new AdapterFactoryLabelProvider   (this.adapterFactory));
-
+		this.setViewer(viewer);
+		
 		this.setSelectionListener();
 		this.contributeToActionBars();
 	} // createControl method
-
-
-	@Override
-	protected ContentViewer getViewer() {
-		return viewer;
-	}
 
 }

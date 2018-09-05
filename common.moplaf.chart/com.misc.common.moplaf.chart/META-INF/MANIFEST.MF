@@ -11,4 +11,5 @@ Automatic-Module-Name: com.misc.common.moplaf.chart
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.chart,
  com.misc.common.moplaf.chart.viewers
-Import-Package: com.misc.common.moplaf.timeview
+Import-Package: com.misc.common.moplaf.emf.editor.viewers,
+ com.misc.common.moplaf.timeview

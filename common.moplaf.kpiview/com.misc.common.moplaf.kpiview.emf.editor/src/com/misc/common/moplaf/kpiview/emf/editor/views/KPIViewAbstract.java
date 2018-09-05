@@ -30,15 +30,6 @@ public abstract class KPIViewAbstract extends ViewAbstract {
 	 */
 	public static final String ID = "com.misc.common.moplaf.timeview.views.KPIView";
 
-	private KPIViewerAbstract viewer;
-
-	
-	@Override
-	protected ContentViewer getViewer() {
-		// TODO Auto-generated method stub
-		return this.viewer;
-	}
-
 
 	/**
 	 * Implement the interface ISelectionListener
@@ -49,7 +40,7 @@ public abstract class KPIViewAbstract extends ViewAbstract {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			
-			if (  KPIViewAbstract.this.viewer != null && part!= KPIViewAbstract.this) {
+			if (  KPIViewAbstract.this.getViewer() != null && part!= KPIViewAbstract.this) {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
@@ -57,12 +48,12 @@ public abstract class KPIViewAbstract extends ViewAbstract {
 					Iterator iterator = structuredSelection.iterator();
 					while ( iterator.hasNext() && !setInput ){
 						Object selectedObject = iterator.next();
-						if ( KPIViewAbstract.this.viewer.getIKPIProvider().hasKPIs(selectedObject)){
+						if ( ((KPIViewerAbstract)KPIViewAbstract.this.getViewer()).getIKPIProvider().hasKPIs(selectedObject)){
 							setInput = true;
 						}
 					}
 					if( setInput){
-						KPIViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+						KPIViewAbstract.this.getViewer().setInput(structuredSelection.toArray());
 					}
 				} // there is a selection
 			} // there is a viewer
@@ -81,12 +72,13 @@ public abstract class KPIViewAbstract extends ViewAbstract {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-        this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider   (new AdapterFactoryArrayContentProvider (this.adapterFactory));
-		this.viewer.setLabelProvider     (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
-		this.viewer.setColorProvider     (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
-		this.viewer.setKPIProvider       (new AdapterFactoryKPIProvider          (this.adapterFactory));
-
+		KPIViewerAbstract viewer = this.createViewer(parent);
+        viewer.setContentProvider   (new AdapterFactoryArrayContentProvider (this.adapterFactory));
+		viewer.setLabelProvider     (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		viewer.setColorProvider     (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		viewer.setKPIProvider       (new AdapterFactoryKPIProvider          (this.adapterFactory));
+		this.setViewer(viewer);
+		
 		this.setSelectionListener();
 		this.contributeToActionBars();
 		

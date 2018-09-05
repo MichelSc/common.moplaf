@@ -12,3 +12,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.timeview,
  com.misc.common.moplaf.timeview.viewers
+Import-Package: com.misc.common.moplaf.emf.editor.viewers

@@ -2,7 +2,7 @@ package com.misc.common.moplaf.chart.swtchart;
 
 import org.eclipse.swt.widgets.Composite;
 import com.misc.common.moplaf.chart.emf.editor.views.ChartViewAbstract;
-import com.misc.common.moplaf.chart.viewers.ChartViewerAbstract;
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 
 public class ChartView extends ChartViewAbstract {
 	
@@ -15,7 +15,7 @@ public class ChartView extends ChartViewAbstract {
 	}
 	
 	@Override
-	protected ChartViewerAbstract createViewer(Composite parent) {
+	protected ViewerAbstract createViewer(Composite parent) {
 		return new ChartViewer(parent);
 	}
 

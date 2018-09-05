@@ -12,7 +12,6 @@ package com.misc.common.moplaf.timeview.emf.editor.views;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.jface.viewers.*;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
@@ -26,16 +25,9 @@ public abstract class TimePlotViewAbstract extends ViewAbstract {
 	 */
 	public static final String ID = "com.misc.common.moplaf.timeview.views.GanttView";
 
-	private TimePlotViewerAbstract viewer;
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-	
-	@Override
-	protected ContentViewer getViewer() {
-		// TODO Auto-generated method stub
-		return this.viewer;
-	}
-	
+		
 	/**
 	 * Create the viewer, abstract
 	 */
@@ -47,11 +39,12 @@ public abstract class TimePlotViewAbstract extends ViewAbstract {
 	 */
 	public void createPartControl(Composite parent) {
 		AdapterFactoryAmountEventProvider amountEventProvider = new AdapterFactoryAmountEventProvider (this.adapterFactory);
-        this.viewer = this.createViewer(parent);
-		this.viewer.setAmountEventProvider(amountEventProvider);
-        this.viewer.setContentProvider    (amountEventProvider);
-		this.viewer.setLabelProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
-		this.viewer.setColorProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
+		TimePlotViewerAbstract viewer = (TimePlotViewerAbstract)this.createViewer(parent);
+		viewer.setAmountEventProvider(amountEventProvider);
+        viewer.setContentProvider    (amountEventProvider);
+		viewer.setLabelProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
+		viewer.setColorProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
+		this.setViewer(viewer);
 
 		this.setSelectionListener();
 		this.contributeToActionBars();

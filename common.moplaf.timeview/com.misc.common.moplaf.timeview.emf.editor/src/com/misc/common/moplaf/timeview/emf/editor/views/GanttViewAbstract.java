@@ -12,7 +12,6 @@ package com.misc.common.moplaf.timeview.emf.editor.views;
 
 
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.jface.viewers.ContentViewer;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
@@ -26,25 +25,7 @@ public abstract class GanttViewAbstract extends ViewAbstract {
 	 * The ID of the view as specified by the extension.
 	 */
 	public static final String ID = "com.misc.common.moplaf.timeview.views.GanttView";
-
-	private GanttViewerAbstract viewer;
-
-	@Override
-	protected ContentViewer getViewer() {
-		return this.viewer;
-	}
-
-	/**
-	 * The constructor.
-	 */
-	public GanttViewAbstract() {
-	}
-	
-	/**
-	 * Create the viewer, abstract
-	 */
-	protected abstract GanttViewerAbstract createViewer(Composite parent);
-	
+		
 	/**
 	 * This is a callback that will allow us
 	 * to create the viewer and initialize it.
@@ -53,14 +34,23 @@ public abstract class GanttViewAbstract extends ViewAbstract {
         //GridData gd = new GridData(GridData.FILL_BOTH);
 		AdapterFactoryIntervalEventProvider contentProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
 		//this.intervalEventProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
-        this.viewer = this.createViewer(parent);
-		this.viewer.setIntervalEventProvider(contentProvider);
-        this.viewer.setContentProvider      (contentProvider);
-		this.viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
-		this.viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		GanttViewerAbstract viewer = (GanttViewerAbstract)this.createViewer(parent);
+		viewer.setIntervalEventProvider(contentProvider);
+        viewer.setContentProvider      (contentProvider);
+		viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		this.setViewer(viewer);
 
 		this.setSelectionListener();
 		this.contributeToActionBars();
+		this.hookContextMenu();
 	} // createControl method
 
+	/*
+	@Override	
+	protected void fillContextMenu(IMenuManager manager) {
+		super.fillContextMenu(manager);
+		manager.add(new TestAction( this.getSite().getPart(), this.viewer.getSelection()));
+	}	
+	*/
 }
