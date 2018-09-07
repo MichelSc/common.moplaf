@@ -14,6 +14,7 @@ package com.misc.common.moplaf.timeview.emf.editor.views;
 import org.eclipse.swt.widgets.Composite;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
 import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryIntervalEventProvider;
 import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
@@ -53,4 +54,10 @@ public abstract class GanttViewAbstract extends ViewAbstract {
 		manager.add(new TestAction( this.getSite().getPart(), this.viewer.getSelection()));
 	}	
 	*/
+	
+	@Override
+	protected void setViewer(ViewerAbstract viewer) {
+		super.setViewer(viewer);
+		this.getViewer().refresh();
+	}
 }

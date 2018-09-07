@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
 import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryAmountEventProvider;
 import com.misc.common.moplaf.timeview.viewers.TimePlotViewerAbstract;
@@ -49,5 +50,11 @@ public abstract class TimePlotViewAbstract extends ViewAbstract {
 		this.setSelectionListener();
 		this.contributeToActionBars();
 	} // createControl method
+
+	@Override
+	protected void setViewer(ViewerAbstract viewer) {
+		super.setViewer(viewer);
+		this.getViewer().refresh();
+	}
 
 }
