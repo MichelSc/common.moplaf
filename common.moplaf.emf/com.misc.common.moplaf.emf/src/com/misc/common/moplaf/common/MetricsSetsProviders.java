@@ -6,16 +6,16 @@ import java.util.Date;
 
 /**
  * The interface declares the method(s) to be supported by an object that provides one or 
- * several sets of values, for instance to be displayed as row in a list.
+ * several sets of values, for instance to be displayed as a row in a list.
  * <p>
  * The consumer (i.e. the component using the values sets, typically a list component)
  * will provide, when relevant
  * <ul>
- * <li> an element:Object: the object owning the sets(s) </li>
- * <li> a set:Object: an object identifying a set of values for the owner element</li>
+ * <li> an element:Object: the object owning the metrics sets(s) </li>
+ * <li> a set:Object: an object identifying a set of metrics for the owner element</li>
  * <li> 
  * a metric:Object: an object identifying a the property that provides a value. 
- * The Object can be an actual Object, or an Integer, if no collection of Column Objects is provided (see further).
+ * The Object can be an actual Object, or an Integer, if no collection of Metric Objects is provided (see further).
  * In this latter case, the index is zero-based.
  *  </li>
  * </ul>
@@ -29,7 +29,7 @@ import java.util.Date;
  * <p>
  * To implement this interface by an {@link MetricsSetsProviders}, in the interface class, do the following 
  * <ul>
- *   <li>add <code>@implements IItemGridsProvider</code> in the user doc</li>
+ *   <li>add <code>@implements MetricsSetsProviders</code> in the user doc</li>
  *   <li>regenerate the code</li>
  *   <li>add the unimplemented methods</li>
  *   <li>implement the interface methods</li>
@@ -61,7 +61,7 @@ public interface MetricsSetsProviders {
 	static int METRIC_TYPE_BOOLEAN = 7;
 	
 	/**
-	 * Returns the sets published by the element. 
+	 * Returns the metrics sets published by the element. 
 	 * <p>
 	 * The method may return 
 	 * <ul>
@@ -189,6 +189,7 @@ public interface MetricsSetsProviders {
 
 	/**
 	 * Compares 2 objects according to a given metric.
+	 * The metric must be supported by both compared objects.
 	 * @param element
 	 * @param set
 	 * @param metric
@@ -197,7 +198,7 @@ public interface MetricsSetsProviders {
 	 * @param ascending
 	 * @return
 	 */
-	default int compare(Object element, Object set, Object metric, Object element1, Object element2, boolean ascending) {
+	default int compare(Object set, Object metric, Object element1, Object element2, boolean ascending) {
 		int type1 = this.getMetricType(element1, set, metric);
 		int type2 = this.getMetricType(element2, set, metric);
 		Object value1 = this.getMetricValue(element1, set, metric);
