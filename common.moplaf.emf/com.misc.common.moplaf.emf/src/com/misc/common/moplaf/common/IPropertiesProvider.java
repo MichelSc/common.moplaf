@@ -1,0 +1,206 @@
+package com.misc.common.moplaf.common;
+
+import java.util.Collection;
+import java.util.Date;
+
+
+/**
+ * The interface declares the method(s) to be supported by an object that provides properties, for instance to be displayed as a row in a list.
+ * <p>
+ * The consumer (i.e. the component using the values sets, typically a list component)
+ * will provide, when relevant
+ * <ul>
+ * <li> an element:Object: the object owning the properties </li>
+ * <li> a property:Object: an object identifying a property that provides a value. 
+ * The Object can be an actual Object, or an Integer, if no collection of Property Objects is provided (see further).
+ * In this latter case, the index is zero-based.
+ *  </li>
+ * </ul>
+ * in order to get
+ * <ul>
+ * <li> the properties supported by the element </li>
+ * <li> the value of the property for some element </li>
+ * </ul>
+ * <p>
+ * <p>
+ * To implement this interface by an {@link IPropertiesProvider}, in the interface class, do the following 
+ * <ul>
+ *   <li>add <code>@implements IPropertiesProvider</code> in the user doc</li>
+ *   <li>regenerate the code</li>
+ *   <li>add the unimplemented methods</li>
+ *   <li>implement the interface methods</li>
+ * </ul> 
+ * <p>
+ * @author michel
+ */
+
+public interface IPropertiesProvider {
+	static int NO_ALIGN = 0;
+	
+	static int HORIZONTAL_ALIGN_LEFT   = 1;
+	static int HORIZONTAL_ALIGN_RIGHT  = 2;
+	static int HORIZONTAL_ALIGN_CENTER = 4;
+
+	static int AGGREGATE_NONE   =  8;
+	static int AGGREGATE_COUNT  =  16;
+	static int AGGREGATE_SUM    =  32;
+	static int AGGREGATE_MIN    =  64;
+	static int AGGREGATE_MAX    = 128;
+
+	static int PROPERTY_TYPE_UNKOWN  = 0;
+	static int PROPERTY_TYPE_STRING  = 1;
+	static int PROPERTY_TYPE_DATE    = 2;
+	static int PROPERTY_TYPE_FLOAT   = 3;
+	static int PROPERTY_TYPE_DOUBLE  = 4;
+	static int PROPERTY_TYPE_INT     = 5;
+	static int PROPERTY_TYPE_LONG    = 6;
+	static int PROPERTY_TYPE_BOOLEAN = 7;
+	
+	/**
+	 * Returns the collections of properties published by this provider
+	 * <p>
+	 * @return
+	 */
+	default Collection<?> getProperties(){
+		return null;
+	}
+	
+	/**
+	 * Returns number of properties published by this provider
+	 * <p>
+	 */
+	default int getNrProperties() {
+		return 0;
+	}
+	
+	/**
+	 * Return the text associated to a property of a set published by the element.
+	 * @param element
+	 * @param grid
+	 * @return
+	 */
+	default String getPropertyText(Object property) {
+		return "";
+	}
+
+	/**
+	 * 
+	 * @param element
+	 * @param grid
+	 * @param row
+	 * @param column
+	 * @return
+	 */
+	default Object getPropertyValue(Object element, Object property) {
+		return null;
+	}
+
+	/**
+	 * 
+	 * @param property
+	 * @return
+	 */
+	default int getPropertyType(Object property) {
+		return PROPERTY_TYPE_STRING;}
+
+
+	/**
+	 * 
+	 * @param property
+	 * @return
+	 */
+	default int getPropertyAggregation(Object property) {
+		return AGGREGATE_NONE;
+	}
+
+
+	/**
+	/**
+	 * Return the display width of a property 
+	 * @param element
+	 * @param set
+	 * @param property
+	 * @return
+	 */
+	default int getPropertyDisplayWidth(Object property) {
+		return 200;
+	}
+	
+	/**
+	 * Return the alignment to be used to display a property published by an element
+	 * @param element
+	 * @param grid
+	 * @param row
+	 * @param column
+	 * @return
+	 */
+	default int getPropertyDisplayALignment (Object property) {
+		int type = this.getPropertyType(property);
+		switch ( type ) {
+		case PROPERTY_TYPE_STRING: 
+			return HORIZONTAL_ALIGN_LEFT;
+		case PROPERTY_TYPE_FLOAT:
+		case PROPERTY_TYPE_DOUBLE:
+		case PROPERTY_TYPE_INT:
+		case PROPERTY_TYPE_LONG:
+			return HORIZONTAL_ALIGN_RIGHT;
+		default: 
+			return NO_ALIGN;
+		}
+	}
+
+	/**
+	 * Compares 2 objects according to a given property.
+	 * The property must be supported by both compared objects.
+	 * @param element
+	 * @param set
+	 * @param property
+	 * @param element1
+	 * @param element2
+	 * @param ascending
+	 * @return
+	 */
+	default int compare(Object property, Object element1, Object element2, boolean ascending) {
+		int type = this.getPropertyType(property);
+		Object value1 = this.getPropertyValue(element1, property);
+		Object value2 = this.getPropertyValue(element2, property);
+		return IPropertiesProvider.defaultCompareValues(value1, value2, type, ascending);
+	}
+
+	static int defaultCompareValues(Object value1, Object value2, int type, boolean ascending) {
+		int sense = ascending ? +1 : -1;
+		switch (type) {
+		case PROPERTY_TYPE_BOOLEAN:
+			Boolean boolean1 = (Boolean)value1;
+			Boolean boolean2 = (Boolean)value2;
+			return sense*boolean1.compareTo(boolean2);
+		case PROPERTY_TYPE_STRING:
+			String string1 = (String)value1;
+			String string2 = (String)value2;
+			return sense *string1.compareTo(string2);
+		case PROPERTY_TYPE_DATE:
+			Date date1 = (Date)value1;
+			Date date2 = (Date)value2;
+			return sense *date1.compareTo(date2);
+		case PROPERTY_TYPE_INT:
+			Integer int1 = (Integer)value1;
+			Integer int2 = (Integer)value2;
+			return sense *int1.compareTo(int2);
+		case PROPERTY_TYPE_LONG:
+			Long long1 = (Long)value1;
+			Long long2 = (Long)value2;
+			return sense *long1.compareTo(long2);
+		case PROPERTY_TYPE_FLOAT:
+			Float float1 = (Float)value1;
+			Float float2 = (Float)value2;
+			return sense *float1.compareTo(float2);
+		case PROPERTY_TYPE_DOUBLE:
+			Double double1 = (Double)value1;
+			Double double2 = (Double)value2;
+			return sense *double1.compareTo(double2);
+		default:
+			return 0;
+		}
+	}
+
+}
