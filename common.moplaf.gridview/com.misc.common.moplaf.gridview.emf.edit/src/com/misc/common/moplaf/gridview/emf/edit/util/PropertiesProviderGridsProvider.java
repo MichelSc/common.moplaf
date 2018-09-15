@@ -19,9 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
-import com.misc.common.moplaf.common.util.PropertiesProvider;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider.SheetDelegate;
 
 public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	
