@@ -30,9 +30,6 @@ public class PropertiesProvider implements IPropertiesProvider {
 		public int getPropertyDispalyWidth();
 	};
 	
-	public String getText() {
-		return "";
-	}
 	/**
 	 * 
 	 */
