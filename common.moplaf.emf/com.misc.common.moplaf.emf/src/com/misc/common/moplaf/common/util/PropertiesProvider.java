@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 
 public class PropertiesProvider implements IPropertiesProvider {
-	private LinkedList<Property> properties;
+	private LinkedList<Property> properties = new LinkedList<Property>();
 	public interface Property {
 		public String getPropertyText();
 		public int getPropertyType();
