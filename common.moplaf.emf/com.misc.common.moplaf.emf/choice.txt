@@ -1,0 +1,26 @@
+properties provider
+
+different choices
+
+different usages
+  used to display common object in common grid
+    add navigation
+    one or several set of properties in this sheet
+    i want to specify for my sheet the set of properties (1 or several)
+    
+  columnizer
+    one or several set of properties in this sheet
+    idem
+    is a properties provider
+    provides property for the grid
+    
+  columinzer delegate
+    custome columnizer implemented on basis of another PropertiesProvider
+    
+  aggregation in category
+    this is the same
+    on top of this, aggregation for the categories
+    
+ conclusion: I need the provider, but not the sets
+  
+  
