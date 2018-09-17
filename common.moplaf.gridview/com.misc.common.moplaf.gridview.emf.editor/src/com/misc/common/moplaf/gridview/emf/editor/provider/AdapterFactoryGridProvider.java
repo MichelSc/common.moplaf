@@ -266,9 +266,9 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				TableRowProvider arbitrary_row = table.indexToRow[nofRows-1]; // last row is a better exemplar
 				int alignemnt = table.gridsProvider.getCellALignment(table.element, table.grid, arbitrary_row.getRowObject(), this.gridColumn);
 				switch ( alignemnt) {
-				case IItemGridsProvider.HORIZONTAl_ALIGN_LEFT: return SWT.LEFT;
-				case IItemGridsProvider.HORIZONTAl_ALIGN_CENTER: return SWT.CENTER;
-				case IItemGridsProvider.HORIZONTAl_ALIGN_RIGHT: return SWT.RIGHT;
+				case IItemGridsProvider.HORIZONTAL_ALIGN_LEFT: return SWT.LEFT;
+				case IItemGridsProvider.HORIZONTAL_ALIGN_CENTER: return SWT.CENTER;
+				case IItemGridsProvider.HORIZONTAL_ALIGN_RIGHT: return SWT.RIGHT;
 				}
 				return 0;
 			}

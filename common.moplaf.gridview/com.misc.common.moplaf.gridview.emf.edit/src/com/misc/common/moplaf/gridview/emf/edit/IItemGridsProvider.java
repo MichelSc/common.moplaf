@@ -74,9 +74,9 @@ public interface IItemGridsProvider {
 	static int SHEET_TRAITS_GRID     = 4; // no dominant between rows and columns
 	static int SHEET_TRAITS_BARCHART = 8; // rows are categories and columns are series
 	
-	static int HORIZONTAl_ALIGN_LEFT   = 1;
-	static int HORIZONTAl_ALIGN_RIGHT  = 2;
-	static int HORIZONTAl_ALIGN_CENTER = 4;
+	static int HORIZONTAL_ALIGN_LEFT   = 1;
+	static int HORIZONTAL_ALIGN_RIGHT  = 2;
+	static int HORIZONTAL_ALIGN_CENTER = 4;
 
 	static int VERTICAL_ALIGN_TOP    = 8;
 	static int VERTICAL_ALIGN_BOTTOM = 16;
@@ -326,12 +326,12 @@ public interface IItemGridsProvider {
 		int type = this.getCellType(element, grid, row, column);
 		switch ( type ) {
 		case CELL_TYPE_STRING: 
-			return HORIZONTAl_ALIGN_LEFT;
+			return HORIZONTAL_ALIGN_LEFT;
 		case CELL_TYPE_FLOAT:
 		case CELL_TYPE_DOUBLE:
 		case CELL_TYPE_INT:
 		case CELL_TYPE_LONG:
-			return HORIZONTAl_ALIGN_RIGHT;
+			return HORIZONTAL_ALIGN_RIGHT;
 		default: 
 			return NO_ALIGN;
 		}

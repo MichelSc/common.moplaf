@@ -104,7 +104,7 @@ public class GridSheetsProvider implements IItemGridsProvider {
 			EObject object = (EObject)row;
 			return object.eGet(this.attribute).toString();
 		}
-
+	
 		@Override
 		public GridColumnsProvider getColumns() {
 			return this.columns;
@@ -126,13 +126,13 @@ public class GridSheetsProvider implements IItemGridsProvider {
 			}
 			return path_asstring;
 		}
-
+	
 		@Override
 		public int getTraits() {
 			return this.traits;
 		}
 	}
-	
+
 	private GridSheetsProvider() {
 		super();
 		this.sheets = new LinkedList<com.misc.common.moplaf.gridview.emf.edit.util.GridSheetsProvider.SheetDelegate>();
