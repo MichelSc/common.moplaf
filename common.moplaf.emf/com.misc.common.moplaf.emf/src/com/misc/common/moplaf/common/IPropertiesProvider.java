@@ -5,13 +5,13 @@ import java.util.Date;
 
 
 /**
- * The interface declares the method(s) to be supported by an object that provides properties, for instance to be displayed as a row in a list.
+ * The interface declares the method(s) to be supported by an object that provides properties, for instance to display elements as rows in a list.
  * <p>
  * The consumer (i.e. the component using the values sets, typically a list component)
  * will provide, when relevant
  * <ul>
  * <li> an element:Object: the object owning the properties </li>
- * <li> a property:Object: an object identifying a property that provides a value. 
+ * <li> a property:Object: an object identifying a property that provides a value for a given element.
  * The Object can be an actual Object, or an Integer, if no collection of Property Objects is provided (see further).
  * In this latter case, the index is zero-based.
  *  </li>
@@ -74,9 +74,8 @@ public interface IPropertiesProvider {
 	}
 	
 	/**
-	 * Return the text associated to a property of a set published by the element.
-	 * @param element
-	 * @param grid
+	 * Return the text associated to a property published by the provider.
+	 * @param property
 	 * @return
 	 */
 	default String getPropertyText(Object property) {
@@ -86,9 +85,7 @@ public interface IPropertiesProvider {
 	/**
 	 * 
 	 * @param element
-	 * @param grid
-	 * @param row
-	 * @param column
+	 * @param property
 	 * @return
 	 */
 	default Object getPropertyValue(Object element, Object property) {
@@ -127,11 +124,8 @@ public interface IPropertiesProvider {
 	}
 	
 	/**
-	 * Return the alignment to be used to display a property published by an element
-	 * @param element
-	 * @param grid
-	 * @param row
-	 * @param column
+	 * Return the alignment to be used to display a property published by the provider
+	 * @param property
 	 * @return
 	 */
 	default int getPropertyDisplayALignment (Object property) {
