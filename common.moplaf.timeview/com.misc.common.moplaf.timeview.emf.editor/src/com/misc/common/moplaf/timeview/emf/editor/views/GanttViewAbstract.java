@@ -11,10 +11,8 @@
 package com.misc.common.moplaf.timeview.emf.editor.views;
 
 
-import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.swt.widgets.Composite;
 
-import com.misc.common.moplaf.emf.editor.menus.TestMenu;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
@@ -48,13 +46,6 @@ public abstract class GanttViewAbstract extends ViewAbstract {
 		this.contributeToActionBars();
 		this.hookContextMenu();
 	} // createControl method
-
-	@Override	
-	protected void fillContextMenu(IMenuManager manager) {
-		super.fillContextMenu(manager);
-		manager.add(new TestMenu(this.getViewer().getSelection()));
-		//manager.add(new TestAction( this.getSite().getPart(), this.viewer.getSelection()));
-	}	
 	
 	@Override
 	protected void setViewer(ViewerAbstract viewer) {
