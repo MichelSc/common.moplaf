@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -294,6 +295,17 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getDataType() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setAttribute(EAttribute newAttribute) {
 		EAttribute oldAttribute = attribute;
 		attribute = newAttribute;
@@ -482,6 +494,7 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 		if (baseClass == ColumnizerColumn.class) {
 			switch (baseOperationID) {
 				case DatatoolsPackage.COLUMNIZER_COLUMN___GET_VALUE__EOBJECT: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT;
+				case DatatoolsPackage.COLUMNIZER_COLUMN___GET_DATA_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_DATA_TYPE;
 				default: return -1;
 			}
 		}
@@ -498,6 +511,8 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 		switch (operationID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT:
 				return getValue((EObject)arguments.get(0));
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE___GET_DATA_TYPE:
+				return getDataType();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

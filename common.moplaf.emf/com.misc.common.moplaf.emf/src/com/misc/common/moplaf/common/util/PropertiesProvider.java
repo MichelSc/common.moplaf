@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
 
@@ -59,15 +58,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 		@Override
 		public int getPropertyType() {
 			EDataType attribute_type = this.attribute.getEAttributeType();
-			if ( attribute_type==EcorePackage.Literals.ESTRING )         { return PROPERTY_TYPE_STRING; }
-			if ( attribute_type==EcorePackage.Literals.EDATE )           { return PROPERTY_TYPE_DATE; }
-			if ( attribute_type==EcorePackage.Literals.EFLOAT )          { return PROPERTY_TYPE_FLOAT; }
-			if ( attribute_type==EcorePackage.Literals.EDOUBLE)          { return PROPERTY_TYPE_DOUBLE; }
-			if ( attribute_type==EcorePackage.Literals.ELONG )           { return PROPERTY_TYPE_DOUBLE; }
-			if ( attribute_type==EcorePackage.Literals.EINT )            { return PROPERTY_TYPE_INT; }
-			if ( attribute_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return PROPERTY_TYPE_BOOLEAN; }
-		
-			return PROPERTY_TYPE_UNKOWN;
+			return IPropertiesProvider.toPropertyType(attribute_type);
 		}
 
 		@Override

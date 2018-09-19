@@ -3402,13 +3402,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Properties Provider</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER = DATA_TOOL_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_ABSTRACT_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 1;
+	int COLUMNIZER_ABSTRACT_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3501,6 +3510,15 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER___IS_VALID_ELEMENT_TYPE__ECLASS = COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS;
 
 	/**
+	 * The operation id for the '<em>Get Properties Provider</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER___GET_PROPERTIES_PROVIDER = COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER;
+
+	/**
 	 * The number of operations of the '<em>Columnizer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3555,13 +3573,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN___GET_DATA_TYPE = 1;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_OPERATION_COUNT = 1;
+	int COLUMNIZER_COLUMN_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3699,13 +3726,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT = NAVIGATION_PATH_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE___GET_DATA_TYPE = NAVIGATION_PATH_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Column Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_OPERATION_COUNT = NAVIGATION_PATH_OPERATION_COUNT + 1;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_OPERATION_COUNT = NAVIGATION_PATH_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
@@ -3760,6 +3796,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_OCL___GET_VALUE__EOBJECT = COLUMNIZER_COLUMN___GET_VALUE__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL___GET_DATA_TYPE = COLUMNIZER_COLUMN___GET_DATA_TYPE;
 
 	/**
 	 * The number of operations of the '<em>Columnizer Column Ocl</em>' class.
@@ -4639,6 +4684,16 @@ public interface DatatoolsPackage extends EPackage {
 	int EOBJECTS_SET = 42;
 
 	/**
+	 * The meta object id for the '<em>IProperties Provider</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.IPropertiesProvider
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getIPropertiesProvider()
+	 * @generated
+	 */
+	int IPROPERTIES_PROVIDER = 43;
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5076,6 +5131,16 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getColumnizerAbstract__IsValidElementType__EClass();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#getPropertiesProvider() <em>Get Properties Provider</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Properties Provider</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#getPropertiesProvider()
+	 * @generated
+	 */
+	EOperation getColumnizerAbstract__GetPropertiesProvider();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorPath <em>Extractor Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5388,6 +5453,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getColumnizerColumn__GetValue__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getDataType() <em>Get Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Data Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getDataType()
+	 * @generated
+	 */
+	EOperation getColumnizerColumn__GetDataType();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerColumnAttribute <em>Columnizer Column Attribute</em>}'.
@@ -5777,6 +5852,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getEObjectsSet();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.IPropertiesProvider <em>IProperties Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IProperties Provider</em>'.
+	 * @see com.misc.common.moplaf.common.IPropertiesProvider
+	 * @model instanceClass="com.misc.common.moplaf.common.IPropertiesProvider"
+	 * @generated
+	 */
+	EDataType getIPropertiesProvider();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTool <em>Data Tool</em>}'.
@@ -6239,6 +6325,14 @@ public interface DatatoolsPackage extends EPackage {
 		EOperation COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS = eINSTANCE.getColumnizerAbstract__IsValidElementType__EClass();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Properties Provider</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER = eINSTANCE.getColumnizerAbstract__GetPropertiesProvider();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl <em>Extractor Path</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6503,6 +6597,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = eINSTANCE.getColumnizerColumn__GetValue__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Data Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMNIZER_COLUMN___GET_DATA_TYPE = eINSTANCE.getColumnizerColumn__GetDataType();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.
@@ -6827,6 +6929,16 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EOBJECTS_SET = eINSTANCE.getEObjectsSet();
+
+		/**
+		 * The meta object literal for the '<em>IProperties Provider</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.IPropertiesProvider
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getIPropertiesProvider()
+		 * @generated
+		 */
+		EDataType IPROPERTIES_PROVIDER = eINSTANCE.getIPropertiesProvider();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.

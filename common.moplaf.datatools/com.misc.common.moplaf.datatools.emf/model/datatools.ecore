@@ -141,6 +141,7 @@
     <eOperations name="isValidElementType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
+    <eOperations name="getPropertiesProvider" eType="#//IPropertiesProvider"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Columnizer" eSuperTypes="#//ColumnizerAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
@@ -152,6 +153,7 @@
     <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
+    <eOperations name="getDataType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" lowerBound="1"
@@ -238,4 +240,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizers" upperBound="-1"
         eType="#//ColumnizerAbstract" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="IPropertiesProvider" instanceClassName="com.misc.common.moplaf.common.IPropertiesProvider"/>
 </ecore:EPackage>

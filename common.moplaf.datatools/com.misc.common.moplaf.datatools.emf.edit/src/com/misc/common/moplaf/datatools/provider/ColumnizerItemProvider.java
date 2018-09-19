@@ -4,7 +4,6 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.Columnizer;
-import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -192,32 +190,5 @@ public class ColumnizerItemProvider
 				(DatatoolsPackage.Literals.COLUMNIZER__COLUMNS,
 				 DatatoolsFactory.eINSTANCE.createColumnizerColumnAttribute()));
 	}
-	// specified by IItemGridsProvider
-	@Override
-	public Object getGrids(Object element) {
-		return element;  // 1 grid for this columnizer
-	}
-	@Override
-	public String getGridText(Object element, Object grid) {
-		Columnizer columnizer = (Columnizer)element;
-		return columnizer.getSheetName();
-	}
-
-	@Override
-	public Collection<?> getColumns(Object element, Object grid) {
-		Columnizer columnizer = (Columnizer)element;
-		return columnizer.getColumns();
-	}
-
-	@Override
-	public String getColumnText(Object element, Object grid, Object column) {
-		ColumnizerColumn column_columnizer = (ColumnizerColumn)column;
-		return column_columnizer.getColumnName();
-	}
-
-	@Override
-	public Object getCellValue(Object element, Object grid, Object row, Object column) {
-		ColumnizerColumn column_columnizer = (ColumnizerColumn)column;
-		return column_columnizer.getValue((EObject)row);
-	}
+	
 }

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -194,6 +195,17 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getDataType() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -323,6 +335,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 		switch (operationID) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN___GET_VALUE__EOBJECT:
 				return getValue((EObject)arguments.get(0));
+			case DatatoolsPackage.COLUMNIZER_COLUMN___GET_DATA_TYPE:
+				return getDataType();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

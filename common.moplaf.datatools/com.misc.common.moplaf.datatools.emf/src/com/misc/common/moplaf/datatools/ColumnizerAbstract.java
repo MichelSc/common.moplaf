@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import org.eclipse.emf.ecore.EClass;
 
 
@@ -24,4 +25,12 @@ public interface ColumnizerAbstract extends DataTool {
 	 * @generated
 	 */
 	boolean isValidElementType(EClass type);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="com.misc.common.moplaf.datatools.IPropertiesProvider"
+	 * @generated
+	 */
+	IPropertiesProvider getPropertiesProvider();
 } // ColumnizerAbstract

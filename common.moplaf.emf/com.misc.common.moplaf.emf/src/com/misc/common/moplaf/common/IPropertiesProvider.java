@@ -3,6 +3,9 @@ package com.misc.common.moplaf.common;
 import java.util.Collection;
 import java.util.Date;
 
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EcorePackage;
+
 
 /**
  * The interface declares the method(s) to be supported by an object that provides properties, for instance to display elements as rows in a list.
@@ -195,6 +198,17 @@ public interface IPropertiesProvider {
 		default:
 			return 0;
 		}
+	}
+	
+	static int toPropertyType(EDataType data_type) {
+		if ( data_type==EcorePackage.Literals.ESTRING )         { return PROPERTY_TYPE_STRING; }
+		if ( data_type==EcorePackage.Literals.EDATE )           { return PROPERTY_TYPE_DATE; }
+		if ( data_type==EcorePackage.Literals.EFLOAT )          { return PROPERTY_TYPE_FLOAT; }
+		if ( data_type==EcorePackage.Literals.EDOUBLE)          { return PROPERTY_TYPE_DOUBLE; }
+		if ( data_type==EcorePackage.Literals.ELONG )           { return PROPERTY_TYPE_DOUBLE; }
+		if ( data_type==EcorePackage.Literals.EINT )            { return PROPERTY_TYPE_INT; }
+		if ( data_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return PROPERTY_TYPE_BOOLEAN; }
+		return PROPERTY_TYPE_UNKOWN;
 	}
 
 }

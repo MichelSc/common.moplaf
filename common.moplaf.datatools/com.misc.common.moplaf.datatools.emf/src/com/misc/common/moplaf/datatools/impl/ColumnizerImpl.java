@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
@@ -13,6 +14,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -21,6 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Columnizer</b></em>'.
+ * @implements IPropertiesProvider
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -33,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer {
+public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer, IPropertiesProvider {
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -316,5 +320,42 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 		result.append(')');
 		return result.toString();
 	}
+
+	/**
+	 * Specified by IPropertiesProvider
+	 */
+	@Override
+	public Collection<?> getProperties() {
+		return this.getColumns();
+	}
+
+	/**
+	 * Specified by IPropertiesProvider
+	 */
+	@Override
+	public String getPropertyText(Object property) {
+		ColumnizerColumn column = (ColumnizerColumn)property;
+		return column.getColumnName();
+	}
+
+	/**
+	 * Specified by IPropertiesProvider
+	 */
+	@Override
+	public Object getPropertyValue(Object element, Object property) {
+		ColumnizerColumn column = (ColumnizerColumn)property;
+		return column.getValue((EObject)element);
+	}
+
+	/**
+	 * Specified by IPropertiesProvider
+	 */
+	@Override
+	public int getPropertyType(Object property) {
+		ColumnizerColumn column = (ColumnizerColumn)property;
+		EDataType data_type = column.getDataType();
+		return IPropertiesProvider.toPropertyType(data_type);
+	}
+
 
 } //ColumnizerImpl

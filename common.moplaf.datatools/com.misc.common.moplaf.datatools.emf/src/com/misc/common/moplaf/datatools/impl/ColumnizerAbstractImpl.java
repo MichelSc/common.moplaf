@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
@@ -48,6 +49,17 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 		return this.isValidElementTypeImpl(type);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IPropertiesProvider getPropertiesProvider() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	protected boolean isValidElementTypeImpl(EClass type) {
 		throw new UnsupportedOperationException();
 	}
@@ -62,6 +74,8 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 		switch (operationID) {
 			case DatatoolsPackage.COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS:
 				return isValidElementType((EClass)arguments.get(0));
+			case DatatoolsPackage.COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER:
+				return getPropertiesProvider();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

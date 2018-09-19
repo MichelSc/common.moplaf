@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -94,6 +95,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 				return createDataToolTypeFromString(eDataType, initialValue);
 			case DatatoolsPackage.MATCH_STATUS:
 				return createMatchStatusFromString(eDataType, initialValue);
+			case DatatoolsPackage.IPROPERTIES_PROVIDER:
+				return createIPropertiesProviderFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -111,6 +114,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 				return convertDataToolTypeToString(eDataType, instanceValue);
 			case DatatoolsPackage.MATCH_STATUS:
 				return convertMatchStatusToString(eDataType, instanceValue);
+			case DatatoolsPackage.IPROPERTIES_PROVIDER:
+				return convertIPropertiesProviderToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -364,6 +369,24 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 */
 	public String convertMatchStatusToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IPropertiesProvider createIPropertiesProviderFromString(EDataType eDataType, String initialValue) {
+		return (IPropertiesProvider)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIPropertiesProviderToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
