@@ -293,12 +293,14 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EDataType getDataType() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EAttribute attribute = this.getAttribute();
+		if ( attribute==null ) {
+			return null;
+		}
+		return attribute.getEAttributeType();
+		
 	}
 
 	/**

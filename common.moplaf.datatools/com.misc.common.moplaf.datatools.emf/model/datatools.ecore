@@ -142,6 +142,8 @@
       <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
     <eOperations name="getPropertiesProvider" eType="#//IPropertiesProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SheetLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Columnizer" eSuperTypes="#//ColumnizerAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"

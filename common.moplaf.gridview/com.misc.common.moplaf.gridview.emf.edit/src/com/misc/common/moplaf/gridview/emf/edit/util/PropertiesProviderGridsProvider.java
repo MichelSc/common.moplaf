@@ -43,24 +43,18 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public Object getCellValue(Object row, Object column);
 	}
 	
-	private class SheetFeature implements SheetDelegate{
+	private abstract class SheetPropertiesProvider implements SheetDelegate{
 		
-		private EReference[] path;
-		private EAttribute attribute;
 		private IPropertiesProvider provider;
 		private int traits;
 		private String sheet_name;
 		
-		public SheetFeature(String sheet_name, EReference[] path, EAttribute attribute, IPropertiesProvider provider, int traits) {
-			this.path = path;
-			this.attribute = attribute;
+		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider provider, int traits) {
 			this.provider = provider;
 			this.traits = traits;
 			this.sheet_name = sheet_name;
 		}
-		public SheetFeature(String sheet_name, EReference[] path, EAttribute attribute, IPropertiesProvider[] providers, int traits) {
-			this.path = path;
-			this.attribute = attribute;
+		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider[] providers, int traits) {
 			this.provider = new CompoundPropertiesProvider(providers);
 			this.traits = traits;
 			this.sheet_name = sheet_name;
@@ -69,6 +63,59 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public String getSheetText() {
 			if ( this.sheet_name!=null ) {
 				return this.sheet_name;
+			}
+			return null;
+		}
+		@Override
+		public int getTraits() {
+			return this.traits;
+		}
+		@Override
+		public Collection<?> getColumns() {
+			return this.provider.getProperties();
+		}
+		@Override
+		public int getNrColumns() {
+			return this.provider.getNrProperties();
+		}
+		@Override
+		public String getColumnText(Object column) {
+			return this.provider.getPropertyText(column);
+		}
+		@Override
+		public int getColumnType(Object column) {
+			return this.provider.getPropertyType(column);
+		}
+		@Override
+		public int getColumnWidth(Object column) {
+			return this.provider.getPropertyDisplayWidth(column);
+		}
+		@Override
+		public Object getCellValue(Object row, Object column) {
+			return this.provider.getPropertyValue(row,  column);
+		}
+	}
+	
+	private class SheetFeature extends SheetPropertiesProvider{
+		
+		private EReference[] path;
+		private EAttribute attribute;
+		
+		public SheetFeature(String sheet_name, EReference[] path, EAttribute attribute, IPropertiesProvider provider, int traits) {
+			super(sheet_name, provider, traits);
+			this.path = path;
+			this.attribute = attribute;
+		}
+		public SheetFeature(String sheet_name, EReference[] path, EAttribute attribute, IPropertiesProvider[] providers, int traits) {
+			super(sheet_name, providers, traits);
+			this.path = path;
+			this.attribute = attribute;
+		}
+		@Override
+		public String getSheetText() {
+			String text = super.getSheetText();
+			if ( text!=null ) {
+				return text;
 			}
 			
 			// compose a name from the refs at hand
@@ -80,10 +127,6 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 				path_asstring+= this.path[i].getName();  
 			}
 			return path_asstring;
-		}
-		@Override
-		public int getTraits() {
-			return this.traits;
 		}
 		private void collectRows(EObject from, HashSet<EObject> result, int level) {
 			EReference reference = this.path[level];
@@ -137,32 +180,29 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			EObject object = (EObject)row;
 			return object.eGet(this.attribute).toString();
 		}	
-		@Override
-		public Collection<?> getColumns() {
-			return this.provider.getProperties();
-		}
-		@Override
-		public int getNrColumns() {
-			return this.provider.getNrProperties();
-		}
-		@Override
-		public String getColumnText(Object column) {
-			return this.provider.getPropertyText(column);
-		}
-		@Override
-		public int getColumnType(Object column) {
-			return this.provider.getPropertyType(column);
-		}
-		@Override
-		public int getColumnWidth(Object column) {
-			return this.provider.getPropertyDisplayWidth(column);
-		}
-		@Override
-		public Object getCellValue(Object row, Object column) {
-			return this.provider.getPropertyValue(row,  column);
-		}
+
 	}
+
+	private class SheetCollection extends SheetPropertiesProvider{
+		
+		private Collection<?> rowSet;
+		
+		public SheetCollection(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider, int traits) {
+			super(sheet_name, provider, traits);
+			this.rowSet = rowSet;
+		}
+		@Override
+		public Collection<?> getRows(Object element) {
+			return this.rowSet;
+		}
+		
+		@Override
+		public String getRowText(Object row) {
+			return null;
+		}	
 	
+	}
+
 	private PropertiesProviderGridsProvider() {
 		super();
 		this.sheets = new LinkedList<SheetDelegate>();
@@ -210,6 +250,11 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider provider) {
 		this.addSheet(sheet_name, reference,  attribute, provider, SHEET_TRAITS_NONE);
 		return this;
+	}
+	
+	public PropertiesProviderGridsProvider addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider, int traits) {
+	  	this.sheets.add(new SheetCollection(sheet_name, rowSet, provider, traits));
+	  	return this;
 	}
 
 	

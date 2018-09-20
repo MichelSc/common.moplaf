@@ -3366,13 +3366,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_ABSTRACT__NAME = DATA_TOOL__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Sheet Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT__SHEET_LABEL = DATA_TOOL_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_ABSTRACT_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
+	int COLUMNIZER_ABSTRACT_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
@@ -3445,6 +3454,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER__NAME = COLUMNIZER_ABSTRACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sheet Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__SHEET_LABEL = COLUMNIZER_ABSTRACT__SHEET_LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -5121,6 +5139,17 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getColumnizerAbstract();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#getSheetLabel <em>Sheet Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sheet Label</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#getSheetLabel()
+	 * @see #getColumnizerAbstract()
+	 * @generated
+	 */
+	EAttribute getColumnizerAbstract_SheetLabel();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#isValidElementType(org.eclipse.emf.ecore.EClass) <em>Is Valid Element Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6315,6 +6344,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COLUMNIZER_ABSTRACT = eINSTANCE.getColumnizerAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Sheet Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_ABSTRACT__SHEET_LABEL = eINSTANCE.getColumnizerAbstract_SheetLabel();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Element Type</b></em>' operation.

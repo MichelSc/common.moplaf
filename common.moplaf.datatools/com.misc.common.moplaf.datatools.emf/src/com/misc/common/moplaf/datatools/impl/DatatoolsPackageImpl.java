@@ -809,6 +809,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getColumnizerAbstract_SheetLabel() {
+		return (EAttribute)columnizerAbstractEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getColumnizerAbstract__IsValidElementType__EClass() {
 		return columnizerAbstractEClass.getEOperations().get(0);
 	}
@@ -1627,6 +1636,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		extractorIntersectionEClass = createEClass(EXTRACTOR_INTERSECTION);
 
 		columnizerAbstractEClass = createEClass(COLUMNIZER_ABSTRACT);
+		createEAttribute(columnizerAbstractEClass, COLUMNIZER_ABSTRACT__SHEET_LABEL);
 		createEOperation(columnizerAbstractEClass, COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS);
 		createEOperation(columnizerAbstractEClass, COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER);
 
@@ -1876,6 +1886,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(extractorIntersectionEClass, ExtractorIntersection.class, "ExtractorIntersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(columnizerAbstractEClass, ColumnizerAbstract.class, "ColumnizerAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColumnizerAbstract_SheetLabel(), ecorePackage.getEString(), "SheetLabel", null, 0, 1, ColumnizerAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getColumnizerAbstract__IsValidElementType__EClass(), ecorePackage.getEBoolean(), "isValidElementType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEClass(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);

@@ -323,8 +323,10 @@ public class CategoryAbstractItemProvider
 		Columnizers columnizers = cat.getCategoryColumnizers(); 
 		if ( columnizers!=null ) {
 			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
-//				IItemGridsProvider columnizer_grids_provider = (IItemGridsProvider)this.getRootAdapterFactory().adapt(columnizer, IItemGridsProvider.class);
-//				grids_provider.add(new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()));
+				grids_provider.addSheet(columnizer.getSheetLabel(),
+						           cat.getElements(),
+						           columnizer.getPropertiesProvider(),
+								   SHEET_TRAITS_NONE);
 			}
 		}
 		

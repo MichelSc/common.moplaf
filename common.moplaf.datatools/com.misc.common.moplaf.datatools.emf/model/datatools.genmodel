@@ -127,6 +127,7 @@
     <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorIntersection"
         labelFeature="#//datatools/DataToolAbstract/Description"/>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerAbstract">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerAbstract/SheetLabel"/>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerAbstract/isValidElementType">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerAbstract/isValidElementType/type"/>
       </genOperations>

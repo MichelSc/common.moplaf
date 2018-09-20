@@ -163,6 +163,13 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER__SHEET_NAME, oldSheetName, sheetName));
 	}
+	
+	
+
+	@Override
+	public String getSheetLabel() {
+		return this.getSheetName();
+	}
 
 	@Override
 	protected void collectParamsDescription(List<String> params) {
@@ -193,6 +200,11 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public IPropertiesProvider getPropertiesProvider() {
+		return this;
 	}
 
 	/**
