@@ -2,10 +2,15 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.common.util.PropertiesProvider;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+
+
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +33,11 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface CategoryAbstract extends EObject {
+	
+	static IPropertiesProvider PROPERTIES = PropertiesProvider.constructPropertiesProvider()
+			.addProperty(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70)
+			;
+	
 	/**
 	 * Returns the value of the '<em><b>Sub Categories</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.Category}.

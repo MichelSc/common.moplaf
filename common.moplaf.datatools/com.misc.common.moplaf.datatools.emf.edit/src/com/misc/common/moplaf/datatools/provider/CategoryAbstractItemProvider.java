@@ -10,10 +10,7 @@ import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.CompoundItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.GridColumnsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.GridSheetsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.RowSetItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -310,19 +307,7 @@ public class CategoryAbstractItemProvider
 	} //method createCommand
 
 
-	/**
-	 * Implement the interface IItemGridsProvider
-	 */
-	static GridColumnsProvider CATEGORY_COLUMNS = GridColumnsProvider.constructGridColumnsProvider()
-			.addColumn(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70)
-			;
-	
-	static GridSheetsProvider CATEGORY_SHEETS = GridSheetsProvider.constructGridSheetsProvider()
-			.addSheet(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
-					  DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_LABEL, 
-					  CATEGORY_COLUMNS, 
-					  IItemGridsProvider.SHEET_TRAITS_BARCHART)
-			;
+	 
 
 
 	/**
@@ -332,17 +317,22 @@ public class CategoryAbstractItemProvider
 	public Object getGrids(Object element) {
 		CategoryAbstract cat = (CategoryAbstract)element;
 
-		CompoundItemGridsProvider grids_provider = new CompoundItemGridsProvider();
+		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider()
+				;
 		
 		Columnizers columnizers = cat.getCategoryColumnizers(); 
 		if ( columnizers!=null ) {
 			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
-				IItemGridsProvider columnizer_grids_provider = (IItemGridsProvider)this.getRootAdapterFactory().adapt(columnizer, IItemGridsProvider.class);
-				grids_provider.add(new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()));
+//				IItemGridsProvider columnizer_grids_provider = (IItemGridsProvider)this.getRootAdapterFactory().adapt(columnizer, IItemGridsProvider.class);
+//				grids_provider.add(new RowSetItemGridsProvider(columnizer_grids_provider, columnizer, cat.getElements()));
 			}
 		}
 		
-		grids_provider.add(CATEGORY_SHEETS);
+		grids_provider.addSheet("Categories",
+				  DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
+				  DatatoolsPackage.Literals.CATEGORY_ABSTRACT__CATEGORY_LABEL, 
+				  CategoryAbstract.PROPERTIES, 
+				  IItemGridsProvider.SHEET_TRAITS_BARCHART);
 		
 		return grids_provider;
 	}
