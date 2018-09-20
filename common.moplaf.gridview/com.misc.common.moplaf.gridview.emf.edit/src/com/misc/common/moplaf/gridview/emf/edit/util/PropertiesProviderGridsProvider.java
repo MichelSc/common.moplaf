@@ -217,7 +217,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	};
 
 	/*
-	 * Convenience method for adding a sheet in the grid
+	 * Convenience method for adding a sheets in the grid
 	 */
 	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider[] providers, int traits) {
 		this.sheets.add(new SheetFeature(sheet_name, references,  attribute, providers, traits));
@@ -256,9 +256,16 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	  	this.sheets.add(new SheetCollection(sheet_name, rowSet, provider, traits));
 	  	return this;
 	}
+	public PropertiesProviderGridsProvider addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider) {
+	  	this.sheets.add(new SheetCollection(sheet_name, rowSet, provider, SHEET_TRAITS_NONE));
+	  	return this;
+	}
 
 	
-	// delegated methods
+	/*
+	 * Specified by IItemGridsProvider
+	 * @see com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider#getGrids(java.lang.Object)
+	 */
 	@Override 
 	public Object getGrids(Object element) {
 		return this.sheets;
