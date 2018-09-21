@@ -338,23 +338,9 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatoolsPackage.CATEGORY_ABSTRACT: {
-				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
-				T result = caseCategoryAbstract(categoryAbstract);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.SUPER_CATEGORY: {
-				SuperCategory superCategory = (SuperCategory)theEObject;
-				T result = caseSuperCategory(superCategory);
-				if (result == null) result = caseCategoryAbstract(superCategory);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DatatoolsPackage.CATEGORY: {
 				Category category = (Category)theEObject;
 				T result = caseCategory(category);
-				if (result == null) result = caseCategoryAbstract(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -466,21 +452,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumnizer(Columnizer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCategoryAbstract(CategoryAbstract object) {
 		return null;
 	}
 
@@ -841,21 +812,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumnizerColumnOcl(ColumnizerColumnOcl object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Super Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Super Category</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSuperCategory(SuperCategory object) {
 		return null;
 	}
 

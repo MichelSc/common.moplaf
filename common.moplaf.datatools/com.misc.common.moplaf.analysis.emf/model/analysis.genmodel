@@ -19,10 +19,15 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/RefreshFeedback"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Name"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Remarks"/>
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Categories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Elements"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/NbElements"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
       <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/addTool">
         <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/addTool/tool"/>
       </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/flush"/>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//DocComparison">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Extractor"/>

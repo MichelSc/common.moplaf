@@ -72,7 +72,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
 			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
-			case DatatoolsPackage.SUPER_CATEGORY: return createSuperCategory();
 			case DatatoolsPackage.CATEGORY: return createCategory();
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: return createCategorizerStructuralFeature();
 			case DatatoolsPackage.MATCHER: return createMatcher();
@@ -259,16 +258,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ColumnizerColumnAttribute createColumnizerColumnAttribute() {
 		ColumnizerColumnAttributeImpl columnizerColumnAttribute = new ColumnizerColumnAttributeImpl();
 		return columnizerColumnAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SuperCategory createSuperCategory() {
-		SuperCategoryImpl superCategory = new SuperCategoryImpl();
-		return superCategory;
 	}
 
 	/**

@@ -153,34 +153,21 @@
     <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerColumnOcl" labelFeature="#//datatools/ColumnizerColumn/ColumnName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumnOcl/Expression"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//CategoryAbstract" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SubCategories"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/Elements"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/NbElements"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/CategoryLabel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/CategoryColumnizers"/>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getSubcategory">
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getSubcategory/value"/>
-      </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/refreshCats">
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refreshCats/ins"/>
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refreshCats/categorizers"/>
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refreshCats/level"/>
-      </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/setColumnizerAll">
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/setColumnizerAll/columnizers"/>
-      </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/flush"/>
-    </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//SuperCategory" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
-      <genOperations ecoreOperation="datatools.ecore#//SuperCategory/refreshCats">
-        <genParameters ecoreParameter="datatools.ecore#//SuperCategory/refreshCats/ins"/>
-        <genParameters ecoreParameter="datatools.ecore#//SuperCategory/refreshCats/categorizers"/>
-      </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/CategoryAbstract/CategoryLabel">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Category/Categorizer"/>
+    <genClasses ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/Category/CategoryLabel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Category/Elements"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/NbElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryLabel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Category/Columnizers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Category/SubCategories"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//Category/SuperCategory"/>
+      <genOperations ecoreOperation="datatools.ecore#//Category/getSubcategory">
+        <genParameters ecoreParameter="datatools.ecore#//Category/getSubcategory/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="datatools.ecore#//Category/setColumnizerAll">
+        <genParameters ecoreParameter="datatools.ecore#//Category/setColumnizerAll/columnizers"/>
+      </genOperations>
+      <genOperations ecoreOperation="datatools.ecore#//Category/flush"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Categorizer" labelFeature="#//datatools/DataToolAbstract/Description">
       <genOperations ecoreOperation="datatools.ecore#//Categorizer/constructCategory"/>

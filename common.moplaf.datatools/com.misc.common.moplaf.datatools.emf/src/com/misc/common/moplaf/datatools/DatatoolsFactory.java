@@ -148,15 +148,6 @@ public interface DatatoolsFactory extends EFactory {
 	ColumnizerColumnAttribute createColumnizerColumnAttribute();
 
 	/**
-	 * Returns a new object of class '<em>Super Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Super Category</em>'.
-	 * @generated
-	 */
-	SuperCategory createSuperCategory();
-
-	/**
 	 * Returns a new object of class '<em>Navigation Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

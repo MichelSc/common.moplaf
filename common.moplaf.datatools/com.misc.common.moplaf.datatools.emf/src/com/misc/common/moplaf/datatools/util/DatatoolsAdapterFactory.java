@@ -192,14 +192,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createColumnizerColumnOclAdapter();
 			}
 			@Override
-			public Adapter caseCategoryAbstract(CategoryAbstract object) {
-				return createCategoryAbstractAdapter();
-			}
-			@Override
-			public Adapter caseSuperCategory(SuperCategory object) {
-				return createSuperCategoryAdapter();
-			}
-			@Override
 			public Adapter caseCategory(Category object) {
 				return createCategoryAdapter();
 			}
@@ -300,20 +292,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnizerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryAbstract <em>Category Abstract</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract
-	 * @generated
-	 */
-	public Adapter createCategoryAbstractAdapter() {
 		return null;
 	}
 
@@ -650,20 +628,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createColumnizerColumnOclAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.SuperCategory <em>Super Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.SuperCategory
-	 * @generated
-	 */
-	public Adapter createSuperCategoryAdapter() {
 		return null;
 	}
 

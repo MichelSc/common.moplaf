@@ -395,29 +395,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.SuperCategory} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SuperCategoryItemProvider superCategoryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.SuperCategory}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSuperCategoryAdapter() {
-		if (superCategoryItemProvider == null) {
-			superCategoryItemProvider = new SuperCategoryItemProvider(this);
-		}
-
-		return superCategoryItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.NavigationReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -669,7 +646,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
 		if (columnizerItemProvider != null) columnizerItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
-		if (superCategoryItemProvider != null) superCategoryItemProvider.dispose();
 		if (categoryItemProvider != null) categoryItemProvider.dispose();
 		if (categorizerStructuralFeatureItemProvider != null) categorizerStructuralFeatureItemProvider.dispose();
 		if (matcherItemProvider != null) matcherItemProvider.dispose();

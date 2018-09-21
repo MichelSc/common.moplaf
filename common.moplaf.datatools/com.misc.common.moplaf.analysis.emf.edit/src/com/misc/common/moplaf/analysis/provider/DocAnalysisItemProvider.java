@@ -10,10 +10,9 @@ import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-import com.misc.common.moplaf.datatools.provider.SuperCategoryItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.provider.DocRefItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -39,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
+public class DocAnalysisItemProvider extends DocRefItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -61,7 +60,6 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDocPropertyDescriptor(object);
 			addExtractorPropertyDescriptor(object);
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
@@ -70,30 +68,11 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			addRefreshFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addRemarksPropertyDescriptor(object);
+			addCategoriesPropertyDescriptor(object);
+			addElementsPropertyDescriptor(object);
+			addNbElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Doc feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDocPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocRef_Doc_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocRef_Doc_feature", "_UI_DocRef_type"),
-				 JobPackage.Literals.DOC_REF__DOC,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -273,6 +252,72 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Categories feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCategoriesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Categories_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Categories_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_Elements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Elements_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nb Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNbElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocAnalysis_NbElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_NbElements_feature", "_UI_DocAnalysis_type"),
+				 AnalysisPackage.Literals.DOC_ANALYSIS__NB_ELEMENTS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -284,10 +329,10 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
 			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS);
+			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIES);
 		}
 		return childrenFeatures;
 	}
@@ -348,12 +393,13 @@ public class DocAnalysisItemProvider extends SuperCategoryItemProvider {
 			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
 			case AnalysisPackage.DOC_ANALYSIS__NAME:
 			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
+			case AnalysisPackage.DOC_ANALYSIS__NB_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AnalysisPackage.DOC_ANALYSIS__DOC:
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+			case AnalysisPackage.DOC_ANALYSIS__CATEGORIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
