@@ -285,10 +285,7 @@ public class CategoryItemProvider extends ItemProviderAdapter implements IEditin
 		return DatatoolsEditPlugin.INSTANCE;
 	}
 
-	 
-
-
-	/**
+	 /**
 	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
 	 */
 	@Override

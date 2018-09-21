@@ -6,6 +6,9 @@ package com.misc.common.moplaf.analysis.provider;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.datatools.Category;
+import com.misc.common.moplaf.datatools.ColumnizerAbstract;
+import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
@@ -13,6 +16,8 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
 import com.misc.common.moplaf.job.provider.DocRefItemProvider;
 import java.util.Collection;
 import java.util.List;
@@ -36,10 +41,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.DocAnalysis} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocAnalysisItemProvider extends DocRefItemProvider {
+public class DocAnalysisItemProvider extends DocRefItemProvider implements IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -639,6 +645,36 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 			int operation, Collection<?> collection) {
 		return new DataToolsDropCommand(domain, owner, location, operations, operation, collection);
 	}
+	
+	 /**
+	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
+	 */
+	@Override
+	public Object getGrids(Object element) {
+		DocAnalysis analysis = (DocAnalysis)element;
+
+		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider()
+				;
+		
+		Columnizers columnizers = analysis; 
+		if ( columnizers!=null ) {
+			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
+				grids_provider.addSheet(columnizer.getSheetLabel(),
+						           analysis.getElements(),
+						           columnizer.getPropertiesProvider(),
+								   SHEET_TRAITS_NONE);
+			}
+		}
+		
+		grids_provider.addSheet("Categories",
+				  AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIES, 
+				  DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
+				  Category.PROPERTIES, 
+				  IItemGridsProvider.SHEET_TRAITS_BARCHART);
+		
+		return grids_provider;
+	}
+
 
 
 }
