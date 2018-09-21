@@ -3904,22 +3904,13 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERS = 1;
 
 	/**
-	 * The operation id for the '<em>Flush</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY___FLUSH = 2;
-
-	/**
 	 * The number of operations of the '<em>Category</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_OPERATION_COUNT = 3;
+	int CATEGORY_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -4631,16 +4622,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCategory__SetColumnizerAll__Columnizers();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Category#flush() <em>Flush</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Flush</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Category#flush()
-	 * @generated
-	 */
-	EOperation getCategory__Flush();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Extractor <em>Extractor</em>}'.
@@ -5836,14 +5817,6 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERS = eINSTANCE.getCategory__SetColumnizerAll__Columnizers();
-
-		/**
-		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CATEGORY___FLUSH = eINSTANCE.getCategory__Flush();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl <em>Extractor</em>}' class.

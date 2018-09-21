@@ -558,15 +558,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCategory__Flush() {
-		return categoryEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getExtractor() {
 		return extractorEClass;
 	}
@@ -1615,7 +1606,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(categoryEClass, CATEGORY__SUPER_CATEGORY);
 		createEOperation(categoryEClass, CATEGORY___GET_SUBCATEGORY__EOBJECT);
 		createEOperation(categoryEClass, CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERS);
-		createEOperation(categoryEClass, CATEGORY___FLUSH);
 
 		categorizerEClass = createEClass(CATEGORIZER);
 		createEOperation(categorizerEClass, CATEGORIZER___CONSTRUCT_CATEGORY);
@@ -1867,8 +1857,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		op = initEOperation(getCategory__SetColumnizerAll__Columnizers(), null, "setColumnizerAll", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getColumnizers(), "columnizers", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getCategory__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(categorizerEClass, Categorizer.class, "Categorizer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

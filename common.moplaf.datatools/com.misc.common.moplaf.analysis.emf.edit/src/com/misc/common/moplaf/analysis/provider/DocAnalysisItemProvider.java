@@ -11,6 +11,7 @@ import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
+import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.job.provider.DocRefItemProvider;
 import java.util.Collection;
@@ -491,6 +492,34 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 	public ResourceLocator getResourceLocator() {
 		return AnalysisEditPlugin.INSTANCE;
 	}
+	
+	/**
+	 * Class CategoryFlushCommand
+	 * @author MiSc
+	 *
+	 */
+	public class DocAnalysisFlushCommand extends FlushCommand{
+		private DocAnalysis analysis;
+		
+		public DocAnalysisFlushCommand(DocAnalysis analysis)	{
+			super();
+			this.analysis = analysis;
+			
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+			}
+
+		@Override
+		public void execute() {
+			this.analysis.flush();
+		}
+	} // class CategoryFlushCommand
+
+
 
 	public class DocAnalysisRefreshCommand extends RefreshCommand{
 		private DocAnalysis analysis;
@@ -519,7 +548,9 @@ public class DocAnalysisItemProvider extends DocRefItemProvider {
 			CommandParameter commandParameter) {
 		if  ( commandClass == RefreshCommand.class){
 			return new DocAnalysisRefreshCommand((DocAnalysis) object); 
-		}
+		} else if ( commandClass == FlushCommand.class){
+			return new DocAnalysisFlushCommand((DocAnalysis) object); 
+		} 
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand

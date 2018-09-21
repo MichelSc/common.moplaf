@@ -1918,10 +1918,6 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_Sy4VEYs8Eei3Z61togvC7A" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Sy4VEos8Eei3Z61togvC7A"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_jW-toKFCEeisPd9jM1SFJA" type="3010" element="_jW2x0KFCEeisPd9jM1SFJA">
-              <styles xmi:type="notation:FontStyle" xmi:id="_jW-toaFCEeisPd9jM1SFJA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_jW-toqFCEeisPd9jM1SFJA"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_wAJQdnuZEeidFuGEkYQFRA" type="3010" element="_v_5_4nuZEeidFuGEkYQFRA">
               <styles xmi:type="notation:FontStyle" xmi:id="_wAJQd3uZEeidFuGEkYQFRA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_wAJQeHuZEeidFuGEkYQFRA"/>
@@ -2152,14 +2148,6 @@
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Category/setColumnizerAll"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//Category/setColumnizerAll/columnizers"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_SyVigIs8Eei3Z61togvC7A" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_jW2x0KFCEeisPd9jM1SFJA" name="flush()" tooltipText="flush()">
-        <target xmi:type="ecore:EOperation" href="datatools.ecore#//Category/flush"/>
-        <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//Category/flush"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_jW3Y4KFCEeisPd9jM1SFJA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

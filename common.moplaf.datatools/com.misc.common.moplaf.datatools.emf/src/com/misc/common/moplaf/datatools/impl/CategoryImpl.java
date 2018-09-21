@@ -316,15 +316,6 @@ public class CategoryImpl extends MinimalEObjectImpl.Container implements Catego
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void flush() {
-		this.getElements().clear();
-		this.getSubCategories().clear();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -500,9 +491,6 @@ public class CategoryImpl extends MinimalEObjectImpl.Container implements Catego
 				return getSubcategory((EObject)arguments.get(0));
 			case DatatoolsPackage.CATEGORY___SET_COLUMNIZER_ALL__COLUMNIZERS:
 				setColumnizerAll((Columnizers)arguments.get(0));
-				return null;
-			case DatatoolsPackage.CATEGORY___FLUSH:
-				flush();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

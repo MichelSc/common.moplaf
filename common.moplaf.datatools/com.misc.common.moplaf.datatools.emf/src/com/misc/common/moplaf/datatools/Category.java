@@ -205,12 +205,4 @@ public interface Category extends EObject {
 	 */
 	void setColumnizerAll(Columnizers columnizers);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void flush();
-
 } // Category

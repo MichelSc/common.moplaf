@@ -167,7 +167,6 @@
       <genOperations ecoreOperation="datatools.ecore#//Category/setColumnizerAll">
         <genParameters ecoreParameter="datatools.ecore#//Category/setColumnizerAll/columnizers"/>
       </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//Category/flush"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Categorizer" labelFeature="#//datatools/DataToolAbstract/Description">
       <genOperations ecoreOperation="datatools.ecore#//Categorizer/constructCategory"/>

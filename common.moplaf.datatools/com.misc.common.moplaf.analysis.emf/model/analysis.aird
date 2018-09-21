@@ -245,10 +245,6 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_GJVRMbztEeip9PZFOYFgRA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_GJVRMrztEeip9PZFOYFgRA"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_GJV4QLztEeip9PZFOYFgRA" type="3010" element="_GIgKwbztEeip9PZFOYFgRA">
-              <styles xmi:type="notation:FontStyle" xmi:id="_GJV4QbztEeip9PZFOYFgRA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_GJV4QrztEeip9PZFOYFgRA"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_GJWfU7ztEeip9PZFOYFgRA" type="3010" element="_GIhY4LztEeip9PZFOYFgRA">
               <styles xmi:type="notation:FontStyle" xmi:id="_GJWfVLztEeip9PZFOYFgRA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_GJWfVbztEeip9PZFOYFgRA"/>
@@ -846,14 +842,6 @@
         <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Category/setColumnizerAll"/>
         <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Category/setColumnizerAll/columnizers"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_GIgKwLztEeip9PZFOYFgRA" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_GIgKwbztEeip9PZFOYFgRA" name="flush()" tooltipText="flush()">
-        <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Category/flush"/>
-        <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Category/flush"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_GIgKwrztEeip9PZFOYFgRA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
