@@ -169,25 +169,10 @@
       eSuperTypes="#//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Category">
-    <eOperations name="getSubcategory" eType="#//Category">
-      <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="setColumnizerAll">
-      <eParameters name="columnizers" eType="#//Columnizers"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryLabel" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizers" eType="#//Columnizers"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
-        eType="#//Category" containment="true" eOpposite="#//Category/SuperCategory"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperCategory" eType="#//Category"
-        eOpposite="#//Category/SubCategories"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Categorizer" abstract="true" eSuperTypes="#//DataTool">
     <eOperations name="constructCategory" eType="#//Category"/>
@@ -229,4 +214,17 @@
         eType="#//ColumnizerAbstract" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IPropertiesProvider" instanceClassName="com.misc.common.moplaf.common.IPropertiesProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract">
+    <eOperations name="getSubcategory" eType="#//Category">
+      <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
+        eType="#//Category" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnizerSet" eType="#//Columnizers"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -4,14 +4,13 @@ package com.misc.common.moplaf.analysis;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.datatools.Categorizer;
-import com.misc.common.moplaf.datatools.Category;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.job.DocRef;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,16 +31,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getRemarks <em>Remarks</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategories <em>Categories</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getElements <em>Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getNbElements <em>Nb Elements</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis()
  * @model
  * @generated
  */
-public interface DocAnalysis extends DocRef, DataToolContext, Columnizers {
+public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, Columnizers {
 	/**
 	 * Returns the value of the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -262,53 +258,6 @@ public interface DocAnalysis extends DocRef, DataToolContext, Columnizers {
 	 * @generated
 	 */
 	void setRemarks(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Categories</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.datatools.Category}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Categories</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Categories</em>' containment reference list.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Categories()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Category> getCategories();
-
-	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elements</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' reference list.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Elements()
-	 * @model
-	 * @generated
-	 */
-	EList<EObject> getElements();
-
-	/**
-	 * Returns the value of the '<em><b>Nb Elements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nb Elements</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nb Elements</em>' attribute.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_NbElements()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	int getNbElements();
 
 	/**
 	 * <!-- begin-user-doc -->

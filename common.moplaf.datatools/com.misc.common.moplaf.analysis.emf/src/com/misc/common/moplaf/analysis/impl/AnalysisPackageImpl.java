@@ -227,33 +227,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocAnalysis_Categories() {
-		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocAnalysis_Elements() {
-		return (EReference)docAnalysisEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDocAnalysis_NbElements() {
-		return (EAttribute)docAnalysisEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getDocAnalysis__Refresh() {
 		return docAnalysisEClass.getEOperations().get(0);
 	}
@@ -468,9 +441,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__REFRESH_FEEDBACK);
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__NAME);
 		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__REMARKS);
-		createEReference(docAnalysisEClass, DOC_ANALYSIS__CATEGORIES);
-		createEReference(docAnalysisEClass, DOC_ANALYSIS__ELEMENTS);
-		createEAttribute(docAnalysisEClass, DOC_ANALYSIS__NB_ELEMENTS);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___REFRESH);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___ADD_TOOL__DATATOOL);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___FLUSH);
@@ -520,14 +490,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
 		DatatoolsPackage theDatatoolsPackage = (DatatoolsPackage)EPackage.Registry.INSTANCE.getEPackage(DatatoolsPackage.eNS_URI);
+		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getCategoryAbstract());
 		docAnalysisEClass.getESuperTypes().add(theJobPackage.getDocRef());
 		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getDataToolContext());
 		docAnalysisEClass.getESuperTypes().add(theDatatoolsPackage.getColumnizers());
@@ -547,9 +518,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getDocAnalysis_RefreshFeedback(), theJobPackage.getEnabledFeedback(), "RefreshFeedback", null, 0, 1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocAnalysis_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocAnalysis_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocAnalysis_Categories(), theDatatoolsPackage.getCategory(), null, "Categories", null, 0, -1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocAnalysis_Elements(), ecorePackage.getEObject(), null, "Elements", null, 0, -1, DocAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDocAnalysis_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, DocAnalysis.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDocAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 

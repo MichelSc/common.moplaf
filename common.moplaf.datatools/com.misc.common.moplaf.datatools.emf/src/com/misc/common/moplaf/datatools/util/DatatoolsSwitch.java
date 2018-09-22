@@ -341,6 +341,7 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.CATEGORY: {
 				Category category = (Category)theEObject;
 				T result = caseCategory(category);
+				if (result == null) result = caseCategoryAbstract(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -388,6 +389,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 			case DatatoolsPackage.COLUMNIZERS: {
 				Columnizers columnizers = (Columnizers)theEObject;
 				T result = caseColumnizers(columnizers);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORY_ABSTRACT: {
+				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
+				T result = caseCategoryAbstract(categoryAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -932,6 +939,21 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumnizers(Columnizers object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryAbstract(CategoryAbstract object) {
 		return null;
 	}
 

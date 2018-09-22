@@ -9,17 +9,18 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.IMoplafObject;
 import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.datatools.Categorizer;
-import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.Extractor;
+import com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl;
 import com.misc.common.moplaf.datatools.util.ObjectSet;
 import com.misc.common.moplaf.datatools.util.Util;
 import com.misc.common.moplaf.job.Doc;
-import com.misc.common.moplaf.job.impl.DocRefImpl;
+import com.misc.common.moplaf.job.DocRef;
+import com.misc.common.moplaf.job.JobPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -29,12 +30,10 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -47,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDoc <em>Doc</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getColumnizers <em>Columnizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getExtractor <em>Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#isComplete <em>Complete</em>}</li>
@@ -58,14 +58,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getRemarks <em>Remarks</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getCategories <em>Categories</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getElements <em>Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getNbElements <em>Nb Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafObject {
+public class DocAnalysisImpl extends CategoryAbstractImpl implements DocAnalysis, IMoplafObject {
+	/**
+	 * The cached value of the '{@link #getDoc() <em>Doc</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDoc()
+	 * @generated
+	 * @ordered
+	 */
+	protected Doc doc;
+
 	/**
 	 * The cached value of the '{@link #getColumnizers() <em>Columnizers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -197,36 +204,6 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	protected String remarks = REMARKS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategories()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Category> categories;
-
-	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<EObject> elements;
-
-	/**
-	 * The default value of the '{@link #getNbElements() <em>Nb Elements</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNbElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int NB_ELEMENTS_EDEFAULT = 0;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -250,11 +227,79 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Doc getDoc() {
+		if (doc != null && doc.eIsProxy()) {
+			InternalEObject oldDoc = (InternalEObject)doc;
+			doc = (Doc)eResolveProxy(oldDoc);
+			if (doc != oldDoc) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysisPackage.DOC_ANALYSIS__DOC, oldDoc, doc));
+			}
+		}
+		return doc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Doc basicGetDoc() {
+		return doc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDoc(Doc newDoc, NotificationChain msgs) {
+		Doc oldDoc = doc;
+		doc = newDoc;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__DOC, oldDoc, newDoc);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDoc(Doc newDoc) {
+		if (newDoc != doc) {
+			NotificationChain msgs = null;
+			if (doc != null)
+				msgs = ((InternalEObject)doc).eInverseRemove(this, JobPackage.DOC__REFS, Doc.class, msgs);
+			if (newDoc != null)
+				msgs = ((InternalEObject)newDoc).eInverseAdd(this, JobPackage.DOC__REFS, Doc.class, msgs);
+			msgs = basicSetDoc(newDoc, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.DOC_ANALYSIS__DOC, newDoc, newDoc));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ColumnizerAbstract> getColumnizers() {
 		if (columnizers == null) {
 			columnizers = new EObjectContainmentEList<ColumnizerAbstract>(ColumnizerAbstract.class, this, AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS);
 		}
 		return columnizers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Columnizers basicGetColumnizerSet() {
+		return this;
 	}
 
 	/**
@@ -504,30 +549,6 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Category> getCategories() {
-		if (categories == null) {
-			categories = new EObjectContainmentEList<Category>(Category.class, this, AnalysisPackage.DOC_ANALYSIS__CATEGORIES);
-		}
-		return categories;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<EObject> getElements() {
-		if (elements == null) {
-			elements = new EObjectResolvingEList<EObject>(EObject.class, this, AnalysisPackage.DOC_ANALYSIS__ELEMENTS);
-		}
-		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public int getNbElements() {
 		return this.getElements().size();
@@ -549,12 +570,8 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 		this.setComplete(outs.isComplete());
 		
 		// refresh the set of elements and the categories
-		Util.refreshCategories(outs,  this.getCategorizers(), 0, this.getElements(), this.getCategories());
+		Util.refreshCategories(outs,  this.getCategorizers(), 0, this.getElements(), this.getSubCategories());
 		
-		// set the Categories Columnizers
-		for ( Category category : this.getCategories()) {
-			category.setColumnizerAll(this);
-		}
 	}
 
 	/**
@@ -579,7 +596,7 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	 */
 	public void flush() {
 		this.getElements().clear();
-		this.getCategories().clear();
+		this.getSubCategories().clear();
 	}
 
 	/**
@@ -601,6 +618,16 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 		return classes;
 	}
 
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Columnizers basicGetColumnizers() {
+		return this;
+	}
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -609,6 +636,10 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
+				if (doc != null)
+					msgs = ((InternalEObject)doc).eInverseRemove(this, JobPackage.DOC__REFS, Doc.class, msgs);
+				return basicSetDoc((Doc)otherEnd, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -625,6 +656,8 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
+				return basicSetDoc(null, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 				return ((InternalEList<?>)getColumnizers()).basicRemove(otherEnd, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
@@ -633,8 +666,6 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 				return ((InternalEList<?>)getCategorizers()).basicRemove(otherEnd, msgs);
 			case AnalysisPackage.DOC_ANALYSIS__DOMAIN:
 				return basicSetDomain(null, msgs);
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIES:
-				return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -661,6 +692,9 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
+				if (resolve) return getDoc();
+				return basicGetDoc();
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 				return getColumnizers();
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
@@ -683,12 +717,6 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 				return getName();
 			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
 				return getRemarks();
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIES:
-				return getCategories();
-			case AnalysisPackage.DOC_ANALYSIS__ELEMENTS:
-				return getElements();
-			case AnalysisPackage.DOC_ANALYSIS__NB_ELEMENTS:
-				return getNbElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -702,6 +730,9 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
+				setDoc((Doc)newValue);
+				return;
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 				getColumnizers().clear();
 				getColumnizers().addAll((Collection<? extends ColumnizerAbstract>)newValue);
@@ -728,14 +759,6 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
 				setRemarks((String)newValue);
 				return;
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIES:
-				getCategories().clear();
-				getCategories().addAll((Collection<? extends Category>)newValue);
-				return;
-			case AnalysisPackage.DOC_ANALYSIS__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends EObject>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -748,6 +771,9 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
+				setDoc((Doc)null);
+				return;
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 				getColumnizers().clear();
 				return;
@@ -772,12 +798,6 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
 				setRemarks(REMARKS_EDEFAULT);
 				return;
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIES:
-				getCategories().clear();
-				return;
-			case AnalysisPackage.DOC_ANALYSIS__ELEMENTS:
-				getElements().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -790,6 +810,8 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
+				return doc != null;
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 				return columnizers != null && !columnizers.isEmpty();
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
@@ -812,12 +834,6 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
 				return REMARKS_EDEFAULT == null ? remarks != null : !REMARKS_EDEFAULT.equals(remarks);
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIES:
-				return categories != null && !categories.isEmpty();
-			case AnalysisPackage.DOC_ANALYSIS__ELEMENTS:
-				return elements != null && !elements.isEmpty();
-			case AnalysisPackage.DOC_ANALYSIS__NB_ELEMENTS:
-				return getNbElements() != NB_ELEMENTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -829,6 +845,12 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DocRef.class) {
+			switch (derivedFeatureID) {
+				case AnalysisPackage.DOC_ANALYSIS__DOC: return JobPackage.DOC_REF__DOC;
+				default: return -1;
+			}
+		}
 		if (baseClass == DataToolContext.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
@@ -850,6 +872,12 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DocRef.class) {
+			switch (baseFeatureID) {
+				case JobPackage.DOC_REF__DOC: return AnalysisPackage.DOC_ANALYSIS__DOC;
+				default: return -1;
+			}
+		}
 		if (baseClass == DataToolContext.class) {
 			switch (baseFeatureID) {
 				default: return -1;
@@ -871,6 +899,11 @@ public class DocAnalysisImpl extends DocRefImpl implements DocAnalysis, IMoplafO
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == DocRef.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == DataToolContext.class) {
 			switch (baseOperationID) {
 				case DatatoolsPackage.DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES: return AnalysisPackage.DOC_ANALYSIS___GET_DOMAIN_TYPES;

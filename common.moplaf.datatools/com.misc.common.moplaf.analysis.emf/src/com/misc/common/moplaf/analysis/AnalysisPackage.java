@@ -70,121 +70,13 @@ public interface AnalysisPackage extends EPackage {
 	int DOC_ANALYSIS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Doc</b></em>' reference.
+	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__DOC = JobPackage.DOC_REF__DOC;
-
-	/**
-	 * The feature id for the '<em><b>Columnizers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__COLUMNIZERS = JobPackage.DOC_REF_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Extractor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__EXTRACTOR = JobPackage.DOC_REF_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Complete</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__COMPLETE = JobPackage.DOC_REF_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Max Elements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__MAX_ELEMENTS = JobPackage.DOC_REF_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Categorizers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__CATEGORIZERS = JobPackage.DOC_REF_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__DESCRIPTION = JobPackage.DOC_REF_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Data Tools</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__DATA_TOOLS = JobPackage.DOC_REF_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Domain</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__DOMAIN = JobPackage.DOC_REF_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__REFRESH_FEEDBACK = JobPackage.DOC_REF_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__NAME = JobPackage.DOC_REF_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__REMARKS = JobPackage.DOC_REF_FEATURE_COUNT + 10;
-
-	/**
-	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOC_ANALYSIS__CATEGORIES = JobPackage.DOC_REF_FEATURE_COUNT + 11;
+	int DOC_ANALYSIS__NB_ELEMENTS = DatatoolsPackage.CATEGORY_ABSTRACT__NB_ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -193,16 +85,133 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__ELEMENTS = JobPackage.DOC_REF_FEATURE_COUNT + 12;
+	int DOC_ANALYSIS__ELEMENTS = DatatoolsPackage.CATEGORY_ABSTRACT__ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
+	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS__NB_ELEMENTS = JobPackage.DOC_REF_FEATURE_COUNT + 13;
+	int DOC_ANALYSIS__SUB_CATEGORIES = DatatoolsPackage.CATEGORY_ABSTRACT__SUB_CATEGORIES;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__COLUMNIZER_SET = DatatoolsPackage.CATEGORY_ABSTRACT__COLUMNIZER_SET;
+
+	/**
+	 * The feature id for the '<em><b>Doc</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__DOC = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Columnizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__COLUMNIZERS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Extractor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__EXTRACTOR = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Complete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__COMPLETE = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Max Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__MAX_ELEMENTS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Categorizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__CATEGORIZERS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__DESCRIPTION = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Data Tools</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__DATA_TOOLS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Domain</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__DOMAIN = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Refresh Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__REFRESH_FEEDBACK = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__NAME = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS__REMARKS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Doc Analysis</em>' class.
@@ -211,7 +220,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_FEATURE_COUNT = JobPackage.DOC_REF_FEATURE_COUNT + 14;
+	int DOC_ANALYSIS_FEATURE_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Get Subcategory</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT_1 = DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Domain Types</em>' operation.
@@ -220,7 +238,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___GET_DOMAIN_TYPES = JobPackage.DOC_REF_OPERATION_COUNT + 0;
+	int DOC_ANALYSIS___GET_DOMAIN_TYPES = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -229,7 +247,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___REFRESH = JobPackage.DOC_REF_OPERATION_COUNT + 1;
+	int DOC_ANALYSIS___REFRESH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Tool</em>' operation.
@@ -238,7 +256,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___ADD_TOOL__DATATOOL = JobPackage.DOC_REF_OPERATION_COUNT + 2;
+	int DOC_ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -247,7 +265,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___FLUSH = JobPackage.DOC_REF_OPERATION_COUNT + 3;
+	int DOC_ANALYSIS___FLUSH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Doc Analysis</em>' class.
@@ -256,7 +274,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 4;
+	int DOC_ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 4;
 
 
 	/**
@@ -647,39 +665,6 @@ public interface AnalysisPackage extends EPackage {
 	EAttribute getDocAnalysis_Remarks();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategories <em>Categories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Categories</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getCategories()
-	 * @see #getDocAnalysis()
-	 * @generated
-	 */
-	EReference getDocAnalysis_Categories();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.analysis.DocAnalysis#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Elements</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getElements()
-	 * @see #getDocAnalysis()
-	 * @generated
-	 */
-	EReference getDocAnalysis_Elements();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#getNbElements <em>Nb Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nb Elements</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getNbElements()
-	 * @see #getDocAnalysis()
-	 * @generated
-	 */
-	EAttribute getDocAnalysis_NbElements();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1004,30 +989,6 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOC_ANALYSIS__REMARKS = eINSTANCE.getDocAnalysis_Remarks();
-
-		/**
-		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOC_ANALYSIS__CATEGORIES = eINSTANCE.getDocAnalysis_Categories();
-
-		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOC_ANALYSIS__ELEMENTS = eINSTANCE.getDocAnalysis_Elements();
-
-		/**
-		 * The meta object literal for the '<em><b>Nb Elements</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOC_ANALYSIS__NB_ELEMENTS = eINSTANCE.getDocAnalysis_NbElements();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.

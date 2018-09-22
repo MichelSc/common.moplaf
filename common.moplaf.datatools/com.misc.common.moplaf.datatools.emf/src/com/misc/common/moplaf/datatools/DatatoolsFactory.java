@@ -202,6 +202,15 @@ public interface DatatoolsFactory extends EFactory {
 	Columnizers createColumnizers();
 
 	/**
+	 * Returns a new object of class '<em>Category Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Category Abstract</em>'.
+	 * @generated
+	 */
+	CategoryAbstract createCategoryAbstract();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

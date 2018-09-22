@@ -533,6 +533,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategoryAbstract} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CategoryAbstractItemProvider categoryAbstractItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategoryAbstract}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCategoryAbstractAdapter() {
+		if (categoryAbstractItemProvider == null) {
+			categoryAbstractItemProvider = new CategoryAbstractItemProvider(this);
+		}
+
+		return categoryAbstractItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -651,6 +674,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (matcherItemProvider != null) matcherItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (columnizersItemProvider != null) columnizersItemProvider.dispose();
+		if (categoryAbstractItemProvider != null) categoryAbstractItemProvider.dispose();
 	}
 
 }

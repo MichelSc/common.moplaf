@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.analysis.util;
 
 import com.misc.common.moplaf.analysis.*;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.job.DocRef;
@@ -75,6 +76,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 			case AnalysisPackage.DOC_ANALYSIS: {
 				DocAnalysis docAnalysis = (DocAnalysis)theEObject;
 				T result = caseDocAnalysis(docAnalysis);
+				if (result == null) result = caseCategoryAbstract(docAnalysis);
 				if (result == null) result = caseDocRef(docAnalysis);
 				if (result == null) result = caseDataToolContext(docAnalysis);
 				if (result == null) result = caseColumnizers(docAnalysis);
@@ -165,6 +167,21 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataTools(DataTools object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryAbstract(CategoryAbstract object) {
 		return null;
 	}
 

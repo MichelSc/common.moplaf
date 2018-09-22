@@ -77,6 +77,7 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.MATCHER: return createMatcher();
 			case DatatoolsPackage.MATCH: return createMatch();
 			case DatatoolsPackage.COLUMNIZERS: return createColumnizers();
+			case DatatoolsPackage.CATEGORY_ABSTRACT: return createCategoryAbstract();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -318,6 +319,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public Columnizers createColumnizers() {
 		ColumnizersImpl columnizers = new ColumnizersImpl();
 		return columnizers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CategoryAbstract createCategoryAbstract() {
+		CategoryAbstractImpl categoryAbstract = new CategoryAbstractImpl();
+		return categoryAbstract;
 	}
 
 	/**

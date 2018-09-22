@@ -6,19 +6,15 @@ package com.misc.common.moplaf.analysis.provider;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.DocAnalysis;
-import com.misc.common.moplaf.datatools.Category;
-import com.misc.common.moplaf.datatools.ColumnizerAbstract;
-import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.provider.CategoryAbstractItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
-import com.misc.common.moplaf.job.provider.DocRefItemProvider;
+import com.misc.common.moplaf.job.JobPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -41,11 +37,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.DocAnalysis} object.
  * <!-- begin-user-doc -->
- * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocAnalysisItemProvider extends DocRefItemProvider implements IItemGridsProvider {
+public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,6 +62,7 @@ public class DocAnalysisItemProvider extends DocRefItemProvider implements IItem
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDocPropertyDescriptor(object);
 			addExtractorPropertyDescriptor(object);
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
@@ -75,11 +71,30 @@ public class DocAnalysisItemProvider extends DocRefItemProvider implements IItem
 			addRefreshFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addRemarksPropertyDescriptor(object);
-			addCategoriesPropertyDescriptor(object);
-			addElementsPropertyDescriptor(object);
-			addNbElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Doc feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DocRef_Doc_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DocRef_Doc_feature", "_UI_DocRef_type"),
+				 JobPackage.Literals.DOC_REF__DOC,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -259,72 +274,6 @@ public class DocAnalysisItemProvider extends DocRefItemProvider implements IItem
 	}
 
 	/**
-	 * This adds a property descriptor for the Categories feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCategoriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Categories_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Categories_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Elements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Elements_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__ELEMENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Nb Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNbElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_NbElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_NbElements_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__NB_ELEMENTS,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -336,10 +285,10 @@ public class DocAnalysisItemProvider extends DocRefItemProvider implements IItem
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
 			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR);
 			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS);
-			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIES);
 		}
 		return childrenFeatures;
 	}
@@ -400,13 +349,12 @@ public class DocAnalysisItemProvider extends DocRefItemProvider implements IItem
 			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
 			case AnalysisPackage.DOC_ANALYSIS__NAME:
 			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
-			case AnalysisPackage.DOC_ANALYSIS__NB_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AnalysisPackage.DOC_ANALYSIS__DOC:
 			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
 			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
 			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -646,35 +594,4 @@ public class DocAnalysisItemProvider extends DocRefItemProvider implements IItem
 		return new DataToolsDropCommand(domain, owner, location, operations, operation, collection);
 	}
 	
-	 /**
-	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
-	 */
-	@Override
-	public Object getGrids(Object element) {
-		DocAnalysis analysis = (DocAnalysis)element;
-
-		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider()
-				;
-		
-		Columnizers columnizers = analysis; 
-		if ( columnizers!=null ) {
-			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
-				grids_provider.addSheet(columnizer.getSheetLabel(),
-						           analysis.getElements(),
-						           columnizer.getPropertiesProvider(),
-								   SHEET_TRAITS_NONE);
-			}
-		}
-		
-		grids_provider.addSheet("Categories",
-				  AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIES, 
-				  DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
-				  Category.PROPERTIES, 
-				  IItemGridsProvider.SHEET_TRAITS_BARCHART);
-		
-		return grids_provider;
-	}
-
-
-
 }
