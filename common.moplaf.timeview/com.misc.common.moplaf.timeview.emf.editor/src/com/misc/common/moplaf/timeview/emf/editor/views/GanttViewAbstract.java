@@ -46,14 +46,6 @@ public abstract class GanttViewAbstract extends ViewAbstract {
 		this.contributeToActionBars();
 		this.hookContextMenu();
 	} // createControl method
-
-	/*
-	@Override	
-	protected void fillContextMenu(IMenuManager manager) {
-		super.fillContextMenu(manager);
-		manager.add(new TestAction( this.getSite().getPart(), this.viewer.getSelection()));
-	}	
-	*/
 	
 	@Override
 	protected void setViewer(ViewerAbstract viewer) {
