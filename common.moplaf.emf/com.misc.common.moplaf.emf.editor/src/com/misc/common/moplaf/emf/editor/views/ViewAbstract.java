@@ -31,6 +31,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import com.misc.common.moplaf.emf.editor.Util;
 import com.misc.common.moplaf.emf.editor.action.PinViewAction;
+import com.misc.common.moplaf.emf.editor.menus.ActionContributionMenu;
 import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
 
 public abstract class ViewAbstract extends ViewPart implements IPropertyChangeListener {
@@ -88,6 +89,7 @@ public abstract class ViewAbstract extends ViewPart implements IPropertyChangeLi
 		manager.add(pinAction);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		ActionContributionMenu.fillDefaultMenu(manager, this.getSite().getPart(), this.getViewer().getSelection());
 	}
 	
 	protected void contributeToActionBars() {
