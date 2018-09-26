@@ -1358,6 +1358,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object() {
+		return categoryAbstractEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDataToolType() {
 		return dataToolTypeEEnum;
 	}
@@ -1628,6 +1637,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__SUB_CATEGORIES);
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__COLUMNIZER_SET);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT);
+		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT);
 
 		// Create enums
 		dataToolTypeEEnum = createEEnum(DATA_TOOL_TYPE);
@@ -1888,6 +1898,10 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		op = initEOperation(getCategoryAbstract__GetSubcategory__EObject(), this.getCategory(), "getSubcategory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object(), ecorePackage.getEJavaObject(), "getPropertyAggregation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIPropertiesProvider(), "provider", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataToolTypeEEnum, DataToolType.class, "DataToolType");

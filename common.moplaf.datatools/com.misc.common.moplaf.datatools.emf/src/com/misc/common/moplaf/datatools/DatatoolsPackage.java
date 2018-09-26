@@ -3878,13 +3878,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = 1;
+
+	/**
 	 * The number of operations of the '<em>Category Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT_OPERATION_COUNT = 1;
+	int CATEGORY_ABSTRACT_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
@@ -3957,6 +3966,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY___GET_SUBCATEGORY__EOBJECT = CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.
@@ -5601,6 +5619,16 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getCategoryAbstract__GetSubcategory__EObject();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object) <em>Get Property Aggregation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Property Aggregation</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6635,6 +6663,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = eINSTANCE.getCategoryAbstract__GetSubcategory__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Property Aggregation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = eINSTANCE.getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.

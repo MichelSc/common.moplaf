@@ -103,4 +103,12 @@ public interface CategoryAbstract extends EObject {
 	 */
 	Category getSubcategory(EObject value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model providerDataType="com.misc.common.moplaf.datatools.IPropertiesProvider"
+	 * @generated
+	 */
+	Object getPropertyAggregation(IPropertiesProvider provider, Object property);
+
 } // CategoryAbstract

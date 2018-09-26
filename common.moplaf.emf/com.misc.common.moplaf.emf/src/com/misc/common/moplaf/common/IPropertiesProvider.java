@@ -2,6 +2,8 @@ package com.misc.common.moplaf.common;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -60,20 +62,26 @@ public interface IPropertiesProvider {
 	static int PROPERTY_TYPE_BOOLEAN = 7;
 	
 	/**
-	 * Returns the collections of properties published by this provider
+	 * Returns the collections of properties published by this provider.
+	 * Implementation must implement this method or method GetNrProperties, but not both.
 	 * <p>
 	 * @return
 	 */
 	default Collection<?> getProperties(){
+		List<Integer> properties = new LinkedList<>();
+		for ( int i=0; i<this.getNrProperties(); i++) {
+			properties.add(i);
+		}
 		return null;
 	}
 	
 	/**
 	 * Returns number of properties published by this provider
+	 * Implementation must implement this method or method GetProperties, but not both.
 	 * <p>
 	 */
 	default int getNrProperties() {
-		return 0;
+		return this.getProperties().size();
 	}
 	
 	/**

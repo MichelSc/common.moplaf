@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.Columnizers;
@@ -155,6 +156,25 @@ public class CategoryAbstractImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public Object getPropertyAggregation(IPropertiesProvider provider, Object property) {
+		if ( provider.getPropertyAggregation(property)==IPropertiesProvider.AGGREGATE_MIN) {
+			double min = Double.MAX_VALUE;
+			for ( EObject element : this.getElements()) {
+				Object value = provider.getPropertyValue(element, property);
+				if ( value instanceof Number) {
+					Number number_value = (Number)value;
+					min = Math.min(min, number_value.doubleValue());
+				}
+			}
+			return min;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -256,6 +276,8 @@ public class CategoryAbstractImpl extends MinimalEObjectImpl.Container implement
 		switch (operationID) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT:
 				return getSubcategory((EObject)arguments.get(0));
+			case DatatoolsPackage.CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT:
+				return getPropertyAggregation((IPropertiesProvider)arguments.get(0), arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
