@@ -145,6 +145,16 @@ public interface IPropertiesProvider {
 		Integer value = (Integer) this.getPropertyValue(element, property);
 		return value;
 	}
+	/**
+	 * 
+	 * @param element
+	 * @param property
+	 * @return
+	 */
+	default Date getPropertyValueAsDate(Object element, Object property) {
+		Date value = (Date) this.getPropertyValue(element, property);
+		return value;
+	}
 
 	/**
 	 * 
@@ -284,19 +294,21 @@ public interface IPropertiesProvider {
 			}
 		case AGGREGATE_MAX : {
 			switch ( type ) {
-			case PROPERTY_TYPE_DOUBLE: return        elements.stream().mapToDouble(e -> this.getPropertyValueAsDouble(e, property)).max().orElse(Double.MIN_VALUE);
-			case PROPERTY_TYPE_FLOAT : return (float)elements.stream().mapToDouble(e -> this.getPropertyValueAsFloat (e, property)).max().orElse(Float.MIN_VALUE);
-			case PROPERTY_TYPE_LONG  : return        elements.stream().mapToLong  (e -> this.getPropertyValueAsLong  (e, property)).max().orElse(Long.MIN_VALUE);
-			case PROPERTY_TYPE_INT   : return (int)  elements.stream().mapToLong  (e -> this.getPropertyValueAsInt   (e, property)).max().orElse(Integer.MIN_VALUE);
+			case PROPERTY_TYPE_DOUBLE: return          elements.stream().mapToDouble(e -> this.getPropertyValueAsDouble(e, property)).max().orElse(Double.MIN_VALUE);
+			case PROPERTY_TYPE_FLOAT : return (float)  elements.stream().mapToDouble(e -> this.getPropertyValueAsFloat (e, property)).max().orElse(Float.MIN_VALUE);
+			case PROPERTY_TYPE_LONG  : return          elements.stream().mapToLong  (e -> this.getPropertyValueAsLong  (e, property)).max().orElse(Long.MIN_VALUE);
+			case PROPERTY_TYPE_INT   : return (int)    elements.stream().mapToLong  (e -> this.getPropertyValueAsInt   (e, property)).max().orElse(Integer.MIN_VALUE);
+			case PROPERTY_TYPE_DATE  : return new Date(elements.stream().mapToLong  (e -> this.getPropertyValueAsDate (e, property).getTime()).max().orElse(Long.MIN_VALUE));
 			default: return null;
 			}
 		}
 		case AGGREGATE_MIN : {
 			switch ( type ) {
-			case PROPERTY_TYPE_DOUBLE: return        elements.stream().mapToDouble(e -> this.getPropertyValueAsDouble(e, property)).min().orElse(Double.MAX_VALUE);
-			case PROPERTY_TYPE_FLOAT : return (float)elements.stream().mapToDouble(e -> this.getPropertyValueAsFloat (e, property)).min().orElse(Float.MAX_VALUE);
-			case PROPERTY_TYPE_LONG  : return        elements.stream().mapToLong  (e -> this.getPropertyValueAsLong  (e, property)).min().orElse(Long.MAX_VALUE);
-			case PROPERTY_TYPE_INT   : return (int)  elements.stream().mapToLong  (e -> this.getPropertyValueAsInt   (e, property)).min().orElse(Integer.MAX_VALUE);
+			case PROPERTY_TYPE_DOUBLE: return          elements.stream().mapToDouble(e -> this.getPropertyValueAsDouble(e, property)).min().orElse(Double.MAX_VALUE);
+			case PROPERTY_TYPE_FLOAT : return (float)  elements.stream().mapToDouble(e -> this.getPropertyValueAsFloat (e, property)).min().orElse(Float.MAX_VALUE);
+			case PROPERTY_TYPE_LONG  : return          elements.stream().mapToLong  (e -> this.getPropertyValueAsLong  (e, property)).min().orElse(Long.MAX_VALUE);
+			case PROPERTY_TYPE_INT   : return (int)    elements.stream().mapToLong  (e -> this.getPropertyValueAsInt   (e, property)).min().orElse(Integer.MAX_VALUE);
+			case PROPERTY_TYPE_DATE  : return new Date(elements.stream().mapToLong  (e -> this.getPropertyValueAsDate  (e, property).getTime()).min().orElse(Long.MAX_VALUE));
 			default: return null;
 			}
 		}
