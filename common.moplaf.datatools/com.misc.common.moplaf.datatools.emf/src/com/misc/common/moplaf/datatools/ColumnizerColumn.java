@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnName <em>Column Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnWidth <em>Column Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getAggregationType <em>Aggregation Type</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn()
@@ -103,6 +104,35 @@ public interface ColumnizerColumn extends EObject {
 	 * @generated
 	 */
 	void setColumnizer(Columnizer value);
+
+	/**
+	 * Returns the value of the '<em><b>Aggregation Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.datatools.AggregationType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Aggregation Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Aggregation Type</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.AggregationType
+	 * @see #setAggregationType(AggregationType)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_AggregationType()
+	 * @model
+	 * @generated
+	 */
+	AggregationType getAggregationType();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getAggregationType <em>Aggregation Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Aggregation Type</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.AggregationType
+	 * @see #getAggregationType()
+	 * @generated
+	 */
+	void setAggregationType(AggregationType value);
 
 	/**
 	 * <!-- begin-user-doc -->

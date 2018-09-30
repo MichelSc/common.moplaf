@@ -47,6 +47,24 @@ public class Util {
 		}
 	}
 	
+	static public Object getTypeCellValue(Number cellValue, int cellType) {
+		switch ( cellType ) {
+		case IItemGridsProvider.CELL_TYPE_FLOAT:
+			return cellValue.floatValue();
+		case IItemGridsProvider.CELL_TYPE_DOUBLE:
+			return cellValue.doubleValue();
+		case IItemGridsProvider.CELL_TYPE_INT:
+			return cellValue.intValue();
+		case IItemGridsProvider.CELL_TYPE_LONG:
+			return cellValue.longValue();
+		case IItemGridsProvider.CELL_TYPE_BOOLEAN:
+		case IItemGridsProvider.CELL_TYPE_STRING: 
+		case IItemGridsProvider.CELL_TYPE_DATE: 
+		default: 
+			return null;
+		}
+	}
+	
 	static public float getFloatValue(Object cellValue, int cellType) {
 		return (float)getDoubleValue(cellValue, cellType);
 	}

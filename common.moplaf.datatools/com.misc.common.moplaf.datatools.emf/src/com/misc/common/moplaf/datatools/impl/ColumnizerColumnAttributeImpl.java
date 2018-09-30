@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.AggregationType;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getColumnName <em>Column Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getColumnWidth <em>Column Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getAggregationType <em>Aggregation Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
@@ -82,6 +84,26 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 	 * @ordered
 	 */
 	protected int columnWidth = COLUMN_WIDTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAggregationType() <em>Aggregation Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAggregationType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final AggregationType AGGREGATION_TYPE_EDEFAULT = AggregationType.NONE;
+
+	/**
+	 * The cached value of the '{@link #getAggregationType() <em>Aggregation Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAggregationType()
+	 * @generated
+	 * @ordered
+	 */
+	protected AggregationType aggregationType = AGGREGATION_TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
@@ -320,6 +342,27 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AggregationType getAggregationType() {
+		return aggregationType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAggregationType(AggregationType newAggregationType) {
+		AggregationType oldAggregationType = aggregationType;
+		aggregationType = newAggregationType == null ? AGGREGATION_TYPE_EDEFAULT : newAggregationType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE, oldAggregationType, aggregationType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -374,6 +417,8 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 				return getColumnWidth();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
 				return getColumnizer();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE:
+				return getAggregationType();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
@@ -399,6 +444,9 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
 				setColumnizer((Columnizer)newValue);
 				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE:
+				setAggregationType((AggregationType)newValue);
+				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((EAttribute)newValue);
 				return;
@@ -423,6 +471,9 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
 				setColumnizer((Columnizer)null);
 				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE:
+				setAggregationType(AGGREGATION_TYPE_EDEFAULT);
+				return;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((EAttribute)null);
 				return;
@@ -444,6 +495,8 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 				return columnWidth != COLUMN_WIDTH_EDEFAULT;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER:
 				return getColumnizer() != null;
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE:
+				return aggregationType != AGGREGATION_TYPE_EDEFAULT;
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE:
 				return attribute != null;
 		}
@@ -462,6 +515,7 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME: return DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME;
 				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH: return DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH;
 				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER: return DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER;
+				case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE;
 				default: return -1;
 			}
 		}
@@ -480,6 +534,7 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 				case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME;
 				case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH;
 				case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER;
+				case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE: return DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE;
 				default: return -1;
 			}
 		}
@@ -533,6 +588,8 @@ public class ColumnizerColumnAttributeImpl extends NavigationPathImpl implements
 		result.append(columnName);
 		result.append(", ColumnWidth: ");
 		result.append(columnWidth);
+		result.append(", AggregationType: ");
+		result.append(aggregationType);
 		result.append(')');
 		return result.toString();
 	}

@@ -43,7 +43,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public Collection<?> getColumns();
 		public int getNrColumns();
 		public String getColumnText(Object column);
-		public int getColumnType(Object row, Object column);
+		public int getCellType(Object row, Object column);
 		public int getColumnWidth(Object column);
 		public Object getCellValue(Object row, Object column);
 	}
@@ -110,13 +110,6 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			return this.provider.getPropertyText(column);
 		}
 		@Override
-		public int getColumnType(Object row, Object column) {
-			if ( row==this ) {
-				return IItemGridsProvider.CELL_TYPE_DOUBLE;
-			}
-			return this.provider.getPropertyType(column);
-		}
-		@Override
 		public int getColumnWidth(Object column) {
 			return this.provider.getPropertyDisplayWidth(column);
 		}
@@ -168,6 +161,14 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 				return this.provider.getPropertyValue(row, column);
 			}
 		}
+		@Override
+		public int getCellType(Object row, Object column) {
+			if ( row==this ) {
+				return this.provider.getAggregationType(column);
+			}
+			return this.provider.getPropertyType(column);
+		}
+
 	}
 	
 	private class SheetFeature extends SheetPropertiesProvider{
@@ -376,7 +377,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	@Override
 	public int getCellType(Object element, Object grid, Object row, Object column) {
 		SheetDelegate delegate = (SheetDelegate)grid;
-		return delegate.getColumnType(row, column);
+		return delegate.getCellType(row, column);
 	}
 
 }

@@ -6,7 +6,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 
 
@@ -106,12 +105,55 @@ public interface IPropertiesProvider {
 
 	/**
 	 * 
+	 * @param element
+	 * @param property
+	 * @return
+	 */
+	default double getPropertyValueAsDouble(Object element, Object property) {
+		Double value = (Double) this.getPropertyValue(element, property);
+		return value;
+	}
+
+	/**
+	 * 
+	 * @param element
+	 * @param property
+	 * @return
+	 */
+	default float getPropertyValueAsFloat(Object element, Object property) {
+		Float value = (Float) this.getPropertyValue(element, property);
+		return value;
+	}
+
+	/**
+	 * 
+	 * @param element
+	 * @param property
+	 * @return
+	 */
+	default long getPropertyValueAsLong(Object element, Object property) {
+		Long value = (Long) this.getPropertyValue(element, property);
+		return value;
+	}
+	/**
+	 * 
+	 * @param element
+	 * @param property
+	 * @return
+	 */
+	default int getPropertyValueAsInt(Object element, Object property) {
+		Integer value = (Integer) this.getPropertyValue(element, property);
+		return value;
+	}
+
+	/**
+	 * 
 	 * @param property
 	 * @return
 	 */
 	default int getPropertyType(Object property) {
-		return PROPERTY_TYPE_STRING;}
-
+		return PROPERTY_TYPE_UNKOWN;
+	}
 
 	/**
 	 * 
@@ -230,39 +272,33 @@ public interface IPropertiesProvider {
 		if ( elements==null) {
 			return null;
 		}
+		int type = this.getPropertyType(property);
 		switch ( this.getPropertyAggregation(property)) {
-		case AGGREGATE_MAX : {
-			double max = Double.MIN_VALUE;
-			for ( Object element : elements) {
-				Object value = this.getPropertyValue(element, property);
-				if ( value instanceof Number) {
-					Number number_value = (Number)value;
-					max = Math.max(max, number_value.doubleValue());
-				}
+		case AGGREGATE_SUM : 
+			switch ( type ) {
+			case PROPERTY_TYPE_DOUBLE: return        elements.stream().mapToDouble(e -> this.getPropertyValueAsDouble(e, property)).sum();
+			case PROPERTY_TYPE_FLOAT : return (float)elements.stream().mapToDouble(e -> this.getPropertyValueAsFloat (e, property)).sum();
+			case PROPERTY_TYPE_LONG  : return        elements.stream().mapToLong  (e -> this.getPropertyValueAsLong  (e, property)).sum();
+			case PROPERTY_TYPE_INT   : return (int)  elements.stream().mapToLong  (e -> this.getPropertyValueAsInt   (e, property)).sum();
+			default                  : return null;
 			}
-			return max;
+		case AGGREGATE_MAX : {
+			switch ( type ) {
+			case PROPERTY_TYPE_DOUBLE: return        elements.stream().mapToDouble(e -> this.getPropertyValueAsDouble(e, property)).max().orElse(Double.MIN_VALUE);
+			case PROPERTY_TYPE_FLOAT : return (float)elements.stream().mapToDouble(e -> this.getPropertyValueAsFloat (e, property)).max().orElse(Float.MIN_VALUE);
+			case PROPERTY_TYPE_LONG  : return        elements.stream().mapToLong  (e -> this.getPropertyValueAsLong  (e, property)).max().orElse(Long.MIN_VALUE);
+			case PROPERTY_TYPE_INT   : return (int)  elements.stream().mapToLong  (e -> this.getPropertyValueAsInt   (e, property)).max().orElse(Integer.MIN_VALUE);
+			default: return null;
+			}
 		}
 		case AGGREGATE_MIN : {
-			double min = Double.MAX_VALUE;
-			for ( Object element : elements) {
-				Object value = this.getPropertyValue(element, property);
-				if ( value instanceof Number) {
-					Number number_value = (Number)value;
-					min = Math.min(min, number_value.doubleValue());
-				}
+			switch ( type ) {
+			case PROPERTY_TYPE_DOUBLE: return        elements.stream().mapToDouble(e -> this.getPropertyValueAsDouble(e, property)).min().orElse(Double.MAX_VALUE);
+			case PROPERTY_TYPE_FLOAT : return (float)elements.stream().mapToDouble(e -> this.getPropertyValueAsFloat (e, property)).min().orElse(Float.MAX_VALUE);
+			case PROPERTY_TYPE_LONG  : return        elements.stream().mapToLong  (e -> this.getPropertyValueAsLong  (e, property)).min().orElse(Long.MAX_VALUE);
+			case PROPERTY_TYPE_INT   : return (int)  elements.stream().mapToLong  (e -> this.getPropertyValueAsInt   (e, property)).min().orElse(Integer.MAX_VALUE);
+			default: return null;
 			}
-			return min;
-		}
-		case AGGREGATE_SUM : {
-			double sum = 0.0d;
-			for ( Object element : elements) {
-				Object value = this.getPropertyValue(element, property);
-				if ( value instanceof Number) {
-					Number number_value = (Number)value;
-					sum += number_value.doubleValue();
-				}
-			}
-			return sum;
 		}
 		case AGGREGATE_COUNT : {
 			int count = 0;
@@ -276,6 +312,19 @@ public interface IPropertiesProvider {
 		}
 		} 
 		return null;
+	}
+	
+	default public int getAggregationType(Object property) {
+		int aggregation = this.getPropertyAggregation(property);
+		switch ( aggregation ) {
+		case AGGREGATE_SUM:
+		case AGGREGATE_MIN:
+		case AGGREGATE_MAX:
+			return this.getPropertyType(property);
+		case AGGREGATE_COUNT:
+			return PROPERTY_TYPE_INT;
+		}
+		return PROPERTY_TYPE_UNKOWN;
 	}
 
 }

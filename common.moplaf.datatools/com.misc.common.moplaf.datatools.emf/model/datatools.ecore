@@ -136,13 +136,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorPipe" eSuperTypes="#//ExtractorCompound"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorUnion" eSuperTypes="#//ExtractorLogic"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorIntersection" eSuperTypes="#//ExtractorLogic"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerAbstract" abstract="true"
-      eSuperTypes="#//DataTool">
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnizerAbstract" eSuperTypes="#//DataTool">
     <eOperations name="isValidElementType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
     <eOperations name="getPropertiesProvider" eType="#//IPropertiesProvider"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SheetLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Aggregation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Columnizer" eSuperTypes="#//ColumnizerAbstract">
@@ -160,6 +161,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" lowerBound="1"
         eType="#//Columnizer" eOpposite="#//Columnizer/Columns"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AggregationType" eType="#//AggregationType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnAttribute" eSuperTypes="#//NavigationPath #//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
@@ -230,5 +232,12 @@
         eType="#//Category" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnizerSet" eType="#//Columnizers"
         changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AggregationType">
+    <eLiterals name="NONE"/>
+    <eLiterals name="SUM" value="1"/>
+    <eLiterals name="COUNT" value="2"/>
+    <eLiterals name="MIN" value="3"/>
+    <eLiterals name="MAX" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -62,6 +62,7 @@ public class ColumnizerColumnItemProvider
 
 			addColumnNamePropertyDescriptor(object);
 			addColumnWidthPropertyDescriptor(object);
+			addAggregationTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +112,28 @@ public class ColumnizerColumnItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Aggregation Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAggregationTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ColumnizerColumn_AggregationType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_AggregationType_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__AGGREGATION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ColumnizerColumn.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +173,7 @@ public class ColumnizerColumnItemProvider
 		switch (notification.getFeatureID(ColumnizerColumn.class)) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_NAME:
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMN_WIDTH:
+			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

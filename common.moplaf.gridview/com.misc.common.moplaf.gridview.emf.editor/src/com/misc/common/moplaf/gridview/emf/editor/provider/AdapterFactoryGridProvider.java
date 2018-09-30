@@ -136,8 +136,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 					String text =  provider.gridsProvider.getRowText(provider.element, provider.grid, this.gridRow);
 					return text==null ? "" : text;
 				}
-				Object cellValue  = provider.gridsProvider.getCellValue(provider.element, provider.grid, this.gridRow, columnObject);
-				int    cellType   = provider.gridsProvider.getCellType(provider.element, provider.grid, this.gridRow, columnObject);
+				Object cellValue  = provider.gridsProvider.getCellValue (provider.element, provider.grid, this.gridRow, columnObject);
+				int    cellType   = provider.gridsProvider.getCellType  (provider.element, provider.grid, this.gridRow, columnObject);
 				String cellFormat = provider.gridsProvider.getCellFormat(provider.element, provider.grid, this.gridRow, columnObject);
 				return Util.getTextFromValue(cellValue, cellType, cellFormat);
 			}

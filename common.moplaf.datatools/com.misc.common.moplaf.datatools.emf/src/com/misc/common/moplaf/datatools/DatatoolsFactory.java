@@ -85,6 +85,15 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorIntersection createExtractorIntersection();
 
 	/**
+	 * Returns a new object of class '<em>Columnizer Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Columnizer Abstract</em>'.
+	 * @generated
+	 */
+	ColumnizerAbstract createColumnizerAbstract();
+
+	/**
 	 * Returns a new object of class '<em>Columnizer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

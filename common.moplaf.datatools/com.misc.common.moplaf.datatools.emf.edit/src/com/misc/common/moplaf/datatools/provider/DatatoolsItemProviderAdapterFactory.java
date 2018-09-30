@@ -234,6 +234,29 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.ColumnizerAbstract} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColumnizerAbstractItemProvider columnizerAbstractItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.ColumnizerAbstract}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColumnizerAbstractAdapter() {
+		if (columnizerAbstractItemProvider == null) {
+			columnizerAbstractItemProvider = new ColumnizerAbstractItemProvider(this);
+		}
+
+		return columnizerAbstractItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Columnizer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -667,6 +690,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
 		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
 		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
+		if (columnizerAbstractItemProvider != null) columnizerAbstractItemProvider.dispose();
 		if (columnizerItemProvider != null) columnizerItemProvider.dispose();
 		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
 		if (categoryItemProvider != null) categoryItemProvider.dispose();

@@ -16,10 +16,11 @@ import org.eclipse.emf.ecore.EClass;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#getSheetLabel <em>Sheet Label</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#isAggregation <em>Aggregation</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerAbstract()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface ColumnizerAbstract extends DataTool {
@@ -38,6 +39,21 @@ public interface ColumnizerAbstract extends DataTool {
 	 * @generated
 	 */
 	String getSheetLabel();
+
+	/**
+	 * Returns the value of the '<em><b>Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Aggregation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Aggregation</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerAbstract_Aggregation()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isAggregation();
 
 	/**
 	 * <!-- begin-user-doc -->

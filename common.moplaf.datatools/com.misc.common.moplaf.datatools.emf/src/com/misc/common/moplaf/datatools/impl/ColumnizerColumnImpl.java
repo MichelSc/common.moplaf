@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.datatools.AggregationType;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnName <em>Column Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnWidth <em>Column Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getAggregationType <em>Aggregation Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +78,26 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * @ordered
 	 */
 	protected int columnWidth = COLUMN_WIDTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAggregationType() <em>Aggregation Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAggregationType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final AggregationType AGGREGATION_TYPE_EDEFAULT = AggregationType.NONE;
+
+	/**
+	 * The cached value of the '{@link #getAggregationType() <em>Aggregation Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAggregationType()
+	 * @generated
+	 * @ordered
+	 */
+	protected AggregationType aggregationType = AGGREGATION_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,6 +206,27 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AggregationType getAggregationType() {
+		return aggregationType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAggregationType(AggregationType newAggregationType) {
+		AggregationType oldAggregationType = aggregationType;
+		aggregationType = newAggregationType == null ? AGGREGATION_TYPE_EDEFAULT : newAggregationType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE, oldAggregationType, aggregationType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object getValue(EObject object) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -260,6 +303,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return getColumnWidth();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return getColumnizer();
+			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
+				return getAggregationType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,6 +327,9 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				setColumnizer((Columnizer)newValue);
 				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
+				setAggregationType((AggregationType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -303,6 +351,9 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				setColumnizer((Columnizer)null);
 				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
+				setAggregationType(AGGREGATION_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -321,6 +372,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return columnWidth != COLUMN_WIDTH_EDEFAULT;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__COLUMNIZER:
 				return getColumnizer() != null;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
+				return aggregationType != AGGREGATION_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -355,6 +408,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 		result.append(columnName);
 		result.append(", ColumnWidth: ");
 		result.append(columnWidth);
+		result.append(", AggregationType: ");
+		result.append(aggregationType);
 		result.append(')');
 		return result.toString();
 	}

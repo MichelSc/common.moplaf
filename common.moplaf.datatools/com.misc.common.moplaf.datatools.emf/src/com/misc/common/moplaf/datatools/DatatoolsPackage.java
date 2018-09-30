@@ -3355,13 +3355,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_ABSTRACT__SHEET_LABEL = DATA_TOOL_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT__AGGREGATION = DATA_TOOL_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_ABSTRACT_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 1;
+	int COLUMNIZER_ABSTRACT_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
@@ -3443,6 +3452,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER__SHEET_LABEL = COLUMNIZER_ABSTRACT__SHEET_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__AGGREGATION = COLUMNIZER_ABSTRACT__AGGREGATION;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -3553,13 +3571,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN__COLUMNIZER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Aggregation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__AGGREGATION_TYPE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_FEATURE_COUNT = 3;
+	int COLUMNIZER_COLUMN_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -3688,13 +3715,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER = NAVIGATION_PATH_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Aggregation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE = NAVIGATION_PATH_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = NAVIGATION_PATH_FEATURE_COUNT + 3;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = NAVIGATION_PATH_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Columnizer Column Attribute</em>' class.
@@ -3703,7 +3739,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = NAVIGATION_PATH_FEATURE_COUNT + 4;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = NAVIGATION_PATH_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
@@ -3767,6 +3803,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_OCL__COLUMNIZER = COLUMNIZER_COLUMN__COLUMNIZER;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__AGGREGATION_TYPE = COLUMNIZER_COLUMN__AGGREGATION_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -4520,6 +4565,16 @@ public interface DatatoolsPackage extends EPackage {
 	int MATCH_STATUS = 40;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.AggregationType
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getAggregationType()
+	 * @generated
+	 */
+	int AGGREGATION_TYPE = 41;
+
+	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4527,7 +4582,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 41;
+	int EOBJECTS_SET = 42;
 
 	/**
 	 * The meta object id for the '<em>IProperties Provider</em>' data type.
@@ -4537,7 +4592,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getIPropertiesProvider()
 	 * @generated
 	 */
-	int IPROPERTIES_PROVIDER = 42;
+	int IPROPERTIES_PROVIDER = 43;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -4873,6 +4928,17 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getColumnizerAbstract_SheetLabel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#isAggregation <em>Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Aggregation</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#isAggregation()
+	 * @see #getColumnizerAbstract()
+	 * @generated
+	 */
+	EAttribute getColumnizerAbstract_Aggregation();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#isValidElementType(org.eclipse.emf.ecore.EClass) <em>Is Valid Element Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5195,6 +5261,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getColumnizerColumn_Columnizer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getAggregationType <em>Aggregation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Aggregation Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getAggregationType()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EAttribute getColumnizerColumn_AggregationType();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getValue(org.eclipse.emf.ecore.EObject) <em>Get Value</em>}' operation.
@@ -5649,6 +5726,16 @@ public interface DatatoolsPackage extends EPackage {
 	EEnum getMatchStatus();
 
 	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Aggregation Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.AggregationType
+	 * @generated
+	 */
+	EEnum getAggregationType();
+
+	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.datatools.util.ObjectSet <em>EObjects Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6049,6 +6136,14 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute COLUMNIZER_ABSTRACT__SHEET_LABEL = eINSTANCE.getColumnizerAbstract_SheetLabel();
 
 		/**
+		 * The meta object literal for the '<em><b>Aggregation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_ABSTRACT__AGGREGATION = eINSTANCE.getColumnizerAbstract_Aggregation();
+
+		/**
 		 * The meta object literal for the '<em><b>Is Valid Element Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6321,6 +6416,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLUMNIZER_COLUMN__COLUMNIZER = eINSTANCE.getColumnizerColumn_Columnizer();
+
+		/**
+		 * The meta object literal for the '<em><b>Aggregation Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_COLUMN__AGGREGATION_TYPE = eINSTANCE.getColumnizerColumn_AggregationType();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
@@ -6691,6 +6794,16 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum MATCH_STATUS = eINSTANCE.getMatchStatus();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.AggregationType
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getAggregationType()
+		 * @generated
+		 */
+		EEnum AGGREGATION_TYPE = eINSTANCE.getAggregationType();
 
 		/**
 		 * The meta object literal for the '<em>EObjects Set</em>' data type.

@@ -151,6 +151,11 @@ public class ColumnizersItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,
+				 DatatoolsFactory.eINSTANCE.createColumnizerAbstract()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,
 				 DatatoolsFactory.eINSTANCE.createColumnizer()));
 	}
 

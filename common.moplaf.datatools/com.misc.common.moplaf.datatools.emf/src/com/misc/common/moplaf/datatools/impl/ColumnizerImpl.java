@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.datatools.AggregationType;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
@@ -183,9 +184,7 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 	protected String getTypeDescription() {
 		return "Columnizer";
 	}
-
-
-
+	
 	/** 
 	 * Specified by ColumnizerAbstract
 	 * 
@@ -368,6 +367,29 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 		EDataType data_type = column.getDataType();
 		return IPropertiesProvider.toPropertyType(data_type);
 	}
+
+	/**
+	 * Specified by IPropertiesProvider
+	 */
+	@Override
+	public int getPropertyAggregation(Object property) {
+		ColumnizerColumn column = (ColumnizerColumn)property;
+		AggregationType aggregation = column.getAggregationType();
+		return aggregation.toIPropertiesProviderAggregation();
+	}
+
+	/**
+	 * Specified by IPropertiesProvider
+	 */
+	@Override
+	public int getPropertyDisplayWidth(Object property) {
+		ColumnizerColumn column = (ColumnizerColumn)property;
+		return column.getColumnWidth();
+	}
+	
+	
+	
+	
 
 
 } //ColumnizerImpl

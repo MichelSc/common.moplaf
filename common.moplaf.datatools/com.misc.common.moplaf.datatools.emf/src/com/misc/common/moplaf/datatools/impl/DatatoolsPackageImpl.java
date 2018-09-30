@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.datatools.AggregationType;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.CategorizerOcl;
 import com.misc.common.moplaf.datatools.CategorizerStructuralFeature;
@@ -336,6 +337,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EEnum matchStatusEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum aggregationTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -719,6 +727,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getColumnizerAbstract_Aggregation() {
+		return (EAttribute)columnizerAbstractEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getColumnizerAbstract__IsValidElementType__EClass() {
 		return columnizerAbstractEClass.getEOperations().get(0);
 	}
@@ -991,6 +1008,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EReference getColumnizerColumn_Columnizer() {
 		return (EReference)columnizerColumnEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColumnizerColumn_AggregationType() {
+		return (EAttribute)columnizerColumnEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1385,6 +1411,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getAggregationType() {
+		return aggregationTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getEObjectsSet() {
 		return eObjectsSetEDataType;
 	}
@@ -1583,6 +1618,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		columnizerAbstractEClass = createEClass(COLUMNIZER_ABSTRACT);
 		createEAttribute(columnizerAbstractEClass, COLUMNIZER_ABSTRACT__SHEET_LABEL);
+		createEAttribute(columnizerAbstractEClass, COLUMNIZER_ABSTRACT__AGGREGATION);
 		createEOperation(columnizerAbstractEClass, COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS);
 		createEOperation(columnizerAbstractEClass, COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER);
 
@@ -1595,6 +1631,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEAttribute(columnizerColumnEClass, COLUMNIZER_COLUMN__COLUMN_NAME);
 		createEAttribute(columnizerColumnEClass, COLUMNIZER_COLUMN__COLUMN_WIDTH);
 		createEReference(columnizerColumnEClass, COLUMNIZER_COLUMN__COLUMNIZER);
+		createEAttribute(columnizerColumnEClass, COLUMNIZER_COLUMN__AGGREGATION_TYPE);
 		createEOperation(columnizerColumnEClass, COLUMNIZER_COLUMN___GET_VALUE__EOBJECT);
 		createEOperation(columnizerColumnEClass, COLUMNIZER_COLUMN___GET_DATA_TYPE);
 
@@ -1642,6 +1679,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		// Create enums
 		dataToolTypeEEnum = createEEnum(DATA_TOOL_TYPE);
 		matchStatusEEnum = createEEnum(MATCH_STATUS);
+		aggregationTypeEEnum = createEEnum(AGGREGATION_TYPE);
 
 		// Create data types
 		eObjectsSetEDataType = createEDataType(EOBJECTS_SET);
@@ -1824,8 +1862,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		initEClass(extractorIntersectionEClass, ExtractorIntersection.class, "ExtractorIntersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(columnizerAbstractEClass, ColumnizerAbstract.class, "ColumnizerAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(columnizerAbstractEClass, ColumnizerAbstract.class, "ColumnizerAbstract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumnizerAbstract_SheetLabel(), ecorePackage.getEString(), "SheetLabel", null, 0, 1, ColumnizerAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumnizerAbstract_Aggregation(), ecorePackage.getEBoolean(), "Aggregation", null, 0, 1, ColumnizerAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getColumnizerAbstract__IsValidElementType__EClass(), ecorePackage.getEBoolean(), "isValidElementType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEClass(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1841,6 +1880,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEAttribute(getColumnizerColumn_ColumnName(), ecorePackage.getEString(), "ColumnName", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumnizerColumn_ColumnWidth(), ecorePackage.getEInt(), "ColumnWidth", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumnizerColumn_Columnizer(), this.getColumnizer(), this.getColumnizer_Columns(), "Columnizer", null, 1, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumnizerColumn_AggregationType(), this.getAggregationType(), "AggregationType", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getColumnizerColumn__GetValue__EObject(), ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1916,6 +1956,13 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		addEEnumLiteral(matchStatusEEnum, MatchStatus.BEFORE);
 		addEEnumLiteral(matchStatusEEnum, MatchStatus.AFTER);
 		addEEnumLiteral(matchStatusEEnum, MatchStatus.MATCH);
+
+		initEEnum(aggregationTypeEEnum, AggregationType.class, "AggregationType");
+		addEEnumLiteral(aggregationTypeEEnum, AggregationType.NONE);
+		addEEnumLiteral(aggregationTypeEEnum, AggregationType.SUM);
+		addEEnumLiteral(aggregationTypeEEnum, AggregationType.COUNT);
+		addEEnumLiteral(aggregationTypeEEnum, AggregationType.MIN);
+		addEEnumLiteral(aggregationTypeEEnum, AggregationType.MAX);
 
 		// Initialize data types
 		initEDataType(eObjectsSetEDataType, ObjectSet.class, "EObjectsSet", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

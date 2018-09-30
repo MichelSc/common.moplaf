@@ -45,6 +45,7 @@ public class ColumnizerAbstractItemProvider extends DataToolItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addSheetLabelPropertyDescriptor(object);
+			addAggregationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,28 @@ public class ColumnizerAbstractItemProvider extends DataToolItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Aggregation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAggregationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ColumnizerAbstract_Aggregation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerAbstract_Aggregation_feature", "_UI_ColumnizerAbstract_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_ABSTRACT__AGGREGATION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -109,6 +132,7 @@ public class ColumnizerAbstractItemProvider extends DataToolItemProvider {
 
 		switch (notification.getFeatureID(ColumnizerAbstract.class)) {
 			case DatatoolsPackage.COLUMNIZER_ABSTRACT__SHEET_LABEL:
+			case DatatoolsPackage.COLUMNIZER_ABSTRACT__AGGREGATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

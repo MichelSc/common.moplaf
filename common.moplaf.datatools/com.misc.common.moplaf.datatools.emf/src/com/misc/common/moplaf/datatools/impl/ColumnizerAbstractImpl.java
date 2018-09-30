@@ -20,11 +20,12 @@ import org.eclipse.emf.ecore.EClass;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerAbstractImpl#getSheetLabel <em>Sheet Label</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerAbstractImpl#isAggregation <em>Aggregation</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class ColumnizerAbstractImpl extends DataToolImpl implements ColumnizerAbstract {
+public class ColumnizerAbstractImpl extends DataToolImpl implements ColumnizerAbstract {
 	/**
 	 * The default value of the '{@link #getSheetLabel() <em>Sheet Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -34,6 +35,16 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 	 * @ordered
 	 */
 	protected static final String SHEET_LABEL_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isAggregation() <em>Aggregation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAggregation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean AGGREGATION_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,6 +80,24 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public boolean isAggregation() {
+		// default behavior
+		IPropertiesProvider provider = this.getPropertiesProvider();
+		if ( provider==null) {
+			return false;
+		}
+		for ( Object property : provider.getProperties()) {
+			if ( provider.getPropertyAggregation(property)!=IPropertiesProvider.AGGREGATE_NONE) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public boolean isValidElementType(EClass type) {
 		if( type == null ) {
 			return false;
@@ -97,6 +126,8 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_ABSTRACT__SHEET_LABEL:
 				return getSheetLabel();
+			case DatatoolsPackage.COLUMNIZER_ABSTRACT__AGGREGATION:
+				return isAggregation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,6 +142,8 @@ public abstract class ColumnizerAbstractImpl extends DataToolImpl implements Col
 		switch (featureID) {
 			case DatatoolsPackage.COLUMNIZER_ABSTRACT__SHEET_LABEL:
 				return SHEET_LABEL_EDEFAULT == null ? getSheetLabel() != null : !SHEET_LABEL_EDEFAULT.equals(getSheetLabel());
+			case DatatoolsPackage.COLUMNIZER_ABSTRACT__AGGREGATION:
+				return isAggregation() != AGGREGATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

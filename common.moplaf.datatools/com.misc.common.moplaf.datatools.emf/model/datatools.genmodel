@@ -20,6 +20,13 @@
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/AFTER"/>
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/MATCH"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="datatools.ecore#//AggregationType">
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//AggregationType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//AggregationType/SUM"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//AggregationType/COUNT"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//AggregationType/MIN"/>
+      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//AggregationType/MAX"/>
+    </genEnums>
     <genDataTypes ecoreDataType="datatools.ecore#//EObjectsSet"/>
     <genDataTypes ecoreDataType="datatools.ecore#//IPropertiesProvider"/>
     <genClasses ecoreClass="datatools.ecore#//NavigationPath" labelFeature="#//datatools/NavigationPath/Path">
@@ -128,6 +135,7 @@
         labelFeature="#//datatools/DataToolAbstract/Description"/>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerAbstract">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerAbstract/SheetLabel"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerAbstract/Aggregation"/>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerAbstract/isValidElementType">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerAbstract/isValidElementType/type"/>
       </genOperations>
@@ -142,6 +150,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnWidth"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumn/Columnizer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/AggregationType"/>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/getValue">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerColumn/getValue/object"/>
       </genOperations>

@@ -49,6 +49,7 @@ public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemPro
 
 			addColumnNamePropertyDescriptor(object);
 			addColumnWidthPropertyDescriptor(object);
+			addAggregationTypePropertyDescriptor(object);
 			addAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -132,6 +133,28 @@ public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemPro
 	}
 
 	/**
+	 * This adds a property descriptor for the Aggregation Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAggregationTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ColumnizerColumn_AggregationType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_AggregationType_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__AGGREGATION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ColumnizerColumnAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,6 +199,7 @@ public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemPro
 		switch (notification.getFeatureID(ColumnizerColumnAttribute.class)) {
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME:
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH:
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

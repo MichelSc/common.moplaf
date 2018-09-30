@@ -70,6 +70,7 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
 			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
+			case DatatoolsPackage.COLUMNIZER_ABSTRACT: return createColumnizerAbstract();
 			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
 			case DatatoolsPackage.CATEGORY: return createCategory();
@@ -95,6 +96,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 				return createDataToolTypeFromString(eDataType, initialValue);
 			case DatatoolsPackage.MATCH_STATUS:
 				return createMatchStatusFromString(eDataType, initialValue);
+			case DatatoolsPackage.AGGREGATION_TYPE:
+				return createAggregationTypeFromString(eDataType, initialValue);
 			case DatatoolsPackage.IPROPERTIES_PROVIDER:
 				return createIPropertiesProviderFromString(eDataType, initialValue);
 			default:
@@ -114,6 +117,8 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 				return convertDataToolTypeToString(eDataType, instanceValue);
 			case DatatoolsPackage.MATCH_STATUS:
 				return convertMatchStatusToString(eDataType, instanceValue);
+			case DatatoolsPackage.AGGREGATION_TYPE:
+				return convertAggregationTypeToString(eDataType, instanceValue);
 			case DatatoolsPackage.IPROPERTIES_PROVIDER:
 				return convertIPropertiesProviderToString(eDataType, instanceValue);
 			default:
@@ -189,6 +194,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ExtractorIntersection createExtractorIntersection() {
 		ExtractorIntersectionImpl extractorIntersection = new ExtractorIntersectionImpl();
 		return extractorIntersection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColumnizerAbstract createColumnizerAbstract() {
+		ColumnizerAbstractImpl columnizerAbstract = new ColumnizerAbstractImpl();
+		return columnizerAbstract;
 	}
 
 	/**
@@ -368,6 +383,26 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * @generated
 	 */
 	public String convertMatchStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AggregationType createAggregationTypeFromString(EDataType eDataType, String initialValue) {
+		AggregationType result = AggregationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAggregationTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -256,7 +256,7 @@ public class CategoryAbstractItemProvider
 			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
 				grids_provider.addSheet(columnizer.getSheetLabel(),
 						           cat.getElements(),
-						           columnizer.getPropertiesProvider()).setAggregation(true);
+						           columnizer.getPropertiesProvider()).setAggregation(columnizer.isAggregation());
 			}
 		}
 		
