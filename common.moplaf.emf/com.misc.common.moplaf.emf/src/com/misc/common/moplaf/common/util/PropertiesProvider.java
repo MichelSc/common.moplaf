@@ -66,9 +66,17 @@ public class PropertiesProvider implements IPropertiesProvider {
 			EObject object = (EObject)element;
 			for ( int i=0; i<this.path.length && object!=null; i++) {
 				EReference ref = this.path[i];
+				if ( !ref.getEContainingClass().isSuperTypeOf(object.eClass())) {
+					// the reference is not implemented by the object
+					return null;
+				}
 				object  = (EObject) object.eGet(ref);
 			}
 			if ( object == null ) { return null; }
+			if ( !this.attribute.getEContainingClass().isSuperTypeOf(object.eClass())) {
+				// the attribute is not implemented by object
+				return null;
+			}
 			return object.eGet(this.attribute);
 		}
 
