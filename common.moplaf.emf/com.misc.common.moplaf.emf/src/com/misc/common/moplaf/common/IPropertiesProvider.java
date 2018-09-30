@@ -210,6 +210,7 @@ public interface IPropertiesProvider {
 	/**
 	 * Compares 2 objects according to a given property.
 	 * The property must be supported by both compared objects.
+	 * Return a negative value if element1 is before element2
 	 * @param element
 	 * @param set
 	 * @param property

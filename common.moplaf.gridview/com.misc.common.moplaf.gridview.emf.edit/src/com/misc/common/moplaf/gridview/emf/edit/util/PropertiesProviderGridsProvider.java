@@ -35,17 +35,17 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public SheetDelegate setSheetText(String text);
 		public SheetDelegate setSheetTraits(int traits);
 		public SheetDelegate setAggregation(boolean enabled);
-		public SheetDelegate setShowAggregation(boolean show);
 		public String getSheetText();
-		public int getTraits();
-		public Collection<?> getRows(Object element);
+		public int    getSheetTraits();
+		public Collection<?> getSheetRows(Object element);
 		public String getRowText(Object row);
 		public Collection<?> getColumns();
 		public int getNrColumns();
 		public String getColumnText(Object column);
-		public int getCellType(Object row, Object column);
 		public int getColumnWidth(Object column);
+		public int getCellType(Object row, Object column);
 		public Object getCellValue(Object row, Object column);
+		public int compareRows(Object row1, Object row2, Object column, boolean ascending);
 	}
 	
 	class SheetPropertiesProvider implements SheetDelegate{	
@@ -82,11 +82,6 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			return this;
 		}
 		@Override
-		public SheetDelegate setShowAggregation(boolean show) {
-			// TODO
-			return this;
-		}
-		@Override
 		public String getSheetText() {
 			if ( this.sheet_name!=null ) {
 				return this.sheet_name;
@@ -94,7 +89,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			return null;
 		}
 		@Override
-		public int getTraits() {
+		public int    getSheetTraits() {
 			return this.traits;
 		}
 		@Override
@@ -126,7 +121,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		}
 
 		@Override
-		public Collection<?> getRows(Object element) {
+		public Collection<?> getSheetRows(Object element) {
 			Collection<?> objects = this.getObjects(element);
 			if ( objects==null ) {
 				return null;
@@ -168,7 +163,12 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			}
 			return this.provider.getPropertyType(column);
 		}
-
+		@Override
+		public int compareRows(Object row1, Object row2, Object column, boolean ascending) {
+			if ( row1==this) { return +1; }
+			if ( row2==this) { return -1; }
+			return this.provider.compare(column, row1, row2, ascending);
+		}
 	}
 	
 	private class SheetFeature extends SheetPropertiesProvider{
@@ -330,13 +330,13 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	@Override
 	public int getGridTraits(Object element, Object grid) {
 		SheetDelegate delegate = (SheetDelegate)grid;
-		return delegate.getTraits();
+		return delegate.   getSheetTraits();
 	}
 
 	@Override
 	public Collection<?> getRows(Object element, Object grid) {
 		SheetDelegate delegate = (SheetDelegate)grid;
-		return delegate.getRows(element);
+		return delegate.getSheetRows(element);
 	}
 
 	@Override
@@ -380,4 +380,9 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		return delegate.getCellType(row, column);
 	}
 
+	@Override
+	public int compareRow(Object element, Object grid, Object row1, Object row2, Object column, boolean ascending) {
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.compareRows(row1, row2, column, ascending);
+	}
 }
