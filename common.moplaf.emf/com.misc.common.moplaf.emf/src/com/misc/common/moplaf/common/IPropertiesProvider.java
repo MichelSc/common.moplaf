@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 
 
@@ -217,6 +218,64 @@ public interface IPropertiesProvider {
 		if ( data_type==EcorePackage.Literals.EINT )            { return PROPERTY_TYPE_INT; }
 		if ( data_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return PROPERTY_TYPE_BOOLEAN; }
 		return PROPERTY_TYPE_UNKOWN;
+	}
+	
+	/**
+	 * 
+	 * @param elements
+	 * @param property
+	 * @return
+	 */
+	default public Object getAggregationValue(Collection<?>elements, Object property) {
+		if ( elements==null) {
+			return null;
+		}
+		switch ( this.getPropertyAggregation(property)) {
+		case AGGREGATE_MAX : {
+			double max = Double.MIN_VALUE;
+			for ( Object element : elements) {
+				Object value = this.getPropertyValue(element, property);
+				if ( value instanceof Number) {
+					Number number_value = (Number)value;
+					max = Math.max(max, number_value.doubleValue());
+				}
+			}
+			return max;
+		}
+		case AGGREGATE_MIN : {
+			double min = Double.MAX_VALUE;
+			for ( Object element : elements) {
+				Object value = this.getPropertyValue(element, property);
+				if ( value instanceof Number) {
+					Number number_value = (Number)value;
+					min = Math.min(min, number_value.doubleValue());
+				}
+			}
+			return min;
+		}
+		case AGGREGATE_SUM : {
+			double sum = 0.0d;
+			for ( Object element : elements) {
+				Object value = this.getPropertyValue(element, property);
+				if ( value instanceof Number) {
+					Number number_value = (Number)value;
+					sum += number_value.doubleValue();
+				}
+			}
+			return sum;
+		}
+		case AGGREGATE_COUNT : {
+			int count = 0;
+			for ( Object element : elements) {
+				Object value = this.getPropertyValue(element, property);
+				if ( value != null ) {
+					count++;
+				}
+			}
+			return count;
+		}
+		} 
+		return null;
 	}
 
 }

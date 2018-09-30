@@ -158,18 +158,7 @@ public class CategoryAbstractImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 */
 	public Object getPropertyAggregation(IPropertiesProvider provider, Object property) {
-		if ( provider.getPropertyAggregation(property)==IPropertiesProvider.AGGREGATE_MIN) {
-			double min = Double.MAX_VALUE;
-			for ( EObject element : this.getElements()) {
-				Object value = provider.getPropertyValue(element, property);
-				if ( value instanceof Number) {
-					Number number_value = (Number)value;
-					min = Math.min(min, number_value.doubleValue());
-				}
-			}
-			return min;
-		}
-		return null;
+		return provider.getAggregationValue(this.getElements(), property);
 	}
 
 	/**

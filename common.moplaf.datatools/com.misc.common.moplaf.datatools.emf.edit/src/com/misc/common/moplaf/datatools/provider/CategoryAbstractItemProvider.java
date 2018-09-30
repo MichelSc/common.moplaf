@@ -256,16 +256,15 @@ public class CategoryAbstractItemProvider
 			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
 				grids_provider.addSheet(columnizer.getSheetLabel(),
 						           cat.getElements(),
-						           columnizer.getPropertiesProvider(),
-								   SHEET_TRAITS_NONE);
+						           columnizer.getPropertiesProvider()).setAggregation(true);
 			}
 		}
 		
 		grids_provider.addSheet("Categories",
-				  DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
-				  DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
-				  CategoryAbstract.PROPERTIES, 
-				  IItemGridsProvider.SHEET_TRAITS_BARCHART);
+								  DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
+								  DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
+								  CategoryAbstract.PROPERTIES)
+					  .setSheetTraits(IItemGridsProvider.SHEET_TRAITS_BARCHART);
 		
 		return grids_provider;
 	}

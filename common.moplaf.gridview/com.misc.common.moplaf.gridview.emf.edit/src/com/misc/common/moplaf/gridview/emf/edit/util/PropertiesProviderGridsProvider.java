@@ -29,25 +29,32 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	 */
 	private LinkedList<SheetDelegate> sheets;
 	private static final long serialVersionUID = 1L;
+	
 
 	public interface SheetDelegate {
+		public SheetDelegate setSheetText(String text);
+		public SheetDelegate setSheetTraits(int traits);
+		public SheetDelegate setAggregation(boolean enabled);
+		public SheetDelegate setShowAggregation(boolean show);
 		public String getSheetText();
 		public int getTraits();
-		public Collection<?> getRows(Object sheet);
+		public Collection<?> getRows(Object element);
 		public String getRowText(Object row);
 		public Collection<?> getColumns();
 		public int getNrColumns();
 		public String getColumnText(Object column);
-		public int getColumnType(Object column);
+		public int getColumnType(Object row, Object column);
 		public int getColumnWidth(Object column);
 		public Object getCellValue(Object row, Object column);
 	}
 	
-	private abstract class SheetPropertiesProvider implements SheetDelegate{
-		
+	class SheetPropertiesProvider implements SheetDelegate{	
 		private IPropertiesProvider provider;
 		private int traits;
 		private String sheet_name;
+		private boolean aggregation = false;
+		private Collection<?> objects = null;
+		private Object element = null;
 		
 		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider provider, int traits) {
 			this.provider = provider;
@@ -58,6 +65,26 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			this.provider = new CompoundPropertiesProvider(providers);
 			this.traits = traits;
 			this.sheet_name = sheet_name;
+		}
+		@Override
+		public SheetDelegate setSheetText(String text) {
+			this.sheet_name = text;
+			return this;
+		};
+		@Override
+		public SheetDelegate setSheetTraits(int traits) {
+			this.traits = traits;
+			return this;
+		}
+		@Override
+		public SheetDelegate setAggregation(boolean enabled) {
+			this.aggregation = enabled;
+			return this;
+		}
+		@Override
+		public SheetDelegate setShowAggregation(boolean show) {
+			// TODO
+			return this;
 		}
 		@Override
 		public String getSheetText() {
@@ -83,16 +110,63 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			return this.provider.getPropertyText(column);
 		}
 		@Override
-		public int getColumnType(Object column) {
+		public int getColumnType(Object row, Object column) {
+			if ( row==this ) {
+				return IItemGridsProvider.CELL_TYPE_DOUBLE;
+			}
 			return this.provider.getPropertyType(column);
 		}
 		@Override
 		public int getColumnWidth(Object column) {
 			return this.provider.getPropertyDisplayWidth(column);
 		}
+		protected Collection<?> getObjects(Object element) {
+			if ( this.element!=element) {
+				this.element = element;
+				this.objects =  this.doGetObjects(element);
+			}
+			return this.objects;
+		}
+		
+		protected Collection<?> doGetObjects(Object element) {
+			return null;
+		}
+
+		@Override
+		public Collection<?> getRows(Object element) {
+			Collection<?> objects = this.getObjects(element);
+			if ( objects==null ) {
+				return null;
+			}
+
+			if ( !this.aggregation) {
+				return objects;
+			}
+			LinkedList<Object> rows = new LinkedList<Object>();
+			rows.addAll(objects);
+			rows.add(this);
+			return rows;
+		}
+
+		@Override
+		public String getRowText(Object row) {
+			if ( row == this) {
+				return "aggregation";
+			}
+			return this.getObjectText(row);
+		}
+		
+		protected String getObjectText(Object object) {
+			return null;
+		}
+		
 		@Override
 		public Object getCellValue(Object row, Object column) {
-			return this.provider.getPropertyValue(row,  column);
+			if ( row == this ) {
+				return this.provider.getAggregationValue(this.objects, column);
+			} else {
+				return this.provider.getPropertyValue(row, column);
+			}
 		}
 	}
 	
@@ -152,8 +226,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 				}
 			}
 		}
-		@Override
-		public Collection<?> getRows(Object element) {
+		protected Collection<?> doGetObjects(Object element) {
 			if ( this.path.length==0 ) {
 				return null;
 			}
@@ -170,15 +243,15 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		
 		
 		@Override
-		public String getRowText(Object row) {
+		public String getObjectText(Object object) {
 			if ( this.attribute==null ) {
 				return null;
 			}
-			if ( !(row instanceof EObject )) {
+			if ( !(object instanceof EObject )) {
 				return null;
 			}
-			EObject object = (EObject)row;
-			return object.eGet(this.attribute).toString();
+			EObject e_object = (EObject)object;
+			return e_object.eGet(this.attribute).toString();
 		}	
 
 	}
@@ -191,19 +264,14 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			super(sheet_name, provider, traits);
 			this.rowSet = rowSet;
 		}
-		@Override
-		public Collection<?> getRows(Object element) {
-			return this.rowSet;
-		}
 		
 		@Override
-		public String getRowText(Object row) {
-			return null;
-		}	
-	
+		protected Collection<?> doGetObjects(Object element) {
+			return this.rowSet;
+		}
 	}
 
-	private PropertiesProviderGridsProvider() {
+	public PropertiesProviderGridsProvider() {
 		super();
 		this.sheets = new LinkedList<SheetDelegate>();
 	}
@@ -219,48 +287,31 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	/*
 	 * Convenience method for adding a sheets in the grid
 	 */
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider[] providers, int traits) {
-		this.sheets.add(new SheetFeature(sheet_name, references,  attribute, providers, traits));
-		return this;
+	public SheetDelegate addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider[] providers) {
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, references,  attribute, providers, SHEET_TRAITS_NONE);
+		this.sheets.add(new_sheet);
+		return new_sheet;
 	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider[] providers, int traits) {
-		this.sheets.add(new SheetFeature(sheet_name, new EReference[] {reference},  attribute, providers, traits));
-		return this;
+	public SheetDelegate addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider[] providers) {
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, new EReference[] {reference},  attribute, providers, SHEET_TRAITS_NONE);
+		this.sheets.add(new_sheet);
+		return new_sheet;
 	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider provider, int traits) {
-		this.sheets.add(new SheetFeature(sheet_name, references,  attribute, provider, traits));
-		return this;
+	public SheetDelegate addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider provider) {
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, references,  attribute, provider, SHEET_TRAITS_NONE);
+		this.sheets.add(new_sheet);
+		return new_sheet;
 	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider provider, int traits) {
-		this.sheets.add(new SheetFeature(sheet_name, new EReference[] {reference},  attribute, provider, traits));
-		return this;
+	public SheetDelegate addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider provider) {
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, new EReference[] {reference},  attribute, provider, SHEET_TRAITS_NONE);
+		this.sheets.add(new_sheet);
+		return new_sheet;
 	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider[] providers) {
-		this.addSheet(sheet_name, references,  attribute, providers, SHEET_TRAITS_NONE);
-		return this;
+	public SheetDelegate addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider) {
+		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, SHEET_TRAITS_NONE);
+		this.sheets.add(new_sheet);
+		return new_sheet;
 	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider[] providers) {
-		this.addSheet(sheet_name, reference,  attribute, providers, SHEET_TRAITS_NONE);
-		return this;
-	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider provider) {
-		this.addSheet(sheet_name, references,  attribute, provider, SHEET_TRAITS_NONE);
-		return this;
-	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider provider) {
-		this.addSheet(sheet_name, reference,  attribute, provider, SHEET_TRAITS_NONE);
-		return this;
-	}
-	
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider, int traits) {
-	  	this.sheets.add(new SheetCollection(sheet_name, rowSet, provider, traits));
-	  	return this;
-	}
-	public PropertiesProviderGridsProvider addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider) {
-	  	this.sheets.add(new SheetCollection(sheet_name, rowSet, provider, SHEET_TRAITS_NONE));
-	  	return this;
-	}
-
 	
 	/*
 	 * Specified by IItemGridsProvider
@@ -325,7 +376,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	@Override
 	public int getCellType(Object element, Object grid, Object row, Object column) {
 		SheetDelegate delegate = (SheetDelegate)grid;
-		return delegate.getColumnType(column);
+		return delegate.getColumnType(row, column);
 	}
 
 }
