@@ -67,13 +67,16 @@ import java.util.Date;
 public interface IItemGridsProvider {
 	static int NO_ALIGN = 0;
 	
-	// sheet traits are hints for the consumer how to best display the grid
+	// sheet/row/column traits are hints for the consumer how to best display the grid
 	static int SHEET_TRAITS_NONE     = 0;
 	static int SHEET_TRAITS_ROWS     = 1; // a bunch of rows with a few columns 
 	static int SHEET_TRAITS_COLUMNS  = 2; // a bunch of columns with a few rows
 	static int SHEET_TRAITS_GRID     = 4; // no dominant between rows and columns
 	static int SHEET_TRAITS_BARCHART = 8; // rows are categories and columns are series
-	
+	static int COLUMN_TRAITS_NONE     = 0;
+	static int COLUMN_TRAITS_BARCHART = 1; // column to show as series in a bar chart 
+	static int ROW_TRAITS_NONE        = 0;
+
 	static int HORIZONTAL_ALIGN_LEFT   = 1;
 	static int HORIZONTAL_ALIGN_RIGHT  = 2;
 	static int HORIZONTAL_ALIGN_CENTER = 4;
@@ -173,6 +176,16 @@ public interface IItemGridsProvider {
 	}
 
 	/**
+	 * Return the traits of a row of a grid published by the element.
+	 * @param element
+	 * @param grid
+	 * @return
+	 */
+	default int getRowTraits(Object element, Object grid, Object row) {
+		return ROW_TRAITS_NONE;
+	}
+
+	/**
 	 * Compares 2 rows according to a given column.
 	 * @param element
 	 * @param grid
@@ -232,6 +245,16 @@ public interface IItemGridsProvider {
 	 */
 	default int getColumnWidth(Object element, Object grid, Object column) {
 		return 200;
+	}
+	
+	/**
+	 * Return the traits of a column of a grid published by the element.
+	 * @param element
+	 * @param grid
+	 * @return
+	 */
+	default int getColumnTraits(Object element, Object grid, Object column) {
+		return COLUMN_TRAITS_NONE;
 	}
 	
 	/**

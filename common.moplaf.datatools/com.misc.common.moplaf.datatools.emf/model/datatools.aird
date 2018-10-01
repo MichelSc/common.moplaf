@@ -2063,6 +2063,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_IkBIob5mEeim4-ktqSMwpQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_IkBIor5mEeim4-ktqSMwpQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_UoRngMVzEei_FPtStCBlBg" type="3010" element="_Unm5IMVzEei_FPtStCBlBg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_UoRngcVzEei_FPtStCBlBg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_UoRngsVzEei_FPtStCBlBg"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_wKkRgb5lEeim4-ktqSMwpQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_wKkRgr5lEeim4-ktqSMwpQ"/>
           </children>
@@ -2423,6 +2427,16 @@
         <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//CategoryAbstract/getSubcategory"/>
         <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//CategoryAbstract/getSubcategory/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Ij6a8L5mEeim4-ktqSMwpQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Unm5IMVzEei_FPtStCBlBg" name="getPropertyAggregation(provider IPropertiesProvider, property EJavaObject) : EJavaObject" tooltipText="getPropertyAggregation(provider, property) : EJavaObject">
+        <target xmi:type="ecore:EOperation" href="datatools.ecore#//CategoryAbstract/getPropertyAggregation"/>
+        <semanticElements xmi:type="ecore:EOperation" href="datatools.ecore#//CategoryAbstract/getPropertyAggregation"/>
+        <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//CategoryAbstract/getPropertyAggregation/property"/>
+        <semanticElements xmi:type="ecore:EParameter" href="datatools.ecore#//CategoryAbstract/getPropertyAggregation/provider"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_UnouUMVzEei_FPtStCBlBg" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

@@ -117,6 +117,15 @@ public interface IPropertiesProvider {
 	 * @param property
 	 * @return
 	 */
+	default int getPropertyTraits(Object property) {
+		return 0; // no traits per default
+	}
+
+	/**
+	 * 
+	 * @param property
+	 * @return
+	 */
 	default int getPropertyAggregation(Object property) {
 		return AGGREGATE_NONE;
 	}
@@ -366,5 +375,14 @@ public interface IPropertiesProvider {
 		}
 		return PROPERTY_TYPE_UNKOWN;
 	}
-
+	
+	default public String getAggregationText(int aggregation) {
+		switch ( aggregation) {
+		case AGGREGATE_SUM: return "sum";
+		case AGGREGATE_MIN: return "min";
+		case AGGREGATE_MAX: return "max";
+		case AGGREGATE_COUNT: return "count";
+		}
+		return "unknown";
+	}
 }

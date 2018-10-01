@@ -43,6 +43,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public int getNrColumns();
 		public String getColumnText(Object column);
 		public int getColumnWidth(Object column);
+		public int getColumnTraits(Object column);
 		public int getCellType(Object row, Object column);
 		public Object getCellValue(Object row, Object column);
 		public int compareRows(Object row1, Object row2, Object column, boolean ascending);
@@ -108,6 +109,11 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public int getColumnWidth(Object column) {
 			return this.provider.getPropertyDisplayWidth(column);
 		}
+		@Override
+		public int getColumnTraits(Object column) {
+			return this.provider.getPropertyTraits(column);
+		}
+
 		protected Collection<?> getObjects(Object element) {
 			if ( this.element!=element) {
 				this.element = element;
@@ -156,6 +162,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 				return this.provider.getPropertyValue(row, column);
 			}
 		}
+		
 		@Override
 		public int getCellType(Object row, Object column) {
 			if ( row==this ) {
@@ -367,6 +374,14 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	public int getColumnWidth(Object element, Object grid, Object column) {
 		SheetDelegate delegate = (SheetDelegate)grid;
 		return delegate.getColumnWidth(column);
+	}
+	
+	
+
+	@Override
+	public int getColumnTraits(Object element, Object grid, Object column) {
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.getColumnTraits(column);
 	}
 
 	@Override

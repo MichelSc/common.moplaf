@@ -8,7 +8,7 @@
  * Contributors:
  *     Michel Schaffers - initial API and implementation
  *******************************************************************************/
-package com.misc.common.moplaf.common.util;
+package com.misc.common.moplaf.gridview.emf.edit.util;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 public class PropertiesProvider implements IPropertiesProvider {
 	private LinkedList<Property> properties = new LinkedList<Property>();
 	public interface Property {
-		public Property setPropertyTraits(int traits);
 		public String getPropertyText();
 		public int getPropertyType();
 		public int getPropertyTraits();
@@ -51,13 +51,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 			this.attribute = attribute;
 			this.aggregation = aggregation;
 			this.width = width;
-			this.traits = 0; // no traits
-		}
-		
-		@Override
-		public Property setPropertyTraits(int traits) {
-			this.traits = traits;
-			return this;
+			this.traits = IItemGridsProvider.COLUMN_TRAITS_NONE;
 		}
 
 		@Override
@@ -108,7 +102,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 		
 	}
 	
-	public PropertiesProvider() {
+	private PropertiesProvider() {
 		super();
 	}
 	
@@ -122,32 +116,33 @@ public class PropertiesProvider implements IPropertiesProvider {
 	/*
 	 * Convenience methods for adding an path/attribute property
 	 */
-	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation) {
+	public PropertiesProvider addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation) {
 		PropertyFeature property_feature = new PropertyFeature(refs, attribute, width, aggregation);
 		this.properties.add(property_feature);
-		return property_feature;
+		return this;
 	}
-	public Property addProperty(EReference[] refs, EAttribute attribute, int width) {
+	public PropertiesProvider addProperty(EReference[] refs, EAttribute attribute, int width) {
 		return this.addProperty(refs, attribute, width, AGGREGATE_NONE);
 	}
 
-	public Property addProperty(EReference[] refs, EAttribute attribute) {
+	public PropertiesProvider addProperty(EReference[] refs, EAttribute attribute) {
 		return this.addProperty(refs, attribute, DEFAULT_WIDTH, AGGREGATE_NONE);
 	}
 	
 	/*
 	 * Convenience method for adding an attribute column
 	 */
-	public Property addProperty(EAttribute attribute, int width, int aggregation) {
+	public PropertiesProvider addProperty(EAttribute attribute, int width, int aggregation) {
 		EReference[] empty_path = {};
-		return this.addProperty(empty_path , attribute, width, aggregation);
+		this.addProperty(empty_path , attribute, width, aggregation);
+		return this;
 	}
 
-	public Property addProperty(EAttribute attribute, int width) {
+	public PropertiesProvider addProperty(EAttribute attribute, int width) {
 		return this.addProperty(attribute, width, AGGREGATE_NONE);
 	}
 
-	public Property addProperty(EAttribute attribute) {
+	public PropertiesProvider addProperty(EAttribute attribute) {
 		return this.addProperty(attribute, DEFAULT_WIDTH, AGGREGATE_NONE);
 	}
 
@@ -187,7 +182,6 @@ public class PropertiesProvider implements IPropertiesProvider {
 		return this_property.getPropertyType();
 	}
 	
-	@Override
 	public int getPropertyTraits(Object property) {
 		Property this_property = (Property)property;
 		return this_property.getPropertyTraits();

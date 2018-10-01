@@ -180,12 +180,13 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 		
 		public Series[] getSeries() {
 			Collection<?> columns = this.gridsProvider.getColumns(this.element, this.grid);
-			Series[] series = new Series[columns.size()];
-			int i = 0;
+			ArrayList<Series> series = new ArrayList<Series>();
 			for ( Object column: columns) {
-				series[i++] = new Series(column);
+				if ( (this.gridsProvider.getColumnTraits(element, grid, column) & IItemGridsProvider.COLUMN_TRAITS_BARCHART) != 0){
+					series.add(new Series(column));
+				}
 			}
-			return series;
+			return series.toArray(new Series[series.size()]);
 		}
 
 		public Category[] getCategories() {

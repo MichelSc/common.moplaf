@@ -29,9 +29,9 @@ import com.misc.common.moplaf.common.util.PropertiesProvider;
  * @generated
  */
 public interface CategoryAbstract extends EObject {
-	static IPropertiesProvider PROPERTIES = PropertiesProvider.constructPropertiesProvider()
-			.addProperty(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70)
-			;
+	static IPropertiesProvider PROPERTIES = new PropertiesProvider() {{
+		addProperty(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70).setPropertyTraits(1); // TODO
+	}};
 
 	/**
 	 * Returns the value of the '<em><b>Nb Elements</b></em>' attribute.
