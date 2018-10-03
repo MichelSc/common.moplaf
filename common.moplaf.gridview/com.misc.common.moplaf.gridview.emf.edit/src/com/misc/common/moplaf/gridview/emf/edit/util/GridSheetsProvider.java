@@ -150,19 +150,19 @@ public class GridSheetsProvider implements IItemGridsProvider {
 	 * Convenience method for adding a sheet in the grid
 	 */
 	public GridSheetsProvider addSheet(GridColumnsProvider columns) {
-		this.sheets.add(new SheetFeature(null, new EReference[] {}, null, columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		this.sheets.add(new SheetFeature(null, new EReference[] {}, null, columns, IItemGridsProvider.TRAITS_NONE));
 		return this;
 	}
 	public GridSheetsProvider addSheet(String sheet_name, GridColumnsProvider columns) {
-		this.sheets.add(new SheetFeature(sheet_name, new EReference[] {}, null , columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		this.sheets.add(new SheetFeature(sheet_name, new EReference[] {}, null , columns, IItemGridsProvider.TRAITS_NONE));
 		return this;
 	}
 	public GridSheetsProvider addSheet(EReference reference, EAttribute attribute, GridColumnsProvider columns) {
-		this.sheets.add(new SheetFeature(null, new EReference[] {reference},  attribute, columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		this.sheets.add(new SheetFeature(null, new EReference[] {reference},  attribute, columns, IItemGridsProvider.TRAITS_NONE));
 		return this;
 	}
 	public GridSheetsProvider addSheet(EReference[] path, EAttribute attribute, GridColumnsProvider columns) {
-		this.sheets.add(new SheetFeature(null, path,  attribute, columns, IItemGridsProvider.SHEET_TRAITS_NONE));
+		this.sheets.add(new SheetFeature(null, path,  attribute, columns, IItemGridsProvider.TRAITS_NONE));
 		return this;
 	}
 	public GridSheetsProvider addSheet(GridColumnsProvider columns, int traits) {

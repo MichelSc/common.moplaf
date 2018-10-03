@@ -296,27 +296,27 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	 * Convenience method for adding a sheets in the grid
 	 */
 	public SheetDelegate addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider[] providers) {
-		SheetDelegate new_sheet = new SheetFeature(sheet_name, references,  attribute, providers, SHEET_TRAITS_NONE);
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, references,  attribute, providers, TRAITS_NONE);
 		this.sheets.add(new_sheet);
 		return new_sheet;
 	}
 	public SheetDelegate addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider[] providers) {
-		SheetDelegate new_sheet = new SheetFeature(sheet_name, new EReference[] {reference},  attribute, providers, SHEET_TRAITS_NONE);
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, new EReference[] {reference},  attribute, providers, TRAITS_NONE);
 		this.sheets.add(new_sheet);
 		return new_sheet;
 	}
 	public SheetDelegate addSheet(String sheet_name, EReference[] references, EAttribute attribute, IPropertiesProvider provider) {
-		SheetDelegate new_sheet = new SheetFeature(sheet_name, references,  attribute, provider, SHEET_TRAITS_NONE);
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, references,  attribute, provider, TRAITS_NONE);
 		this.sheets.add(new_sheet);
 		return new_sheet;
 	}
 	public SheetDelegate addSheet(String sheet_name, EReference reference, EAttribute attribute, IPropertiesProvider provider) {
-		SheetDelegate new_sheet = new SheetFeature(sheet_name, new EReference[] {reference},  attribute, provider, SHEET_TRAITS_NONE);
+		SheetDelegate new_sheet = new SheetFeature(sheet_name, new EReference[] {reference},  attribute, provider, TRAITS_NONE);
 		this.sheets.add(new_sheet);
 		return new_sheet;
 	}
 	public SheetDelegate addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider) {
-		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, SHEET_TRAITS_NONE);
+		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, TRAITS_NONE);
 		this.sheets.add(new_sheet);
 		return new_sheet;
 	}

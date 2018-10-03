@@ -39,27 +39,7 @@ import org.eclipse.emf.ecore.EcorePackage;
  * @author michel
  */
 
-public interface IPropertiesProvider {
-	static int NO_ALIGN = 0;
-	
-	static int HORIZONTAL_ALIGN_LEFT   = 1;
-	static int HORIZONTAL_ALIGN_RIGHT  = 2;
-	static int HORIZONTAL_ALIGN_CENTER = 4;
-
-	static int AGGREGATE_NONE   =  8;
-	static int AGGREGATE_COUNT  =  16;
-	static int AGGREGATE_SUM    =  32;
-	static int AGGREGATE_MIN    =  64;
-	static int AGGREGATE_MAX    = 128;
-
-	static int PROPERTY_TYPE_UNKOWN  = 0;
-	static int PROPERTY_TYPE_STRING  = 1;
-	static int PROPERTY_TYPE_DATE    = 2;
-	static int PROPERTY_TYPE_FLOAT   = 3;
-	static int PROPERTY_TYPE_DOUBLE  = 4;
-	static int PROPERTY_TYPE_INT     = 5;
-	static int PROPERTY_TYPE_LONG    = 6;
-	static int PROPERTY_TYPE_BOOLEAN = 7;
+public interface IPropertiesProvider extends Constants{
 	
 	/**
 	 * Returns the collections of properties published by this provider.
@@ -109,7 +89,7 @@ public interface IPropertiesProvider {
 	 * @return
 	 */
 	default int getPropertyType(Object property) {
-		return PROPERTY_TYPE_UNKOWN;
+		return DATA_TYPE_UNKOWN;
 	}
 
 	/**
@@ -151,12 +131,12 @@ public interface IPropertiesProvider {
 	default int getPropertyDisplayALignment (Object property) {
 		int type = this.getPropertyType(property);
 		switch ( type ) {
-		case PROPERTY_TYPE_STRING: 
+		case DATA_TYPE_STRING: 
 			return HORIZONTAL_ALIGN_LEFT;
-		case PROPERTY_TYPE_FLOAT:
-		case PROPERTY_TYPE_DOUBLE:
-		case PROPERTY_TYPE_INT:
-		case PROPERTY_TYPE_LONG:
+		case DATA_TYPE_FLOAT:
+		case DATA_TYPE_DOUBLE:
+		case DATA_TYPE_INT:
+		case DATA_TYPE_LONG:
 			return HORIZONTAL_ALIGN_RIGHT;
 		default: 
 			return NO_ALIGN;
@@ -185,31 +165,31 @@ public interface IPropertiesProvider {
 	static int defaultCompareValues(Object value1, Object value2, int type, boolean ascending) {
 		int sense = ascending ? +1 : -1;
 		switch (type) {
-		case PROPERTY_TYPE_BOOLEAN:
+		case DATA_TYPE_BOOLEAN:
 			Boolean boolean1 = (Boolean)value1;
 			Boolean boolean2 = (Boolean)value2;
 			return sense*boolean1.compareTo(boolean2);
-		case PROPERTY_TYPE_STRING:
+		case DATA_TYPE_STRING:
 			String string1 = (String)value1;
 			String string2 = (String)value2;
 			return sense *string1.compareTo(string2);
-		case PROPERTY_TYPE_DATE:
+		case DATA_TYPE_DATE:
 			Date date1 = (Date)value1;
 			Date date2 = (Date)value2;
 			return sense *date1.compareTo(date2);
-		case PROPERTY_TYPE_INT:
+		case DATA_TYPE_INT:
 			Integer int1 = (Integer)value1;
 			Integer int2 = (Integer)value2;
 			return sense *int1.compareTo(int2);
-		case PROPERTY_TYPE_LONG:
+		case DATA_TYPE_LONG:
 			Long long1 = (Long)value1;
 			Long long2 = (Long)value2;
 			return sense *long1.compareTo(long2);
-		case PROPERTY_TYPE_FLOAT:
+		case DATA_TYPE_FLOAT:
 			Float float1 = (Float)value1;
 			Float float2 = (Float)value2;
 			return sense *float1.compareTo(float2);
-		case PROPERTY_TYPE_DOUBLE:
+		case DATA_TYPE_DOUBLE:
 			Double double1 = (Double)value1;
 			Double double2 = (Double)value2;
 			return sense *double1.compareTo(double2);
@@ -219,14 +199,14 @@ public interface IPropertiesProvider {
 	}
 	
 	static int toPropertyType(EDataType data_type) {
-		if ( data_type==EcorePackage.Literals.ESTRING )         { return PROPERTY_TYPE_STRING; }
-		if ( data_type==EcorePackage.Literals.EDATE )           { return PROPERTY_TYPE_DATE; }
-		if ( data_type==EcorePackage.Literals.EFLOAT )          { return PROPERTY_TYPE_FLOAT; }
-		if ( data_type==EcorePackage.Literals.EDOUBLE)          { return PROPERTY_TYPE_DOUBLE; }
-		if ( data_type==EcorePackage.Literals.ELONG )           { return PROPERTY_TYPE_DOUBLE; }
-		if ( data_type==EcorePackage.Literals.EINT )            { return PROPERTY_TYPE_INT; }
-		if ( data_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return PROPERTY_TYPE_BOOLEAN; }
-		return PROPERTY_TYPE_UNKOWN;
+		if ( data_type==EcorePackage.Literals.ESTRING )         { return DATA_TYPE_STRING; }
+		if ( data_type==EcorePackage.Literals.EDATE )           { return DATA_TYPE_DATE; }
+		if ( data_type==EcorePackage.Literals.EFLOAT )          { return DATA_TYPE_FLOAT; }
+		if ( data_type==EcorePackage.Literals.EDOUBLE)          { return DATA_TYPE_DOUBLE; }
+		if ( data_type==EcorePackage.Literals.ELONG )           { return DATA_TYPE_DOUBLE; }
+		if ( data_type==EcorePackage.Literals.EINT )            { return DATA_TYPE_INT; }
+		if ( data_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return DATA_TYPE_BOOLEAN; }
+		return DATA_TYPE_UNKOWN;
 	}
 	
 	/**
@@ -243,25 +223,25 @@ public interface IPropertiesProvider {
 		switch ( this.getPropertyAggregation(property)) {
 		case AGGREGATE_SUM : 
 			switch ( type ) {
-			case PROPERTY_TYPE_DOUBLE: 
+			case DATA_TYPE_DOUBLE: 
 				return elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToDouble(v -> (Double)v)
 						.sum();
-			case PROPERTY_TYPE_FLOAT : 
+			case DATA_TYPE_FLOAT : 
 				return (float) elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToDouble(v -> (Float)v)
 						.sum();
-			case PROPERTY_TYPE_LONG  : 
+			case DATA_TYPE_LONG  : 
 				return elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToLong(v -> (Long)v)
 						.sum();
-			case PROPERTY_TYPE_INT  : 
+			case DATA_TYPE_INT  : 
 				return (int) elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
@@ -271,35 +251,35 @@ public interface IPropertiesProvider {
 			}
 		case AGGREGATE_MAX : {
 			switch ( type ) {
-			case PROPERTY_TYPE_DOUBLE: 
+			case DATA_TYPE_DOUBLE: 
 				return elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToDouble(v -> (Double)v)
 						.max()
 						.orElse(Double.MIN_VALUE);
-			case PROPERTY_TYPE_FLOAT : 
+			case DATA_TYPE_FLOAT : 
 				return (float)  elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToDouble(v -> (Float)v) 
 						.max()
 						.orElse(Float.MIN_VALUE);
-			case PROPERTY_TYPE_LONG  : 
+			case DATA_TYPE_LONG  : 
 				return elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToLong(v -> (Long)v)    
 						.max()
 						.orElse(Long.MIN_VALUE);
-			case PROPERTY_TYPE_INT   : 
+			case DATA_TYPE_INT   : 
 				return (int) elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToLong(v -> (Integer)v) 
 						.max()
 						.orElse(Integer.MIN_VALUE);
-			case PROPERTY_TYPE_DATE  : 
+			case DATA_TYPE_DATE  : 
 				return new Date(elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
@@ -311,35 +291,35 @@ public interface IPropertiesProvider {
 		}
 		case AGGREGATE_MIN : {
 			switch ( type ) {
-			case PROPERTY_TYPE_DOUBLE: 
+			case DATA_TYPE_DOUBLE: 
 				return elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToDouble(v -> (Double)v)
 						.min()
 						.orElse(Double.MAX_VALUE);
-			case PROPERTY_TYPE_FLOAT : 
+			case DATA_TYPE_FLOAT : 
 				return (float)  elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToDouble(v -> (Float)v) 
 						.min()
 						.orElse(Float.MAX_VALUE);
-			case PROPERTY_TYPE_LONG  : 
+			case DATA_TYPE_LONG  : 
 				return  elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToLong(v -> (Long)v)    
 						.min()
 						.orElse(Long.MAX_VALUE);
-			case PROPERTY_TYPE_INT   : 
+			case DATA_TYPE_INT   : 
 				return (int) elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
 						.mapToLong(v -> (Integer)v) 
 						.min()
 						.orElse(Integer.MAX_VALUE);
-			case PROPERTY_TYPE_DATE  : 
+			case DATA_TYPE_DATE  : 
 				return new Date(elements.stream()
 						.map(e -> this.getPropertyValue(e, property))
 						.filter(v -> v!=null)
@@ -371,9 +351,9 @@ public interface IPropertiesProvider {
 		case AGGREGATE_MAX:
 			return this.getPropertyType(property);
 		case AGGREGATE_COUNT:
-			return PROPERTY_TYPE_INT;
+			return DATA_TYPE_INT;
 		}
-		return PROPERTY_TYPE_UNKOWN;
+		return DATA_TYPE_UNKOWN;
 	}
 	
 	default public String getAggregationText(int aggregation) {

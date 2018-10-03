@@ -13,6 +13,8 @@ package com.misc.common.moplaf.gridview.emf.edit;
 import java.util.Collection;
 import java.util.Date;
 
+import com.misc.common.moplaf.common.Constants;
+
 /**
  * The interface declares the method(s) to be supported by an object that provides one or 
  * several sets of 2-dimensional data, for instance to be displayed in a grid.
@@ -64,35 +66,9 @@ import java.util.Date;
  * @author michel
  */
 
-public interface IItemGridsProvider {
+public interface IItemGridsProvider extends Constants {
 	static int NO_ALIGN = 0;
 	
-	// sheet/row/column traits are hints for the consumer how to best display the grid
-	static int SHEET_TRAITS_NONE     = 0;
-	static int SHEET_TRAITS_ROWS     = 1; // a bunch of rows with a few columns 
-	static int SHEET_TRAITS_COLUMNS  = 2; // a bunch of columns with a few rows
-	static int SHEET_TRAITS_GRID     = 4; // no dominant between rows and columns
-	static int SHEET_TRAITS_BARCHART = 8; // rows are categories and columns are series
-	static int COLUMN_TRAITS_NONE     = 0;
-	static int COLUMN_TRAITS_BARCHART = 1; // column to show as series in a bar chart 
-	static int ROW_TRAITS_NONE        = 0;
-
-	static int HORIZONTAL_ALIGN_LEFT   = 1;
-	static int HORIZONTAL_ALIGN_RIGHT  = 2;
-	static int HORIZONTAL_ALIGN_CENTER = 4;
-
-	static int VERTICAL_ALIGN_TOP    = 8;
-	static int VERTICAL_ALIGN_BOTTOM = 16;
-	static int VERTICAL_ALIGN_CENTER = 32;
-
-	static int CELL_TYPE_UNKOWN  = 0;
-	static int CELL_TYPE_STRING  = 1;
-	static int CELL_TYPE_DATE    = 2;
-	static int CELL_TYPE_FLOAT   = 3;
-	static int CELL_TYPE_DOUBLE  = 4;
-	static int CELL_TYPE_INT     = 5;
-	static int CELL_TYPE_LONG    = 6;
-	static int CELL_TYPE_BOOLEAN = 7;
 	
 	/**
 	 * Returns the grids published by the element. 
@@ -128,7 +104,7 @@ public interface IItemGridsProvider {
 	 * @return
 	 */
 	default int getGridTraits(Object element, Object grid) {
-		return IItemGridsProvider.SHEET_TRAITS_NONE;
+		return IItemGridsProvider.TRAITS_NONE;
 	}
 
 	/**
@@ -182,7 +158,7 @@ public interface IItemGridsProvider {
 	 * @return
 	 */
 	default int getRowTraits(Object element, Object grid, Object row) {
-		return ROW_TRAITS_NONE;
+		return TRAITS_NONE;
 	}
 
 	/**
@@ -254,7 +230,7 @@ public interface IItemGridsProvider {
 	 * @return
 	 */
 	default int getColumnTraits(Object element, Object grid, Object column) {
-		return COLUMN_TRAITS_NONE;
+		return TRAITS_NONE;
 	}
 	
 	/**
@@ -298,14 +274,14 @@ public interface IItemGridsProvider {
 	 */
 	default int getCellType(Object element, Object grid, Object row, Object column) {
 		Object value = this.getCellValue(element, grid, row, column);
-		if      ( value instanceof String )   { return CELL_TYPE_STRING; }
-		else if ( value instanceof Date )     { return CELL_TYPE_DATE; }
-		else if ( value instanceof Float )    { return CELL_TYPE_FLOAT; }
-		else if ( value instanceof Double )   { return CELL_TYPE_DOUBLE; }
-		else if ( value instanceof Integer )  { return CELL_TYPE_INT; }
-		else if ( value instanceof Long )     { return CELL_TYPE_LONG; }
-		else if ( value instanceof Boolean )  { return CELL_TYPE_BOOLEAN; }
-		return CELL_TYPE_UNKOWN;
+		if      ( value instanceof String )   { return DATA_TYPE_STRING; }
+		else if ( value instanceof Date )     { return DATA_TYPE_DATE; }
+		else if ( value instanceof Float )    { return DATA_TYPE_FLOAT; }
+		else if ( value instanceof Double )   { return DATA_TYPE_DOUBLE; }
+		else if ( value instanceof Integer )  { return DATA_TYPE_INT; }
+		else if ( value instanceof Long )     { return DATA_TYPE_LONG; }
+		else if ( value instanceof Boolean )  { return DATA_TYPE_BOOLEAN; }
+		return DATA_TYPE_UNKOWN;
 	}
 
 	/**
@@ -348,12 +324,12 @@ public interface IItemGridsProvider {
 	default int getCellALignment (Object element, Object grid, Object row, Object column) {
 		int type = this.getCellType(element, grid, row, column);
 		switch ( type ) {
-		case CELL_TYPE_STRING: 
+		case DATA_TYPE_STRING: 
 			return HORIZONTAL_ALIGN_LEFT;
-		case CELL_TYPE_FLOAT:
-		case CELL_TYPE_DOUBLE:
-		case CELL_TYPE_INT:
-		case CELL_TYPE_LONG:
+		case DATA_TYPE_FLOAT:
+		case DATA_TYPE_DOUBLE:
+		case DATA_TYPE_INT:
+		case DATA_TYPE_LONG:
 			return HORIZONTAL_ALIGN_RIGHT;
 		default: 
 			return NO_ALIGN;
@@ -372,17 +348,17 @@ public interface IItemGridsProvider {
 	default String getCellFormat(Object element, Object grid, Object row, Object column) {
 		int type = this.getCellType(element, grid, row, column);
 		switch ( type ) {
-		case CELL_TYPE_STRING: 
+		case DATA_TYPE_STRING: 
 			return "%1$s";
-		case CELL_TYPE_DATE: 
+		case DATA_TYPE_DATE: 
 			return "%1$tF %1$tT";
-		case CELL_TYPE_FLOAT:
-		case CELL_TYPE_DOUBLE:
+		case DATA_TYPE_FLOAT:
+		case DATA_TYPE_DOUBLE:
 			return "%1$.2f";
-		case CELL_TYPE_INT:
-		case CELL_TYPE_LONG:
+		case DATA_TYPE_INT:
+		case DATA_TYPE_LONG:
 			return "%1$d";
-		case CELL_TYPE_BOOLEAN:
+		case DATA_TYPE_BOOLEAN:
 			return "%1$b";
 		default:
 			return null;
@@ -397,31 +373,31 @@ public interface IItemGridsProvider {
 			return -sense; 
 		}
 		switch (type1) {
-		case CELL_TYPE_BOOLEAN:
+		case DATA_TYPE_BOOLEAN:
 			Boolean boolean1 = (Boolean)value1;
 			Boolean boolean2 = (Boolean)value2;
 			return sense*boolean1.compareTo(boolean2);
-		case CELL_TYPE_STRING:
+		case DATA_TYPE_STRING:
 			String string1 = (String)value1;
 			String string2 = (String)value2;
 			return sense *string1.compareTo(string2);
-		case CELL_TYPE_DATE:
+		case DATA_TYPE_DATE:
 			Date date1 = (Date)value1;
 			Date date2 = (Date)value2;
 			return sense *date1.compareTo(date2);
-		case CELL_TYPE_INT:
+		case DATA_TYPE_INT:
 			Integer int1 = (Integer)value1;
 			Integer int2 = (Integer)value2;
 			return sense *int1.compareTo(int2);
-		case CELL_TYPE_LONG:
+		case DATA_TYPE_LONG:
 			Long long1 = (Long)value1;
 			Long long2 = (Long)value2;
 			return sense *long1.compareTo(long2);
-		case CELL_TYPE_FLOAT:
+		case DATA_TYPE_FLOAT:
 			Float float1 = (Float)value1;
 			Float float2 = (Float)value2;
 			return sense *float1.compareTo(float2);
-		case CELL_TYPE_DOUBLE:
+		case DATA_TYPE_DOUBLE:
 			Double double1 = (Double)value1;
 			Double double2 = (Double)value2;
 			return sense *double1.compareTo(double2);

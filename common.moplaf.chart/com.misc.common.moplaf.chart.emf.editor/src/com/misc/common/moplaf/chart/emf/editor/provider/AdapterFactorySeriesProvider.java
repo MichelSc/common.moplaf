@@ -182,7 +182,7 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 			Collection<?> columns = this.gridsProvider.getColumns(this.element, this.grid);
 			ArrayList<Series> series = new ArrayList<Series>();
 			for ( Object column: columns) {
-				if ( (this.gridsProvider.getColumnTraits(element, grid, column) & IItemGridsProvider.COLUMN_TRAITS_BARCHART) != 0){
+				if ( (this.gridsProvider.getColumnTraits(element, grid, column) & IItemGridsProvider.TRAITS_BARCHART) != 0){
 					series.add(new Series(column));
 				}
 			}
@@ -243,14 +243,14 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 				// a collections of grids for the element
 				Collection<?> grids = (Collection<?>)grids_asobject;
 				for ( Object grid : grids){
-					if ( (gridsProvider.getGridTraits(element, grid) & IItemGridsProvider.SHEET_TRAITS_BARCHART) != 0) {
+					if ( (gridsProvider.getGridTraits(element, grid) & IItemGridsProvider.TRAITS_BARCHART) != 0) {
 						SeriesProvider provider = this.createSeriesProvider(element, grid, gridsProvider);
 						charts.add(provider);
 					}
 				}
 			} else if ( grids_asobject!=null ){
 				// a single grid for the element
-				if ( (gridsProvider.getGridTraits(element, grids_asobject) & IItemGridsProvider.SHEET_TRAITS_BARCHART) != 0) {
+				if ( (gridsProvider.getGridTraits(element, grids_asobject) & IItemGridsProvider.TRAITS_BARCHART) != 0) {
 					SeriesProvider provider = this.createSeriesProvider(element, grids_asobject, gridsProvider);
 					charts.add(provider);
 				}

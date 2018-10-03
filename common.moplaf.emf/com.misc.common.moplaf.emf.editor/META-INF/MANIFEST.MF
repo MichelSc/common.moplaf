@@ -8,8 +8,8 @@ Bundle-Vendor: MISC
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  com.misc.common.moplaf.emf.edit;bundle-version="1.0.0",
- com.misc.common.moplaf.emf;bundle-version="1.0.0",
- com.misc.common.moplaf.emf.ui;bundle-version="1.0.0",
+ com.misc.common.moplaf.emf;bundle-version="1.0.0";visibility:=reexport,
+ com.misc.common.moplaf.emf.ui;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.ui.workbench,
  org.eclipse.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

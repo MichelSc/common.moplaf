@@ -219,12 +219,12 @@ public class PropertiesProvider implements IPropertiesProvider {
 	public int getPropertyDisplayALignment (Object property) {
 		int type = this.getPropertyType(property);
 		switch ( type ) {
-		case PROPERTY_TYPE_STRING: 
+		case DATA_TYPE_STRING: 
 			return HORIZONTAL_ALIGN_LEFT;
-		case PROPERTY_TYPE_FLOAT:
-		case PROPERTY_TYPE_DOUBLE:
-		case PROPERTY_TYPE_INT:
-		case PROPERTY_TYPE_LONG:
+		case DATA_TYPE_FLOAT:
+		case DATA_TYPE_DOUBLE:
+		case DATA_TYPE_INT:
+		case DATA_TYPE_LONG:
 			return HORIZONTAL_ALIGN_RIGHT;
 		default: 
 			return NO_ALIGN;

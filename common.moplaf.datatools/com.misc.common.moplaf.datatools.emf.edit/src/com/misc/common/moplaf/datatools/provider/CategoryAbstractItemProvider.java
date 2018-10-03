@@ -267,7 +267,7 @@ public class CategoryAbstractItemProvider
 								DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
 								DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
 								new CategoryPropertiesProvider(CategoryAbstract.PROPERTIES, cat))
-					  .setSheetTraits(IItemGridsProvider.SHEET_TRAITS_BARCHART);
+					  .setSheetTraits(IItemGridsProvider.TRAITS_BARCHART);
 		
 		return grids_provider;
 	}
