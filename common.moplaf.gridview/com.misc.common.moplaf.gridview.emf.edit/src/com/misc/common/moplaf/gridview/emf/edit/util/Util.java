@@ -5,12 +5,14 @@ import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 public class Util {
 
 	static public String getTextFromValue(Object cellValue, int cellType, String format) {
-		if ( format!=null) {
+		if ( cellValue==null ) {
+			return null;
+		} else if ( format!=null) {
 			return String.format(format, cellValue);
 		} else {
 			switch ( cellType ) {
 			case IItemGridsProvider.DATA_TYPE_STRING: 
-				return cellValue == null ? "" : (String)cellValue;
+				return (String)cellValue;
 			case IItemGridsProvider.DATA_TYPE_DATE: 
 				return String.format("%1$tF %1$tT", cellValue);
 			case IItemGridsProvider.DATA_TYPE_FLOAT:
