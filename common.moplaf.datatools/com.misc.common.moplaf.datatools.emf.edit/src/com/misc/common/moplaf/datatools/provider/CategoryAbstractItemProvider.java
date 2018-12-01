@@ -5,7 +5,6 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
-import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
@@ -145,7 +144,8 @@ public class CategoryAbstractItemProvider
 		// specified by IItemPropertyDescriptor
 		@Override
 		public String getDisplayName(Object object) {
-			return "Aggregation";
+			String name = this.properties.getPropertyText(this.property);
+			return name;
 		}
 
 		// specified by IItemPropertyDescriptor
