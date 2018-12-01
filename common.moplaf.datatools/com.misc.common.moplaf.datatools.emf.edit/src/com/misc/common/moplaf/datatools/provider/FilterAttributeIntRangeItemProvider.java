@@ -68,7 +68,7 @@ public class FilterAttributeIntRangeItemProvider extends FilterAttributeIntItemP
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
@@ -90,7 +90,7 @@ public class FilterAttributeIntRangeItemProvider extends FilterAttributeIntItemP
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 

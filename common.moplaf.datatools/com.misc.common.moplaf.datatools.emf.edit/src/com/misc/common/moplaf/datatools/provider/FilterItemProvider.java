@@ -69,7 +69,7 @@ public class FilterItemProvider extends DataToolAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
@@ -91,7 +91,7 @@ public class FilterItemProvider extends DataToolAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
@@ -113,7 +113,7 @@ public class FilterItemProvider extends DataToolAbstractItemProvider {
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 

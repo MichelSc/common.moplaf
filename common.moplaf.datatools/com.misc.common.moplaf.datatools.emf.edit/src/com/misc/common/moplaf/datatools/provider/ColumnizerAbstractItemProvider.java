@@ -68,7 +68,7 @@ public class ColumnizerAbstractItemProvider extends DataToolItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -90,7 +90,7 @@ public class ColumnizerAbstractItemProvider extends DataToolItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 

@@ -95,7 +95,7 @@ public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemPro
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
@@ -116,7 +116,7 @@ public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemPro
 				 false,
 				 true,
 				 null,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null) {
 
 					@Override
@@ -150,7 +150,7 @@ public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemPro
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 

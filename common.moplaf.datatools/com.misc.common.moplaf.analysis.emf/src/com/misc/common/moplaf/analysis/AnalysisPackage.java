@@ -229,7 +229,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT_1 = DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
+	int DOC_ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOC_ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = DatatoolsPackage.CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Domain Types</em>' operation.

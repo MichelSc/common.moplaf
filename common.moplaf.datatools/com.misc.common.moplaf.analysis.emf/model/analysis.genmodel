@@ -9,13 +9,13 @@
   <genPackages prefix="Analysis" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="analysis.ecore#/">
     <genClasses ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="#//analysis/DocAnalysis/Description">
-      <genFeatures children="true" createChild="true" propertyCategory="20 Config"
+      <genFeatures children="true" createChild="true" propertyCategory="20 Config Set Up"
           propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Extractor"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
           ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Complete"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
           ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/MaxElements"/>
-      <genFeatures property="None" children="true" createChild="true" propertyCategory="20 Config"
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="20 Config Set Up"
           ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Categorizers"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Analysis"
           propertyDescription="" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Description"/>

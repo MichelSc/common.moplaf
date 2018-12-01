@@ -76,7 +76,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 				 false,
 				 true,
 				 null,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -98,7 +98,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 				 false,
 				 true,
 				 null,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -120,7 +120,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -142,7 +142,7 @@ public class ExtractorPathItemProvider extends ExtractorItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 

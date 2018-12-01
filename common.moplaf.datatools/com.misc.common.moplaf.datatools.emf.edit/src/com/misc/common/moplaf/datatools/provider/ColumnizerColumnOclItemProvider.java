@@ -68,7 +68,7 @@ public class ColumnizerColumnOclItemProvider extends ColumnizerColumnItemProvide
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 

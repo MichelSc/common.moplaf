@@ -71,7 +71,7 @@ public class ColumnizerItemProvider
 				 false,
 				 true,
 				 null,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null)
 			{
 
@@ -103,7 +103,7 @@ public class ColumnizerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20ConfigPropertyCategory"),
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
