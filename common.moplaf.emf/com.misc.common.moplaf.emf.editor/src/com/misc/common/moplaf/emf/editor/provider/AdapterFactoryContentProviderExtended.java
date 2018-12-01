@@ -66,33 +66,39 @@ public class AdapterFactoryContentProviderExtended extends
 		}
 		// create property editor
 		public CellEditor createPropertyEditor(Composite composite) {
-		   EStructuralFeature eFeature = (EStructuralFeature)itemPropertyDescriptor.getFeature(object);
 		   EObject eObject = (EObject)object;
-		   Object value = eObject.eGet(eFeature);
-		   EClassifier eType = eFeature.getEType();
-		   if ( eType instanceof EDataType){
-			   EDataType eDataType = (EDataType) eType;
-			   if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == Date.class ){
-			  	  	return CellEditorFactory.editDate(composite, getEditLabelProvider(), (Date)value);
-			   }  // if class is Date and feature is selected as Date
-			   else if ( AdapterFactoryContentProviderExtended.this.editDateTimes.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == Date.class ){
-				   return CellEditorFactory.editDateTime(composite, getEditLabelProvider(), (Date)value);
-			   }  // if class is Date and feature is selected as DateTime
-			   else if ( AdapterFactoryContentProviderExtended.this.editTimes.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == float.class ){
-				   return CellEditorFactory.editTime(composite, getEditLabelProvider(), (Float)value);
-			   }  // if class is float and feature is selected as time
-			   else if ( AdapterFactoryContentProviderExtended.this.editFilePaths.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == String.class ){
-				   return CellEditorFactory.editFilePath(composite, getEditLabelProvider(), (String) value);
-			   }  // if class is String and feature is selected as file path
-			   else if ( AdapterFactoryContentProviderExtended.this.editColors.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == int.class ){
-				   return CellEditorFactory.editColor(composite, getEditLabelProvider(), (Integer)value);
-			   }  // if class is String and feature is selected as file path
+		   // get the feature
+		   EStructuralFeature eFeature = (EStructuralFeature)itemPropertyDescriptor.getFeature(object);
+		   if ( eFeature==null ) {
+			   return super.createPropertyEditor(composite);
 		   }
+		   // get the type
+		   EClassifier eType = eFeature.getEType();
+		   if ( !(eType  instanceof EDataType)) {
+			   return super.createPropertyEditor(composite);
+		   }
+		   Object value = eObject.eGet(eFeature);
+		   EDataType eDataType = (EDataType) eType;
+		   if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature)
+			 && eDataType.getInstanceClass() == Date.class ){
+		  	  	return CellEditorFactory.editDate(composite, getEditLabelProvider(), (Date)value);
+		   }  // if class is Date and feature is selected as Date
+		   else if ( AdapterFactoryContentProviderExtended.this.editDateTimes.isFeatureSelected(eFeature)
+			 && eDataType.getInstanceClass() == Date.class ){
+			   return CellEditorFactory.editDateTime(composite, getEditLabelProvider(), (Date)value);
+		   }  // if class is Date and feature is selected as DateTime
+		   else if ( AdapterFactoryContentProviderExtended.this.editTimes.isFeatureSelected(eFeature)
+			 && eDataType.getInstanceClass() == float.class ){
+			   return CellEditorFactory.editTime(composite, getEditLabelProvider(), (Float)value);
+		   }  // if class is float and feature is selected as time
+		   else if ( AdapterFactoryContentProviderExtended.this.editFilePaths.isFeatureSelected(eFeature)
+			 && eDataType.getInstanceClass() == String.class ){
+			   return CellEditorFactory.editFilePath(composite, getEditLabelProvider(), (String) value);
+		   }  // if class is String and feature is selected as file path
+		   else if ( AdapterFactoryContentProviderExtended.this.editColors.isFeatureSelected(eFeature)
+			 && eDataType.getInstanceClass() == int.class ){
+			   return CellEditorFactory.editColor(composite, getEditLabelProvider(), (Integer)value);
+		   }  // if class is String and feature is selected as file path
 		   return super.createPropertyEditor(composite);
 		}  // create property editor
 

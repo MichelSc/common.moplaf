@@ -19,7 +19,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
-public class Util {
+import com.misc.common.moplaf.common.Constants;
+
+
+public class Util implements Constants {
 
 	/** logic object has resource
 	 * 
@@ -149,5 +152,72 @@ public class Util {
 	 */
 	static public Adapter adapt(Object target, Object type) {
 		return adapt(target, type, false);
+	}
+
+	static public double getDoubleValue(Object cellValue, int cellType) {
+		switch ( cellType ) {
+		case DATA_TYPE_FLOAT:
+			return (Float)cellValue;
+		case DATA_TYPE_DOUBLE:
+			return (Double)cellValue;
+		case DATA_TYPE_INT:
+			return (Integer)cellValue;
+		case DATA_TYPE_LONG:
+			return (Long)cellValue;
+		case DATA_TYPE_BOOLEAN:
+			boolean value_boolean = (Boolean)cellValue;
+			return value_boolean ? 1.0d : 0.0d;
+		case DATA_TYPE_STRING: 
+		case DATA_TYPE_DATE: 
+		default: 
+			return 0.0;
+		}
+	}
+
+	static public float getFloatValue(Object cellValue, int cellType) {
+		return (float)getDoubleValue(cellValue, cellType);
+	}
+
+	static public String getTextFromValue(Object cellValue, int cellType, String format) {
+		if ( cellValue==null ) {
+			return null;
+		} else if ( format!=null) {
+			return String.format(format, cellValue);
+		} else {
+			switch ( cellType ) {
+			case DATA_TYPE_STRING: 
+				return (String)cellValue;
+			case DATA_TYPE_DATE: 
+				return String.format("%1$tF %1$tT", cellValue);
+			case DATA_TYPE_FLOAT:
+			case DATA_TYPE_DOUBLE:
+				return String.format("%1$.2f", cellValue);
+			case DATA_TYPE_INT:
+			case DATA_TYPE_LONG:
+				return String.format("%1$d", cellValue);
+			case DATA_TYPE_BOOLEAN:
+				return String.format("%1$b", cellValue);
+			default: 
+				return "";
+			}
+		}
+	}
+
+	static public Object getTypeCellValue(Number cellValue, int cellType) {
+		switch ( cellType ) {
+		case DATA_TYPE_FLOAT:
+			return cellValue.floatValue();
+		case DATA_TYPE_DOUBLE:
+			return cellValue.doubleValue();
+		case DATA_TYPE_INT:
+			return cellValue.intValue();
+		case DATA_TYPE_LONG:
+			return cellValue.longValue();
+		case DATA_TYPE_BOOLEAN:
+		case DATA_TYPE_STRING: 
+		case DATA_TYPE_DATE: 
+		default: 
+			return null;
+		}
 	}
 }

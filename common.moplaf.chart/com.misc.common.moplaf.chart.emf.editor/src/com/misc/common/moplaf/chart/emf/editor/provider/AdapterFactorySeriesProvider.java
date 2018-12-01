@@ -26,9 +26,9 @@ import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
 import com.misc.common.moplaf.chart.ISeriesProvider;
 import com.misc.common.moplaf.chart.Wrapper;
+import com.misc.common.moplaf.common.util.Util;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.Util;
 
 
 /**
@@ -205,12 +205,10 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 			return Util.getFloatValue(value_as_object, value_type);
 		}
 
-
 		@Override
 		public String getText(Object object) {
 			return this.getSeriesText();
 		}
-
 
 		@Override
 		public Object getImage(Object object) {

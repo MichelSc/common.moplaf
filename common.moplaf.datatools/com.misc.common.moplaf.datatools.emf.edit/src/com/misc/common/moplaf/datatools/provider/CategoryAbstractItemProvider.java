@@ -5,6 +5,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
+import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
@@ -59,7 +60,6 @@ public class CategoryAbstractItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -67,10 +67,166 @@ public class CategoryAbstractItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNbElementsPropertyDescriptor(object);
+			addAggregationProperties((CategoryAbstract)object);
 		}
 		return itemPropertyDescriptors;
 	}
 
+	// this adds property descriptors for every aggregated property in this category
+	private void addAggregationProperties(CategoryAbstract category) {
+		Columnizers cols_set = category.getColumnizerSet();
+		for ( ColumnizerAbstract cols : cols_set.getColumnizers()) {
+			IPropertiesProvider properties = cols.getPropertiesProvider();
+			if ( properties != null ) {
+				for ( Object property : properties.getProperties()) {
+					int aggregation = properties.getAggregationType(property);
+					if ( aggregation != AGGREGATE_NONE) {
+						// this property support aggregation, add a property descriptor
+						IItemPropertyDescriptor descriptor = new CategoryAggregatedPropertyDescriptor(properties, property); 
+						this.itemPropertyDescriptors.add(descriptor);
+					}
+				}
+			}
+		}
+	}
+	
+	private class CategoryAggregatedPropertyDescriptor implements IItemPropertyDescriptor, IItemLabelProvider{
+		private IPropertiesProvider properties;
+		private Object property;
+		
+		public CategoryAggregatedPropertyDescriptor(IPropertiesProvider properties, Object property) {
+			super();
+			this.properties = properties;
+			this.property = property;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public Object getPropertyValue(Object object) {
+			CategoryAbstract category = (CategoryAbstract)object;
+			Object value = category.getPropertyAggregation(this.properties, this.property);
+			return value;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public boolean isPropertySet(Object object) {
+			return false;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public boolean canSetProperty(Object object) {
+			return false;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public void resetPropertyValue(Object object) {
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public void setPropertyValue(Object object, Object value) {
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public String getCategory(Object object) {
+			return "40 Aggregations";
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public String getDescription(Object object) {
+			return null;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public String getDisplayName(Object object) {
+			return "Aggregation";
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public String[] getFilterFlags(Object object) {
+			return null;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public Object getHelpContextIds(Object object) {
+			return null;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public String getId(Object object) {
+			return this.properties.getPropertyText(this.property);
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public IItemLabelProvider getLabelProvider(Object object) {
+			return this;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public boolean isCompatibleWith(Object object, Object anotherObject,
+				IItemPropertyDescriptor anotherPropertyDescriptor) {
+			return false;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public Object getFeature(Object object) {
+			return null;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public boolean isMany(Object object) {
+			return false;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public Collection<?> getChoiceOfValues(Object object) {
+			return null;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public boolean isMultiLine(Object object) {
+			return false;
+		}
+
+		// specified by IItemPropertyDescriptor
+		@Override
+		public boolean isSortChoices(Object object) {
+			return false;
+		}
+
+		// specified by IItemLabelProvider 
+		@Override
+		public String getText(Object object) {
+			int type = this.properties.getPropertyType(this.property);
+			String format = null;
+			String text = com.misc.common.moplaf.common.util.Util.getTextFromValue(object, type, format);
+			return text;
+		}
+
+		// specified by IItemLabelProvider 
+		@Override
+		public Object getImage(Object object) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	};
+	
 	/**
 	 * This adds a property descriptor for the Nb Elements feature.
 	 * <!-- begin-user-doc -->

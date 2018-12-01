@@ -353,7 +353,7 @@ public interface IPropertiesProvider extends Constants{
 		case AGGREGATE_COUNT:
 			return DATA_TYPE_INT;
 		}
-		return DATA_TYPE_UNKOWN;
+		return AGGREGATE_NONE;
 	}
 	
 	default public String getAggregationText(int aggregation) {
