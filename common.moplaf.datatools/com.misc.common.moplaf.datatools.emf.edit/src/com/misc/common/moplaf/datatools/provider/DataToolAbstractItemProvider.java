@@ -52,33 +52,10 @@ public class DataToolAbstractItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContextPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataToolAbstract_Context_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataToolAbstract_Context_feature", "_UI_DataToolAbstract_type"),
-				 DatatoolsPackage.Literals.DATA_TOOL_ABSTRACT__CONTEXT,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -99,7 +76,7 @@ public class DataToolAbstractItemProvider extends ItemProviderAdapter implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DataToolPropertyCategory"),
 				 null));
 	}
 
@@ -121,7 +98,7 @@ public class DataToolAbstractItemProvider extends ItemProviderAdapter implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DataToolPropertyCategory"),
 				 null));
 	}
 

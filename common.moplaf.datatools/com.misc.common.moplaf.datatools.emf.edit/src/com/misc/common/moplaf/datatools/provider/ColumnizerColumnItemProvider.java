@@ -85,7 +85,7 @@ public class ColumnizerColumnItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10ColumnPropertyCategory"),
 				 null));
 	}
 
@@ -107,7 +107,7 @@ public class ColumnizerColumnItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigPropertyCategory"),
 				 null));
 	}
 
@@ -129,7 +129,7 @@ public class ColumnizerColumnItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigPropertyCategory"),
 				 null));
 	}
 

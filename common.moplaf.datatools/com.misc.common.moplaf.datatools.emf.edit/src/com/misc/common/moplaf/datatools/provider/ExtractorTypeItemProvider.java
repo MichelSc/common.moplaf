@@ -68,7 +68,7 @@ public class ExtractorTypeItemProvider extends ExtractorItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ConfigPropertyCategory"),
 				 null) {
 
 					@Override

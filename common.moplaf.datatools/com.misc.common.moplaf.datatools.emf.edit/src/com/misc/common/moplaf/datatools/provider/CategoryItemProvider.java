@@ -67,7 +67,7 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10CategoryPropertyCategory"),
 				 null));
 	}
 
@@ -89,7 +89,7 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10CategoryPropertyCategory"),
 				 null));
 	}
 

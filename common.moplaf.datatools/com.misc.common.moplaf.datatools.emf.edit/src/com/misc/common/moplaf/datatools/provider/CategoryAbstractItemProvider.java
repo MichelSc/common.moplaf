@@ -67,8 +67,6 @@ public class CategoryAbstractItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNbElementsPropertyDescriptor(object);
-			addElementsPropertyDescriptor(object);
-			addColumnizerSetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,51 +89,7 @@ public class CategoryAbstractItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_Elements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_Elements_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__ELEMENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Columnizer Set feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addColumnizerSetPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_ColumnizerSet_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_ColumnizerSet_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__COLUMNIZER_SET,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 

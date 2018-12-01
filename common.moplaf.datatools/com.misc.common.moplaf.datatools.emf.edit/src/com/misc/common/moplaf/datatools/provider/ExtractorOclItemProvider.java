@@ -68,7 +68,7 @@ public class ExtractorOclItemProvider extends ExtractorItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigPropertyCategory"),
 				 null));
 	}
 

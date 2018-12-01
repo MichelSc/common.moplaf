@@ -77,7 +77,7 @@ public class DocItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -99,7 +99,7 @@ public class DocItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 

@@ -83,7 +83,7 @@ public class DocRefItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10DocumentPropertyCategory"),
 				 null));
 	}
 

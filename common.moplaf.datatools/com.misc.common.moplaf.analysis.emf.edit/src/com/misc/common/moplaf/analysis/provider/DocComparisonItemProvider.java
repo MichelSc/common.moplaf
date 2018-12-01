@@ -188,6 +188,11 @@ public class DocComparisonItemProvider extends ItemProviderAdapter implements IE
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_COMPARE,
+				 DatatoolsFactory.eINSTANCE.createColumnizerAbstract()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_COMPARE,
 				 DatatoolsFactory.eINSTANCE.createColumnizer()));
 
 		newChildDescriptors.add
@@ -239,6 +244,11 @@ public class DocComparisonItemProvider extends ItemProviderAdapter implements IE
 			(createChildParameter
 				(AnalysisPackage.Literals.DOC_COMPARISON__MATCHER,
 				 DatatoolsFactory.eINSTANCE.createMatcher()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AnalysisPackage.Literals.DOC_COMPARISON__COLUMNIZER_KEY,
+				 DatatoolsFactory.eINSTANCE.createColumnizerAbstract()));
 
 		newChildDescriptors.add
 			(createChildParameter

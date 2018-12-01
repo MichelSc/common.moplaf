@@ -67,7 +67,6 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addDataToolsPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addRemarksPropertyDescriptor(object);
@@ -93,7 +92,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10DocumentPropertyCategory"),
 				 null));
 	}
 
@@ -115,7 +114,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ConfigPropertyCategory"),
 				 null));
 	}
 
@@ -133,11 +132,11 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 getString("_UI_DocAnalysis_Complete_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Complete_feature", "_UI_DocAnalysis_type"),
 				 AnalysisPackage.Literals.DOC_ANALYSIS__COMPLETE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -155,11 +154,11 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 getString("_UI_DocAnalysis_MaxElements_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_MaxElements_feature", "_UI_DocAnalysis_type"),
 				 AnalysisPackage.Literals.DOC_ANALYSIS__MAX_ELEMENTS,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -181,29 +180,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Data Tools feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataToolsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_DataTools_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_DataTools_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__DATA_TOOLS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -225,7 +202,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -247,7 +224,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -269,7 +246,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
