@@ -93,29 +93,6 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.DocComparison} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DocComparisonItemProvider docComparisonItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.DocComparison}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDocComparisonAdapter() {
-		if (docComparisonItemProvider == null) {
-			docComparisonItemProvider = new DocComparisonItemProvider(this);
-		}
-
-		return docComparisonItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisDomain} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

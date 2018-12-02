@@ -7,8 +7,6 @@ import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DataTools;
 import com.misc.common.moplaf.analysis.DocAnalysis;
-
-import com.misc.common.moplaf.analysis.DocComparison;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.file.FilePackage;
 
@@ -35,13 +33,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	private EClass docAnalysisEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass docComparisonEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,78 +245,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDocComparison() {
-		return docComparisonEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocComparison_Extractor() {
-		return (EReference)docComparisonEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocComparison_ColumnizerCompare() {
-		return (EReference)docComparisonEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocComparison_Doc1() {
-		return (EReference)docComparisonEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocComparison_Doc2() {
-		return (EReference)docComparisonEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocComparison_Matches() {
-		return (EReference)docComparisonEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocComparison_Matcher() {
-		return (EReference)docComparisonEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDocComparison_ColumnizerKey() {
-		return (EReference)docComparisonEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAnalysisDomain() {
 		return analysisDomainEClass;
 	}
@@ -445,15 +364,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___ADD_TOOL__DATATOOL);
 		createEOperation(docAnalysisEClass, DOC_ANALYSIS___FLUSH);
 
-		docComparisonEClass = createEClass(DOC_COMPARISON);
-		createEReference(docComparisonEClass, DOC_COMPARISON__EXTRACTOR);
-		createEReference(docComparisonEClass, DOC_COMPARISON__COLUMNIZER_COMPARE);
-		createEReference(docComparisonEClass, DOC_COMPARISON__DOC1);
-		createEReference(docComparisonEClass, DOC_COMPARISON__DOC2);
-		createEReference(docComparisonEClass, DOC_COMPARISON__MATCHES);
-		createEReference(docComparisonEClass, DOC_COMPARISON__MATCHER);
-		createEReference(docComparisonEClass, DOC_COMPARISON__COLUMNIZER_KEY);
-
 		analysisDomainEClass = createEClass(ANALYSIS_DOMAIN);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUPER_DOMAIN);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUB_DOMAINS);
@@ -525,15 +435,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		addEParameter(op, theDatatoolsPackage.getDataTool(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDocAnalysis__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(docComparisonEClass, DocComparison.class, "DocComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDocComparison_Extractor(), theDatatoolsPackage.getExtractor(), null, "Extractor", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocComparison_ColumnizerCompare(), theDatatoolsPackage.getColumnizerAbstract(), null, "ColumnizerCompare", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocComparison_Doc1(), theJobPackage.getDocRef(), null, "Doc1", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocComparison_Doc2(), theJobPackage.getDocRef(), null, "Doc2", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocComparison_Matches(), theDatatoolsPackage.getMatch(), null, "Matches", null, 0, -1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocComparison_Matcher(), theDatatoolsPackage.getMatcher(), null, "Matcher", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocComparison_ColumnizerKey(), theDatatoolsPackage.getColumnizerAbstract(), null, "ColumnizerKey", null, 0, 1, DocComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(analysisDomainEClass, AnalysisDomain.class, "AnalysisDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisDomain_SuperDomain(), this.getAnalysisDomain(), this.getAnalysisDomain_SubDomains(), "SuperDomain", null, 0, 1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

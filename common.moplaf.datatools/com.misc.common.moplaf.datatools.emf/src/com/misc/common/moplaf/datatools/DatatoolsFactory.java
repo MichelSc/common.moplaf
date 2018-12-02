@@ -184,24 +184,6 @@ public interface DatatoolsFactory extends EFactory {
 	DataToolContext createDataToolContext();
 
 	/**
-	 * Returns a new object of class '<em>Matcher</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Matcher</em>'.
-	 * @generated
-	 */
-	Matcher createMatcher();
-
-	/**
-	 * Returns a new object of class '<em>Match</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Match</em>'.
-	 * @generated
-	 */
-	Match createMatch();
-
-	/**
 	 * Returns a new object of class '<em>Columnizers</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

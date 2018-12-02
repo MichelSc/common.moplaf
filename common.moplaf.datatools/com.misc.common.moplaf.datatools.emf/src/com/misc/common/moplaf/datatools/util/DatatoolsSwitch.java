@@ -299,6 +299,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatoolsPackage.COLUMNIZERS: {
+				Columnizers columnizers = (Columnizers)theEObject;
+				T result = caseColumnizers(columnizers);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DatatoolsPackage.COLUMNIZER_ABSTRACT: {
 				ColumnizerAbstract columnizerAbstract = (ColumnizerAbstract)theEObject;
 				T result = caseColumnizerAbstract(columnizerAbstract);
@@ -338,6 +344,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatoolsPackage.CATEGORY_ABSTRACT: {
+				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
+				T result = caseCategoryAbstract(categoryAbstract);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DatatoolsPackage.CATEGORY: {
 				Category category = (Category)theEObject;
 				T result = caseCategory(category);
@@ -369,32 +381,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorizer(categorizerOcl);
 				if (result == null) result = caseDataTool(categorizerOcl);
 				if (result == null) result = caseDataToolAbstract(categorizerOcl);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.MATCHER: {
-				Matcher matcher = (Matcher)theEObject;
-				T result = caseMatcher(matcher);
-				if (result == null) result = caseDataTool(matcher);
-				if (result == null) result = caseDataToolAbstract(matcher);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.MATCH: {
-				Match match = (Match)theEObject;
-				T result = caseMatch(match);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.COLUMNIZERS: {
-				Columnizers columnizers = (Columnizers)theEObject;
-				T result = caseColumnizers(columnizers);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DatatoolsPackage.CATEGORY_ABSTRACT: {
-				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
-				T result = caseCategoryAbstract(categoryAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -894,36 +880,6 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNavigationAxis(NavigationAxis object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Matcher</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Matcher</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMatcher(Matcher object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Match</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Match</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMatch(Match object) {
 		return null;
 	}
 

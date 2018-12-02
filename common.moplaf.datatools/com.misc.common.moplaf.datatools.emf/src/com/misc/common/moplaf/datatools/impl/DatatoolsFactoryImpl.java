@@ -70,15 +70,13 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
 			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
 			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
+			case DatatoolsPackage.COLUMNIZERS: return createColumnizers();
 			case DatatoolsPackage.COLUMNIZER_ABSTRACT: return createColumnizerAbstract();
 			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
+			case DatatoolsPackage.CATEGORY_ABSTRACT: return createCategoryAbstract();
 			case DatatoolsPackage.CATEGORY: return createCategory();
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: return createCategorizerStructuralFeature();
-			case DatatoolsPackage.MATCHER: return createMatcher();
-			case DatatoolsPackage.MATCH: return createMatch();
-			case DatatoolsPackage.COLUMNIZERS: return createColumnizers();
-			case DatatoolsPackage.CATEGORY_ABSTRACT: return createCategoryAbstract();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,8 +92,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 		switch (eDataType.getClassifierID()) {
 			case DatatoolsPackage.DATA_TOOL_TYPE:
 				return createDataToolTypeFromString(eDataType, initialValue);
-			case DatatoolsPackage.MATCH_STATUS:
-				return createMatchStatusFromString(eDataType, initialValue);
 			case DatatoolsPackage.AGGREGATION_TYPE:
 				return createAggregationTypeFromString(eDataType, initialValue);
 			case DatatoolsPackage.IPROPERTIES_PROVIDER:
@@ -115,8 +111,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 		switch (eDataType.getClassifierID()) {
 			case DatatoolsPackage.DATA_TOOL_TYPE:
 				return convertDataToolTypeToString(eDataType, instanceValue);
-			case DatatoolsPackage.MATCH_STATUS:
-				return convertMatchStatusToString(eDataType, instanceValue);
 			case DatatoolsPackage.AGGREGATION_TYPE:
 				return convertAggregationTypeToString(eDataType, instanceValue);
 			case DatatoolsPackage.IPROPERTIES_PROVIDER:
@@ -311,26 +305,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Matcher createMatcher() {
-		MatcherImpl matcher = new MatcherImpl();
-		return matcher;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Match createMatch() {
-		MatchImpl match = new MatchImpl();
-		return match;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Columnizers createColumnizers() {
 		ColumnizersImpl columnizers = new ColumnizersImpl();
 		return columnizers;
@@ -363,26 +337,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * @generated
 	 */
 	public String convertDataToolTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MatchStatus createMatchStatusFromString(EDataType eDataType, String initialValue) {
-		MatchStatus result = MatchStatus.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMatchStatusToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

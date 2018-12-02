@@ -31,15 +31,6 @@ public interface AnalysisFactory extends EFactory {
 	DocAnalysis createDocAnalysis();
 
 	/**
-	 * Returns a new object of class '<em>Doc Comparison</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Doc Comparison</em>'.
-	 * @generated
-	 */
-	DocComparison createDocComparison();
-
-	/**
 	 * Returns a new object of class '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

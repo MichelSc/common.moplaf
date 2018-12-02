@@ -83,12 +83,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AnalysisPackage.DOC_COMPARISON: {
-				DocComparison docComparison = (DocComparison)theEObject;
-				T result = caseDocComparison(docComparison);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case AnalysisPackage.ANALYSIS_DOMAIN: {
 				AnalysisDomain analysisDomain = (AnalysisDomain)theEObject;
 				T result = caseAnalysisDomain(analysisDomain);
@@ -122,21 +116,6 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDocAnalysis(DocAnalysis object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Doc Comparison</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Doc Comparison</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDocComparison(DocComparison object) {
 		return null;
 	}
 
