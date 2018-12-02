@@ -92,11 +92,15 @@ public class CategoryAbstractItemProvider
 	private class CategoryAggregatedPropertyDescriptor implements IItemPropertyDescriptor, IItemLabelProvider{
 		private IPropertiesProvider properties;
 		private Object property;
+		int aggregation;
+		int type;
 		
 		public CategoryAggregatedPropertyDescriptor(IPropertiesProvider properties, Object property) {
 			super();
 			this.properties = properties;
 			this.property = property;
+			this.aggregation = this.properties.getPropertyAggregation(this.property);
+			this.type = this.properties.getPropertyType(this.property);
 		}
 
 		// specified by IItemPropertyDescriptor
@@ -144,7 +148,9 @@ public class CategoryAbstractItemProvider
 		// specified by IItemPropertyDescriptor
 		@Override
 		public String getDisplayName(Object object) {
-			String name = this.properties.getPropertyText(this.property);
+			String property = this.properties.getPropertyText(this.property);
+			String aggregation = this.properties.getAggregationText(this.aggregation);
+			String name = String.format("%s (%s)", property, aggregation);
 			return name;
 		}
 
@@ -212,9 +218,8 @@ public class CategoryAbstractItemProvider
 		// specified by IItemLabelProvider 
 		@Override
 		public String getText(Object object) {
-			int type = this.properties.getPropertyType(this.property);
 			String format = null;
-			String text = com.misc.common.moplaf.common.util.Util.getTextFromValue(object, type, format);
+			String text = com.misc.common.moplaf.common.util.Util.getTextFromValue(object, this.type, format);
 			return text;
 		}
 
