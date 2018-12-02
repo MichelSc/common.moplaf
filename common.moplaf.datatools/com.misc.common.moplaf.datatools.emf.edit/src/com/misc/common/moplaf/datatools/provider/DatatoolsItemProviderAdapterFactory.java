@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -51,6 +52,14 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
+	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Disposable disposable = new Disposable();
+
+	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,14 +82,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.Category} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoryItemProvider categoryItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.Category}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,11 +89,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	 */
 	@Override
 	public Adapter createCategoryAdapter() {
-		if (categoryItemProvider == null) {
-			categoryItemProvider = new CategoryItemProvider(this);
-		}
-
-		return categoryItemProvider;
+		return new CategoryItemProvider(this);
 	}
 
 	/**
@@ -556,14 +553,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datatools.CategoryAbstract} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoryAbstractItemProvider categoryAbstractItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategoryAbstract}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,11 +560,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	 */
 	@Override
 	public Adapter createCategoryAbstractAdapter() {
-		if (categoryAbstractItemProvider == null) {
-			categoryAbstractItemProvider = new CategoryAbstractItemProvider(this);
-		}
-
-		return categoryAbstractItemProvider;
+		return new CategoryAbstractItemProvider(this);
 	}
 
 	/**
@@ -637,6 +622,20 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
+	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void associate(Adapter adapter, Notifier target) {
+		super.associate(adapter, target);
+		if (adapter != null) {
+			disposable.add(adapter);
+		}
+	}
+
+	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -677,28 +676,7 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (navigationReferenceItemProvider != null) navigationReferenceItemProvider.dispose();
-		if (navigationDowncastItemProvider != null) navigationDowncastItemProvider.dispose();
-		if (dataToolContextItemProvider != null) dataToolContextItemProvider.dispose();
-		if (extractorTypeItemProvider != null) extractorTypeItemProvider.dispose();
-		if (extractorPathItemProvider != null) extractorPathItemProvider.dispose();
-		if (filterRegexItemProvider != null) filterRegexItemProvider.dispose();
-		if (filterAttributeIntRangeItemProvider != null) filterAttributeIntRangeItemProvider.dispose();
-		if (filterANDItemProvider != null) filterANDItemProvider.dispose();
-		if (filterORItemProvider != null) filterORItemProvider.dispose();
-		if (extractorCompoundItemProvider != null) extractorCompoundItemProvider.dispose();
-		if (extractorPipeItemProvider != null) extractorPipeItemProvider.dispose();
-		if (extractorUnionItemProvider != null) extractorUnionItemProvider.dispose();
-		if (extractorIntersectionItemProvider != null) extractorIntersectionItemProvider.dispose();
-		if (columnizerAbstractItemProvider != null) columnizerAbstractItemProvider.dispose();
-		if (columnizerItemProvider != null) columnizerItemProvider.dispose();
-		if (columnizerColumnAttributeItemProvider != null) columnizerColumnAttributeItemProvider.dispose();
-		if (categoryItemProvider != null) categoryItemProvider.dispose();
-		if (categorizerStructuralFeatureItemProvider != null) categorizerStructuralFeatureItemProvider.dispose();
-		if (matcherItemProvider != null) matcherItemProvider.dispose();
-		if (matchItemProvider != null) matchItemProvider.dispose();
-		if (columnizersItemProvider != null) columnizersItemProvider.dispose();
-		if (categoryAbstractItemProvider != null) categoryAbstractItemProvider.dispose();
+		disposable.dispose();
 	}
 
 }

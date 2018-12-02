@@ -164,7 +164,7 @@
       <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//Columnizer/SheetName"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerColumn">
-      <genFeatures createChild="false" propertyCategory="10 Column" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnName"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnName"/>
       <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnWidth"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumn/Columnizer"/>
       <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/AggregationType"/>
@@ -180,7 +180,7 @@
     <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerColumnOcl" labelFeature="#//datatools/ColumnizerColumn/ColumnName">
       <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumnOcl/Expression"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/Category/CategoryLabel">
+    <genClasses provider="Stateful" ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/Category/CategoryLabel">
       <genFeatures createChild="false" propertyCategory="10 Category" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryLabel"/>
       <genFeatures createChild="false" propertyCategory="10 Category" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryValue"/>
     </genClasses>
@@ -219,7 +219,7 @@
     <genClasses ecoreClass="datatools.ecore#//Columnizers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizers/Columnizers"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//CategoryAbstract">
+    <genClasses provider="Stateful" ecoreClass="datatools.ecore#//CategoryAbstract">
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
           ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/NbElements"/>
       <genFeatures property="None" notify="false" createChild="false" propertyCategory="30 Data"

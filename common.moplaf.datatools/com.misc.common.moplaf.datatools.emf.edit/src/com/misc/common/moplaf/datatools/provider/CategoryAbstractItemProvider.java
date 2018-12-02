@@ -62,12 +62,12 @@ public class CategoryAbstractItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+		this.itemPropertyDescriptors = null;
 
-			addNbElementsPropertyDescriptor(object);
-			addAggregationProperties((CategoryAbstract)object);
-		}
+		super.getPropertyDescriptors(object);
+		addNbElementsPropertyDescriptor(object);
+		addAggregationProperties((CategoryAbstract)object);
+
 		return itemPropertyDescriptors;
 	}
 

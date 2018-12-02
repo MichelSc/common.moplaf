@@ -8,7 +8,7 @@
   <foreignModel>analysis.ecore</foreignModel>
   <genPackages prefix="Analysis" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="analysis.ecore#/">
-    <genClasses ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="#//analysis/DocAnalysis/Description">
+    <genClasses provider="Stateful" ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="#//analysis/DocAnalysis/Description">
       <genFeatures children="true" createChild="true" propertyCategory="20 Config Set Up"
           propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Extractor"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"

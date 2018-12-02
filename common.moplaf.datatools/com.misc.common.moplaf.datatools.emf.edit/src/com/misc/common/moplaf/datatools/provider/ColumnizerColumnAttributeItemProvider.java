@@ -73,7 +73,7 @@ public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemPro
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10ColumnPropertyCategory"),
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 

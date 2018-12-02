@@ -38,8 +38,7 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptorsGen(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -47,6 +46,15 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 			addCategoryValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	// the list of Properties may change at run time
+	// as the aggregation properties depend on the aggregated columns present at the moment
+	// so every concrete class must empty thelist of itemPropertyDescriptors
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		this.itemPropertyDescriptors = null;
+		return this.getPropertyDescriptorsGen(object);
 	}
 
 	/**
