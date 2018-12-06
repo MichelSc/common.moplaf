@@ -116,21 +116,21 @@ public class Util {
 	 * @param elements: set of elements to be updated by this call
 	 * @param categories: set of Categories to be updated by this call
 	 */
-	public static void refreshCategories(ObjectSet tobes, 
+	public static void refreshCategories(ObjectSet els_tobe, 
 			                             EList<Categorizer> categorizers, 
 			                             int level, 
-			                             EList<EObject> elements, 
+			                             EList<EObject> els_asis, 
 			                             EList<Category> categories) {
 		// update the elements of this category
-		Iterator<EObject> iterator_asis = elements.iterator();
+		Iterator<EObject> iterator_asis = els_asis.iterator();
 		while ( iterator_asis.hasNext()) {
 			EObject asis = iterator_asis.next();
-			if ( !tobes.remove(asis)) {
+			if ( !els_tobe.remove(asis)) {
 				// the asis is not tobe
 				iterator_asis.remove();
 			}
 		}
-		elements.addAll(tobes);
+		els_asis.addAll(els_tobe);
 		
 		// update the subcategories
 		if ( categorizers.size()<=level ) {
@@ -141,7 +141,7 @@ public class Util {
 			Categorizer criteria = categorizers.get(level);
 			HashMap<Object, ObjectSet> cats_tobe  = new HashMap<>();
 			// collect the cats
-			for ( EObject element : elements) {
+			for ( EObject element : els_asis) {
 				Object cat_value = criteria.getCategoryValue(element);
 				if ( cat_value!=null ) {
 					ObjectSet cat_set = cats_tobe.get(cat_value);
@@ -163,7 +163,7 @@ public class Util {
 					// delete
 					cat_iterator_asis.remove();
 				} else {
-					// update
+					// update one level further (recursive)
 					Util.refreshCategories(cat_tobe, categorizers, level+1, cat_asis.getElements(), cat_asis.getSubCategories());
 				}
 			}
